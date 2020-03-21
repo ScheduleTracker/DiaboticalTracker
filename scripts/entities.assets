@@ -37,28 +37,28 @@ asset hp/5
 {
   listed true
   type entity
-  command multi /add hpt0; /set !last time 30
+  command /add hpt0
 }
 
 asset hp/25
 {
   listed true
   type entity
-  command multi /add hpt1; /set !last time 30
+  command /add hpt1
 }
 
 asset hp/50
 {
   listed true
   type entity
-  command multi /add hpt2; /set !last time 30
+  command /add hpt2
 }
 
 asset hp/100
 {
   listed true
   type entity
-  command multi /add hpt3; /set !last time 35
+  command /add hpt3
 }
 
 asset powerup/doubledamage
@@ -70,21 +70,21 @@ asset powerup/doubledamage
 }
 
 
-asset energy/5
+//asset energy/5
 {
   listed true
   type entity
   command add energyt1
 }
 
-asset energy/10
+//asset energy/10
 {
   listed true
   type entity
   command add energyt2
 }
 
-asset energy/25
+//asset energy/25
 {
   listed true
   type entity
@@ -279,6 +279,48 @@ asset trigger_volume
   command multi /add trigger; /resize !last 40 40 40
 }
 
+asset light
+{
+  listed true
+  type entity
+  command /add light
+}
+
+asset sound
+{
+  listed true
+  type entity
+  command /add sound
+}
+
+asset jumppad
+{
+  listed true
+  type entity
+  command multi /add jumppad; /resize !last 40 10 40
+}
+
+asset teleport
+{
+  listed true
+  type entity
+  command multi /add teleport; /resize !last 40 80 40
+}
+
+asset jpdir
+{
+  listed true
+  type entity
+  command /add jpdir
+}
+
+asset tpexit
+{
+  listed true
+  type entity
+  command /add tpexit
+}
+
 ///////////////////////////////////////WEAPON_PICKUP_LIGHTS///////////////////////////////////////////////////
 
 asset weapondf
@@ -364,10 +406,4 @@ asset weaponkw
     pivot 0 0 0
 	scale 1.25
 	pfx weapon_pickup_pfx_kw
-}
-asset macguffin
-{
-    pivot 0 0 0
-	scale 1.25
-	pfx macguffin_pfx
 }

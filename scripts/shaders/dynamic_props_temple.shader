@@ -3,7 +3,7 @@
 //102 = overbright
 //103 = 3rd map is glow map
 
-dynamic_props/temple/dp_pillar_square_01_mid_01
+dynamic_props/temples/dp_pillar_square_01_mid_01
 {
  	{
   		// map textures/props/temple/dp_pillar_square_01_d.png
@@ -20,7 +20,7 @@ dynamic_props/temple/dp_pillar_square_01_mid_01
 }
 
 
-dynamic_props/temple/dp_stonestairs_tile_y_var_01_flipx
+dynamic_props/temples/dp_stonestairs_tile_y_var_01_flipx
 {
 	{
 		//map textures/props/temple/stone_platform_occlusion.png
@@ -38,7 +38,7 @@ dynamic_props/temple/dp_stonestairs_tile_y_var_01_flipx
 }
 
 
-dynamic_props/temple/dp_stonestairs_left
+dynamic_props/temples/dp_stonestairs_left
 {
 	{
 		//map textures/props/temple/stone_platform_occlusion.png
@@ -55,7 +55,7 @@ dynamic_props/temple/dp_stonestairs_left
 	}
 }
 
-dynamic_props/temple/dp_stonestairs_right
+dynamic_props/temples/dp_stonestairs_right
 {
 	{
 		//map textures/props/temple/stone_platform_occlusion.png
@@ -72,7 +72,7 @@ dynamic_props/temple/dp_stonestairs_right
 	}
 }
 
-dynamic_props/temple/dp_stonestairs_mid_var_01
+dynamic_props/temples/dp_stonestairs_mid_var_01
 {
 	{
 		//map textures/props/temple/stone_platform_occlusion.png
@@ -89,7 +89,7 @@ dynamic_props/temple/dp_stonestairs_mid_var_01
 	}
 }
 
-dynamic_props/temple/dp_stonestairs_mid_var_02
+dynamic_props/temples/dp_stonestairs_mid_var_02
 {
 	{
 		//map textures/props/temple/stone_platform_occlusion.png
@@ -106,7 +106,7 @@ dynamic_props/temple/dp_stonestairs_mid_var_02
 	}
 }
 
-dynamic_props/temple/dp_df_stone_thin_tilex
+dynamic_props/temples/dp_df_stone_thin_tilex
 
 {
 	{
@@ -124,7 +124,7 @@ dynamic_props/temple/dp_df_stone_thin_tilex
 
 }
 
-dynamic_props/temple/dp_concave_corner_big_01
+dynamic_props/temples/dp_concave_corner_big_01
 {
  	{
   		map textures/props/temple/concave_corner_big_d.png
@@ -140,7 +140,7 @@ dynamic_props/temple/dp_concave_corner_big_01
  	}
 }
 
-dynamic_props/temple/dp_concave_corner_01
+dynamic_props/temples/dp_concave_corner_01
 {
  	{
   		map textures/props/temple/concave_pillar_d.png
@@ -156,7 +156,7 @@ dynamic_props/temple/dp_concave_corner_01
  	}
 }
 
-dynamic_props/temple/temple_dp_doorframe_tile_z
+dynamic_props/temples/temple_dp_doorframe_tile_z
 {
 	{
 		map textures/props/temple/doorframe_big_stone_d.png
@@ -171,7 +171,7 @@ dynamic_props/temple/temple_dp_doorframe_tile_z
 	}
 
 }
-dynamic_props/temple/dp_statue_pillar_mid
+dynamic_props/temples/dp_statue_pillar_mid
 {
 	{
 		map textures/props/temple/dp_statue_pillar_d.png
@@ -188,7 +188,7 @@ dynamic_props/temple/dp_statue_pillar_mid
 	}
 }
 
-dynamic_props/temple/dp_stoneslab_01
+dynamic_props/temples/dp_stoneslab_01
 {
 	{
 		map textures/props/temple/stoneslab_d.png
@@ -205,7 +205,7 @@ dynamic_props/temple/dp_stoneslab_01
 	}
 }
 
-dynamic_props/temple/dp_floordetbig_mid_01
+dynamic_props/temples/dp_floordetbig_mid_01
 {
 	{
 		map textures/props/temple/floor_det_new_d.png
@@ -222,7 +222,7 @@ dynamic_props/temple/dp_floordetbig_mid_01
 	}
 }
 
-dynamic_props/temple/dp_sp_mid
+dynamic_props/temples/dp_sp_mid
 {
 	{
 		//map textures/props/temple/stone_platform_occlusion.png
@@ -239,7 +239,7 @@ dynamic_props/temple/dp_sp_mid
 	}
 }
 
-dynamic_props/temple/dp_scattered_stones_mid_01
+dynamic_props/temples/dp_scattered_stones_mid_01
 {
 	{
 		map textures/props/temple/stone_test_d.png
@@ -255,7 +255,7 @@ dynamic_props/temple/dp_scattered_stones_mid_01
 }
 
 
-dynamic_props/temple/dp_temple_cornerstone_01
+dynamic_props/temples/dp_temple_cornerstone_01
 {
 	{
 		//map textures/props/temple/stone_platform_occlusion.png
@@ -272,7 +272,7 @@ dynamic_props/temple/dp_temple_cornerstone_01
 	}
 }
 
-dynamic_props/temple/dp_temple_pillar_big_mid_01
+dynamic_props/temples/dp_temple_pillar_big_mid_01
 {
 	{
 		//map textures/props/temple/stone_platform_occlusion.png
@@ -289,13 +289,13 @@ dynamic_props/temple/dp_temple_pillar_big_mid_01
 	}
 }
 
-dynamic_props/temple/dp_temple_pillar_big_bottom_frame
+dynamic_props/temples/dp_temple_pillar_big_bottom_frame
 {
 	{
-		map models/dynamic_props/temple/stonebars/stone_bar_d.png
+		map models/dynamic_props/temples/stonebars/stone_bar_d.png
 		//map textures/colors/temple_04.png
-		map models/dynamic_props/temple/stonebars/stone_bar_n.png
-		map models/dynamic_props/temple/stonebars/stone_bar_s.png
+		map models/dynamic_props/temples/stonebars/stone_bar_n.png
+		map models/dynamic_props/temples/stonebars/stone_bar_s.png
 		map textures/black.png
 		map textures/props/temple/dp_statue_pillar_i.png
 		material_id 103
@@ -306,7 +306,7 @@ dynamic_props/temple/dp_temple_pillar_big_bottom_frame
 	}
 }
 
-dynamic_props/temple/dp_pillar_square_02_middle
+dynamic_props/temples/dp_pillar_square_02_middle
 {
  	{
 		map textures/props/temple/dp_pillar_square_02_d.png
@@ -321,7 +321,7 @@ dynamic_props/temple/dp_pillar_square_02_middle
   		pixel_shader tile.ps.cso
  	}
 }
-dynamic_props/temple/dp_pillar_square_02_middle_fusebox
+dynamic_props/temples/dp_pillar_square_02_middle_fusebox
 {
  	{
 		map textures/props/temple/dp_pillar_square_02_d.png
@@ -336,7 +336,7 @@ dynamic_props/temple/dp_pillar_square_02_middle_fusebox
   		pixel_shader tile.ps.cso
  	}
 }
-dynamic_props/temple/dp_pillar_square_02_middle_broken
+dynamic_props/temples/dp_pillar_square_02_middle_broken
 {
  	{
 		map textures/props/temple/dp_pillar_square_02_d.png
@@ -352,7 +352,7 @@ dynamic_props/temple/dp_pillar_square_02_middle_broken
  	}
 }
 
-dynamic_props/temple/dp_scaffold_test_corner_mid_x_flipz
+dynamic_props/temples/dp_scaffold_test_corner_mid_x_flipz
 {
  	{
 		map textures/props/temple/scaffold_d.png
@@ -369,7 +369,7 @@ dynamic_props/temple/dp_scaffold_test_corner_mid_x_flipz
 }
 
 
-dynamic_props/temple/dp_roofmonitor_tile
+dynamic_props/temples/dp_roofmonitor_tile
 {
  	{
 		map textures/props/temple/roofmonitor_d.png
@@ -384,7 +384,7 @@ dynamic_props/temple/dp_roofmonitor_tile
  	}
 }
 
-dynamic_props/temple/dp_roofmonitor_base
+dynamic_props/temples/dp_roofmonitor_base
 {
  	{
 		map textures/props/temple/roofmonitor_d.png
@@ -399,7 +399,7 @@ dynamic_props/temple/dp_roofmonitor_base
  	}
 }
 
-dynamic_props/temple/dp_roofmonitor_top
+dynamic_props/temples/dp_roofmonitor_top
 {
  	{
 		map textures/props/temple/roofmonitor_d.png
@@ -414,7 +414,7 @@ dynamic_props/temple/dp_roofmonitor_top
  	}
 }
 
-dynamic_props/temple/dp_roofmonitor_scrolling
+dynamic_props/temples/dp_roofmonitor_scrolling
 {
   {
     map textures/scrolling/roofmonitor_led_d.png
@@ -428,7 +428,7 @@ dynamic_props/temple/dp_roofmonitor_scrolling
   }
 }
 
-dynamic_props/temple/dp_floorbars_mid_mid
+dynamic_props/temples/dp_floorbars_mid_mid
 {
  	{
 		map textures/props/temple/floorbars_d.png
@@ -443,7 +443,7 @@ dynamic_props/temple/dp_floorbars_mid_mid
  	}
 }
 
-dynamic_props/temple/dp_wallbars_mid_mid
+dynamic_props/temples/dp_wallbars_mid_mid
 {
  	{
 		map textures/props/temple/wallbars_d.png
@@ -458,7 +458,7 @@ dynamic_props/temple/dp_wallbars_mid_mid
  	}
 }
 
-dynamic_props/temple/dp_rail_mid_02
+dynamic_props/temples/dp_rail_mid_02
 {
  	{
 		map textures/props/temple/rail_d.png
@@ -472,7 +472,7 @@ dynamic_props/temple/dp_rail_mid_02
  	}
 }
 
-dynamic_props/temple/vine_mid1
+dynamic_props/temples/vine_mid1
 
 {
  	{
@@ -487,7 +487,7 @@ dynamic_props/temple/vine_mid1
  	}
 }
 
-dynamic_props/temple/vine_horizontal_1
+dynamic_props/temples/vine_horizontal_1
 {
  	{
 		map textures/props/temple/vine.png
@@ -503,7 +503,7 @@ dynamic_props/temple/vine_horizontal_1
 
 
 
-dynamic_props/temple/dp_temple_pillar_metal_mid_01
+dynamic_props/temples/dp_temple_pillar_metal_mid_01
 {
 	{
 		map textures/props/temple/temple_pillar_metal_d.png
@@ -533,7 +533,7 @@ styles/temple/metal_girder/metal_girder_tile1
 	}
 }
 
-dynamic_props/temple/dp_temple_pillar_big_bottom_frame_metal
+dynamic_props/temples/dp_temple_pillar_big_bottom_frame_metal
 
 {
 	{
@@ -548,7 +548,7 @@ dynamic_props/temple/dp_temple_pillar_big_bottom_frame_metal
 	}
 }
 
-dynamic_props/temple/dp_temple_pillar_big_top_frame_metal
+dynamic_props/temples/dp_temple_pillar_big_top_frame_metal
 
 {
 	{

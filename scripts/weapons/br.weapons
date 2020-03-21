@@ -64,8 +64,8 @@ br_sniper_rifle
 	muzzle 2.5 -3.5 6
 	fov 58
 	
-	shot_sound pncr_fire1 pncr_fire2 pncr_fire3 pncr_fire4 pncr_fire5
-	shot_sound_low_ammo pncr_fire_low1 pncr_fire_low2 pncr_fire_low3 pncr_fire_low4 pncr_fire_low5
+	shot_sound pncr_fire1
+	shot_sound_low_ammo pncr_fire_low1
 	low_ammo_threshold 4
 	equip_sound pncr_equip
 	hit_sound hit_sound_hit1

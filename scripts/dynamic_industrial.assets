@@ -3307,42 +3307,7 @@ dynamic_rule
 	channel 1
   }
  }
-/////////////////////////////////////////////////////////////////
 
-asset dp_lightpost_01
-
-{
-  dynamic true
-  listed true
-  //xmin ymin zmin xmax ymax zmax
-  dynamic_dimensions 1 2 1 1 inf 1
-  dynamic_default_size 1 2 1
-num_channels 2
-
-  dynamic_rule
-  {
-    select dynamic_props/industrial/dp_lightpost_middle_01
-	channel 0
-  }
-   dynamic_rule
-  {
-	  if offset_bottom is 0
-    select dynamic_props/industrial/dp_lightpost_bottom_01
-	channel 0
-  }
-  dynamic_rule
-  {
-	  if offset_top is 0
-    select dynamic_props/industrial/dp_lightpost_top_01
-	channel 0
-  }
-  dynamic_rule
-  {
-	  if offset_top is 0
-    select dynamic_props/industrial/dp_lightpost_glass_01
-	channel 1
-  }
-}
 /////////////////////////////////////////////////////////////////
 
 asset dp_shutter_02

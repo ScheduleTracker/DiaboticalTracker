@@ -1161,7 +1161,14 @@ velocity_angles 15 -90 5 15 -90 -5
 aspect_start 1.0
 aspect_end  1.0
 }
-
+haste_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 4
+	system_light_color 1 2 0 
+	system_light_falloff 0.0
+}
 
 haste_pfx
 {
@@ -1169,6 +1176,7 @@ haste_pfx
 	subsystem haste_lines
 	subsystem haste_lines_2
 	subsystem haste_lines_3
+	subsystem haste_light
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////------------COIN------------------//////////////////////////////////////////////////////////////////
 coin_sparkle
@@ -1304,4 +1312,217 @@ coin_team_pfx
 {
 	subsystem coin_team_sparkle
 	subsystem coin_team_circles
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////------------BOT_SPARKLES------------------//////////////////////////////////////////////////////////////////
+bot_sparkles
+{
+map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 20
+	max_emissions 0
+	lifetime 1
+	fade_in 0
+	fade_out 0.4
+	blend add
+	period 0.25
+
+    scale_start 0 0
+    scale_end 15 25
+    rotation_start -5 5
+	angular_speed_start 90
+
+	emitter horizontal_circle 15
+	position 0 -12 0 0 -10 0
+	emitter point	
+	position -12 -12 -5 12 15 5
+	
+
+		velocity_angles 0 0 90
+	speed_start 10
+	speed_end 2
+	color_start 3 2 0.4 1
+	color_end  3 2 0.4 1
+	range 0
+	}
+
+
+bot_sparkles_2
+{
+	map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 35
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0.2
+	blend alpha
+
+	period 0.08
+	emitter horizontal_circle 15
+    scale_start 8 10 
+    scale_end 5 8
+    rotation_start 10 -10
+    fade_out 0.5
+	velocity_angles 1 1 90 -1 -1 90
+	speed_start 15
+	speed_end 10 0
+
+	position 5 -3 5 -5 3 -5
+	color_start 2 2 0.8 1	4 2 0.8 1
+    
+  range 0
+    
+  range 0
+}
+//-----------------------------------------------------------------------------
+
+bot_sparkles_t2
+
+{
+map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 45
+	max_emissions 0
+	lifetime .75
+	fade_in 0
+	fade_out 0.4
+	blend add
+	period 0.1
+
+    scale_start 0 0
+    scale_end 20 30
+    rotation_start -5 5
+	angular_speed_start 90
+
+	emitter horizontal_circle 20
+	position 0 -12 0 0 -10 0
+	emitter point	
+	position -12 -12 -5 12 15 5
+	
+
+		velocity_angles 0 0 90 0 0 85
+	speed_start 10
+	speed_end 2
+	color_start 4 2 0.4 1
+	color_end  4 2 0.4 1
+	range 0
+	}
+bot_sparkles_t2_2
+{
+	map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 35
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0.2
+	blend alpha
+fade_out 0.2
+	period 0.08
+	emitter horizontal_circle 20
+    scale_start 8 10 
+    scale_end 5 8
+    rotation_start 10 -10
+    fade_out 0.5
+	velocity_angles 1 1 90 -1 -1 90
+	speed_start 20
+	speed_end 12 10
+
+	position 5 -3 5 -5 3 -5
+	color_start 2 2 0.8 1	4 2 0.8 1
+    
+  range 0
+}
+//-----------------------------------------------------------------------------	
+	
+bot_sparkles_t3
+
+{
+map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 52
+	max_emissions 0
+	lifetime 0.65
+	fade_in 0
+	fade_out 0.4
+	blend add
+	period 0.1
+
+    scale_start 0 0
+    scale_end 35 40
+    rotation_start -5 5
+	angular_speed_start 90
+
+	emitter horizontal_circle 22
+	position 0 -12 0 0 -10 0
+	emitter point	
+	position -12 -12 -5 12 15 5
+	
+
+	velocity_angles 0 0 90
+	speed_start 10
+	speed_end 2 
+	color_start 5 2 0.4 1 4 2 0.4 1 
+	color_end  5 2 0.4 1 4 2 0.4 1
+	range 0
+	}
+
+	bot_sparkles_t3_2
+{
+
+	map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 35
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0.2
+	blend alpha
+
+	period 0.08
+	emitter horizontal_circle 22
+    scale_start 8 10 
+    scale_end 5 8
+    rotation_start 10 -10
+    fade_out 0.5
+	velocity_angles 1 1 90 -1 -1 90
+	speed_start 25
+	speed_end 15 10
+
+	position 5 -3 5 -5 3 -5
+	color_start 2 2 0.8 1	4 2 0.8 1
+    
+  range 0
+    
+  range 0
+}
+
+
+
+bot_sparkles_t1_pfx
+{
+	subsystem bot_sparkles 0 1.5
+	subsystem bot_sparkles_2 0 1.5
+}
+
+bot_sparkles_t2_pfx
+{
+	subsystem bot_sparkles_t2 0 1.5
+	subsystem bot_sparkles_t2_2 1.5
+}
+
+bot_sparkles_t3_pfx
+{
+	subsystem bot_sparkles_t3 0 1.5
+	subsystem bot_sparkles_t3_2 0 1.5
 }

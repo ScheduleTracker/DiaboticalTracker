@@ -4,7 +4,8 @@ sword
     bind_group 9
 	color 90461d
 	//group 5
-	damage 100
+	damage 75
+	damage 75
 	knockback 250
 	ground_knockback 250
 	rate 700

@@ -21,12 +21,14 @@ game default
 
 	setting game_armor 0
 	setting game_stable_armor 100
-	setting game_max_armor 150
+	setting game_max_armor 200
+	setting game_medium_armor 150
 	
 	setting game_self_damage 1
 	setting game_wipe_out_mode 0
 	setting game_friendly_fire 1
 	setting game_weapon_respawn_time 0
+	setting game_overtime 120
 
     //CRITICAL: game_full_charge and game_warmup_time need to be set even if no mode changes them.	
 	setting game_full_charge 0
@@ -49,6 +51,7 @@ game default
 	setting game_lifesteal 0
 
 	setting game_inventory_slots 0		
+        setting game_deposit_coins 0
 
 
 
@@ -175,7 +178,6 @@ game practice
 	weapon explosive_weeble 999
 	weapon healing_weeble 999
 	weapon smoke_weeble 999
-	weapon showtime 999
 	weapon machinegun 999
     weapon sword 999
 	weapon plasma_cannon 999
@@ -192,18 +194,11 @@ game duel
 	
 	map duel_outpost_dunia
 	map duel_bioplant
-	map duel_kasbah
 	map duel_frontier
-	map duel_fisks_house
-	map duel_depot_wip_002
-	map duel_pr_07
-	map duel_gx_01
-	map duel_p0_01
-	map duel_gz_02
-	map duel_mindflayer
+	map duel_f1sks_house
 	
 
-	weapon blasta 75
+	weapon blasta 100
 	//weapon minigun 100
 	weapon sword 999
 }
@@ -215,7 +210,7 @@ game duel
 //	map ad_pr_01
 //	map ad_pr_03
 	
-//	weapon blasta 75
+//	weapon blasta 100
 //	weapon shelly 20
 
 //}
@@ -223,15 +218,16 @@ game duel
 game ca
 {
 	map a_junktion
-	//map a_bazaar
 	map a_heikam
 	map a_barrows_gate
-	//map a_enclosure_wip_006
+	map a_enclosure
+	map a_bazaar
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
 	setting game_team_mode 1
     setting game_rounds 10
+	setting game_frag_limit 3
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -262,11 +258,14 @@ game rocket_arena
 	map a_junktion
 	map a_heikam
 	map a_barrows_gate
+	map a_enclosure
+	map a_bazaar
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
 	setting game_team_mode 1
     setting game_rounds 10
+	setting game_frag_limit 3
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -292,11 +291,14 @@ game shaft_arena
 	map a_junktion
 	map a_heikam
 	map a_barrows_gate
+	map a_enclosure
+	map a_bazaar
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
 	setting game_team_mode 1
     setting game_rounds 10
+	setting game_frag_limit 3
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -322,13 +324,13 @@ game wipeout
 	map wo_furnace
 	map wo_wellspring
 	map wo_refinery
-	//map wo_crystal_cove_wip_col
+	map wo_crystal_cove
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
 	setting game_team_mode 1
    	setting game_rounds 10
-	setting game_frag_limit 4
+	setting game_frag_limit 3
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -376,7 +378,7 @@ game ctf
 	map ctf_cliffside_canyons
 
 	
-	weapon blasta 75
+	weapon blasta 100
 	weapon sword 999
 
 }
@@ -389,19 +391,15 @@ game brawl
 	setting game_hp 125
     setting game_stable_hp 100
     setting game_ghost_limit_hp 125
-	setting game_time_limit 600
+	setting game_time_limit 480
 	setting game_frag_limit 0
 
-	map b_temple_quarry
-	map tdm_alchemy
-	map b_chateau
-	map b_underbelly
 	map b_furnace
 	map b_refinery
 	map b_wellspring
-	map b_prb_04_wip_col
+	map b_crystal_cove
 		
-	weapon blasta 75
+	weapon blasta 100
 	weapon sword 999
 	
 //	weapon blasta 999 true
@@ -427,27 +425,11 @@ game macguffin
 	setting game_weapon_respawn_time 5
 	setting game_enable_drop 1
 	
-	map mg_cathedral
-	map mg_dojo
-	map mg_mrh_06_hedit
-	map mg_refinery
-	map mg_hangar
-	map mg_baxo
-	map mg_mindflayer
-	map mg_cathedral_01
-	map mg_cathedral_02
-	map mg_mrh_01
-	map mg_mrh_02
-	map mg_mrh_03
-	map mg_mrh_04
-	map mg_mrh_05
-	map mg_mrh_06
-	map mg_test_02
-	map mg_test_04
-	map mg_test_05
+	map test_map_1
+	map test_map_2
 	
 
-	weapon blasta 75
+	weapon blasta 100
 	weapon sword 999
 }
 
@@ -481,12 +463,37 @@ game ghosthunt
 	setting game_full_charge 1
 	setting game_enable_items 1
 	setting game_self_damage 0
-	setting game_time_limit 420
+	setting game_time_limit 360
 	setting game_frag_limit 0
+	setting game_overtime 60
 
 	map ig_coastline
 	map ig_egg-plant
 	map ig_stronghold
+	map ig_terminal
+
+
+	weapon crossbow 999
+	weapon sword 999
+}
+
+game coinrun
+{	
+	setting game_team_mode 1
+	setting game_friendly_fire 0
+	setting game_hp 100
+    setting game_stable_hp 100
+	setting game_full_charge 1
+	setting game_enable_items 1
+	setting game_self_damage 0
+	setting game_time_limit 360
+	setting game_frag_limit 0
+	setting game_overtime 60
+        setting game_deposit_coins 1
+
+	map gr_qunai_peaks
+	map gr_titans_crossing
+	map gr_cliffside_canyons
 
 
 	weapon crossbow 999
@@ -539,10 +546,10 @@ game tdm
 	map duel_bioplant
 	map duel_kasbah
 	map duel_frontier
-	map duel_fisks_house
+	map duel_f1sks_house
 	map duel_pr_07 
 		
-	weapon blasta 75
+	weapon blasta 100
 	weapon sword 999
 }
 

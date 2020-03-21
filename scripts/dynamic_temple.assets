@@ -8,30 +8,30 @@ listed true
   
   //dynamic_rule
   //{
-  //  select dynamic_props/temple/dp_stonestairs_tile_y_var_01_flipx,dynamic_props/temple/dp_stonestairs_tile_y_var_02
+  //  select dynamic_props/temples/dp_stonestairs_tile_y_var_01_flipx,dynamic_props/temples/dp_stonestairs_tile_y_var_02
   //}
   //dynamic_rule
   //{
   //  if offset_left is 0
-  //  select dynamic_props/temple/dp_stonestairs_tile_y_var_01,dynamic_props/temple/dp_stonestairs_tile_y_var_02
+  //  select dynamic_props/temples/dp_stonestairs_tile_y_var_01,dynamic_props/temples/dp_stonestairs_tile_y_var_02
   //}
   //dynamic_rule
   //{
   //  if offset_right is 0
-  //  select dynamic_props/temple/dp_stonestairs_tile_y_var_01_flipx,dynamic_props/temple/dp_stonestairs_tile_y_var_02
+  //  select dynamic_props/temples/dp_stonestairs_tile_y_var_01_flipx,dynamic_props/temples/dp_stonestairs_tile_y_var_02
   //}
   
   dynamic_rule
   {
     if offset_front / offset_bottom 2
-    select dynamic_props/temple/dp_stonestairs_mid_var_01,dynamic_props/temple/dp_stonestairs_mid_var_03,dynamic_props/temple/dp_stonestairs_mid_var_02,dynamic_props/temple/dp_stonestairs_mid_var_01_flipx,dynamic_props/temple/dp_stonestairs_mid_var_03_flipx,dynamic_props/temple/dp_stonestairs_mid_var_02_flipx 
+    select dynamic_props/temples/dp_stonestairs_mid_var_01,dynamic_props/temples/dp_stonestairs_mid_var_03,dynamic_props/temples/dp_stonestairs_mid_var_02,dynamic_props/temples/dp_stonestairs_mid_var_01_flipx,dynamic_props/temples/dp_stonestairs_mid_var_03_flipx,dynamic_props/temples/dp_stonestairs_mid_var_02_flipx 
   }
   
   dynamic_rule
   {
     if offset_right is 0
     if offset_front / offset_bottom 2
-    select dynamic_props/temple/dp_stonestairs_right
+    select dynamic_props/temples/dp_stonestairs_right
     
   }
   
@@ -39,7 +39,7 @@ listed true
   {
     if offset_left is 0
     if offset_front / offset_bottom 2
-    select dynamic_props/temple/dp_stonestairs_left    
+    select dynamic_props/temples/dp_stonestairs_left    
   }
 
 }
@@ -54,30 +54,30 @@ listed true
   
   dynamic_rule
   {
-    select dynamic_props/temple/dp_stonestairs_tile_y_var_01_flipx,dynamic_props/temple/dp_stonestairs_tile_y_var_02
+    select dynamic_props/temples/dp_stonestairs_tile_y_var_01_flipx,dynamic_props/temples/dp_stonestairs_tile_y_var_02
   }
   dynamic_rule
   {
     if offset_left is 0
-    select dynamic_props/temple/dp_stonestairs_tile_y_var_01,dynamic_props/temple/dp_stonestairs_tile_y_var_02
+    select dynamic_props/temples/dp_stonestairs_tile_y_var_01,dynamic_props/temples/dp_stonestairs_tile_y_var_02
   }
   dynamic_rule
   {
     if offset_right is 0
-    select dynamic_props/temple/dp_stonestairs_tile_y_var_01_flipx,dynamic_props/temple/dp_stonestairs_tile_y_var_02
+    select dynamic_props/temples/dp_stonestairs_tile_y_var_01_flipx,dynamic_props/temples/dp_stonestairs_tile_y_var_02
   }
   
   dynamic_rule
   {
     if offset_top is 0
-    select dynamic_props/temple/dp_stonestairs_mid_var_01,dynamic_props/temple/dp_stonestairs_mid_var_03,dynamic_props/temple/dp_stonestairs_mid_var_02,dynamic_props/temple/dp_stonestairs_mid_var_01_flipx,dynamic_props/temple/dp_stonestairs_mid_var_03_flipx,dynamic_props/temple/dp_stonestairs_mid_var_02_flipx 
+    select dynamic_props/temples/dp_stonestairs_mid_var_01,dynamic_props/temples/dp_stonestairs_mid_var_03,dynamic_props/temples/dp_stonestairs_mid_var_02,dynamic_props/temples/dp_stonestairs_mid_var_01_flipx,dynamic_props/temples/dp_stonestairs_mid_var_03_flipx,dynamic_props/temples/dp_stonestairs_mid_var_02_flipx 
   }
   
   dynamic_rule
   {
     if offset_right is 0
     if offset_top is 0
-    select dynamic_props/temple/dp_stonestairs_right
+    select dynamic_props/temples/dp_stonestairs_right
     
   }
   
@@ -85,7 +85,7 @@ listed true
   {
     if offset_left is 0
     if offset_top is 0
-    select dynamic_props/temple/dp_stonestairs_left    
+    select dynamic_props/temples/dp_stonestairs_left    
   }
 
 }
@@ -98,17 +98,17 @@ listed true
   dynamic_default_size 1 4 1
   dynamic_rule
   {
-    select dynamic_props/temple/dp_templepillar_oval_tile,dynamic_props/temple/dp_templepillar_oval_tile_flipx
+    select dynamic_props/temples/dp_templepillar_oval_tile,dynamic_props/temples/dp_templepillar_oval_tile_flipx
   }
   dynamic_rule
   {
     if offset_top is 0
-    select dynamic_props/temple/dp_templepillar_oval_top
+    select dynamic_props/temples/dp_templepillar_oval_top
   }
   dynamic_rule
   {
     if offset_bottom is 0
-    select dynamic_props/temple/dp_templepillar_oval_base
+    select dynamic_props/temples/dp_templepillar_oval_base
   }
 }
 
@@ -121,17 +121,17 @@ listed true
   dynamic_default_size 1 4 1
   dynamic_rule
   {
-    select dynamic_props/temple/dp_templepillar_tile_first,dynamic_props/temple/dp_templepillar_tile_second,dynamic_props/temple/dp_templepillar_tile_third,dynamic_props/temple/dp_templepillar_tile_fourth
+    select dynamic_props/temples/dp_templepillar_tile_first,dynamic_props/temples/dp_templepillar_tile_second,dynamic_props/temples/dp_templepillar_tile_third,dynamic_props/temples/dp_templepillar_tile_fourth
   }
   dynamic_rule
   {
     if offset_top is 0
-    select dynamic_props/temple/dp_templepillar_top
+    select dynamic_props/temples/dp_templepillar_top
   }
   dynamic_rule
   {
     if offset_bottom is 0
-    select dynamic_props/temple/dp_templepillar_base
+    select dynamic_props/temples/dp_templepillar_base
   }
 }
 
@@ -144,17 +144,17 @@ listed true
   dynamic_default_size 1 2 1
   dynamic_rule
   {
-    select dynamic_props/temple/dp_pillar_square_01_mid_01
+    select dynamic_props/temples/dp_pillar_square_01_mid_01
   }
   dynamic_rule
   {
     if offset_top is 0
-    select dynamic_props/temple/dp_pillar_square_01_top
+    select dynamic_props/temples/dp_pillar_square_01_top
   }
   dynamic_rule
   {
     if offset_bottom is 0
-    select dynamic_props/temple/dp_pillar_square_01_bottom
+    select dynamic_props/temples/dp_pillar_square_01_bottom
   }
 }
 
@@ -169,19 +169,19 @@ asset doorframe_stone_thin
   dynamic_rule
   {
 	if offset_top is 0
-    select dynamic_props/temple/dp_df_stone_thin_tilex,dynamic_props/temple/dp_df_stone_thin_tilex2
+    select dynamic_props/temples/dp_df_stone_thin_tilex,dynamic_props/temples/dp_df_stone_thin_tilex2
 	
   }
    dynamic_rule
   {
 	  if offset_left is 0
-    select dynamic_props/temple/dp_df_stone_thin_tile_y,dynamic_props/temple/dp_df_stone_thin_tile_y2
+    select dynamic_props/temples/dp_df_stone_thin_tile_y,dynamic_props/temples/dp_df_stone_thin_tile_y2
 	
   }
   dynamic_rule
   {
 	  if offset_right is 0
-    select dynamic_props/temple/dp_df_stone_thin_tile_y_flipx,dynamic_props/temple/dp_df_stone_thin_tile_y2_flipx
+    select dynamic_props/temples/dp_df_stone_thin_tile_y_flipx,dynamic_props/temples/dp_df_stone_thin_tile_y2_flipx
 	
   }
      
@@ -189,7 +189,7 @@ asset doorframe_stone_thin
   {
 	  if offset_left is 0
 	  if offset_top is 0
-    select dynamic_props/temple/dp_df_stone_thin_corner
+    select dynamic_props/temples/dp_df_stone_thin_corner
 	
   }
   
@@ -197,7 +197,7 @@ asset doorframe_stone_thin
   {
 	  if offset_right is 0
 	  if offset_top is 0
-    select dynamic_props/temple/dp_df_stone_thin_corner_flipx
+    select dynamic_props/temples/dp_df_stone_thin_corner_flipx
 	
   }
   
@@ -205,7 +205,7 @@ asset doorframe_stone_thin
   {
 	  if offset_bottom is 0
 	  if offset_left is 0
-    select dynamic_props/temple/dp_df_stone_thin_base
+    select dynamic_props/temples/dp_df_stone_thin_base
 	
   }
   
@@ -213,7 +213,7 @@ asset doorframe_stone_thin
   {
 	  if offset_bottom is 0
 	  if offset_right is 0
-    select dynamic_props/temple/dp_df_stone_thin_base_flipx
+    select dynamic_props/temples/dp_df_stone_thin_base_flipx
 	
   }
   
@@ -231,7 +231,7 @@ listed true
   dynamic_default_size 1 4 1
   dynamic_rule
   {
-    select dynamic_props/temple/dp_concave_corner_big_01,dynamic_props/temple/dp_concave_corner_big_split_01,dynamic_props/temple/dp_concave_corner_big_02,dynamic_props/temple/dp_concave_corner_big_split_02,dynamic_props/temple/dp_concave_corner_big_01,dynamic_props/temple/dp_concave_corner_big_split_03
+    select dynamic_props/temples/dp_concave_corner_big_01,dynamic_props/temples/dp_concave_corner_big_split_01,dynamic_props/temples/dp_concave_corner_big_02,dynamic_props/temples/dp_concave_corner_big_split_02,dynamic_props/temples/dp_concave_corner_big_01,dynamic_props/temples/dp_concave_corner_big_split_03
   }
 }
 
@@ -244,7 +244,7 @@ listed true
   dynamic_default_size 1 4 1
   dynamic_rule
   {
-    select dynamic_props/temple/dp_concave_corner_01,dynamic_props/temple/dp_concave_corner_01,dynamic_props/temple/dp_concave_corner_01,dynamic_props/temple/dp_concave_corner_02,dynamic_props/temple/dp_concave_corner_03 random
+    select dynamic_props/temples/dp_concave_corner_01,dynamic_props/temples/dp_concave_corner_01,dynamic_props/temples/dp_concave_corner_01,dynamic_props/temples/dp_concave_corner_02,dynamic_props/temples/dp_concave_corner_03 random
   }
 
 }
@@ -260,14 +260,14 @@ asset doorframe_stone_big
   dynamic_rule
   {
 	if offset_top is 0
-    select dynamic_props/temple/temple_dp_doorframe_tile_z,dynamic_props/temple/temple_dp_doorframe_tile2_z random
+    select dynamic_props/temples/temple_dp_doorframe_tile_z,dynamic_props/temples/temple_dp_doorframe_tile2_z random
 	
 	
   }
    dynamic_rule
   {
 	  if offset_back is 0
-    select dynamic_props/temple/temple_dp_doorframe_tile_y_flipz,dynamic_props/temple/temple_dp_doorframe_tile2_z random
+    select dynamic_props/temples/temple_dp_doorframe_tile_y_flipz,dynamic_props/temples/temple_dp_doorframe_tile2_z random
 	
   }
   
@@ -275,13 +275,13 @@ asset doorframe_stone_big
   dynamic_rule
   {
 	  if offset_front is 0
-    select dynamic_props/temple/temple_dp_doorframe_tile_y,dynamic_props/temple/temple_dp_doorframe_tile2_y random
+    select dynamic_props/temples/temple_dp_doorframe_tile_y,dynamic_props/temples/temple_dp_doorframe_tile2_y random
 	
   }
     dynamic_rule
   {
 	  if offset_back is 0
-    select dynamic_props/temple/temple_dp_doorframe_tile_y_flipz,dynamic_props/temple/temple_dp_doorframe_tile2_y_flipz random
+    select dynamic_props/temples/temple_dp_doorframe_tile_y_flipz,dynamic_props/temples/temple_dp_doorframe_tile2_y_flipz random
 	
   }
      
@@ -289,7 +289,7 @@ asset doorframe_stone_big
   {
 	  if offset_front is 0
 	  if offset_top is 0
-    select dynamic_props/temple/temple_dp_doorframe_corner
+    select dynamic_props/temples/temple_dp_doorframe_corner
 	
   }
   
@@ -297,7 +297,7 @@ asset doorframe_stone_big
   {
 	  if offset_back is 0
 	  if offset_top is 0
-    select dynamic_props/temple/temple_dp_doorframe_corner_flipz
+    select dynamic_props/temples/temple_dp_doorframe_corner_flipz
 	
   }
   
@@ -305,7 +305,7 @@ asset doorframe_stone_big
   {
 	  if offset_bottom is 0
 	  if offset_front is 0
-    select dynamic_props/temple/temple_dp_doorframe_base
+    select dynamic_props/temples/temple_dp_doorframe_base
 	
   }
   
@@ -313,7 +313,7 @@ asset doorframe_stone_big
   {
 	  if offset_bottom is 0
 	  if offset_back is 0
-    select dynamic_props/temple/temple_dp_doorframe_base_flipz
+    select dynamic_props/temples/temple_dp_doorframe_base_flipz
 	
   }
   
@@ -328,22 +328,22 @@ listed true
   dynamic_rule
   {
 	if offset_bottom > 2
-    select dynamic_props/temple/dp_statue_pillar_mid
+    select dynamic_props/temples/dp_statue_pillar_mid
   }
   dynamic_rule
   {
     if offset_top is 0
-    select dynamic_props/temple/dp_statue_pillar_top
+    select dynamic_props/temples/dp_statue_pillar_top
   }
   dynamic_rule
   {
     if offset_bottom is 0
-    select dynamic_props/temple/dp_statue_pillar_base
+    select dynamic_props/temples/dp_statue_pillar_base
   }
   dynamic_rule
   {
     if offset_bottom is 2
-    select dynamic_props/temple/dp_statue_pillar_bottom
+    select dynamic_props/temples/dp_statue_pillar_bottom
   }
 }
 
@@ -356,7 +356,7 @@ listed true
   dynamic_default_size 1 1 1
   dynamic_rule
 {
-    select dynamic_props/temple/dp_stoneslab_01,dynamic_props/temple/dp_stoneslab_02,dynamic_props/temple/dp_stoneslab_03,dynamic_props/temple/dp_stoneslab_04 random
+    select dynamic_props/temples/dp_stoneslab_01,dynamic_props/temples/dp_stoneslab_02,dynamic_props/temples/dp_stoneslab_03,dynamic_props/temples/dp_stoneslab_04 random
   }
 
 }
@@ -371,17 +371,17 @@ listed true
   dynamic_default_size 1 1 1
   dynamic_rule
  {
-    select dynamic_props/temple/dp_floordetbig_mid_01,dynamic_props/temple/dp_floordetbig_mid_02   
+    select dynamic_props/temples/dp_floordetbig_mid_01,dynamic_props/temples/dp_floordetbig_mid_02   
     }
    dynamic_rule
   {
     if offset_back is 0
-    select dynamic_props/temple/dp_floordetbig_end
+    select dynamic_props/temples/dp_floordetbig_end
   }
   dynamic_rule
   {
     if offset_front is 0
-    select dynamic_props/temple/dp_floordetbig_end_flipz
+    select dynamic_props/temples/dp_floordetbig_end_flipz
   }
 
 }  
@@ -396,20 +396,20 @@ asset list_stone_big
 
   dynamic_rule
   {
-    select dynamic_props/temple/temple_dp_doorframe_tile_z,dynamic_props/temple/temple_dp_doorframe_tile2_z,dynamic_props/temple/temple_dp_doorframe_tile2_z
+    select dynamic_props/temples/temple_dp_doorframe_tile_z,dynamic_props/temples/temple_dp_doorframe_tile2_z,dynamic_props/temples/temple_dp_doorframe_tile2_z
 		
   }
    dynamic_rule
   {
 	  if offset_front is 0
-    select dynamic_props/temple/temple_dp_doorframe_tile_z_flipz
+    select dynamic_props/temples/temple_dp_doorframe_tile_z_flipz
 	
   }
   
      dynamic_rule
   {
 	  if offset_back is 0
-    select dynamic_props/temple/temple_dp_doorframe_tile_z
+    select dynamic_props/temples/temple_dp_doorframe_tile_z
 	
   }
   
@@ -427,51 +427,51 @@ asset stone_platform
 
   dynamic_rule
   {
-    select dynamic_props/temple/dp_sp_mid
+    select dynamic_props/temples/dp_sp_mid
   }
   dynamic_rule
  {
 	 if offset_left is 0
-    select dynamic_props/temple/dp_sp_tile_z_01,dynamic_props/temple/dp_sp_tile_z_02,dynamic_props/temple/dp_sp_tile_z_03 random
+    select dynamic_props/temples/dp_sp_tile_z_01,dynamic_props/temples/dp_sp_tile_z_02,dynamic_props/temples/dp_sp_tile_z_03 random
     }
   dynamic_rule
  {
 	 if offset_right is 0
-    select dynamic_props/temple/dp_sp_tile_z_01_flipx,dynamic_props/temple/dp_sp_tile_z_02_flipx,dynamic_props/temple/dp_sp_tile_z_03_flipx random
+    select dynamic_props/temples/dp_sp_tile_z_01_flipx,dynamic_props/temples/dp_sp_tile_z_02_flipx,dynamic_props/temples/dp_sp_tile_z_03_flipx random
     }
   dynamic_rule
  {
 	 if offset_back is 0
-    select dynamic_props/temple/dp_sp_tile_x_01,dynamic_props/temple/dp_sp_tile_x_02,dynamic_props/temple/dp_sp_tile_x_03 random
+    select dynamic_props/temples/dp_sp_tile_x_01,dynamic_props/temples/dp_sp_tile_x_02,dynamic_props/temples/dp_sp_tile_x_03 random
     }
   dynamic_rule
  {
 	 if offset_front is 0
-    select dynamic_props/temple/dp_sp_tile_x_01_flipz,dynamic_props/temple/dp_sp_tile_x_02_flipz,dynamic_props/temple/dp_sp_tile_x_03_flipz random
+    select dynamic_props/temples/dp_sp_tile_x_01_flipz,dynamic_props/temples/dp_sp_tile_x_02_flipz,dynamic_props/temples/dp_sp_tile_x_03_flipz random
     }
   dynamic_rule
  {
 	 if offset_right is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_sp_corner_flipx_flipz
+    select dynamic_props/temples/dp_sp_corner_flipx_flipz
     }
   dynamic_rule
  {
 	 if offset_left is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_sp_corner_flipz
+    select dynamic_props/temples/dp_sp_corner_flipz
     }
   dynamic_rule
  {
 	 if offset_left is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_sp_corner
+    select dynamic_props/temples/dp_sp_corner
     }
   dynamic_rule
  {
 	 if offset_right is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_sp_corner_flipx
+    select dynamic_props/temples/dp_sp_corner_flipx
     }
 }
 
@@ -486,7 +486,7 @@ asset scattered_stones
 
   dynamic_rule
   {
-    select dynamic_props/temple/dp_scattered_stones_mid_01,dynamic_props/temple/dp_scattered_stones_mid_02,dynamic_props/temple/dp_scattered_stones_mid_03,dynamic_props/temple/dp_scattered_stones_mid_04,dynamic_props/temple/dp_scattered_stones_mid_05,dynamic_props/temple/dp_scattered_stones_mid_06 random
+    select dynamic_props/temples/dp_scattered_stones_mid_01,dynamic_props/temples/dp_scattered_stones_mid_02,dynamic_props/temples/dp_scattered_stones_mid_03,dynamic_props/temples/dp_scattered_stones_mid_04,dynamic_props/temples/dp_scattered_stones_mid_05,dynamic_props/temples/dp_scattered_stones_mid_06 random
   }
 
   
@@ -503,7 +503,7 @@ asset stone_corners
 
   dynamic_rule
   {
-    select dynamic_props/temple/dp_temple_cornerstone_01,dynamic_props/temple/dp_temple_cornerstone_02,dynamic_props/temple/dp_temple_cornerstone_03,dynamic_props/temple/dp_temple_cornerstone_04
+    select dynamic_props/temples/dp_temple_cornerstone_01,dynamic_props/temples/dp_temple_cornerstone_02,dynamic_props/temples/dp_temple_cornerstone_03,dynamic_props/temples/dp_temple_cornerstone_04
   }
  
 }
@@ -519,28 +519,28 @@ asset temple_pillar_big
   
   dynamic_rule
   { 
-	select dynamic_props/temple/dp_temple_pillar_big_mid_01,dynamic_props/temple/dp_temple_pillar_big_mid_02,dynamic_props/temple/dp_temple_pillar_big_mid_03,dynamic_props/temple/dp_temple_pillar_big_mid_04,dynamic_props/temple/dp_temple_pillar_big_mid_01_flipz,dynamic_props/temple/dp_temple_pillar_big_mid_02_flipz,dynamic_props/temple/dp_temple_pillar_big_mid_03_flipz,dynamic_props/temple/dp_temple_pillar_big_mid_04_flipz
+	select dynamic_props/temples/dp_temple_pillar_big_mid_01,dynamic_props/temples/dp_temple_pillar_big_mid_02,dynamic_props/temples/dp_temple_pillar_big_mid_03,dynamic_props/temples/dp_temple_pillar_big_mid_04,dynamic_props/temples/dp_temple_pillar_big_mid_01_flipz,dynamic_props/temples/dp_temple_pillar_big_mid_02_flipz,dynamic_props/temples/dp_temple_pillar_big_mid_03_flipz,dynamic_props/temples/dp_temple_pillar_big_mid_04_flipz
 	channel 0
   }
   
     dynamic_rule
   {
 	if offset_bottom is 0
-    select dynamic_props/temple/dp_temple_pillar_big_bottom_frame
+    select dynamic_props/temples/dp_temple_pillar_big_bottom_frame
 	channel 1
   }
 
     dynamic_rule
   {
 	if offset_bottom is 0
-    select dynamic_props/temple/dp_temple_pillar_big_bottom
+    select dynamic_props/temples/dp_temple_pillar_big_bottom
 	channel 0
   }
   
       dynamic_rule
   {
 	if offset_top is 0
-    select dynamic_props/temple/dp_temple_pillar_big_top_flipx
+    select dynamic_props/temples/dp_temple_pillar_big_top_flipx
 	channel 0
   }
   
@@ -558,32 +558,32 @@ listed true
   dynamic_rule
   { 
     if offset_front is 0
-	select dynamic_props/temple/dp_scaffold_test_corner_mid_x_flipz,dynamic_props/temple/dp_scaffold_test_corner_mid_x_flipz,dynamic_props/temple/dp_scaffold_test_corner_mid_x_flipz,dynamic_props/temple/dp_scaffold_test_corner_mid_x_var_flipz
+	select dynamic_props/temples/dp_scaffold_test_corner_mid_x_flipz,dynamic_props/temples/dp_scaffold_test_corner_mid_x_flipz,dynamic_props/temples/dp_scaffold_test_corner_mid_x_flipz,dynamic_props/temples/dp_scaffold_test_corner_mid_x_var_flipz
   }
   dynamic_rule
   { 
     if offset_back is 0
-	select dynamic_props/temple/dp_scaffold_test_corner_mid_x,dynamic_props/temple/dp_scaffold_test_corner_mid_x,dynamic_props/temple/dp_scaffold_test_corner_mid_x,dynamic_props/temple/dp_scaffold_test_corner_mid_x_var
+	select dynamic_props/temples/dp_scaffold_test_corner_mid_x,dynamic_props/temples/dp_scaffold_test_corner_mid_x,dynamic_props/temples/dp_scaffold_test_corner_mid_x,dynamic_props/temples/dp_scaffold_test_corner_mid_x_var
   }
   dynamic_rule
   { 
     if offset_right is 0
-	select dynamic_props/temple/dp_scaffold_test_corner_mid_z_flipx,dynamic_props/temple/dp_scaffold_test_corner_mid_z_flipx,dynamic_props/temple/dp_scaffold_test_corner_mid_z_flipx,dynamic_props/temple/dp_scaffold_test_corner_mid_z_var_flipx
+	select dynamic_props/temples/dp_scaffold_test_corner_mid_z_flipx,dynamic_props/temples/dp_scaffold_test_corner_mid_z_flipx,dynamic_props/temples/dp_scaffold_test_corner_mid_z_flipx,dynamic_props/temples/dp_scaffold_test_corner_mid_z_var_flipx
   }
   dynamic_rule
   { 
     if offset_left is 0
-	select dynamic_props/temple/dp_scaffold_test_corner_mid_z,dynamic_props/temple/dp_scaffold_test_corner_mid_z,dynamic_props/temple/dp_scaffold_test_corner_mid_z,dynamic_props/temple/dp_scaffold_test_corner_mid_z_var
+	select dynamic_props/temples/dp_scaffold_test_corner_mid_z,dynamic_props/temples/dp_scaffold_test_corner_mid_z,dynamic_props/temples/dp_scaffold_test_corner_mid_z,dynamic_props/temples/dp_scaffold_test_corner_mid_z_var
   }
     dynamic_rule
   { 
     if offset_top is 0
-	select dynamic_props/temple/dp_scaffold_test_corner_mid_top,dynamic_props/temple/dp_scaffold_test_corner_mid_top,dynamic_props/temple/dp_scaffold_test_corner_mid_top,dynamic_props/temple/dp_scaffold_test_corner_mid_top_var
+	select dynamic_props/temples/dp_scaffold_test_corner_mid_top,dynamic_props/temples/dp_scaffold_test_corner_mid_top,dynamic_props/temples/dp_scaffold_test_corner_mid_top,dynamic_props/temples/dp_scaffold_test_corner_mid_top_var
   }
       dynamic_rule
   { 
     if offset_bottom is 0
-	select dynamic_props/temple/dp_scaffold_test_corner_mid_top_flipy,dynamic_props/temple/dp_scaffold_test_corner_mid_top_flipy,dynamic_props/temple/dp_scaffold_test_corner_mid_top_flipy,dynamic_props/temple/dp_scaffold_test_corner_mid_top_var_flipy
+	select dynamic_props/temples/dp_scaffold_test_corner_mid_top_flipy,dynamic_props/temples/dp_scaffold_test_corner_mid_top_flipy,dynamic_props/temples/dp_scaffold_test_corner_mid_top_flipy,dynamic_props/temples/dp_scaffold_test_corner_mid_top_var_flipy
   }
 
 	//4 LATERAL SIDES
@@ -592,26 +592,26 @@ listed true
     {
 	 if offset_left is 0
 	 if offset_top is 0
-      select dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_flipy,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_flipy,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_flipy,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_var_flipy
+      select dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_flipy,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_flipy,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_flipy,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_var_flipy
     }
 	dynamic_rule
     {
 	 if offset_left is 0
 	 if offset_bottom is 0
-      select dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_var
+      select dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_var
     }
 
 	dynamic_rule
     {
 	 if offset_right is 0
 	 if offset_top is 0
-      select dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_flipy_flipx,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_flipy_flipx,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_flipy_flipx,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_var_flipy_flipx
+      select dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_flipy_flipx,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_flipy_flipx,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_flipy_flipx,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_var_flipy_flipx
     }
 	dynamic_rule
     {
 	 if offset_right is 0
 	 if offset_bottom is 0
-      select dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_flipx,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_flipx,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_flipx,dynamic_props/temple/dp_scaffold_test_bottom_tile_z_02_var_flipx
+      select dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_flipx,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_flipx,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_flipx,dynamic_props/temples/dp_scaffold_test_bottom_tile_z_02_var_flipx
     }
 	
 	//4 FRONT SIDES
@@ -619,26 +619,26 @@ listed true
    {
 	 if offset_bottom is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_scaffold_test_bottom_tile_x_02
+    select dynamic_props/temples/dp_scaffold_test_bottom_tile_x_02
     }
 	dynamic_rule
  {
 	 if offset_top is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_scaffold_test_bottom_tile_x_02_flipy
+    select dynamic_props/temples/dp_scaffold_test_bottom_tile_x_02_flipy
     }
 	
 	dynamic_rule
  {
 	 if offset_left is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_scaffold_test_bottom_tile_y_02
+    select dynamic_props/temples/dp_scaffold_test_bottom_tile_y_02
     }
 	dynamic_rule
  {
 	 if offset_right is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_scaffold_test_bottom_tile_y_02_flipx
+    select dynamic_props/temples/dp_scaffold_test_bottom_tile_y_02_flipx
     }
 
 	//4 BACK SIDES
@@ -646,26 +646,26 @@ listed true
    {
 	 if offset_bottom is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_scaffold_test_bottom_tile_x_02_flipz
+    select dynamic_props/temples/dp_scaffold_test_bottom_tile_x_02_flipz
     }
 	dynamic_rule
  {
 	 if offset_top is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_scaffold_test_bottom_tile_x_02_flipy_flipz
+    select dynamic_props/temples/dp_scaffold_test_bottom_tile_x_02_flipy_flipz
     }
 	
 	dynamic_rule
  {
 	 if offset_left is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_scaffold_test_bottom_tile_y_02_flipz
+    select dynamic_props/temples/dp_scaffold_test_bottom_tile_y_02_flipz
     }
 	dynamic_rule
  {
 	 if offset_right is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_scaffold_test_bottom_tile_y_02_flipx_flipz
+    select dynamic_props/temples/dp_scaffold_test_bottom_tile_y_02_flipx_flipz
     }
 	
 
@@ -675,14 +675,14 @@ listed true
 	 if offset_left is 0  
 	 if offset_top is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_scaffold_test_corner_top
+    select dynamic_props/temples/dp_scaffold_test_corner_top
     }
 	dynamic_rule
    {
 	 if offset_right is 0  
 	 if offset_top is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_scaffold_test_corner_top_flipx
+    select dynamic_props/temples/dp_scaffold_test_corner_top_flipx
     }  
 	
 	dynamic_rule
@@ -690,14 +690,14 @@ listed true
 	 if offset_left is 0  
 	 if offset_bottom is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_scaffold_test_corner_bottom
+    select dynamic_props/temples/dp_scaffold_test_corner_bottom
     }
 	dynamic_rule
    {
 	 if offset_right is 0  
 	 if offset_bottom is 0
 	 if offset_back is 0
-    select dynamic_props/temple/dp_scaffold_test_corner_bottom_flipx
+    select dynamic_props/temples/dp_scaffold_test_corner_bottom_flipx
     }
 
     //4 FRONT CORNERS
@@ -706,14 +706,14 @@ listed true
 	 if offset_left is 0  
 	 if offset_top is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_scaffold_test_corner_top_flipz
+    select dynamic_props/temples/dp_scaffold_test_corner_top_flipz
     }
 	dynamic_rule
    {
 	 if offset_right is 0  
 	 if offset_top is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_scaffold_test_corner_top_flipx_flipz
+    select dynamic_props/temples/dp_scaffold_test_corner_top_flipx_flipz
     }  
 	
 	dynamic_rule
@@ -721,14 +721,14 @@ listed true
 	 if offset_left is 0  
 	 if offset_bottom is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_scaffold_test_corner_bottom_flipz
+    select dynamic_props/temples/dp_scaffold_test_corner_bottom_flipz
     }
 	dynamic_rule
    {
 	 if offset_right is 0  
 	 if offset_bottom is 0
 	 if offset_front is 0
-    select dynamic_props/temple/dp_scaffold_test_corner_bottom_flipx_flipz
+    select dynamic_props/temples/dp_scaffold_test_corner_bottom_flipx_flipz
     }
 
 	
@@ -747,25 +747,25 @@ listed true
   num_channels 2
   dynamic_rule
   {
-    select dynamic_props/temple/dp_roofmonitor_tile
+    select dynamic_props/temples/dp_roofmonitor_tile
 	channel 0
   }
 	dynamic_rule
   {
     if offset_top is 0
-    select dynamic_props/temple/dp_roofmonitor_top
+    select dynamic_props/temples/dp_roofmonitor_top
 	channel 0
   }
   dynamic_rule
   {
     if offset_bottom is 0
-    select dynamic_props/temple/dp_roofmonitor_base
+    select dynamic_props/temples/dp_roofmonitor_base
 	channel 0
   }
   dynamic_rule
   {
     if offset_bottom is 0
-    select dynamic_props/temple/dp_roofmonitor_scrolling
+    select dynamic_props/temples/dp_roofmonitor_scrolling
 	channel 1
   }
   
@@ -780,51 +780,51 @@ listed true
   dynamic_default_size 1 1 1
   dynamic_rule
   {
-    select dynamic_props/temple/dp_wallbars_mid_mid
+    select dynamic_props/temples/dp_wallbars_mid_mid
   }
   dynamic_rule
   {
     if offset_top is 0
-    select dynamic_props/temple/dp_wallbars_mid_top
+    select dynamic_props/temples/dp_wallbars_mid_top
   }
   dynamic_rule
   {
     if offset_bottom is 0
-    select dynamic_props/temple/dp_wallbars_mid_bottom
+    select dynamic_props/temples/dp_wallbars_mid_bottom
   }
   dynamic_rule
   {
 	if offset_right is 0
-    select dynamic_props/temple/dp_wallbars_right_mid
+    select dynamic_props/temples/dp_wallbars_right_mid
   }
   dynamic_rule
   {
     if offset_top is 0
 	if offset_right is 0
-    select dynamic_props/temple/dp_wallbars_right_top
+    select dynamic_props/temples/dp_wallbars_right_top
   }
    dynamic_rule
   {
     if offset_bottom is 0
 	if offset_right is 0
-    select dynamic_props/temple/dp_wallbars_right_bottom
+    select dynamic_props/temples/dp_wallbars_right_bottom
   }
   dynamic_rule
   {
 	if offset_left is 0
-    select dynamic_props/temple/dp_wallbars_left_mid
+    select dynamic_props/temples/dp_wallbars_left_mid
   }
   dynamic_rule
   {
     if offset_top is 0
 	if offset_left is 0
-    select dynamic_props/temple/dp_wallbars_left_top
+    select dynamic_props/temples/dp_wallbars_left_top
   }
    dynamic_rule
   {
     if offset_bottom is 0
 	if offset_left is 0
-    select dynamic_props/temple/dp_wallbars_left_bottom
+    select dynamic_props/temples/dp_wallbars_left_bottom
   }
 
   
@@ -832,21 +832,21 @@ listed true
   {
 	if offset_left is 0
 	if offset_right is 0
-    select dynamic_props/temple/dp_wallbars_single_mid
+    select dynamic_props/temples/dp_wallbars_single_mid
   }
   dynamic_rule
   {
     if offset_top is 0
 	if offset_left is 0
 	if offset_right is 0
-    select dynamic_props/temple/dp_wallbars_single_top
+    select dynamic_props/temples/dp_wallbars_single_top
   }
    dynamic_rule
   {
     if offset_bottom is 0
 	if offset_left is 0
 	if offset_right is 0
-    select dynamic_props/temple/dp_wallbars_single_base02
+    select dynamic_props/temples/dp_wallbars_single_base02
   }
    dynamic_rule
   {
@@ -854,7 +854,7 @@ listed true
 	if offset_left is 0
 	if offset_right is 0
 	if size_y is 1
-    select dynamic_props/temple/dp_wallbars_single_base01
+    select dynamic_props/temples/dp_wallbars_single_base01
   }
    }
   
@@ -868,41 +868,41 @@ listed true
   dynamic_default_size 1 1 1
   dynamic_rule
   {
-    select dynamic_props/temple/dp_floorbars_mid_mid
+    select dynamic_props/temples/dp_floorbars_mid_mid
   }
  dynamic_rule
   {
     if offset_right is 0
-    select dynamic_props/temple/dp_floorbars_right_mid
+    select dynamic_props/temples/dp_floorbars_right_mid
   }
 dynamic_rule
   {
     if offset_left is 0
-    select dynamic_props/temple/dp_floorbars_left_mid
+    select dynamic_props/temples/dp_floorbars_left_mid
   }
 
 dynamic_rule
   {
     if offset_left is 0
 	if offset_back is 0
-    select dynamic_props/temple/dp_floorbars_left_back
+    select dynamic_props/temples/dp_floorbars_left_back
   }
   dynamic_rule
   {
 	if offset_front is 0
-    select dynamic_props/temple/dp_floorbars_mid_front
+    select dynamic_props/temples/dp_floorbars_mid_front
   }
 dynamic_rule
   {
     if offset_right is 0
 	if offset_front is 0
-    select dynamic_props/temple/dp_floorbars_right_front
+    select dynamic_props/temples/dp_floorbars_right_front
   }
   dynamic_rule
   {
     if offset_left is 0
 	if offset_front is 0
-    select dynamic_props/temple/dp_floorbars_left_front
+    select dynamic_props/temples/dp_floorbars_left_front
   }
 }
 
@@ -916,19 +916,19 @@ asset rail
 
   dynamic_rule
   {
-    select dynamic_props/temple/dp_rail_mid_02,dynamic_props/temple/dp_rail_mid_01
+    select dynamic_props/temples/dp_rail_mid_02,dynamic_props/temples/dp_rail_mid_01
   
   } 
   
   dynamic_rule
   {
 	if offset_front is 0
-    select dynamic_props/temple/dp_rail_end
+    select dynamic_props/temples/dp_rail_end
   }  
   dynamic_rule
   {
 	if offset_back is 0
-    select dynamic_props/temple/dp_rail_end_flipz
+    select dynamic_props/temples/dp_rail_end_flipz
   }  
 
 }
@@ -943,17 +943,17 @@ listed true
   dynamic_default_size 1 4 1
   dynamic_rule
   {
-    select dynamic_props/temple/vine_mid1,dynamic_props/temple/vine_mid2
+    select dynamic_props/temples/vine_mid1,dynamic_props/temples/vine_mid2
   }
   dynamic_rule
   {
     if offset_top is 0
-    select dynamic_props/temple/vine_base
+    select dynamic_props/temples/vine_base
   }
   dynamic_rule
   {
     if offset_bottom is 0
-    select dynamic_props/temple/vine_end
+    select dynamic_props/temples/vine_end
   }
 }
 
@@ -966,7 +966,7 @@ listed true
   dynamic_default_size 1 1 1
   dynamic_rule
   {
-    select dynamic_props/temple/vine_horizontal_1,dynamic_props/temple/vine_horizontal_2,dynamic_props/temple/vine_horizontal_3
+    select dynamic_props/temples/vine_horizontal_1,dynamic_props/temples/vine_horizontal_2,dynamic_props/temples/vine_horizontal_3
   }
 }  
 
@@ -980,19 +980,19 @@ asset temple_pillar_big_metal
 
   dynamic_rule
   {
-    select dynamic_props/temple/dp_temple_pillar_metal_mid_01,dynamic_props/temple/dp_temple_pillar_metal_mid_01_flipx,dynamic_props/temple/dp_temple_pillar_metal_mid_01_flipz
+    select dynamic_props/temples/dp_temple_pillar_metal_mid_01,dynamic_props/temples/dp_temple_pillar_metal_mid_01_flipx,dynamic_props/temples/dp_temple_pillar_metal_mid_01_flipz
 		
   }
    dynamic_rule
 {
    if offset_bottom is 0
-   select dynamic_props/temple/dp_temple_pillar_metal_bottom
+   select dynamic_props/temples/dp_temple_pillar_metal_bottom
   }
 
    dynamic_rule
 {
    if offset_bottom is 1
-   select dynamic_props/temple/dp_temple_pillar_metal_bottom_nexus
+   select dynamic_props/temples/dp_temple_pillar_metal_bottom_nexus
   }
 
 
@@ -1023,35 +1023,35 @@ asset temple_pillar_big_metal_2
   
   dynamic_rule
   { 
-	select dynamic_props/temple/dp_temple_pillar_big_mid_01,dynamic_props/temple/dp_temple_pillar_big_mid_02,dynamic_props/temple/dp_temple_pillar_big_mid_03,dynamic_props/temple/dp_temple_pillar_big_mid_04,dynamic_props/temple/dp_temple_pillar_big_mid_01_flipz,dynamic_props/temple/dp_temple_pillar_big_mid_02_flipz,dynamic_props/temple/dp_temple_pillar_big_mid_03_flipz,dynamic_props/temple/dp_temple_pillar_big_mid_04_flipz
+	select dynamic_props/temples/dp_temple_pillar_big_mid_01,dynamic_props/temples/dp_temple_pillar_big_mid_02,dynamic_props/temples/dp_temple_pillar_big_mid_03,dynamic_props/temples/dp_temple_pillar_big_mid_04,dynamic_props/temples/dp_temple_pillar_big_mid_01_flipz,dynamic_props/temples/dp_temple_pillar_big_mid_02_flipz,dynamic_props/temples/dp_temple_pillar_big_mid_03_flipz,dynamic_props/temples/dp_temple_pillar_big_mid_04_flipz
 	channel 0
   }
   
     dynamic_rule
   {
 	if offset_bottom is 0
-    select dynamic_props/temple/dp_temple_pillar_big_bottom_frame_metal
+    select dynamic_props/temples/dp_temple_pillar_big_bottom_frame_metal
 	channel 1
   }
 
     dynamic_rule
   {
 	if offset_bottom is 0
-    select dynamic_props/temple/dp_temple_pillar_big_bottom
+    select dynamic_props/temples/dp_temple_pillar_big_bottom
 	channel 0
   }
   
       dynamic_rule
   {
 	if offset_top is 0
-    select dynamic_props/temple/dp_temple_pillar_big_top_flipx
+    select dynamic_props/temples/dp_temple_pillar_big_top_flipx
 	channel 0
   }
   
         dynamic_rule
   {
 	if offset_top is 0
-    select dynamic_props/temple/dp_temple_pillar_big_top_frame_metal
+    select dynamic_props/temples/dp_temple_pillar_big_top_frame_metal
 	channel 1
   }
   

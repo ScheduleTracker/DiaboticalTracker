@@ -1371,8 +1371,8 @@ props/metro/wall_divider
 	{
 		map textures/props/metro/metro_atlas_d.png
 		map textures/props/metro/metro_atlas_n.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1401,8 +1401,8 @@ props/signs/top_shelf_juiceup
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1416,8 +1416,8 @@ props/signs/top_shelf_big
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1431,8 +1431,8 @@ props/signs/display_big
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1446,8 +1446,8 @@ props/signs/display_medium
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1461,8 +1461,8 @@ props/signs/display_medium02
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1476,8 +1476,8 @@ props/signs/display_medium03
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1491,8 +1491,8 @@ props/signs/sign_quad01
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1506,8 +1506,8 @@ props/signs/sign_quad02
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1521,8 +1521,8 @@ props/signs/sign_quad03
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1536,8 +1536,8 @@ props/signs/store_sign
 	{
 		map textures/props/signs/sign_atlas_01_d.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1929,8 +1929,8 @@ props/signs/flyer_1
 	{
 		map textures/props/signs/flyers.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1944,8 +1944,8 @@ props/signs/flyer_2
 	{
 		map textures/props/signs/flyers.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1959,8 +1959,8 @@ props/signs/flyer_3
 	{
 		map textures/props/signs/flyers.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1974,8 +1974,8 @@ props/signs/flyer_4
 	{
 		map textures/props/signs/flyers.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1989,8 +1989,8 @@ props/signs/flyer_5
 	{
 		map textures/props/signs/flyers.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2004,8 +2004,8 @@ props/signs/flyer_6
 	{
 		map textures/props/signs/flyers.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2221,7 +2221,7 @@ props/cityplazacables
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2236,7 +2236,7 @@ props/cityplazacables_02
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2251,7 +2251,7 @@ props/cityplazacables_03
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2266,7 +2266,7 @@ props/cityplazacables_04
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2281,7 +2281,7 @@ props/cityplazacables_05
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2295,8 +2295,8 @@ props/signs/display_medium04
 	{
 		map textures/props/signs/kuwaii.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2310,8 +2310,8 @@ props/signs/display_medium05
 	{
 		map textures/props/signs/kuwaii.png
 		map textures/flat_normal.png
-		map textures/black
-		map textures/metal
+		map textures/black.png
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2368,7 +2368,7 @@ props/cityplazacables_06
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2383,7 +2383,7 @@ props/cityplazacables_07
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2398,7 +2398,7 @@ props/cityplazacables_08
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2413,7 +2413,7 @@ props/cityplazacables_09
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2428,7 +2428,7 @@ props/cityplazacables_10
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2443,7 +2443,7 @@ props/cityplazacables_11
 		map textures/gray50.png
 		map textures/flat_normal.png
 		map textures/gray50.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse

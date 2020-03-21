@@ -221,7 +221,7 @@ prop_concrete_hangar
 		map textures/concrete_hangar_d.png
 		map textures/concrete_n.png
 		map textures/concrete_s.png
-		map textures/black
+		map textures/black.png
 		material_id 40
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -230,7 +230,7 @@ prop_concrete_hangar
 	}
 }
 
-coin
+coin_old
 {
 	{
 		map textures/coin_d.png

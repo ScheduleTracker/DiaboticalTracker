@@ -183,7 +183,7 @@ grip_flat
 {
 	{
 		map textures/temp_textures/grip_flat_d.png
-		map textures/flat_normal
+		map textures/flat_normal.png
 		map textures/temp_textures/grip_flat_s.png
 		map textures/metal.png
 		vertex_shader tile.vs.cso 111 NGT

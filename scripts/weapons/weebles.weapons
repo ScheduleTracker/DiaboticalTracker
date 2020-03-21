@@ -97,10 +97,10 @@ pfx implode_weeble_filament slot_pfx_eye
   	damage 5
 	min_splash_damage 5
   	knockback -250
-	ground_knockback -250
+	ground_knockback -300
 	knockback_self -200
 	ground_knockback_self -200
-  	splash_radius 260
+  	splash_radius 280
 	default_ammo_pickup_ammo 1
 	default_weapon_pickup_ammo 1
 	

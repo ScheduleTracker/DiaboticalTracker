@@ -9,6 +9,7 @@
 // 3. shaft
 // 4. Rocket Launcher
 // 5. PnCR
+// 300 min switch times added for animation
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -24,7 +25,7 @@ blasta
  	//group 3
 	//unlimited_ammo true
 	speed 4000
- 	rate 100
+ 	rate 110
 	damage 10
 	default_ammo_pickup_ammo 50
 	default_weapon_pickup_ammo 75
@@ -42,21 +43,21 @@ blasta
   	ground_knockback 10
 	ground_knockback_self 20
 
-	hit_radius 1
+	hit_radius 0.5
 	
     //revenge_cost 10
     //Note this is the name of the upgrade for the shop
     friendly_name Void Cannon
     description Pew pew pew
         
-	combo_rate	machinegun 350
-	combo_rate	shelly	350
-	combo_rate  shelly_spreader 350
-	combo_rate	defacer 350
-	combo_rate	rocket_launcher 350
-	combo_rate	pncr  350
+	combo_rate	machinegun 100
+	combo_rate	shelly	100
+	combo_rate  shelly_spreader 100
+	combo_rate	defacer 100
+	combo_rate	rocket_launcher 100
+	combo_rate	pncr  100
 //	combo_rate	void_cannon 110
-	combo_rate	grenade_launcher 350
+	combo_rate	grenade_launcher 100
 	
 	
 //IMPACT DECAL
@@ -132,7 +133,7 @@ supa_blasta
  	//group 3
 	//unlimited_ammo true
 	speed 4000
- 	rate 100
+ 	rate 110
 	damage 15
 	default_ammo_pickup_ammo 50
 	default_weapon_pickup_ammo 75
@@ -149,16 +150,16 @@ supa_blasta
   	ground_knockback 10
 	ground_knockback_self 20
 
-	hit_radius 1
+	hit_radius 0.5
 	
-	combo_rate	machinegun 350
-	combo_rate	shelly	350
-	combo_rate  shelly_spreader 350
-	combo_rate	defacer 350
-	combo_rate	rocket_launcher 350
-	combo_rate	pncr  350
+	combo_rate	machinegun 100
+	combo_rate	shelly	100
+	combo_rate  shelly_spreader 100
+	combo_rate	defacer 100
+	combo_rate	rocket_launcher 100
+	combo_rate	pncr  100
 //	combo_rate	void_cannon 110
-	combo_rate	grenade_launcher 350
+	combo_rate	grenade_launcher 100
 
 	
 //IMPACT DECAL
@@ -239,8 +240,8 @@ shelly
     min_damage_distance 1000
 	min_hits 2
 	bounce 0
-	knockback 3
-	ground_knockback 3
+	knockback 3.5
+	ground_knockback 3.5
 	//max_damage_distance 100
 	//min_damage_distance 800
 	parallel_knockback true
@@ -320,8 +321,8 @@ shelly_spreader
 	min_hits 2
 	bounce 0
 	spread_ring 6
-	knockback 3
-	ground_knockback 3
+	knockback 3.5
+	ground_knockback 3.5
 	parallel_knockback true
 	impact_particles_distance_delay 0.12
 	independent_upgrade_model true
@@ -392,8 +393,8 @@ defacer
 	respawn_time 9
 	weapon_tag df
 	color cdb200
-    rate 50
-	damage 7 7
+    rate 46
+	damage 6 6
 	min_damage_distance 674
     max_damage_distance 675
 	category 4
@@ -401,11 +402,11 @@ defacer
 
 	hit_radius 0.5
 
-	knockback 9.5
+	knockback 9.6
 	ground_knockback 0
 	distance 760
 	default_ammo_pickup_ammo 50
-	default_weapon_pickup_ammo 100
+	default_weapon_pickup_ammo 125
 	max_ammo 150
 	min_ammo_gain 10
 	speed 0
@@ -416,14 +417,14 @@ defacer
     friendly_name Defacer
     description Powerful medium-range sustained-damage weapon.
 	
-	combo_rate	machinegun 150
-	combo_rate	shelly	150
-	combo_rate  shelly_spreader 150
+	combo_rate	machinegun 100
+	combo_rate	shelly	100
+	combo_rate  shelly_spreader 100
 //	combo_rate	defacer 500
-	combo_rate	rocket_launcher 150
-	combo_rate	pncr 150
-	combo_rate	void_cannon 150
-	combo_rate	grenade_launcher 150
+	combo_rate	rocket_launcher 100
+	combo_rate	pncr 100
+	combo_rate	void_cannon 100
+	combo_rate	grenade_launcher 100
 	
 	
 	missile_particles vc_bullet
@@ -435,10 +436,14 @@ tracking_particles shaft_beam_particles
 	
 	//decal decal 8
 	//decal decal_glow_red 16 false false alpha 2.5
-	decal decal_df_back_connector 1.7 20 3.561 1 true false min
-	decal decal_df_connector 2 5 3.561 2 true false max
-	decal decal_df_back 1.7 20 3.561 1 true true min
-	decal decal_df 2 5 3.561 2 true true max
+	//decal decal_df_back_connector 1.7 20 3.561 1 true false min
+	//decal decal_df_connector 2 5 3.561 2 true false max
+	//decal decal_df_back 1.7 20 3.561 1 true true min
+	//decal decal_df 2 5 3.561 2 true true max
+	decal decal_df_back_connector 1.7 20 3.561 true false min
+	decal decal_df_connector 2 5 3.561 true false max
+	decal decal_df_back 1.7 20 3.561 true true min
+	decal decal_df 2 5 3.561 true true max
 	
 	model weapondf
 	loop_animation true
@@ -498,7 +503,7 @@ rocket_launcher
 	
 	charge_animation 6
 	
-  	splash_radius 119
+  	splash_radius 118
 	knockback 95
 	knockback_self 120
 	ground_knockback 90
@@ -746,12 +751,12 @@ pncr
 		
 	parallel_knockback true
 	
-	shot_sound pncr_fire1_default_t1 pncr_fire2_default_t1 pncr_fire3_default_t1 pncr_fire4_default_t1 pncr_fire5_default_t1
-	shot_sound_low_ammo pncr_fire_low1_default_t1 pncr_fire_low2_default_t1 pncr_fire_low3_default_t1 pncr_fire_low4_default_t1 pncr_fire_low5_default_t1
-	shot_sound_t2 pncr_fire1_default_t2 pncr_fire2_default_t2 pncr_fire3_default_t2 pncr_fire4_default_t2 pncr_fire5_default_t2
-	shot_sound_low_ammo_t2 pncr_fire_low1_default_t2 pncr_fire_low2_default_t2 pncr_fire_low3_default_t2 pncr_fire_low4_default_t2 pncr_fire_low5_default_t2
-	shot_sound_t3 pncr_fire1_default_t3 pncr_fire2_default_t3 pncr_fire3_default_t3 pncr_fire4_default_t3 pncr_fire5_default_t3
-	shot_sound_low_ammo_t3 pncr_fire_low1_default_t3 pncr_fire_low2_default_t3 pncr_fire_low3_default_t3 pncr_fire_low4_default_t3 pncr_fire_low5_default_t3
+	shot_sound pncr_fire1_default_t1
+	shot_sound_low_ammo pncr_fire_low1_default_t1
+	shot_sound_t2 pncr_fire1_default_t2
+	shot_sound_low_ammo_t2 pncr_fire_low1_default_t2
+	shot_sound_t3 pncr_fire1_default_t3
+	shot_sound_low_ammo_t3 pncr_fire_low1_default_t3
 	low_ammo_threshold 4
 	equip_sound pncr_equip
 	hit_sound hit_sound_hit1
@@ -782,19 +787,19 @@ machinegun
 	
 	parallel_knockback true
     rate 80
-	damage 6
+	damage 7
 	knockback 5
 	ground_knockback 5
     charge_animation 1
 	
 //	combo_rate	machinegun 100
-	combo_rate	shelly	200
-	combo_rate  shelly_spreader 200
-	combo_rate	defacer 200
-	combo_rate	rocket_launcher 200
-	combo_rate	pncr  200
-	combo_rate	void_cannon 200
-	combo_rate	grenade_launcher 200
+	combo_rate	shelly	50
+	combo_rate  shelly_spreader 50
+	combo_rate	defacer 50
+	combo_rate	rocket_launcher 50
+	combo_rate	pncr  50
+	combo_rate	void_cannon 50
+	combo_rate	grenade_launcher 50
 
 	loop_animation true
 

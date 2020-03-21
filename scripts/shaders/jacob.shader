@@ -1149,7 +1149,7 @@ prop_concrete_wall1
 		map textures/concrete_d.png
 		map textures/concrete_n.png
 		map textures/concrete_s.png
-		map textures/black
+		map textures/black.png
 		material_id 40
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1165,7 +1165,7 @@ prop_concrete_wall2
 		map textures/concrete_d.png
 		map textures/concrete_n.png
 		map textures/concrete_s.png
-		map textures/black
+		map textures/black.png
 		material_id 40
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -1181,7 +1181,7 @@ prop_concrete_torn
 		map textures/concrete2_d.png
 		map textures/concrete2_n.png
 		map textures/concrete_s.png
-		map textures/black
+		map textures/black.png
 		material_id 40
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse

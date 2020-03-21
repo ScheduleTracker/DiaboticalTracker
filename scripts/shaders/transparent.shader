@@ -137,7 +137,7 @@ props/ad_board_mat_glass
 	}
 }
 
-dynamic_props/industrial/dp_pipe_mid_horizontal_trans
+dynamic_props/modern/dp_pipe_mid_horizontal_trans
 {
 	{
 		map textures/white_semi_trans.png
@@ -167,7 +167,7 @@ dynamic_props/dp_fenceglass_center_tile_x
 }
 
 
-dynamic_props/industrial/dp_lightpost_glass_01
+dynamic_props/modern/dp_lightpost_glass_01
 {
 	{
 		map textures/white_semi_trans.png

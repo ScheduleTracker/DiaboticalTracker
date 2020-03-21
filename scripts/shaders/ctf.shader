@@ -36,7 +36,7 @@ concrete_red
 		map textures/concrete_red_d.png
 		map textures/concrete_n.png
 		map textures/concrete_s.png
-		map textures/black
+		map textures/black.png
 		material_id 40
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse

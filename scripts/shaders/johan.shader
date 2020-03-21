@@ -113,7 +113,7 @@ prop_spacebouy_mat_teleporter
 		map textures/prop_teleporter_d.png
 		map textures/prop_teleporter_n.png
 		map textures/black.png
-		map textures/prop_teleporter_i
+		map textures/prop_teleporter_i.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse

@@ -34,108 +34,228 @@ subsystem env_candlelight
 
 env_torchlight
 {
-	map particle_sheet3.png
-	region region s3_candle
-
-	max_particles 3
-	max_emissions 0
-	lifetime .5 0.4
-	fade_in 0
+	map particle_sheet5.png
+	region   flame 	
+	animation_speed 3 4
+	animation_start 0
 	blend add
-	fade_out 1
-	period 0.2 0.3
-	color_start 4 2 .8 1
-	color_end 2 0.5 .2 0.1
-	//position -1 0 0   
-    scale_start 15
-    scale_end 25
-    rotation_start -3 3
-    fade_out 1
-	aspect_start 1.7 
-	aspect_end 0.8 0.7
-
+	max_particles 4
+	max_emissions 0
+	lifetime .8 0.4
+	fade_in 0
+	fade_out 0.005
+	period 0.15
+	color_start  2 1 0 1
+	color_end  1 0 0 0.0
+     scale_start 25 15
+    scale_end 1 5
+    rotation_start -30 30
+   	hard_edges true
+	speed_start 20
+position 1 5 0
+velocity_angles 92 90 0 88 90 0
+angular_speed_start -1000 1000
 }
 env_torchlight_2
+{
+
+	map particle_sheet5.png
+	region   flame 	
+	animation_speed 3 4
+	animation_start 0
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 1 .8
+	fade_in 0
+	fade_out 0.05
+	period 0.2	
+		color_start  2 1 0 1
+	color_end  1 0 0 0.5
+     scale_start 13
+    scale_end 8 10
+    rotation_start 0 360
+   	hard_edges true
+speed_start 10
+	speed_end 0
+	position 1 5 0
+velocity_angles 90 0 0 90 0 0
+angular_speed_start -1000 1000
+
+}
+env_torchlight_3
 {
 	map particle_sheet3.png
 	region region s3_candle
 
-	max_particles 2
+	max_particles 1
 	max_emissions 0
-	lifetime .57 0.7
+	lifetime .5
 	fade_in 0
 	blend add
-	delay 0.5 2
+	fade_out 1
+	period 0.2
 	color_start 4 2 .8 1
-	color_end 2 0.5 .2 0.1
-	position 0 0 0   
-    scale_start 15 11
-    scale_end 25 30
+	color_start 4 2 .8 1
+	position 1 0 1 
+    scale_start 20
+    scale_end 60
     rotation_start -3 3
-    fade_out 0
-	aspect_start 1.7 
-	aspect_end 1
+    fade_out 1
+	aspect_start 1 
+	aspect_end 0.8 0.7
 
 }
 torch_embers
 {
 	map particle_sheet3.png
-	region region s3_rl_muzzle_23
+	region region s3_rl_muzzle_40
 	animation_speed 50
 	animation_start 10
-	max_particles 3
+	max_particles 20
 	max_emissions 0
-	lifetime 0.6 0.7
-	fade_in 1
+	lifetime 1.0 0.2
+	fade_in 0.2
 	blend add
-	fade_out 0.0
-	period 0.2
-	color_start 4 2 0 1
-	color_end  0 0 1 1
-	//position -1 0 0   
-    scale_start 2 2.5
-    scale_end 5 4.5
-    rotation_start 3 -3
+	fade_out 0.1
+	period 0.04
+	color_start 1 1 0.0 0.5  1 0.5 0.0 0.25 
+    scale_start 2.3 0.5
+    scale_end 1 0.4
+    rotation_start 180
     fade_out 0.2
-	velocity_angles 85 0 0 95 0 0 
-	speed_start 200
-	speed_end 30
-
-
+	velocity_angles 90 0 0
+	speed_start 30
+	speed_end 6
+	
+	//position -5 -5 -5 5 -5 5
+	emitter horizontal_circle 3
+	position 0 0 0
 }
 
-torch_embers_2 torch_embers
-{
-	period 0.3
-position 0.5 0 -0.5
-speed_end 35
-
-}
-torch_embers_3 torch_embers
-{
-	period 0.25
-position -0.5 0 0.5
-speed_end 40
-
-}
  torch_01_vfx
 {	 
 subsystem torch_embers
-subsystem torch_embers_2
-subsystem torch_embers_3
-subsystem env_torchlight 0 3
-subsystem env_torchlight_2 0 6
 
+subsystem env_torchlight
+subsystem env_torchlight_2 
+subsystem env_torchlight_3
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////---------------FIREPLACE------------------------///////////////////////////////////////////////////////////////////
+
+fireplace_flames
+{
+	map particle_sheet5.png
+	region   flame 	
+	animation_speed 6 10
+	animation_start 0
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 1
+	fade_in 0
+	fade_out 0.10
+	period 0.3
+	color_start  2 1 0 1
+	color_end  1 0 0 0.5
+     scale_start 60 70
+    scale_end 30 35
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 20
+position 0 4 0
+velocity_angles 92 90 0 88 90 0
+angular_speed_start -1000 1000
+}
+
+fireplace_flames_2
+{
+
+	map particle_sheet5.png
+	region   flame 	
+	animation_speed 3 4
+	animation_start 0
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 1
+	fade_in 0
+	fade_out 0.10
+	period 0.2	
+		color_start  2 1 0 1
+	color_end  1 0 0 0.5
+     scale_start 50 70
+    scale_end 5 1
+    rotation_start -120 90
+   	hard_edges true
+	speed_start 40 50
+position 0 4 0
+velocity_angles 90 0 0 90 0 0
+angular_speed_start -1000 1000
+}
+fireplace_flames_3
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+
+	max_particles 2
+	max_emissions 0
+	lifetime 1
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.5
+	color_start 4 2 .8 1
+	color_start 4 2 .8 1
+	position 1 0 1 
+    scale_start 60
+    scale_end 90
+    rotation_start -3 3
+    fade_out 1
+	aspect_start 1 
+	aspect_end 2
+	position 0 2 0
+
+}
+fireplace_embers
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_40
+	animation_speed 50
+	animation_start 10
+	max_particles 20
+	max_emissions 0
+	lifetime 1.3 1
+	fade_in 0.2
+	blend add
+	fade_out 0.1
+	period 0.06
+	color_start 1 1 0.0 0.5  1 0.5 0.0 0.25 
+    scale_start 2.3 3
+    scale_end 1 0.4
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 90 0 0
+	speed_start 80
+	speed_end 10
+	//auto_orient true
+	//turbulence 2000 1000 2000
+	//acceleration 0 -5 0 0 -2 0
+	//position -5 -5 -5 5 -5 5
+	emitter horizontal_circle 10
+	position 0 -7 0
+}
+
+
+
  fireplace_01_vfx
 {	 
-subsystem torch_embers  0 2
-subsystem torch_embers_2 0 2
-subsystem torch_embers_3 0 2
-subsystem env_torchlight 0 4
-subsystem env_torchlight_2 0 6
+subsystem fireplace_flames
+subsystem fireplace_flames_2
+subsystem fireplace_flames_3
+subsystem fireplace_embers
+
 }
 /////////////////////////////////////////////////////////////////////////////////////////---------------STATUE------------------------///////////////////////////////////////////////////////////////////
 env_statuefire
@@ -893,4 +1013,82 @@ floating_dust_field
 {
 subsystem floating_dust 
 subsystem floating_dust_2
+}
+
+
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// ORB/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+furnace_orb
+{
+	map particle_sheet5.png
+	region  plasma_circle
+	animation_start 0
+	blend alpha
+	max_particles 2
+	max_emissions 0
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+	color_start  1 1 0 1
+	color_end  0.8 0.8 0 0.5
+     scale_start 70
+    scale_end 70
+    rotation_start 180
+   	hard_edges true
+position 0 23 0
+
+}
+furnace_ring
+{
+	map explosion_2.png
+	region   explosion 
+	animation_speed 10
+	animation_start 0
+	blend add
+	max_particles 30
+	max_emissions 0
+	lifetime 2
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+	color_start  15 20 0
+	color_end  15 20 0	
+     scale_start 60
+    scale_end 60
+    rotation_start 0 360
+   	hard_edges true
+position 0 23 0
+angular_speed_start -15000
+}
+
+furnace_beam
+{
+	map lightning_stylized.png
+	region lightning1
+	animation_speed 40
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0
+	fade_out 0.10
+	period 0.5
+	color_start  3 3 0 1
+	color_end  3 3 0 1
+     scale_start 45
+    scale_end 45
+    rotation_start 0 360
+   	hard_edges true
+position 0 23 0
+}
+furnace_orb_system
+{
+	 
+	
+ 
+ subsystem furnace_ring 0 10
+
+subsystem furnace_orb 0 10
+subsystem furnace_beam 0 10
 }

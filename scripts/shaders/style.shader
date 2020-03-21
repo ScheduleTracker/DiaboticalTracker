@@ -46,7 +46,7 @@ border_temple
 		map textures/style/border_d.png
 		map textures/style/border_n.png
 		map textures/style/border_s.png
-		map textures/metal
+		map textures/metal.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse

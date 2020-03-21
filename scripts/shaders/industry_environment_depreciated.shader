@@ -31,7 +31,7 @@ industry_concrete_floor
 {
  {
 		map textures/temp_textures/industry/industry_concrete_floor_d.png
-		map textures/flat_normal.ong
+		map textures/flat_normal.png
 		map textures/black.png
 		map textures/metal.png
 		vertex_shader tile.vs.cso 111 NGT
