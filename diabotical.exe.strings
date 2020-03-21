@@ -1,24 +1,32 @@
+`^=@
+` @@
 `_^[
 `_^]
-`,=@
-`:`@
-`!@@
+`/`@
+`'`@
+`}?@
+`@`@
+`#@@
 ~?&)
 ~&@"
 <'`+
 <#<*
-=~^?
+=<!:
 ===========
 ===================
 ========================
 =============================
 =====================================
 =========== 
-= '*
-=.?=
-="|<
-=]&=
-=@@,
+=_	>
+=,}?
+=?<,
+=@,*
+=\(@
+=#$>
+=+;?
+=	?=
+|`_@
 |?(;|?
 |/-\
 |/	.
@@ -40,9 +48,9 @@
 |\\$@
  ^.`
  ^][
+ <>@
  => 
  = [
- >`@
     
      
       
@@ -60,12 +68,10 @@
  _][
  !"#
  //--------------------------------------------------------------------------------------------------------- 
- (`@
  (?)
- ]`@
  {	 
- @>@
  *""
+ \!@
  	  
  	   
  		 
@@ -73,7 +79,12 @@ _^[]
 _^][
 _ _/
 -~??
+- (?
 --------------------------------
+-!};
+-\(?
+-\#-
+-#$-
 ,~.	
 ,=@"
 , ,^,
@@ -84,8 +95,6 @@ _ _/
 ;;.}
 ;],|
 ;}(}
-:`:;
-:!-)
 :???
 :@"	
 :&"(
@@ -94,8 +103,10 @@ _ _/
 !?[_ ?
 !#!/
 !	@=
+?`-`@
 ? ?(?-
-/--"?
+/=</
+/-=*?
 .` (
 . ,"
 ' },
@@ -107,22 +118,21 @@ _ _/
 ")' 
 ")' >
 "#'#
+(^`@
 (~ !
 (~*!
-(<`@
 (<*~.
-(=`@
+(=~`
 (|$`
 (|$`@
 (|$ 
 (|$ ;
 (|$@
 (_^][
-(\`@
 (\$`
 (\$ 
-(%>!*
-(%}`
+(%^&*
+(%&|#
 )|$`
 )|$ 
 )|$@
@@ -134,14 +144,27 @@ _ _/
 {<?\
 };]_
 }&@<
+@<>@
+@<?@
+@>>@
 @_^[
 @_^]
 @_][
-@?>@
+@.=@
+@(`@
 @(>]
+@];@
+@@>@
 @@@@@@@@@@
+@$!@
+@*`@
+@\;@
+@#!@
+@%`@
 $`<`
+$<?@
 $,&((,*,,
+$.=@
 $(&(( *
 $)?(
 $$$$
@@ -149,7 +172,6 @@ $$$$$$
 $$$$$$$$$
 $$$$$$$$$$$$$$$$$$$
 $	$	
-* ^!
 \|$@
 \$`;
 \$ _
@@ -165,16 +187,16 @@ $	$
 & ,"
 &&&&&&$$$$$$$$$$$$$$$$$$$$
 #'#:
-%;;=
-%"'=
+%^|>
 %[^=] = '%[^']'
 %[^=] = "%[^"]"
 %[^=] = %[^;]
 %[^=] = %[;]
 %[^=] %[=]
+%}<*
+%*{<
 +'+.
 +\$(
-	:`:;
 	!	%
 	$	$	
 				
@@ -188,7 +210,7 @@ $	$
 																																												
 `:0>
 <0|,
-=;=0
+={"0
 |?\0 
 |?\0 >
 |$0;
@@ -200,12 +222,13 @@ $	$
 /"/&/*0
 (|$0
 (|$0@
+(-	\0
 (\$0
 )|$0
 )\$0
+@:0=!
 @:0(
 *0#)
-\=)0#
 \$0~>
 \$0;
 \$0@
@@ -213,15 +236,21 @@ $	$
 \\$0
 \0 >%
 %	0>
-0``@
+0<?@
+0=?@
+0>>@
+0 `@
 0_^[
 0_^]
 0_][
-0-!@
+0,`@
 0,(.
-0]!@
+0:+@
+0/=@
+0.=@
+0];@
 0$!@
-0\!@
+0\`@
 0&|_
 000000
 0,0,0,0,0,0
@@ -248,8 +277,7 @@ $	$
 ^00ffff TexU: ^ffff00
 ^00ffff TexV: ^ffff00
 ^00ffff* You are now in SURFACE mode.
-0}0I
-01!@
+00<I
 0123456789
 0 1 2 3 4 5 6 7 8 9
 0123456789abcdef
@@ -269,8 +297,6 @@ $	$
 0.25
 0..255
 0.28
-`	0<2I
-0<2I
 #%02x%02x%02x
 %02x%02x%02x
 #%02X%02X%02X
@@ -282,32 +308,38 @@ $	$
 \$03
 03<?
 %0.3f
+=048
 ' '$'(','0'4'8'<'@0
 ( ($(((,(0(4(8(<(@0
 %04d
 %04d: scrollable region
+0\4I
 050s0
 !)059=@BEGIKLNPRUWY[\^`begiklnpruwy{|~
--05M
-0	6@
+0 6@
+0-6@
 0.66666666
 %.06f ns
+=.08
+=*08
 .".08
 ]0]8
-@08~
-0@85M{<
+0^8@
+@08~#3I
+08~#3I
+0@85}
+089@
 08a8ff
+08D@
  (08@HPX`hpx
+08v#3I
 %08x
 %08X
 -%08x%08x
 |$0@8yft
 |$09
-0'9@
-0&9@
-09>@
+0+9@
 0.965
-098@
 $09LWiv
 `*`0a
 @'@0a
@@ -362,44 +394,38 @@ $09LWiv
 0A_A^A]A\_^[
 0A_A^A]A\_^]
 0A_A^A]A\[
+=0ae
 ??0aiMaterial@@QEAA@XZ
 ??0aiNode@@QEAA@XZ
 ??0aiScene@@QEAA@XZ
 0|aM
--0aR
 |$0B
-0B>@
 ??0?$basic_ios@DU?$char_traits@D@std@@@std@@IEAA@XZ
 ??0?$basic_iostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z
 ??0?$basic_istream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z
 ??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z
 ??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAA@XZ
 0B_u
-(]0c
 |$0C
-0^C@
-0<C@
-0>C@
-0	C@
 0cn1
 ??0?$codecvt@_WDU_Mbstatet@@@std@@QEAA@_K@Z
-`0D@
 |$0D
+ 0D@
 (|$0D
 (\$0D
 )|$0D
 )\$0D
 @0D;
 \$0D
-0,D@
-0"D@
+0>D@
+0D`@
 0D;>
-0d8@
 ]0D8
-|$0D9=v,B
+|$0D9=6<B
 #0dffff
 	0dl
 0!e 
+0e`@
 |$0E
 )|$0E
 )}0E
@@ -411,6 +437,7 @@ $09LWiv
 }0E3
 @0E3
 \$0E3
+0e3I
 ~0E9{
 ??0ExtGroupTaskManager@Blast@Nv@@QEAA@AEBV012@@Z
 ??0ExtGroupTaskManager@Blast@Nv@@QEAA@XZ
@@ -440,8 +467,6 @@ $09LWiv
 %.0f
 %.0f%%
 |$0F
--0F+
-0F`@
 %.0f/%.0f
 %.0f/%0.f
 )\$0fA
@@ -457,7 +482,7 @@ $09LWiv
 [0fL
 0: Flip fullscreen, 1: Exclusive fullscreen, 2: Borderless fullscreen, 3: Windowed
 %.0fx%.0f
--0g4
+0G<@
 \0 >gM|
 ~0H+
 |$0H
@@ -478,7 +503,6 @@ $09LWiv
 \$0H+
 0|#H
 0_][H
-%0h6
 ~0Hc
 |$0Hc
 {0Hc
@@ -491,8 +515,7 @@ $09LWiv
 \$0Hk
 |$0H;U@t
 |$0H;U@t	
-0i;@
-`}0I
+`0<I
 |$0I
 |$0I;
 (|$0I
@@ -506,6 +529,7 @@ $09LWiv
 ??0IAllocator@cohtml@@QEAA@XZ
 ??0IAsyncResourceHandler@cohtml@@QEAA@XZ
 }0Ic
+(=0IC
 0I+D
 ??0IFileSystemReader@cohtml@@QEAA@XZ
 @0I+@(H
@@ -519,22 +543,23 @@ $09LWiv
 "."0J
 \$0J
 0J,@2.4j648
-.0.K
+.~0K
+./0K
 \$0K
 0K0O0S0W0[0_0c0g0k0o0
 !0Km
+0l;@
 |$0L
 (\$0L
 )|$0L
 ]0L+
 \$0L
 \$0L+
-0L?@
 ^0L3
 0L9`
+0LB@
 }0Lc
 0L;f
-%0LH
 ??0_Locinfo@std@@QEAA@PEBD@Z
 ??0_Lockit@std@@QEAA@H@Z
 |$0M
@@ -543,23 +568,30 @@ $09LWiv
 @:0M
 \$0M
 0[M@
+.0MI
 ??0MiniDmpSender@@QEAA@PEB_W000K@Z
 ??0MutexImpl@shdfnd@physx@@QEAA@XZ
 "*0,N
-.0nK
-0P6@
+0N>@
+>0nI
+-0pK
  0@P`p
+0q;@
 0|qA
+0qA@
+-0qR
 |$0r
 \$0r
+0r`@
 0	+R+f+
 ?0RFP
-0s;@
 ??0SListImpl@shdfnd@physx@@QEAA@XZ
 ??0SyncImpl@shdfnd@physx@@QEAA@XZ
 >0|t
 |$0t
 \$0t
+,0T!
+0T_@
 0T	@
 ??0task_continuation_context@Concurrency@@AEAA@XZ
 0tbI
@@ -574,7 +606,7 @@ $09LWiv
 |$0u
 \$0u
 \$0u_
-0U!@
+0u;@
 (|$0u3A
 |$0u-A
 0u	H
@@ -583,10 +615,8 @@ $09LWiv
 0*V*X"Z
 /{0w
 \$0w
-0wD@
 <0|x
  - 0x
-0X;@
 0x%02X%02X%02X
 0x%02X%02X%02X%02X
 ((0-x) * -2) + 1000
@@ -594,18 +624,19 @@ $09LWiv
 0XM@
 0YO@
 .@0z
-0Z;@
-0zD@
+0zA@
 0ZM@
+`1`@
 ^1^;
 <1<:
-=\1@
--:<1
+=1};
 ;(;1;?;];
 /1,'
 .(.,1
+(%1}#
+(1{`
+@1!@
 *%*1
-%;1-
  	//10 
 1000
 100000
@@ -634,7 +665,6 @@ $09LWiv
 1,1,1,5,5,5,5,5,5
 1:1>1B1F1J1N1R0
 1.1.4
-(11a
 11eU%
 1"1i3
 1*1V1[0
@@ -649,12 +679,12 @@ $09LWiv
 127.0.0.1
 1.2.8
 12800
+=12Q
  	//13 
 133.333
 133.33333
+==14
  	//14 
--1)4
--14*
 14/88
  	//15 
 1500
@@ -668,39 +698,37 @@ $09LWiv
 188.122.71.68
 )18>BFJMPSVX[]_acegiklnpqstvwyz{}~
 18c7ff
-(1^a
-(1!a
+(-18E
 1a1e1
 1A26b
-(1Aa
-=1AG
 ??1aiScene@@QEAA@XZ
 1}AM
 1ANYckrx~
 !1AQaq
 1ASdu
  // 1a. Void Cannon 
-(]1b
 ??1?$basic_ios@DU?$char_traits@D@std@@@std@@UEAA@XZ
 ??1?$basic_iostream@DU?$char_traits@D@std@@@std@@UEAA@XZ
 ??1?$basic_istream@DU?$char_traits@D@std@@@std@@UEAA@XZ
 ??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UEAA@XZ
 ??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ
+(1bc
  // 1. Blaster 
-(1(c
+(1-c
 1: Clan Arena mode, 2: Pure wipe out mode
 1CMR]c
 ??1?$codecvt@_WDU_Mbstatet@@@std@@MEAA@XZ
-(1)d
+(1dd
 1D+D
-.1DI
 ~1E3
 -1e+9999
 1e+9999
 ??1ExtGroupTaskManager@Blast@Nv@@MEAA@XZ
 ??1ExtSyncEvent@Blast@Nv@@UEAA@XZ
 %.1f
+(1fa
 ??1facet@locale@std@@MEAA@XZ
+(1Hc
 }1Hc
 ~1HcD$8H
 ??1IAllocator@cohtml@@UEAA@XZ
@@ -708,32 +736,30 @@ $09LWiv
 ??1IAsyncResourceHandler@cohtml@@UEAA@XZ
 }1Ic
 ??1IFileSystemReader@cohtml@@UEAA@XZ
+>1IK
 ??1ILogHandler@Logging@cohtml@@UEAA@XZ
-=1iS
 ??1ISyncStreamReader@cohtml@@UEAA@XZ
 ??1ITextInputHandler@cohtml@@UEAA@XZ
 ??1ITextTransformationManager@cohtml@@UEAA@XZ
 ??1IViewListener@cohtml@@UEAA@XZ
+-1<J
+(1jb
+."1K
 1Kay
+=1kS
 1}.L
-(1Lc
 ??1_Locinfo@std@@QEAA@XZ
 ??1_Lockit@std@@QEAA@XZ
-=1m#
-(1m`
 ??1MiniDmpSender@@UEAA@XZ
 ??1MutexImpl@shdfnd@physx@@QEAA@XZ
 (1nb
-(1Ob
 1>O\kw
-.1PL
 1pytt
 1PYTu
-=1"Q
+=1QG
 1r"?
 1!Rwp
 1?{s
-=1[S
 ??1SListImpl@shdfnd@physx@@QEAA@XZ
 ??1SyncImpl@shdfnd@physx@@QEAA@XZ
 }1T;0
@@ -742,16 +768,17 @@ $09LWiv
 ??1ThreadImpl@shdfnd@physx@@QEAA@XZ
 1t~L
 ??1TypeDescription@cohtml@@QEAA@XZ
-=1u<
 /%1|u
 1?Uo
 1{?w
 1w-!_!@
-(1Wb
 1wsHp
 :1X:
+=1yS
+(1Zc
 `*2`
 <>>2<
+=+2\
 |$ 2
 |$,@2
 |$@2
@@ -759,13 +786,13 @@ $09LWiv
 ;2&&
 (.*(,2*
 @@@2
+@2!@
 @2@\
 \$`2
 \$ @2
-%2[?
+%2^-
 	$	$	?	2	
 	2	?	
-2`:;
 2"*%
 	20 
 2 0" $
@@ -779,7 +806,6 @@ $09LWiv
 @20T
 2)202<2U2e2
 22.5
--2/3
 2/3,
 23#"
  2,345 bytes
@@ -796,8 +822,8 @@ $09LWiv
 -.-2-6-:->-B-F-J-N-R0
 &2&6&:&>&B&F&J&N&R&V0
 %2%6%:%>%B%F%J%N%R%V0
-=2'7
 27.5
+`2 ]8
 "%/28;=#$019:>?11 4 22 44 44 22 444444
 285.93
 #28cdcd
@@ -805,40 +831,40 @@ $09LWiv
 2a\|
  // 2a. supershotgun 
 "2BRbr
+@2C@
 2C2L
 "2CScs
 2CZu
--2d<
 <*>$@2>D<$>
 |2E;
 %.2f
 2FFCI
 :2FFCu
-(=2|G
-%2@G
-=2h_
 2H9N u
 2Hax
 |2Hc
-`<2I
 $2I+
 2. I am selectable
 ??2IEventHandler@cohtml@@SAPEAX_K@Z
 #2=IVanw
+%2<J
 2j(l
 2%k_
 	2	L	
-2L;@
 2L4.6 8
 ,2M+
 2nd layer of physics acceleration.
 2nd layer of physics friction rate.
 2nd layer of physics max speed.
+=2,O
+2O;@
 2Ogx
 $2?O_n~
 +2_p
 2p"	
+`2P=!
 ??2Property@cohtml@@SAPEAX_K@Z
+@2pV8
 2@Q	
 2q2z2
 $2$r$
@@ -848,23 +874,26 @@ $2&r()
 2/SOE3
 2	t	
 2tkH
-.2TL
 2u"M
  // 2. Void Cannon 
 2w	H
+=2x_
 2:x<^>
 %.2X
 %.2X-
->2@^>y
 <$3|$
+=`&3
+=_3@
+='=3
+=(\3
+=&3@
 |$`3
 |$ 3
 |$(3
 |$@3
--">3
+(3`@
 )<$3
 )|$ 3
-@3`@
 \$`3
 \$<3
 \$ 3
@@ -873,7 +902,7 @@ $2&r()
 \$@3
 \$$3
 \$\3
-%?/3
+%3\?
 (3?0
  // 300 min switch times added for animation 
 301.993
@@ -896,19 +925,22 @@ $2&r()
 333?333?333?333?333?
 ?333?333?fff?
 >33S
+-34\
 346$Z\
 3600
 36336ee97ec543bbae85abaca618182b
 !&.37<
+=37d
 ~3~8
+(=3'8
 3.81
+`39@
+(!3a
 %3AObq~
  *3B
 '3<CIOSW[^adfikosvy|~
  3CQ`p
 #3CScs
-=3'd
- 3D@
 ~?3e
 3}?e
 3$EE
@@ -916,41 +948,47 @@ $2&r()
 (%.3f, %.3f, %.3f)
 (%.3f, %.3f, %.3f, %.3f)
 (%.3ff, %.3ff, %.3ff, %.3ff)
+.3fJ
 3h3q
 3H9u
 "3Hau
 }3Hc
+`>#3I
+^#3I
+~#3I
+>#3I
+.#3I
+@>#3I
+	#3I
 3. I am not selectable
 ??3IEventHandler@cohtml@@SAXPEAX@Z
-%3j*
-3`(j
->@3K
+.3	J
+.3[L
 	3l0
 3L$0}
+.3lK
 !3Mt
 3|mU3
 "3=N\j~
-=3nS
-=3NY
 %3;NYk{
-.3OJ
+3P8j
 ??3Property@cohtml@@SAXPEAX@Z
 |3?q`
 {3>R
 3Rich
-=3rQ
 (?3s'?
  // 3. shaft 
+.3sK
 3T$8I
 3 (tab skip)
+(%3tN
 @3V^eikjf_WE
 ?(3w
 3ZS<
-=[-4
-=}#4
+==!4
+=4)=
 | |4
  ;~4
--!(4
 :@*4
 )*)4);
 *!=4
@@ -963,18 +1001,20 @@ $2&r()
 &40D^FD40D^FD40D^F~B
 #42fc42
 |$43
--$43
 (4$3
 \$43
+=4\4
 4%43
 4500
  '-46
 4*6(8(<
 46E3
 4,6x8
+=/47
 }4:7
 494.773
 49fD
+="4A
 |$4A
 _4A;
 \$4A
@@ -983,12 +1023,13 @@ _4A;
  *4ajqsrkdZR(A
 4:A;p|vGH
 {4A+v0A+~4
+=$4B
 :4	/B/F/J/N/R/V/Z/^/b0
 |$4C
-@4C@
+=4$d
 |$4D
 |$4D;
-@4D@
+ 4D@
 \$4D
 4+D;
 4`(d8:(N
@@ -999,6 +1040,7 @@ _4A;
 $4DTdt
 4DXgu~
  4	E]
+-*4E
 )4$E
 \$4E
 4'E;
@@ -1021,9 +1063,10 @@ $4DTdt
 ??4ExtSyncEvent@Blast@Nv@@QEAAAEAU012@AEBU012@@Z
 (4$f
 %.4f
-4f6B8&4B:,<L>
+4f6@8&4@:,<L>
 `4fA
 4F]t
+=4|G
 4G4Pe
 4@G8d
 |$4H
@@ -1032,44 +1075,39 @@ $4DTdt
 )4$H
 \$4H
 \$4H+
-4`H<@
 4<H+
 4$H;
 4?HQ
+`\4I
 |$4I
 \$4I
-=4I4
 4. I am selectable
 4$Ic
 4j4r4}4
-=4jE
-.4JJ
-.|4K
-4K>@
+>4jI
 %4?K\fw
 ~4L+
 |$4L
 )4$L
 |$4L9=
 ~4Lc
+.4LJ
 |$4M
 4$M;
-=4N3
 	4	N	\a
-4o!@
-.4pK
+-4oU
 4QfD;t$0t"
  // 4. Rocket Launcher 
 4S=?8_=i
 4< t
 4 (tab skip)
 4$tRA
--4_U
 4 uH
 )4$v
 4v65
 4v6H
 )4$vQ
+4VxPV
 4\w3`-
 4wEH
 4*:X>
@@ -1080,273 +1118,309 @@ $4DTdt
 ^~4z-
 4ZM@
 ^|?5
-=_|5
-=-<5
-=,<5
 =!=5
-=5%=
+='"5
+=\	5
 >5^:
  	//5 
--$$5
 ??5^
-(5|<\
-\5;/@
+(5,{#
+(5!|#
+(5!{#
+%	-5
 +!+5-
+5=};
 5|(~
-5?^\
-5	#:
-50!*
+5 ][
+5,@?
+5/#=
+5{*?
 5000
 500x500
-50n#
+5]0F
+50<J
+5>"1
+51$-
+51	*
 51200
-5;1L
+(5	1N
+51WH
+(5^2\
+5/2\
+5"29
 52F*
-52LH
-52{Z
-5+3/
-53+7
-53aV
-53#B
-="54
-54aV
-54dA
-=54W
-=5$5
+=52Q
+53I@
+53qV
+5!(4
+5&<4
+54|#
+5:41
+54qV
+5=}5
 5 5'
-5_|5
-\5-5F
-/55HP
+5(#5
+55~2
+(55c
 5_5i5p
-55iP
+55yP
 5~(6
-5]\6
-56>	
-56aV
-56Ie
-56Q?
+56~?
+56b2
+^5$6J
+56qV
+56Xe
+=`57
+=;57
+(5}73
 575A
-\579F
-57,C
-5`7R
-5_-8
-5(,8
-58cf
-58GD
-^58iM
-58&S
-58_U
-(59:\
+(57b
+5]7F
+57oG
+5;;8
+58:*
+58"5
+586S
+(58D\
+-58F
+58oU
+58sf
+=5'9
+5[9/
+59^+
 5	9c
-59PV
+59_e
+5'9P
+59RJ
+59`V
+(5 [A
+5#|A
+(5A[0
 #5a811e
-5aAH
+5%aC
+5acV
+5ae?
 (5/AO
-5aSV
-5--B
-5+B0
-5!B9
+5>aV
+5?aV
+5@aV
+5_]B
 (5b9O
+5B~A
 ??5?$basic_istream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@AEAI@Z
 ??5?$basic_istream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@AEAN@Z
 ??5?$basic_istream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAVios_base@1@AEAV21@@Z@Z
-(5bd
-5biW
-5bSV
-(5\c
-5	cL
-5clA
-5CPH
-5cu=
-(5]d
-5$d*
-5D 5
-5DA:
-(5dd
-5dih
-5Dk<
-5};E
-5EaV
+5bcV
+5?BQ
+5bRQ
+=5c:
+(5c[/
+%_5C
+5C.B
+5CCM
+5~cV
+5}cV
+5cyh
+(5<D\
+5)D6
+5df3
+5Di*
+^5dK
+5\DK
+5DlA
+5>e?
+5e#-
+5E_6
+(5ea
 5EEI
-5e@J
-5el*
-(5?EN
+5EKA
 5EPX_f
-5[EQ
-5eQC
-5eQG
-5et4
+5EqV
 %5EUeu
-5_[f
-5/`f
-=}5F
-5;$F
-5^f4
-5F$5
-5F>6
-5FHe
-5fnF
-5FPA
+5{f?
 +5FSgr
-5+FY
-5g-;
-(5	}G
-5g1P
-(5G5\
+5:G5
 5G5S
+5GaV
 ?5=G_{b
-5gDK
-5g~e
+5gf@
+5g=F
 5gib
-^5gLP
-(5gM)
-5GQV
-5_h;
-5-h;
-5H&?
-5hCG
-5h?e
-(5hGC
-5HQ/
-5Hq6
-5HQV
-5hsK
-5HYf
+5gj<
+5GL6
+5g[M
+5Gn\
+5`GR
+5GxU
+5`^H
+5HaV
+5Hif
+5?HM
+5>HW
+5}I=
+5I1:
 5. I am double clickable
-5i?G
-5I:H
-(5I)N
-5IOe
-5J^-
-5J.1
-5jt<
-5k"?
-5|%K
-5KdC
-5kiV
+5i$M
+5j'5
+/5JPP
+=5>K
+5({K
+5K`;
+5K{=
+5k,5
+\5K7@
+5k7H
+5_kf
+5(KG
 *5KS
 -5?KYks
-5(l2
-5L+J
-5M;=
-5:M6
-5)Me
-5m&Q
-=5mS
-5mwS
-5n)#
-(5_=N
-5~$N
-5NpT
-5NX[
-5Nz,
-5o*\
-5+o5
-5O9S
-5O E
-5?oG
-5oKF
-5?%P
-5;P5
-5PAP
-5$pe
+5kyV
+5kZ2
+5L69
+5L9Q
+5l_A
+5lk*
+5Lu?
+(5m{#
+5m&?
+5}m3
+5m6Q
+5m;8
+5Mb<
+5$Me
+5MjA
+5mKE
+5[mM
+5MZ2
+5>,N
+5n)c
+5Ne?
+5NXM
+5_o<
+%5O?
+5o1K
+5O5P
+(5(OC
+5o\e
+5OIS
+5oj5
+5P&*
+5@P4
+5P!4
+5/pf
+5/PG
+.5PJ
  // 5. PnCR 
-=5"Q
-5QaV
-5QFd
+5pU5
+5"q<
+.5}.Q
+(5Q|#
+5{{Q
+5+&Q
+5Q*@
+5q&F
 5?q=J?
-5Q`R
-(5QU0
-5Qv_
-5>QV
-5?QV
-5@QV
-5\QW
-5QX6
-(5R<\
-5R-8
-5RC@
-(5Rd
-5rF6
-_5;RL
-5;s=
-5Sih
-(5SK)
-5"sO
-5so5
-5S$P
-(5sU/
+5QpR
+5QqV
+5QVd
+5"qW
+5-r1
+(5^s]
+5s!\
+5s}=
+=5}S
+5S29
+(5S E
+5.SF
+5%SF
+5sL5
+(5sP)
 !5@Su
-5~SV
-5}SV
-5t?0
-5t0?
-(5T6E
 5t8H
-5tEY
-]5<TM
-5TSO
-5u'4
-5uGA
-5uih
-5uKF
-\5U>L
-5 v-
-5&v?
-^5V'*
-5V7#
-5?vector_z
-5VQ=
-5~@W
-5	~W
-5W^@
+5TcO
+5tO:
+^5'TP
+5tUY
+5ty<
+5tyh
+5u2	
+(5u[E
+=5uH
+.5UK
+5umT
+5[UQ
+^5v,*
+5]v;
+5v<#
+=\5V
+=5V?
+5V*:
+5v51
+5v^e
+5?vector_x
+5&vF
+5+VY
+5:w2
+\5W9F
+5=WA
+5W#I
 5wJe
+5w%K
 5w!L
-(5x<\
-5 x,
-5Xe5
+5wz<
+5*x;
+5X.?
+5x3B
+5xFF
+5x:J
+5XOe
+5xVe
+5xW/
+5xZe
 5y?4
-5Ydf
+5&Ye
 5#yj7
-5yS$
-5Y~W
+5Ytf
+(5=z#
 *?5z(?
-5Z-3
-5Z45
-5z!5
-5Za8
+5`z#
+5z\-
+5	Z@
+5z}A
+5z-F
+5ZrC
+5Zx<
 ~6? 
  6")
+-(6,
+-#{6
 }6};
-@-6@
-@+6@
-%6-=
+@6!@
+\=-6#
 6~_'
 6000
 60,-5,-10,-27,0
 #606060
-6(0K
 ".60T
 6"*1
--61E
 62,-21,-2,-22,-6
 62,-21,-2,-25,-6
 62.5
--}63
+`6#3I
+(6#3I
+6#3I
 646B
-646K
 6"4:8
+64!J
+65UK
 6*6.6[
-668&: 8
-66]I
-6`7K
+6<6K
+6&8$:
+68oJ
 (6<8Z
-69aI
-6,9K
 |$6A
 ,6A;
 #,6AMZhw
-6aYI
 ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@G@Z
 ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@H@Z
 ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@I@Z
@@ -1357,98 +1431,98 @@ _5;RL
 ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@N@Z
 ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAV01@AEAV01@@Z@Z
 ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAVios_base@1@AEAV21@@Z@Z
+6,`&b,d,f
 ,6,:,>,B,F,J,N,R,V,Z0
+6`BJ
 ,6bP
 6bP&
-6|CI
-=6@D
-6d5K
+6CAJ
+6#cK
 6D8f
-@6dHJ
-6:DK
-6DKJ
 \$6E
 ~6E3
 6E81uPI;
 6E8%9
-6e'K
+6E}I
+6(EK
 &6EUdt
 <6fB
-6feK
-6f\I
 6f;sD
 &6FVfv
 %@6G
-@6,GL
 6GQ^h~
-=6HF
+6H9K
 6HiL$ 
-6HIL
-`6h$L
+6H"J
+6hjI
+6h>K
+6h'L
 ~6Ic
 <6Ic
 	 	$	6	I	Y	h	s	z	
 $^(\*6(J
 $.$6J
-6` J
-6,"J
-6$JJ
-`6,(K
-`6,\K
-6?'K
-6@`K
-6$<K
+6| J
+6  J
+6(%J
+6\#J
+^6+K
+=6K?
+@6,,K
+6(<K
+6\_K
+6\:K
 6K6S
 6?k 6?t
-@6l{I
-6l;K
-6LNL
-6lRK
-6LUK
-6LVJ
+6\@L
+6l3K
+`6LNI
+6Ltv6
+=6nF
 ^6o}
 }6;O
 6o6v6
-6owJ
-=6S7
+6p$J
+6p;K
+.6RL
 6s?fBbEcJYG[I[NYVP\B]@f;g<h<u4{,
-6t8K
-6\TI
-6t!J
+6|tI
+6T=K
+6TMJ
 6u	@
-6}UJ
+6u~I
 >6uu
 6uu?>
 >6uu?L
 >6uu?uj
 6uu?uj
-6X:K
-6y(K
+6V_I
+6,wI
+6x8K
+6XRI
 6z0|
-={'7
-(=(=7
-%,}7
-%]7*
+=/]7
+=[7	
+\=)7@
 70,-10,140
-%70M
 70R+
-=7^3
 736 Error creating render target view. Code=
-=75E
 +?78+?
 7890
 7~8A
-`79@
- 79@
 79]%
 797k7
+-7a3
 7a874e
 >7>Ba
-(-7c
+(}7d
+`7D@
 #7dd82b
 }7D;G
 7D)}<I
+=7dY
 _7?e
+(=]7E
 )7ESbp
 ??_7ExtGroupTaskManager@Blast@Nv@@6B@
 ??_7ExtImpactDamageManager@Blast@Nv@@6B@
@@ -1458,9 +1532,7 @@ _7?e
 ??_7ExtStressSolver@Blast@Nv@@6B@
 ??_7ExtSync@Blast@Nv@@6B@
 ??_7ExtSyncEvent@Blast@Nv@@6B@
-="7F
 7F7W7c
-=7"G
 '7GWgw
 |7(H
 7H9D=
@@ -1475,26 +1547,25 @@ _7?e
 #|?7o|?
 /-7O
 7PO	
--=7R
+=7~S
 |7S*$
-=7TY
 7wbH
--7Ze
-``8@
-`8+@
-=*&8
+=7^Y
+=_'8
+=@8>
+=*8>
+=\(8
 |$ @8=
 |$8;
 |$8@
 |$8$
- !8@
+ {8@
  8"-
 ;_8}
-(8`@
-@8=,
-@8=.<	
-@8={
-@8=}
+(%!'8
+@"8@
+@8=|
+@8=)
 @8;@
 *8.\.^&`
 \|$8
@@ -1502,13 +1573,14 @@ _7?e
 \$ 8
 \$8@
 &\8!
-8=;@
 8_^][
-8,`@
+8-`@
+8:`@
+8@`@
 8@:,<
+8$`@
 8\$!
-8&`@
-8&:$<
+8+`@
 {(@8{0
 80?"
 #800000
@@ -1519,9 +1591,8 @@ _7?e
 8>0RF>
 <80u
 @8,0u
-81*b
+81`@
 @81t
-@8=2|?
 \$82
 |$83
 \$83
@@ -1529,35 +1600,36 @@ _7?e
 8438f6
 8461 Error creating render texture. Code=
 @849u
-@8=5
-@85^
-@85"
-@85cQG
-@85h;S
-@85K
-@85;;S
-@85ygU
-85Zb
+@85'
+85`@
+@85	6W
+85]b
+@85-DW
+@85hKS
+@85;KS
+@85K#W
+@85ywU
+@8=69	
 87*P
-=87Q
 \$88
+8(: 8
 8@8=
 8&8=
 8859
 8,8,8,8,8,8,8,8,8
+8}8a
 ^88ff88'
+8@8=l
 `88:L
 @88t
 @8|$8t
-8@8=<w<
- 89@
+=%89
+89`@
 \$89t$<
 @8,9u
-89Yd
-@8=a_>
-8=>a
+(!8a
+@8=a:	
 |$8A
-@8=A
 \$8A
 \$8A^_^
 8A^_^[
@@ -1581,19 +1653,15 @@ _7?e
 8A_A]A\_^]
 8A_A]A\[
 8A_A^A]A\_^][
-8A;d
 8aM@
 8armou
-@8=b
-8!|b
-=8Bd
-8,b&d,f,h
+8	^b
 &8&:&<(>"@(B D(F H
 8binau
 8B;t
-@8=	bU
 8bunz8
-(%8c
+8C?@
+8	Cd
 @8@C@N
 8csm
 8C(t
@@ -1601,12 +1669,7 @@ _7?e
 <8cu
 <8Cu
 8C{u
-(-8d
-@8=d
-8!}d
-`8D@
 ^8D+
-=8 D
 |$8D
 \$8D
 8D$@
@@ -1646,11 +1709,14 @@ _7?e
 |$8E3
 {8E3
 \$8E3
+8Ena
 8enabu
 8enabu	fA
+-8EX
 |$8f
-@8=F|?
-@8=)f2
+%8F;
+@8F#3I
+8F#3I
 8falsu
 8 FDBu
 |$8ff
@@ -1659,7 +1725,8 @@ _7?e
 8fire
 8flicu
 !8F[q
-@8=(Ge
+@8-G
+=8GQ
 <8gu
 (8GXgw
 |$8H
@@ -1674,6 +1741,7 @@ _7?e
 \$8H
 \$8H;
 +\$8H
+8H`@
 8H9A
 8H;A
 8H;B
@@ -1682,50 +1750,52 @@ _7?e
 8@HPX`hpx
 <8hu
 (8HXhx
+=8~i
 |$8I
 ]8I;
-@8=I
 \$8I
-8I`@
-8iBa
+8i#a
+8I\b
 ]8Ic
-8IVb
 $*$8J
+8)Ja
+=8K<
 <8ku
 |$8L
 \$8L
 \$8L+
-8L;@
 @8l$8tWf
 *8Lc
 <8lu
 8lu8H
 8luCH
-8Lvv8
 |$8M
 |$8M;
+(=+8M
 $8M+
-8M`@
-=8M2
 #.8M\j{
 =8>Mo
 <8mu
+@8=n
 8n!@
-@8@N
+@8@N#3I
 8n8y
+>8nJ
 8nonet
 8nonet+
 8noneu
 8nou
-8O`@
+@8=o
+8O;@
 8ofu
  $8O[lv
 8ontpL
-8=p`
 @8|$P
 8peaku
+@8:pk8
 @8|$Pt
 @8=q
+8q)b
 8^qu
 ;^8r
 ;_8r
@@ -1733,16 +1803,16 @@ $8M+
 8race
 8raceu	
 8ravgu
-8!Rc
+=8Rd
 8rtu
+@8=	rU
 \$ @8s
 8siu
 8STs
 @8+t
 @8t$`
 8\$ t
-@8=T|?
-8T`@
+@8=T
 @8t$0
 @8t$0t]H
 8-t7H
@@ -1755,10 +1825,10 @@ $8M+
 @8{Tu
 |$8u
 8u	@
+8u1b
 8[u1H
-=8U8
 8 u8H
-8)Ub
+8UCd
 @8ug
 8/u H
 8/u&H
@@ -1767,15 +1837,11 @@ $8M+
 8#u~H
 8#u%I
 @8uo@
-8uUb
 8uuNH
 @8uwt!A
-8UYb
-@8=V
-%8v3
 8vallu
 @8w%
-@8=W
+@8=(We
 8W?i
 8wipe
 8w[L
@@ -1783,37 +1849,36 @@ $8M+
 +8wZ>n
 |$8;|$X}
 8X::8N
-8=Xb
 8x!L
 8XM@
 8XPE
 8\$Xt
 	@8y
+8Y`@
 8yau
+8y]b
+8yda
 @8yet
 8yeu
+8yhd
+8yjd
 8YM@
 &8Yv
 "8$z"
 8Z?.
 8ZM@
 8z<`>:<V
-`>9@
-`,9@
-=9}<
+=|,9
+=,9@
 |$<9
- !9@
- /9@
- *9@
+ _9@
 _,\9
-@;9@
-@"9@
-@)9@
-$9;@
 9|$`
 9\$<
 9\$(
 9|$0
+(90a
+(90c
 ^90ff70') 
  ^90ff70(Forced by server, your local value is '^ffcc70
  ^90ff70(Overriden by server, your local value is '
@@ -1824,9 +1889,13 @@ $9;@
 92FFCu
 93|#f
 >9.4&
-95eLe
+95e\e
+95ES@
 97v}H
+=%98
 9\$8
+(98b
+.98L
 98t:;
 98tn
 9]8uP9
@@ -1836,7 +1905,7 @@ $9;@
 99999
 -99999
 9@9Y9`9y9
-(9<a
+(9`a
 9A }
 9A(|
 9A$|
@@ -1844,21 +1913,23 @@ $9;@
 @ 9A |8M;
 9=aA\E
 9a&g
-9-}aR
 9A s
 9ATu%
 9A,u+
+9^`b
 @ 9B
 @(9B
 @$9B
 9B\|
 9B<}4
+(9bb
 9B`t
 9BTu
 9B u
 @$9C
 9C8uXD
 9C }&H
+%9CL
 9C s+H
 9?=d>?
 9D$4D
@@ -1867,31 +1938,31 @@ $9;@
 9!depu
 9D$h
 9D$h~
+9=D>H
 9D$p
-=9dS
+=9DW
 -9E 
 }9E`
 9Ed|SD
-9-e`R
-=9_F
+9-epR
 9F9O
 9fA;
-.9fJ
 9FlH
 9fylgu
 %.9g
 @ 9G
 @(9G
 9g9p
+9=)gd
 9G(t
 9?Gw8?Q
 .9GXdx
+9`(H@
 9H |
 9H }
 9H }	
 9H(|
 9H$|
-9H2I
 9H s
 9H s	
 9HTu3
@@ -1903,14 +1974,14 @@ $9;@
 9JTu
 ,9JYiy
 9k4vmD
+(9kd
 9k t
 9l$0
 9L$0
 9l$0uV
 9Lc#M
--9LO
+(9Ld
 9l$`uSD
-9=LVF
 9l$x
 }9M+
 9metau
@@ -1918,6 +1989,7 @@ $9;@
 9n8v,
 9Nlu
 9N(tCE
+-9\O
 9|$p
 9p(|
 9p$|
@@ -1935,6 +2007,7 @@ $9;@
 9Q4}	A
 9q8v'fff
 9q`}9
+9-}qR
 9Q t
 9Q,u
 9radiu
@@ -1956,18 +2029,21 @@ $9;@
 9t$P
 9|$Tu
 9\$@u
+(9ua
 9#u)H
 9ulu
 9Uo}{
 9u(t
+=9uT
 9u(vgH
+(9Vc
+9=vfd
 9_ viA
 9|$@vMH
-9=vVd
 <9w{
 		9w
 9w0t
-9=)Wd
+9=w-8
 9wDu
 <9we
 9weapu
@@ -1987,31 +2063,29 @@ $9;@
 9X }
 9X(|
 9x2I
+(9xc
 9x s
 9X s
-9=y-4
+(-\9Y
 9Y8v2
-(9Ya
 9Y>)F$
 9Y s
 9Y(v,
 9Y(v(fff
-=-a?
+`=#a
+=)#a
 ,<a|
 ?)a<
-(--a
-(-)a
-(-[a
-(-#a
-(!\a
-(}<a
-(} a
-(	>a
-(	_a
-(a{`
+(=(a
+(- a
+(-*a
+(}?a
+(%.a
+(	/a
 ]!])a
 a```
 `:A(
+`{A@
 `A^_^
 `A^_^][
 `A__^][
@@ -2023,7 +2097,8 @@ a```
 ~!A+
 ~*A;
 <$A;
-=@%A
+=#|A
+=A-=
 | A+
 |$`A
 |$|A
@@ -2041,6 +2116,7 @@ a```
 |$&A
 |*A;
 |	@A
+|A;@
  A^^[
  A^^]
  A^_^
@@ -2136,7 +2212,7 @@ A\_]
 A\_][
 A\[]
 A:%0.3f
-(a0a
+=a08
 A0A;
 A0A9@0~
 A0E;
@@ -2145,10 +2221,10 @@ A0E3
 A0fA
 A0H;
 A0H9A(
-=a 1
 A;1A
 (/a2
 %a2	
+=a'3
 A:%3.0f
 a3d939efc70848baaf996f6040d9cb19
  A;~4|
@@ -2160,7 +2236,6 @@ a7B_
 {A7Dd
 @ A8
 A89C
-(a8b
 A8D	
 A8E3
 A8Ex
@@ -2181,7 +2256,6 @@ A8vtt
 /A8w
 A8wEA
 a`8Yhu
-`A9@
 @ A9
 A9@(|*
 A9@$|*
@@ -2218,7 +2292,9 @@ A9t$P~\L
 A9?u
 !a9X
 `a~a
-(a+a
+(=aa
+(a!a
+(a.a
 `A^A]]
 `A^A\_^]
 `A_A^_^]
@@ -2323,7 +2399,6 @@ aa1.ps.cso
 aa1.vs.cso
 aa2.ps.cso
 aa2.vs.cso
-=aA3
 A*A3
 aa3.ps.cso
 aa3.vs.cso
@@ -2437,20 +2512,24 @@ aaoff.ps.cso
 aaoff.vs.cso
 a=ATEMuZA
 $?aB$?
-(A~b
+(A{b
 %Ab*
 ?@AB
 A;B.}
+(aba
 abc.h
+(abd
 %aBI
 ability_hook
 ability_vampire_activation
 ability_vampire_hit
-.ABJ
 abort
 About Dear ImGui
 absolute_acceleration
- AC@
+(a\c
+`aC@
+(A^c
+@AC@
 A;C/}
 A call to a standard soundcard driver failed, which could possibly mean a bug in the driver or resources were missing or exhausted.
 accel
@@ -2501,9 +2580,12 @@ ActiveIdWindow: '%s'
 Active layer in the editor.
 acute
 Acutesmall
-(]ad
+(a|d
+(a'd
+(a\d
 a$^d
 ~aD;
+(A*d
 A<D;
 A D;
 A:D	
@@ -2545,7 +2627,6 @@ AddSpecular
 ADD_STYLE_NAME
 add_video_mode
 add_weapon_customization_model_rotation
--adF
 A$D;I
 adieresis
 Adieresis
@@ -2578,8 +2659,8 @@ aeam
 aehh
 aehv
 AeI;
-AError loading bitmap font 1.
 AEsmall
+%a)F
 \A(f
 A;F	
 A;F0
@@ -2588,16 +2669,15 @@ A`fA
 A(fA
 A	fA
 <afE
-=aFH
 AF_INET
 AF_INET6
 Africa
 after_
 After issuing this command, press a key or mouse button,
 AF_UNSPEC
-A	FY
-(AGc
+=Ag9
 Agent camera view height.
+%AGF
 agrave
 Agrave
 Agravesmall
@@ -2643,7 +2723,6 @@ A@I9B@sZL
 A@I9C@s
 A I9E
 A@I9@@s	L
-(aia
 AiAtA
 [AI] cannot find state 
 {`AiE
@@ -2661,10 +2740,11 @@ Air steering jumping power. 0 to disable.
 -Aj|
 aJaP
 AJAU
-%ajF
 A+jPH
 A+jTH
+(Akb
 AkF82
+.aKI
 "A_l
 A;l$(|
 |$AL
@@ -2741,6 +2821,7 @@ Alpha Bar
 alphafunc
 alse
 _alt
+a	,(.L,t
 ALT 
 Alternation operators are not allowed inside a DEFINE block.
 Alternative path to save movie sequences to.
@@ -2748,8 +2829,8 @@ Alt+F4
 A`ltuo
 ?always_noconv@codecvt_base@std@@QEBA_NXZ
 .alz
+a	m	
 a!M(
-=AM[
 ambience_general_temple_inside
 ambient
 Ambient created texture
@@ -2772,7 +2853,6 @@ Ambient released texture
 Ambient released view 
 ambient_sound_loop
 Ambient (Unique)
-a	m	d
 ammo
 ammodf
 ammogl
@@ -2789,14 +2869,10 @@ ampersandsmall
 A;m r
 A;MX
 a&M-=Z]<i*k)n-t&q&p&|
-=an#
-=a=N
-=#AN
 analyze
 anchors
  and 
 and 
-(ANd
  and egs_id=
  and matches 
 And now some textured buttons..
@@ -2942,7 +3018,6 @@ aO	w
 	A;p(}
 A;P |
 A;P }
-(Apa
 ApE3
 APE3
 APHc
@@ -2990,11 +3065,11 @@ app setup on_post_load
 app setup post_load_finished
 Apt$
 apuOH
-(aq`
 A;q }?I
 Aquarium
 A;>r
 A	r0>
+(aRd
 area
 Areas: No areas found. Global area used.
 Areas: Using area 
@@ -3023,7 +3098,6 @@ array
 arrow
 Arrow
 [Arrows] XY Move  [Home/End] Z move
-(ASc
 Ascender
 ascending_saw
 Ascending Saw
@@ -3037,6 +3111,7 @@ asdasd2
 asdasd3
 ASDF
 Ashburn
+^ASI
 Asia
 asin
  as it had invalid characters.
@@ -3090,7 +3165,6 @@ ATAVAWH
 \$ ATAVAWH
 ATAVH
 ATAWH
-(ATb
  at file 
 A+T$HA+L$@
 =ATI1
@@ -3681,16 +3755,15 @@ Av?H
 .?AV?$wstring_convert@V?$codecvt_utf8_utf16@_W$0BAPPPP@$0A@@std@@_WV?$allocator@_W@2@V?$allocator@D@2@@std@@
 /A<w
 A`<>w
-(AWa
 away
 Aw?e
 Aw_H
+.AWL
 a?wSa?\
 A;x$|
 Ax([
 	A;X(}
 A;X |
-(AXa
 Ax(c
 Ax(C
 ^`A+^XE
@@ -3709,37 +3782,35 @@ AXM90t
 Ax(S
 !AxU
 a\?Y
-(ayd
 $AYn
 .a|z
 .A`z
+(aZc
+(Azc
 A+zLH
 A+ZXHc
 ,`,b
 (`<b
-(%>b
-(% b
+(-)b
+(!@b
+()_b
 ](~b\+
 b:.:
-`B>@
-=@%B
-=$%B
-=B`<
 |$ B
+ B`@
 ;B |
 ;B$|
 :B&?
 @ ;B
 @$;B
-@B`@
 $;B |
 $	B`
 \$ B
 \$@B
-B:;@
 B.@}
 B(~.
 B@"	
+^=b)0
 $b01
 B:%0.3f
 B0A;
@@ -3750,10 +3821,10 @@ B0Hc
 B0L;
 B0~O
 `b0T
--B2	
+-*B1
 ,B2,4
 B2Bk
-=B'3
+=B 3
 B:%3.0f
 B33;
 :B<4:
@@ -3761,8 +3832,8 @@ B33;
 b4c61212277e48a29b0a5351eedc3df8
 b}4H
 B4Hc
+=B5B
 b701ba72b92f45c28cd41703eaef085d
-=B&8
 B8D	
 B8D1
 B8H;
@@ -3770,7 +3841,7 @@ B8<:u
 +B 9B
 B9D>
 B9D	
-=b$A
+=B~A
 B A+
 B(A;
 B$A9@
@@ -3835,7 +3906,6 @@ battle_state.tracked_short_sounds.size()
 battle_state.weapons_bought_during_death.size()
 battle_state.weapon_states.size()
 battle_state.weapon_stat_states.size()
-(!bb
 @b@b
 `bB)
 B?:B&
@@ -3849,6 +3919,7 @@ BBBB
 b b"b$b&b(b*b,b.b0b2b4b6b8b:b<b>P@6
 bBbMb
 b^be
+ BC@
 BC4S
 =BC4Su
 BC4U
@@ -3857,8 +3928,10 @@ BC5S
 =BC5Su
 BC5U
 =BC5U
-Bcharges
-(}bd
+Bcooldown
+=bcV
+=(bd
+=b^d
 )>Bd&>
 (: <(> @.B D
 $$BD#`
@@ -3870,6 +3943,7 @@ B<D2BD
 &B&D&F,H,J,L
 :>>,@:B:D*F:H(J<L(NhR
 `.b.d.hhlB
+-bDM
 BD$pH
 BD;u
 (b<dZ
@@ -3889,6 +3963,7 @@ Below we are testing adding menu items to a regular window. It's rather unusual 
 benchmark1
 benchmark_json
 bend
+=BEP
 best_time
 bevel
 <Bf;
@@ -3900,7 +3975,9 @@ b`ff
 ^.`.b.fhjB
 .B.F.J.N.R.V.Z.^2
   bg
-=;bG
+='bG
+=bG3
+=bG7
 B(H;
 ;?Bh9?
 B@H9C@s
@@ -3914,6 +3991,7 @@ B`H;J tAA
 BhL;
 BhLcB`
 ;BhuSH
+%bi?
 %\BI
 B`I;
 B I;
@@ -3965,12 +4043,12 @@ BINORMAL
 b"Iq
 BITMAP
 )BIV_o
-> bK
+=bJ6
 |bK7(
+=BKA
 bKGD
 b;!l
 b}$l
-bL;@
 B(L;
 Black
 blah
@@ -4011,14 +4089,16 @@ BlueShift
 BlueValues
 blv.ps.cso
 BL)z
+@,B^@m
 (B M
+.bmK
 #bML"
 `B`M`X
 b#M**y`Bl+o(u,{ x$w!
 bmys
 b?'N
-=bNd
 B~?Nd~?
+-bnF
 bnMG
 .BNW^h
 ,bO,-
@@ -4116,6 +4196,7 @@ break
 Bream
 breve
 Brevesmall
+.brK
 brokenbar
 broken promise
 broken_shield
@@ -4136,7 +4217,6 @@ Bsmall
 Bsp info is currently disabled.
 .bss
 bsuperior
-=bSV
 @b:t 
 \b\t
 B}T}
@@ -4206,29 +4286,21 @@ By Omar Cornut and all dear imgui contributors.
 bzo=
 ~c~{~
  c: 
-(=!c
-(=}c
-(->c
-(-[c
-(-@c
-(!{c
-() c
-(]_c
-$c?@
+(!'c
 c{].
-`^C@
-`*C@
-=%C?
+``C@
 |$(C
- \C@
+ `C@
+ <C@
 (?-C
-@^C@
+@|C@
+@_C@
 @{C@
-@+C@
 \{?C
 \$@C
 C\$ 
 C	< 
+=c"0
 C09l$x
 C0;C8u
 C0;C,s
@@ -4257,15 +4329,16 @@ C3O5
 C4;B
 C4;C,A
 C4E3
-=c'5
-=C 5
+={c5
+C5fXF
+(-|C7
 ^C796FF> 
 c7cPc
 C7]D
-@C8@
 C8Ak
 c8E2
 C8E3
+=c8F
 C|$8H
 C8H;
 C8H9C(tpL
@@ -4279,12 +4352,12 @@ C(9l$@u\H
 C 9S
 C@>?A
 C\A;
-C% %A
 C A9
 C A9E
 cable
 cacute
 Cacute
+.cAJ
 CALLBACK
 "CALLBACK"
 ?_CallInContext@_ContextCallback@details@Concurrency@@QEBAXV?$function@$$A6AXXZ@std@@_N@Z
@@ -4381,12 +4454,14 @@ catmull2
 catmull3
 Causes the engine to capture Windows key presses. 0: Disabled. 1:Enabled
 Cave
+=cb2
 C(B9D
 CBDAf
 CBf;
 CBf9C@vLD
 cB$$"$""""SE$4"tfFDD
 cbuffer vertexBuffer : register(b0)             {            float4x4 ProjectionMatrix;             };            struct VS_INPUT            {            float2 pos : POSITION;            float4 col : COLOR0;            float2 uv  : TEXCOORD0;            };                        struct PS_INPUT            {            float4 pos : SV_POSITION;            float4 col : COLOR0;            float2 uv  : TEXCOORD0;            };                        PS_INPUT main(VS_INPUT input)            {            PS_INPUT output;            output.pos = mul( ProjectionMatrix, float4(input.pos.xy, 0.f, 1.f));            output.col = input.col;            output.uv  = input.uv;            return output;            }
+(-cc
 c c2
 C@;C8
 ccaron
@@ -4402,13 +4477,14 @@ Ccedillasmall
 CCEPT
 c>cG
 C(+C H
+Ccharges
 $cd<
-=	Cd
  C+D
 $C+D
 +C<D
 C`D;
 C<D;
+C=|,D
 C:D 
 C(D;{@
 CD$ 
@@ -4441,7 +4517,6 @@ CD$p3
 CD$P3
 CD$pH
 CD$PH
-Cdrawer::setup 11
 CDWXf
 CD$x3
 CD$X3
@@ -4557,7 +4632,6 @@ chase_target
 chat
 chat_message
 chat_return
-=cHC
 C@HcH
 C(HcK
 C(H;C u
@@ -4625,9 +4699,7 @@ CIDFontType
 CIDFontVersion
 CIDMapOffset
 CID Type 1
-=CIF
 C:Ih
->CII
 Cinematics. Travels from an entity to targetted entities.
 cinu
 cinuA
@@ -4639,12 +4711,11 @@ circumflex
 Circumflexsmall
 City
 CIwS
-.`cJ
-.@cJ
 CjfD
 cjH+
-.cjK
 CJK text will only appears if the font was loaded with the appropriate CJK character ranges. Call io.Font->LoadFromFileTTF() manually to load extra character ranges.
+>$CK
+/=~CL
 C`L;
 C L;
 C(L;
@@ -4662,7 +4733,6 @@ CL$0L
 CL$8
 CL$8H
 C(L9x
-=clA
 claim_reward
 clared physical chunks
  class="
@@ -4764,14 +4834,16 @@ CL$xH
 CL$XH
 CL$XJ
 CL$XL
+-c/M
 C M;
--cm6
 CM8H
 cmap
 CM H
 CMhE3
 CMHE3
 CMHH
+.CMI
+%CMK
 CMPH
 CMPH+
 CMPI
@@ -4790,7 +4862,6 @@ _Cnd_wait
 CnfD
 cnt=
 CN(v
-=co?
  < C O [ c
 CoCreateInstance
 code
@@ -4805,7 +4876,6 @@ coinrun
 coins
 coin_team_pfx
 .COJ
-.coK
 -col
 _COL3F
 _COL4F
@@ -5069,7 +5139,6 @@ Controlled slide
 (Conversion) Failed loading WIC image 
 (Conversion) Failed resizing image 
 (Conversion) Invalid image 
-cooldown
 Cooldown recovery amount for Bolt.
 CoordTransformVS
  	//COPIED 
@@ -5302,8 +5371,6 @@ C`stib
 C`stibA
 ct= 
 C;t>
-- CT
-%!CT
 CT$(
 CT$0H
 CT$0L
@@ -5462,7 +5529,9 @@ CVBN
 %c;w.
 c|w{
 ,C<*w
+^=CW;
 Cw1*;
+=Cw6
 /C w9
 CWCf
 /C wl
@@ -5490,21 +5559,24 @@ CXuPH
 __CxxFrameHandler3
 __CxxFrameHandler4
 _CxxThrowException
+=*cY
+=cY[
 cylinder
 Cylinder height must be finite for TIQuery.
 C-Yn
 C>YPH>z
-=Cz*
 cZcccqc
+`d`@
 ~=d]
-(=^d
-(}"d
-(%_d
-(	 d
+=^\d
+(]-d
+(]#d
+(},d
+(%`d
+(%	d
 (d$`
 (d$ 
 (d$@
-):[d
 )d$`
 )d$ 
 )d$@
@@ -5512,20 +5584,16 @@ cZcccqc
 \d$<
 \d$ 
 %.*d
+d<?@
 d" $,&.( *(,
 d$ %
 d$!@
 d$(@
 d$@@
-`-D@
-`D`@
 ^D$@
 ~~D;
 ~!D;
 ~	D;
-=;{D
-=\{D
-=#{D
 |$`D
 |$<D
 |$<D;
@@ -5536,9 +5604,11 @@ d$@@
 |$\D
 |$&D;
 |$D|
+  D@
+ /D@
+ #D@
  +D@
 _D/@
--D;=
 ,D$<#
 ,D$|
 ,D$\
@@ -5550,7 +5620,6 @@ _D/@
 (\$`D
 (\$ D
 (\$@D
-(D;@
 (D(~(
 (D$`
 (D$ 
@@ -5569,7 +5638,9 @@ _D/@
 )D$@
 }`D#
 } D+
-@+D@
+@;D@
+@"D@
+@D>@
 *D$$
 \|$`D
 \[@D
@@ -5635,7 +5706,6 @@ D$((
 D$(@
 D$($
 D$@=
-D$@>
 D$@ 
 D$@-
 D$@,
@@ -5643,6 +5713,7 @@ D$@;
 D$@.
 D$@@
 D$@$
+D$@&
 D$@+
 D$$=
 D$$;
@@ -5796,6 +5867,7 @@ d$0v
 /D$0v 
 D$0vGH
 D$0wH
+=[D1
 D$14
 D$18
 D1<A9F
@@ -5836,7 +5908,6 @@ D3DCOMPILER_47.dll
 D3D setup
 \d$4
  D;|$4
--=D4
 /D$4
 D$@4
 D$4=
@@ -5869,13 +5940,11 @@ D	4$L
 D$4M
 D$4t
 D$4u!H
-D;5:
 D;5[
 D$54A
 D$54B
 d$5A
 D$5f
-="D6
 D$ 6
 d6d?a
 d$6H
@@ -5896,14 +5965,15 @@ D$8`
 D$8|
 D$8;
 D$8@
-D8=^
-D8=:,@
 D8|$@
-D8%=
+D8%,
 D8%:
 D8%!
-D8%'
+D8%?
+D8%]
 D8%*
+D8=02B
+D8%0[7
 D80t
 D81t
 D$8@2
@@ -5913,12 +5983,15 @@ D$83
 D8%4
 %d: %8.4g
 D84>u
-D8=5
-D85h
-D85V
+D85`
+D85L
+D85)s<
+D85V/W
+D8-6o	
 d8?":7?
 D87u
 D$89
+D8%	(9
 d$8A
 	D8a
 	D8A
@@ -5928,9 +6001,7 @@ d$8A_A^^]
 D8aHtID
 D8a<u
 D$8B
-D8=="B
 |$(D8c
-D8%c
 D$8C
 D8=C
 D8c8t
@@ -5938,10 +6009,9 @@ D8c9t!
 D8cH
 D8cHtR
 D$8cinuf
+D8%CUd
 D8c	u,E3
 d$8D
-D8%d
-D8%]>d
 D$8D
 D$8D;
 D$8D#
@@ -5952,14 +6022,13 @@ D8D$`t
 D8D$tE
 D8D$uu
 d$8E
-D8%?}e
+D8=e
 D$8E
 D$8E2
 d$8E3
 D$8E3
-D8%EEd
 D8eg
-D8%eId
+D8%eYd
 D$8f
 D8f2
 D$8fA
@@ -5969,7 +6038,6 @@ D$8ff
 D$8fff
 D8fVt
 ?D8G
-D8%G
 d$8H
 d$8H+
 d8(H
@@ -5984,23 +6052,24 @@ D$8H;E
 D$8Hi
 d$8I
 d$8I;
+D8%i
 D$8I
 D$8I;
 D$8I+
+D8%I
 D;8I9
-D8-It=
 D8IX
 D8IYu
 d$8J
 D8%j
 D$8J
+D8-J
 \$(D8k
 D8KDA
 d$8L
 D8%l
 D$8L
 D$8L;
-D8=l+9
 D$8Lc
 d$8M
 d$8M;
@@ -6009,20 +6078,20 @@ D$8M
 D8%M
 D$8Mc
 D$8M;F
+D8=Mt9
 D8mwt
+D8%]Nd
 D$8nmrafD
 ?D8O
 D8oDtPA
-D8-(p	
-D8=P#B
 D8p!u
 	D8q
 D8%Q
 D8q`u
 D8r@
 D8%R
+D8%+~S
 D8s4t
-D8%SI7
 D$8t
 D8|$ t]
 D8)t
@@ -6047,28 +6116,29 @@ D8+u
 D8uo
 D8uw
 D8v 
+D8%=#V
 ?D8w
 D8%w
 D8W!
 D8wDA
 D8w t L97t
 D$@@8x
-D8%x
 D$`8X
 D8X0u
+D8-Xm	
 D8|$Xt$H
 	D8y
-D8%Z
+D8-y
+D8%YYd
 d$@9
-d9?@
 |$(D9
 ?D9{
-[D9%
 {`D9
 }~D9,
+@D9@
 D$ 9
 D$,9
-D9=$
+D9=<
 D9|$`
 D9|$$
 D9 }
@@ -6077,16 +6147,15 @@ D9@ |
 D9@ }
 D9@ }	
 D9@$|
-D9%<
 D90~
 D90t
 D90t1A
 D90u
-D9-2}=
 D9%2
 D92v\
 D93v*
-D95j
+D95//8
+D95*-E
 D96viA
 D97u
 D97vbA
@@ -6097,6 +6166,7 @@ D9.A
 D9@ A
 D9A }
 D9a8~dH
+D9-b
 D9B }
 D9b4~
 &D9c
@@ -6114,12 +6184,12 @@ D9d$PuaD
 D9d$pu:H
 D9d$Pu]M
 D9d$$~tH
-D9%e
 D9E 
 D9egA
 D9e t
 D$9f
 D9f$
+[D9% 'F
 D9%F
 D9f4
 D9fp
@@ -6140,12 +6210,14 @@ D9I(t
 D9J0
 D9k4vc
 D9K@A
-D9kXt2D8-
+D9kXt2D8-#l	
+D9kXt2D8-xn	
 D9kXt`D8-
-D9kXt?D8-Wp	
+D9kXt?D8-
 D9l$`
 D9l$(
 D9l$@
+D9-L
 D9}L~
 D9l$h
 D9{lt
@@ -6153,7 +6225,6 @@ D9m8
 D9Ml|
 D9Mx|
 !D9n
-D9%o
 D9o8t
 D9o@v
 D$`9P |
@@ -6194,12 +6265,11 @@ D9'uaD
 D9u(D
 D9?un
 D9u<u
-D9%uX9
 D9-V
 D9V0
 D9v(D
 D9Vh
-D9%W
+D9%w
 D9w(D
 D9wP
 D9w,t
@@ -6217,8 +6287,6 @@ D9Y,~ZI
 D9zL
 D9Z(t
 D9z<t$A;
-(!da
-`dA@
 |$dA
 (d$@A
 )d$`A
@@ -6230,6 +6298,7 @@ d$ A
 d$(A
 d$@A
 d$$A
+(=Da
 D;a 
 (D$@A
 )D$`A
@@ -6341,7 +6410,6 @@ data.size()
 " data-tags="
 d$ AV
 D$ ay
-(%db
 D,?b
 D$@b&
 D;B |
@@ -6385,6 +6453,7 @@ D$ <Cu
 \d$d
 %d %d
 %d/%d
+=/dD
 |$dD
 (d$`D
 (d$@D
@@ -6400,7 +6469,6 @@ d$@D
 d$$D
 d$\D
 ;D$d
-(%Dd
 &D+d
 D;d$,
 D;d$$|
@@ -6409,6 +6477,7 @@ D$(d
 D$d	
 |$DD
 "D+D
+(=`DD
 (D$`D
 (D$ D
 (D$@D
@@ -6455,8 +6524,8 @@ D;D$4u
 d$@D8%
 D$(D8|$0I
 d$d9
-d$@D9%
 D;D98|	
+d$@D9%z
 d$dA
 d$DA
 d$DA;
@@ -6490,7 +6559,6 @@ D$DH
 D$DHc
 d$DI
 D$dI
-.DDI
 d$dL
 d$DL
 D$dL
@@ -6793,6 +6861,7 @@ Destruction setup
 [Destruction] Setup complete
  	detached_shot_particles false 
 Determines how strongly sound attenuates with distance.
+=deV
 dev_collisions
 dev_debug
 dev_debug_collision
@@ -6851,7 +6920,6 @@ D$*f
 D$\f
 D$#f
 D$%f
--D(F
 D;F<
 D$ F
 D$(F
@@ -6869,7 +6937,6 @@ d"f&d
 D$`fD
 D$ fD
 D$@fD
-D.F&D`
 df"DDdD
 dFDFBB"
 )d$ fE
@@ -6928,7 +6995,6 @@ D$h
 D$h;
 D$h$
 D$h+
-=)DH
 ,D$\H
 ;D$H
 (D$`H
@@ -7122,6 +7188,7 @@ D$ H;UPt
 D$@H;W
 D$$H;W
 ^d^i
+>/dI
 d$`I
 d$`I;
 d$ I
@@ -7310,6 +7377,7 @@ DIVISION BY 0
 <div style='display: flex; flex-direction:row;'>
 <div style='margin:6px;display: flex; flex-direction:column;'>
 d$ J
+><DJ
 D;J |
 D;J }
 D;J,|
@@ -7322,7 +7390,6 @@ D$JA
 D$jf
 D$ jH
 &dK^?
-=Dk<
 D$ k
 D$@k
 D (K
@@ -7379,7 +7446,6 @@ D$@L+
 D$$L
 D$\L
 D$L@
-DL;@
 Dl0123456789ABCDEF
 D;l$0t*H
 D$l9
@@ -7423,6 +7489,7 @@ D$lI
 D$ Li
 D$(Li
 D$LI
+.DLJ
 D$(Lk
 d$lL
 D$lL
@@ -7471,6 +7538,7 @@ D:\Microsoft\DirectXTK\Src\Shaders\Lighting.fxh
 D:\Microsoft\DirectXTK\Src\Shaders\SkinnedEffect.fx
 D:\Microsoft\DirectXTK\Src\Shaders\SpriteEffect.fx
 D:\Microsoft\DirectXTK\Src\Shaders\Utilities.fxh
+.dMJ
 D$ Mk
 D$ML;
 D$MM+
@@ -7488,13 +7556,13 @@ d$O@
 D;o(
 D;O(|
 D$ O
+DO;@
 D$oA
  doctor 
 document["asd"].IsInt()
 document.getElementById('skill_container_
 document.getElementById("skill_draft_shortcut_
 document.HasMember("asd")
-%doe
  does not have a PNGT format in system 
 dollar
 dollarinferior
@@ -7552,6 +7620,7 @@ D$p|
 D$p;
 D$p@
 ^D$P
+=D.P
 _D/P
 ,D$P
 ,D$P%
@@ -7646,6 +7715,7 @@ D$pff
 )D$pfH
 D$pfH
 )D$PfH
+=dPG
 )d$pH
 d$pH
 d$PH
@@ -7730,6 +7800,7 @@ D$pw
 D$p;X
 .d$Pz
 ;d;q
+=Dq.
 D$ q
 	D;Q(}
 D$QD
@@ -7742,7 +7813,6 @@ d?qq
 dQy/
 (D$ r
 D;;r
-%	DR
 	D;R(}
 D$rA
 D$RA
@@ -7768,16 +7838,17 @@ DragQueryFileA
 drag small float
 drawer::setup 1
 drawer::setup 10
+?drawer::setup 11
 drawer::setup 11
 drawer::setup 2
 drawer::setup 3
 drawer::setup 4
 drawer::setup 5
 drawer::setup 6
-?drawer::setup 7
 drawer::setup 9
 DrawList
 D$rf
+`^DrI
 D$rL
 Droid Sans
 drop
@@ -7791,7 +7862,6 @@ dropped_health_pfx
 drop_slot
 D;s(
 D	s,
-D;=S
 D	s0
 D;S8|
 D$SA
@@ -7946,7 +8016,6 @@ Duration of the haste ability.
 Duration of the slide skill.
 Duration of truce at the start of the game.
 D)u(u
-=dUV
 d+UwxnrW3B
 |$dv
 d$ v	
@@ -7970,7 +8039,6 @@ dwarf
 dwarf4.fbx
 DWDbDgD
 DWIDTH
-D@wJ
 D;wT
 D;w t9
 D)w(u
@@ -8060,6 +8128,7 @@ d$xE
 d$XE
 D$xE
 D$XE
+d$XE2
 D$xE3
 D$XE3
 D$XEBDAfD
@@ -8122,8 +8191,8 @@ D$xL
 D$xL;
 D$XL
 D$XL;
-d$XL9%)
 d$XL9b
+d$XL9%Y
 D$xLc!3
 D$xLi
 D$xLk
@@ -8183,7 +8252,6 @@ dynamic_shadows
 Dynamics setup
 dynprop
 .d$(z
--dZ*
 D;z,
 D$ z
 D$(z
@@ -8193,11 +8261,17 @@ D$ZH
 DZM@
 ~]dzR
 D$`zTXtI
-=).e
--.	e
+=)>e
+=e,=
+=e;=
+=e+\
+-~!e
+-;e?
+(e?@
 ]'&e
+`E!@
 <$E;
-=|;E
+==E=
 |$`E
 |$ E
 |$ E+
@@ -8213,7 +8287,6 @@ D$`zTXtI
 }`E;
 }@E;
 }@E+
-@E>@
 \|$(E
 \)!E
 \$`E
@@ -8255,7 +8328,6 @@ E0L+
 E0Lc
 E0y"-
  e1=
--e1g
  e2=
 |$`E2
 |	E2
@@ -8282,6 +8354,7 @@ _ E3
 } E3
 })E3
 }@E3
+}&E3
 @`E3
 $$E3
 \$`E3
@@ -8289,11 +8362,13 @@ $$E3
 \$(E3
 \$@E3
 E3EAEL
--E4	
+`e3I
 E4ff
 E5L;
 E5M+
 %E#6
+(=E6C
+=e7B
 E7E3
 e7fD
 E7HcAHH
@@ -8306,14 +8381,12 @@ E\$8
 E88t
 e8A_A^A]A\_^[]
 E8A+E
--e8B
 E8D;
 e8E;
 E8E3
 E8e t
 E8f3t
 E8g	t
-E8H;
 )E8I
 E8I+
 E8|$L
@@ -8349,8 +8422,7 @@ E9t$P~OI
 E9wD
 E9wDA
 E9wH
-(e_a
-(e&a
+(e(a
  E+A
 )E A
 )E@A
@@ -8369,32 +8441,39 @@ Eacutesmall
 E;A }lL9u
 easing
 eax~Z
-(E(b
-=E"B
+(e_b
+(E b
+(E?b
 E&'bB
 EBDA
 EBDAfD
 ebegeq
 E BH
-(E/c
+(}ec
+(}Ec
+(E.c
+@EC@
 E;C |
 E;C$
 E;C0
-=ECd
+(eca
 echo
 echovoice
 ecircumflex
 Ecircumflex
 Ecircumflexsmall
 E/Co
+(e d
+(e_d
 (e D
 (e@D
-(E@d
+(E)d
 (E@D
 $E+D$
 E@D;}
 E+D	
 E D9~
+(Eda
 .edata
 EdE3
 EDfA
@@ -8466,6 +8545,7 @@ EeM+
 EEM+
 eexec
 )e@f
+%eF&
 _E@f
 (E f
 (E@f
@@ -8502,7 +8582,6 @@ E@fff
 effffff
 )E fH
 E;g 
-=%EG
   e.g. [ 100 ], input '*2', result becomes [ 200 ]
 EgE3
 eggbot
@@ -8529,7 +8608,6 @@ EgHc
 EgH;S
 E;gHs	2
 EgH;W(t	
-=EGQ
 egrave
 Egrave
 Egravesmall
@@ -8561,7 +8639,6 @@ EHfB
 EHff
 EHH)
 EHHc
-.ehI
 EHI;
 EHI+
 EHI9EPt
@@ -8572,6 +8649,7 @@ eh?o
 |EH;~@u
 E@H;W
 E H;W(t	
+^%e$I
 e`I+
 e I+
 e@I;
@@ -8583,15 +8661,16 @@ eight
 eightinferior
 eightoldstyle
 eightsuperior
+(eja
 E#J$A
+(Ejd
 E}JR
-.e'K
 E;K0sG
-(eka
 ekhHD
 }(eL
 E;l$
 El$<
+E L;
 E;L$
 E;L$@|
 E(L;
@@ -8618,7 +8697,7 @@ E;l$T
 E}M+
 E@M+
 E$M+
-=EM7
+-Em9
 emanL
 Embedded profile length in iCCP chunk is negative
 Embedded profile length too large in iCCP chunk
@@ -8637,7 +8716,7 @@ empty dictionary
 empty distance tree with lengths
 Empty escape sequence in string
 Empty regular expression.
-(%EN)
+=!EN
 enable
 enabled
 Enabled
@@ -8786,9 +8865,9 @@ envmap
 @En[vP
 env_props
 E;O,|
-=eo4
-(Eoa
+(eOb
 EOE3
+=eOG
 EOS_AccountId_FromString
 EOS_AccountId_IsValid
 EOS_AccountId_ToString
@@ -8854,6 +8933,7 @@ EOS_UserInfo_CopyUserInfo
 EOS_UserInfo_QueryUserInfo
 EOS_UserInfo_QueryUserInfoByDisplayName
 EOS_UserInfo_Release
+	e	p
 E	P0
 Ep@8x
 Ep9E@
@@ -8898,7 +8978,6 @@ EpicPortal
 epicuserid
 epicusername
 )EpL
-EpL;
 EpL+
 )EPL
 EPL;
@@ -8906,7 +8985,7 @@ EPL+
 )EpM
 EPM;
 =epudu[A
-=_EQ
+=E&Q
 	E;Q(}
 e?qq
 equ8_client_close_session
@@ -9073,6 +9152,7 @@ Error JR387Y2F3 occurred while initializing voip.
 Error KJ289414. Incorrect mode: 
 Error: Limit of 256 materials reached (A).
 Error loading bitmap font 1.
+Error loading bitmap font 2.
 Error loading compressed DBM model. Layout not supported.
 Error loading compressed DBM model. Malformed file (2).
 Error loading compressed DBM VT_PNGCT model. Malformed file. 
@@ -9141,6 +9221,8 @@ Error writing UUID file. This usually means issues finding or accessing the appl
 Error: Wrong duration value. Aborting sequence 
 * Error: Your game version is outdated.
 Error: You've logged from elsewhere.
+=ERV
+(%eS)
 E;S0
 escape
 Escape sequence did not encode a valid character.
@@ -9148,6 +9230,7 @@ Escape sequence terminated prematurely.
 Escape sequence was neither a valid property nor a valid character class name.
 ESCAPE to revert.
 EscChar
+=ESd
 Esmall
 eSOUax
 Essential game assets were not found! (Did you forget to use the override script?) Shutting down...
@@ -9159,20 +9242,16 @@ E;t$
 E;t$ 
 E+t$
 Et%(
---ET
 ;E;T
-%.ET
 E;T$
 E;t$0
 Et$DD
 Ethsmall
-.ETL
 etOH
 ET$X
 ?eu 
 -;eU
 EU Ambient grid
-(eub
 EU Batching
 EU Cleanup
 EU Cube textures
@@ -9183,6 +9262,8 @@ EU Global
 EU Global view
 EU Groups
 Eu[H
+.euI
+>EuI
 ?euLH
 EU Lut
 EU Model cleanup
@@ -9197,9 +9278,9 @@ EU Sorting
 EU Tree Insertion
 eu?u
 EU-West
+(Evb
 event
  event_type=
-=evF
 =Evt>
 /e(w
 e ~w
@@ -9317,28 +9398,24 @@ extrapolate
 Extrudes from a selected surface.
 EydV
 eyeVector
+=e&Z
 E;Z,|
-EzD;5
+EzD;5^
 eZe}e
 )EZf
->EzJ
 ,EZr
 ^\`f^
-=f#@
->"@~f
 >f@-
 |$`f
 |$ f
 |$(f
 |$@f
-,f:;
 /./f/
 (|$`f
 (|$ f
 )<$f
 )|$`f
 )|$ f
-@f!@
 $%&f
 \<	f
 \[@f
@@ -9347,16 +9424,13 @@ $%&f
 \$@f
 \$$f
 %.*f
-f;=$
+%f;=
 f@?(
 `F(>
-=F-=
+=_%F
  F> 
--,*F
--@&F
--F}*
 . F=
-%~ F
+%>(F
 	<	F
 F09A
 F0A9@
@@ -9377,28 +9451,30 @@ F0M+
 F0ue
 F0uj
 .F0z%u#
-=_F2
 .f21
-=F2B
  /F2d
 f3f723
+`f#3I
+f#3I
+F#3I
 f?3Jf?6
-=^f4
+=f47
 F4A;
 f4}J
 (F 6*,,
 F8$2u
-f8BL
 F`8C,u	
 #f8d309
 F8fA
 F8H;
 F8I;
+F8KI
 F8L;
+%f8T
 .F8z
 .F8zjuh
-=%f9
 @ f9
+%F'9
 f90t
 f90u
 f92t$
@@ -9437,6 +9513,7 @@ f9X s
 \$(fA+
 fA;@
 F<A;
+=fa7
 Fa8C-t
 F$A9
 fA9B
@@ -9497,6 +9574,7 @@ Fail to schedule the chore!
 Failure with HRESULT of %08X
 fA;j
 fA;J
+Fa@K
  fallback=
 Fallback character: '%c' (%d)
 fallback-script
@@ -9513,12 +9591,11 @@ fA+T
 fatal
 Fatal error initializing culling.
 f@B$""
-(=Fb
 fB94Bu
 FbfD
 FbFi
 .fbx
-)$fC
+-FC,
 F*C>
 Fc8C/u|
 fC9l
@@ -9526,6 +9603,7 @@ f"cCR#`|
 f;CD
 f;CDr
 fclose
+FCpK
 fctt
 fcttt*
 _@fD
@@ -9536,6 +9614,7 @@ _@fD
 @fD+
 \$@fD
 fD;}
+=F'D
 F<D;
 F|/d2
 Fd8C0uR
@@ -9594,9 +9673,7 @@ fD;q
 fD;R
 fD+t$\A
 fD;u
--fdY
 fD;Z
-FdZJ
 <$fE
 {@fE
 }	fE+
@@ -9634,12 +9711,12 @@ fE;z
 <ff&
 |$(ff
 |$@ff
--.ff
 :`<f>f@]
 ?ff&?
 ]@ff
 f f"`$<,
 f?|>f?
+ff&?
 \F`f
 F*.f
 F>F_@>
@@ -9748,6 +9825,8 @@ fff?fff?fff?fff?~|wmW)
 ^ffffff is not bound.
 f f"`$H,
 =ffitt
+.FfJ
+FFJK
 fF;L
 fflush
 =FFOwtM=fctttF
@@ -9755,7 +9834,6 @@ FFOwuZ
 fft_512x512_c2c_2.cs.cso
 fft_512x512_c2c.cs.cso
 FFT should not be done in-place
-=}fG
 fG9$PA
 FGD;
 fgetc
@@ -9772,13 +9850,12 @@ FHA;
 F Hc
 F(Hc
 FHE3
+F.H&F`
 FhfA
 FHH;
 FhH+F`H
 FHH+F@H
 FHI;
->fhJ
-fH	J
 ,F(H,J,L&N,P
 F,H,J,L,N(P(R&T.V&X(Z \(^ `.b d
 FhL;
@@ -9788,12 +9865,16 @@ FH+N8+F<A
 (F<HZ
 .FHz&u$
 |$ fI
-f?@I
+^==FI
+.<FI
+._FI
+.,FI
 F`I;
 F I;
 F(I;
 F@I;
 FI'`
+=fI7
 }fIc
 `F()-Id
 fight
@@ -9861,17 +9942,14 @@ fixed_timestep
 Fixed width.
 Fizz
 FizzBuzz
-=f+J
-.&fJ
-.f>J
+. fJ
+.F	J
 FjD+
->f-K
-.f	K
 f;kD
 f;KD
-=fKF
 FKFV
 FKoh
+.F[L
 F`L;
 F L;
 F(L;
@@ -9893,8 +9971,8 @@ flash_hp
 flash_skill
 flat_color.ps.cso
 flat_color.vs.cso
-FlBL
 f+L$ f
+fL~I
 flicker
 Flicker
 flip
@@ -9904,6 +9982,7 @@ Flip fullscreen mode is not available in this computer. It's recommended to upgr
 _flipx
 _flipy
 _flipz
+.FlK
 float
 float##1
 float##2
@@ -9930,8 +10009,7 @@ fmodf
 FMOD_System_Create
 FMOD was not initialized correctly to support this function.
 fmt=
-%FmZ
--FnA
+FngK
 Fn.p.r.vhzB
 Focal distance for orientation of carried weapon.
 focus_chat_input
@@ -10030,8 +10108,6 @@ foursuperior
  	fov 55 
  	fov 58 
  	fov 59 
-=}fP
--"fP
 ;Fp~
 FP9C
 FP9FL
@@ -10055,6 +10131,8 @@ fps=
 fputc
 fP~V
 .FPz
+=fQ@
+fQ?K
 f;Q s
 fraction
 fragged_by
@@ -10094,8 +10172,6 @@ friend_request_by_name
 friend_request_by_name_result
 friend_request_result
 friends
-F,rK
-`fr(L
  from 
 from.to_string()
 fromvertex
@@ -10111,14 +10187,12 @@ fseek
 _fseeki64
 fsetpos
 f;;s<f
-fSgJ
-fs$K
+.FsK
 F@#(\SlL0
 Fsmall
 fssm.ps.cso
 FSType
  fsvc=
-%f(T
 Ft$\
 FT9C u"
 ;FTD
@@ -10126,13 +10200,14 @@ f+TE
 ftell
 _ftelli64
 f+TF
-FtFI
 ftfL
 FT_Load_Char(1) returned:
 FT_Load_Char(2) returned:
 F	t$PH
+-ftY
 ;F\u
 fu+A
+fuBI
 ?FudH
 fu	E
 Fu(E
@@ -10155,7 +10230,6 @@ FvDH
 fvdI
 FvDI
 Fv(E
-F:VK
 |=Fvo=]
 /F<w
 Fw?>
@@ -10169,7 +10243,7 @@ FWj|
 FwNL
 fwrite
 FwUH
-=fX*
+=Fx9
 FX9C$u
 FXA+
 ~fxD
@@ -10185,21 +10259,19 @@ FXL;
 ;FXt
 .FXz
 f;y 
+FyCI
+F.yK
 fylg
 :fylgu
 .F@z
-f|zI
 ;	Fzo
 .F<z]u[
 FZ?w
-= +g
-=_g:
+`g;@
+=(;g
+=g;=
 %.*g
-%@ g
 [@[G
-@G<@
-%%G?
-%G"/
 G	< 
 ;G0}$
 }G0:
@@ -10223,14 +10295,15 @@ G0M;A
 G0ul
 ?	g	2	
 G2*&#!
-=G@3
 G:%3.0f
 G>33
 g)>3j.>
+%g@4
 G49G0
 g4D+o0D+g4E
 G4$E3
 G4H;
+=:G5
 g5g>gK
 ?g+7
 G7G;G@GEGJM
@@ -10243,7 +10316,7 @@ G8Hc
 G8I;
 G8L;
 G8L+
-(]ga
+(%ga
 G@A;
 G@A9^4r
 G A9G
@@ -10407,16 +10480,16 @@ game_zoom_fov
 game_zoom_mode
 Gamma correction, 1.0 = default, higher values are brighter.
 gamma = (%d/100000)
-%GAQ
-=gaY
 gbreve
 Gbreve
 'Gc{
 GCTL
+=g}D
 )G(D
 G(D9e(
 GDA+
 GDBytes
+=GdD
 Gd;F4
 GD+G<
 GDI32.dll
@@ -10427,7 +10500,6 @@ G,$E3
 G(E3
 G@E3
 G	E3
--geF
 general
 General sound volume. Valid range: 0-1.
 General sound volume. Valid range: 0-1. Default: 0.5.
@@ -10553,6 +10625,7 @@ GetTickCount
 GetUserDefaultLCID
 GetWindowLongPtrA
 GetWindowRect
+=g/F
 G`fA
 GfA#
 G	fE
@@ -10572,7 +10645,6 @@ gfffffffL+
 gfffffffM
 gfffffffM;
 gfffH
-=GFQ
 GFSDK_SSAO_CreateContext_D3D11
 GFSDK_SSAO_D3D11.win64.dll
 G^GbF
@@ -10622,8 +10694,9 @@ G I9E
 G I+G
 G(I+G H
 Gives information about current selection.
->%gJ
+>\GK
 g`l	|:/
+.#GL
 G`L;
 G L;
 G(L;
@@ -10670,7 +10743,9 @@ Glyphs must be in ascending codepoint order
 glyph-to-script-map
 .Glz
 GL_ZERO
+=gM=
 :>gM|?
+(=g+M
 }gM+
 gM|?
 G M+
@@ -10678,6 +10753,7 @@ G@M;
 gM|?\0 
 g>M-a>Y
 GMd^
+=Gn?
 =G_N
 gook
 gooks
@@ -10702,7 +10778,6 @@ GPI;
 GpI9
 GpI+GhH
 = gpjt&= gnpt
-.GpK
 GPL;
 GP<M;
 GPM;
@@ -10711,8 +10786,11 @@ GPPM;
 ,G;Q
 }{G;<!}QA
 gqr<
+=gqY
 _g_r
+-=GR
 G!?R
+=gr3
 GrabMinSize
 GrabRounding
 GradientEndColor
@@ -10798,10 +10876,7 @@ G`stibD
 G`stibE
  gt=
 &gt;
-%gt>
 gt/_
-->GT
-%?GT
 +GtA+
 GTA;
 GtPF
@@ -10819,8 +10894,9 @@ G$uUI
 /G(w`
 /G(w-
 /G wE
+.gWL
 /G wx
-=gX*
+%GX0
 GX0L;]
 GXA9EX~
 GXA9FX
@@ -10842,9 +10918,7 @@ g`Z*
 .G`z
 gZgnhKhWhci
 gzip
-=|h<
-= ]h
-=h-(
+=h\?
 |$h@
 |$h+
  "@^@h
@@ -10853,21 +10927,16 @@ gzip
 (\&h$
 ]`h&
 ]_;~h
-@h;@
 \$h@
-h>?@
 h_^][
-h+`@
-h	`@
+`(H@
 ^ H;
 ^(H;
 ~ H;
 ~,H+
 ~(H;
 ~@H;
-=_)H
-=}@H
-=@	H
+=H!:
 >	H	
 |;(H
 |/H;
@@ -10956,17 +11025,18 @@ $	H;
 \$\H
 H_^][
 H;~@
-H;=[#:
-H;=}
+H;==
+H;=>
+H;=|
+H;=:
+H;=]
+H;=@
+H;=*![
 H;|$`
 H;|$@
 H;_@
 H;}(
-H:;@
-H!`@
 H" &
-H]`@
-H@`@
 H;^0
 H;|$0
 H:%0.3f
@@ -10985,27 +11055,29 @@ H*0"ZOW
 H+1H
 [h1R
 "H;1v
-|$h2
 \$H2
 H""$2
 |$h3
 \$h3
 |$H3
 \$H3
+H;=3
 H:%3.0f
  H3E H3E
 H;3u 
+H;=> 4
 H.>4
-H4`@
 H49J<u
 H4HcH8H
-=h<5
-h5`@
-=H<5
-H;5i
-H;5J<e
-H;5m
-H;5M)e
+=h	5
+H;5}'[
+H;5B
+H;5Lr2
+H;5n
+H;5RLe
+H;5U9e
+H;5Y
+h6`@
 H$6t
 H+7A
 H;|$8
@@ -11025,13 +11097,10 @@ H;8u
 ] H9
 @ H9
 \$ H9
-H9=\
 H9\$ 
 H9{0vPI;
 H95e
 H95M
-H95rPH
-H95Z
 H99t
 H99u
 H9A(
@@ -11054,8 +11123,6 @@ H9D$@t&H
 H9D$@u
 H9D$x
 H9D$X
-H9-e
-H9=e5>
 H9E w<H
 H9F 
 @ H9F8r"L;
@@ -11068,10 +11135,10 @@ H9i
 H,9J4u A
 H<9JDuCI
 H9J t
-H9=K
 H9K(
 H9kPu
 H9L$0u
+H9-m
 H9M(u
 H9N@
 H9n8
@@ -11082,9 +11149,10 @@ H9P s
 H9]pvnf
 H9Q(u!A
 H9Q(u"A
+H9=s
 H9s 
 H9s(
-@\H9=S(V
+@\H9=S8V
 H9;t
 H9{ t
 H9*t	H
@@ -11100,12 +11168,13 @@ H9W(vK3
 H9Xh
 H9x s
 H9x s	
+H9=y
 H9y(
 H9YH
 H9yHu
 H9y s
 H9z u
-(-ha
+(	ha
 |$hA
 \$hA
 \$hA;
@@ -11113,13 +11182,11 @@ hA^]
 hA_^
 hA]_
 hA\^][
-Ha`@
 |$HA
  H;A
 }HA+
 \$HA
 \$HA;
-%H=A
 H A;
 H@`A
 HA^[
@@ -11195,16 +11262,17 @@ have_powerup
 H;Ax
 >HB)
  H;B
+-%HB
 {HB{
 \$HB
 Hb<0D
+()hc
 ~`Hc
 ~=Hc
 ~ Hc
 ~#Hc
 ~%Hc
 |$ Hc
-(-Hc
 {,Hc
 }<Hc
 }.Hc
@@ -11213,7 +11281,7 @@ Hb<0D
 @(Hc
 @Hc*
 \$(Hc
-H;=__C
+HC`@
 Hc\$(3
 Hc\$8L
 H;C8t
@@ -11335,7 +11403,6 @@ H;C v
 HcV(H
 HcVLH
 HcVPH
-=hCW
 HcWp
 Hcx0
 HcX0
@@ -11356,6 +11423,7 @@ H;D$0
 H+D$0I
 H;D$8
 |$hD9n
+H;D$h
 H;D$H
 H+D$ H
 H+D$(H
@@ -11494,7 +11562,6 @@ H E Z L O C U S
 H@f;
  H;F
 H;F8
-H;=f^9
 H`fA
 h(fD
 \{HfD
@@ -11503,6 +11570,7 @@ hfdDD
 H~$f-F
 {Hfff
 H<fff
+(-hFM
 H;F v
 hG?)
 :>:H:`:g:
@@ -11520,15 +11588,14 @@ H;G v
 H;G(v
 H;G@v
 H;Gxt*I
-=h_h
 h.h>
+=h^H
 |$hH
 |$hH;
 ]hH;
 ]hH+
 \$hH
 \$hH;
-hH`@
 |$HH
 |$HH=
 |$HH;
@@ -11574,8 +11641,6 @@ H;H s
 H;H u
 |$hI
 |$hI;
-.,hI
-.?hI
 \$hI
 \$hI;
 \$@Hi
@@ -11624,15 +11689,14 @@ Hit sound.
 hit_sound_min_pitch
  	hit_sound_min_pitch 0.75 
  	hit_sound testhit1 
->,hJ
+.`hJ
 \$hJ
-hJ`@
-=Hj$
-H;=j
-H;=J
+H+=J
 HJ}/
 hJ4%
 `H^JfL
+=hJH
+=HJH
 \ h j$l.n.p"r.t"v(x&z.|(~
 h(jNh.lxj2p(j8h
 h$j&v.xlz"| ~(
@@ -11640,6 +11704,7 @@ h$j&v.xlz"| ~(
 }.Hk
 \$HK
 H ;K
+HK`@
 H;K0r
 H+K8H
 ^HkE
@@ -11652,10 +11717,9 @@ hK=I
 HkL$`hH
 \$h;\$l
 `h]L
+>h+L
 |$hL
 \$hL
-hL`@
-hL;@
 |$HL
 \$HL
 H+L$@
@@ -11689,18 +11753,20 @@ H)M Ic
 H+MPH
 ^hmpsv
 hmtx
+hn!@
 |$hN
+hN`@
 H.-%n
 |$HN
 _H;N(
-=hN3
 ~HNcT
 	H;NH
 H;N(s I
 H&NxH
 H+NXI
+=ho$
+H;=o
 H$;O
-H;=~oC
 Ho	hwh
 hold_dps
 holder
@@ -11746,8 +11812,7 @@ Hover over me
 Hover to see mouse cursors:
 H;OxthH
 h  p@
-=Hp:
-H;=p
+hP`@
 H;|$p
 H;]P
 H+]P
@@ -11762,6 +11827,8 @@ HPH;
 HPHcHTH
 H+]PI
 hPIcC
+.hPJ
+.HPJ
 H+^pL
 H+_pL
 -h.png
@@ -11782,6 +11849,7 @@ HP won't degenerate below this value (server variable).
 `hpx
 @HPX`hpz
 - hq
+=HQ?
 H;Q8t
 H+Q@McB
 H+QpL
@@ -11792,8 +11860,8 @@ H;Qxu
 /{hr
 Hr:0<(BlN
 hrcfA
+.hRI
 ;H s
-H;=s
 H;}(s
 H;s,
 \H\S
@@ -11809,6 +11877,7 @@ H;S t9f
 H;S tC3
 ##hsv
 HSV Input
+=hSW
 H SWATAUAVH
 H;Sxt*
 $H;t$`
@@ -11923,7 +11992,6 @@ H UVWATAUAVAWH
 H UWATH
 HuYL
 ~_h}V]
-hV`@
 HvFH
 h VH
 H+VpIc
@@ -11935,6 +12003,7 @@ HVWSATL
 HVWSI
 HVWSUH
 H+VXE3
+hW`@
 |$H w
 H;w(
 |$@H;W
@@ -11945,16 +12014,14 @@ H+wpL
 H;W(r
 } H;W(t
 HwuH
-H;=WVC
 H;wxt%H
-H;=x
-@hxB
+@hxB 
+@hxBp}8
 hXH+
 `HXJfL
 hXM@
 HXM@
 H;|$Xt2
-=]hY
 H;Y0t\H
 Hybrid class with game control abilities.
 hyphen
@@ -11970,7 +12037,6 @@ H;y t*D
 H;Y tlD
 H;y@u	
 |$Hz
-H;=z
 H;=Z
 HzL`N:LV
 HZM@
@@ -11979,22 +12045,20 @@ H;z s
 H;z sVH9^
 H;Z sYH
 `^`i
-`i;@
-=i>%
-=i@@
 @}`}i
 @i;@
 $i>%
 i->%
 `#I>
+^|_I
 ^ I;
-^\]I
 ~`I;
 ~<I+
 ~ I;
 <$I;
 <$I+
 =`#I>
+=;#I
 >`#I>
 |'I;
 |$`I
@@ -12006,7 +12070,8 @@ i->%
 |$$I
 |	?I
 _ I;
-.^=I
+.|\I
+.*\I
 (<$I
 (|$`I
 (|$ I
@@ -12023,6 +12088,7 @@ _ I;
 }(I+
 }%}.}I
 @ I;
+@I<@
 $	I;
 \$`I
 \$ I
@@ -12033,18 +12099,24 @@ $	I;
 \$@I;
 \$$I
 I;<$
+(=i\0
 I;]0
 I;}0
+(I0b
 i0E3
 i0H;
 I0I#
 i0pM
+`I2b
 I.`4
 I4E3
 I;4$ttK
+-i,5
+\=I5#
 I5	/z/~/
 %i-6
 I+7H
+@i8@
 I8E3
 I8H;
 i8Ii
@@ -12070,12 +12142,11 @@ I9t$
 I9:u*A
 I9.v@I
 I9W(
+()ia
 *}ia
- iA@
-(I`a
-(I'a
+(I-a
+(I)a
 I(A+
-(iaa
 iacute
 Iacute
 Iacutesmall
@@ -12085,10 +12156,14 @@ I am a fancy tooltip
 I am a tooltip
 I am a tooltip over a popup
 I am upset but things will improve for me soon
+(i"b
+(I+b
 <)IB
-(i`c
+(i!c
 ~ Ic
 ,$Ic
+(I/c
+(I(c
 }<Ic
 }-Ic
 };Ic
@@ -12108,7 +12183,6 @@ Ic7E
 Ic8A
 Ic@8L
 Ic8M
-(iCa
 	IcA
 IcB4H
 IcC,
@@ -12121,7 +12195,6 @@ IcC$H
 iCCP
 @IcD
 IcD$
-(ICd
 IcD	8M
 IcD$PHi
 IcE8M
@@ -12162,7 +12235,9 @@ IcUHM
 !IcV
 IcV 
 IcZ<A
-(i\d
+(%id
+(I^d
+(I&d
  I;D$
  ID=
 $I;D$
@@ -12210,9 +12285,12 @@ ID_RAKVOICE_OPEN_CHANNEL_REQUEST
 .Idz
 ie?>
 $IE3
+(IEd
 IEND
 I;E@v
 =iF#
+(IFa
+(ifb
 If enabled, game is free for all. If disabled, it's a two-team game.
 I+F H
 	IfIndex (IPv4 interface): %u
@@ -12274,11 +12352,7 @@ IHE3
 I+HP
 I+HPH
 (i(i
-.<iI
-.,iI
-.\iI
 >`#I>`#I
->}II
 $II+
 I`I;
 I I;
@@ -12287,6 +12361,7 @@ i(i4i:iP
 I@I9J@r
 <IIc
 $IIc
+(iid
 IiGM>nw
 II'#i
 IIII
@@ -12295,11 +12370,13 @@ $II+O8H
 I+IP
 I+IPH
 IISO
+^!IJ
+>|iK
 \$ Ik
-^I\K
-(iKb
+%Ik	
 Ik{J
 I+KPfD
+%iL?
 I+L$
 illum 1
 I love the sponginess!
@@ -12407,6 +12484,7 @@ Impulse-Response based
 ImVec4* colors = ImGui::GetStyle().Colors;
 I;n 
 I;N 
+(iNb
 ?in@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEAD3AEAPEAD@Z
 ?in@?$codecvt@_WDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEA_W3AEAPEA_W@Z
 In columns
@@ -12686,6 +12764,7 @@ invite_sent
 ?Invoke@?$CoherentToString@_N@cohtml@@SA_N_NPEADPEA_K@Z
 ?Invoke@?$CoherentToString@N@cohtml@@SA_NNPEADPEA_K@Z
 I+O8H
+.iOJ
 io.MouseDrawCursor
 I<OXb<^
 ~i~p
@@ -12708,14 +12787,15 @@ I;p r
 	IPV6:%s
 .Ipz
 I+QpI
-%ir,
 I;^(r
 I;.r
+.IRL
 iRR?
 IR.T.V.Zh^B
 %i. %s
 isalpha
 IsBaseFont
+(ISc
 IsCIDFont
 IsClipboardFormatAvailable
  is connected to the game!
@@ -12788,6 +12868,7 @@ I+T$
 Italic
 ItalicAngle
 ITALIC_ANGLE
+(ITb
 I;<$tc
 $ItCH
 it->debug_name
@@ -12848,7 +12929,6 @@ I+V H
 I;v(r
 I;W(
 I;W8v
-(iWb
 i]Wb
 IW]`cb^YQ-B
 ,I<&w:H
@@ -12856,22 +12936,26 @@ I;w(s
 I|	X
 I;x r
 I;x s
+(IYb
+(IYd
   Iz
 @iZb
+=@	j
+-j]?
 ?@?j
+(=[j>
 #|-j
-%j%,
-=	J[
-=J$@
+>(\J
 |$`J
 ;J |
 ;J }
+.=_J
+. 	J
 'J`'
 {/,J
 $"$<J
 $&$:J
 &J;'@
-%:J[
 (J0H
 J0H+J(H
 J0L+
@@ -12879,11 +12963,11 @@ J0L+
 J1J7JU
 j2?;
 j?2*j?5
-%j2M
 J}5M
 J6LDJ
 j6	ny
-=J'7
+=J7@
+@j8@
 J8&:&<">(@"B(D F(H J
 J8E3
 J8Hc
@@ -12893,26 +12977,22 @@ J8L+
 JA>0
 J A8
 JA(o
-=JaY
 J B'
-=,jC
 /Jc|
 JcL#
-%JCR
+=J;D
  J+D
-.jDI
 jDjK
 jdlFj4n,j<p(r$t
 J*dQ
+-'je
 j#!e
-=j\E
-=;Je
 |JE3
 J E3
 }J;Ea
 J E;J
 $j.f
-=;JF
+j`f.
 ~jfA
 J(fD
 JF.HBJ
@@ -12922,11 +13002,11 @@ J'H;
 J HcB
 J@HcB
 jH.h
+>jHI
 JhIc
 ,JhL^
 jHT|Z
 |JI;
-%JI+
 J(Ic
 JIcL$
 jiga
@@ -12943,31 +13023,35 @@ jiggers
 jiggs
 ;J }iH
 Jij$`R
+=jIP
 @@jj
 -j'j2j>jU
 J?JH
+.JjJ
 JJJJ
->J$K
-=jK4
 JK"i
 .j&l
 J(L+
-JL;@
 ~JLc
-=JLO
 (j<lZ
 (J<LZ
+=@JM
 J(M;
 ~JMc
+%jN+
 j:N -
-,J.N,
+*J,N*
 '!$J$N$R$V$Z$^$b$f$j$n0
+=J\O
 [@JO
+JO;@
 Johannesburg
 "JOINED TEAM "
 JOINED TEAM 
 join_team
 jpeg
+=JqY
+=}JR
 jRM@
 j[ros
 jr?z7
@@ -12979,7 +13063,9 @@ jsoncp
 [JSON-Event] 
 json_manifest
 (JSON) on Masterserver request. map/mode/match_id=
+%JSR
 	#jT$
+-JTH
 jTh4r(t(rthDj
 jTh>j$|.~ |Lh
 JTN$Jf
@@ -12993,9 +13079,9 @@ jump_left
 jump_left_back
 jump_left_forward
 jumppad
-?jumppad
 @jumppad
 jumppadfx
+]?jumppadfx
 jump_right
 jump_right_back
 jump_right_forward
@@ -13006,24 +13092,23 @@ JvHH
 JvKsK}l	J
 >JVQ2,
 j$v.x.z x
-=JW8
 ;J }wL9d$@
-=*JY
 +:JYix
+%JZ[
 *:JZjz
-=k*\
+ k;@
 !&]k
+@k;@
 &=\k
-%k\#
-=<.K
-=]%K
+=,K<
+=&K(
+>' K
+>(?K
 |$`K
 _?K<`?
-.>,K
-.]&K
+.<,K
+..*K
 '`"K
-@K>@
-$K>@
 \$@K
 \K0A
 +K0A
@@ -13034,25 +13119,31 @@ K0H;
 K0H;C u4H
 K0I;
 K0I#
-(=k0M
 k0V(
+=k17
+=K18
+%k!4
 K4E3
 ;k4r
 K4V]]C
+-k;5
 K?64B
 ;k8|
 K8H;
 k`@8l$Pt
 ;k8r
+=K9/
 K@9x
-@kA@
+(-ka
+=k;A
+ kA@
+()Ka
 K@A;
 Ka 1.000000 1.000000 1.000000
 kabcf
  (kakikukeko)
 Kanjis: 
 ">Kav
-(=Kb>
 K},C
  KcT!
 ^K(D
@@ -13063,6 +13154,8 @@ K`D3
 k*do^
 KdrJL
 KDt-L
+= kE
+=;kE
 k E3
 k@E3
 K E3
@@ -13091,6 +13184,7 @@ keyword length must be 1 - 79 characters
 K(fA
 kF?j
 Kftc
+=kgd
 k(H;
 K H;
 K(H;
@@ -13108,11 +13202,13 @@ K@H+K8H
 KHL;
 KHM;
 {kHw
+.+kI
+%kI=
 K`I;
 K I+
 K(I;
 K@I;
-=KId
+>KII
 kike
 kikes
 kill
@@ -13124,7 +13220,9 @@ kills
 Kill your own in-game character.
 kindness and love
 Kiwi
+.$KJ
 K +J
+=[kK
 !.<K\k{
 +;K[k{
 K&K8KFKQ
@@ -13133,8 +13231,6 @@ KKKK
 k k.k;m
 K(knN
 kkWfd
->;KL
-.`KL
 K L9k uH
 K L9q
 kleene
@@ -13143,6 +13239,7 @@ KLI#
 KLMG
 ;kLr
 kM`~
+=Km?
  KM@
 K(m9
 kM9u
@@ -13181,7 +13278,7 @@ knocked_down
 known
 Known team for player 
 kO4d
-%Kp'
+-K-P
 @k P)9
 kPA;
 kPD+
@@ -13202,15 +13299,17 @@ k^@[|q@
 ;K@r3
 ;K s
 Ks 0.000000 0.000000 0.000000
+=KS4
 Ksmall
 ;K spH
 K SUVWATAVAWH
 K SVWH
+%K"T
 k(t<H
 K(t"I
 K(t&I
-.kTL
 )k(u
+%ku'
 KUMUX
 KuqM
 :kuT
@@ -13218,23 +13317,26 @@ K UVWH
 K UWATAUAWI
 K UWAUAWH
 :KuY
+-&kV
 /K@v
 K}VB
+%kVH
 KvIH
 k VWAVH
-=kWd
 Kw<H
 Kw	H
 KxH;
 kxHc
 KxI;
 KXLk
+=KYd
 ky"F$
 K(yX
+%kz>
 kZkjk
-=l)@
--?l.
+=l+@
 ;l$ |
+(%\l>
 (l$ 
 (l$@
 )l$`
@@ -13243,7 +13345,6 @@ kZkjk
 \$l+
 \l$`
 \l$@
-%;l>
 l$<<
 l$ @
 l$,@
@@ -13252,15 +13353,16 @@ l$(_
 l$(@
 l$@;
 l$@@
-`L>@
 ~*L+
 <~L;
 <$L;
+=={L
+><(L
 >>?%L+
 >>?%L+?
->|:L
-> $L
->L;@
+>|>L
+>,=L
+>\&L
 |=L;
 |$`L
 |$<L
@@ -13273,8 +13375,6 @@ l$@@
 |$\L
  L;}
 _|$L
--L ?
-,L;@
 ;_ L
 ;?%L+
 . \L."^
@@ -13282,7 +13382,6 @@ _|$L
 (|$`L
 (|$@L
 ($$L
-(%_L)
 (L$`
 (L$ 
 (L$@
@@ -13307,17 +13406,19 @@ $~`L
 \$(L+
 \$@L
 \$$L
-\L;@
 \L$|
-&L;@
 #!#L
 %L+?
 +L$,
 +L$(
 +L$$
+	=	L
+L<?@
 L><+
+L;="
 L;|$`
 L;|$(
+L;-`
 L$`+
 L$ ;
 L$ @
@@ -13336,11 +13437,10 @@ L$0;
 L$0@
 L0<@
 l$03
-=L03
 L$03
 L08A
 L$0@8|$<t
-L$095~+7
+L$095>97
 (l$0A
 l$0A
 l$0A;
@@ -13418,8 +13518,6 @@ L$1L
 L1LH
 L1PH
 l$`2
-=%L2
-=L]2
 L$`@2
 l2$4.6(8&:(<&>.@*B
 L$2f
@@ -13453,13 +13551,13 @@ l$4H
 L$4H
 L$4HcD$0H
 L$4I
->l4K
 l$4L
 L$4L
-L;-5{3
 L$5I
-L;5j	`
+L;5Z
+<l6,@&B,D&F,H,J
 L$6f
+.L6K
 l6qnk
 $@L7
 {l~7!h
@@ -13488,7 +13586,6 @@ L$8A+
 L	8A
 l$8A^A\^
 L$8B
->l8,B&D,F&H,J,L
 L$8C
 l$8D
 l$8D;
@@ -13531,6 +13628,7 @@ L$8M
 l8nzp
 l$8t
 L;8t-M
+=l9@
 l$@9
 |$(L9=
 { L9
@@ -13538,17 +13636,16 @@ l$@9
 }|L9=
 }\L9}
 \$L9
-L9=@~>
 L9|$`
 L9%@
 L9|0
 L90u
 L90u H
 L93u
-L952
-L95C
+L95B
+L95k
+L9%6
 L9|$8
-L9-8
 L99u
 L9a`
 L9a8
@@ -13558,10 +13655,13 @@ L9c(
 L9Cht
 L9Cxu
 L9d$P
-L9%f
+L9=E^3
 L9f u4
+L9%f V
 L9`h
+L9-h
 L+9H
+L9%H
 L9HH
 l$@9i
 L9i 
@@ -13573,9 +13673,10 @@ L9k u*
 L9k unH
 +L9m
 L9m8s]H
-L9=O|>
 L9OX
+L9=p
 L9pH
+|$L9=piF
 L9p s
 L9~PteL9~`t_L9~htYH
  L9q
@@ -13589,8 +13690,6 @@ L9u8
 L9vp
 L9xHt
 L9\$xI
-|$L9= YF
-L9=Z
 L9-Z
 |lA;
 (l$@A
@@ -13652,7 +13751,6 @@ L;AxuSI
 layer
 Layout
 LAYOUT = 
-(-lb
 )l$@B
 l$ B
 l$(B
@@ -13663,6 +13761,7 @@ L;B8L
 L$bA
 l!;b	F
 =lbgrt
+>LBI
 L$bL
 lbracket
 L;B t#
@@ -13751,11 +13850,10 @@ l$$D
 l$$D;
 l$\D
 l$\D;
-=^Ld
  L;d$@
-(%Ld>
 L+d$
 ~L$ D+
+=LD:
 |$LD
 (L$`D
 (L$ D
@@ -13793,7 +13891,7 @@ L$d3
 L$D3
 l$|D8-
 L$ D8
-l$ D9-
+l$ D9-n
 L$ D9n
 lDa>
 L$dA
@@ -13814,6 +13912,7 @@ l$DI
 L$dI
 L$DI
 l$dIc
+>lDK
 l$DL
 L$dL
 L$DL
@@ -13839,7 +13938,6 @@ L$(E
 L$(E;
 L$@E
 L$$E
-l$`E2
 l$`E3
 l$<E3
 l$ E3
@@ -13913,6 +14011,7 @@ l$ f
 l$(f
 l$@f
 l	 f
+-!lF
 (L$ f
 (L$@f
 )L$`f
@@ -13941,7 +14040,8 @@ L$,fff
 L$(fff
 LFHfA
 L$ fI
-.LfJ
+.LFI
+.lfJ
 L$fL
 L$FL
 LFlA
@@ -13950,8 +14050,8 @@ L+Fp
 L;Fx
 LFxfA
 L;Fxu9I
+=;lG
 |L*_g
-=L@G
 L;G8L
 L$gL
 L$GL
@@ -13960,6 +14060,7 @@ L;GP
 L;Gpuaf
 l$h@
 l$h+
+=<lH
 |$lH
 )l$`H
 )l$ H
@@ -13978,18 +14079,13 @@ l$$H
 l$\H
 l$H;
 L;\$h
-=^LH
-=<LH
-=:LH
 |$LH
--*LH
 (L$`H
 (L$ H
 )L$ H
 )L$@H
 ]L/H
 #L$ H
-%"LH
 L< H
 L>#H
 L;|$H
@@ -14026,7 +14122,7 @@ L$(H3
 L$@H3
 (L$`H;6
 L$ H9
-l$(H95l
+l$(H95,
 L$H9H
 l$@H9n
 l$,H9N(u
@@ -14116,12 +14212,12 @@ L$ H;S
 l$ht1
 l$hu!
 L$Hu
-=lhV
 L$`H;V 
 ;L$hw
 L$@H;W
 .l$hzMuK
 ~lI;
+."lI
 l$`I
 l$`I;
 l$ I
@@ -14193,6 +14289,7 @@ lighting
 lightingdiffuse
 lighting effects.
 light_radius
+>liJ
 L$<Ik
 L$@Ik
 Like this one
@@ -14240,24 +14337,28 @@ L;I tDE
 literal-char
 livereport
 Living room
-.<LJ
-.,LJ
-.\LJ
+=lj<
+.l	J
+	l J
 L$`J
 L$ J
 L$@J
+=lj2
+%LjA
 L$JD
 L$JfA+
 L$jL
 L$JL
 L;J@s
+. lK
 l$(K
 l$&K
 -<L[k{
->L]K
 L$kL
 L$KL
 lKlV
+>l$L
+.l[L
 (l$`L
 (l$ L
 (l$@L
@@ -14327,7 +14428,7 @@ L$$;L$h
 L$LH
 L$lH;E
 L$LI
-.LLJ
+.llK
 l$LL
 L$lL
 L$LL
@@ -14361,6 +14462,7 @@ L$@M
 L$$M
 [-&LMb#{'
 L+m f
+.lmI
 L$MI
 L$mL
 L$ML
@@ -14368,17 +14470,16 @@ L$ML
  (l.n2pJr.t&v
 LNH9^L
 L~NhL
-.lNL
 L$nL
 L$NL
 LNL9^P
 %<LNNL>5"
 lnn,le
+,l(n|p
 L+NpI
 l n,pNn
 l n,pNnj."^
 l.n.p.thxB
-,l(nxp
 L;}o
 - Load additional fonts with io.Fonts->AddFontFromFileTTF().
 LoadCursorA
@@ -14620,7 +14721,7 @@ L$pD+
 )L$PD
 L$PD
 L$PD;
-l$PD8-X
+l$PD8-
 )l$pE
 l$pE
 )l$PE
@@ -14670,7 +14771,6 @@ l$PI+
 )L$pI
 L$pI
 L$pI+
-.LPI
 L$PI
 L$PI;
 L$PI+
@@ -14692,7 +14792,6 @@ L$pO
 LpswwnN3/
 l$pu
 .l$pzOuM
-=l&Q
 L?q=
 l$QD
 L$qf
@@ -14703,7 +14802,6 @@ L;q skH
 L$Qt
 Lqyz{{
 L$ r
-L;=R
 L$rf
 lrint
 L$rL
@@ -14712,7 +14810,7 @@ LrMDM
 L;	s
 L$ SAUH
 L$ SH
->lSL
+.lsK
 L$sL
 L$SL
 lslash
@@ -14733,7 +14831,7 @@ L$ SVWAWH
 L$ SVWH
 L$ SWH
 &lt;
--l*T
+-l:T
 )L$ t
 L;t$@
 L$`t
@@ -14903,9 +15001,9 @@ LXM@
 l$XN
 L$xt
 L$Xu
+=lxV
 !*=L]y
 L;Y8t
-L+=YCW
 L$yf
 L$yL
 L$YL
@@ -14914,6 +15012,7 @@ LYM@
 LYr;
 LYrAiM
 LYrD
+L+=YSW
 ._lz
 l$`z
 L$@z
@@ -14923,16 +15022,11 @@ L$@z
 L$zL
 L$ZL
 LZM@
-L;=Zu8
 .L$|z'u%D
 `?m'_?&~]?(
-=m!*
-=m	:
 {"%m
 `[M@
 <$M;
-=@:M
-=+M/
 |[M@
 |$`M
 |$ M
@@ -14943,7 +15037,6 @@ L;=Zu8
  ^M@
  [M@
  ]M@
--&*M
 (_M@
 )|$`M
 )|$@M
@@ -14963,7 +15056,7 @@ $:M+
 \$ M
 \$(M
 \$@M
-%"M=
+%*:M
 M:000
 M:0.000
 M0>B
@@ -14980,10 +15073,13 @@ M0I;
 M0I+
 M0L;
 M0M;
-=+M2
+(m2a
+- m4
 m4?2
 m4E;
 +M4w
+=m{6
+(m6d
 M7H3
 M89JDt
 M8A;
@@ -15008,14 +15104,13 @@ M:<8T
 M9|$(
 M90u/
 M97u
-(M9a
 M9e u
 M9.t
-(m"a
+(m`a
+(m_a
+(m]a
 (m@A
 )m A
-(M=a
-(M%a
 M A+
 M(A;
 macguffif
@@ -15239,40 +15334,36 @@ max_particles
 MAX_SPACE
 M;Axu
 Maybe
-(m!b
-(M;b
-(M$b
+(m:b
+(m.b
 Mb`?
 M;B0u
 MB0z
 }MB;4'}0I
+(MBa
 MbP?
 M+Bp
 : mc=
-(m[c
 #mc'
 <$Mc
 |$`Mc
-(M]c
 ]`Mc
 ](Mc
  MC: 
-(mca
 McB@A
 McBDA
 McC8D
 McCDD
 McD$
 Mc)I
+.MCK
 >Mc!M
 Mc>M
-(m{d
 (m`D
 (m@D
 )m`D
 )m D
 )m@D
-(M<d
 |?MD|?
 |M$D
  MD: 
@@ -15280,10 +15371,12 @@ Mc>M
 )M@D
 M;D$
 &mdash;
+(Mdb
 mdef
 md_explosion_1
 %m%d%y%H%M%S
  me=
+=m$E
 )M@E
 M E;
 m`E3
@@ -15291,6 +15384,9 @@ m(E3
 M E3
 M(E3
 M@E3
+M&E3
+(meb
+(mEb
 medianFilterWalkableArea: Out of memory 'areas' (%d).
 Media was ejected while reading.
 Medium
@@ -15359,8 +15455,8 @@ metrics-variations
 )m`f
 )m f
 (M@f
-="MF
-(-MF)
+(mfa
+(MFc
 M@fD
 M}fff
 M fI
@@ -15369,7 +15465,6 @@ M;g0
 MgA;
 MgA+
 MgA9
-=mGd
 MGH3
 mg-hold-counter=
 MgI9
@@ -15414,6 +15509,7 @@ mhL;
 MHL+
 MHM+
 M(H+M H
+>\mI
 M`I+
 M I+
 M(I;
@@ -15550,15 +15646,15 @@ Missing PLTE before tRNS
 mixed
 Mixed items
 mixer_window
-.;MJ
-.(MJ
 MJM|a
 MjMs
 M;J v
 M;Jxt
 mj>zjZ
-.m&K
-.M&K
+.<mK
+.)mK
+(-mK)
+.M)K
 %mKA
 _mkdir
 (m@L
@@ -15567,15 +15663,17 @@ ML$8D;L$<
 Ml$`A
 ML$$A
 M@LcE
-m	,(.L,t
 -=M]m}
-(-MM)
 M(M;
 m	m9e
+(Mma
+(mMd
 MMMM
  mn=
+(=m"N
 mname = 
 MNG features are not allowed in a PNG datastream
+(mOc
 mock
 Modals
 ModalWindowDarkening
@@ -15758,8 +15856,8 @@ mods\*\
 Module32First
 Module32Next
 MOE3
+=MOG
 MOH3
-.MOL
 momentum
 monitor
 More..
@@ -15840,6 +15938,7 @@ moving_entities.size()
 moving_props_container
 moving_target
 MPA;
+(mPb
 (mPD
 (MpD
 )MpD
@@ -15856,10 +15955,9 @@ MPH3
 MpI+
 )MPI
 MPI+
-.mpK
 mP L
 m,pm
-%<MQ
+(-mR)
 mrbugfixer
 mr"iR
 MRM\Mc
@@ -15877,7 +15975,7 @@ ms tricount=
 msuperior
 MSVCP140.dll
 mSx@
-%m*T
+%m:T
 Mt$4D
 M@tB
 MT-Error: Special effect supressed
@@ -15950,6 +16048,7 @@ muzzle_offset
  	muzzle_offset 4 -5 0 
  	muzzle_offset 8 -9 0 
 /m`v
+=mWd
 MXff
 MXH+
 MxH3
@@ -15973,6 +16072,7 @@ MY CUSTOM COLOR PICKER WITH AN AMAZING PALETTE!
 My first DSP unit
 My GUID is %s
 My IP addresses:
+-myK
 M?y>O?
 MyObject %d
 MyObject: %d
@@ -15982,23 +16082,24 @@ My title is the same as window 1, but my identifier is unique.
 My title is the same as window 2, but my identifier is unique.
 <mz/
 Mz5?_
+.mzJ
 m?@Zl?~
+=*n?
+=n;=
 | %n
 |n!@
  n;^
-(=>n#
+ n!@
+,n!@
 )_)n
 \n!@
-%.n>
 n|$`
 n|$@
 n\$\
 `?'N
-^='"N
-=N^$
 [_?'N
 \$@N
-N:;@
+=N0@
 "N0^
 N0E3
 n\$0fD
@@ -16008,20 +16109,21 @@ N0H+N(H
 N0I;
 N0M;
 n2n?
--n.3
+`n#3I
+@n#3I
+n#3I
+`@N#3I
 N%:4
-==n6
-=$n6
-=N7R
 <N8^>:@
+n8GI
 N8H9H s
 N8Hc
 N8L;
 N	9H
-n9>J
 N(A+
 n?A6
 NA-Central
+)Nad
 NA-East
 nA H
 name
@@ -16076,7 +16178,7 @@ NB5!&
  &nbsp; &nbsp;
 &nbsp; &nbsp; 
 NB: Tree node must be poped before ending the cell. There's no storage of state per-cell.
-(	nc
+=nc$
  NC=
 NCC.001
 NCC.002
@@ -16106,7 +16208,6 @@ nD$PL
 nD$x
 nD$X
 ndZTNGA:3-' 
-=N!E
 NE,+
 N`E3
 N(E3
@@ -16146,6 +16247,7 @@ nfinity
 nfp|n
 NFuz/k
 NGCT
+=NGR
 ng_su
 NGTA
 ;nGVKUTS[BXIWH\KbHi:k6s4r7p8
@@ -16167,9 +16269,11 @@ NHH+N@H
 NHI;
 NHI+N@H
 |nhZNLFE9-"
+.\NI
 &N"I
 N`I+
 N I+
+=NI7
 nI9>h
 NIcC L
 NIcK@H
@@ -16200,34 +16304,26 @@ nineinferior
 nineoldstyle
 ninesuperior
  ninja 
-=niP
 , NJ
-.<NJ
-.)NJ
 NJ2"v
 NjHc
 nj(l
-=nK#
 n\$l
 nl$|
-nL;@
 nL$`
 nL$ 
 nL$$
 !N^L
-.|NL
-.\NL
+. NL
 NL$4A
 nL$4fD
 N L9y
 NLe+Z
 nL$h
 N@L;H@
-.nlI
 nL$l
 nL$P
 n`M;
-=N M
  NM@
 N M9~8r
 nmra
@@ -16268,6 +16364,7 @@ No error
 No errors.
 -NoG
 No GPU dispatcher
+.NoI
 No IDAT data (internal error)
 No IDATs written into file
 No image in file
@@ -16367,7 +16464,6 @@ No vertex buffers found
 No vertices loaded for component file: 
 No viewport is set
  now has the macguffin.
-%nP=
 n\$P
 $N$P^
 NP9NLu
@@ -16385,9 +16481,7 @@ N P|R
 nQ:B
 NqNy
 "+=N]r
-%Nre
 nrek
-;N s
 Ns 0.000000
 n>sak><
 Nsmall
@@ -16397,7 +16491,7 @@ n>${t>
 nt$\
 nT$|
 [N[T
--nT2
+=NT2
 NTD;
 ntel
 ntelA
@@ -16501,85 +16595,80 @@ NxE3
 NxI;
 NxL;
 NxL+NpM
-=(NY
-~o=$
-~o-(	(
-=*o?
+=nyP
+(=nz#
+=-o<
+=o(:
  ;o(|
-(%o`
-(o!@
-@o;@
-@o!@
 $/o|
+%/o<
 o::,
 `?O@
 =>=O
+=&,O
+>O;@
 |$ O
+ O;@
+,O;@
 ?@>O@
 ]O?@
 @[O@
 \$ O
+&O;@
 O0A+
 O0E3
-o-0FE
 O0H;
 o@0I
 O0I;
 O0I+O(H
 O0L;
+=o#1
 ?"o1@`
 O14W
-o%1PE
-='o2
 O`@2
 O.?2
-o=2aE
 O2c^
-o%$3E
+o-&2E
 O4E;
-=O4H
-~o=5
-~o5>
-~o5_}(
-o50qE
-~o50Z(
+~o5^
+~o5.
+~o50v(
+~o5 1(
+o51$C
 o 5a
-o5a#E
-o-=5E
-o%^5E
-~o5I*(
-~o5Lf(
-~o5m6(
-o5nYE
+o5.aE
+o5_&C
+o5@:D
+o5!+E
+~o5i/(
+~o5lk(
 O5OFO\OgO
-o5RBE
+~o5P_(
 O%5x(&5
-=o&7
+~o=7
 +o*7
-=#O7
-o%^7E
+o-7=C
 "O7v
+o=&7X
 O\$8
 O8A+
 O8D;
 O8E+
 o8L;
 O8Mr
--o93
 O@9u
 O*9y]
-~o=a
 o] A
 O<$A
 O(A:
+o%a0E
 oA0I
-o=ABE
 oacute
 Oacute
 Oacutesmall
+o-?aE
 !:Oap}
 />Oas
-(-ob
 oB0f
 oB f
 .obj
@@ -16589,7 +16678,6 @@ Oblique
 o? Bo?
 ** Obtaining back buffer
 |obXOF>82,'#
-o-]=C
 Occlusion lowpass filtering cutoff frequency (Requires restart).
 occ.ps.cso
  occupied=
@@ -16605,35 +16693,37 @@ ocean_surf_lq.ps.cso
 ocean_surf_lq.vs.cso
 ocean_surf.ps.cso
 ocean_surf.vs.cso
-=oCG
+=OCF
 ocircumflex
 Ocircumflex
 Ocircumflexsmall
-o-cKE
+(=OcN
 Octal escape sequence is invalid.
+~o=D
 o] D
 o} D
 oD$@
+(=Od
 oD$0f
 oD$0fA
 O;D$ }9D
-o=#DD
 oD$@D;
+o-d?E
 od$`f
 oD$`f
 oD$ f
 oD$@f
+=OdF
 oD$`fA
 odieresis
 Odieresis
 Odieresissmall
 oD$Pf
 .Odz
-~o=e
 o}@E;
-o%(@E
-o%&\E
-=Oe:
+o%'!E
+o%(!E
+o%{#E
 oE0f
 O E3
 O@E3
@@ -16642,23 +16732,24 @@ oE@E;
 oE`f
 oE f
 oE@f
+o=eNE
 oEoOoZoaozo
 oEPE;
 oEpf
 oEPf
 oEPfD
 OEsmall
+~o=Ex'
 ^oEZ_
 o] f
 o]@f
 o@ f
-%,oF
 o]@fA
 O(fA;
 OfA#
 o}@fD
 ofD9
-o-f*E
+o-FEE
 Offensive class.
 offline
 oFFs
@@ -16683,13 +16774,13 @@ offset_x_rel
 offset_y
 offset_y_rel
 O fI
-o=f/X
 .ogg
 ogonek
 Ogoneksmall
 ograve
 Ograve
 Ogravesmall
+~o-h
 ~o-H
 @o@H
 o`H;
@@ -16712,8 +16803,9 @@ OhI+
 OHI+
 OHL;
 OHL+
-o-HnE
 ohoq
+.>oI
+..oI
 O`I;
 O I;
 O(I+
@@ -16722,25 +16814,24 @@ O@I+
 oI0I
 O,I>e;
 oI f
-.oiI
 O@I+O8H
 O@I;OHt
 |OI;Xxu
-.#OJ
+.|OJ
 oJ0H
+=oj5
 oJ f
 oK0H
 OK@D9CDH
 oK f
+o%kLE
+o%kPE
 [Okz
+~o=l
 ol$@
-~o=L~'
 o L;
 oL$`
 |OL;
-.`OL
-.:OL
-.'OL
 O@L;
 oL$0f
 O L9y
@@ -16750,13 +16841,11 @@ oL$`f
 oL$ f
 OlfE;
 OL+H
-.oLJ
 o(L+o L
 oL$P
 oL$PfA
 oM`A
 oM A
-=omD
 Omega
 oM f
 oM`fA
@@ -16765,7 +16854,7 @@ oM@I
 Omit the value to unset a property.
 Omit the value to unset the property.
  (Omitting subsequent instaces of this message)
-.oMJ
+.OmK
 OMMIT
 omni_volume
 omPE;
@@ -16853,15 +16942,14 @@ on_update_relative_mode_state
 :?(\O?o
 /?O_o
 o O 0
-=oO7
 o _object_
 OOlH
 OOOOOOO
  op=
-=oP=
 >O-p
 >O-p?
 O-p?
+o-P8E
 >O-p?A6
 O-p?A6
 opacity
@@ -16872,7 +16960,6 @@ _opaque_render_queue
 op brush_bigger
 op brush_smaller
 o]PD
-o%&pE
 OPE3
 open
 Open
@@ -16896,7 +16983,6 @@ o]Pf
 o]PfD
 oPH;
 OPHc
-.oPI
 OPI;
 OpOti
 Op return = %d
@@ -16937,15 +17023,19 @@ orb_speed
 Ordering
 ordfeminine
 ordmasculine
-o-)RE
  Orientation: 
 oriented
 ##original
 Original
 original_token
+.OrK
+.oRL
 oRM@
 - or me
-~o=%s'
+=os:
+;O s
+o%s\E
+o-#SE
 ?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ
 OSGN
 OSGN,
@@ -16966,12 +17056,13 @@ osver.dwMajorVersion
 osver.dwMinorVersion 
 osver.dwOSVersionInfoSize 
 osver.dwPlatformId 
+%^oT
 *\Ot
 Ot$<
 oT$0fA
 oT$0H
 oT$0I
-o-<tE
+o%T\E
 oT$`f
 oT$@f
 ot+H
@@ -16980,6 +17071,7 @@ OtI9
 otilde
 Otilde
 Otildesmall
+=OtS
 OTTO
 OTTOt
 OTTOt"
@@ -16987,16 +17079,17 @@ OTTOt"
 ottou
 [?O?T?Y?e
 )o(u
+~o=U
 ou0E;
 ou0f
 oU0f
 ou0fD
 ou`A
 oU D
+o-_UE
 oU f
 oU@fD
 ou)H
-.OUL
 ouPE;
 ouPf
 oUPf
@@ -17035,7 +17128,6 @@ out_pos.to_string()
 output
 ##output_type
 output your content because that would create a feedback loop.
-o-V.E
 ?overflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHH@Z
 Overflow in png_memset_check.
 overlay
@@ -17046,29 +17138,24 @@ oversubscribed dynamic bit lengths tree
 oversubscribed literal/length tree
 overtime
 Overtime in seconds.
-o-w5C
+.OVL
+o-vmE
 own_player_id
 own_team
 own_team_id
-~o%X
+~o%x
 OxH;
 OXH;
 OxHc
 OXL9OPt
-o-XWE
-o-}Y
-o%	yE
-o-YkE
-o%YME
-~o%z
+=OyF
 .O`z
-o-Z;E
-%OzK
 oz>!km>
 OZw3(?
 >p>_
 |$p@
 |$p+
+ p=@
 :p"	
 (|$p
 (\$p
@@ -17078,53 +17165,50 @@ OZw3(?
 @:p(
 $	=p
 	p'?
+p`_@
+p<?@
+p>?@
 p_^[
 p_^]
 p_][
-p??@
-p]`@
-p$`@
-p\!@
+p[;@
+p];@
+p}?@
+=*P?
+=\;P
+=	P<
 |$P;
 |$P@
 |$P+
  P: 
+,P_!
 (|$P
 (\$P
 )|$P
 )\$P
 ]\/P
-@P`@
 \$P;
-+P!^
+P^`@
 P_^[
 P_^]
 P_][
-P;?@
-P:?@
 P/};
-P%`@
+P$!@
+P#`@
 'p*;0
 \P0>
-P08~
+P08~#3I
 P0D;
+%P0g
 P0H;
-p}0I
-P}0I
-P}1@
-P1C@
-P><1K
-=p]2
+p0<I
+P0<I
 \$p2
+p2 =!
 \$P2
 \$P@2
 P20T
-%p24
 p2`4
-p29@
-p<2I
-P<2I
-p2p=!
 P2R466F
 |$p3
 (\$p3
@@ -17133,36 +17217,41 @@ P2R466F
 |$P3
 \$P3
 p?33s?
-.P3K
+p>#3I
+P>#3I
 p3O@
 P3O@
 P4D;
-=;P5
+p\4I
+P\4I
+%P{5
 P5fD
-:P+6
 	P6_)
+P.6@
+P*6@
 P6*`|
-p61BJ
+p60&K
+p6#3I
+P6}aI
 .P6AXPEAUCurlHolder@cpr@@@Z
 .P6AXPEAX@Z
-P6IbK
-p6l2K
-P6laK
-P6lqI
-P6XFJ
-P79@
+p6|>I
+P6,ZJ
 \$p8
 )\$P@8
-P\8@
+P"8@
+P]8@
 P8A;Z r
+p8D@
 )P8D)@@H
 /P8i
 P8I;
 P8L9|$8
 p(@8w
-p9?@
-P,9@
-P"9@
+p_9@
+p!9@
+p"9@
+P/9@
 ,p9E;
 \$p9Q
 |$pA
@@ -17198,7 +17287,7 @@ PA_^[
 PA_^]
 PA_][
 PA\_[
-=pA3
+Pa8@
 \$pA9~4~w3
 pA^A\]
 pA_A^^[]
@@ -17223,7 +17312,6 @@ PA_A]A\][
 pA_A^A]A\_^]
 PA_A^A]A\_^[
 PA_A^A]A\_^]
-(=pAC
 packs
 Padded cell
 padding
@@ -17342,17 +17430,18 @@ pause
 $p?b
 |$PB
 ?pbackfail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHH@Z
+PBC@
 PBO@
 pbP0
  pc=
-p<C@
-p-C@
+pc`@
+p=C@
+p|C@
+p/C@
 p@C@
 pc2g
 pCAL
 PCI IDs (Vendor/Device/Subsystem/Revision): 
-.pcJ
-.PcJ
 __p__commode
 ^pD+
 |$pD
@@ -17362,8 +17451,8 @@ __p__commode
 )]pD
 )\$pD
 \$pD
-p:D@
-p"D@
+p=D@
+(]Pd
 |$PD
 |$PD;
 (|$PD
@@ -17376,19 +17465,20 @@ p"D@
 \$PD
 \$PD;
 P D;
-P;D@
-P:D@
+P)D@
 P@D;
-|$PD8=
+|$PD8=8
 \$pD8c
 P`D8\$(t"
 {PD9
 .pdata
+PDC@
 pDD;
 p.distance
 pd_powerup_color
 pd_powerup_image
 }PDX10u
+pe?@
 |$pE
 |$pE;
 (\$pE;
@@ -17409,6 +17499,8 @@ pd_powerup_image
 \$PE3
 P(E3
 P@E3
+pe3I
+Pe3I
 Pe6^
 peaks
 Peaks
@@ -17443,10 +17535,12 @@ perturbation
 )\$pf
 \$pf
 @:pF
+pF>@
 |$Pf
 \$Pf
-Pf`@
 P ;F
+pf#3I
+Pf#3I
 p!fA
 ]PfA
 \$PfA
@@ -17458,7 +17552,6 @@ P(fE
 )|$Pff
 |$Pfff
 }Pfff
-pf	NL
 pfr-metrics
 pfx: 
 pfx_beam
@@ -17489,10 +17582,11 @@ pfx_report
  	//pfx slow_weeble_filament slot_pfx_slow_weeble_exhaust 
 )|$pG
 'Pg"
+Pg;@
+pgA@
 pgdn
 [PgDn/PgUp] Scale offset  [Ctrl+PgDn/Ctrl+PgUp] Scale  [Shift+PgDn] Move Y pivot
 p#G H
->pgK
 pgup
 ~pH;
 |$pH
@@ -17517,6 +17611,7 @@ _PH;
 \$PH
 \$PH;
 \$PH+
+%P^H
 |$pH9w0
 PH;A
 PH;B
@@ -17531,7 +17626,7 @@ pHcOP
 PHE3
 PHHc
 PHH;PPt-3
--phK
+.phJ
 @PHk
 phonon.dll
 P(H;P0
@@ -17630,10 +17725,12 @@ phy_slide_friction
 phy_smoothing
 phy_speed
 phy_speed_filtering_end
+phy_speed_filtering_end.
 phy_speed_filtering_minimum
 phy_speed_filtering_minimum.
 phy_speed_filtering_start
 phy_speed_filtering_start.
+phy_speed_filtering_yank_power
 phy_sprint_max
 phy_sprint_mode
 phy_sprint_rate
@@ -17646,23 +17743,21 @@ PhysX3_x64.dll
 phy_target_tickrate
 phy_vertical_smoothing_factor
 phy_wall_jumping
-pi;@
-=pI(
 |$pI
 |$pI;
+.p=I
 (|$pI
 \$pI
 |$PI
 |$PI;
 |$PI+
-.<PI
-.,PI
-.\PI
 (|$PI
 @PI;
 \$PI
 \$PI;
 \$PI+
+P^+~I
+P=I@
 P I;
 )p.i1
 	 "pI3
@@ -17689,7 +17784,6 @@ pickup_upgrade_weapon
  	pickup_upgrade_weapon supa_blasta 
 P IcN
 }p?IGq?|
-.piK
 \$PIk
 Pineapple
 ping
@@ -17709,23 +17803,25 @@ pixel_shader_param
 pixel_shader tiledecal.ps.cso
 		pixel_shader tile.ps.cso
 PIXEL_SIZE
-pj`@
-Pj;@
-.PjK
-Pj`O+
+pJ`@
+."PJ
+Pj0Q+
+PjA@
 Pjps
-.!pK
+pk;@
+pK`@
+Pk;@
+-PK+
 \$PK
-PK>@
+%P?K
 pkg->object_id
 pkg->value
-.pKL
  pl?
 |$pL
 (|$pL
 )|$pL
 \$pL
-pL_@
+Pl;@
 Pl. 
 |$PL
 |$PL;
@@ -17737,8 +17833,6 @@ Pl.
 @PL;
 \$PL
 \$PL;
-PL;@
-PlA@
 place
 placement
 Plain
@@ -17765,7 +17859,6 @@ play_sound
 ?playSound@System@FMOD@@QEAA?AW4FMOD_RESULT@@PEAVSound@2@PEAVChannelGroup@2@_NPEAPEAVChannel@2@@Z
 }pLcJ
 Please send us this sessions's log files for analysis.
-=PLH
 Pl,n,p,r
 PlotHistogram
 PlotHistogramHovered
@@ -17776,13 +17869,13 @@ PLTED
 plus
 plusminus
 plus-sign
-pm=@
+%pm	
 |$pM
 )|$pM
 \$pM
 p[M@
 p%M@
-Pm=@
+pM`@
 |$PM
 )|$PM
 \$PM
@@ -17798,10 +17891,10 @@ pmoc
 `pmoct
 `pmocu
 PmXh]=b
-=pn?
-pn!@
 Pn!@
+PN?@
 p|n1
+Pn#3I
 pncr
  pncr 
 .png
@@ -17821,18 +17914,18 @@ png_write_info was never called before png_write_row.
 ?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ
 p.normal.to_string()
 Pnotupg^S,
+pnZ`K
 "po:
-po;@
 p>O@
-pO`@
 P	O@
+PO;@
+=poh
 point
 Point light
 Point light+Volume
  //-------------------------------- P O I N T  N  C L I C K   R I F L E ------------------------------------ 
 POINT_SIZE
 point_volume
-.PoK
 polack
 polacks
 polak
@@ -17901,29 +17994,22 @@ powerup_color
 powerup_countdown
 powerup_image
 powf
-pP;@
+Pp=@
 P.P5
 p#p7pP
 P`Pb
 PpE3
-PpH95U
+PpH95
 PPNi	
 P(P;P`
 PPPP
 PPZZ
-PQ`@
 Pq?A6
 p q g j y
 P:QHL
 pqrs
 \pr~
-pr;@
-pR;@
-pR!@
-Pr;@
  PR: 
-PR;@
-pR8@
 practice
 P<RbV>PT
 P$Rc
@@ -18008,10 +18094,9 @@ Proxy authentication is required to access the specified resource.
 .,"P R.T.V&X.Z&\
 (P(R(T(V(X<Z@\
 P(RxP^
-(%pS)
-Ps;@
          PS: 
 PS = 
+pS3I
 ps_4_0
 %!PS-Adobe-3.0 Resource-CIDFont
 %!PS-AdobeFont
@@ -18042,15 +18127,17 @@ p->steam_id
 %!PS-TrueTypeFont
 \$pt$
 p}?t`
-pT>@
 \$Pt;
 \$Pt$
 \$Pt6M
+PT8@
  ptr=
 \$pu
+pu;@
+pU;@
 |$Pu
 \$Pu
-=puD
+Pu;@
 pu)H
 p UH
 |$pujH
@@ -18076,20 +18163,19 @@ p</v
 |$Pv
 ;_Pv
 )|$Pv
+PV>@
+=pvT
 ~)p$w
 )|$Pw
-PwA@
+PW;@
 p WATAUAVAWH
 p WATAWH
 p WAVAWH
-pwD@
-PwD@
 p WH
 Pw]H
 pw'k
 pWM@
 PWO@
-PX;@
 P?X94?
 PX9u
 PXA=
@@ -18124,76 +18210,75 @@ PxWorker%02d
 )|$Py
 )P)y)
 \$Py
-PY;@
-pyC@
+PyD@
 pYM@
  //----------------------------------------- P Y S C H  W E E B L E  ---------------------------------------------- 
 )|$Pz
-p^?zI
 @PZj
 pZM@
 PZM@
 ^'?q
+ q;@
+$q;@
 *|"q
-=Q}<
- Q;@
+=,.Q
+=Q][
  Q: 
 ;Q |
 ;Q }
 :@Q	
 {Q}<
-%Q*\
+%Q#?
 q0A;6
-(-q0E
 q0E3
 q0I;
 Q0I;
 Q0L;
 Q>0P7>
+=Q&1
 Q,<1
 -Q1F
-(Q2c
-(Q3d
 %q>4
+={Q4
 q4qIqQ
+`q8@
 q(8_
 Q8A;
 Q8D+
 q8Lc
+-Q9*
+(q9d
 Q 9P }
-(q^a
+(!qa
+(]qa
+(q'a
 q#|A
-(Q]a
-(Q$a
-(Q-b
-(Q"b
-(qbb
-(QBd
+(Q,a
+(Q,b
+(Q&b
 %qBI
-(q@c
-(q%c
-(qcd
+(q,c
+(Q>c
 qcKUz
-=qd?
-(	Qd
-(Q'd
+(Q"d
+(Q{d
 Q D;
-(qDd
+(QDd
+%q|e
 $qE}
-=@Qe
 @QE`
 q"E3
 Q@E3
 Q	E3
-=qF?
-(qfb
-(QFd
+(Qed
 q fE
 q*fE
 qfefkv}
-=q>G
 ?q<G
+=<QG
+(qgc
 QgMo
+=`qh
 q H;
 qH,	;`
 |$QH
@@ -18202,29 +18287,31 @@ Q(H;
 QHA+
 }QHc
 Q HcI
+(QHd
 QhI;
 QHIcV
 qHL;
 QhL9
 Q@H+Q8I
 ;QhuUH
-.|qI
 q`Ic
+(QIc
 QIcL$
 QIcP,I
 QIcT$,I
+-qif
 QI*`Y
+=Q=K
 |qke_XRLF@93-'!
 Qkkbal
+.,QL
 }QL9}
-%qle
 _qm,
 Q(M;
 ;Q }mI
 [*QmU
 #Qn/"
-=QN?
-(QPd
+=#QN
 QPI;
 Q Ps
 [QPTime 
@@ -18235,21 +18322,24 @@ q?	?q?4
 Q)Q7QWQ
 Q_Qd
 Q=QH
-.QqK
 QQQQQQQQQQ
 ;Q r
-(qRc
-(qs`
+(qra
 ;Q s
+=QS@
+=Qs3
 Qsmall
 qsort
 qsuwc;Wo?opP~|}|
+%qsZ
+(qta
 Q(twD
 quad
 QUAD_WIDTH
 quality
 Quarry
 quAt
+(QUd
 queer
 queers
 Querying UI memory usage...
@@ -18300,13 +18390,13 @@ qxs?L
 >qxs?z7
 qxs?z7
 Q@;ydI
--qYf
 qYqaqnq
-(qZc
+(-Q	Z
 Qz?H
 `r;@
 ^~~r
 ~"r@
+=.r?
 ;_ r
 ;_(r
 ;{ r
@@ -18315,30 +18405,37 @@ Qz?H
 \$@r
 &r(< 
 r $"(
-=}:R
+`R!@
+=R(@
 |$ R
+ R!@
 ,R<{
+%R[=
 R"($
-^=r#0
 	r0>
 R:%0.3f
 R0A;
 r0D8%
 R0ff
+%R0H
 r0Ic
+r0Q+
 R0T.R
 r0t&v.x z
  r1@
 R1h58
-=R2?
 \$ r3
 R:%3.0f
 	r3H
+=r48
+%R5=
  r5H
 <r6H
 	r6H
 R70(
 `@R=8
+=R&8
+ R8@
 R;876.
 R8L;
 r8tzv
@@ -18438,11 +18535,9 @@ RAW_UNDERLINE_POSITION
 RAW_UNDERLINE_THICKNESS
 RAW_X_HEIGHT
 r@(B
-=R$B
 rBD9&u=H
 .rbe
 rbE3
-^rbK
 .rbr
 rbracket
  RC= 
@@ -18520,7 +18615,7 @@ rcMergePolyMeshes: The resulting mesh has too many vertices %d (max %d). Data ca
 rcontrol
 r~D;
 r'D;
-=(Rd
+-Rd<
 r#D8
 RD8p
 r?dar?
@@ -18536,7 +18631,6 @@ RDEF\
 RDEFD
 RDEFh
 RDEFp
--Rdf
 R: %d, G: %d, B: %d
 R:%d, G:%d, B:%d, A:%d
  rDH
@@ -18748,6 +18842,7 @@ retards
 ?_Rethrow_future_exception@std@@YAXVexception_ptr@1@@Z
 return
 Returning false on line_vs_line(). //TODO: Handle me!
+%reV
 reveal_ui
 revenge_cost
      //revenge_cost 10 
@@ -18760,14 +18855,16 @@ Reverb properties cannot be set on this channel because a parent channelgroup ow
 Revert
 Revert Ref
 revsubtract
+=r]F
+%!rF
 r	;F
 Rf9|
 r*fD
 r#fD
  rFH
+.rFI
 =rF`JXKXWJYB[Cd;l2x(z%a+N2SNTQXKVJWGZI]J]Jm(r$u"u"
 }rf[QG<4+#
-%RFR
 RFRQR\Rf
 RG10 4MS
 RG11 4MS
@@ -18817,6 +18914,7 @@ RGBG
 rgbgen
 =RGBGu
 RGB Input
+=rGF
  r`H
  r~H
  r-H
@@ -18826,6 +18924,7 @@ RGB Input
  r}H
  r*H
  r&H
+%r\H
 	r	H
 r)H+
 r[H+
@@ -18836,11 +18935,11 @@ r{HcS
 rhE3
 RH;G v
 	rhH
-.RhI
 RHM;
 rhMcBHA
 R@H;WHt
 ,r.\,i
+.$rI
 r,I+
 r/I;
 r(I+
@@ -18875,18 +18974,20 @@ ring
 ring_decal
 Ringsmall
 {ri`XPH@92,&!
-.*RJ
 }?RJ}?H
 /R?jjU?
 RJO_m
 RJqn
 ?rJRTS\Rg>`H`CeIkHq7v4}4v4u7
+.<rK
+.)rK
 rK#MH<
 r`kp
 RkWy
 r"l$
-%rL?
 r"L;
+.\RL
+.#RL
 R(L;
 `RM@
 ~RM@
@@ -18896,10 +18997,11 @@ R@M;
 R	$^M
 r#M;E
 r<Mi
+=rmK
+=rn<
 -?rn/?
 R$N(
 rND8
-r`O+
 rocketexplosion
  rocket_launcher 
 rocket_launcher
@@ -18949,6 +19051,7 @@ Row has too many bytes to allocate in memory.
 RPCRT4.dll
 RpcStringFreeA
 \RpfA
+.rpK
 RPM;
 rqIc
 rQr\
@@ -18972,8 +19075,8 @@ R,T5
 .rtc$IZZ
 .rtc$TAA
 .rtc$TZZ
--RtD
 @rTf
+-Rtf
 RtlCaptureContext
 RtlCaptureStackBackTrace
 RtlGetVersion
@@ -19011,26 +19114,23 @@ rvD8%
 rvH+
 RVN0V
 RvPI
+%RVR
 RvWH
 &r&v&z&~&
 %r%v%z%~%
 rwin
 rwZHc
-.RXL
-=R	Y
-=rZ*
 Rz,|.~.
  rzH
  rZH
+=s&>
  %.*s
 -> %s
--s,\
 ;^$s
 [%s]
 }{ s[]/
-@s;@
-`S;@
-/=$<S
+=[S/
+=+$S
 "S"^
 ;s0~
 S:%0.3f
@@ -19044,16 +19144,15 @@ S0yPD8
 s1s:sHsX
 s2ff
 s2Li
--^S3
 S:%3.0f
 %s: %.3f
-=s3J
+=s$4
 ;s4|
 S4A;C
 s4D+v4
 s4I;
+=S57
 s5fff
-`S6@
 s6D87t1E3
 s6L+
 s'@8
@@ -19072,12 +19171,14 @@ s8Mc
 ;s8r
 S8;*r
 S@9s
+(%sa
 s/A+
 s	A+
 S`A+
 sadface :(
 Sailor
 saI;O
+.SAJ
 S`Ak~4d
 S`Akv4d
 saL;
@@ -19119,11 +19220,11 @@ s\ax}?
 /say 
 Says a message through the game's chat.
 =S=b
+()Sb
 sBfff
 sBH+
 sBIT
 ?sbumpc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHXZ
-= sC
 ~S`-C
  SC: 
 sCAL
@@ -19194,6 +19295,8 @@ Scroll To Pos
 %s: %d
 s<D+
 s D;-
+=	Sd
+(!Sd
  SD: 
 ;S\D
 \S`D
@@ -19210,10 +19313,9 @@ S(D9z8w
  sDA
 SDBytes
 sdD83t[M
-.sDL
 s$D+r
+=s-E
 s-E;
-=>SE
 s E3
 s,E3
 s}E3
@@ -19593,6 +19695,7 @@ sfnts
 sfnt-table
 sfx:
 ?sgetc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHXZ
+=SGF
 SG]G6
  s#H
 -s]H
@@ -19805,12 +19908,12 @@ ShowWindow
 S@H;SH
 S@H;SHt
 SHxFH
-.@sI
 s(I;
 s[I;
 s[I+
-=SI[
  SI: 
+."SI
+.S\I
 S(I;
 s|IB
 s?Ic
@@ -19867,8 +19970,13 @@ sizes
 size_x
 size_y
 size_z
+> SJ
 	sJ3
 sJA+
+.sjJ
+=sJY
+. sK
+.s)K
  skater 
 sKfA;
 skill
@@ -19902,7 +20010,6 @@ sky_color
 sky material loaded
 sky_model
 SKyu
-=}sL
  s{L
 s L;
 s_L;
@@ -19910,7 +20017,8 @@ s-L+
 s}L;
 #<Sl
 ;S\L
-.|SL
+.S>L
+%sl5
 s]L9u
 Slant
 SLANT
@@ -19940,7 +20048,6 @@ slider int4
 slider log float
 slide_time_left
 slide_time_max
-(%slN
 slnoise.png
 slopehead
 slopeheads
@@ -19987,12 +20094,12 @@ sNL+
 %s: No mass specified, setting mass to 1 and inertia to (1,1,1)
 ?snprintf@shdfnd@physx@@YAHPEAD_KPEBDZZ
 so"_
+%So*
 sOfD
 soft_destruction
 softness
 Softness of the shadow's penumbra in spotlights. Valid range is 0.0 to 1.0
 soI;
-.sOL
 solid
 solo_mode
 Some content %d
@@ -20181,7 +20288,6 @@ SpriteVertexShader
 s?&ps?v-s?
 ?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z
 ?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z
-=sq=
 sQH;
 sQMc
 sqrt
@@ -20204,6 +20310,7 @@ SRSd
 %s/%s_%08X
 S+S6
 S%S?a
+(%ssC
 !S?seT?
 s&sg
 ssL;
@@ -20211,6 +20318,8 @@ Ssmall
 -sSO\
 SSSS
 ssuperior
+- ST
+%!ST
 .st0
 stab
 stab2
@@ -20578,8 +20687,6 @@ SxHcJ
 Sxio?
 sxM;
 ;sXr
-=s:Y
-=*SY
 ^?sYa?
 Sydney
 sYfff
@@ -20612,6 +20719,7 @@ sZfff
 ;t$ |
 ;t$(
 !@t%
+(]t`
 (t$`
 (t$ 
 (t$@
@@ -20629,6 +20737,7 @@ $	t	/
 &t(\&!
 %+t,
 t(=`
+t(>@
 t$`@
 t$ _
 t$ ;
@@ -20641,23 +20750,21 @@ t$(@
 t$(+
 t$@;
 t$@@
-t+=@
--{,T
+-{<T
 (T$`
 (T$ 
 (T$@
 )T$`
 )T$ 
 )T$@
-@T>@
+@T`@
 $T&&*	
 \T$`
 \T$ 
 \T$(
 \T$@
 %^[T
-%|,T
-T:;@
+%|<T
 T$ @
 T$(;
 T$(#
@@ -20683,8 +20790,8 @@ T$0@
 t$03
 )T$03
 T$03
+t0@8='
 T08A;
-t0@8=g|?
 T$08T
 T$09Q
 (t$0A
@@ -20765,6 +20872,7 @@ t$0t"H
 t$0u
 t$0w
 <>t1
+=~t1
 t$1@
 T$1:
 t19u
@@ -20823,7 +20931,6 @@ T$4D
 T$4D;
 T$4E
 T$4E;
-t4E2
 t4E3
 t$4F
 T$4f
@@ -20839,17 +20946,18 @@ t$4L
 T$4L
 t4L;L$Ht
 T4T;
-T5;a*
 t$5D
 t5D8
-T5db*
+t5E2
 t5f;
+T5[f*
+T5FdL
 t5L;
 t5tF
 T5UZ
 t5;W
 !@t6
-t6@8==
+t6@8=
 t6A;
 t6A8
 t6A;J
@@ -20876,7 +20984,7 @@ t$8@
 t$8+
 t%@8
 t	@8
-T@8=%{?
+T@8=
 T$8;
 t$83
 T$83
@@ -20936,20 +21044,19 @@ t8WH
 t)@8x
 t%@8x
 t$8z
+=%t9
 t/9_
-t9;@
-T9?@
 t/9A
 t9A;F
 t$9D
-t9D8%%M7
+t9D8%U[7
 t9E3
 @t9f
 t9fA
 t9ff
 @t9H
 t9Hc
-t:9oXt5@8-)c
+t:9oXt5@8-
 t.9Q
 t+9r
 t:9;t	H
@@ -20957,6 +21064,7 @@ t 9u
 t9WH
 t[9{XtVH
 |$@t)A
+ tA@
 _(t=A
 ?t'A
 ?t(A
@@ -20991,7 +21099,6 @@ t$A+
 t&A;
 t#A:
 t	A;
-T=`a*
 |$TA
 (T$ A
 )T$@A
@@ -21063,7 +21170,6 @@ taunt
 t$ AVH
 t$ AWH
 tAx?D
-=t$B
 ?t$B
 T$@B
 tBA+
@@ -21077,7 +21183,6 @@ tBff
 tBHc
 tBIk
 t)BN
-(%tc
 ?t>C
 t$`C
 t$ C
@@ -21094,6 +21199,7 @@ tcH;
 tCH+
 tCHcD$PHk
 tCI+
+>tcK
 tCL;
 tCL9
 tcommaaccent
@@ -21130,9 +21236,7 @@ t$\D
 t*D;
 t\D;
 t#D+
-t	D;=
 t	D+
-=_TD
 |$TD
 |$TD;
 (T$`D
@@ -21162,21 +21266,22 @@ t'D8-
 t$`D85
 t$@D8s	t
 t$D8t$@t
-t&D8%$UV
+t&D8%yeV
 t=D9%
 t:D9%
 t?D9%
-t'D9%-
 t)D9
 t{D9
 t+D9
 t	D9
 t!D9]0~
-t-D95
-td95d
+td95$
+t-D95=
+t-D95Q
 t/D9kXt)H
+t'D9%-&V
+t	D9%{\V
 t:D9%W
-t	D9%wLV
 t$dA
 |$`tDA
 t$DA
@@ -21216,6 +21321,7 @@ tDI;
 T$dI
 T$DI
 T$DI;
+t	D;=#=J
 t;Dk
 t$dL
 tdL;
@@ -21312,16 +21418,16 @@ team_switching
 teE3
 t!eH
 tEH+
+>teI
 teI;
 teI+
 tEI;
 tEI;_ t
 tEI;] t
 teleport
-@teleport
+?teleport
 teleport_entry
 teleportfx
-@teleportfx
  //Teleports the enemy into a maze, where they have to find there way out in under 10 seconds, or they insta die. 
 ?tellg@?$basic_istream@DU?$char_traits@D@std@@@std@@QEAA?AV?$fpos@U_Mbstatet@@@2@XZ
 ?tellp@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA?AV?$fpos@U_Mbstatet@@@2@XZ
@@ -21520,9 +21626,7 @@ tFI;
 t!f;K
 tfMk
 t!f;N
-%TfP
 ?t}G
-=]TG
 tg9{XtbH
 tGA9
 tgb3b
@@ -21594,6 +21698,7 @@ t$%H
 t$H@
 t*H;
 t&H;
+t&H;=
 t&H+
 t#H;
 t#H+
@@ -21670,7 +21775,6 @@ t.Hc
 t'Hc[
 t)Hc
 t&Hc
-t&H;=c
 t%Hc
 t	Hc
 t$HC
@@ -21834,19 +21938,16 @@ This setting lowers latency at a significant performance cost.
 This subsound is already being used by another sound, you cannot have more than one parent to a sound.  Null out the other parent's entry first.
 This text should automatically wrap on the edge of the window. The current implementation for text wrapping follows simple rules suitable for English and possibly other languages.
 this->username
-This variable is currently locked.
 * This variable is transient: it will reset to default on each game run.
 This will open a html file with your default browser.
 This window has a changing title.
 This window is being created by the ShowTestWindow() function. Please refer to the code in imgui_demo.cpp for reference.
 this window scale
-.tHJ
 T$hJ
 T$HJ
 t.H;J@u
 t$hK
 t:Hk
-t&H;=K
 t$hL
 t$HL
 T$hL
@@ -21910,6 +22011,8 @@ t?H+WpI
 t*H;W`t
 <-t	I
 |$tI+
+-tI=
+.,tI
 (t$`I
 (t$`I+
 )t$`I
@@ -22023,7 +22126,9 @@ tIWH
 t ;J }
 t$ J
 t$@J
+>;TJ
 T$ J
+tjD8
 tJD8%
 tJD9
 tJE3
@@ -22041,7 +22146,6 @@ T$(K
 tKD8
 tKD;Q
 tkfff
-.TKJ
 tkL9
 tkL9{(ueD
 tKWH
@@ -22076,9 +22180,7 @@ t*L+
 t%L;
 t+L;
 t	L+
-tL;@
 ;T$l
-.~TL
 }TL;
 T$`L
 T$ L
@@ -22120,6 +22222,7 @@ T$lH
 T$LH
 tLHc
 T$lI
+>TlJ
 t(Lk
 tLL9R
 tlLcm
@@ -22129,6 +22232,7 @@ tlLcm
 tlt~
 T$ L+T$(L+\$(A
 t$lv
+=tLV
 t$Lz
 %??t ?m-
 (t$ M
@@ -22183,7 +22287,7 @@ T$@O
 toA;
 To Clipboard
 toD;
-tOD8%LUV
+tOD8%
 To easily assign buttons, type /bindcapture, then press a button or key.
 tOfff
 toggle
@@ -22420,6 +22524,7 @@ tQM+
 <tr>
 t$R@
 ;T$@r
+%	TR
 Tr 1.000000
 tR@8
 trace.coverage
@@ -22496,8 +22601,7 @@ tS;+
 T$(s
 ts@2
 t%sA
-tsD8
-tSD8%
+tSD8%OeV
 tSD;I
 t{SH
 t\SH
@@ -22517,7 +22621,6 @@ t$`t
 >Tt$>
 Tt0A
 t$@t1
--Tt4
 T$tA
 T$TA
 ttcf
@@ -22577,7 +22680,6 @@ t$ UWATAUAVH
 t$ UWATAVAWH
 t$ UWAVH
 t$\v
-=t<V
  &Tv
  tvcH
  tvct6
@@ -22586,8 +22688,8 @@ tVE3
 tVHc
 tVM;
 tVM+
+%TvP
 t v,x,z,|
-=tW	
 tw@8
 t$ WATAUAVAWH
 t$ WATAVH
@@ -22606,6 +22708,7 @@ t$ WH
 tWI;
 t$ WIc
 t$ WL
+.TWL
 @twM
 tWM@
 T?wm
@@ -22625,7 +22728,6 @@ tX`
 \T$x
 T$x|
 T$x@
-=TX*
 ,T$X
 t$X2
 T$X2
@@ -22716,7 +22818,7 @@ t$x;t$p
 Tx	z
 .T$xz1u/D
 .t$xz=u;D
-=Ty,
+=ty<
 T$`y
 tYD9
 T$YE
@@ -22754,33 +22856,30 @@ tZ8X
 tZD8
 tZfE
 .|$tzFuD
-=TZG
 tzI;
 tzM9B utA
 tZ)q
+`u;@
 <u`@
 |$ u
 |$@u
+@u;@
 $`<`u
 *u	@
 #?#>"?u
 	<.u
 `"U@
 `U!@
-= U@
--{U?
-(U~`
-@U`@
 u0<:
 U+%04X..U+%04X (%d %s)
 u08E
 )U0A
+(u0b
 (u0D
 )u0D
 u0D;
 u0E;
 )U0E
--u0F
 u0fB
 )u0fD
 U0fD
@@ -22795,7 +22894,6 @@ u0H;W(t
 u0H;W(t	
 u0I;
 u0Ic
-u0L;u
 u0;Q r+I;
 U.1%6
 u19y
@@ -22808,6 +22906,7 @@ u1M;
 U1(\Q
 u	@2
 U2?)
+(U2d
 u2E3
 u2fff
 u2HcBp
@@ -22835,7 +22934,7 @@ u6fff
 u6H;
 u6Hc
 u6I;
-=u6K
+=u[7
 u7@2
 u7ff
 u7fff
@@ -22846,8 +22945,8 @@ u7L;
 u7L+Gp
 u7L;t$8t
 u>@8
+u/@8=
 u	@8
-u/@8=8{?
 u)8A
 u$8A
 U8A+U
@@ -22865,9 +22964,10 @@ U8H;U@t
 ;.u8I
 u8I9Y
 u8L;
+u8L;u M
 u	@8*u
 u,9}
-u9@85
+u9@85C
 u9D9
 ^u9H
 \u9H;
@@ -22880,8 +22980,7 @@ u%9X
 u%9X |
 u`9X u
 u	9Y,
-(u]a
-(u	a
+(u|a
 -u A
 ;%u*A
 :u&A
@@ -22897,8 +22996,7 @@ u&A;
 u%A;
 u	A;
 u	A+
-(U/a
-(U\a
+(U+a
 (U A
 (U@A
 )U`A
@@ -22907,15 +23005,18 @@ ua@2
 u:A8
 U(A8
 u$A9J u
+(uAc
 uacute
 Uacute
 Uacutesmall
-uAD9%AUV
+uAD9%IeV
 %uaE
+-uAg
 uAH;
 uaI;
 u|Ak
 uAL9
+=UaS
 UATAUAVAWH
 |$ UATAUAVAWH
 @UATAUAVAWH
@@ -22941,8 +23042,11 @@ UAVH
  u. away: 
 UAWH
 @UAWH
+U=\AZ
+(]ub
 (u/b
-(U,b
+(u'b
+=UB,
 UB)-
 ub9O
 ubD9@
@@ -22950,9 +23054,10 @@ ubfA
 uBfA
 uBfff
 uBH;
+>UBK
 ub?L
 	uBM
-(u-c
+(U c
 {U{c{
 uCE3
 ucHcW
@@ -22963,6 +23068,7 @@ Ucircumflexsmall
 *uCM
 	uCM
 U?:CU?K
+(u^d
 <-u	D
 <	u@D
 |$ .u)D
@@ -22975,6 +23081,7 @@ u!D;
 u)D;
 u$D;
 u	D;
+(U`d
 U":d
 (U`D
 )U`D
@@ -23005,10 +23112,10 @@ u-D8
 u,D8
 u)D8
 u]D8
-u\D8-
 u	D8
 u	D8%
 U.D.8
+u\D8-a
 u+D8opt%
 uD8U`u?3
 u D8z
@@ -23058,14 +23165,13 @@ udL;
 [UDPNET] Socket addresses used:
 [UDPNET] Starting server...
 [UDPNET] We are banned from this server.
+u=drawer::setup 7
 :#u/E
 )u E
-%u\E
 u-E;
 u:E;
 u!E;
 u	E;
-\%Ue#
 )U E
 U`E;
 U E;
@@ -23085,20 +23191,19 @@ u	E8
 u/E9
 u%E9q u
 ue9w
+(uEa
 uEA9P
-(UEc
 uED8
 uEfff
 ,uEH
 u#Ei
 uEI;
 &uEM
-u=Error loading bitmap font 2.
 UEUeUt
 (u f
 u<f;
 u	f;
-%uF+
+-u>F
 (U f
 u/f9
 u`fA
@@ -23143,10 +23248,10 @@ uFI;
 u:f;Y r4H;
 +u]}g
 u"%g
+=U?G
 ug9W
 >ugA
 ugA;
-(uGd
 ugE2
 ugE3
 uGfE9
@@ -23197,6 +23302,7 @@ u	H;
 |$ UH
 \$ UH
 U`H;
+U-h6Z
 u H9
 u-H9=
 u,H;A
@@ -23332,9 +23438,9 @@ ui_sound
 ui_sound_queue
 ui_volume_bell
 [UI] Web query requested: 
+\%uj#
 $U}j\
 uJA;
-ujD8
 ujfM
 ?/uJH
 uj?I
@@ -23342,7 +23448,7 @@ uJI;
 ujiE
 uj;Q |eI;
 uJ;Q |EI;
->(uK
+.^UK
 ukH;
  uKH
 ukI;
@@ -23362,8 +23468,6 @@ u!L;
 u@L+
 u%L;
 u	L;
-.<UL
-.)UL
 u$L9
 u#L9
 u"L9s
@@ -23397,8 +23501,10 @@ u"M97u
 uMD9e
 umD9G
 umE3
+=UMF
 umfA
 uMI;
+.umK
 umM;
 Unable to append nodes: root is not an element or document
 Unable to create constant buffer!
@@ -23509,6 +23615,7 @@ Unrecognized equation type for pCAL chunk
   unrecognized keyword [
 Unrecognized unit type for oFFs chunk
 Unrecognized unit type for pHYs chunk
+=unS
 ?unshift@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEAD1AEAPEAD@Z
 ((unsigned int)0) - (int)1
 	UNSPEC
@@ -23528,7 +23635,6 @@ uOI;
 uOIk
 	uOM
  up@
--UP=
 <@upA
 (upA
 uPA;
@@ -23593,6 +23699,7 @@ upper
 uppercase
 UptMD
 u	;Q |
+=_UQ
 'uqA
 uQE2
 uqH+
@@ -23602,15 +23709,16 @@ uqI;
 U(~QL
 u";Q r
 u?;Q r:I;
-=UQS
 ;u(r
+(ur`
 ur8C
 uRD9e
 urH;L$@t)A
+.urK
 url=
 uRM@
 uR;Q rMH;
-=u^S
+(us`
 @U@s
 usage
 Usage: devop import SOURCE_MAP ENTITY_PATTERN
@@ -23624,7 +23732,6 @@ USAUAVH
 USAVI
 USAWH
 USAWI
-U-sc>
 usD9O
 Use a value greater than 0 to specify the threads to use. WARNING: This is an advanced
 (Use ImGui::SameLine() to keep adding items to the right of the preceding item)
@@ -23700,7 +23807,8 @@ USWAVI
 @USWAWH
 USWAWI
 USWH
-%ut4
+--UT
+%.UT
 UTF-8 input
 UTF-8 Text
 uTI;
@@ -23708,17 +23816,21 @@ Utility command: Plays an audio sound.
 Utility command: Stops any sounds played through the command play_sound.
 =uTL
 uTL+
+\%UtW
+=Uu4
 Uu#A
-(UUa
+(uUc
 uUD8
 uuD8|$$unE
 u,uEu
+=uUG
 )U uG
 uugH
 uu<H
 uUH;
 ?.uuI
 uUI;
+.UuI
 uuid
 UuidCreate
 UuidToStringA
@@ -23821,7 +23933,6 @@ UWAVH
 \$ UWAVH
 UWAWH
 UWAWI
-(uwd
 uwD;
 uWD9g
 uwE3
@@ -23832,8 +23943,8 @@ uwH;
 @UWH
 uwH;S
 uWI;
+=UWQ
 ;?uX;?
-=UX*
 ux<8
 ux@8
  uXA
@@ -23850,7 +23961,7 @@ uxM;
 uXM;
 UXM+
 u!;y |
-uyD8=c
+uyD8=
 	uYH
 uyI;
 uYI;
@@ -23859,26 +23970,27 @@ u	;z
 uZA9E
 <!uzD
 `"v>
+`v?@
 <^v.
 <	v	
 |$@v
+:`v:
 !v^@
 !v?<
 /@<v
-(}v`
 )|$@v	
 &]|v
+`V`@
 =@[V
-=\%V
+=V+?
 >V?+
--&[V
 :^V=
 :^V=/
 ?:^V
 ?:^V=/
 }V}|~
 @$V@
-%	-V
+%	=V
 +>-V-
 V:%0.3f
 @V<0D
@@ -23890,7 +24002,7 @@ V0I#
 v0Ic
 V0I;V8tjH
 v1H9A u+D
-=v1J
+=(v2
 :V!2m
 v3(0,1,0)*v3(0,0,1)
 v3(0,1,0)*v3(0,-0.45,0.45)
@@ -23900,13 +24012,19 @@ v3(0,1,0)*v3(0,0.99,0.01)
 v3(0,1,0)*v3(0,1,0)
 V:%3.0f
 v3fff
+`v#3I
+v#3I
+=V48
 v7ff
  v7H
-= v8
+=v/8
+@v8@
+=V;8
 V8A_A^A]A\_^]
 :v8H
 V8H+
 v8vUb
+@vA@
 v'A+
 v"A;
 v"A+
@@ -23961,20 +24079,19 @@ VAVAWH
 @VAVH
 VAWH
 @VAWH
-(!vb
 v},b
 Vb8S.
 -?Vb,?H$+?Z
 vb'vb'v
-`VC@
+`vC@
 Vc0a
 vCfE
+.vCK
 VCRUNTIME140_1.dll
 VCRUNTIME140.dll
-()vd
 v	D+
+(	Vd
 "V$D&((&*(,&.
-vDGI
 vdtHr
 v-E;
 v E3
@@ -23984,9 +24101,10 @@ v&E3
 V(E3
 vector too long
 vector<T> too long
-]?vector_x
 vector_x
+@vector_y
 vector_y
+@vector_z
 vector_z
 velocity
 velocity_angles
@@ -24018,8 +24136,7 @@ Vertical Sliders
 vertical-tab
 vertical_wrap
 Vertices in submesh: 
-=;vF
-=V}F
+-.vf
 v-fA
 v?fA
 v/fA
@@ -24030,8 +24147,6 @@ v?ff
 v'ff
 v"ff
 v(ff
-=vfF
-=Vff
 vffD
 vFff
 vGff
@@ -24057,7 +24172,6 @@ VHI;VPt
 VHL;
 <v>I
 >v<I
-=VI@
 |$VI
 V I;
 VIc@
@@ -24111,24 +24225,22 @@ Visiting node
 Vis. Minimum
 Vis. Speed
 $v?j
-=v+J
-.v>J
+%v{J
 #?Vj{
-.V>J
-.vjK
+.V\J
 -?'v,?k
-%]vK
-v@	K
+.^vK
+^V&K
+=VKE
 /@<v	L
 v:`L
 v(L;
-.V)L
+.<VL
+.,VL
 V`L;
-VL;@
 }VL9W
 vLfff
 vlH+
-V~lI
 vLLcU$L
 vmhfjov
 vm.run(code)
@@ -24138,6 +24250,7 @@ vng]VPKFA;5/(
 vNMc]$M
 vnvyv
  vo=
+-Vo9
 voff
 void __cdecl boost::geometry::index::detail::throw_runtime_error(const char *)
 void_context
@@ -24149,7 +24262,7 @@ VOIP channel sound volume. This is modulated by the master volume. Valid range: 
 voip_muted
 voip_talking
 vOixr
-.voK
+.VOJ
 Vol 2D
 Vol 3D
 Vol. Rolloff
@@ -24160,6 +24273,8 @@ Volume range
 Volumetric lighting setup
 vout
  voxels
+=}vP
+-"vP
 VpE3
 vPff
 VPH+
@@ -24239,7 +24354,6 @@ vsync,v
 {VtKo
 :Vu[
 Vu?N\t?8Ws?vGr?
-=VuO
 :vuT
 VUUU
 VUUUA
@@ -24251,6 +24365,8 @@ VUUUUUUUI
 v?/\v?
 V,V7VB
 VVector
+=Vvf
+.VvI
 V?V/V?
 V$VYW
 .vW@
@@ -24284,7 +24400,7 @@ V_:X1:
 VXE3
 `V^XfZ
 VxI;
-.VXJ
+vXJI
 VXL;
 ~V|x{w
 $v.x.z(|
@@ -24299,14 +24415,12 @@ vyfE
 -v-z-~-
 \vZI
 v?[zt1
-= w?
 /] w
 /{,w(
-=^	W
 (:W"
 (W,!
+%W /
 W { 
-W-{	;
 W0E3
 w0fE9
 w0L;
@@ -24315,22 +24429,20 @@ w1D;
 _w&2
 w2H;
 w2Hc
-=@w3
 w3I;
 w3Xc
-W-3Z
 %]w4
 w49w0
 W4D;
+W=4dA
 w4fA
 w4Hc
 W4vC
+W5a:X
 w5E;
-W5*eO
-W5M0M
+W5EdL
 w5t,A
  w7H
-=,W8
 W8A_
 W8E+
 w8E3
@@ -24345,7 +24457,6 @@ w9Ic
 w`A+
 w*A;
 W<A+
-W=$\A
 W(A;
 w.A3
 W#a@8
@@ -24426,7 +24537,7 @@ WAVH
 @WAVH
 @WAWH
 _W_a_x_
-W=b[3
+=}WC
 <?wCf
 wcscat_s
 wcscpy_s
@@ -24437,15 +24548,12 @@ wcstombs_s
 wcv?
 wcv?>
 >wcv?uj
-(=Wd
-W= D#
 w@D8
 w D9
 wDA;
 WDA;
   w/ default threshold: %d,
 WDE+Q
-.WDI
 ;WDt
 wDwNwYw`wy
 .wdz
@@ -24649,10 +24757,13 @@ W@H;WHt(H
 .whz
 .Whz
 w	I;
+W-i-,
  &WI
+W=@I#
 W@I;
 w=Ic
 WICTextureLoader
+=wid
  Wide
 WideCharToMultiByte
 ?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADD@Z
@@ -24694,7 +24805,6 @@ Window will resize every-frame to the size of its content.
 winfonts
 WINMM.dll
 wipeout
--WiT
 With Alpha
 With Alpha Bar
 With Alpha Preview
@@ -24711,10 +24821,8 @@ With Side Preview
 With the ImGuiColorEditFlags_NoInputs flag you can hide all the slider/text inputs.
 With the ImGuiColorEditFlags_NoLabel flag you can pass a non-empty label which will only be used for the tooltip and picker popup.
 WiWr
-=Wj<
-=W,J
-=wJY
 wKHc
+W-k:X
 w`L;
 w L;
 w"L;
@@ -24722,11 +24830,11 @@ w(L;
 w@L;
 w	L;
  &WL
+..WL
 W`L;
 W L;
   w/ large threshold: %d
 WlD;
-W=LdL
 wLHc
 wLYU
 .wlz
@@ -24734,7 +24842,6 @@ w	M;
 |WM@
 {W$M> 
 }WMc
-=WmD
 wME3
 ~|wmW)
 w<;N
@@ -24769,7 +24876,7 @@ wqHc
 < wr
 ;w@r
 ;W@r
-%WR0
+W=Ra3
 Wrap width
 < wRH
 wrHc
@@ -24783,15 +24890,16 @@ Writing zero-length unknown chunk
 # Written by stb_image_write.h
 WRONGFUL NODE DELETION 
 ;w s
+W-S_
 WS2_32.dll
-=WSA
 (W/S)encoder complexity.  (N)oise filter on/off. (V)AD on/off. (B)vbr on/off.
 wSHc
 Wsmall
 _wsplitpath_s
 wsqnmcb_OD420-+ 
 (wSW#
-=wTD
+->WT
+%?WT
 wtHc
 	?Wu
 wU9%
@@ -24801,13 +24909,15 @@ wUHc
 	wUI
 wVHc
 wVHk
+=WVQ
 wvuM
+-W,W
 W,W6
-W-WD#
 wWfA
 {wwgEbDgxvvfGb
 wwHc
 ww!Hc
+W-wI#
 w?:ww?
 W$W>WBWSW
 WxA_
@@ -24823,47 +24933,47 @@ WXM9WPt(E
 Wxv*
 .Wxz
 .WXz
-=wYd
 .w`z
-%Wz-
+=wzD
 wZE+
   w/ zero threshold: %d
 wzHc
 wZHc
-=:x?
-=x#?
+=wZY
+`x;@
+=/x;
+=x~:
 |$x%
  x"\ 
-(%x`
+-x);
 \$x@
 \\$x
+%x}$
 		x-
-x<`@
 x  ~
+x_`@
 x_^][
-x-`@
-x)`@
-x#`@
-x%`@
-=$=X
+x!`@
+^%\+X
 |/	X
 |$X;
 |X,$
 |X]@
 |X\$@
- X`@
+ X;@
 }X<	
 \$X+
 \\$X
+X<?@
 X_^][
 X\$0
+X0`@
 X\$0D
 (?>\x0D\x0A?|[\x0A\x0B\x0C\x85])
 X0H9u
+.X0K
 x0Lc
 x=150
--X1Y
-x2`@
 .X,<2
 X2Z>X
 |$x3
@@ -24875,22 +24985,25 @@ x3Hc
 X3O@
 x4;_
 x4Hc
-X58%?
+x5`@
+X5>|#
+X53+Q
 X5AHx
-X5iER
-X5s#Q
-X5YBR
-`X6@
+X5H-?
+X5iUR
+X5YRR
 x6E2
 x6;k
+X7`@
+X%%7B
 X{8D
 X}8fD
 x8H;
 \$X@8w0t$
+=:x9
 <X94=
-X%9+B
 x9D;
-()xa
+X-9HB
 |$xA
 |$xA;
 \$xA
@@ -24903,7 +25016,6 @@ xA]^[]
 |$XA
 \$XA
 \$XA;
-XA`@
 XA^_
 XA^_^[
 XA^_^]
@@ -24933,18 +25045,16 @@ xA_A^A]A\_^][
 XA_A^A]A\
 XA_A^A]A\_^[]
 XA_A^A]A\_^][
-=Xah
 xA;|$PL
-X-|AR
 x ATAVAWH
 x AVH
+-XAY
 !x?b
-(!xb
 x@?:B&
 ?_Xbad_alloc@std@@YAXXZ
 ?_Xbad_function_call@std@@YAXXZ
 @xB(D
- xC@
+=#XC
 xCE3
 XC f
 XC(f
@@ -24962,7 +25072,6 @@ x(D$
 x)D$ 
 x#D;
 x	D;
-(]Xd
 |$XD
 |$XD+
 \$XD
@@ -24993,23 +25102,22 @@ Xd$X
 XD$X
 |$xE
 \$xE
+Xe`@
 ^X(E
 |$XE
 }XE;
 \$XE
-X-~e1
 x-E2
 x.E2
 ~xE3
 |$xE3
 }xE3
-=Xe5
-X%e'B
+%XEA
 xE;L$P|
-X-_ER
 xe\Y]fv
 |$xf
 \$xf
+xf`@
 x>F;
 `:X<f>
 |$Xf
@@ -25028,15 +25136,13 @@ _xfD9
 |$XfD;m@
 |$Xff
 XfhE
-X-%FR
+X%F%I
 _XFREE86_GLYPH_RANGES
 x!g_
-(%xG)
 XG`A
 xgE2
 ?_XGetLastError@std@@YAXXZ
 XG f
-X%gGB
 XGhf
 xg^Jp5|
 xGtJ
@@ -25047,9 +25153,9 @@ xGtJ
 \$xH;
 x H;
 X\$h
-=X:H
 |$XH
 |$XH+
+-X^H
 "&"XH
 \$XH
 \$XH;
@@ -25071,7 +25177,6 @@ XHeight
 X_HEIGHT
 X@hf
 xhH;
-.xhI
 x^Hk
 x(H+x H
 ~xI;
@@ -25094,11 +25199,12 @@ xibsH
 |$XIc
 XIXP
 xIxRx[xe
-~x<J
+~x?J
 |$XJ
+.`XJ
+.:XJ
 xjE2
-=xJG
-%xjP
+=xJM
 -xJZ
 x<;k
 |$XK
@@ -25112,8 +25218,6 @@ x)L$
 x@?%L+?
 |$XL
 |$XL;
-.,XL
-.?XL
 \$XL
 XL$`
 XL$\
@@ -25131,7 +25235,6 @@ x)L$p
 Xl$X
 XLZu
 ^xM;
-=x:M
 |$xM
 \$xM
 \$xM+
@@ -25154,20 +25257,21 @@ XM9j
 XM D
 xmdhH
 xMH;
+XM`H
 XM@H
 xmHc
+XMHH
 ]xML
 <?xml version="1.0"
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
   xmn=
-XMXH
 Xmxv
 (X*:(N
 xnbUH<1( 
 XNDt H
 xNHc
-X%o@B
-X-OBR
+X-nk1
+X-ORR
 X?OsX?
 xOtF
 ?_Xout_of_range@std@@YAXPEBD@Z
@@ -25175,20 +25279,27 @@ x(\$P
 x)\$P
 X\$p
 XP A
+X%/PB
 xPDX10
 xPDX10u
 X|$pf
 xPH;
 Xp H
-xQ`@
+.XPJ
+>XPL
 XqkY
+X-|QR
 X?/QY?s
 x:;;r
 Xr4-.
 Xr?9
 xr9B
 XrbfA
+X-RCB
 xrga[UNHB<6/)#
+X-rLB
+X-rPB
+X-rQB
 xRtX
 XR$z
 x`r&zdr8tzv
@@ -25213,12 +25324,12 @@ Xt$0
 XT$0
 XT$ A
 |$Xt@A9
+X%tBB
 Xt%H
 XT$h
 XT$H
 _Xtime_get_ticks
 XT$l
-.XTL
 xtmhA
 xtmht
 xtmv
@@ -25237,24 +25348,25 @@ x UAVAWH
 xueD
 x UH
 XU<H
+X=u$J
+X%uKB
+X-_UR
 X UVWATAUAVAWH
 (x,`.:,V
+X-%VR
 XvVH
-=Xw3
 XW A
 X WATAWH
+X%'WB
 XW$D
 Xw}H
 X WH
 xWM@
 X?wm
--x=X
-%Xx$
 |XX@
 ,X.X0F
-=Xxd
+X%\XB
 X[XD
-X%XEB
 X{xH
 xXM@
 XXM@
@@ -25266,24 +25378,31 @@ xx(uX
   "-xxx"     hide lines containing "xxx"
 ..-         -XXXXXXX-    X    -           X           -XXXXXXX          -          XXXXXXX..-         -X.....X-   X.X   -          X.X          -X.....X          -          X.....X---         -XXX.XXX-  X...X  -         X...X         -X....X           -           X....XX           -  X.X  - X.....X -        X.....X        -X...X            -            X...XXX          -  X.X  -X.......X-       X.......X       -X..X.X           -           X.X..XX.X         -  X.X  -XXXX.XXXX-       XXXX.XXXX       -X.X X.X          -          X.X X.XX..X        -  X.X  -   X.X   -          X.X          -XX   X.X         -         X.X   XXX...X       -  X.X  -   X.X   -    XX    X.X    XX    -      X.X        -        X.X      X....X      -  X.X  -   X.X   -   X.X    X.X    X.X   -       X.X       -       X.X       X.....X     -  X.X  -   X.X   -  X..X    X.X    X..X  -        X.X      -      X.X        X......X    -  X.X  -   X.X   - X...XXXXXX.XXXXXX...X -         X.X   XX-XX   X.X         X.......X   -  X.X  -   X.X   -X.....................X-          X.X X.X-X.X X.X          X........X  -  X.X  -   X.X   - X...XXXXXX.XXXXXX...X -           X.X..X-X..X.X           X.........X -XXX.XXX-   X.X   -  X..X    X.X    X..X  -            X...X-X...X            X..........X-X.....X-   X.X   -   X.X    X.X    X.X   -           X....X-X....X           X......XXXXX-XXXXXXX-   X.X   -    XX    X.X    XX    -          X.....X-X.....X          X...X..X    ---------   X.X   -          X.X          -          XXXXXXX-XXXXXXX          X..X X..X   -       -XXXX.XXXX-       XXXX.XXXX       ------------------------------------X.X  X..X   -       -X.......X-       X.......X       -    XX           XX    -           XX    X..X  -       - X.....X -        X.....X        -   X.X           X.X   -                 X..X          -  X...X  -         X...X         -  X..X           X..X  -                  XX           -   X.X   -          X.X          - X...XXXXXXXXXXXXX...X -           ------------        -    X    -           X           -X.....................X-                               ----------------------------------- X...XXXXXXXXXXXXX...X -                                                                 -  X..X           X..X  -                                                                 -   X.X           X.X   -                                                                 -    XX           XX    -           
   "xxx,yyy"  display lines containing "xxx" or "yyy"
-X-y8B
-X-Y?B
+=]xY
 xyH;
+>xYK
 X"Z(\ ^
+XZ`@
 X^ZA
 XZM@
+%xzP
 ;xzQ
 x z r o e s c
 {X@zY
+=y(@
+=y[?
 -&?y
 ;y }
+(!y`
+(]y`
 *`(y
 y{? 
-="Y;
-=[	Y
+`Y`@
+=(^Y
+-\$Y
+-Y|-
 ; Y: 
 ;Y |
-(Y`@
 Y|$@
 Y|$$
 Y\$(
@@ -25291,67 +25410,62 @@ Y\$@
 %Y!0
 Y}?\0 >%
 Y\$0
+(y0a
 Y\$0A
-(y0b
-(Y0d
 *y0E
 Y = %.0f px
 Y0H;
 ;y0s
 y0s9
 y##3
-Y56	,
-Y58Y)
-Y5AF*
-Y5C%?
-Y5KvK
-Y5~o
-Y5(OV
-Y5"(P
-Y5<T)
-Y5Z'
+Y5=>
+Y5aK*
+Y5B!A
+Y5c1H
+Y5Eg<
+Y5M-N
+Y5S-?
+Y5X^)
+Y5\Y)
+Y5zSV
+Y%!7E
+@y8@
 Y|$8
 Y@#=8
 Y@8A
-(Y8c
 y8D;
 y8u=H
-=	Y9
 y9*O
-(y(a
 (y	A
-(}Ya
 Y<'A
+Y=)>A
 Y|$ A
 Ya4X
 Ya5~t
+(yaa
+(Yab
 yacute
 Yacute
 Yacutesmall
-Y%{AD
-Y%a/E
 yaE3
 Yaw: 
 YAxI
-(}yb
-(Y#b
 ybA+
-(Yba
 ybE3
 yBI;
-(y(c
+(y'c
 yc?<
 >y?C
-(Y?c
-Y%cd)
+(Y}c
+(Y#c
+(ycb
 YC E
 y?$Cz?
 |$yD
-(Y#d
+(Y}d
 Yd$ 
 Yd$\
-%YD?
-Y=$D*
+=`YD
 Y{`D
 Y$D;
 YD$|
@@ -25372,9 +25486,11 @@ YD$@A
 YD$ E
 YD$h
 YD$H
+Y=DI*
 ydieresis
 Ydieresis
 Ydieresissmall
+.YDJ
 Yd$P
 YD$p
 YD$P
@@ -25387,11 +25503,14 @@ y dwU
 YD$x
 YD$X
 -Y %d +X %d
+-y|e
 y|E3
 Y E3
 Y(E3
+(yea
 Yellow
 YE`M
+%YeV
 YEwH
 YeYii
 |$Yf
@@ -25400,31 +25519,31 @@ yfA;
 yfAT
 y fE
 Y ff
-Y%ff)
 YFHH
-=Y\G
+.YfJ
 YG,D
-Y-gL)
  YGw
+=yH@
 "y	H
 Y|$h
 (~YH
 Y|$H
 Y(H;
 YH0H
+(yha
 yHfD
 yHLc
 y H;y
 .Yhz
-Y-?I)
-Y=I N
->-yJ
-.Y.K
+(yIa
+Y%;ID
+Y-Ik1
+.Y	J
+-yje
+%y:K
 yk 1"""
-(YKd
-%y;L
 y`L;
-..YL
+.Y[L
 Y,L;
 YL$`
 YL$ 
@@ -25439,12 +25558,14 @@ YL$0E
 Yl$`3
 Yl$4
 YL$8
+(yla
+(Yla
 y Lc
--yle
+Y%leR
 Yl$H
 YL$hA
+.YlK
 YLLc
-Y=&lN
 YL$p
 YL$P
 YL$pD
@@ -25456,17 +25577,13 @@ YLYVh
 \YM@
 YM0E
 yM+7
-(yma
-(Ymc
-Y=Mj*
-=ymT
+Y=mo*
 ymyx
 yMzw
-%y@N
-(yNc
+Y=	(N
+Y-_N)
 Y|NP
 +Yo,
-%yoe
  (You)
 You can apply arithmetic operators +,*,/ on numerical values.
  You can optionally use wildcards (*) to delete multiple entities.
@@ -25494,22 +25611,27 @@ Your team won the round!
  You seem to be running Windows 7 so you are probably just missing the "Platform Update for Windows 7" (google it and obtain it from an official Microsoft Download Center).
 You taunt your foes.
 You were disconnected but the map wasn't unloaded because you are editing.
+Y-OX)
 Y|$p
 Y\$P
 Yp(A
-(ypc
 +YpD
 Y}PE
+%yPN
 {{ypO2
+.=y.Q
+Y%&Q#
+=Yq1
 /yQA
 {yqmL
 Y!Q!t!
 ;Y r
+Y=r'0
 yRM@
-=ys)
-Y-/S)
 ys2`
+Y-s<E
 \ysK
+.YsK
 yslf`ZTMGA;5.
 Ysmall
 {ysqL
@@ -25526,8 +25648,9 @@ Yt$4
 Y>t$7?*
 Yt$8
 YT$8
+=Yt9
 Yt$`A
-=YTF
+=yTH
 Yt$h
 YT$p
 YT$pD
@@ -25535,21 +25658,15 @@ Yt$T
 %YU.
 YU@ff
 YUPA
-%yUV
 YUY2
 =YUY2u
 {YV'
-(=yV0
-%yv3
 YV(f
-Y=Vh6
 YvWH
-Y=w+?
-(Ywa
+(yWb
 'YwW/
 Y?'WY?
 Y\$X
-(yXa
 yXE3
 YXE3
 Yxff
@@ -25557,7 +25674,6 @@ yXH;
 Y@xH
 yXH;A u
 yxI;
-Y=xl#
 yx(u
 yx(u<
 yx(u	
@@ -25572,14 +25688,11 @@ yxxxxxxxL+
 .Yxz
 Y-Y=
 y'y6y?yMa
-Y-Ye1
 Y]Ym[u[
-(yZb
 yZ:O
 yZygy
 y?Zzy?
-`z?@
-=z|[
+=z$<
 ;z |
 ._|z
 ._\z
@@ -25588,6 +25701,7 @@ y?Zzy?
 )|$`z
 )|$ z
 ]?z?
+=Z}?
 ,|&Z
 ; Z: 
 (^<`Z
@@ -25595,7 +25709,6 @@ y?Zzy?
 (:<<Z
 *Z*_
 	Z	?	
-Z:;@
 Z$$&.(
 Z* ,	
 Z\,%
@@ -25607,16 +25720,18 @@ z0u.
 z0u.D
 .z0z2
 z1u/
+%*Z2
 z2u0
 z2u0A
 z{3^+
 z?33
 z?33s?
 z3u1
+=Z!4
 z4>33
 Z4466
-=Z45
 Z(4*6
+=Z48
 Z48wN39
 Z@4B6
 z4u2
@@ -25627,15 +25742,12 @@ Z:6<:
 Z"6$:
 Z.60:
 z6u4D
-=z7>
 Z~$|7
 !&z8
 z8u6
 z8u6fA
-z9;@
+ zA@
 z A+
-=Za?
-()Za
 ~ZA;
 Z ao slice: 
 zAu?
@@ -25643,6 +25755,7 @@ zAu?
 z`(be
 ZbE3
 (Z(^(b(f(j(n(r(v(z1
+=ZbH
 ZbN0V
 zcaron
 Zcaron
@@ -25651,10 +25764,10 @@ Zcaronsmall
 zCuAI
 zCuAL
 zCzI
-`zD@
 Zd6f:
 zDuB
 ZDZUZ]Zj
+=;Ze
 Z E3
 }ZE9B@t)A
 |zE9\$Dus
@@ -25671,17 +25784,20 @@ zerosuperior
 zeucA
 zezn
 #.zf
+z`f.
+=@ZF
 ZF6H:
 z	fD
 ~zff
 zFuD
+=zG7
 zGuA
 zGuE
+-z\H
 """ZH
 (~ZH
 \$ZH
 zhx9
->)ZI
 zigabo
 zigaboo
 zigaboos
@@ -25689,14 +25805,14 @@ zigabos
 zipperhead
 zipperheads
 zIuG
+.>zJ
 <Z>J:>@!
+.<ZJ
 Zj6l:
 zjuhfD
-=z)K
 z^KD
 	zKQ
 zkui
-zL;@
 ZL6N:
 ~ZLc
 zlib error
@@ -25715,7 +25831,7 @@ zLx>
 $ZM@
 z?Mbz?H5z?
 zMuK
-=zmW
+(-Z~N
 zNuL
  ZO@
 	?	Z	$	O
@@ -25727,15 +25843,14 @@ zoomed_speed
  	zoomed_speed 175 
 zoom_sensitivity
 Zpft
-.ZpK
 ZPKE?81("
 zPuNfD
-ZPZ8
+.ZQL
 zQuO
 ;Z@$R
 ZR6T,
 zrup
-%z/S
+%z?S
 ,@Zs
 ;Z s
 Z?SHX?
@@ -25781,6 +25896,8 @@ zUZg
 ;=zV
 ]zV@
 zvutf
+=z}W
+.zWL
 zwq<
 ZW][Rb
 zWuUA
@@ -25792,11 +25909,13 @@ zx(u(
 zx(u8
 zx(u#H
 .ZXz
+=*ZY
 zyrE
 zYuW
 zYuWL
 (z<|Z
 (Z<\Z
+-zZ0
 Z!Z1
 	zzB'
 :z<Z>J:>@
