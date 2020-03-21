@@ -186,12 +186,14 @@ let friends_list_offline_cont_fragment = new DocumentFragment();
 let friends_invites_game = _id("friends_invites_game");
 let friends_invites_game_cont = _id("friends_invites_game_cont");
 let friends_invites_game_cont_fragment = new DocumentFragment();
+/*
 let friends_invites_epic_in = _id("friends_invites_epic_in");
 let friends_invites_epic_in_cont = _id("friends_invites_epic_in_cont");
 let friends_invites_epic_in_cont_fragment = new DocumentFragment();
 let friends_invites_epic_out = _id("friends_invites_epic_out");
 let friends_invites_epic_out_cont = _id("friends_invites_epic_out_cont");
 let friends_invites_epic_out_cont_fragment = new DocumentFragment();
+*/
 function handle_friend_list_update(friends) {
     /*
     "account_status" : not_friends, invite_sent, invite_received, friends or unknown 
@@ -264,6 +266,7 @@ function handle_friend_list_update(friends) {
     });
     handle_friends_list_update_category(friends_list_offline, friends_list_offline_cont, friends_list_offline_cont_fragment, friends_list_cache.offline, friends_offline, false);
 
+    /*
     var invites_epic_in = friends.filter(function(f) {
         if (f.account_status == "invite_received") return true;
         return false;
@@ -276,6 +279,7 @@ function handle_friend_list_update(friends) {
         return false;
     });
     handle_friends_list_update_category(friends_invites_epic_out, friends_invites_epic_out_cont, friends_invites_epic_out_cont_fragment, friends_list_cache.invites_epic_out, invites_epic_out, false);
+    */
 
     let end = performance.now();
     //console.log("friendlist update in: "+(end-start)+"ms");

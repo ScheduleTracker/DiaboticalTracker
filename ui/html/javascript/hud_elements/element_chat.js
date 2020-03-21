@@ -7,7 +7,8 @@ global_onload_callbacks.push(function(){
         "width": "30",
         "fontSize": "1.75",
         "align": "left",
-        "color": "white"
+        "color": "white",
+        "showTimestamp":1,
     },      //Default values
     [       //Editor settings
         defaultPivot,
@@ -20,6 +21,7 @@ global_onload_callbacks.push(function(){
         defaultAlign,
         defaultColor,
         {"inputType": "toggle", "type": "bottomUp", "text": "Bottom Up"},
+        {"inputType": "toggle", "type": "showTimestamp", "text": "Show Timestamp"},
     ]
     , "#hud_chat");  //Template Name
     hud_elements.push(hud_elem);
@@ -40,7 +42,7 @@ global_onload_callbacks.push(function(){
 
 // Show the chat prompt and recent chat messages
 function set_chat(visible) {
-    let game_report_input = _id("game_report").querySelector(".chat_input");
+    let game_report_input = _id("game_report_cont").querySelector(".chat_input");
     if (global_game_report_active) {
         game_report_input.value = '';
         if (visible) {
@@ -91,23 +93,14 @@ function chatMessage(msg) {
             el.removeChild(el.children[0]);
         }
 
-        let chat_message = document.createElement('div');
-        chat_message.innerHTML = msg;
+        let chat_message = _createElement('div');
+        chat_message.appendChild(msg.cloneNode(true));
 
         el.appendChild(chat_message);
 
-        el.style.opacity = 1;
-
-        anim_start({
-            element: el,
-            opacity: [1, 0],
-            delay: CHAT_MESSAGE_FADE_DELAY,
-            duration: CHAT_MESSAGE_FADE_DURATION,
-        });
-
         let chat_temp = el.closest(".chat_container").querySelector(".chat_temp");
         let temp_msg = _createElement("div");
-        temp_msg.innerHTML = msg;
+        temp_msg.appendChild(msg.cloneNode(true));
         chat_temp.appendChild(temp_msg);
 
         if (chat_temp.children.length > 10) {
@@ -118,33 +111,38 @@ function chatMessage(msg) {
         anim_start({
             element: temp_msg,
             opacity: [1, 0],
-            delay: 5000,
-            duration: 500,
+            delay: CHAT_MESSAGE_FADE_DELAY,
+            duration: CHAT_MESSAGE_FADE_DURATION,
             remove: true,
         });
 
     });
 
     // Add the message to the match report chat
-    var gameReportChat = _id("game_report").querySelector(".chat_messages");
+    var gameReportChat = _id("game_report_cont").querySelector(".chat_messages");
     if (gameReportChat.children.length >= 10) {
         gameReportChat.removeChild(gameReportChat.children[0]);
     }
 
     let chat_message = document.createElement('div');
-    chat_message.innerHTML = msg;
+    chat_message.appendChild(msg);
 
     gameReportChat.appendChild(chat_message);
 }
 
 function addServerChatMessage(msg){
-    var newRow = "<div><span>" + escapeHtml(msg) + "</span></div>"
-    chatMessage(newRow);
+    let div = _createElement("div");
+    div.appendChild(_createElement("span", "", msg));
+    chatMessage(div);
 }
 
-function addChatMessage(playerName, msg){
-    var newRow = "<span class='chat_playername'>" + escapeHtml(playerName) + "</span><span class='colon'>:</span><span class='msg'>" + escapeHtml(msg) + "</span>"
-    chatMessage(newRow);    
+function addChatMessage(playerName, msg) {
+    let fragment = new DocumentFragment();
+    fragment.appendChild(_createElement("span","chat_timestamp", "[" + current_match.game_time_for_chat + "] ")); //super ugly shoehorning of timestamp, should be implemented engineside for final
+    fragment.appendChild(_createElement("span","chat_playername", playerName));
+    fragment.appendChild(_createElement("span","colon", ":"));
+    fragment.appendChild(_createElement("span","msg", msg));
+    chatMessage(fragment);    
 }
 
 function element_chat_setup() {
@@ -202,7 +200,7 @@ function element_chat_setup() {
         });
     });
 
-    var report_chatinput = _get_first_with_class_in_parent(_id("game_report"), "chat_input");
+    var report_chatinput = _get_first_with_class_in_parent(_id("game_report_cont"), "chat_input");
     if (report_chatinput) {
         report_chatinput.addEventListener("keydown", function (event) {
             if (event.keyCode == 27) { //Escape

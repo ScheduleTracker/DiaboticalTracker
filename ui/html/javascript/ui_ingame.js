@@ -94,7 +94,7 @@ function initialize_references() {
 
 
 var global_hud_is_visible = false;
-
+var global_show_rank_change = false;
 
 window.addEventListener("load", function(){
 
@@ -129,6 +129,47 @@ window.addEventListener("load", function(){
         global_onload_callbacks[i]();
     }
 
+    bind_event('view_data_received', function(string) {
+        // data from another view received
+        console.log('view_data_received', string);
+    });
+
+    bind_event('process_server_json_data', function (string) {
+        let type = string.charAt(0);
+        let data = string.trim().substring(2);
+
+        if (type == "j") {
+            var json_data = '';
+            try {
+                json_data = JSON.parse(data);
+            } catch (e) {
+                console.log("Error parsing server JSON. err=" + e);
+            }
+            if (!json_data.action) return;
+
+            if (json_data.action && json_data.action == "post-match-updates") {
+                console.log("post-match-updates", _dump(json_data));
+                console.log("ranked:",json_data.data.mmr_updates.ranked);
+                if ("mmr_updates" in json_data.data && json_data.data.mmr_updates.ranked) {
+                    global_show_rank_change = true;
+                    renderRankScreen(json_data.data.mmr_updates);
+                }
+            }
+
+        }
+        if (type == "s") {
+            let action = data.substr(0,data.indexOf(' '));
+            let action_data = data.substr(data.indexOf(' ')+1);
+            if (data.indexOf(' ') == -1) {
+                action = data;
+                action_data = ""; 
+            }
+
+            //...
+        }
+
+        //engine.call("echo", "Received JSON Data, action=" + json_data.action);
+    });
     
     bind_event('hud_changed', function (jsonStr) {
         //console.log("post_load_setup_hud_editor 3");
@@ -175,13 +216,15 @@ window.addEventListener("load", function(){
         _id("game_intro_screen").style.display = "none";
         _id("join_menu").style.display = "none";
         _id("game_over_screen").style.display = "none";
+        _id("game_report_cont").style.display = "none";
         _id("game_report").style.display = "none";
+        _id("rank_screen").style.display = "none";
 
         anim_show(_id("hud_load_during_loading"), 0);
 
         // Clear the chat history
         _for_each_with_class_in_parent(_id("hud_load_during_loading"), "chat_messages", el => { _empty(el); });
-        _for_each_with_class_in_parent(_id("game_report"), "chat_messages", el => { _empty(el); });
+        _for_each_with_class_in_parent(_id("game_report_cont"), "chat_messages", el => { _empty(el); });
 
         current_match = new Match([]);
 
@@ -194,10 +237,13 @@ window.addEventListener("load", function(){
 
     // game_manifest is sent after connecting / loading the map
     bind_event("game_manifest", function(manifest) {
-        console.log("game_manifest", manifest);
+        //console.log("game_manifest", manifest);
 
         if (manifest) {
             var mani = JSON.parse(manifest);
+
+            if ("lingering_time" in mani) global_game_report_countdown = Number(mani.lingering_time);        
+            if (Number(mani.continuous) == 0) global_game_report_countdown = global_game_report_countdown + 5;
 
             _id("game_intro_mode").textContent = localize(global_game_mode_map[mani.mode].i18n);
             _id("game_intro_map").textContent = _format_map_name(mani.map);
@@ -212,7 +258,7 @@ window.addEventListener("load", function(){
             anim_show(_id("game_intro_screen"));
         }
 
-        _id("game_loading_message").style.display = "block";
+        //_id("game_loading_message").style.display = "block";
     });
 
     bind_event("change_pause_state", function(paused, player_id){
@@ -297,11 +343,6 @@ window.addEventListener("load", function(){
 
     bind_event('reset_shop', function () {
         console.log("reset_shop");
-
-        if (global_hud_is_visible) {
-            _id("game_intro_screen").style.display = "none";
-            _id("game_loading_message").style.display = "none";
-        }
     });
 
     bind_event('show_ingame_hud', function (visible) {
@@ -317,10 +358,12 @@ window.addEventListener("load", function(){
                 global_on_after_connected = false;
                 
                 // The model doesn't seem to be filled yet when show_ingame_hud is called?
+                /* Commented because it hasn't really worked yet
                 if (game_data && game_data.spectator && game_data.game_stage > 0 && game_data.team_switching > 0) {
                     join_menu_visible(true);
                     return;
                 }
+                */
             }
             anim_show(_id("game_hud"));
             global_hud_is_visible = true;
@@ -344,6 +387,13 @@ window.addEventListener("load", function(){
     bind_event("show_respawn_message", function (keybind, enabled){
         console.log("show_respawn_message", enabled);
         //keybind not used atm, since it's attack to respawn.
+
+        // Hack to make sure the intro message goes away when you initially spawn
+        if (enabled == false && global_hud_is_visible) {
+            _id("game_intro_screen").style.display = "none";
+            _id("game_loading_message").style.display = "none";
+        }
+
         if(enabled)
             anim_show(_id("respawn_message"));
         else
@@ -454,7 +504,7 @@ window.addEventListener("load", function(){
         var formattedSeconds = ("0" + seconds).slice(-2);
 
         var outputString = formattedMinutes + ":" + formattedSeconds;
-
+        current_match.game_time_for_chat = outputString;  // hacky shoehorning timestamp for chat msg
         var gameStateString = "";
 
         if (game_mode == "ca") {
@@ -480,6 +530,9 @@ window.addEventListener("load", function(){
                 if (current_match.confirmation_frag_time) {
                     _for_each_with_class_in_parent(real_hud_element, 'elem_time_limit', function(el){
                         _html(el, localize("ingame_message_golden_frag"));
+                    });
+                    _for_each_with_class_in_parent(real_hud_element, 'protected', function(el){
+                        el.classList.remove("protected");
                     });
                 } else {
                     var time_limit_minutes = Math.floor(limit_overtime / 60);
@@ -561,18 +614,20 @@ window.addEventListener("load", function(){
 
 
     bind_event("player_needs_confirmation_frag", function (player_id) {
+//        if (!current_match.confirmation_frag_time) showAnnounce(localize("ingame_message_knockout_phase"), false, 2000, 0, false);
         current_match.confirmation_frag_time = true;
     });
 
     bind_event('set_hud_game_mode', function (mode) {
         //engine.call("echo", 'set_hud_game_mode ' + mode.toUpperCase());
-
+/*
         current_match.game_mode = mode;
 
-
+        
         _for_each_with_class_in_parent(real_hud_element, "scoreboard_gamemode_name", el => {
             el.textContent = mode.toUpperCase();
         });
+        
         
         anim_show(_id("teamscore_container"));
 
@@ -580,6 +635,7 @@ window.addEventListener("load", function(){
             let el = _id("teams_scoreboard");
             if (el) el.style.display = "none";
         }
+        */
     });
     
     bind_event('set_zoom', function (enabled) {

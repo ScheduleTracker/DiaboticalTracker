@@ -149,15 +149,18 @@ function renderMatchList() {
     });
 
     let fragment = new DocumentFragment();
-
+    let count_visible = 0;
     for (let match of global_custom_list_data) {
         if (global_server_selected_locations.indexOf(match.location) == -1) continue;
         if (global_custom_list_search.trim().length) {
             if (!match.name.toLowerCase().includes(global_custom_list_search.trim().toLowerCase())) continue;
         }
 
+        count_visible++;
+
         let row = _createElement("div", "row");
         row.dataset.sessionId = match.session_id;
+        if (global_custom_list_selected_match == match.session_id) row.classList.add("selected");
 
         let tr_pass = _createElement("div", ["tr", "tr_password"]);
         if ("password" in match && match.password) {
@@ -206,11 +209,11 @@ function renderMatchList() {
         row.appendChild(tr_players);
 
         let tr_status = _createElement("div", ["tr", "tr_status"]);
-        if (match.state == 1 || match.state == 2) {
+        if (match.state == 0 || match.state == 1) {
             let state = _createElement("span", "warmup");
             state.innerHTML = localize("game_state_warmup");
             tr_status.appendChild(state);
-        } else if (match.state == 3 || match.state == 4) {
+        } else if (match.state == 2 || match.state == 3 || match.state == 4) {
             let state = _createElement("span", "live");
             state.innerHTML = localize("game_state_live");
             tr_status.appendChild(state);
@@ -254,7 +257,7 @@ function renderMatchList() {
         });
     }
 
-    if (global_custom_list_data.length == 0) {
+    if (count_visible == 0) {
         let no_matches = _createElement("div", "no_matches");
         no_matches.innerHTML = localize("message_no_custom_matches_found");
         fragment.appendChild(no_matches);

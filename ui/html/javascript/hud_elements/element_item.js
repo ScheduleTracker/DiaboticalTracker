@@ -16,6 +16,7 @@ global_onload_callbacks.push(function(){
         "iC": "item",
         "iCCustom": "white",
         "style": "none",
+        "name": "1",
     },      
         
     [       //Editor settings
@@ -31,6 +32,7 @@ global_onload_callbacks.push(function(){
         {"inputType": "float", "type": "cCode", "text": "Icon Corner Bitmask"},
         {"inputType": "float", "type": "bWidth", "text": "Border Width" },
         {"inputType": "toggle","type": "flip", "text": "Flip layout" },
+        {"inputType": "toggle","type": "name", "text": "Show Item Name"},
         {"inputType": "toggle","type": "keybind", "text": "Show Keybind"},
         {"inputType": "toggle","type": "iShadow", "text": "Icon Shadow"},
         {"inputType": "list",  "type": "iC", "text": "Icon Color", "listValues":
@@ -52,3 +54,8 @@ global_onload_callbacks.push(function(){
     hud_elements.push(hud_elem);
 
 });
+
+function format_item_name(id) {
+    if (!(id in global_item_name_map)) return '';
+    return localize(global_item_name_map[id][1]);
+}

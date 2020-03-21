@@ -492,6 +492,125 @@ h2 {
 
 
 /*
+ * RANK ICONS
+ */
+.rank_icon {
+    position:relative;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100%;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,0.8));
+}
+.rank_icon .position {
+    position:absolute;
+    bottom:8%;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:1vh;
+    font-weight:bold;
+}
+.rank_icon.unranked_1 { background-image: url("/html/ranks/200x200/00_cardboardbox_01.png"); }
+.rank_icon.unranked_2 { background-image: url("/html/ranks/200x200/00_cardboardbox_02.png"); }
+.rank_icon.unranked_3 { background-image: url("/html/ranks/200x200/00_cardboardbox_03.png"); }
+.rank_icon.unranked_4 { background-image: url("/html/ranks/200x200/00_cardboardbox_04.png"); }
+.rank_icon.unranked_5 { background-image: url("/html/ranks/200x200/00_cardboardbox_05.png"); }
+.rank_icon.rank_1     { background-image: url("/html/ranks/200x200/01_paintjob_01.png"); }
+.rank_icon.rank_2     { background-image: url("/html/ranks/200x200/01_paintjob_02.png"); }
+.rank_icon.rank_3     { background-image: url("/html/ranks/200x200/01_paintjob_03.png"); }
+.rank_icon.rank_4     { background-image: url("/html/ranks/200x200/01_paintjob_04.png"); }
+.rank_icon.rank_5     { background-image: url("/html/ranks/200x200/01_paintjob_05.png"); }
+.rank_icon.rank_6     { background-image: url("/html/ranks/200x200/02_stone_01.png"); }
+.rank_icon.rank_7     { background-image: url("/html/ranks/200x200/02_stone_02.png"); }
+.rank_icon.rank_8     { background-image: url("/html/ranks/200x200/02_stone_03.png"); }
+.rank_icon.rank_9     { background-image: url("/html/ranks/200x200/02_stone_04.png"); }
+.rank_icon.rank_10    { background-image: url("/html/ranks/200x200/02_stone_05.png"); }
+.rank_icon.rank_11    { background-image: url("/html/ranks/200x200/03_wood_01.png"); }
+.rank_icon.rank_12    { background-image: url("/html/ranks/200x200/03_wood_02.png"); }
+.rank_icon.rank_13    { background-image: url("/html/ranks/200x200/03_wood_03.png"); }
+.rank_icon.rank_14    { background-image: url("/html/ranks/200x200/03_wood_04.png"); }
+.rank_icon.rank_15    { background-image: url("/html/ranks/200x200/03_wood_05.png"); }
+.rank_icon.rank_16    { background-image: url("/html/ranks/200x200/04_iron_01.png"); }
+.rank_icon.rank_17    { background-image: url("/html/ranks/200x200/04_iron_02.png"); }
+.rank_icon.rank_18    { background-image: url("/html/ranks/200x200/04_iron_03.png"); }
+.rank_icon.rank_19    { background-image: url("/html/ranks/200x200/04_iron_04.png"); }
+.rank_icon.rank_20    { background-image: url("/html/ranks/200x200/04_iron_05.png"); }
+.rank_icon.rank_21    { background-image: url("/html/ranks/200x200/05_copper_01.png"); }
+.rank_icon.rank_22    { background-image: url("/html/ranks/200x200/05_copper_02.png"); }
+.rank_icon.rank_23    { background-image: url("/html/ranks/200x200/05_copper_03.png"); }
+.rank_icon.rank_24    { background-image: url("/html/ranks/200x200/05_copper_04.png"); }
+.rank_icon.rank_25    { background-image: url("/html/ranks/200x200/05_copper_05.png"); }
+.rank_icon.rank_26    { background-image: url("/html/ranks/200x200/06_silver_01.png"); }
+.rank_icon.rank_27    { background-image: url("/html/ranks/200x200/06_silver_02.png"); }
+.rank_icon.rank_28    { background-image: url("/html/ranks/200x200/06_silver_03.png"); }
+.rank_icon.rank_29    { background-image: url("/html/ranks/200x200/06_silver_04.png"); }
+.rank_icon.rank_30    { background-image: url("/html/ranks/200x200/06_silver_05.png"); }
+.rank_icon.rank_31    { background-image: url("/html/ranks/200x200/07_gold_01.png"); }
+.rank_icon.rank_32    { background-image: url("/html/ranks/200x200/07_gold_02.png"); }
+.rank_icon.rank_33    { background-image: url("/html/ranks/200x200/07_gold_03.png"); }
+.rank_icon.rank_34    { background-image: url("/html/ranks/200x200/07_gold_04.png"); }
+.rank_icon.rank_35    { background-image: url("/html/ranks/200x200/07_gold_05.png"); }
+.rank_icon.rank_36    { background-image: url("/html/ranks/200x200/08_crystal_01.png"); }
+.rank_icon.rank_37    { background-image: url("/html/ranks/200x200/08_crystal_02.png"); }
+.rank_icon.rank_38    { background-image: url("/html/ranks/200x200/08_crystal_03.png"); }
+.rank_icon.rank_39    { background-image: url("/html/ranks/200x200/08_crystal_04.png"); }
+.rank_icon.rank_40    { background-image: url("/html/ranks/200x200/08_crystal_05.png"); }
+.rank_icon.top_1      { background-image: url("/html/ranks/200x200/09_special.png"); }
+.rank_icon.top_2      { background-image: url("/html/ranks/200x200/10_special.png"); }
+.rank_icon.top_3      { background-image: url("/html/ranks/200x200/11_special.png"); }
+.rank_icon.top_4      { background-image: url("/html/ranks/200x200/12_special.png"); }
+
+.rank_icon.small.unranked_1 { background-image: url("/html/ranks/100x100/00_cardboardbox_01.png"); }
+.rank_icon.small.unranked_2 { background-image: url("/html/ranks/100x100/00_cardboardbox_02.png"); }
+.rank_icon.small.unranked_3 { background-image: url("/html/ranks/100x100/00_cardboardbox_03.png"); }
+.rank_icon.small.unranked_4 { background-image: url("/html/ranks/100x100/00_cardboardbox_04.png"); }
+.rank_icon.small.unranked_5 { background-image: url("/html/ranks/100x100/00_cardboardbox_05.png"); }
+.rank_icon.small.rank_1     { background-image: url("/html/ranks/100x100/01_paintjob_01.png"); }
+.rank_icon.small.rank_2     { background-image: url("/html/ranks/100x100/01_paintjob_02.png"); }
+.rank_icon.small.rank_3     { background-image: url("/html/ranks/100x100/01_paintjob_03.png"); }
+.rank_icon.small.rank_4     { background-image: url("/html/ranks/100x100/01_paintjob_04.png"); }
+.rank_icon.small.rank_5     { background-image: url("/html/ranks/100x100/01_paintjob_05.png"); }
+.rank_icon.small.rank_6     { background-image: url("/html/ranks/100x100/02_stone_01.png"); }
+.rank_icon.small.rank_7     { background-image: url("/html/ranks/100x100/02_stone_02.png"); }
+.rank_icon.small.rank_8     { background-image: url("/html/ranks/100x100/02_stone_03.png"); }
+.rank_icon.small.rank_9     { background-image: url("/html/ranks/100x100/02_stone_04.png"); }
+.rank_icon.small.rank_10    { background-image: url("/html/ranks/100x100/02_stone_05.png"); }
+.rank_icon.small.rank_11    { background-image: url("/html/ranks/100x100/03_wood_01.png"); }
+.rank_icon.small.rank_12    { background-image: url("/html/ranks/100x100/03_wood_02.png"); }
+.rank_icon.small.rank_13    { background-image: url("/html/ranks/100x100/03_wood_03.png"); }
+.rank_icon.small.rank_14    { background-image: url("/html/ranks/100x100/03_wood_04.png"); }
+.rank_icon.small.rank_15    { background-image: url("/html/ranks/100x100/03_wood_05.png"); }
+.rank_icon.small.rank_16    { background-image: url("/html/ranks/100x100/04_iron_01.png"); }
+.rank_icon.small.rank_17    { background-image: url("/html/ranks/100x100/04_iron_02.png"); }
+.rank_icon.small.rank_18    { background-image: url("/html/ranks/100x100/04_iron_03.png"); }
+.rank_icon.small.rank_19    { background-image: url("/html/ranks/100x100/04_iron_04.png"); }
+.rank_icon.small.rank_20    { background-image: url("/html/ranks/100x100/04_iron_05.png"); }
+.rank_icon.small.rank_21    { background-image: url("/html/ranks/100x100/05_copper_01.png"); }
+.rank_icon.small.rank_22    { background-image: url("/html/ranks/100x100/05_copper_02.png"); }
+.rank_icon.small.rank_23    { background-image: url("/html/ranks/100x100/05_copper_03.png"); }
+.rank_icon.small.rank_24    { background-image: url("/html/ranks/100x100/05_copper_04.png"); }
+.rank_icon.small.rank_25    { background-image: url("/html/ranks/100x100/05_copper_05.png"); }
+.rank_icon.small.rank_26    { background-image: url("/html/ranks/100x100/06_silver_01.png"); }
+.rank_icon.small.rank_27    { background-image: url("/html/ranks/100x100/06_silver_02.png"); }
+.rank_icon.small.rank_28    { background-image: url("/html/ranks/100x100/06_silver_03.png"); }
+.rank_icon.small.rank_29    { background-image: url("/html/ranks/100x100/06_silver_04.png"); }
+.rank_icon.small.rank_30    { background-image: url("/html/ranks/100x100/06_silver_05.png"); }
+.rank_icon.small.rank_31    { background-image: url("/html/ranks/100x100/07_gold_01.png"); }
+.rank_icon.small.rank_32    { background-image: url("/html/ranks/100x100/07_gold_02.png"); }
+.rank_icon.small.rank_33    { background-image: url("/html/ranks/100x100/07_gold_03.png"); }
+.rank_icon.small.rank_34    { background-image: url("/html/ranks/100x100/07_gold_04.png"); }
+.rank_icon.small.rank_35    { background-image: url("/html/ranks/100x100/07_gold_05.png"); }
+.rank_icon.small.rank_36    { background-image: url("/html/ranks/100x100/08_crystal_01.png"); }
+.rank_icon.small.rank_37    { background-image: url("/html/ranks/100x100/08_crystal_02.png"); }
+.rank_icon.small.rank_38    { background-image: url("/html/ranks/100x100/08_crystal_03.png"); }
+.rank_icon.small.rank_39    { background-image: url("/html/ranks/100x100/08_crystal_04.png"); }
+.rank_icon.small.rank_40    { background-image: url("/html/ranks/100x100/08_crystal_05.png"); }
+.rank_icon.small.top_1      { background-image: url("/html/ranks/100x100/09_special.png"); }
+.rank_icon.small.top_2      { background-image: url("/html/ranks/100x100/10_special.png"); }
+.rank_icon.small.top_3      { background-image: url("/html/ranks/100x100/11_special.png"); }
+.rank_icon.small.top_4      { background-image: url("/html/ranks/100x100/12_special.png"); }
+
+
+/*
  *  Default flag style
  */
 .country_flag {
@@ -1309,9 +1428,10 @@ h2 {
     width:19.97vh;
 }
 .scoreboard_team {
+    --team_margin: 1;
     display: flex;
     flex-direction: row;
-    margin-bottom: 2vh;
+    margin-bottom: calc((var(--team_margin)*1.6vh) + 0.4vh);
 }
 .scoreboard_team > div {
     display: flex;
@@ -1637,6 +1757,33 @@ h2 {
     left:0;
     right:auto;
 }
+
+.solo_player_stocks {
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+    padding:0.8vh;
+}
+.solo_player_stocks.make_room_for_stack_cont {
+    transform: translateY(2vh);
+}
+.solo_player_stocks .stock {
+    width:2vh;
+    height:2vh;
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    margin:0 0.4vh;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,0.4));
+}
+.solo_player_stocks .stock.protected {
+    filter:drop-shadow(0 0 10px 1px rgba(255,255,255,1));
+}
+
+.teamscore_team_container.reverse .solo_player_stocks {
+    justify-content:flex-end;
+}
 .teamscore_team {
     display: flex;
     flex-direction: row;
@@ -1792,9 +1939,25 @@ h2 {
 }
 .teamscore_team_container .avatar.player_dead {
     opacity: 0.3;
+    filter:drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.6)) grayscale(100%);
 }
 .teamscore_team_container .avatar.player_self {
     border:1px solid #ffff80;
+}
+.teamscore_team_container .player_stocks {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    padding:0.6vh 0;
+}
+.teamscore_team_container .player_stocks .stock {
+    width:1.4vh;
+    height:1.4vh;
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    margin:0 0.2vh;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,0.4));
 }
 .player_ready_box {
     background-color: #ff3131;
@@ -2176,6 +2339,7 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
+    --chat_show_timestamp_while_ingame: none;
 }
 .elem_chat .chat_container .chat_temp_cont {
     position:absolute;
@@ -2227,6 +2391,8 @@ h2 {
 .elem_chat .chat_messages > div {
     display: flex;
 }
+.elem_chat .chat_temp .chat_timestamp,
+.elem_chat .chat_messages .chat_timestamp {display: var(--chat_show_timestamp_while_ingame); }
 .elem_chat .chat_temp .chat_playername,
 .elem_chat .chat_messages .chat_playername {color: lightblue; }
 .elem_chat .chat_temp .colon,
@@ -2303,6 +2469,8 @@ h2 {
     margin-bottom:4px;
     border-radius:4px;
     animation: fraglog_fadein 0.2s ease-in;
+    padding-top:calc(6px * var(--zero-onevh-rounded) * var(--ratio));
+    padding-bottom:calc(6px * var(--zero-onevh-rounded) * var(--ratio));
 
     display: flex;
 }
@@ -2473,6 +2641,7 @@ h2 {
     padding-bottom:calc(0.2vh * var(--ratio));
     font-size: calc(1.2vh * var(--ratio));
     opacity:0.7;
+    text-shadow:0 1px 1px rgba(0,0,0,0.8);
 }
 .indicator_key_cont {
     display:flex;
@@ -2588,6 +2757,29 @@ h2 {
 }
 */
 
+/*
+ *  ELEMENT: coin counter
+ */
+.elem_coins .coin_cont {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+.elem_coins .coin_cont .icon {
+    width: calc(1vh * var(--fontSize) * var(--ratio));
+    height: calc(1vh * var(--fontSize) * var(--ratio));
+    background-image:url(/html/images/item_coin.svg);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:100%;
+    filter:drop-shadow(1px 1px 2px rgba(0,0,0,0.8));
+}
+.elem_coins .coin_cont .counter {
+    text-shadow:1px 1px 2px rgba(0,0,0,0.8);
+    margin-left:calc(1vh * (var(--fontSize) / 2) * var(--ratio));
+    min-width:calc(1vh * var(--fontSize) * var(--ratio));
+    text-align:center;
+}
 
 /*
  *  ELEMENT: item pickup message
@@ -2602,7 +2794,6 @@ h2 {
 .elem_item_picked .container .icon {
     width: calc(2vh * var(--iconWidth) * var(--ratio));
     height: calc(2vh * var(--fontSize) * var(--ratio));
-    margin-right: calc(2vh * var(--ratio));
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -2619,6 +2810,7 @@ h2 {
     display:flex;
     flex-direction: column;
     text-align:left;
+    margin-left: calc(2vh * var(--ratio));
 }
 .elem_item_picked .container .text .owner {
     color:#ccc;
@@ -2839,6 +3031,16 @@ h2 {
     width: 100%;
     height: 100%;
     display: none;
+    /*background-image: url("/html/images/backgrounds/game_report.png");*/
+    background-color:#000;
+    z-index:1;
+}
+
+#game_report_cont {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
     background-image: url("/html/images/backgrounds/game_report.png");
     background-position:center;
     background-size:cover;
@@ -2851,8 +3053,7 @@ h2 {
     z-index:1;
 }
 
-
-#game_report .head {
+#game_report_cont .head {
     height:10vh;
     background-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
     width:110vh;
@@ -2864,10 +3065,10 @@ h2 {
     overflow-y:hidden;
     text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.45);
 }
-#game_report .head .head_side {
+#game_report_cont .head .head_side {
     width:15vh;
 }
-#game_report .head .head_side.result_text {
+#game_report_cont .head .head_side.result_text {
     display:flex;
     justify-content: flex-start;
     align-items:center;
@@ -2876,62 +3077,62 @@ h2 {
     text-transform: uppercase;
     font-style: italic;
 }
-#game_report .head .head_side.mode_map_time {
+#game_report_cont .head .head_side.mode_map_time {
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:flex-end;
     font-size:1.6vh;
 }
-#game_report .head .head_side.mode_map_time .mode {}
-#game_report .head .head_side.mode_map_time .map {}
-#game_report .head .head_side.mode_map_time .time {}
+#game_report_cont .head .head_side.mode_map_time .mode { white-space:nowrap; }
+#game_report_cont .head .head_side.mode_map_time .map { white-space:nowrap; }
+#game_report_cont .head .head_side.mode_map_time .time { white-space:nowrap; }
 
-#game_report .head .head_center {
+#game_report_cont .head .head_center {
     flex:1;
     display:flex;
     justify-content:center;
     align-items:center;
     height:100%;
 }
-#game_report .head .head_center .winner {
+#game_report_cont .head .head_center .winner {
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     height:100%;
 }
-#game_report .head .head_center .winner .name {
+#game_report_cont .head .head_center .winner .name {
     font-size:4vh;
 }
-#game_report .head .head_center .winner .label {
+#game_report_cont .head .head_center .winner .label {
     font-size:1vh;
     font-weight:bold;
     color:var(--team_color);
 }
-#game_report .head .head_center .score_cont {
+#game_report_cont .head .head_center .score_cont {
     display:flex;
     flex-direction:row;
     align-items: center;
     height:100%;
     width:40%;
 }
-#game_report .head .head_center .score_cont.left { justify-content:flex-end; }
-#game_report .head .head_center .score_cont.left .name { text-align:right; }
-#game_report .head .head_center .score_cont.right { justify-content:flex-start; }
-#game_report .head .head_center .score_cont .value {
+#game_report_cont .head .head_center .score_cont.left { justify-content:flex-end; }
+#game_report_cont .head .head_center .score_cont.left .name { text-align:right; }
+#game_report_cont .head .head_center .score_cont.right { justify-content:flex-start; }
+#game_report_cont .head .head_center .score_cont .value {
     font-size:5vh;
     color:var(--team_color);
     margin:0 1vh;
 }
-#game_report .head .head_center .score_cont .name {
+#game_report_cont .head .head_center .score_cont .name {
     font-size:3vh;
     margin:0 2vh;
     font-fit-mode:shrink;
     white-space:nowrap;
     flex:1;
 }
-#game_report .head .head_center .separator {
+#game_report_cont .head .head_center .separator {
     transform:rotateZ(25deg);
     height:200%;
     width:0.1vh;
@@ -2941,7 +3142,7 @@ h2 {
 
 
 
-#game_report .report_scoreboard {
+#game_report_cont .report_scoreboard {
     flex:1;
     width:100vh;
     display:flex;
@@ -2951,13 +3152,14 @@ h2 {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-#game_report .report_scoreboard .duel {
+#game_report_cont .report_scoreboard .duel {
     text-align:center;
+    font-size:3vh;
 }
-#game_report .report_scoreboard .team {
+#game_report_cont .report_scoreboard .team {
     width:100%;
 }
-#game_report .report_scoreboard .team .head_row {
+#game_report_cont .report_scoreboard .team .head_row {
     width:100%;
     display:flex;
     flex-direction: row;
@@ -2967,7 +3169,7 @@ h2 {
     border-right-width:0.4vh;
     border-right-color:transparent;
 }
-#game_report .report_scoreboard .team .player_row {
+#game_report_cont .report_scoreboard .team .player_row {
     width:100%;
     display:flex;
     flex-direction: row;
@@ -2979,29 +3181,29 @@ h2 {
     border-right-color: var(--team_color2);
     margin-bottom:calc(4px * var(--zero-onevh-rounded));
 }
-#game_report .report_scoreboard .team .player_row.self {
+#game_report_cont .report_scoreboard .team .player_row.self {
     color:rgba(255, 255, 138, 1);
     background-color:rgba(255,255,255,0.1);
 }
-#game_report .report_scoreboard .team .player_row.even {
+#game_report_cont .report_scoreboard .team .player_row.even {
     background-color:rgba(0,0,0,0.1);
 }
-#game_report .report_scoreboard .team .player_row.selected {
+#game_report_cont .report_scoreboard .team .player_row.selected {
     background-color:rgba(255,255,255,0.15);
 }
-#game_report .report_scoreboard .team .head_row .team_name {
+#game_report_cont .report_scoreboard .team .head_row .team_name {
     flex:1;
     font-size:1.6vh;
     font-fit-mode:shrink;
     white-space:nowrap;
     opacity:0.8;
 }
-#game_report .report_scoreboard .team .head_row .label {
+#game_report_cont .report_scoreboard .team .head_row .label {
     width:9vh;
     text-align:center;
     opacity:0.8;
 }
-#game_report .report_scoreboard .team .player_row .avatar {
+#game_report_cont .report_scoreboard .team .player_row .avatar {
     width:calc((4px * var(--onevh)) + (5px * var(--zero-onevh-rounded)));
     height:calc((4px * var(--onevh)) + (5px * var(--zero-onevh-rounded)));
     background-color:rgba(0, 0, 0, 0.2);
@@ -3009,19 +3211,19 @@ h2 {
     background-size:cover;
     background-repeat:no-repeat;
 }
-#game_report .report_scoreboard .team .player_row .name {
+#game_report_cont .report_scoreboard .team .player_row .name {
     flex:1;
     margin-left:2vh;
     font-size:1.7vh;
     font-fit-mode:shrink;
     white-space:nowrap;
 }
-#game_report .report_scoreboard .team .player_row .stat {
+#game_report_cont .report_scoreboard .team .player_row .stat {
     width:9vh;
     font-size:1.5vh;
     text-align:center;
 }
-#game_report .report_scoreboard .separator {
+#game_report_cont .report_scoreboard .separator {
     height:2vh;
     width:100%;
 }
@@ -3029,7 +3231,7 @@ h2 {
 
 
 
-#game_report .bottom {
+#game_report_cont .bottom {
     height:20vh;
     background-color:rgba(0,0,0,0.1);
     width:100%;
@@ -3038,7 +3240,7 @@ h2 {
     margin-top:2vh;
     position:relative;
 }
-#game_report .bottom .chat {
+#game_report_cont .bottom .chat {
     width:34vh;
     height:100%;
     display:flex;
@@ -3046,7 +3248,7 @@ h2 {
     font-family:var(--main-font-medium);
     padding:1vh 0 1vh 1vh;
 }
-#game_report .bottom .chat .chat_container {
+#game_report_cont .bottom .chat .chat_container {
     width:100%;
     flex:1;
     overflow-x:hidden;
@@ -3056,13 +3258,13 @@ h2 {
     align-items:flex-end;
     font-size:1.4vh;
 }
-#game_report .bottom .chat .chat_container .chat_messages {
+#game_report_cont .bottom .chat .chat_container .chat_messages {
     display: flex;
     flex-direction: column;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
     width:100%;
 }
-#game_report .bottom .chat .chat_input {
+#game_report_cont .bottom .chat .chat_input {
     border:none;
     background: rgba(0,0,0,0.2);
     width: 100%;
@@ -3075,21 +3277,21 @@ h2 {
     color: white;
 }
 
-#game_report .bottom .chat .chat_messages > div { display: flex; }
-#game_report .bottom .chat .chat_messages .chat_playername {color: lightblue; }
-#game_report .bottom .chat .chat_messages .colon { margin-right:0.6vh; }
-#game_report .bottom .chat .chat_messages .msg { flex:1; }
+#game_report_cont .bottom .chat .chat_messages > div { display: flex; }
+#game_report_cont .bottom .chat .chat_messages .chat_playername {color: lightblue; }
+#game_report_cont .bottom .chat .chat_messages .colon { margin-right:0.6vh; }
+#game_report_cont .bottom .chat .chat_messages .msg { flex:1; }
 
 
 
 
 
 
-#game_report .bottom .container {
+#game_report_cont .bottom .container {
     flex:1;
     position:relative;
 }
-#game_report .cont_box {
+#game_report_cont .cont_box {
     position:absolute;
     top:0;
     left:0;
@@ -3099,32 +3301,32 @@ h2 {
     justify-content:center;
     align-items:center;
 }
-#game_report .cont_box.active {
+#game_report_cont .cont_box.active {
     display:flex;
 }
 
-#game_report .cont_box .stats {
+#game_report_cont .cont_box .stats {
     display:flex;
     flex-direction:row;
     align-items:center;
 }
 
-#game_report .cont_box .stats .legend {
+#game_report_cont .cont_box .stats .legend {
     margin-right:2vh;
     text-align:right;
     color:rgba(255,255,255,0.6);
     font-size:1.05vh;
 }
-#game_report .cont_box .stats .legend .placeholder {
+#game_report_cont .cont_box .stats .legend .placeholder {
     height:3vh;
 }
-#game_report .cont_box .stats .legend .label {
+#game_report_cont .cont_box .stats .legend .label {
     height: 2vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#game_report .cont_box .stats .weapon {
+#game_report_cont .cont_box .stats .weapon {
     /*background-color:rgba(0,0,0,0.3);*/
     background-color:rgba(15, 15, 28, 0.2);
     margin-right:calc(4px * var(--zero-onevh-rounded));
@@ -3132,7 +3334,7 @@ h2 {
     padding:1vh 1.5vh;
     text-align:center;
 }
-#game_report .cont_box .stats .weapon .icon {
+#game_report_cont .cont_box .stats .weapon .icon {
     width:2vh;
     height:2vh;
     background-size:100%;
@@ -3140,7 +3342,7 @@ h2 {
     background-position:center;
     margin-bottom:1vh;
 }
-#game_report .cont_box .stats .weapon .stat {
+#game_report_cont .cont_box .stats .weapon .stat {
     height: 2vh;
     display: flex;
     justify-content: center;
@@ -3148,7 +3350,7 @@ h2 {
 }
 
 
-#game_report .bottom .menu {
+#game_report_cont .bottom .menu {
     width:30vh;
     display:flex;
     flex-direction:column;
@@ -3158,7 +3360,7 @@ h2 {
     padding-right:8vh;
 }
 
-#game_report .bottom .menu .btn {
+#game_report_cont .bottom .menu .btn {
     width:100%;
     text-align:center;
     font-size:1.6vh;
@@ -3166,38 +3368,38 @@ h2 {
     background-color:rgba(255,255,255,0.05);
     margin-bottom:0.4vh;
 }
-#game_report .bottom .menu .btn.quit {
+#game_report_cont .bottom .menu .btn.quit {
     margin-top:2vh;
 }
-#game_report .bottom .menu .btn:hover {
+#game_report_cont .bottom .menu .btn:hover {
     background-color:rgba(255,255,255,0.15);
 }
-#game_report .bottom .menu .btn:active {
+#game_report_cont .bottom .menu .btn:active {
     background-color:rgba(255,255,255,0.2);
 }
-#game_report .bottom .menu .btn.active {
+#game_report_cont .bottom .menu .btn.active {
     background-color:rgba(255,255,255,0.3);
 }
 
 
 
-#game_report .cont_box .map_vote_cont {
+#game_report_cont .cont_box .map_vote_cont {
 
 }
 
-#game_report .cont_box .map_vote_cont .title {
+#game_report_cont .cont_box .map_vote_cont .title {
     font-size:1.6vh;
     font-weight:bold;
     margin-bottom:0.8vh;
 }
 
-#game_report .cont_box .map_vote_cont .map_list {
+#game_report_cont .cont_box .map_vote_cont .map_list {
     display:flex;
     flex-direction:row;
     align-items:center;
     justify-content:flex-start;
 }
-#game_report .cont_box .map_vote_cont .map_list .map {
+#game_report_cont .cont_box .map_vote_cont .map_list .map {
     width: calc(12px* var(--onevh) *(16/9));
     height: calc(12px* var(--onevh) );
     margin-right:1vh;
@@ -3206,13 +3408,13 @@ h2 {
     position:relative;
     box-shadow:0px 1px 1vh 0px rgba(0, 0, 0, 0.6);
 }
-#game_report .cont_box .map_vote_cont .map_list .map.selected {
+#game_report_cont .cont_box .map_vote_cont .map_list .map.selected {
     box-shadow: 0px 0px 0px 0.2vh rgba(255, 255, 255, 1);
 }
-#game_report .cont_box .map_vote_cont .map_list .map:hover {
+#game_report_cont .cont_box .map_vote_cont .map_list .map:hover {
     filter: brightness(1.3);
 }
-#game_report .cont_box .map_vote_cont .map_list .map .name {
+#game_report_cont .cont_box .map_vote_cont .map_list .map .name {
     font-size: 1.6vh;
     padding-left: 0.4vh;
     padding-bottom:0.2vh;
@@ -3230,7 +3432,7 @@ h2 {
     font-family:var(--mont-font);
 }
 
-#game_report .bottom .countdown {
+#game_report_cont .bottom .countdown {
     position:absolute;
     bottom:20vh;
     right:8vh;
@@ -3241,12 +3443,12 @@ h2 {
     align-items:center;
 }
 
-#game_report .bottom .countdown .text {
+#game_report_cont .bottom .countdown .text {
     font-size:1.6vh;
     font-weight:bold;
     opacity:0.8;
 }
-#game_report .bottom .countdown .value {
+#game_report_cont .bottom .countdown .value {
     font-size:3vh;
     font-weight:bold;
     margin-left:1.2vh;
@@ -3387,6 +3589,386 @@ h2 {
     background-color:#687e86;
 }
 
+#rank_screen {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image: url("/html/images/backgrounds/game_report.png");
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-color: #21212B;
+    display:none;
+}
+
+
+
+
+
+
+
+
+
+#rank_screen .rank_progression {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#rank_screen .rank_progression .rank_icon_cont {
+    width:35vh;
+    height:35vh;
+    margin-top:15vh;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#rank_screen .rank_progression .rank_icon_cont .rank_icon {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+}
+#rank_screen .rank_progression .rank_icon_cont .rank_icon.next { display:none; }
+#rank_screen .rank_progression .rank_name_cont {
+    margin-top:2vh;
+    height:5vh;
+    width:100%;
+    position:relative;
+}
+#rank_screen .rank_progression .rank_name_cont .rank_name {
+    position:absolute;
+    top:0;
+    display:flex;
+    justify-content:center;
+    width:100%;
+    font-family:var(--mont-font);
+    font-weight:bold;
+    font-size:5vh;
+    text-shadow:2px 2px 4px rgba(0,0,0,0.6);
+}
+#rank_screen .rank_progression .rank_name_cont .rank_name.next { display:none; }
+#rank_screen .rank_progression .progress_cont {
+    margin-top:8vh;
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
+    width:100vh;
+}
+#rank_screen .rank_progression .progress_cont .progress {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    font-size:8vh;
+    font-weight:bold;
+    font-family:var(--mont-font);
+    text-shadow:2px 2px 4px rgba(0,0,0,0.6);
+}
+#rank_screen .rank_progression .progress_cont .progress .icon {
+    width:8vh;
+    height:8vh;
+    margin-right:1vh;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size:100%;
+}
+#rank_screen .rank_progression .progress_cont .progress .prefix {}
+#rank_screen .rank_progression .progress_cont .progress .value {}
+#rank_screen .rank_progression .progress_cont .progress .unit {
+    margin-left:0.8vh;
+    font-size:4vh;
+    color:gold;
+}
+
+
+
+
+
+
+
+#rank_screen .placement_rank {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;  
+}
+#rank_screen .placement_rank .title {
+    text-transform: uppercase;
+    font-size:5vh;
+    margin-top:20vh;
+    font-weight:bold;
+    font-family:var(--mont-font);
+    text-shadow:2px 2px 4px rgba(0,0,0,0.6);
+}
+#rank_screen .placement_rank .rank_icon_cont {
+    width:35vh;
+    height:35vh;
+    margin-top:2vh;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#rank_screen .placement_rank .rank_icon_cont .rank_icon {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+    animation-name: placement_rank_in;
+    display:none;
+}
+#rank_screen .placement_rank .rank_icon_cont .rank_icon.visible { display:block; }
+#rank_screen .placement_rank .rank_name_cont {
+    margin-top:2vh;
+    height:5vh;
+    width:100%;
+    position:relative;
+}
+#rank_screen .placement_rank .rank_name_cont .rank_name {
+    position:absolute;
+    top:0;
+    display:flex;
+    justify-content:center;
+    width:100%;
+    font-family:var(--mont-font);
+    font-weight:bold;
+    font-size:5vh;
+    text-shadow:2px 2px 4px rgba(0,0,0,0.6);
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+    animation-name: placement_rank_in;
+    display:none;
+}
+#rank_screen .placement_rank .rank_name_cont .rank_name.visible { display:flex; }
+#rank_screen .placement_rank .progress_cont {
+    margin-top:5vh;
+}
+#rank_screen .placement_rank .progress_cont .progress {
+    flex-direction:row;
+    align-items: center;
+    font-size:8vh;
+    font-weight:bold;
+    font-family:var(--mont-font);
+    text-shadow:2px 2px 4px rgba(0,0,0,0.6);
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+    animation-name: placement_rank_in;
+    display:none;
+}
+#rank_screen .placement_rank .progress_cont .progress.visible { display:flex; }
+#rank_screen .placement_rank .progress_cont .progress .icon {
+    width:8vh;
+    height:8vh;
+    margin-right:1vh;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size:100%;
+}
+#rank_screen .placement_rank .progress_cont .progress .prefix {}
+#rank_screen .placement_rank .progress_cont .progress .value {}
+#rank_screen .placement_rank .progress_cont .progress .unit {
+    margin-left:0.8vh;
+    font-size:4vh;
+    color:gold;
+}
+@keyframes placement_rank_in {
+    0%   { opacity:0.5; transform:scale(0.8); }
+    100% { opacity:1; transform:scale(1); }
+}
+
+
+
+
+
+
+
+
+#rank_screen .placement_progression {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#rank_screen .placement_progression .title {
+    text-transform: uppercase;
+    font-size:5vh;
+    margin-top:20vh;
+    font-weight:bold;
+    font-family:var(--mont-font);
+    text-shadow:2px 2px 4px rgba(0,0,0,0.6);
+}
+#rank_screen .placement_progression .match_list {
+    margin-top:20vh;
+    width:100vh;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+#rank_screen .placement_progression .match_list .line {
+    flex:1;
+    height:0.7vh;
+    background-color:rgba(255, 255, 255, 0.7);
+    box-shadow:0 1px 4px 0 rgba(0,0,0,0.6);
+    position:relative;
+    display:flex;
+}
+#rank_screen .placement_progression .match_list .line .line_overlay {
+    width:100%;
+    height:100%;
+    position:absolute;
+    display:none;
+}
+#rank_screen .placement_progression .match_list .line .line_overlay.visible {
+    display:block;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+    animation-delay:calc((var(--index)) * 550ms);
+    animation-name: placement_result_line_in;
+}
+@keyframes placement_result_line_in {
+    0%   { width:0%; }
+    100% { width:100%; }
+}
+#rank_screen .placement_progression .match_list .line .line_overlay.win {
+    background-color:#59e059;
+}
+#rank_screen .placement_progression .match_list .line .line_overlay.loss {
+    background-color:#d63030;
+}
+#rank_screen .placement_progression .match_list .dot {
+    width:1.2vh;
+    height:1.2vh;
+    border-radius:50%;
+    background-color:#fff;
+    margin:0 0.4vh;
+    position:relative;
+
+    display:flex;
+    justify-content: center;
+
+    box-shadow:0 1px 4px 0 rgba(0,0,0,0.6);
+}
+#rank_screen .placement_progression .match_list .dot .dot_overlay {
+    display:none;
+    border-radius:50%;
+    width:1.2vh;
+    height:1.2vh;
+}
+#rank_screen .placement_progression .match_list .dot .dot_overlay.visible {
+    display:block;
+    animation-duration: 150ms;
+    animation-timing-function: ease-out;
+    animation-delay:calc((var(--index) + 1) * 550ms);
+    animation-name: placement_result_dot_in;
+}
+@keyframes placement_result_dot_in {
+    0%   { opacity:0; }
+    100% { opacity:1; }
+}
+#rank_screen .placement_progression .match_list .dot .dot_overlay.win {
+    background-color:#59e059;
+}
+#rank_screen .placement_progression .match_list .dot .dot_overlay.loss {
+    background-color:#d63030;
+}
+#rank_screen .placement_progression .match_list .dot.block {
+    width:0.8vh;
+    height:2vh;
+    background-color:#fff;
+    border-radius:0.2vh;
+}
+#rank_screen .placement_progression .match_list .dot.block .dot_overlay {
+    width:0.8vh;
+    height:2vh;
+    border-radius:0.2vh;
+}
+#rank_screen .placement_progression .match_list .dot .result_box {
+    position:absolute;
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+#rank_screen .placement_progression .match_list .dot .result_box.visible {
+    display:flex;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+    animation-delay:calc((var(--index) + 1) * 550ms);
+    animation-name: placement_result_in;
+}
+@keyframes placement_result_in {
+    0%   { opacity:0; transform: scale(2); }
+    100% { opacity:1; transform: scale(1); }
+}
+#rank_screen .placement_progression .match_list .dot .result_box.win {
+    flex-direction:column;
+    bottom:2vh;
+}
+#rank_screen .placement_progression .match_list .dot.block .result_box.win { bottom: 2.4vh; }
+#rank_screen .placement_progression .match_list .dot .result_box.loss {
+    flex-direction:column-reverse;
+    top:2vh;
+}
+#rank_screen .placement_progression .match_list .dot.block .result_box.loss { top: 2.4vh; }
+#rank_screen .placement_progression .match_list .dot .result_box .icon {
+    width:8vh;
+    height:8vh;
+    background-position: center;
+    background-size:100%;
+    background-repeat:no-repeat;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,0.8));
+}
+#rank_screen .placement_progression .match_list .dot .result_box.win .icon { background-image: url(/html/images/ranks/200x200/weeball_winner.png); }
+#rank_screen .placement_progression .match_list .dot .result_box.loss .icon { background-image: url(/html/images/ranks/200x200/weeball_loser.png); }
+
+#rank_screen .placement_progression .match_list .dot .result_box .arrow {
+    width:2vh;
+    height:2vh;
+    background-position: center;
+    background-size:100%;
+    background-repeat:no-repeat;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,0.8));
+}
+#rank_screen .placement_progression .match_list .dot .result_box.win .arrow { background-image: url(/html/images/icons/fa/caret-down.svg?fill=#59e059); }
+#rank_screen .placement_progression .match_list .dot .result_box.loss .arrow { background-image: url(/html/images/icons/fa/caret-up.svg?fill=#d63030); }
+
+
+#rank_screen .wip {
+    position:absolute;
+    bottom:3vh;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:var(--mont-font);
+    font-size:1.3vh;
+    text-transform: uppercase;
+}
 .g_meter_container {
     justify-content: center;
     align-items: center;
@@ -3428,10 +4010,9 @@ h2 {
 }
 
 .g_meter_outer_ring_highlight {
-    background-image: radial-gradient(circle farthest-side, transparent var(--inner_ring_percentage), var(--efficiency_color) calc(var(--inner_ring_percentage) + 1%), transparent 100%);
-    width:100%;
-    height:100%;
-    transform:translate(50%, 50%);
+    background-image: radial-gradient(circle farthest-side at right bottom, transparent var(--inner_ring_percentage), var(--efficiency_color) calc(var(--inner_ring_percentage) + 1%), transparent 100%);
+    width:50%;
+    height:50%;
 }
 
 .g_meter_inner_ring {
@@ -3466,7 +4047,7 @@ h2 {
 }
 
 .g_meter_vert_line {
-    position: absolute;
+    position: absolute; 
     align-self:center;
     top: 0%;
     width: 2px;
@@ -3542,9 +4123,17 @@ h2 {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle closest-side, var(--efficiency_color) calc(var(--efficiency_dot_size_ref)*0.08), black calc(var(--efficiency_dot_size_ref)*0.12), transparent calc(var(--efficiency_dot_size_ref)*0.13));
+    background-image: url(/html/images/g_meter_dot.svg#ffffff&stroke=);
+    
+    /*background-image: radial-gradient(circle closest-side, var(--efficiency_color) calc(var(--efficiency_dot_size_ref)*0.08), black calc(var(--efficiency_dot_size_ref)*0.12), transparent calc(var(--efficiency_dot_size_ref)*0.13));*/
     transform:translateY(var(--eff_dot_trans));
 }
+
+/*.accel_dot_indicator_shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}*/
 
 .accel_dot_indicator_shadow {
     position: absolute;

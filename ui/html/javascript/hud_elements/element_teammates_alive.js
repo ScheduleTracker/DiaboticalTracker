@@ -9,6 +9,7 @@ global_onload_callbacks.push(function(){
         "align": "center",
         "shadow": "1",
         "aliveText": "1",
+//        "nextUp": "1",
     },      //Dfault values
     [       //Editor settings
         defaultPivot,
@@ -19,6 +20,7 @@ global_onload_callbacks.push(function(){
         defaultAlign,
         defaultColor,
         {"inputType": "toggle", "type": "aliveText", "text": "Show Alive Text"},
+//        {"inputType": "toggle", "type": "nextUp", "text": "Show Next Respawn"},
         {"inputType": "toggle", "type": "teamColor", "text": "Use Team Color"},
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
     ]
@@ -33,6 +35,7 @@ global_onload_callbacks.push(function(){
         "align": "center",
         "shadow": "1",
         "aliveText": "1",
+//        "nextUp": "1",
     },      //Dfault values
     [       //Editor settings
         defaultPivot,
@@ -43,6 +46,7 @@ global_onload_callbacks.push(function(){
         defaultAlign,
         defaultColor,
         {"inputType": "toggle", "type": "aliveText", "text": "Show Alive Text"},
+//        {"inputType": "toggle", "type": "nextUp", "text": "Show Next Respawn"},
         {"inputType": "toggle", "type": "teamColor", "text": "Use Team Color"},
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
     ]

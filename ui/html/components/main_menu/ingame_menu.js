@@ -66,8 +66,13 @@ function ingame_menu_spectate() {
 
 function ingame_menu_join_team(team_id) {
     let player_count = undefined;
-
     team_id = Number(team_id);
+
+    if (menu_game_data.own_team_id == team_id) {
+        engine.call("set_menu_view", false);
+        return;
+    }
+    
     if (team_id != -1 && team_id != 255) {
         for (let i=0; i<menu_game_data.teams.length; i++) {
             if (menu_game_data.teams[i].team_id == team_id) {
@@ -83,6 +88,47 @@ function ingame_menu_join_team(team_id) {
             });
             return;
         }
+    }
+
+    if (menu_game_data.spectator) {
+        // Switching from spectating into a team
+        let allowed_team_ids = [];
+        let lowest_player_count = 100;
+        for (let i=0; i<menu_game_data.teams.length; i++) {
+            if (menu_game_data.teams[i].players) {
+                if (menu_game_data.teams[i].players.length < lowest_player_count) lowest_player_count = menu_game_data.teams[i].players.length;
+            } else {
+                lowest_player_count = 0;
+                break;
+            }
+        }
+        for (let i=0; i<menu_game_data.teams.length; i++) {
+            if (!menu_game_data.teams[i].players || menu_game_data.teams[i].players.length == lowest_player_count) {
+                allowed_team_ids.push(menu_game_data.teams[i].team_id);
+            }
+        }
+        if (!allowed_team_ids.includes(team_id)) {
+            queue_dialog_msg({
+                "title": localize("title_info"),
+                "msg": localize("message_team_join_uneven"),
+            });
+            return;
+        }
+    } else {
+        // Switching from one team to another
+        let prev_team_count = menu_game_data.own_team.players.length;
+        let next_team_count = player_count;
+        let diff_before = Math.abs(next_team_count - prev_team_count);
+        prev_team_count--;
+        next_team_count++;
+        let diff_after = Math.abs(next_team_count - prev_team_count);
+        if (diff_after > diff_before) {
+            queue_dialog_msg({
+                "title": localize("title_info"),
+                "msg": localize("message_team_join_uneven"),
+            });
+            return;
+        };
     }
 
     engine.call("join_team", team_id);

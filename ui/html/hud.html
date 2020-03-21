@@ -425,14 +425,14 @@
 
     <div id="teams_scoreboard" class="scoreboard" style="display:none;">  
         <div class="scoreboard_header">
-            <span class="scoreboard_mode"><span class="i18n" data-i18n="ingame_scoreboard_mode">MODE: </span><span class="scoreboard_gamemode_name" data-bind-value="{{game_data.game_mode}}">???</span></span>
+            <span class="scoreboard_mode"><span class="i18n" data-i18n="ingame_scoreboard_mode">MODE: </span><span class="scoreboard_gamemode_name" data-bind-value="_format_game_mode({{game_data.game_mode}})">???</span></span>
             <span class="scoreboard_head i18n" data-bind-if="!{{game_data.race_mode}}" data-i18n="ingame_scoreboard_kills">Frags</span>
             <span class="scoreboard_head i18n" data-bind-if="!{{game_data.race_mode}}" data-i18n="ingame_scoreboard_points">Points</span>
             <span class="scoreboard_head i18n" data-bind-if="{{game_data.race_mode}}" data-i18n="ingame_scoreboard_time">Best Time</span>
         </div>
 
         <div class="scoreboard_player_scores">
-            <div data-bind-for="team_iter:{{game_data.teams}}" class="scoreboard_team">
+            <div data-bind-for="team_iter:sort_game_data_teams({{game_data.teams}}, 'score')" class="scoreboard_team" data-bind-property="'--team_margin:'+(({{game_data.team_size}} > 1) ? 1 : 0)">
                 <div data-bind-if="{{team_iter.team_id}} != -1 && {{team_iter.players}}.length > 0">
 
                     <div class="scoreboard_player_score_holder">
@@ -545,6 +545,7 @@
     </div>
 
     <div id="game_report">
+        <div id="game_report_cont">
     <div class="head"></div>
     <div class="report_scoreboard"></div>
     <div class="bottom">
@@ -575,6 +576,52 @@
         </div>
     </div>
 </div>
+        <div id="rank_screen">
+
+
+    <div class="rank_progression">
+<!--
+        <div class="rank_icon_cont">
+            <div class="rank_icon unranked_1"></div>
+            <div class="rank_icon rank_24"></div>
+        </div>
+        <div class="rank_name_cont">
+            <div class="rank_name">RANK NAME</div>
+        </div>
+        <div class="progress_cont">
+            <div class="progress">
+                <div class="value">40</div>
+                <div class="unit">%</div>
+            </div>
+        </div>
+-->
+    </div>
+
+    <div class="placement_rank">
+<!--
+        <div class="title">Placement Matches Completed</div>
+        <div class="rank_icon_cont">
+            <div class="rank_icon rank_24"></div>
+        </div>
+        <div class="rank_name_cont">
+            <div class="rank_name">RANK NAME</div>
+        </div>
+        <div class="progress_cont">
+            <div class="progress skill">
+                <div class="value">40</div>
+                <div class="unit">SR</div>
+            </div>
+        </div>
+-->
+    </div>
+
+    <div class="placement_progression">
+
+    </div>
+
+    <div class="wip">Work in Progress</div>
+</div>
+    </div>
     
 </div>
 
@@ -751,7 +798,7 @@
     [[if analog==1]]
     <div style="width:calc([[:fontSize]]vh*var(--ratio));height:calc([[:fontSize]]vh*var(--ratio));border-radius:50%;border:2px solid [[:color]]">
         <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;"><div style="position:absolute;width:2px;top:2px;bottom:50%;background-color: [[:color]]"></div></div>
-        <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;"><div style="position:absolute;width:2px;top:25%;bottom:50%;background-color: [[:color]]"></div></div>
+        <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;[[if hideMin==1]]visibility:hidden[[/if]]"><div style="position:absolute;width:2px;top:25%;bottom:50%;background-color: [[:color]]"></div></div>
         <div style="width:100%;height:100%;position:absolute;">
             <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 30deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
             <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 60deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
@@ -796,7 +843,21 @@
     00:00:00
     [[/if]]
 </script>
-    
+
+<script id="hud_coins" type="text/x-jsrender">
+    [[if hudPreview]]
+    <div class="coin_cont">
+        <div class="icon"></div>
+        <div class="counter">×6</div>
+    </div>
+    [[else]]
+    <div class="coin_cont" data-bind-if="{{game_data.game_mode}} == 'coinrun' && {{battle_data.self.coins}} > 0">
+        <div class="icon"></div>
+        <div class="counter" data-bind-value="'×'+{{battle_data.self.coins}}"></div>
+    </div>
+    [[/if]]
+</script>
+
 <script id="hud_simple_text" type="text/x-jsrender">
     <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>200</div>
 </script>
@@ -841,24 +902,28 @@
             [[if icon == 1]]
             <div class="icon" style="background-image:url('images/weapon_rl.svg?fill=#df1f2d')"></div>
             [[/if]]
+            [[if name == 1]]
             <div class="text">
                 [[if owner == 1]]
                 <div class="owner">Mr Eggbot's</div>
                 [[/if]]
                 <div class="name">Rocket Launcher</div>
             </div>
+            [[/if]]
         </div>
     [[else]]
         <div class="container" data-bind-if="{{battle_data.self.alive}}">
             [[if icon == 1]]
             <div class="icon"></div>
             [[/if]]
+            [[if name == 1]]
             <div class="text">
                 [[if owner == 1]]
                 <div class="owner"></div>
                 [[/if]]
                 <div class="name"></div>
             </div>
+            [[/if]]
         </div>
     [[/if]]
 </script>
@@ -955,7 +1020,7 @@
 
 <script id="hud_chat" type="text/x-jsrender">
 
-    <div class="chat_container">
+    <div class="chat_container" [[if showTimestamp==1]]style="--chat_show_timestamp_while_ingame:flex;"[[/if]]>
         <div class="chat_temp_cont">
             <div class="chat_temp"></div>
         </div>
@@ -1029,7 +1094,7 @@
             <div class="dropped" data-bind-if="{{game_data.own_team.team_flag_state}} == 2"></div>
         </div>
         [[if players == true]]
-        <div class='teamscore_solo' data-bind-if="{{game_data.solo_mode}}">
+        <div class='teamscore_solo' data-bind-if="{{game_data.team_size}} == 1">
             <div class="solo_player" data-bind-for="player_iter:{{game_data.own_team.players}}">
                 <div class="name" data-bind-style-background-color="{{game_data.own_team.color_dark}}+'[[:name_bg_opacity]]'"><div data-bind-value="{{player_iter.name}}">Player1</div></div>
                 <div class="avatar" style="--height:[[:height]]" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-style-background-color="{{game_data.own_team.color_dark}}+'[[:name_bg_opacity]]'" data-bind-class-toggle="player_dead:!{{player_iter.alive}}">
@@ -1039,14 +1104,34 @@
         </div>
 
         <div class="solo_player_stack_cont" data-bind-for="player_iter:{{game_data.own_team.players}}">
-            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.solo_mode}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
+            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.team_size}} == 1 && {{game_data.spectator}}">
                 <div class="hp_bar_cont"><div class="hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.own_team.color}}"></div></div>
                 <div class="armor_bar_cont"><div class="armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div></div>
             </div>
-            <!--<div data-bind-for="player_iter:{{game_data.enemy_team.players}}">
-                <div data-bind-for="_:(dummy_stock_array_maker({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{battle_data.self.alive}},{{player_iter.alive}}))">O</div>
-                <div data-bind-value="'x'+duel_stocks({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{battle_data.self.alive}},{{player_iter.alive}})"></div>
-            </div>-->
+            [[if showStocks == 1]]
+            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
+                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
+                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
+                                   [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
+                </div>
+            </div>
+            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'duel' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
+                [[if !(reverse == 1)]]
+                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{player_iter.alive}})"
+                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.own_team.color}}">
+                </div>
+                [[/if]]
+                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
+                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
+                                   [[/if]]             data-bind-for="_:(dummy_stock_array_maker({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{player_iter.alive}}))">
+                </div>
+                [[if (reverse == 1)]]
+                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{player_iter.alive}})"
+                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.own_team.color}}">
+                </div>
+                [[/if]]
+            </div>
+            [[/if]]
         </div>
 
 
@@ -1080,6 +1165,12 @@
                             <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
                         </div>
                     </div>
+                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{player_iter.alive}}">
+                        <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
+                                           [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
+                                           [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1098,7 +1189,7 @@
             <div class="dropped" data-bind-if="{{game_data.enemy_team.team_flag_state}} == 2"></div>
         </div>
         [[if players == true]]
-        <div class='teamscore_solo' data-bind-if="{{game_data.solo_mode}}">
+        <div class='teamscore_solo' data-bind-if="{{game_data.team_size}} == 1">
             <div class="solo_player" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
                 <div class="name" data-bind-style-background-color="{{game_data.enemy_team.color_dark}}+'[[:name_bg_opacity]]'"><div data-bind-value="{{player_iter.name}}">Player2</div></div>
                 <div class="avatar" style="--height:[[:height]]" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-style-background-color="{{game_data.enemy_team.color_dark}}+'[[:name_bg_opacity]]'" data-bind-class-toggle="player_dead:!{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
@@ -1108,10 +1199,34 @@
         </div>
 
         <div class="solo_player_stack_cont" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
-            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.solo_mode}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
+            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.team_size}} == 1 && {{game_data.spectator}}">
                 <div class="hp_bar_cont"><div class="hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.enemy_team.color}}"></div></div>
                 <div class="armor_bar_cont"><div class="armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div></div>
             </div>
+            [[if showStocks == 1]]
+            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
+                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
+                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
+                                   [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
+                </div>
+            </div>
+            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'duel' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
+                [[if !(reverse == 1)]]
+                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.enemy_team.team_score}},{{game_data.own_team.team_score}},{{player_iter.alive}})"
+                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.enemy_team.color}}">
+                </div>
+                [[/if]]
+                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
+                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
+                                   [[/if]]             data-bind-for="_:(dummy_stock_array_maker({{game_data.enemy_team.team_score}},{{game_data.own_team.team_score}},{{player_iter.alive}}))">
+                </div>
+                [[if (reverse == 1)]]
+                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.enemy_team.team_score}},{{game_data.own_team.team_score}},{{player_iter.alive}})"
+                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.enemy_team.color}}">
+                </div>
+                [[/if]]
+            </div>
+            [[/if]]
         </div>
 
         <div class="teamscore_team" data-bind-if="!{{game_data.solo_mode}}">
@@ -1141,6 +1256,12 @@
                                                 
                         <div class="player_powerup" data-bind-if="{{player_iter.has_powerup}}">
                             <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
+                        </div>
+                    </div>
+                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{player_iter.alive}}">
+                        <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
+                                           [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
+                                           [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
                         </div>
                     </div>
                 </div>
@@ -1215,7 +1336,7 @@
             <div class="indicator_below_text_cont" data-bind-if="{{battle_data.is_item_countable}}">
                 <div class="indicator_below_text" data-bind-if="{{battle_data.is_item_countable}}" data-bind-value="{{battle_data.item_charge}}"></div>
             </div>
-            <!--<div class="indicator_below_desc">ITEM NAME</div>-->
+            [[if name == 1]]<div class="indicator_below_desc" data-bind-value="format_item_name({{battle_data.item_name}})">ITEM NAME</div>[[/if]]
             [[if keybind == 1]]
             <div class="indicator_key_cont">
                 <div class="indicator_keybind" data-bind-value="{{battle_data.item_keybind}}"></div>
@@ -1280,7 +1401,17 @@
       [[if !(hideKeypress==1||showIn3D==1)]]
         <div class="g_meter_outer_ring" data-bind-class-toggle="heated:(strafe_data.cj&&({{frame_data.speed}}>[[:cjspeed]]))"
                                         style="z-index:-1;background-image:radial-gradient(circle closest-side, black var(--inner_ring_percentage), rgba(255,255,255,0.25) calc(var(--inner_ring_percentage) + 1%), rgba(255,255,255,0.05) 100%, transparent 100.001%)">
-             <div class="g_meter_vert_line"></div>
+        </div>
+        <div class="g_meter_outer_ring" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}" style="border-radius:50%">
+            <div class="g_meter_outer_ring" style="transform:rotate(45deg);align-items:flex-start;justify-content:flex-start">
+                <div class="g_meter_outer_ring_highlight" data-bind-property="'--efficiency_color:'+(true?strafe_data.color:{{frame_data.speed}})"></div>
+                <div class="g_meter_outer_ring" style="transform:rotate( -45deg)">
+                    <div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*0.992773891679)) scale(calc([[:ringInnerSize]]/100))"></div>
+                <!--<div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*1)) scale(calc([[:ringInnerSize]]/100))"
+                         data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.shadowcolor:{{battle_data.self.alive}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
+                    </div>-->
+                </div>
+            </div>
         </div>
         <div class="g_meter_outer_ring" style="transform:rotate(  45deg)"><div class="g_meter_vert_line"></div></div>
         <div class="g_meter_outer_ring" style="transform:rotate( -45deg)"><div class="g_meter_vert_line"></div></div>
@@ -1289,18 +1420,7 @@
         <div class="g_meter_outer_ring" style="transform:rotate( 135deg)"><div class="g_meter_vert_line"></div></div>
         <div class="g_meter_outer_ring" style="transform:rotate(-135deg)"><div class="g_meter_vert_line"></div></div>
         <div class="g_meter_outer_ring" style="transform:rotate( 180deg)"><div class="g_meter_vert_line"></div></div>
-        <div class="g_meter_outer_ring" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}" style="border-radius:50%">
-            <div class="g_meter_outer_ring" style="transform:rotate(45deg);align-items:flex-start;justify-content:flex-start">
-                <div class="g_meter_outer_ring" style="transform:translate(-50%, -50%)">
-                    <div class="g_meter_outer_ring_highlight" data-bind-property="'--efficiency_color:'+(true?strafe_data.color:{{frame_data.speed}})"></div>
-                </div>
-                <div class="g_meter_outer_ring" style="transform:rotate( -90deg)"><div class="g_meter_vert_line"></div></div>
-                <div class="g_meter_outer_ring" style="transform:rotate(   0deg)"><div class="g_meter_vert_line"></div></div>
-                <div class="g_meter_outer_ring" style="transform:rotate( -45deg)"><div class="g_meter_vert_line"></div>
-                    <div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*0.992773891679)) scale(calc([[:ringInnerSize]]/100))"></div>
-                </div>
-            </div>
-        </div>
+        <div class="g_meter_outer_ring" style="transform:rotate( 360deg)"><div class="g_meter_vert_line"></div></div>
       [[/if]]
       [[if !(showSpeed==4)]][[if showSpeed==1||showSpeed==3]]
         [[if showSpeed==3]]
@@ -1344,9 +1464,32 @@
                <div class="sound_barrier_inner_back" style="right:40%"></div>
              </div>
           </div>
-          <div style="position:absolute;width:100%;height:100%;" data-bind-property="'--efficiency_color:'+(true?strafe_data.color:{{frame_data.speed}})" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}">
-               <div class="g_meter_vert_line"  style="height:50%;background-color:var(--efficiency_color)" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}"></div>
-               <div class="accel_dot_indicator_circle" data-bind-property="'--eff_dot_trans:'+(true?strafe_data.dot_trans:{{frame_data.speed}})"></div>
+          <div style="position:absolute;width:100%;height:100%;" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}">
+               [[if hideKeypress==1 || showIn3D==1]]
+               <div class="g_meter_vert_line"  style="height:50%" 
+                    data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}" 
+                    data-bind-style-background-color="(true?strafe_data.color:{{frame_data.speed}})">
+               </div>
+               [[else]]
+               <div class="g_meter_vert_line"  style="height:50%;display:flex;align-items:flex-end;background-color:rgba(100,100,100,0.75)" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}">
+                    <div style="width:100%;" data-bind-style-height="true?strafe_data.lineheight:{{frame_data.speed}}" data-bind-style-background-color="(true?strafe_data.color:{{frame_data.speed}})"></div>
+               </div>
+               [[/if]]
+               [[if showIn3D==1]]
+               <div class="accel_dot_indicator_circle" style="background-image:none;display:flex;align-items:center;justify-content:center"
+                    data-bind-property="'--eff_dot_trans:'+(true?strafe_data.dot_trans:{{frame_data.speed}})">
+                   <div class="accel_dot_indicator_circle" style="transform:none"
+                        data-bind-style-width ="Math.min(32000/{{frame_data.speed}},100) + '%'" 
+                        data-bind-style-height="Math.min(32000/{{frame_data.speed}},100) + '%'"
+                        data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.color:{{frame_data.speed}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
+                   </div>
+               </div>
+               [[else]]
+               <div class="accel_dot_indicator_circle" 
+                    data-bind-property="'--eff_dot_trans:'+(true?strafe_data.dot_trans:{{frame_data.speed}})"
+                    data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.color:{{frame_data.speed}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
+               </div>
+               [[/if]]
           </div>
         </div>
     </div>
@@ -1419,10 +1562,17 @@
     [[if hudPreview]]
         <div [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]]>4[[if aliveText == 1]] alive[[/if]]</div>
     [[else]]
-        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}})" 
+        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}}) || game_data.team_size == 1" 
             [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]] 
             data-bind-value="{{game_data.own_team.players}}.filter(x => x.alive==true).length[[if aliveText == 1]] + ' alive'[[/if]]">
         </div>
+<!--        [[if nextUp== 1]]
+        <div data-bind-for="player_iter:{{game_data.own_team.players}}"
+             data-bind-class-toggle="databound_set_invisible:!['wipeout'].includes({{game_data.game_mode}})"
+            [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]]  
+            data-bind-value="is_my_respawn_closest({{player_iter.respawn_timer}},{{player_iter}})">
+        </div>
+        [[/if]]-->
     [[/if]]
 </script>
 
@@ -1430,7 +1580,7 @@
     [[if hudPreview]]
         <div [[if teamColor == 1]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]]>4[[if aliveText == 1]] alive[[/if]]</div>
     [[else]]
-        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}})" 
+        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}}) || game_data.team_size == 1" 
             [[if teamColor == 1]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]] 
             data-bind-value="{{game_data.enemy_team.players}}.filter(x => x.alive==true).length[[if aliveText == 1]] + ' alive'[[/if]]">
         </div>
@@ -1459,6 +1609,11 @@
     <script src="translations/translation-ja.js"></script>
     <script src="translations/translation-it.js"></script>
     <script src="translations/translation-ru.js"></script>
+    <script src="translations/translation-es-ES.js"></script>
+    <script src="translations/translation-es-MX.js"></script>
+    <script src="translations/translation-fr.js"></script>
+    <script src="translations/translation-pt-BR.js"></script>
+    <script src="translations/translation-de.js"></script>
 
     <script src="translations/countries_en.js"></script>
     <script src="translations/countries_cn.js"></script>
@@ -1466,6 +1621,10 @@
     <script src="translations/countries_ja.js"></script>
     <script src="translations/countries_it.js"></script>
     <script src="translations/countries_ru.js"></script>
+    <script src="translations/countries_es.js"></script>
+    <script src="translations/countries_fr.js"></script>
+    <script src="translations/countries_br.js"></script>
+    <script src="translations/countries_de.js"></script>
 
     <script src="javascript/ui_data.js"></script>
     <script src="javascript/ui_helpers.js"></script>
@@ -1479,6 +1638,7 @@
 
     <script src="components/ingame/game_report.js"></script>
     <script src="components/ingame/join_menu.js"></script>
+    <script src="components/ingame/rank_screen.js"></script>
 
     <script src="javascript/HUD_element.js"></script>
     <script src="javascript/ui_hud_creator.js"></script>
@@ -1491,6 +1651,7 @@
 <script src="javascript/hud_elements/element_hp_bar.js"></script>
 <script src="javascript/hud_elements/element_armor.js"></script>
 <script src="javascript/hud_elements/element_armor_bar.js"></script>
+<script src="javascript/hud_elements/element_coins.js"></script>
 <script src="javascript/hud_elements/element_stack.js"></script>
 <script src="javascript/hud_elements/element_fps.js"></script>
 <script src="javascript/hud_elements/element_speed.js"></script>

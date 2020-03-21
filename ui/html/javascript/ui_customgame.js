@@ -46,6 +46,7 @@ var global_customSettingsMap = {};
 var global_customSettingElements = {};
 var global_send_region_selection = false;
 var custom_lobby_map_selected = false;
+var global_lobby_init_mode = '';
 
 global_onload_callbacks_other.push(function(){
 
@@ -127,6 +128,7 @@ global_onload_callbacks_other.push(function(){
     let modes = Object.keys(global_game_mode_map);
     for (let mode of modes) {
         if (!global_game_mode_map[mode].enabled) continue;
+        if (!global_lobby_init_mode.length) global_lobby_init_mode = mode;
         
         let opt = _createElement("div", "i18n");
         opt.dataset.i18n = global_game_mode_map[mode].i18n;
@@ -134,6 +136,8 @@ global_onload_callbacks_other.push(function(){
         opt.innerHTML = global_game_mode_map[mode].name;
         global_customSettingElements["mode"].appendChild(opt);
     }
+    engine.call("initialize_select_value", "lobby_custom_mode");
+
 
     /***************************
      * SETUP CUSTOM GAME OPTIONS
@@ -536,6 +540,7 @@ function custom_game_mode_changed(send_update) {
     let container_team_count = _id("custom_setting_team_count");
     let container_team_size = _id("custom_setting_team_size");
     let container_time_limit = _id("custom_setting_time_limit");
+    let container_score_limit = _id("custom_setting_frag_limit");
 
     if (CUSTOM_MULTI_TEAM_MODES.includes(mode)) {
 
@@ -580,11 +585,13 @@ function custom_game_mode_changed(send_update) {
 
     if (mode == "duel") {
         custom_game_number_of_teams_changed(2, false);
+        container_score_limit.style.display = "none";
 
         for (let i=2; i<global_gameSlotList.length; i++) {
             global_gameSlotList[i].style.display = "none";
-        }
+        }        
     } else {
+        container_score_limit.style.display = "flex";
         for (let i=2; i<global_gameSlotList.length; i++) {
             global_gameSlotList[i].style.display = "flex";
         }
@@ -924,6 +931,7 @@ function handle_lobby_event(data) {
     if (data.action == "lobby-match-error") {
         lobby_hide_loading_overlay();
         set_draft_visible(false);
+        handle_mm_match_cancelled();
     }
     
     if (global_lobby_id < 0) {

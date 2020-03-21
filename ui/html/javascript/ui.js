@@ -48,6 +48,7 @@ var global_self = {
     "lan_ip": "",
     "data": undefined,
     "private": undefined,
+    "mmr": {}
 };
 
 window.self_egs_id = "";
@@ -283,43 +284,6 @@ window.addEventListener("load", function(){
         _id("modding_settings_content").innerHTML = code;
     });
     
-    bind_event('notification_message', function (message) {
-        if (message == "match_found") {
-            process_queue_msg("quickplay", "stop");
-            process_queue_msg("ranked", "found");
-        }
-        if (message == "match_found_quickplay") {
-            process_queue_msg("quickplay", "found");
-            process_queue_msg("ranked", "stop");
-        }
-        if (message == "existing_match_found") {
-            process_queue_msg("quickplay", "found");
-            process_queue_msg("ranked", "stop");
-        }
-    });
-
-    bind_event('show_draft', function (visible, maps_list) {
-        if (maps_list.length) {
-            var maps = maps_list.split(":");
-            var buf = "";
-            for (var i = 0; i < maps.length; i++) {
-                buf +=
-                '<div class="map_thumbnail" style="background-image:url(\'map_thumbnails/'+maps[i]+'.png\')" '+
-                'onclick="draft_select_map(this)" data-map="' + maps[i] + '">' +
-                   '<div class="map_thumbnail_name">' + _format_map_name(maps[i]) + '</div>' +
-                '</div>';
-            }
-            //console.log(buf);
-            _html(_id("draft_maps_container"), buf)
-        }
-        set_draft_visible(visible);
-    });
-
-    bind_event('set_draft_countdown', function (countdown) {
-        engine.call('ui_sound', "ui_match_found_tick");
-        set_draft_countdown(countdown);
-    });
-
     console.log("LOAD012")
 
     bind_event('forceconsole', function () {
@@ -350,6 +314,11 @@ window.addEventListener("load", function(){
         });
     });
 
+    bind_event('view_data_received', function(string) {
+        // data from another view received
+        console.log('view_data_received', string);
+    });
+
     bind_event('process_server_json_data', function (string) {
         let type = string.charAt(0);
         let data = string.trim().substring(2);
@@ -361,27 +330,50 @@ window.addEventListener("load", function(){
             } catch (e) {
                 console.log("Error parsing server JSON. err=" + e);
             }
+            if (!json_data.action) return;
 
-            if (json_data.action && json_data.action.startsWith("lobby-")) {
+            if (json_data.action.startsWith("mm-")) {
+                handle_mm_match_event(json_data);
+            }
+            if (json_data.action.startsWith("lobby-")) {
                 handle_lobby_event(json_data);
             }
-            if (json_data.action && json_data.action.startsWith("party-")) {
+            if (json_data.action.startsWith("party-")) {
                 handle_party_event(json_data);
             }
-            if (json_data.action && json_data.action.startsWith("invite-")) {
+            if (json_data.action.startsWith("invite-")) {
                 handle_invite_event(json_data);
             }
 
-            if (json_data.action && json_data.action == "online-friends-data") {
+            if (json_data.action == "online-friends-data") {
                 handle_friends_in_diabotical_data(json_data.data);
             }
 
-            if (json_data.action && json_data.action == "battlepass-data") {
+            if (json_data.action == "battlepass-data") {
                 updateMenuBottomBattlepass(json_data.data);
             }
 
-            if (json_data.action && json_data.action == "chat-msg") {
+            if (json_data.action == "chat-msg") {
                 main_chat_add_incoming_msg(json_data);
+            }
+
+            if (json_data.action == "get-ranked-mmrs") {
+                console.log(_dump(json_data));
+                global_self.mmr = json_data.data;
+                updateQueueRanks();
+            }
+
+            if (json_data.action && json_data.action == "post-match-updates") {
+                console.log("post-match-updates", _dump(json_data));
+                if ("mmr_updates" in json_data.data) {
+                    if ("mode" in json_data.data.mmr_updates && "to" in json_data.data.mmr_updates) {
+                        global_self.mmr[json_data.data.mmr_updates.mode] = json_data.data.mmr_updates.to;
+                        updateQueueRanks();
+                    }
+                }
+                if ("xp_updates" in json_data.data) {
+                    // ...
+                }
             }
 
             global_ms.handleResponse(json_data.action, json_data);
@@ -392,6 +384,19 @@ window.addEventListener("load", function(){
             if (data.indexOf(' ') == -1) {
                 action = data;
                 action_data = ""; 
+            }
+
+            if (action.startsWith("mm_match_cancelled")) {
+                handle_mm_match_cancelled();
+            }
+
+            if (action.startsWith("no-servers-available")) {
+                queue_dialog_msg({
+                    "title": localize("title_info"),
+                    "msg": localize("message_no_servers_avail"),
+                });
+
+                set_draft_visible(false);
             }
 
             if (action.startsWith("lobby-")) {
@@ -516,40 +521,52 @@ window.addEventListener("load", function(){
         }
     });
 
-    bind_event('on_masterclient_ghosted', function() {
-        set_logged_out_screen(true, "ghosted");
-    });
-    
-    bind_event('on_masterclient_outdated', function() {
-        set_logged_out_screen(true, "version");
-    });
-
-    bind_event('on_masterclient_unverified', function() {
-        set_logged_out_screen(true, "unverified");
-    });
+    bind_event('on_masterclient_ghosted',    function() { set_logged_out_screen(true, "ghosted"); });
+    bind_event('on_masterclient_outdated',   function() { set_logged_out_screen(true, "version"); });
+    bind_event('on_masterclient_unverified', function() { set_logged_out_screen(true, "unverified"); });
+    bind_event('on_masterclient_down',       function() { set_logged_out_screen(true, "service_down"); });
 
     bind_event('global_event', function(event_name, value) {
 
         if (event_name == "disconnected") {
             /*
             event_name == "disconnected":
-                #define ERROR_OUTDATED_CLIENT_VERSION 1
-                #define ERROR_OUTDATED_SERVER_VERSION 2
-                #define ERROR_PROTOCOL_BREACH 4
-                #define ERROR_KICKED 5
-                #define ERROR_BANNED 6
-                #define ERROR_SERVER_FULL 7
-                #define ERROR_BAD_AUTH 8
-                #define ERROR_NOT_ALLOWED 9
-                disconnected when match ends = 10
+                    #define ERROR_OUTDATED_CLIENT_VERSION 1
+                    #define ERROR_OUTDATED_SERVER_VERSION 2
+                    #define ERROR_PROTOCOL_BREACH 4  -> 'protocol breach, dont call it that, call it "protocol error"'
+                    #define ERROR_SERVER_FULL 7
+                    #define ERROR_BAD_AUTH 8
+                    #define REASON_SERVER_SHUTTING_DOWN 10
+                    #define ERROR_BAD_MAP 12
+                30: Server disconnected us unexpectedly.
+                31: Abnormal connection error 1
+                32: Connection attempt failed.
+                33: No free incoming connections.
+                34: Abnormal connection error 2
+                35: Connection to the server lost.
+                [12:57 AM] FireFrog: so the ones above are intentional ones by the server
+                [12:57 AM] FireFrog: the other ones are things that can happen during transport
+                [12:57 AM] FireFrog: 31 and 34 should not happen so just put that in so we know
+                [12:58 AM] FireFrog: 30 should not happen either, if 30 happesn we should have an intentional code that I can show you
+                [12:58 AM] FireFrog: 35 is your regular timeout
             */
             engine.call("echo","Disconnected from server, code:"+value);
-            if ([5,6,7,8].includes(value)) {
+            if (value == 10 || value == 30) { // 30 happens when the gameserver shuts down normally at the end of the game apparently
+                // Check if state == 4 == GAME_STATE_ENDED
+                if (menu_game_data.game_stage && menu_game_data.game_stage != 4) {
+                    console.log("GAME STAGE", menu_game_data.game_stage);
+                    queue_dialog_msg({
+                        "title": localize("title_error"),
+                        "msg": localize("disconnected_error_"+value),
+                    });
+                }
+            } else {
+            //if ([5,6,7,8].includes(value)) {
                 queue_dialog_msg({
                     "title": localize("title_error"),
                     "msg": localize("disconnected_error_"+value),
                 });
-            } else {
+            //} else {
                 /*
                 queue_dialog_msg({
                     "title": localize("title_error"),
@@ -612,37 +629,24 @@ window.addEventListener("load", function(){
         $("#skill_selection_time").html(value);
     });
 */
-    let update_queue_modes_timeout = null;
     bind_event('set_checkbox', function (variable, value) {
 
         // Quickplay / Matchmaking screen checkboxes are handled a little different
         if (variable.startsWith("lobby_search")) {
-            _for_each_with_class_in_parent(_id('play_panel'), 'card_checkbox', function(el) {
-                if (el.dataset.variable == variable) {
-
-                    el.dataset.enabled = value ? "true" : "false";
-
-                    if (el.dataset.enabled == "true") {
-                        enable_mode_checkbox(el);
-                    } else {
-                        disable_mode_checkbox(el);
-                    }
-
-                    if (bool_am_i_leader) {
-                        // timeout in case user clicked on the card and it changes selection of multiple modes at once, don't send an update for each individual mode
-                        if (update_queue_modes_timeout != null) clearTimeout(update_queue_modes_timeout);
-                        update_queue_modes_timeout = setTimeout(function() {
-                            update_queue_modes();
-                        },50);
-                    }
-                }
-            });
-
+            play_screen_update_cb(variable,value);
             return;
         }
 
         if (variable == "lobby_region_search_nearby") {
             send_string("party-expand-search "+value);
+        }
+
+        if (variable == "input_mouse_filtering") {
+            if (value == 1) {
+                _id("mouse_filter_sad").style.display = "flex";
+            } else {
+                _id("mouse_filter_sad").style.display = "none";
+            }
         }
 
         //engine.call("echo","JS: set_checkbox " + variable + "=" + value);
@@ -803,6 +807,13 @@ window.addEventListener("load", function(){
 
         if (variable.startsWith("hud_crosshair_mask_aperture") || variable.startsWith("hud_zoom_crosshair_mask_aperture")) {
             on_updated_mask_type_selection();
+        }
+
+        if (variable == "lobby_custom_mode") {
+            if (!value.length) {
+                engine.call("set_string_variable", "lobby_custom_mode", global_lobby_init_mode);
+                value = global_lobby_init_mode;
+            }
         }
 
         if (variable == "lobby_region") {
@@ -1016,6 +1027,7 @@ window.addEventListener("load", function(){
         // Request initial invite and party infos
         send_string("invite-list");
         send_string("party-status");
+        send_string("get-ranked-mmrs");
        
         updateMenuBottomBattlepass();
 
@@ -1047,6 +1059,7 @@ window.addEventListener("load", function(){
 
         post_load_setup_hud_editor();
 
+        engine.call("set_bool_variable", "input_mouse_filtering", false);
         engine.call("update_friends_list");
         
         set_logged_out_screen(false);

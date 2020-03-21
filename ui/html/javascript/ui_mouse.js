@@ -2,6 +2,7 @@ function load_advanced_mouse_settings() {
     _id('ultra_advanced_accel_settings').style.display = 'none';
     _id('ultra_advanced_accel_toggle').classList.remove("selected");
     open_modal_screen("advanced_mouse_settings_screen");
+    detect_preset_yaw_pitch();
     update_physical_sens('initialize',false);
     update_accel_options(_id('setting_mouse_accel_type'));
 }
@@ -31,14 +32,86 @@ function reset_ultra_advanced_accel_settings(){
   sound_click();
 }
 
+function convert_to_arcmin(value, unit) {
+    if (unit=='arcmin') {
+        var preset_arcmin = Number(value);
+    } else if (unit=='deg') {
+        var preset_arcmin = value*60;
+    } else if (unit=='mrad') {
+        var preset_arcmin = value*10.8/Math.PI;
+    } else if (unit=='division') {
+        var preset_arcmin = 21600/value;
+    } else {
+        return;
+    }
+    return preset_arcmin;
+}
 
-function copy_preset_yaw_and_pitch(){
+function apply_preset_yaw_and_pitch(){
+    var preset_str = _id('setting_yaw_pitch_preset').dataset.value;
+    var preset_obj = window.yaw_pitch_preset_index[preset_str];
+    if (!preset_obj) return;
+    var value = preset_obj.value;
+    var unit  = preset_obj.unit;
+    
+    var preset_arcmin = convert_to_arcmin(value, unit);
+    if (!preset_arcmin) return;
+    
     var weap_index = window.current_selected_setting_weapon_number;
-    var preset_arcmin = Number(_id('setting_yaw_pitch_preset').dataset.value);
     engine.call("set_real_variable", "mouse_accel_post_scale_x:"+weap_index, preset_arcmin);
     engine.call("set_real_variable", "mouse_accel_post_scale_y:"+weap_index, preset_arcmin);
     update_physical_sens('initialize',false);
 }
+
+function detect_preset_yaw_pitch() {
+    var yaw   = Number(_id('setting_mouse_accel_post_scale_x').dataset.value);
+    var pitch = Number(_id('setting_mouse_accel_post_scale_y').dataset.value);
+    var found = false;
+    var preset = 'custom';
+    for (let key in window.yaw_pitch_preset_index) {
+        let val = convert_to_arcmin(window.yaw_pitch_preset_index[key].value, window.yaw_pitch_preset_index[key].unit).toPrecision(6);
+        if (yaw==val&&pitch==val) {
+            preset=key;
+            break;
+        }
+    }
+    _id('setting_yaw_pitch_preset').dataset.value = preset;
+    update_select(_id('setting_yaw_pitch_preset'));
+    
+}
+
+window.yaw_pitch_preset_index = {
+    'db': {
+        'text' : 'Diabotical',
+        'unit' : 'arcmin',
+        'value': '1',
+    },
+    'cs': {
+        'text' : 'Quake/Source',
+        'unit' : 'deg',
+        'value': '0.022',
+    },
+    'ow': {
+        'text' : 'Overwatch',
+        'unit' : 'deg',
+        'value': '0.0066',
+    },
+    'fn': {
+        'text' : 'Fortnite',
+        'unit' : 'deg',
+        'value': '0.005555',
+    },
+    'reflex': {
+        'text' : 'Reflex',
+        'unit' : 'mrad',
+        'value': '0.1',
+    },
+    'qcde': {
+        'text' : 'QCDE',
+        'unit' : 'division',
+        'value': '8192',
+    },  
+};
 
 window.current_selected_setting_weapon_number = 0;
 

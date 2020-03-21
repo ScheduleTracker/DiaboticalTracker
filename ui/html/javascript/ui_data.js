@@ -7,9 +7,11 @@ var global_item_pickup_ignore = {
 
 // key => [color, i18n_key, image_path]
 var global_item_name_map = {
-    "ghost":        ["#ffffff", "item_coin",                    "images/item_ghost.svg",         ],
-    "score_pickup": ["#ffdfa4", "item_score_pickup",            "images/item_ghost.svg",         ],
-    "score_deny":   ["#dbdbdb", "item_score_deny",              "images/item_ghost.svg",         ],
+    "coin":         ["#ffffff", "item_coin",                    "images/item_coin.svg",          ],
+    "ghost":        ["#ffffff", "item_coin",                    "images/item_coin.svg",          ],
+    "score_pickup_short": ["#ffdfa4", "item_coin",              "images/item_coin.svg",          ],
+    "score_pickup": ["#ffdfa4", "item_score_pickup",            "images/item_coin.svg",          ],
+    "score_deny":   ["#dbdbdb", "item_score_deny",              "images/item_coin.svg",          ],
     "flag":         ["#ffffff", "item_flag",                    "images/item_flag.svg",          ],
     "macguffin":    ["#d7b500", "item_macguffin",               "images/item_macguffin.svg",     ],
     "doubledamage": ["#ffff0d", "item_diabotical",              "images/powerup_diabotical.svg", ],
@@ -126,18 +128,20 @@ var global_region_map = {
     "ash": { "flag": "us", "i18n": "datacenter_ash", "provider": "i3D.net", "name": "Ashburn" },
     "chi": { "flag": "us", "i18n": "datacenter_chi", "provider": "i3D.net", "name": "Chicago" },
     "dal": { "flag": "us", "i18n": "datacenter_dal", "provider": "i3D.net", "name": "Dallas" },
+    "dub": { "flag": "ae", "i18n": "datacenter_dub", "provider": "i3D.net", "name": "Dubai" },
     "fra": { "flag": "de", "i18n": "datacenter_fra", "provider": "i3D.net", "name": "Frankfurt" },
     "hon": { "flag": "hk", "i18n": "datacenter_hon", "provider": "i3D.net", "name": "Hong Kong" },
     "joh": { "flag": "za", "i18n": "datacenter_joh", "provider": "i3D.net", "name": "Johannesburg" },
     "los": { "flag": "us", "i18n": "datacenter_los", "provider": "i3D.net", "name": "Los Angeles" },
     "mos": { "flag": "ru", "i18n": "datacenter_mos", "provider": "i3D.net", "name": "Moscow" },
+    "mum": { "flag": "in", "i18n": "datacenter_mum", "provider": "i3D.net", "name": "Mumbai"},
     "par": { "flag": "fr", "i18n": "datacenter_par", "provider": "i3D.net", "name": "Paris" },
     "rot": { "flag": "nl", "i18n": "datacenter_rot", "provider": "i3D.net", "name": "Rotterdam" },
     "sao": { "flag": "br", "i18n": "datacenter_sao", "provider": "i3D.net", "name": "São Paulo" },
     "sea": { "flag": "us", "i18n": "datacenter_sea", "provider": "i3D.net", "name": "Seattle" },
     "sin": { "flag": "sg", "i18n": "datacenter_sin", "provider": "i3D.net", "name": "Singapore" },
     "syd": { "flag": "au", "i18n": "datacenter_syd", "provider": "i3D.net", "name": "Sydney" },
-    "tok": { "flag": "ja", "i18n": "datacenter_tok", "provider": "i3D.net", "name": "Tokyo" },
+    "tok": { "flag": "jp", "i18n": "datacenter_tok", "provider": "i3D.net", "name": "Tokyo" },
     "war": { "flag": "pl", "i18n": "datacenter_war", "provider": "i3D.net", "name": "Warsaw" },
 };
 
@@ -148,20 +152,23 @@ var global_game_mode_map = {
         "name": "Brawl",
         "i18n": "game_mode_brawl",
         "desc_i18n": "game_mode_desc_brawl",
-        "enabled": false,
+        "announce": "announcer_common_gamemode_brawl",
+        "enabled": true,
     },
     "duel": {
         "mode": "duel",
         "name": "Duel",
         "i18n": "game_mode_duel",
         "desc_i18n": "game_mode_desc_duel",
-        "enabled": false,
+        "announce": "announcer_common_gamemode_duel",
+        "enabled": true,
     },
     "ca": {
         "mode": "ca",
         "name": "Arena",
         "i18n": "game_mode_clan_arena",
         "desc_i18n": "game_mode_desc_arena",
+        "announce": "announcer_common_gamemode_arena",
         "enabled": true,
     },
     "rocket_arena": {
@@ -169,6 +176,7 @@ var global_game_mode_map = {
         "name": "Rocket Arena",
         "i18n": "game_mode_rocket_arena",
         "desc_i18n": "game_mode_desc_rocket_arena",
+        "announce": "announcer_common_gamemode_rocket_arena",
         "enabled": true,
     },
     "shaft_arena": {
@@ -176,6 +184,7 @@ var global_game_mode_map = {
         "name": "Shaft Arena",
         "i18n": "game_mode_shaft_arena",
         "desc_i18n": "game_mode_desc_shaft_arena",
+        "announce": "announcer_common_gamemode_shaft_arena",
         "enabled": true,
     },
     "wipeout": {
@@ -183,6 +192,7 @@ var global_game_mode_map = {
         "name": "Wipeout",
         "i18n": "game_mode_wipeout",
         "desc_i18n": "game_mode_desc_wipeout",
+        "announce": "announcer_common_gamemode_wipeout",
         "enabled": true,
     },
     "ctf": {
@@ -190,20 +200,39 @@ var global_game_mode_map = {
         "name": "Capture The Flag",
         "i18n": "game_mode_capture_the_flag",
         "desc_i18n": "game_mode_desc_ctf",
+        "announce": "announcer_common_gamemode_ctf",
         "enabled": false,
+    },
+    "flagrun": {
+        "mode": "flagrun",
+        "name": "Wee-bow Flag Run",
+        "i18n": "game_mode_flagrun",
+        "desc_i18n": "game_mode_desc_flagrun",
+        "announce": "announcer_common_gamemode_flagrun",
+        "enabled": false,
+    },
+    "coinrun": {
+        "mode": "coinrun",
+        "name": "Wee-bow Gold Rush",
+        "i18n": "game_mode_coinrun",
+        "desc_i18n": "game_mode_desc_coinrun",
+        "announce": "announcer_common_gamemode_coinrun",
+        "enabled": true,
     },
     "macguffin": {
         "mode": "macguffin",
         "name": "MacGuffin",
         "i18n": "game_mode_macguffin",
         "desc_i18n": "game_mode_desc_macguffin",
+        "announce": "announcer_common_gamemode_macguffin",
         "enabled": false,
     },
     "ghosthunt": {
         "mode": "ghosthunt",
-        "name": "Instagib",
+        "name": "Wee-bow Instagib",
         "i18n": "game_mode_instagib",
         "desc_i18n": "game_mode_desc_instagib",
+        "announce": "announcer_common_gamemode_wee-bow_instagib",
         "enabled": true,
     },
     "race": {
@@ -211,6 +240,7 @@ var global_game_mode_map = {
         "name": "Time Trials",
         "i18n": "game_mode_race",
         "desc_i18n": "game_mode_desc_race",
+        "announce": "announcer_common_gamemode_time_trials",
         "enabled": false,
     },
     "tdm": {
@@ -218,6 +248,7 @@ var global_game_mode_map = {
         "name": "Team Deathmatch",
         "i18n": "game_mode_tdm",
         "desc_i18n": "game_mode_desc_tdm",
+        "announce": "",
         "enabled": false,
     },
     "tw": {
@@ -225,9 +256,140 @@ var global_game_mode_map = {
         "name": "Team Wars",
         "i18n": "game_mode_tw",
         "desc_i18n": "game_mode_desc_tw",
+        "announce": "",
         "enabled": false,
     },
 };
+
+let global_queue_modes = {
+    "qp_instagib_5": {
+        "variable": "lobby_search_qp_instagib_5",
+        "vs": "5v5",
+        "team_size": 5,
+        "mode": "ghosthunt",
+        "locked": false,
+    },
+    "qp_flagrun_5": {
+        "variable": "lobby_search_qp_flagrun_5",
+        "vs": "5v5",
+        "team_size": 5,
+        "mode": "flagrun",
+        "locked": false,
+    },
+    "qp_coinrun_5": {
+        "variable": "lobby_search_qp_coinrun_5",
+        "vs": "5v5",
+        "team_size": 5,
+        "mode": "coinrun",
+        "locked": false,
+    },
+    "qp_rocket_arena_1": {
+        "variable": "lobby_search_qp_rocket_arena_1",
+        "vs": "1v1",
+        "team_size": 1,
+        "mode": "rocket_arena",
+        "locked": false,
+    },
+    "qp_brawl_3": {
+        "variable": "lobby_search_qp_brawl_3",
+        "vs": "3v3v3",
+        "team_size": 3,
+        "mode": "brawl",
+        "locked": true,
+    },
+    "qp_wo_4": {
+        "variable": "lobby_search_qp_wo_4",
+        "vs": "4v4",
+        "team_size": 4,
+        "mode": "wipeout",
+        "locked": false,
+    },
+    "qp_wo_5": {
+        "variable": "lobby_search_qp_wo_5",
+        "vs": "5v5",
+        "team_size": 5,
+        "mode": "wipeout",
+        "locked": false,
+    },
+    "qp_ca_1": {
+        "variable": "lobby_search_qp_ca_1",
+        "vs": "1v1",
+        "team_size": 1,
+        "mode": "ca",
+        "locked": false,
+    },
+    "qp_ca_2": {
+        "variable": "lobby_search_qp_ca_2",
+        "vs": "2v2",
+        "team_size": 2,
+        "mode": "ca",
+        "locked": false,
+    },
+    "qp_ffa": {
+        "variable": "lobby_search_qp_ffa",
+        "vs": "FFA",
+        "team_size": 1,
+        "mode": "brawl",
+        "locked": false,
+    },
+    "r_ctf_5": {
+        "variable": "lobby_search_r_ctf_5",
+        "vs": "5v5",
+        "team_size": 5,
+        "mode": "ctf",
+        "roles": [
+            { "name": "attack", "i18n": "role_attack" },
+            { "name": "defend", "i18n": "role_defend" },
+        ],
+        "locked": false,
+    },
+    "r_wo_5": {
+        "variable": "lobby_search_r_wo_5",
+        "vs": "5v5",
+        "team_size": 5,
+        "mode": "wipeout",
+        "locked": false,
+    },
+    "r_ca_1": {
+        "variable": "lobby_search_r_ca_1",
+        "vs": "1v1",
+        "team_size": 1,
+        "mode": "ca",
+        "locked": false,
+    },
+    "r_tdm_3": {
+        "variable": "lobby_search_r_tdm_3",
+        "vs": "3v3",
+        "team_size": 3,
+        "mode": "tdm",
+        "locked": false,
+    },
+    "r_macguffin_3": {
+        "variable": "lobby_search_r_macguffin_3",
+        "vs": "3v3",
+        "team_size": 3,
+        "mode": "macguffin",
+        "locked": false, 
+    },
+    "r_duel": {
+        "variable": "lobby_search_r_duel",
+        "vs": "1v1",
+        "team_size": 1,
+        "mode": "duel",
+        "locked": false, 
+    }
+};
+
+var global_general_card_data = {
+    "practice": {
+        "i18n": "game_mode_practice_range",
+        "desc_i18n": "",
+    },
+    "licensecenter": {
+        "i18n": "game_mode_license_center",
+        "desc_i18n": "",
+    }
+}
 
 var global_physics_map = {
     "0":  { "i18n": "custom_settings_physics_default" },

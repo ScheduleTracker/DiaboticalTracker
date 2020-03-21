@@ -5,7 +5,7 @@ let global_game_report_countdown_interval = false;
 let global_game_report_countdown = 45;
 global_onload_callbacks_hud.push(function() {
 
-    _id("game_report").querySelector(".chat_input").addEventListener("blur", function() {
+    _id("game_report_cont").querySelector(".chat_input").addEventListener("blur", function() {
         engine.call('set_chat_enabled', false);
     });
 
@@ -13,11 +13,14 @@ global_onload_callbacks_hud.push(function() {
         //console.log("set_game_report");
         if (!json_game_status)  return;
 
+        var game_status = JSON.parse(json_game_status);
+        // data == "server_status" update
+        // gameData == "data model"
+        //console.log("data", _dump(game_status));
+        //console.log("gameData", _dump(model_data));
+
         let game_report_countdown = _id("game_report_countdown");
         if (global_game_report_countdown_interval) clearInterval(global_game_report_countdown_interval);
-
-        global_game_report_countdown = 45;
-        if (game_data.continuous == 0) global_game_report_countdown = 50;
 
         game_report_countdown.textContent = global_game_report_countdown;
         global_game_report_countdown_interval = setInterval(function() {
@@ -32,15 +35,9 @@ global_onload_callbacks_hud.push(function() {
         engine.call('set_chat_enabled', false);
         global_game_report_active = true;
 
-        var game_status = JSON.parse(json_game_status);
-
-        // data == "server_status" update
-        // gameData == "data model"
-        //console.log("data", _dump(game_status));
-        //console.log("gameData", _dump(model_data));
 
         // sort all clients by score (independent of team)
-        game_status.clients.sort((a, b) => (a.stats.s < b.stats.s) ? 1 : -1)
+        game_status.clients.sort((a, b) => (a.stats.s < b.stats.s) ? 1 : -1);
 
         // Get my own user_id from the model... i could in theory also just get the info from the MS party messages but this works too
         var myUserId = -1;
@@ -54,9 +51,17 @@ global_onload_callbacks_hud.push(function() {
         // Organize players into team arrays within the server_status object
         for (var i = 0; i < game_status.clients.length; i++) {
             var teamId = game_status.clients[i].team;
-            if (teamId >= 0) {
-                if (myUserId == game_status.clients[i].user_id){
+            if (teamId >= 0 && teamId < 200) {
+                if (myUserId == game_status.clients[i].user_id) {
                     game_status.clients[i].self = true;
+                }
+
+                // Hack to make the game report work again until the server starts pre-filling all team entries rather than just the ones for initially connected players
+                if (!game_status.teams[teamId]) game_status.teams[teamId] = {
+                    "score": 0,
+                    "placement": 999,
+                    "name": "Team "+(teamId+1),
+                    "color": "#ffffff"
                 }
 
                 if (game_status.teams[teamId].players === undefined) {
@@ -98,7 +103,18 @@ global_onload_callbacks_hud.push(function() {
         //console.log("show_game_report", visible);
         if (visible) {
 
-            anim_show(_id("game_report"), 100, "flex");
+            anim_show(_id("game_report"), 500, "flex");
+
+            if (global_show_rank_change) {
+                showRankScreen(function() {
+                    anim_show(_id("game_report_cont"), 500, "flex");
+                }, true);
+                global_show_rank_change = false;
+            } else {
+                anim_show(_id("game_report_cont"), 100, "flex");
+            }
+
+            
             //anim_hide(_id("game_hud"), 100); //Just in case, seems like show_ingame_hud gets called sometimes when it shouldn't :S
 
             // Hide the chat elements since game_report has integrated chat
@@ -108,6 +124,7 @@ global_onload_callbacks_hud.push(function() {
             //_id("game_report_xp_bar_prefill").style.width = "50%";
             //_id("game_report_xp_bar_fill").style.width = "100%";
         } else {
+            anim_hide(_id("game_report_cont"), 100);
             anim_hide(_id("game_report"), 100);
             //_id("game_report_xp_bar_fill").style.width = "0%";
         }
@@ -132,7 +149,7 @@ function create_game_report(game_status, model_data) {
     //console.log("game_status", _dump(game_status));
     //console.log("model_data", _dump(model_data));
 
-    let game_report = _id("game_report");
+    let game_report = _id("game_report_cont");
     let head = game_report.querySelector(".head")
     let scoreboard = game_report.querySelector(".report_scoreboard")
     _empty(head);
@@ -140,11 +157,8 @@ function create_game_report(game_status, model_data) {
 
     let player_lookup = {};
     let team_lookup = {};
-    let team_count = 0;
-    let team_size = 1;
     let placement_lookup = {};
     for (let t of model_data.teams) {
-        if (t.team_id >= 0) team_count++;
         team_lookup[t.team_id] = t;
 
         if (t.team_id in game_status.teams) {
@@ -153,8 +167,6 @@ function create_game_report(game_status, model_data) {
         for (let p of t.players) {
             player_lookup[p.user_id] = p;
         }
-
-        if (t.players.length > team_size) team_size = t.players.length;
     }
 
     // Create a single array of teams
@@ -183,7 +195,7 @@ function create_game_report(game_status, model_data) {
     let head_center = _createElement("div", "head_center");
 
     // TODO, change team_count & team_size to actually use the server setting team_count & team_size
-    if (["brawl","race"].includes(game_status.mode) && team_size == 1) {
+    if (["brawl","race"].includes(game_status.mode) && model_data.team_size == 1) {
         let single_winner = _createElement("div", "winner");
         if (placement_lookup["0"]) {
             single_winner.appendChild(_createElement("div", "name", placement_lookup["0"].players[0].name));
@@ -191,7 +203,7 @@ function create_game_report(game_status, model_data) {
         }
         head_center.appendChild(single_winner);
         single_winner.style.setProperty("--team_color", placement_lookup[0].color);
-    } else if (["brawl","race"].includes(game_status.mode) && team_count > 2) {
+    } else if (["brawl","race"].includes(game_status.mode) && model_data.team_count > 2) {
         let single_winner = _createElement("div", "winner");
         if (placement_lookup["0"]) {
             single_winner.appendChild(_createElement("div", "name", placement_lookup["0"].team_name));
@@ -202,8 +214,12 @@ function create_game_report(game_status, model_data) {
     } else {
         let score_left = _createElement("div", ["score_cont", "left"]);
         score_left.style.setProperty("--team_color", model_data.own_team.color);
-        if (game_status.mode == "duel") {
-            score_left.appendChild(_createElement("div", "name", model_data.own_team.players[0].name));
+        if (game_status.mode == "duel" || (model_data.team_count == 2 && model_data.team_size == 1)) {
+            let name_left = _createElement("div", "name");
+            if (model_data.own_team && model_data.own_team.players && model_data.own_team.players.length) {
+                name_left.textContent = model_data.own_team.players[0].name;
+            }
+            score_left.appendChild(name_left);
         } else {
             score_left.appendChild(_createElement("div", "name", model_data.own_team.team_name));
         }
@@ -215,8 +231,12 @@ function create_game_report(game_status, model_data) {
         let score_right = _createElement("div", ["score_cont", "right"]);
         score_right.style.setProperty("--team_color", model_data.enemy_team.color);
         score_right.appendChild(_createElement("div", "value", game_status.teams[model_data.enemy_team.team_id].score));
-        if (game_status.mode == "duel") {
-            score_right.appendChild(_createElement("div", "name", model_data.enemy_team.players[0].name));
+        if (game_status.mode == "duel" || (model_data.team_count == 2 && model_data.team_size == 1)) {
+            let name_right = _createElement("div", "name");
+            if (model_data.enemy_team && model_data.enemy_team.players && model_data.enemy_team.players.length) {
+                name_right.textContent = model_data.enemy_team.players[0].name;
+            }
+            score_right.appendChild(name_right);
         } else {
             score_right.appendChild(_createElement("div", "name", model_data.enemy_team.team_name));
         }
@@ -238,7 +258,7 @@ function create_game_report(game_status, model_data) {
     //=================//
 
     let show_team_names = true;
-    if (["brawl","race"].includes(game_status.mode) && team_size == 1) {
+    if (model_data.team_size == 1) {
         show_team_names = false;
     }
 
@@ -246,13 +266,16 @@ function create_game_report(game_status, model_data) {
 
     let scoreboard_fragment = new DocumentFragment();
 
+    /*
     if (game_status.mode == "duel") {
         scoreboard_fragment.appendChild(_createElement("div","duel","TBA"));
     } else {
+        */
         let player_rows = 0;
         let header_row_rendered = false;
         for (let team_id in teams) {
             if (team_id < 0) continue;
+            if (!teams[team_id] || !teams[team_id].players || !teams[team_id].players.length) continue;
             
             let t = teams[team_id];
             let team = _createElement("div", "team");
@@ -283,7 +306,7 @@ function create_game_report(game_status, model_data) {
                         }
                         head_row.appendChild(_createElement("div","label", localize("stats_frags")));
                         head_row.appendChild(_createElement("div","label", localize("stats_deaths")));
-                        if (team_size > 1) {
+                        if (model_data.team_size > 1) {
                             head_row.appendChild(_createElement("div","label", localize("stats_assists")));
                         }
                         head_row.appendChild(_createElement("div","label", localize("stats_dmg_done")));
@@ -297,7 +320,7 @@ function create_game_report(game_status, model_data) {
             }
 
             // Reset the odd/even row colors if each team has more than one player
-            if (team_size > 1) {
+            if (model_data.team_size > 1) {
                 player_rows = 0;
             }
 
@@ -327,7 +350,7 @@ function create_game_report(game_status, model_data) {
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_SCORE]));
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]));
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]));
-                        if (team_size > 1) {
+                        if (model_data.team_size > 1) {
                             player_row.appendChild(_createElement("div","stat", "--"));
                         }
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED]));
@@ -352,11 +375,11 @@ function create_game_report(game_status, model_data) {
 
             scoreboard_fragment.appendChild(team);
 
-            if (team_size > 1) {
+            if (model_data.team_size > 1) {
                 scoreboard_fragment.appendChild(_createElement("div", "separator"));
             }
         }
-    }
+    //}
     scoreboard.appendChild(scoreboard_fragment);
 
     if (self_stats) selectPlayer(self_stats, false);
@@ -472,21 +495,21 @@ function renderMapVote() {
 
 function game_report_show_map_vote(click) {
     if (click) _play_click1();
-    game_report_switch_bottom_content(_id("game_report").querySelector(".bottom .menu .btn.map_vote"), _id("game_report_map_vote"));
+    game_report_switch_bottom_content(_id("game_report_cont").querySelector(".bottom .menu .btn.map_vote"), _id("game_report_map_vote"));
 }
 
 function game_report_show_progression(click) {
     if (click) _play_click1();
-    game_report_switch_bottom_content(_id("game_report").querySelector(".bottom .menu .btn.progress"), _id("game_report_progression"));
+    game_report_switch_bottom_content(_id("game_report_cont").querySelector(".bottom .menu .btn.progress"), _id("game_report_progression"));
 }
 
 function game_report_show_stats(click) {
     if (click) _play_click1();
-    game_report_switch_bottom_content(_id("game_report").querySelector(".bottom .menu .btn.stats"), _id("game_report_stats"));
+    game_report_switch_bottom_content(_id("game_report_cont").querySelector(".bottom .menu .btn.stats"), _id("game_report_stats"));
 }
 
 function game_report_switch_bottom_content(new_button, new_content) {
-    let gr = _id("game_report");
+    let gr = _id("game_report_cont");
 
     let button_prev_active = gr.querySelector(".bottom .menu .btn.active");
     if (new_button === button_prev_active) return;

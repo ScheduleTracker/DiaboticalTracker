@@ -8,6 +8,7 @@ global_onload_callbacks.push(function(){
         "icon": "1",
         "iconWidth": "3",
         "iconBackground": "#0000005F",
+        "name": "1",
     }, 
     [
         defaultPivot,
@@ -17,6 +18,7 @@ global_onload_callbacks.push(function(){
         defaultFontFamily,
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
         {"inputType": "toggle", "type": "icon", "text": "Show Icon"},
+        {"inputType": "toggle", "type": "name", "text": "Show Item Name"},
         {"inputType": "toggle", "type": "owner", "text": "Previous Owner"},
         {"inputType": "float",  "type": "iconWidth", "text": "Icon Width"},
         {"inputType": "color",  "type": "iconBackground", "text": "Icon Background Color"},

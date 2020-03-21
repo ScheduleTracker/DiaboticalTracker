@@ -17,6 +17,7 @@ global_onload_callbacks.push(function(){
         "color": "#ffffff",
         "sC": "#ffffff",
         "sS": "1",
+        "stockIcon": "0",
     },
     [       //Editor settings
         defaultPivot,
@@ -45,6 +46,13 @@ global_onload_callbacks.push(function(){
             ]
         },
         {"inputType": "toggle", "type": "sS", "text": "Score Shadow"},
+        {"inputType": "toggle", "type": "showStocks", "text": "Show Player Stocks"},
+        {"inputType": "list",   "type": "stockIcon", "text": "Player Stock Icon", 
+            "listValues": [
+                {"name": "Hearts", "value": "0"},
+                {"name": "Wrench", "value": "1"},
+            ]
+        },
     ]
     , "#hud_my_team_score");  //Template Name
     hud_elements.push(hud_elem);
@@ -65,6 +73,7 @@ global_onload_callbacks.push(function(){
         "color": "#ffffff",
         "sC": "#ffffff",
         "sS": "1",
+        "stockIcon": "0",
     },
     [       //Editor settings
         defaultPivot,
@@ -93,6 +102,13 @@ global_onload_callbacks.push(function(){
             ]
         },
         {"inputType": "toggle", "type": "sS", "text": "Score Shadow"},
+        {"inputType": "toggle", "type": "showStocks", "text": "Show Player Stocks"},
+        {"inputType": "list",   "type": "stockIcon", "text": "Player Stock Icon", 
+            "listValues": [
+                {"name": "Hearts", "value": "0"},
+                {"name": "Wrench", "value": "1"},
+            ]
+        },
     ]
     , "#hud_enemy_team_score");  //Template Name
     hud_elements.push(hud_elem2);

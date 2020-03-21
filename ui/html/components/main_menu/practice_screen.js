@@ -1,11 +1,56 @@
 global_onload_callbacks_other.push(function() {
-
-
+    renderPracticeCards();
 });
 
 function practice_start_match(type) {
-    console.log("start practice match:", type);
     if (type == "practice_range") {
         engine.call("load_practice_range");
     }
+}
+
+function renderPracticeCards() {
+    let screen = _id("practice_screen");
+    let container = screen.querySelector(".play_cards_container");
+
+    let cards = [
+        {
+            "type": "practice",
+            "title": "game_mode_practice_range",
+            "card_style": "PRACTICE",
+            "on_click": function() { practice_start_match('practice_range'); },
+            "hover_button": "play",
+            //"tooltip": "practice",
+            "locked": false,
+        },
+        /* Commented because it it was hidden before
+        {
+            "type": "licensecenter",
+            "title": "game_mode_license_center",
+            "card_style": "BRAWL",
+            "on_click": function() { open_license_center(); },
+            //"hover_button": "play",
+            //"tooltip": "licensecenter",
+            "locked": true,
+        },
+        */
+    ];
+
+    for (let card of cards) {
+        container.appendChild(renderPlayCard(card));
+    }
+
+    _for_each_with_class_in_parent(container, 'tooltip2', function(el) {
+        add_tooltip2_listeners(el);
+    });
+}
+
+function practice_screen_reset_cards() {
+    _for_each_with_class_in_parent(_id("practice_screen"), "card_flex", function(card) {
+        let video = play_card_lookup[card.dataset.card_idx];
+        if (video) {
+            let is_playing = video.isPlaying();
+            video.reset();
+            if (is_playing) video.play();
+        }
+    });
 }

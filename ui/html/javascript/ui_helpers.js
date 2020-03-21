@@ -218,6 +218,8 @@ function _play_mouseover3() { engine.call('ui_sound', "ui_mouseover3"); }
 function _play_mouseover4() { engine.call('ui_sound', "ui_mouseover4"); }
 function _play_click1()     { engine.call('ui_sound', "ui_click1"); }
 function _play_click_back() { engine.call('ui_sound', "ui_back1"); }
+function _play_cb_check()   { engine.call('ui_sound', "ui_check_box"); }
+function _play_cb_uncheck() { engine.call('ui_sound', "ui_uncheck_box"); }
 
 function _createElement(type, classes, textContent) {
     let el = document.createElement(type);
@@ -247,14 +249,6 @@ function _createSpinner() {
     cont.appendChild(spinner);
 
     return outer_cont;
-}
-
-var DOMtext = document.createTextNode("test");
-var DOMnative = document.createElement("span");
-DOMnative.appendChild(DOMtext);
-function escapeHtml(html){
-    DOMtext.nodeValue = html;
-    return DOMnative.textContent;   //Changed this to textContent instead of innerHTML, hopefully it works
 }
 
 function _customizationUrl(type, id) {
@@ -625,4 +619,76 @@ function getRandomElementsFromArray(arr, n) {
         taken[x] = --len in taken ? taken[len] : len;
     }
     return result;
+}
+
+function renderRankIcon(mode, rank, position, size) {
+    let div = _createElement("div", "rank_icon");
+    if (position && position > 0) {
+        if (position == 1) div.classList.add("top_4");
+        else if (position <= 50) div.classList.add("top_3");
+        else if (position <= 100) div.classList.add("top_2");
+        else div.classList.add("top_1");
+
+        div.appendChild(_createElement("div", "position", position));
+    } else {
+        if (rank === null || rank === undefined || rank == 0) {
+            if (mode in global_queue_modes) {
+                if (global_queue_modes[mode].team_size <= 4) {
+                    div.classList.add("unranked_"+global_queue_modes[mode].team_size);
+                } else {
+                    div.classList.add("unranked_4");
+                }
+            } else {
+                div.classList.add("unranked_1");
+            }
+        } else {
+            div.classList.add("rank_"+rank);
+        }
+    }
+
+    if (size == "small") div.classList.add("small");
+    return div;
+}
+            
+            
+let global_rank_tier_lookup = [
+    [0,0],  // spaceholder because tier 0 doesn't exist
+    [1,5], 
+    [6,10], 
+    [11,15], 
+    [16,20], 
+    [21,25], 
+    [26,30], 
+    [31,35], 
+    [36,40]
+];
+function getRankName(rank, position) {
+    if (position && position > 0) {
+
+        if (position == 1) return localize("rank_tier_top1");
+        else if (position <= 50) return localize("rank_tier_top50");
+        else if (position <= 100) return localize("rank_tier_top100");
+        else return localize("rank_tier_top1000");
+
+    } else {
+        if (rank === null || rank === undefined || rank == 0) {
+
+            return localize("rank_unranked");
+
+        } else {
+            
+            let tier = 1;
+            for (tier; tier<global_rank_tier_lookup.length; tier++) {
+                if (Number(rank) >= global_rank_tier_lookup[tier][0] && Number(rank) <= global_rank_tier_lookup[tier][1]) {
+                    break;
+                }
+            }
+            return localize("rank_tier_"+tier);
+
+        }
+    }
+}
+
+function send_view_data(view, string) {
+    engine.call("send_view_data", view, string)
 }

@@ -12,6 +12,7 @@ global_onload_callbacks.push(function(){
         "cCode": "15",
         "skewX": "0",
         "skewY": "0",
+        "advanced": "",
     },
     [
         defaultPivot,
@@ -29,6 +30,7 @@ global_onload_callbacks.push(function(){
         {"inputType": "float", "type": "cCode", "text": "Segment Corner Bitmask"},
         {"inputType": "float", "type": "skewX", "text": "SkewX"},
         {"inputType": "float", "type": "skewY", "text": "SkewY"},
+        {"inputType": "advanced", "type": "advanced"},
     ]
     , "#hud_hp_bar");
 

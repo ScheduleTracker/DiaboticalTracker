@@ -508,7 +508,7 @@
                                 <div class="header_team">Teams</div>
                                 <div class="header_count">Players</div>
                             </div>
-                            <div class="join_row" data-bind-for="team_iter:{{menu_game_data.teams}}">
+                            <div class="join_row" data-bind-for="team_iter:sort_game_data_teams({{menu_game_data.teams}}, 'id')">
                                 <div class="team" data-bind-i18n="'team_with_idx:'+({{team_iter.team_id}} + 1)"></div>
                                 <div class="count" data-bind-value="{{team_iter.players}}.length"></div>
                                 <div class="join">
@@ -526,7 +526,7 @@
 
                 <div id="ingame_menu_section_players" class="content_section">
                     <div class="player_list">
-                        <div class="team" data-bind-for="team_iter:{{menu_game_data.teams}}">
+                        <div class="team" data-bind-for="team_iter:sort_game_data_teams({{menu_game_data.teams}}, 'id')">
                             <div class="cont" data-bind-if="{{team_iter.players}}.length > 0">
                                 <div class="team_name" data-bind-i18n="'team_with_idx:'+({{team_iter.team_id}} + 1)"></div>
                                 <div class="player" data-bind-for="player_iter:{{team_iter.players}}" data-bind-dataset="'user_id:'+{{player_iter.user_id}}">
@@ -843,6 +843,16 @@
                                     <div class="controls_header i18n" data-i18n="settings_controls_move_right">Move right</div>
                                     <div class="controls_value" data-db-binding="move_right" data-db-binding-mode="editor"></div>
                                 </div>
+                                 </div>
+                            <div class="controls_row terminal_row">
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_editor_select">Select</div>
+                                    <div class="controls_value" data-db-binding="attack" data-db-binding-mode="editor"></div>
+                                </div>
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_editor_fly">Fly/no-clip</div>
+                                    <div class="controls_value" data-db-binding="toggle phy fly" data-db-binding-mode="editor"></div>
+                                </div>
                             </div>
                             <div class="controls_row terminal_row">
                                 <div class="controls_pair">
@@ -995,10 +1005,6 @@
                                 </div>
                             </div>
                             <div class="controls_row terminal_row">
-                                <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_editor_debug_overlay">Debug overlay</div>
-                                    <div class="controls_value" data-db-binding="toggle dev_debug 0 1 2" data-db-binding-mode="editor"></div>
-                                </div>
                                 <div class="controls_pair">
                                     <div class="controls_header i18n" data-i18n="settings_controls_editor_refresh_selection">Refresh selection</div>
                                     <div class="controls_value" data-db-binding="reload_selection" data-db-binding-mode="editor"></div>
@@ -1545,6 +1551,13 @@
                                 <span class="label_right i18n" data-i18n="settings_multithreaded_input">Multithreaded input</span>
                             </div>
                         </div>
+                        <div class="setting_row" style="display:none;">
+                            <div class="setting_switch">
+                                <div class="checkbox_component checkbox" data-variable="input_mouse_filtering"><div></div></div>
+                                <span class="label_right i18n" data-i18n="settings_mouse_filtering">Mouse filtering</span>
+                                <span id="mouse_filter_sad"><span class="sad_smiley"></span></span>
+                            </div>
+                        </div>
                         <div class="setting_row">
                             <div class="setting_switch">
                                 <div class="checkbox_component checkbox" data-variable="input_block_win_key"><div></div></div>
@@ -1829,17 +1842,17 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="hp" >
                                     <div class="element_label element_label_hp i18n" data-i18n="settings_hud_hp">HP</div>
                                 </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="hp_bar">
-                                    <div class="element_label element_label_hp_bar i18n" data-i18n="settings_hud_hp_bar">HP Bar</div>
-                                </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="armor">
                                     <div class="element_label element_label_armor i18n" data-i18n="settings_hud_armor">Armor</div>
                                 </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="armor_bar">
-                                    <div class="element_label element_label_armor_bar i18n" data-i18n="settings_hud_armor_bar">Armor Bar</div>
-                                </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="stack">
                                     <div class="element_label element_label_stack i18n" data-i18n="settings_hud_stack">Stack</div>
+                                </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="hp_bar">
+                                    <div class="element_label element_label_hp_bar i18n" data-i18n="settings_hud_hp_bar">HP Bar</div>
+                                </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="armor_bar">
+                                    <div class="element_label element_label_armor_bar i18n" data-i18n="settings_hud_armor_bar">Armor Bar</div>
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="stack_bra">
                                     <div class="element_label element_label_stack_bra i18n" data-i18n="settings_hud_stack_bar">Stack Bar</div>
@@ -1847,14 +1860,20 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="speed">
                                     <div class="element_label element_label_speed i18n" data-i18n="settings_hud_speed">Speed</div>
                                 </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="throttle">
+                                    <div class="element_label element_label_throttle i18n" data-i18n="settings_hud_throttle">Throttle</div>
+                                </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="g_meter">
                                     <div class="element_label element_label_g_meter i18n" data-i18n="settings_hud_g_meter">G-Meter</div>
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="dodge">
                                     <div class="element_label element_label_dodge i18n" data-i18n="settings_hud_dodge">Dodge</div>
                                 </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="throttle">
-                                    <div class="element_label element_label_throttle i18n" data-i18n="settings_hud_throttle">Throttle</div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="powerup">
+                                    <div class="element_label element_label_powerup i18n" data-i18n="settings_hud_powerup">Powerup</div>
+                                </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="item">
+                                    <div class="element_label element_label_item i18n" data-i18n="settings_hud_item">Active Item</div>
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="current_ammo">
                                     <div class="element_label element_label_current_ammo i18n" data-i18n="settings_hud_current_ammo">Current Ammo</div>
@@ -1862,29 +1881,23 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="current_weapon_icon">
                                     <div class="element_label element_label_current_weapon_icon i18n" data-i18n="settings_hud_current_weapon">Current Weapon</div>
                                 </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="low_ammo_warning">
-                                    <div class="element_label element_label_low_ammo_warning i18n" data-i18n="settings_hud_low_ammo_warning">Low Ammo Alert</div>
-                                </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="weapons_list">
                                     <div class="element_label element_label_weapons_list i18n" data-i18n="settings_hud_weapons_list">Weapon Inventory</div>
                                 </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="item">
-                                    <div class="element_label element_label_item i18n" data-i18n="settings_hud_item">Active Item</div>
+                            <!--<div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="low_ammo_warning">
+                                    <div class="element_label element_label_low_ammo_warning i18n" data-i18n="settings_hud_low_ammo_warning">Low Ammo Alert</div>
+                                </div>-->
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="flag">
+                                    <div class="element_label element_label_flag i18n" data-i18n="settings_hud_flag">Flag</div>
+                                </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="coins">
+                                    <div class="element_label element_label_coins i18n" data-i18n="settings_hud_coins">Coin Count</div>
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="yaw_ruler">
                                     <div class="element_label element_label_yaw_ruler i18n" data-i18n="settings_hud_yaw_ruler">Aim Helper</div>
                                 </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="powerup">
-                                    <div class="element_label element_label_powerup i18n" data-i18n="settings_hud_powerup">Powerup</div>
-                                </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="flag">
-                                    <div class="element_label element_label_flag i18n" data-i18n="settings_hud_flag">Flag</div>
-                                </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="fps">
                                     <div class="element_label element_label_fps i18n" data-i18n="settings_hud_fps">FPS</div>
-                                </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="system_clock">
-                                    <div class="element_label element_label_system_clock i18n" data-i18n="settings_hud_system_clock">System Clock</div>
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="chat">
                                     <div class="element_label element_label_chat i18n" data-i18n="chat">Chat</div>
@@ -1892,14 +1905,8 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="voicechat">
                                     <div class="element_label element_label_voicechat i18n" data-i18n="voicechat">Voice Chat</div>
                                 </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="item_picked">
-                                    <div class="element_label element_label_item_picked i18n" data-i18n="settings_hud_item_pickup">Pickup Notice</div>
-                                </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="frag_feed">
-                                    <div class="element_label element_label_frag_feed i18n" data-i18n="settings_hud_frag_feed">Frag Feed</div>
-                                </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="you_fragged">
-                                    <div class="element_label element_label_you_fragged i18n" data-i18n="settings_hud_you_killed_text">Frag Notice</div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="system_clock">
+                                    <div class="element_label element_label_system_clock i18n" data-i18n="settings_hud_system_clock">System Clock</div>
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="game_timer">
                                     <div class="element_label element_label_game_timer i18n" data-i18n="settings_hud_game_timer">Game Timer</div>
@@ -1907,11 +1914,23 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="time_limit">
                                     <div class="element_label element_label_time_limit i18n" data-i18n="settings_hud_time_limit">Time Limit</div>
                                 </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="frag_feed">
+                                    <div class="element_label element_label_frag_feed i18n" data-i18n="settings_hud_frag_feed">Frag Feed</div>
+                                </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="you_fragged">
+                                    <div class="element_label element_label_you_fragged i18n" data-i18n="settings_hud_you_killed_text">Frag Notice</div>
+                                </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="item_picked">
+                                    <div class="element_label element_label_item_picked i18n" data-i18n="settings_hud_item_pickup">Pickup Notice</div>
+                                </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="my_team_score">
                                     <div class="element_label element_label_my_team_score i18n" data-i18n="settings_hud_my_team_scores">Ally Score</div>
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="enemy_team_score">
                                     <div class="element_label element_label_enemy_team_score i18n" data-i18n="settings_hud_enemy_team_scores">Enemy Score</div>
+                                </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="score">
+                                    <div class="element_label element_label_score i18n" data-i18n="settings_hud_score">Simple Score</div>
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="teammates_alive">
                                     <div class="element_label element_label_teammates_alive i18n" data-i18n="settings_hud_ally_remaining">Ally Remaining</div>
@@ -1919,17 +1938,9 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="enemies_alive">
                                     <div class="element_label element_label_enemies_alive i18n" data-i18n="settings_hud_enemy_remaining">Enemy Remaining</div>
                                 </div>
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="score">
-                                    <div class="element_label element_label_score i18n" data-i18n="settings_hud_score">Simple Score</div>
-                                </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="player_name">
                                     <div class="element_label element_label_player_name i18n" data-i18n="settings_hud_player_name">Player Name</div>
                                 </div>
-                            <!--
-                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="round_mvp">
-                                    <div class="element_label element_label_round_mvp i18n" data-i18n="settings_hud_round_mvp">Round Mvp</div>
-                                </div>
-                            -->
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="icon">
                                     <div class="element_label element_label_icon i18n" data-i18n="settings_hud_icon">Static Icon</div>
                                 </div>
@@ -1939,6 +1950,11 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="group">
                                     <div class="element_label element_label_group i18n" data-i18n="settings_hud_element_group">Element Group</div>
                                 </div>
+                            <!--
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="round_mvp">
+                                    <div class="element_label element_label_round_mvp i18n" data-i18n="settings_hud_round_mvp">Round Mvp</div>
+                                </div>
+                            -->
                             </div>
                         </div>
                         <div class="arrow right_arrow" id="hud_editor_elements_right_arrow"></div>
@@ -1956,8 +1972,8 @@
 
                         <div id="hud_properties_container">
                             <div class="hud_editor_side_panel_menu">
-                                <div id="hud_panel_button_properties" class="button mouseover-sound1 selected" onclick="hud_editor_change_tab('hud_properties')">Properties</div>
-                                <div id="hud_panel_button_list" class="button mouseover-sound1" onclick="hud_editor_change_tab('hud_editor_list_view')">Element List</div>
+                                <div id="hud_panel_button_properties" class="button mouseover-sound4 selected" onclick="hud_editor_change_tab('hud_properties')">Properties</div>
+                                <div id="hud_panel_button_list" class="button mouseover-sound4" onclick="hud_editor_change_tab('hud_editor_list_view')">Element List</div>
                             </div>
 
 
@@ -2165,41 +2181,6 @@
             <div id="practice_screen">
     <div class="play_cards_container">
 
-        <div class="card_flex click-sound" onclick="practice_start_match('practice_range')">
-            <div class="card_video">
-                <img class="card_video_preview loop" src="/html/images/gamemode_cards/PRACTICE_loop.jpg" />
-                <img class="card_video_preview start" src="/html/images/gamemode_cards/PRACTICE_intro.jpg" />
-                <video class="card_video_clip start" src="/html/images/gamemode_cards/PRACTICE_intro.webm"></video>
-                <video class="card_video_clip loop" src="/html/images/gamemode_cards/PRACTICE_loop.webm" loop></video>
-            </div>
-            <div class="card_top i18n" data-i18n="game_mode_practice_range">Practice Range</div>
-            <div class="card_bottom">
-                <div class="card_text">
-                    <div class="card_play">Play</div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card_flex locked click-sound" onclick="open_license_center(this)" style="display:none">
-            <div class="card_video">
-                <img class="card_video_preview loop" src="/html/images/gamemode_cards/Brawl_loop.jpg" />
-                <img class="card_video_preview start" src="/html/images/gamemode_cards/Brawl_intro.jpg" />
-                <video class="card_video_clip start" src="/html/images/gamemode_cards/Brawl_intro.webm"></video>
-                <video class="card_video_clip loop" src="/html/images/gamemode_cards/Brawl_loop.webm" loop></video>
-            </div>
-            <div class="card_locked">
-                <div class="icon"></div>
-                <div class="text">Coming soon</div>
-            </div>
-            <div class="card_top i18n" data-i18n="game_mode_license_center">License Center</div>
-            <div class="card_bottom">
-                <div class="card_text">
-                    <div class="card_play">Play</div>
-                </div>
-            </div>
-        </div>
-        
     </div>
 </div>
             
@@ -2263,9 +2244,13 @@
                     <div class="play_menu_divider"></div>
 
                     <div id="play_menu_tab_ranked" class="play_screen_button mouseover-sound2 click-sound locked" onclick="play_menu_change_tab(this, _id('play_screen_ranked'))">
-                        <span class="i18n" data-i18n="play_menu_match_making">Ranked</span><span class="lock"></span>
+                        <span class="i18n" data-i18n="play_menu_competitive">Competitive</span><span class="lock"></span>
                     </div>
-
+<!--
+                    <div id="play_menu_tab_ranked" class="play_screen_button mouseover-sound2 click-sound" onclick="play_menu_change_tab(this, _id('play_screen_ranked'))">
+                        <span class="i18n" data-i18n="play_menu_competitive">Competitive</span>
+                    </div>
+-->
                     <div class="play_menu_divider"></div>
                     <!--
                     <div id="play_menu_tab_event" class="play_screen_button mouseover-sound2 click-sound" onclick="play_menu_change_tab(this, _id('play_screen_esports'))" data-i18n="play_menu_events">
@@ -2281,146 +2266,7 @@
                 </div>
 
                 <div id="play_screen_quickplay" style="display:flex; opacity:1;">
-    <div class="play_cards_container">
-
-        <!--
-        <div class="card_flex locked tooltip2" data-msg-html-id="mode_description" data-mode="brawl">
-            <div class="card_video">
-                <img class="card_video_preview loop" src="/html/images/gamemode_cards/BRAWL_loop.jpg" />
-                <img class="card_video_preview start" src="/html/images/gamemode_cards/BRAWL_intro.jpg" />
-                <video class="card_video_clip start" src="/html/images/gamemode_cards/BRAWL_intro.webm"></video>
-                <video class="card_video_clip loop" src="/html/images/gamemode_cards/BRAWL_loop.webm" loop></video>
-            </div>
-            <div class="card_locked">
-                <div class="icon"></div>
-                <div class="text">Coming soon</div>
-            </div>
-            <div class="card_top i18n" data-i18n="game_mode_brawl">Brawl</div>
-            <div class="card_bottom">
-                <div class="card_text">Brawl is a pretty awesome mode, you should try it, its lit. No lyin, 2GD said so and he for sure knows what he's talking about.</div>
-                <div class="card_checkbox _quick_play_checkbox" data-mode="qp_brawl_3" data-variable="lobby_search_qp_brawl_3">
-                    <div class="checkbox_box">
-                        <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                        <div class="checkbox_mark"></div>
-                    </div>
-                    <div class="checkbox_label">3v3v3</div>
-                </div>
-            </div>
-        </div>
-        -->
-
-        <div class="card_flex tooltip2" data-msg-html-id="mode_description" data-mode="ghosthunt:rocket_arena">
-            <div class="card_video">
-                <img class="card_video_preview loop" src="/html/images/gamemode_cards/ARCADE_loop.jpg" />
-                <img class="card_video_preview start" src="/html/images/gamemode_cards/ARCADE_intro.jpg" />
-                <video class="card_video_clip start" src="/html/images/gamemode_cards/ARCADE_intro.webm"></video>
-                <video class="card_video_clip loop" src="/html/images/gamemode_cards/ARCADE_loop.webm" loop></video>
-            </div>
-            <div class="card_top i18n" data-i18n="game_modes_arcade">Arcade Modes</div>
-            <div class="card_bottom">
-                <!--<div class="card_text">Instagib with crossbows and collect coins!</div>-->
-                <div class="card_checkbox _quick_play_checkbox" data-mode="qp_instagib_5" data-variable="lobby_search_qp_instagib_5">
-                    <div class="checkbox_box">
-                        <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                        <div class="checkbox_mark"></div>
-                    </div>
-                    <div class="checkbox_label"><span class="i18n" data-i18n="game_mode_instagib">Wee-bow Instagib</span><span>5v5</span></div>
-                </div>
-                <div class="card_checkbox _quick_play_checkbox" data-mode="qp_rocket_arena_1" data-variable="lobby_search_qp_rocket_arena_1">
-                    <div class="checkbox_box">
-                        <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                        <div class="checkbox_mark"></div>
-                    </div>
-                    <div class="checkbox_label"><span class="i18n" data-i18n="game_mode_rocket_arena">Rocket Arena</span><span>1v1</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card_flex tooltip2" data-msg-html-id="mode_description" data-mode="wipeout">
-            <div class="card_video">
-                <img class="card_video_preview loop" src="/html/images/gamemode_cards/WIPEOUT_loop.jpg" />
-                <img class="card_video_preview start" src="/html/images/gamemode_cards/WIPEOUT_intro.jpg" />
-                <video class="card_video_clip start" src="/html/images/gamemode_cards/WIPEOUT_intro.webm"></video>
-                <video class="card_video_clip loop" src="/html/images/gamemode_cards/WIPEOUT_loop.webm" loop></video>
-            </div>
-            <div class="card_top i18n" data-i18n="game_mode_wipeout">Wipeout</div>
-            <div class="card_bottom">
-                <!--<div class="card_text">Round based mode with increasingly longer respawn times. Wipe the whole enemy team to win the round.</div>-->
-                <div class="card_checkbox _quick_play_checkbox" data-mode="qp_wo_5" data-variable="lobby_search_qp_wo_5">
-                    <div class="checkbox_box">
-                        <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                        <div class="checkbox_mark"></div>
-                    </div>
-                    <div class="checkbox_label">5v5</div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card_flex tooltip2" data-msg-html-id="mode_description" data-mode="ca">
-            <div class="card_video">
-                <img class="card_video_preview loop" src="/html/images/gamemode_cards/ARENA_loop.jpg" />
-                <img class="card_video_preview start" src="/html/images/gamemode_cards/ARENA_intro.jpg" />
-                <video class="card_video_clip start" src="/html/images/gamemode_cards/ARENA_intro.webm"></video>
-                <video class="card_video_clip loop" src="/html/images/gamemode_cards/ARENA_loop.webm" loop></video>
-            </div>
-            <div class="card_top i18n" data-i18n="game_mode_arena">Arena</div>
-            <div class="card_bottom">
-                <!--<div class="card_text">Round based with 2 lives per round</div>-->
-                <div class="card_checkbox _quick_play_checkbox" data-mode="qp_ca_1" data-variable="lobby_search_qp_ca_1">
-                    <div class="checkbox_box">
-                        <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                        <div class="checkbox_mark"></div>
-                    </div>
-                    <div class="checkbox_label"><span class="i18n" data-i18n="game_mode_arena">Arena</span><span>1v1</span></div>
-                </div>
-                <div class="card_checkbox _quick_play_checkbox" data-mode="qp_ca_2" data-variable="lobby_search_qp_ca_2">
-                    <div class="checkbox_box">
-                        <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                        <div class="checkbox_mark"></div>
-                    </div>
-                    <div class="checkbox_label"><span class="i18n" data-i18n="game_mode_arena">Arena</span><span>2v2</span></div>
-                </div>
-            </div>
-        </div>
-
-        <!--
-        <div class="card_flex">
-            <div class="card_video">
-                <img class="card_video_preview loop" src="/html/images/gamemode_cards/ARCADE_loop.jpg" />
-                <img class="card_video_preview start" src="/html/images/gamemode_cards/ARCADE_intro.jpg" />
-                <video class="card_video_clip start" src="/html/images/gamemode_cards/ARCADE_intro.webm"></video>
-                <video class="card_video_clip loop" src="/html/images/gamemode_cards/ARCADE_loop.webm" loop></video>
-            </div>
-            <div class="card_top i18n" data-i18n="game_modes_arcade">Arcade Modes</div>
-            <div class="card_bottom">
-                <div class="card_text">Arcade modes for the whole family</div>
-                <div class="card_checkbox _quick_play_checkbox" data-mode="qp_ffa" data-variable="lobby_search_qp_ffa">
-                    <div class="checkbox_box">
-                        <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                        <div class="checkbox_mark"></div>
-                    </div>
-                    <div class="checkbox_label">FFA</div>
-                </div>
-                <div class="card_checkbox _quick_play_checkbox" data-mode="qp_instagib_ffa" data-variable="lobby_search_qp_instagib_ffa">
-                    <div class="checkbox_box">
-                        <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                        <div class="checkbox_mark"></div>
-                    </div>
-                    <div class="checkbox_label">Instagib FFA</div>
-                </div>
-                <div class="card_checkbox _quick_play_checkbox" data-mode="qp_instagib_5" data-variable="lobby_search_qp_instagib_5">
-                    <div class="checkbox_box">
-                        <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                        <div class="checkbox_mark"></div>
-                    </div>
-                    <div class="checkbox_label">Instagib 5v5 Frag Confirmed</div>
-                </div>
-            </div>
-        </div>
-        -->
-
-    </div>
+    <div class="play_cards_container"></div>
 
     <div class="play_button_container">
         <div class="alignment_fix" style="display:none;"></div>
@@ -2430,190 +2276,17 @@
 </div>
 
                 <div id="play_screen_ranked">
-    <div class="card_sliding_container">
-
+    <div class="play_cards_container"></div>
+<!--
+    <div class="card_sliding_container"> 
         <div class="card_sliding_arrow left active"></div>
         <div class="play_cards_container">
-            <div class="card_page_container">
-
-                 <!-- RANKED MODES -->
-
-                <div class="card_page">
-
-                    <div class="card_flex tooltip2" data-msg-html-id="mode_description" data-mode="ctf">
-                        <div class="card_video">
-                            <img class="card_video_preview loop" src="/html/images/gamemode_cards/CTF_loop.jpg" />
-                            <img class="card_video_preview start" src="/html/images/gamemode_cards/CTF_Intro.jpg" />
-                            <video class="card_video_clip start" src="/html/images/gamemode_cards/CTF_Intro.webm"></video>
-                            <video class="card_video_clip loop" src="/html/images/gamemode_cards/CTF_loop.webm" loop></video>
-                        </div>
-                        <div class="card_top i18n" data-i18n="game_mode_capture_the_flag">Capture The Flag</div>
-                        <div class="card_bottom">
-                            <div class="card_text">Capture the enemy flag and bring it back to your own to score points.</div>
-
-                            <div class="card_checkbox _comp_play_checkbox" data-mode="r_ctf_5" data-variable="lobby_search_r_ctf_5">
-                                <div class="checkbox_box">
-                                    <div class="checkbox_locked"></div>
-                                    <!--
-                                    <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                                    <div class="checkbox_mark"></div>
-                                    -->
-                                </div>
-                                <div class="checkbox_label">5v5</div>
-                            </div>
-                            <div class="card_roles">
-                                <div class="card_roles_inner">
-                                    <div class="card_role _comp_play_role" data-mode="r_ctf_5" data-role="attack">
-                                        <div class="card_role_cb"><div class="mark"></div></div>
-                                        <div class="card_role_label i18n" data-i18n="role_attack">Attack</div>
-                                        <div class="card_role_players">
-                                        </div>
-                                    </div>
-                                    <div class="card_role _comp_play_role" data-mode="r_ctf_5" data-role="defend">
-                                        <div class="card_role_cb"><div class="mark"></div></div>
-                                        <div class="card_role_label i18n" data-i18n="role_defend">Defend</div>
-                                        <div class="card_role_players">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card_flex tooltip2" data-msg-html-id="mode_description" data-mode="wipeout">
-                        <div class="card_video">
-                            <img class="card_video_preview loop" src="/html/images/gamemode_cards/WIPEOUT_loop.jpg" />
-                            <img class="card_video_preview start" src="/html/images/gamemode_cards/WIPEOUT_intro.jpg" />
-                            <video class="card_video_clip start" src="/html/images/gamemode_cards/WIPEOUT_intro.webm"></video>
-                            <video class="card_video_clip loop" src="/html/images/gamemode_cards/WIPEOUT_loop.webm" loop></video>
-                        </div>
-                        <div class="card_top i18n" data-i18n="game_mode_wipeout">Wipeout</div>
-                        <div class="card_bottom">
-                            <div class="card_text">Round based mode with increasingly longer respawn times. Wipe the whole enemy team to win the round.</div>
-                            <div class="card_checkbox _comp_play_checkbox" data-mode="r_wo_5" data-variable="lobby_search_r_wo_5">
-                                <div class="checkbox_box">
-                                    <div class="checkbox_locked"></div>
-                                    <!--
-                                    <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                                    <div class="checkbox_mark"></div>
-                                    -->
-                                </div>
-                                <div class="checkbox_label">5v5</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card_flex tooltip2" data-msg-html-id="mode_description" data-mode="ca">
-                        <div class="card_video">
-                            <img class="card_video_preview loop" src="/html/images/gamemode_cards/ARENA_loop.jpg" />
-                            <img class="card_video_preview start" src="/html/images/gamemode_cards/ARENA_intro.jpg" />
-                            <video class="card_video_clip start" src="/html/images/gamemode_cards/ARENA_intro.webm"></video>
-                            <video class="card_video_clip loop" src="/html/images/gamemode_cards/ARENA_loop.webm" loop></video>
-                        </div>
-                        <div class="card_top i18n" data-i18n="game_mode_arena">Arena</div>
-                        <div class="card_bottom">
-                            <div class="card_text">Round based one versus one with two lives for each player in each round.</div>
-                            <div class="card_checkbox _comp_play_checkbox" data-mode="r_ca_1" data-variable="lobby_search_r_ca_1">
-                                <div class="checkbox_box">
-                                    <div class="checkbox_locked"></div>
-                                    <!--
-                                    <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                                    <div class="checkbox_mark"></div>
-                                    -->
-                                </div>
-                                <div class="checkbox_label">1v1</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ESPORTS MODES -->
-
-                <div class="card_page">
-
-                    <div class="card_flex locked tooltip2" data-msg-html-id="mode_description" data-mode="tdm">
-                        <div class="card_video">
-                            <img class="card_video_preview loop" src="/html/images/gamemode_cards/BRAWL_loop.jpg" />
-                            <img class="card_video_preview start" src="/html/images/gamemode_cards/BRAWL_intro.jpg" />
-                            <video class="card_video_clip start" src="/html/images/gamemode_cards/BRAWL_intro.webm"></video>
-                            <video class="card_video_clip loop" src="/html/images/gamemode_cards/BRAWL_loop.webm" loop></video>
-                        </div>
-                        <div class="card_locked">
-                            <div class="icon"></div>
-                            <div class="text">Coming soon</div>
-                        </div>
-                        <div class="card_top i18n" data-i18n="game_mode_tdm">Team Deathmatch</div>
-                        <div class="card_bottom">
-                            <div class="card_text">Frag the enemy team more often than they frag you!</div>
-                            <div class="card_checkbox _comp_play_checkbox" data-mode="r_tdm_3" data-variable="lobby_search_r_tdm_3">
-                                <div class="checkbox_box">
-                                    <div class="checkbox_locked"></div>
-                                    <!--
-                                    <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                                    <div class="checkbox_mark"></div>
-                                    -->
-                                </div>
-                                <div class="checkbox_label">3v3</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card_flex locked tooltip2" data-msg-html-id="mode_description" data-mode="macguffin">
-                        <div class="card_video">
-                            <img class="card_video_preview" src="/html/images/gamemode_cards/MCGUFFIN_loop.jpg" />
-                            <video class="card_video_clip loop" src="/html/images/gamemode_cards/MCGUFFIN_loop.webm" loop></video>
-                        </div>
-                        <div class="card_locked">
-                            <div class="icon"></div>
-                            <div class="text">Coming soon</div>
-                        </div>
-                        <div class="card_top i18n" data-i18n="game_mode_macguffin">MacGuffin</div>
-                        <div class="card_bottom">
-                            <div class="card_text">Super secret special mode... i ain't a snitch so not telling!</div>
-                            <div class="card_checkbox _comp_play_checkbox" data-mode="macguffin_3" data-variable="lobby_search_macguffin_3">
-                                <div class="checkbox_box">
-                                    <div class="checkbox_locked"></div>
-                                    <!--
-                                    <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                                    <div class="checkbox_mark"></div>
-                                    -->
-                                </div>
-                                <div class="checkbox_label">3v3</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card_flex tooltip2" data-msg-html-id="mode_description" data-mode="duel">
-                        <div class="card_video">
-                            <img class="card_video_preview loop" src="/html/images/gamemode_cards/ARENA_loop.jpg" />
-                            <img class="card_video_preview start" src="/html/images/gamemode_cards/ARENA_intro.jpg" />
-                            <video class="card_video_clip start" src="/html/images/gamemode_cards/ARENA_intro.webm"></video>
-                            <video class="card_video_clip loop" src="/html/images/gamemode_cards/ARENA_loop.webm" loop></video>
-                        </div>
-                        <div class="card_top i18n" data-i18n="game_mode_duel">Duel</div>
-                        <div class="card_bottom">
-                            <div class="card_text">Timelimit one versus one finishing on a golden frag.</div>
-                            <div class="card_checkbox _comp_play_checkbox" data-mode="r_duel" data-variable="lobby_search_r_duel">
-                                <div class="checkbox_box">
-                                    <div class="checkbox_locked"></div>
-                                    <!--
-                                    <div class="checkbox_times tooltip2" data-msg-id="incompatible_party_size"></div>
-                                    <div class="checkbox_mark"></div>
-                                    -->
-                                </div>
-                                <div class="checkbox_label">1v1</div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+            <div class="card_page_container"></div>
+            <div class="card_page_container"></div>
         </div>
         <div class="card_sliding_arrow right active"></div>
-
     </div>
-
+-->
     <div class="play_button_container">
         <div class="alignment_fix" style="display:none;"></div>
         <div id="ranked_play_queue_button" class="big-btn click-sound mouseover-sound2 i18n" onclick="comp_play_queue(this)" data-i18n="menu_find_match">Find Match</div>
@@ -2653,7 +2326,7 @@
                             Name
                         </span>
                         <span class=setting_content>
-                            <input id="custom_game_setting_name" class="custom_game_setting_input" oninput='global_input_debouncers["custom_game_setting_name"].execute()'/>
+                            <input id="custom_game_setting_name" class="custom_game_setting_input" maxlength="60" oninput='global_input_debouncers["custom_game_setting_name"].execute()'/>
                         </span>
                     </div>
                     <div class=custom_game_setting id="custom_setting_password">
@@ -2661,7 +2334,7 @@
                             Password
                         </span>
                         <span id="lobby_password_setting_content" class=setting_content>
-                            <input id="custom_game_setting_password" class="custom_game_setting_input" type="password" onkeydown="lobby_password_keydown(event)" onblur="lobby_password_blur(event)" />
+                            <input id="custom_game_setting_password" class="custom_game_setting_input" type="password" maxlength="60" onkeydown="lobby_password_keydown(event)" onblur="lobby_password_blur(event)" />
                             <div id="custom_game_password_set">
                                 <div class="password_icon"></div>
                                 <div class="edit_password button_medium mouseover-sound4 click-sound tooltip2" data-msg-id="game_password_change" onclick="lobby_password_edit()"></div>
@@ -3036,7 +2709,7 @@
         </div>
     </div>
 
-    <div id="customlist_table" class="scroll-outer" data-sb-hide-empty="true">
+    <div id="customlist_table" class="scroll-outer">
         <div class="scroll-bar"><div class="scroll-thumb"></div></div>
         <div id="customlist_table_content" class="scroll-inner">
 
@@ -3365,6 +3038,48 @@
 </div>
 
         </div>
+
+        <div id="party_box">
+
+</div>
+
+        <div class="game_queue_info_area">
+            <div class="queue_time_box" id="queue_quickplay_box">
+                <div class="queue_cancel_box"  onclick="cancel_search('quickplay')"></div>
+                <div class="queue_info quickplay">
+                    <div class="queue_info_queuetype">
+                        <div class="queue_for">Queuing for</div>
+                        <div>QUICKPLAY</div>
+                    </div>
+                    <div class="queue_queue_time">00:00</div>
+                    <div class="queue_info_icon tooltip2" data-msg-html-id="queue_info_quickplay"></div>
+                </div>
+                <div class="queue_match_found">
+                    <div><span><!--GAME NAME HERE--></span>MATCH FOUND</div>
+                </div>
+            </div>
+
+            <div class="queue_time_box"  id="queue_mm_box">
+                <div class="queue_cancel_box"  onclick="cancel_search('ranked')"></div>
+                <div class="queue_info ranked">
+                    <div class="queue_info_queuetype">
+                        <div class="queue_for">Queuing for</div>
+                        <div>RANKED</div>
+                    </div>
+                    <div class="queue_queue_time">00:00</div>
+                    <div class="queue_info_icon tooltip2" data-msg-html-id="queue_info_ranked"></div>
+                </div>
+                <div class="queue_match_found">
+                    <div><span><!--GAME NAME HERE--></span>MATCH FOUND</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="match_found_splash">
+            <div class="type">Quickplay Match Found</div>
+            <div class="mode">Wipeout 5v5</div>
+            <div class="btn cancel mouseover-sound4 click-sound i18n" onclick="mm_cancel_found_match(event)" data-i18n="menu_button_cancel">Cancel</div>
+        </div>
         
         <div id="menu_background"></div>
 
@@ -3440,38 +3155,6 @@
 
         <div id="notification_area">
             <div id="notification_area_code"></div>
-        </div>
-
-        <div class="game_queue_info_area">
-            <div class="queue_time_box" id="queue_quickplay_box">
-                <div class="queue_cancel_box"  onclick="cancel_search('quickplay')"></div>
-                <div class="queue_info quickplay">
-                    <div class="queue_info_queuetype">
-                        <div class="queue_for">Queuing for</div>
-                        <div>QUICKPLAY</div>
-                    </div>
-                    <div class="queue_queue_time">00:00</div>
-                    <div class="queue_info_icon tooltip2" data-msg-html-id="queue_info_quickplay"></div>
-                </div>
-                <div class="queue_match_found">
-                    <div><span><!--GAME NAME HERE--></span>MATCH FOUND</div>
-                </div>
-            </div>
-
-            <div class="queue_time_box"  id="queue_mm_box">
-                <div class="queue_cancel_box"  onclick="cancel_search('ranked')"></div>
-                <div class="queue_info ranked">
-                    <div class="queue_info_queuetype">
-                        <div class="queue_for">Queuing for</div>
-                        <div>RANKED</div>
-                    </div>
-                    <div class="queue_queue_time">00:00</div>
-                    <div class="queue_info_icon tooltip2" data-msg-html-id="queue_info_ranked"></div>
-                </div>
-                <div class="queue_match_found">
-                    <div><span><!--GAME NAME HERE--></span>MATCH FOUND</div>
-                </div>
-            </div>
         </div>
 
         <div id="player_plate">
@@ -3570,7 +3253,7 @@
                 <div id="friends_invites_game_cont" class="cont open"></div>
             </div>
 
-            <div id="friends_invites_epic_in" class="category open">
+            <div id="friends_invites_epic_in" class="category open" style="display:none;">
                 <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
                     <div class="count">0</div>
                     <div class="label i18n" data-i18n="friends_list_label_friend_requests_in">Friend Requests - Incoming</div>
@@ -3579,7 +3262,7 @@
                 <div id="friends_invites_epic_in_cont" class="cont open"></div>
             </div>
 
-            <div id="friends_invites_epic_out" class="category">
+            <div id="friends_invites_epic_out" class="category" style="display:none;">
                 <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
                     <div class="count">0</div>
                     <div class="label i18n" data-i18n="friends_list_label_friend_requests_out">Friend Requests - Outgoing</div>
@@ -3874,6 +3557,68 @@
             </div>
         </div>
 
+        <div id="rank_overview_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
+            <div class="generic_modal_dialog" onclick="event.stopPropagation();">
+                <div class="title">Seasonal Ranks</div>
+                <div class="rank_list">
+                    <div class="rank">
+                        <div class="rank_icon rank_5"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_1"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon rank_10"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_2"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon rank_15"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_3"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon rank_20"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_4"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon rank_25"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_5"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon rank_30"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_6"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon rank_35"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_7"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon rank_40"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_8"></div>
+                    </div>
+                </div>
+                <div class="rank_list">
+                    <div class="rank">
+                        <div class="rank_icon top_1"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_top1000"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon top_2"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_top100"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon top_3"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_top50"></div>
+                    </div>
+                    <div class="rank">
+                        <div class="rank_icon top_4"></div>
+                        <div class="rank_name i18n" data-i18n="rank_tier_top1"></div>
+                    </div>
+                </div>
+
+                <div class="generic_modal_dialog_action">
+                    <div class="dialog_button clickable" onclick="close_modal_screen_by_selector('rank_overview_modal_screen')" data-i18n="modal_close">Close</div>
+                </div>
+            </div>
+        </div>
+
         <div id="region_select_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog region_select_modal" onclick="event.stopPropagation();">
                 <div class="top">
@@ -4025,17 +3770,15 @@
                             </div>
                             <div class="settings_block_double">
                                 <div class="settings_block_double_header">Yaw/Pitch Presets</div>
-                                <div class="data">
+                                <div class="accel_main_selection">
                                     <div id="setting_yaw_pitch_preset" class="select-field select_setting" data-theme="settings">
-                                        <div data-value='1.32'>Quake/Source</div>
-                                        <div data-value='1'>Diabotical</div>
-                                        <div data-value='0.396'>Overwatch</div>
-                                        <div data-value='0.343774677'>Reflex</div>
-                                        <div data-value='0.3333'>Fortnite</div>
+                                        <div data-value='cs'>Quake/Source</div>
+                                        <div data-value='db'>Diabotical</div>
+                                        <div data-value='ow'>Overwatch</div>
+                                        <div data-value='reflex'>Reflex</div>
+                                        <div data-value='fn'>Fortnite</div>
                                     </div>
-                                </div>
-                                <div class="sub_double mouse_switcher" >
-                                    <div class="button" onclick="copy_preset_yaw_and_pitch()">Apply</div>
+                                    <div class="button" onclick="apply_preset_yaw_and_pitch()">Apply</div>
                                 </div>
                             </div>
                             <div class="settings_block_double" style="display:none;align-items:center;justify-content:center;perspective-origin:center;perspective:50vh">
@@ -4172,6 +3915,8 @@
                                                 <img class="crosshair-option" data-cross="15" src="/html/images/crosshairs/ch_15.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="16" src="/html/images/crosshairs/ch_16.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="17" src="/html/images/crosshairs/ch_17.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="18" src="/html/images/crosshairs/ch_18.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="19" src="/html/images/crosshairs/ch_19.svg?fill=%23ffffff">
                                             </div>
                                         </div>
                                         
@@ -4233,6 +3978,8 @@
                                                 <img class="crosshair-option" data-cross="15" src="/html/images/crosshairs/ch_15.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="16" src="/html/images/crosshairs/ch_16.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="17" src="/html/images/crosshairs/ch_17.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="18" src="/html/images/crosshairs/ch_18.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="19" src="/html/images/crosshairs/ch_19.svg?fill=%23ffffff">
                                             </div>
                                         </div>
                                         
@@ -4294,6 +4041,8 @@
                                                 <img class="crosshair-option" data-cross="15" src="/html/images/crosshairs/ch_15.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="16" src="/html/images/crosshairs/ch_16.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="17" src="/html/images/crosshairs/ch_17.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="18" src="/html/images/crosshairs/ch_18.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="19" src="/html/images/crosshairs/ch_19.svg?fill=%23ffffff">
                                             </div>
                                         </div>
                                         
@@ -4352,7 +4101,7 @@
                                                 </div>
                                                 <div class="double long">
                                                     <span class="i18n" data-i18n="settings_crosshair_mask_diameter">Diameter</span>
-                                                    <div id="setting_hud_crosshair_sizemask" class="range-slider" data-min="0" data-max="200" data-fig="6" data-step="0.001" data-def="133.3333"></div>
+                                                    <div id="setting_hud_crosshair_sizemask" class="range-slider" data-min="0" data-max="200" data-fig="8" data-step="1" data-def="133.333333"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4419,6 +4168,8 @@
                                                 <img class="crosshair-option" data-cross="15" src="/html/images/crosshairs/ch_15.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="16" src="/html/images/crosshairs/ch_16.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="17" src="/html/images/crosshairs/ch_17.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="18" src="/html/images/crosshairs/ch_18.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="19" src="/html/images/crosshairs/ch_19.svg?fill=%23ffffff">
                                             </div>
                                         </div>
                                         
@@ -4480,6 +4231,8 @@
                                                 <img class="crosshair-option" data-cross="15" src="/html/images/crosshairs/ch_15.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="16" src="/html/images/crosshairs/ch_16.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="17" src="/html/images/crosshairs/ch_17.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="18" src="/html/images/crosshairs/ch_18.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="19" src="/html/images/crosshairs/ch_19.svg?fill=%23ffffff">
                                             </div>
                                         </div>
                                         
@@ -4541,6 +4294,8 @@
                                                 <img class="crosshair-option" data-cross="15" src="/html/images/crosshairs/ch_15.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="16" src="/html/images/crosshairs/ch_16.svg?fill=%23ffffff">
                                                 <img class="crosshair-option" data-cross="17" src="/html/images/crosshairs/ch_17.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="18" src="/html/images/crosshairs/ch_18.svg?fill=%23ffffff">
+                                                <img class="crosshair-option" data-cross="19" src="/html/images/crosshairs/ch_19.svg?fill=%23ffffff">
                                             </div>
                                         </div>
                                         
@@ -4599,7 +4354,7 @@
                                                 </div>
                                                 <div class="double long">
                                                     <span class="i18n" data-i18n="settings_crosshair_mask_diameter">Diameter</span>
-                                                    <div id="setting_hud_zoom_crosshair_sizemask" class="range-slider" data-min="0" data-max="200" data-fig="6" data-step="0.001" data-def="133.3333"></div>
+                                                    <div id="setting_hud_zoom_crosshair_sizemask" class="range-slider" data-min="0" data-max="200" data-fig="8" data-step="1" data-def="133.333333"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4637,11 +4392,21 @@
 
     <div id="draft_screen">
 
-        <div class="select_map_label i18n" data-i18n="pick_your_preferred_map">PICK YOUR PREFERRED MAP</div>
+        <div class="outer_center_container">
+            <div class="center_container">
+                <div class="select_map_label i18n" data-i18n="pick_your_preferred_map">PICK YOUR PREFERRED MAP</div>
+                <div id="draft_maps_container"></div>
+            </div>
+        </div>
 
-        <div id="draft_maps_container"></div>
-
-        <div id="draft_screen_countdown"></div>
+        <div class="bottom">
+            <div id="draft_screen_mode_icon" class="icon"></div>
+            <div class="mode_desc">
+                <div id="draft_screen_mode_name" class="title"></div>
+                <div id="draft_screen_mode_text" class="text"></div>
+            </div>
+            <div id="draft_screen_countdown" class="countdown"></div>
+        </div>
     </div>
 
     <div id="dialog_list">
@@ -4827,7 +4592,7 @@
     [[if analog==1]]
     <div style="width:calc([[:fontSize]]vh*var(--ratio));height:calc([[:fontSize]]vh*var(--ratio));border-radius:50%;border:2px solid [[:color]]">
         <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;"><div style="position:absolute;width:2px;top:2px;bottom:50%;background-color: [[:color]]"></div></div>
-        <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;"><div style="position:absolute;width:2px;top:25%;bottom:50%;background-color: [[:color]]"></div></div>
+        <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;[[if hideMin==1]]visibility:hidden[[/if]]"><div style="position:absolute;width:2px;top:25%;bottom:50%;background-color: [[:color]]"></div></div>
         <div style="width:100%;height:100%;position:absolute;">
             <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 30deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
             <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 60deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
@@ -4872,7 +4637,21 @@
     00:00:00
     [[/if]]
 </script>
-    
+
+<script id="hud_coins" type="text/x-jsrender">
+    [[if hudPreview]]
+    <div class="coin_cont">
+        <div class="icon"></div>
+        <div class="counter">×6</div>
+    </div>
+    [[else]]
+    <div class="coin_cont" data-bind-if="{{game_data.game_mode}} == 'coinrun' && {{battle_data.self.coins}} > 0">
+        <div class="icon"></div>
+        <div class="counter" data-bind-value="'×'+{{battle_data.self.coins}}"></div>
+    </div>
+    [[/if]]
+</script>
+
 <script id="hud_simple_text" type="text/x-jsrender">
     <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>200</div>
 </script>
@@ -4917,24 +4696,28 @@
             [[if icon == 1]]
             <div class="icon" style="background-image:url('images/weapon_rl.svg?fill=#df1f2d')"></div>
             [[/if]]
+            [[if name == 1]]
             <div class="text">
                 [[if owner == 1]]
                 <div class="owner">Mr Eggbot's</div>
                 [[/if]]
                 <div class="name">Rocket Launcher</div>
             </div>
+            [[/if]]
         </div>
     [[else]]
         <div class="container" data-bind-if="{{battle_data.self.alive}}">
             [[if icon == 1]]
             <div class="icon"></div>
             [[/if]]
+            [[if name == 1]]
             <div class="text">
                 [[if owner == 1]]
                 <div class="owner"></div>
                 [[/if]]
                 <div class="name"></div>
             </div>
+            [[/if]]
         </div>
     [[/if]]
 </script>
@@ -5031,7 +4814,7 @@
 
 <script id="hud_chat" type="text/x-jsrender">
 
-    <div class="chat_container">
+    <div class="chat_container" [[if showTimestamp==1]]style="--chat_show_timestamp_while_ingame:flex;"[[/if]]>
         <div class="chat_temp_cont">
             <div class="chat_temp"></div>
         </div>
@@ -5105,7 +4888,7 @@
             <div class="dropped" data-bind-if="{{game_data.own_team.team_flag_state}} == 2"></div>
         </div>
         [[if players == true]]
-        <div class='teamscore_solo' data-bind-if="{{game_data.solo_mode}}">
+        <div class='teamscore_solo' data-bind-if="{{game_data.team_size}} == 1">
             <div class="solo_player" data-bind-for="player_iter:{{game_data.own_team.players}}">
                 <div class="name" data-bind-style-background-color="{{game_data.own_team.color_dark}}+'[[:name_bg_opacity]]'"><div data-bind-value="{{player_iter.name}}">Player1</div></div>
                 <div class="avatar" style="--height:[[:height]]" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-style-background-color="{{game_data.own_team.color_dark}}+'[[:name_bg_opacity]]'" data-bind-class-toggle="player_dead:!{{player_iter.alive}}">
@@ -5115,14 +4898,34 @@
         </div>
 
         <div class="solo_player_stack_cont" data-bind-for="player_iter:{{game_data.own_team.players}}">
-            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.solo_mode}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
+            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.team_size}} == 1 && {{game_data.spectator}}">
                 <div class="hp_bar_cont"><div class="hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.own_team.color}}"></div></div>
                 <div class="armor_bar_cont"><div class="armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div></div>
             </div>
-            <!--<div data-bind-for="player_iter:{{game_data.enemy_team.players}}">
-                <div data-bind-for="_:(dummy_stock_array_maker({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{battle_data.self.alive}},{{player_iter.alive}}))">O</div>
-                <div data-bind-value="'x'+duel_stocks({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{battle_data.self.alive}},{{player_iter.alive}})"></div>
-            </div>-->
+            [[if showStocks == 1]]
+            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
+                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
+                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
+                                   [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
+                </div>
+            </div>
+            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'duel' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
+                [[if !(reverse == 1)]]
+                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{player_iter.alive}})"
+                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.own_team.color}}">
+                </div>
+                [[/if]]
+                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
+                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
+                                   [[/if]]             data-bind-for="_:(dummy_stock_array_maker({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{player_iter.alive}}))">
+                </div>
+                [[if (reverse == 1)]]
+                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{player_iter.alive}})"
+                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.own_team.color}}">
+                </div>
+                [[/if]]
+            </div>
+            [[/if]]
         </div>
 
 
@@ -5156,6 +4959,12 @@
                             <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
                         </div>
                     </div>
+                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{player_iter.alive}}">
+                        <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
+                                           [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
+                                           [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -5174,7 +4983,7 @@
             <div class="dropped" data-bind-if="{{game_data.enemy_team.team_flag_state}} == 2"></div>
         </div>
         [[if players == true]]
-        <div class='teamscore_solo' data-bind-if="{{game_data.solo_mode}}">
+        <div class='teamscore_solo' data-bind-if="{{game_data.team_size}} == 1">
             <div class="solo_player" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
                 <div class="name" data-bind-style-background-color="{{game_data.enemy_team.color_dark}}+'[[:name_bg_opacity]]'"><div data-bind-value="{{player_iter.name}}">Player2</div></div>
                 <div class="avatar" style="--height:[[:height]]" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-style-background-color="{{game_data.enemy_team.color_dark}}+'[[:name_bg_opacity]]'" data-bind-class-toggle="player_dead:!{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
@@ -5184,10 +4993,34 @@
         </div>
 
         <div class="solo_player_stack_cont" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
-            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.solo_mode}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
+            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.team_size}} == 1 && {{game_data.spectator}}">
                 <div class="hp_bar_cont"><div class="hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.enemy_team.color}}"></div></div>
                 <div class="armor_bar_cont"><div class="armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div></div>
             </div>
+            [[if showStocks == 1]]
+            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
+                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
+                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
+                                   [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
+                </div>
+            </div>
+            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'duel' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
+                [[if !(reverse == 1)]]
+                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.enemy_team.team_score}},{{game_data.own_team.team_score}},{{player_iter.alive}})"
+                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.enemy_team.color}}">
+                </div>
+                [[/if]]
+                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
+                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
+                                   [[/if]]             data-bind-for="_:(dummy_stock_array_maker({{game_data.enemy_team.team_score}},{{game_data.own_team.team_score}},{{player_iter.alive}}))">
+                </div>
+                [[if (reverse == 1)]]
+                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.enemy_team.team_score}},{{game_data.own_team.team_score}},{{player_iter.alive}})"
+                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.enemy_team.color}}">
+                </div>
+                [[/if]]
+            </div>
+            [[/if]]
         </div>
 
         <div class="teamscore_team" data-bind-if="!{{game_data.solo_mode}}">
@@ -5217,6 +5050,12 @@
                                                 
                         <div class="player_powerup" data-bind-if="{{player_iter.has_powerup}}">
                             <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
+                        </div>
+                    </div>
+                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{player_iter.alive}}">
+                        <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
+                                           [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
+                                           [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
                         </div>
                     </div>
                 </div>
@@ -5291,7 +5130,7 @@
             <div class="indicator_below_text_cont" data-bind-if="{{battle_data.is_item_countable}}">
                 <div class="indicator_below_text" data-bind-if="{{battle_data.is_item_countable}}" data-bind-value="{{battle_data.item_charge}}"></div>
             </div>
-            <!--<div class="indicator_below_desc">ITEM NAME</div>-->
+            [[if name == 1]]<div class="indicator_below_desc" data-bind-value="format_item_name({{battle_data.item_name}})">ITEM NAME</div>[[/if]]
             [[if keybind == 1]]
             <div class="indicator_key_cont">
                 <div class="indicator_keybind" data-bind-value="{{battle_data.item_keybind}}"></div>
@@ -5356,7 +5195,17 @@
       [[if !(hideKeypress==1||showIn3D==1)]]
         <div class="g_meter_outer_ring" data-bind-class-toggle="heated:(strafe_data.cj&&({{frame_data.speed}}>[[:cjspeed]]))"
                                         style="z-index:-1;background-image:radial-gradient(circle closest-side, black var(--inner_ring_percentage), rgba(255,255,255,0.25) calc(var(--inner_ring_percentage) + 1%), rgba(255,255,255,0.05) 100%, transparent 100.001%)">
-             <div class="g_meter_vert_line"></div>
+        </div>
+        <div class="g_meter_outer_ring" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}" style="border-radius:50%">
+            <div class="g_meter_outer_ring" style="transform:rotate(45deg);align-items:flex-start;justify-content:flex-start">
+                <div class="g_meter_outer_ring_highlight" data-bind-property="'--efficiency_color:'+(true?strafe_data.color:{{frame_data.speed}})"></div>
+                <div class="g_meter_outer_ring" style="transform:rotate( -45deg)">
+                    <div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*0.992773891679)) scale(calc([[:ringInnerSize]]/100))"></div>
+                <!--<div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*1)) scale(calc([[:ringInnerSize]]/100))"
+                         data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.shadowcolor:{{battle_data.self.alive}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
+                    </div>-->
+                </div>
+            </div>
         </div>
         <div class="g_meter_outer_ring" style="transform:rotate(  45deg)"><div class="g_meter_vert_line"></div></div>
         <div class="g_meter_outer_ring" style="transform:rotate( -45deg)"><div class="g_meter_vert_line"></div></div>
@@ -5365,18 +5214,7 @@
         <div class="g_meter_outer_ring" style="transform:rotate( 135deg)"><div class="g_meter_vert_line"></div></div>
         <div class="g_meter_outer_ring" style="transform:rotate(-135deg)"><div class="g_meter_vert_line"></div></div>
         <div class="g_meter_outer_ring" style="transform:rotate( 180deg)"><div class="g_meter_vert_line"></div></div>
-        <div class="g_meter_outer_ring" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}" style="border-radius:50%">
-            <div class="g_meter_outer_ring" style="transform:rotate(45deg);align-items:flex-start;justify-content:flex-start">
-                <div class="g_meter_outer_ring" style="transform:translate(-50%, -50%)">
-                    <div class="g_meter_outer_ring_highlight" data-bind-property="'--efficiency_color:'+(true?strafe_data.color:{{frame_data.speed}})"></div>
-                </div>
-                <div class="g_meter_outer_ring" style="transform:rotate( -90deg)"><div class="g_meter_vert_line"></div></div>
-                <div class="g_meter_outer_ring" style="transform:rotate(   0deg)"><div class="g_meter_vert_line"></div></div>
-                <div class="g_meter_outer_ring" style="transform:rotate( -45deg)"><div class="g_meter_vert_line"></div>
-                    <div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*0.992773891679)) scale(calc([[:ringInnerSize]]/100))"></div>
-                </div>
-            </div>
-        </div>
+        <div class="g_meter_outer_ring" style="transform:rotate( 360deg)"><div class="g_meter_vert_line"></div></div>
       [[/if]]
       [[if !(showSpeed==4)]][[if showSpeed==1||showSpeed==3]]
         [[if showSpeed==3]]
@@ -5420,9 +5258,32 @@
                <div class="sound_barrier_inner_back" style="right:40%"></div>
              </div>
           </div>
-          <div style="position:absolute;width:100%;height:100%;" data-bind-property="'--efficiency_color:'+(true?strafe_data.color:{{frame_data.speed}})" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}">
-               <div class="g_meter_vert_line"  style="height:50%;background-color:var(--efficiency_color)" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}"></div>
-               <div class="accel_dot_indicator_circle" data-bind-property="'--eff_dot_trans:'+(true?strafe_data.dot_trans:{{frame_data.speed}})"></div>
+          <div style="position:absolute;width:100%;height:100%;" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}">
+               [[if hideKeypress==1 || showIn3D==1]]
+               <div class="g_meter_vert_line"  style="height:50%" 
+                    data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}" 
+                    data-bind-style-background-color="(true?strafe_data.color:{{frame_data.speed}})">
+               </div>
+               [[else]]
+               <div class="g_meter_vert_line"  style="height:50%;display:flex;align-items:flex-end;background-color:rgba(100,100,100,0.75)" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}">
+                    <div style="width:100%;" data-bind-style-height="true?strafe_data.lineheight:{{frame_data.speed}}" data-bind-style-background-color="(true?strafe_data.color:{{frame_data.speed}})"></div>
+               </div>
+               [[/if]]
+               [[if showIn3D==1]]
+               <div class="accel_dot_indicator_circle" style="background-image:none;display:flex;align-items:center;justify-content:center"
+                    data-bind-property="'--eff_dot_trans:'+(true?strafe_data.dot_trans:{{frame_data.speed}})">
+                   <div class="accel_dot_indicator_circle" style="transform:none"
+                        data-bind-style-width ="Math.min(32000/{{frame_data.speed}},100) + '%'" 
+                        data-bind-style-height="Math.min(32000/{{frame_data.speed}},100) + '%'"
+                        data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.color:{{frame_data.speed}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
+                   </div>
+               </div>
+               [[else]]
+               <div class="accel_dot_indicator_circle" 
+                    data-bind-property="'--eff_dot_trans:'+(true?strafe_data.dot_trans:{{frame_data.speed}})"
+                    data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.color:{{frame_data.speed}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
+               </div>
+               [[/if]]
           </div>
         </div>
     </div>
@@ -5495,10 +5356,17 @@
     [[if hudPreview]]
         <div [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]]>4[[if aliveText == 1]] alive[[/if]]</div>
     [[else]]
-        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}})" 
+        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}}) || game_data.team_size == 1" 
             [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]] 
             data-bind-value="{{game_data.own_team.players}}.filter(x => x.alive==true).length[[if aliveText == 1]] + ' alive'[[/if]]">
         </div>
+<!--        [[if nextUp== 1]]
+        <div data-bind-for="player_iter:{{game_data.own_team.players}}"
+             data-bind-class-toggle="databound_set_invisible:!['wipeout'].includes({{game_data.game_mode}})"
+            [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]]  
+            data-bind-value="is_my_respawn_closest({{player_iter.respawn_timer}},{{player_iter}})">
+        </div>
+        [[/if]]-->
     [[/if]]
 </script>
 
@@ -5506,7 +5374,7 @@
     [[if hudPreview]]
         <div [[if teamColor == 1]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]]>4[[if aliveText == 1]] alive[[/if]]</div>
     [[else]]
-        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}})" 
+        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}}) || game_data.team_size == 1" 
             [[if teamColor == 1]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]] 
             data-bind-value="{{game_data.enemy_team.players}}.filter(x => x.alive==true).length[[if aliveText == 1]] + ' alive'[[/if]]">
         </div>
@@ -5541,6 +5409,11 @@
     <script src="translations/translation-ja.js"></script>
     <script src="translations/translation-it.js"></script>
     <script src="translations/translation-ru.js"></script>
+    <script src="translations/translation-es-ES.js"></script>
+    <script src="translations/translation-es-MX.js"></script>
+    <script src="translations/translation-fr.js"></script>
+    <script src="translations/translation-pt-BR.js"></script>
+    <script src="translations/translation-de.js"></script>
 
     <script src="translations/countries_en.js"></script>
     <script src="translations/countries_cn.js"></script>
@@ -5548,6 +5421,10 @@
     <script src="translations/countries_ja.js"></script>
     <script src="translations/countries_it.js"></script>
     <script src="translations/countries_ru.js"></script>
+    <script src="translations/countries_es.js"></script>
+    <script src="translations/countries_fr.js"></script>
+    <script src="translations/countries_br.js"></script>
+    <script src="translations/countries_de.js"></script>
 
     <script src="javascript/APIHandler.js"></script>
     <script src="javascript/ui_ms.js"></script>
@@ -5564,6 +5441,7 @@
 
     <script src="components/main_menu/ingame_menu.js"></script>
     <script src="components/main_menu/friend_list.js"></script>
+    <script src="components/main_menu/party_box.js"></script>
     <script src="components/main_menu/main_chat.js"></script>
     <script src="components/main_menu/home_screen.js"></script>
     <script src="components/main_menu/shop_screen.js"></script>
@@ -5603,6 +5481,7 @@
 <script src="javascript/hud_elements/element_hp_bar.js"></script>
 <script src="javascript/hud_elements/element_armor.js"></script>
 <script src="javascript/hud_elements/element_armor_bar.js"></script>
+<script src="javascript/hud_elements/element_coins.js"></script>
 <script src="javascript/hud_elements/element_stack.js"></script>
 <script src="javascript/hud_elements/element_fps.js"></script>
 <script src="javascript/hud_elements/element_speed.js"></script>

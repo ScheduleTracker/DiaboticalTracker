@@ -9,7 +9,7 @@ document.documentElement.style.setProperty('--zero-onevh', (onevh / 10));
 document.documentElement.style.setProperty('--zero-onevw-rounded', ((onevw / 10) < 1) ? 1 : Math.floor(onevw / 10));
 document.documentElement.style.setProperty('--zero-onevh-rounded', ((onevh / 10) < 1) ? 1 : Math.floor(onevh / 10));
 
-let editor_valid_advanced_rules = ["background-color", "background-image", "transform", "color", "border", "outline", "box-shadow", "text-shadow", "opacity"];
+let editor_valid_advanced_rules = ["background-color", "background-image", "transform", "color", "border", "outline", "box-shadow", "text-shadow", "opacity", "filter"];
 
 let global_arguments = [];
 
@@ -198,6 +198,7 @@ global_shared_onload_callbacks.push(function() {
                 let fill = _format_color_for_url(color);
                 let show_hitmarker = false;
                 if (element.parentElement.classList.contains("hitmarker")) {
+                    if (hit_color.length == 8) hit_color = hit_color.substring(6) + hit_color.substring(0,6); //bandaid for hitcolor being read as AARRGGBB
                     fill = _format_color_for_url(hit_color);
                     stroke_opacity = 1;
                     opacity = 1;
@@ -299,6 +300,11 @@ global_shared_onload_callbacks.push(function() {
             "it": "it",
             "ja": "ja",
             "ru": "ru",
+            "es-es": "es_ES",
+            "es-mx": "es_MX",
+            "fr": "fr",
+            "pt-br": "pt_BR",
+            "de": "de"
         };
 
         let global_language = "en";
@@ -324,6 +330,26 @@ global_shared_onload_callbacks.push(function() {
             global_translations = TRANSLATION_ru;
             global_countries = COUNTRIES_ru;
             numeral.locale('ru');
+        } else if (global_language == "es_ES") { 
+            global_translations = TRANSLATION_es_ES;
+            global_countries = COUNTRIES_es;
+            numeral.locale('es');
+        } else if (global_language == "es_MX") { 
+            global_translations = TRANSLATION_es_MX;
+            global_countries = COUNTRIES_es;
+            numeral.locale('es');
+        } else if (global_language == "fr") { 
+            global_translations = TRANSLATION_fr;
+            global_countries = COUNTRIES_fr;
+            numeral.locale('fr');
+        } else if (global_language == "pt_BR") { 
+            global_translations = TRANSLATION_pt_BR;
+            global_countries = COUNTRIES_br;
+            numeral.locale('br');
+        } else if (global_language == "de") { 
+            global_translations = TRANSLATION_de;
+            global_countries = COUNTRIES_de;
+            numeral.locale('de');
         } else { 
             global_translations = TRANSLATION_en;
             global_countries = COUNTRIES_en;
@@ -347,7 +373,12 @@ global_shared_onload_callbacks.push(function() {
                     zh_CN: { translation: TRANSLATION_zh_CN },
                     ja:    { translation: TRANSLATION_ja },
                     it:    { translation: TRANSLATION_it },
-                    ru:    { translation: TRANSLATION_ru }
+                    ru:    { translation: TRANSLATION_ru },
+                    es_ES: { translation: TRANSLATION_es_ES },
+                    es_MX: { translation: TRANSLATION_es_MX },
+                    fr:    { translation: TRANSLATION_fr },
+                    pt_BR: { translation: TRANSLATION_pt_BR },
+                    de:    { translation: TRANSLATION_de }
                 },
                 saveMissing: true, 
                 parseMissingKeyHandler: function(key) {
@@ -488,4 +519,32 @@ function get_fairest_team_id(data) {
     }
 
     return team_id;
+}
+
+// Sorts the teams data model
+function sort_game_data_teams(teams, order) {
+    let new_teams = [];
+    for (let i=0; i<teams.length; i++) {
+        new_teams.push(teams[i]);
+    }
+    if (order == 'id') {
+        new_teams.sort(function(a,b) {
+            return (a.team_id <= b.team_id) ? -1 : 1;
+        });
+    }
+    if (order == 'score') {
+        new_teams.sort(function(a,b) {
+            if (a.team_score > b.team_score) return -1;
+            if (a.team_score < b.team_score) return 1;
+            if (a.team_score == b.team_score) {
+                return (a.team_id <= b.team_id) ? -1 : 1;
+            }
+        });
+    }
+
+    return new_teams;
+}
+
+function count_to_empty_array(count) {
+    return new Array(count);
 }

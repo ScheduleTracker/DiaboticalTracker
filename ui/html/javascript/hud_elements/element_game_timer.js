@@ -18,6 +18,8 @@ global_onload_callbacks.push(function(){
         {"inputType": "toggle", "type": "countdown", "text": "Countdown"},
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
         {"inputType": "toggle", "type": "analog", "text": "Analog"},
+        {"inputType": "toggle", "type": "hideMin", "text": "Hide Minute Hand"},
+        {"inputType": "advanced", "type": "advanced"},
 
     ]
     , "#hud_game_timer");  //Template Name
@@ -41,6 +43,7 @@ global_onload_callbacks.push(function(){
         defaultColor,
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
         {"inputType": "toggle", "type": "analog", "text": "Analog"},
+        {"inputType": "advanced", "type": "advanced"},
 
     ]
     , "#hud_system_clock");  //Template Name

@@ -113,8 +113,8 @@ function resizeElement(width, height) {
             editing_hud_data.groups[id].width = widthValue + width;
             editing_hud_data.groups[id].height = heightValue + height;
     
-            window.hud_editor_selected_element.style.width = (editing_hud_data.groups[id].width * window.hud_editor_preview_downscale_factor) + "vh";
-            window.hud_editor_selected_element.style.height = (editing_hud_data.groups[id].height * window.hud_editor_preview_downscale_factor) + "vh";
+            window.hud_editor_selected_element.style.width  = vh_size_string_at_least_1px(editing_hud_data.groups[id].width * window.hud_editor_preview_downscale_factor);
+            window.hud_editor_selected_element.style.height = vh_size_string_at_least_1px(editing_hud_data.groups[id].height * window.hud_editor_preview_downscale_factor);
         } else {
             // Check if element has width/height properties...
             let resize_width = false;
@@ -136,13 +136,13 @@ function resizeElement(width, height) {
             if (resize_width) {
                 var widthValue = parseFloat(editing_hud_data.elements[id].width);
                 editing_hud_data.elements[id].width = widthValue + width;
-                window.hud_editor_selected_element.style.width = (editing_hud_data.elements[id].width * window.hud_editor_preview_downscale_factor) + "vh";
+                window.hud_editor_selected_element.style.width = vh_size_string_at_least_1px(editing_hud_data.elements[id].width * window.hud_editor_preview_downscale_factor);
             }
 
             if (resize_height) {
                 var heightValue = parseFloat(editing_hud_data.elements[id].height);
                 editing_hud_data.elements[id].height = heightValue + height;
-                window.hud_editor_selected_element.style.height = (editing_hud_data.elements[id].height * window.hud_editor_preview_downscale_factor) + "vh";
+                window.hud_editor_selected_element.style.height = vh_size_string_at_least_1px(editing_hud_data.elements[id].height * window.hud_editor_preview_downscale_factor);
             }
         }
   
@@ -487,14 +487,14 @@ function preview_hud_select(element_id) {
     buf +=  '<div class="option">';
     buf +=   "<div class='element_name'>"+fetchFriendlyElementName(element.dataset.type)+"</div>";
     if (element.dataset.type != "group") {
-        buf +=   "<div class='action_button clone tooltip2' data-msg-id='hud_editor_clone_element' onclick='hud_editor_clone_current_item(" + id + ")'></div>";
-        buf +=   "<div class='action_button surface tooltip2' data-msg-id='hud_editor_surface_element' onclick='hud_editor_surface_current_item(" + id + ")'></div>";
-        buf +=   "<div class='action_button sink tooltip2' data-msg-id='hud_editor_sink_element' onclick='hud_editor_sink_current_item(" + id + ")'></div>";
+        buf +=   "<div class='action_button clone tooltip2' data-msg-id='hud_editor_clone_element' onclick='hud_editor_clone_current_item(" + id + ")'><div></div></div>";
+        buf +=   "<div class='action_button surface tooltip2' data-msg-id='hud_editor_surface_element' onclick='hud_editor_surface_current_item(" + id + ")'><div></div></div>";
+        buf +=   "<div class='action_button sink tooltip2' data-msg-id='hud_editor_sink_element' onclick='hud_editor_sink_current_item(" + id + ")'><div></div></div>";
         if (editing_hud_data.elements[id].gid > -1) {
-            buf +=   "<div class='action_button ungroup tooltip2' data-msg-id='hud_editor_ungroup_element' onclick='hud_editor_ungroup_current_item(" + id + ")'></div>";
+            buf +=   "<div class='action_button ungroup tooltip2' data-msg-id='hud_editor_ungroup_element' onclick='hud_editor_ungroup_current_item(" + id + ")'><div></div></div>";
         }
     }
-    buf +=   "<div class='action_button delete tooltip2' data-msg-id='hud_editor_delete_element' onclick='preview_hud_delete_element_confirm(\"" + element.dataset.type + "\"," + id + ")'></div>";
+    buf +=   "<div class='action_button delete tooltip2' data-msg-id='hud_editor_delete_element' onclick='preview_hud_delete_element_confirm(\"" + element.dataset.type + "\"," + id + ")'><div></div></div>";
     buf +=  "</div>";
     buf += "</div>";
 
@@ -918,7 +918,7 @@ function place_direction_hints_element(value, data, noupdate){
                 i--;
             } else {
                 elements[i].x="50";
-                elements[i].y="78";
+                elements[i].y="77";
                 elements[i].showSpeed="2";
                 value=true;
                 write_misc_hud_preference('dirhint','1');

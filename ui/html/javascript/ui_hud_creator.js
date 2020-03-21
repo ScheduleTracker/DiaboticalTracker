@@ -105,12 +105,12 @@ function make_hud_in_element(container_id, editing_mode) {
 
             if (isFinite(hud.groups[i].width)) {
                 hud.groups[i].width = Math.max(hud.groups[i].width,0.1);
-                new_group.style.width  = (downscale * hud.groups[i].width ) + "vh";
+                new_group.style.width  = vh_size_string_at_least_1px(downscale * hud.groups[i].width);
             }
 
             if (isFinite(hud.groups[i].height)) {
                 hud.groups[i].height = Math.max(hud.groups[i].height,0.1);
-                new_group.style.height = (downscale * hud.groups[i].height) + "vh";
+                new_group.style.height = vh_size_string_at_least_1px(downscale * hud.groups[i].height);
             }
 
             // Advanced css rules
@@ -389,32 +389,6 @@ function propertyIsValidForElement(element, property) {
     return false;
 }
 
-
-
-
-/* Shouldn't be needed
-var global_hud_game_mask_properties = {};
-function queryMaskProperties(weapon_index,zoom){
-    console.log("queryMaskProperties",_dump(global_hud_game_mask_properties));
-    var zoom_suffix = zoom ? "_zoom" : "";
-    var queryresult = {shape:"",color:"",size:""};
-    queryresult.shape = "game_masks_" + global_hud_game_mask_properties[weapon_index]["shape"+zoom_suffix] + "_aperture";
-    queryresult.color = "#" + global_hud_game_mask_properties[weapon_index]["color"+zoom_suffix];
-    queryresult.size  = global_hud_game_mask_properties[weapon_index]["size"+zoom_suffix]  + "vh";
-    return queryresult;
-}
-
-function crosshair_mask_callback_actions(variable, value) {
-    console.log("crosshair mask callback actions", variable ,value);
-    var str = variable.split(":");
-    var index = str[1];
-    var zoom_suffix = str[0].includes("_zoom") ? "_zoom" : "";
-    var param = str[0].includes("_diameter") ? "size" : str[0].includes("_color") ? "color" : str[0].includes("_aperture") ? "shape" : "";
-    if (param) global_hud_game_mask_properties[index][param + zoom_suffix] = value;
-    echo("callback " + variable);
-}
-*/
-
 function refresh_hud_element_preview(idx) {
     let container_id = "hud_preview";
     let container_element = _id(container_id);
@@ -541,6 +515,20 @@ function renderElement(container_id, container_element, editing_mode, hud, idx) 
             new_element.dataset["iSize"] = hud.elements[idx].iSize;
         }
     }
+    if (propertyIsValidForElement(hud_element, "iWidth")) {
+        if (Number(hud.elements[idx].iWidth) < 1) {
+            hud.elements[idx].iWidth = 1;
+            new_element.style.setProperty("--iWidth", hud.elements[idx].iWidth+"");
+            new_element.dataset["iWidth"] = hud.elements[idx].iWidth;
+        }
+    }
+    if (propertyIsValidForElement(hud_element, "iHeight")) {
+        if (Number(hud.elements[idx].iHeight) < 1) {
+            hud.elements[idx].iHeight = 1;
+            new_element.style.setProperty("--iHeight", hud.elements[idx].iHeight+"");
+            new_element.dataset["iHeight"] = hud.elements[idx].iHeight;
+        }
+    }
 
     if (propertyIsValidForElement(hud_element, "pivot")) {
         var pivotTransformStringX = "translateX(-50%)";
@@ -609,14 +597,14 @@ function renderElement(container_id, container_element, editing_mode, hud, idx) 
     if (propertyIsValidForElement(hud_element, "width")) {
         if (isFinite(hud.elements[idx].width)) {
             hud.elements[idx].width = Math.max(hud.elements[idx].width,0.1);
-            new_element.style.width  = (downscale * hud.elements[idx].width ) + "vh";
+            new_element.style.width = vh_size_string_at_least_1px(downscale * hud.elements[idx].width);
         }
     }
 
     if (propertyIsValidForElement(hud_element, "height")) {
         if (isFinite(hud.elements[idx].height)) {
             hud.elements[idx].height = Math.max(hud.elements[idx].height,0.1);
-            new_element.style.height = (downscale * hud.elements[idx].height) + "vh";
+            new_element.style.height = vh_size_string_at_least_1px(downscale * hud.elements[idx].height);
         }
     }
 
@@ -692,4 +680,10 @@ function editorAddAdvancedProperties(element, rule_list) {
             }
         }
     }
+}
+
+function vh_size_string_at_least_1px(vh_size) {
+    let px_size = onevh_float * vh_size;
+    if (px_size < 1) return '1px';
+    return vh_size + 'vh';
 }

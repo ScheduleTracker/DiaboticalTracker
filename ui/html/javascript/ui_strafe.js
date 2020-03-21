@@ -1,3 +1,4 @@
+const HACKY_CONST_BLACK = '#000000';
 let global_strafe_timer = 0;
 let global_strafe_state = {x:0,y:0,z:0,yaw:0,key:0};
 let global_keypress_memory = 0;
@@ -10,7 +11,7 @@ let global_presentedStrafeEfficiency = 0;
 let global_hud_3d_counts=0;
 let global_hud_3d_instance=[];
 
-let strafe_data = IS_MENU_VIEW == true ? {"efficiency":"80","wallheight":"44.4444%","wallwidth":"45.8%","abovebase":true,"veldir":"0","arrowopa":1,"haskey":true,"keydir":315,"dot_trans":"-40%","color":"rgb(92,255,204)"} : {"efficiency":"0"};
+let strafe_data = IS_MENU_VIEW == true ? {"efficiency":"80","wallheight":"44.4444%","wallwidth":"45.8%","lineheight":"100%","abovebase":true,"veldir":"0","arrowopa":1,"haskey":true,"keydir":315,"dot_trans":"-40%","color":"rgb(92,255,204)","shadowcolor":"rgb(0,0,0)"} : {"efficiency":"0","shadowcolor":"rgb(0,0,0)"};
 
 function refresh_strafe_hud(intent_mask, obj, yaw, speed_x, speed_y, speed_z){
 
@@ -101,21 +102,24 @@ function refresh_strafe_hud(intent_mask, obj, yaw, speed_x, speed_y, speed_z){
 
         var wallHeight = 50*base_speed/Math.max(base_speed,speed_zx);
         var innerWidth = Math.sqrt( 10000 - 4*wallHeight*wallHeight );
+        var veldir_rad = Math.atan2(vel[1],vel[0])+yaw;
+        var keydir_rad = Math.atan2(-y_acc,x_acc);
         strafe_data.wallheight = wallHeight+'%';
         strafe_data.wallwidth  = innerWidth+'%';
         strafe_data.abovebase = (speed_hor>base_speed);
         strafe_data.arrowopa = Math.min(1,speed_hor/base_speed);
         strafe_data.rippleopa = Math.min(1,0.25*speed_hor/base_speed);
-        strafe_data.veldir = (-Math.atan2(vel[1],vel[0])-yaw)*180/Math.PI;
+        strafe_data.veldir = -veldir_rad*180/Math.PI;
         strafe_data.cj = inCircleJump;
         strafe_data.cjbase = inCircleJump ? base_speed : 320;
 		if (keypress_changed) {
             strafe_data.jump   = jump;
             strafe_data.crouch = couch;
             strafe_data.haskey = nor ? true : false;
-		    strafe_data.keydir = Math.atan2(-y_acc,x_acc)*180/Math.PI;
+		    strafe_data.keydir = keydir_rad*180/Math.PI;
 		}
-        strafe_data.spin = Math.sin(Math.atan2(-y_acc,x_acc)-(-Math.atan2(vel[1],vel[0])-yaw)) > 0 ? true : false;
+        strafe_data.lineheight = strEff<0 ? '100%' : Math.min( 100, Math.abs(2*wallHeight/Math.cos(keydir_rad+veldir_rad) ) ) + '%';
+        strafe_data.spin = Math.sin(keydir_rad+veldir_rad) > 0 ? true : false;
         if (update_efficiency) {
 	        var eff_color_rgb = 'rgb(255,255,255)';
 	        strafe_data.throttle = '0%';
@@ -125,14 +129,16 @@ function refresh_strafe_hud(intent_mask, obj, yaw, speed_x, speed_y, speed_z){
 	              eff_color_rgb='rgb(255,0,0)';
 	              strafe_data.throttle = 75 - 25*unsmoothed_efficiency +'%';
 	            } else if (tickaccel>=accel_upss) {
-	              eff_color_rgb='rgb(' + _clamp(Math.round(255-255*efficiency*efficiency),0,255) + ', 255,' + _clamp(Math.round(255*efficiency),0,255) + ')';
+	              eff_color_rgb='rgb(' + _clamp(Math.round(255-255*strEff*strEff/10000),0,255) + ', 255,' + _clamp(Math.round(255*strEff/100),0,255) + ')';
 	              strafe_data.throttle = 75 - 25*unsmoothed_efficiency +'%';
 	            } else {
-	              eff_color_rgb='rgb(' + _clamp(Math.round(255-255*efficiency*efficiency*efficiency),0,255) + ', 255, 255)';
+	              eff_color_rgb='rgb(' + _clamp(Math.round(255-255*strEff*strEff*strEff/1000000),0,255) + ', 255, 255)';
 	              strafe_data.throttle = 50*unsmoothed_efficiency +'%';
 	            }
 	        }
-	        var scaled_dot_dist = Math.abs(efficiency*99.2773891679)/2;
+//	        var scaled_dot_dist = Math.abs(efficiency*99.2773891679)/2;
+//	        var scaled_dot_dist = Math.abs(efficiency*50);
+	        var scaled_dot_dist = Math.abs(strEff/2);
 	        strafe_data.efficiency = strEff;
 	        strafe_data.dot_trans  = -scaled_dot_dist+"%";
 	        strafe_data.color      = eff_color_rgb;
@@ -208,18 +214,41 @@ function strafe_cj_opacity(speed, thresh) {
     return (thresh>strafe_data.cjbase) ? _clamp((speed - strafe_data.cjbase)/(thresh - strafe_data.cjbase),0,1) : 1;
 }
 
-function duel_stocks(my_score,opponent_score,me_alive,opponent_alive){
-    var my_operating_eggbot = (me_alive?1:0);
-    var my_reserve = Math.max(0, my_score - opponent_score - (opponent_alive?0:1) + (me_alive?0:1));
-    var stocks = my_operating_eggbot + my_reserve;
-    return stocks;
+function duel_stocks(my_score,opponent_score,me_alive){
+//    return Math.max((me_alive?0:1), my_score-opponent_score+(me_alive?0:1));
+    if (my_score>opponent_score) {
+        return my_score-opponent_score;
+    } else {
+        return 0;
+    }
 }
 
-function dummy_stock_array_maker(my_score,opponent_score,me_alive,opponent_alive){
-    var stocks = duel_stocks(my_score,opponent_score,me_alive,opponent_alive);
+function is_stock_protected(my_score,opponent_score,me_alive){
+    if (current_match.confirmation_frag_time==true) return false;
+    return true;
+}
+
+function dummy_stock_array_maker(my_score,opponent_score,me_alive){
+    var stocks = duel_stocks(my_score,opponent_score,me_alive);
     var array = [];
     for(i=0;i<stocks;i++){
         array.push('o');
     }
     return array;
 }
+
+function operating_eggbot_image(me_alive, icon_index){
+    if (me_alive) {
+        return '/html/images/diabotical_o.svg?fill=';
+    } else {
+        if (Number(icon_index)==1) {
+            return '/html/images/icons/fa/wrench.svg?fill=';
+        } else {
+            return '/html/images/icons/fa/heart.svg?fill=';
+        }
+    }
+}
+//function is_my_respawn_closest(timer, players_list) {
+//echo(JSON.stringify(players_list));
+//return timer;
+//}
