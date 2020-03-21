@@ -5,6 +5,15 @@ let global_leaderboards_data = {
     "max_per_page": 15
 };
 
+/* cache own position for 10 minutes (TODO: should also invalidate cache when a match is finished) ... lets ignore the fact for now that your ranking is also affected by other users moving up/down
+    mode -> {
+        ts: ...
+        data: ...
+    }
+*/
+let global_leaderboards_self_cache = {};
+let global_leaderboards_self_cache_time = 10;
+
 function init_screen_leaderboards() {
     /*
     _id("leaderboards_filter_friends_button").addEventListener("click", function(e) {
@@ -69,25 +78,50 @@ function load_leaderboard() {
     let leaderboards_table = _id("leaderboards_table");
     let leaderboards_bottom = _id("leaderboards_bottom");
 
-    let requests = [
-        {
-            "api": global_stats_api,
-            "path": "/stats/leaderboard",
-            "data_key_from": "leaderboard",
-            "data_key_to": "leaderboard",
-            "params": params_all
-        },
-        {
+    let requests = [{
+        "api": global_stats_api,
+        "path": "/stats/leaderboard",
+        "data_key_from": "leaderboard",
+        "data_key_to": "leaderboard",
+        "params": params_all
+    }];
+
+    // Get own leaderboard rank if its not cached
+    let load_self = false;
+    if (params_self.mode in global_leaderboards_self_cache) {
+        if (((Date.now() - global_leaderboards_self_cache[params_self.mode].ts) / 1000) > global_leaderboards_self_cache_time) {
+            delete global_leaderboards_self_cache[params_self.mode];
+            load_self = true;
+        }
+    } else {
+        load_self = true;
+    }
+
+    if (load_self) {
+        requests.push({
             "api": global_stats_api,
             "path": "/users/"+global_self.user_id+"/leaderboard",
             "data_key_from": "leaderboard",
             "data_key_to": "self",
             "params": params_self
-        },
-    ];
-
+        });
+    }
+    
     function on_success(data) {
-        render_leaderboard(first_pos, data.leaderboard, data.self);
+        let own_data = {};
+        if ("self" in data) {
+            own_data = data.self;
+            global_leaderboards_self_cache[params_self.mode] = {
+                "ts": Date.now(),
+                "data": data.self,
+            };
+        } else {
+            if (params_self.mode in global_leaderboards_self_cache) {
+                own_data = global_leaderboards_self_cache[params_self.mode].data;
+            }
+        }
+        
+        render_leaderboard(first_pos, data.leaderboard, own_data);
     }
 
     function on_timeout() {

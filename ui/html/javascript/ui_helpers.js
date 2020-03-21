@@ -621,6 +621,19 @@ function getRandomElementsFromArray(arr, n) {
     return result;
 }
 
+function getRankVideoUrl(rank, position) {
+    let url = '';
+    if (position && position > 0) {
+        if (position == 1) url = ("top_4" in global_ranks) ? "/html/ranks/animated/"+global_ranks["top_4"].anim : "";
+        else if (position <= 50) url = ("top_3" in global_ranks) ? "/html/ranks/animated/"+global_ranks["top_3"].anim : "";
+        else if (position <= 100) url = ("top_2" in global_ranks) ? "/html/ranks/animated/"+global_ranks["top_2"].anim : "";
+        else url = ("top_1" in global_ranks) ? "/html/ranks/animated/"+global_ranks["top_1"].anim : "";
+    } else {
+        if (rank in global_ranks) url = "/html/ranks/animated/"+global_ranks[rank].anim;
+    }
+    return url;
+}
+
 function renderRankIcon(rank, position, team_size, size) {
     let div = _createElement("div", "rank_icon");
     if (position && position > 0) {
@@ -629,7 +642,7 @@ function renderRankIcon(rank, position, team_size, size) {
         else if (position <= 100) div.classList.add("top_2");
         else div.classList.add("top_1");
 
-        div.appendChild(_createElement("div", "position", position));
+        if (position > 1) div.appendChild(_createElement("div", "position", position));
     } else {
         if (rank === null || rank === undefined || rank == 0) {
             if (team_size && team_size >= 1) {
@@ -685,16 +698,20 @@ function getRankName(rank, position) {
                 }
             }
 
-            let tier_sub_rank = 5 - (global_rank_tier_lookup[tier][1] - Number(rank));
+            try {
+                let tier_sub_rank = 5 - (global_rank_tier_lookup[tier][1] - Number(rank));
 
-            let tier_sub_rank_text = "";
-            if (tier_sub_rank == 1) tier_sub_rank_text = "I";
-            else if (tier_sub_rank == 2) tier_sub_rank_text = "II";
-            else if (tier_sub_rank == 3) tier_sub_rank_text = "III";
-            else if (tier_sub_rank == 4) tier_sub_rank_text = "IV";
-            else if (tier_sub_rank == 5) tier_sub_rank_text = "V";
-            fragment.appendChild(_createElement("div", "name", localize("rank_tier_"+tier)));
-            fragment.appendChild(_createElement("div", "name-post", tier_sub_rank_text));
+                let tier_sub_rank_text = "";
+                if (tier_sub_rank == 1) tier_sub_rank_text = "I";
+                else if (tier_sub_rank == 2) tier_sub_rank_text = "II";
+                else if (tier_sub_rank == 3) tier_sub_rank_text = "III";
+                else if (tier_sub_rank == 4) tier_sub_rank_text = "IV";
+                else if (tier_sub_rank == 5) tier_sub_rank_text = "V";
+                fragment.appendChild(_createElement("div", "name", localize("rank_tier_"+tier)));
+                fragment.appendChild(_createElement("div", "name-post", tier_sub_rank_text));
+            } catch(e) {
+
+            }
         }
     }
     

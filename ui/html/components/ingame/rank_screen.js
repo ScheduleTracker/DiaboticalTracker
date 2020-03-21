@@ -23,7 +23,7 @@ function renderRankScreen(data) {
 
             global_rank_screen_queue.push({
                 "type": "placement-rank",
-                "time": 5
+                "time": 6.3
             });
         }
     } else {
@@ -34,7 +34,7 @@ function renderRankScreen(data) {
         if (data.from.rank_tier != null) {
             if (data.from.rank_tier < data.to.rank_tier) {
                 type = "rank-up";
-                time = 7;
+                time = 10;
             }
             if (data.from.rank_tier > data.to.rank_tier) {
                 type = "rank-down";
@@ -44,7 +44,7 @@ function renderRankScreen(data) {
             if (data.from.rank_position != null && data.to.rank_position != null) {
                 if (data.from.rank_position > data.to.rank_position) {
                     type = "rank-up";
-                    time = 7;
+                    time = 10;
                 }
                 if (data.from.rank_position < data.to.rank_position) {
                     type = "rank-down";
@@ -54,7 +54,7 @@ function renderRankScreen(data) {
             }
             if (data.from.rank_position == null && data.to.rank_position != null) {
                 type = "rank-up";
-                time = 7;
+                time = 10;
             }
             if (data.from.rank_position != null && data.to.rank_position == null) {
                 type = "rank-down";
@@ -160,13 +160,23 @@ function renderPlacementRank(data) {
     let team_size = 1;
     if (data.mode in global_queue_modes) team_size = global_queue_modes[data.mode].team_size;
 
+    let type = 'image';
     let rank = renderRankIcon(data.to.rank_tier, data.to.rank_position, team_size, "big");
     rank_icon_cont.appendChild(rank);
-    /*
-    let rank_icon = _createElement("video", "rank_video");
-    rank_icon.src = "/html/images/...webm";
-    rank_icon_cont.appendChild(rank_icon);
-    */
+
+    let video_url = getRankVideoUrl(data.to.rank_tier, data.to.rank_position);
+    if (video_url.length) {
+        type = 'video';
+        let rank_video = _createElement("video", "rank_video");
+        rank_video.classList.add("next");
+        rank_video.src = video_url;
+        rank_icon_cont.appendChild(rank_video);
+        if (data.to.rank_position && data.to.rank_position > 1) {
+            let rank_video_position = _createElement("div", "rank_video_position", data.to.rank_position);
+            rank_icon_cont.appendChild(rank_video_position);
+        }
+    }
+
     fragment.appendChild(rank_icon_cont);
 
     let rank_name_cont = _createElement("div", "rank_name_cont");
@@ -178,6 +188,7 @@ function renderPlacementRank(data) {
     if (data.match_type == 2) {
         let progress_cont = _createElement("div", "progress_cont");
         let progress = _createElement("div", "progress");
+        progress.dataset.to_type = type;
         let value = _createElement("div", "value");
         value.textContent = Math.floor(data.to.rating);
         let unit = _createElement("div", "unit");
@@ -210,11 +221,19 @@ function renderRankUpdate(data) {
     let next_rank = renderRankIcon(data.to.rank_tier, data.to.rank_position, team_size, "big");
     next_rank.classList.add("next");
     rank_icon_cont.appendChild(next_rank);
-/*    
-    let rank_icon = _createElement("video", "rank_video");
-    rank_icon.src = "/html/images/....webm";
-    rank_icon_cont.appendChild(rank_icon);
-*/    
+    
+    let video_url = getRankVideoUrl(data.to.rank_tier, data.to.rank_position);
+    if (video_url.length) {
+        let rank_video = _createElement("video", "rank_video");
+        rank_video.classList.add("next");
+        rank_video.src = video_url;
+        rank_icon_cont.appendChild(rank_video);
+        if (data.to.rank_position && data.to.rank_position > 1) {
+            let rank_video_position = _createElement("div", "rank_video_position", data.to.rank_position);
+            rank_icon_cont.appendChild(rank_video_position);
+        }
+    }
+    
     fragment.appendChild(rank_icon_cont);
 
 
@@ -235,18 +254,22 @@ function renderRankUpdate(data) {
     let change_icon = _createElement("div", "icon");
     let prefix = _createElement("div", "prefix");
     let win = 1;
+    let type = 'image';
     if (data.from.rating > data.to.rating) {
         win = 0;
+        type = 'image';
         prefix.textContent = "-";
         change_icon.style.backgroundImage = "url(/html/ranks/200x200/weeball_loser.png)";
     } else {
         win = 1;
+        if (video_url.length) type = 'video';
         prefix.textContent = "+";
         change_icon.style.backgroundImage = "url(/html/ranks/200x200/weeball_winner.png)";
     }
 
     let value = _createElement("div", "value");
     progress.dataset.win = win;
+    progress.dataset.to_type = type;
     if (data.match_type == 2) {
         value.dataset.from = Math.floor(data.from.rating);
         value.dataset.to = Math.floor(data.to.rating);
@@ -371,6 +394,7 @@ function showRankScreen(cb, initial) {
         anim_show(rank_screen, 500, "flex", function() {
             setTimeout(function() {
                 let win = Number(rank_screen.querySelector(".progress").dataset.win);
+                let type = rank_screen.querySelector(".progress").dataset.to_type;
                 if (win == 1) {
                     let value = rank_screen.querySelector(".progress_cont .value");
                     let from = value.dataset.from;
@@ -400,14 +424,24 @@ function showRankScreen(cb, initial) {
                 }
 
                 let prev = rank_screen.querySelector(".rank_icon.prev");
-                let next = rank_screen.querySelector(".rank_icon.next");
+                let next = '';
+                let next_pos = false;
+                if (type == "image") next = rank_screen.querySelector(".rank_icon.next");
+                if (type == "video") {
+                    next = rank_screen.querySelector(".rank_video.next");
+                    next_pos = rank_screen.querySelector(".rank_video_position");
+                }
                 let prev_name = rank_screen.querySelector(".rank_name.prev");
                 let next_name = rank_screen.querySelector(".rank_name.next");
                 setTimeout(function() {
                     anim_hide(prev, 900);
                     anim_hide(prev_name, 900);
                     setTimeout(function() {
-                        anim_show(next, 900);
+                        if (type == "image") anim_show(next, 900);
+                        if (type == "video") {
+                            next.play();
+                            if (next_pos) setTimeout(function() { anim_show(next_pos, 500); },1500);
+                        }
                         anim_show(next_name, 900);
 
                         engine.call('ui_sound', "ui_ranked_rank_up");
@@ -460,6 +494,7 @@ function showRankScreen(cb, initial) {
                 let prev_name = rank_screen.querySelector(".rank_name.prev");
                 let next_name = rank_screen.querySelector(".rank_name.next");
                 setTimeout(function() {
+                    engine.call('ui_sound', 'ui_ranked_rank_down');
                     anim_hide(prev, 900);
                     anim_hide(prev_name, 900);
                     setTimeout(function() {
@@ -474,11 +509,19 @@ function showRankScreen(cb, initial) {
     if (first.type == "placement-rank") {
         current = placement_rank_screen;
         anim_show(placement_rank_screen, 500, "flex", function() {
+
+            let progress = placement_rank_screen.querySelector(".progress");
+            let type = progress.dataset.to_type;
+            let video_pos = placement_rank_screen.querySelector(".rank_video_position");
             setTimeout(function() {
                 // trigger showing the value and icon animations
-                _for_each_with_class_in_parent(placement_rank_screen, 'rank_icon', function(el) { el.classList.add("visible"); });
+                if (type == "image") _for_each_with_class_in_parent(placement_rank_screen, 'rank_icon', function(el) { el.classList.add("visible"); });
+                if (type == "video") {
+                    _for_each_with_class_in_parent(placement_rank_screen, 'rank_video', function(el) { el.play(); });
+                    if (video_pos) setTimeout(function() { anim_show(video_pos, 500); }, 1500);
+                }
                 _for_each_with_class_in_parent(placement_rank_screen, 'rank_name', function(el) { el.classList.add("visible"); });
-                _for_each_with_class_in_parent(placement_rank_screen, 'progress', function(el) { el.classList.add("visible"); });
+                progress.classList.add("visible");
 
                 engine.call('ui_sound', "ui_ranked_rank_up");
             },700);

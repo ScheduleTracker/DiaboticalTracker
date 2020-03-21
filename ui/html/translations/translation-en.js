@@ -452,7 +452,7 @@ var TRANSLATION_en =
     "game_mode_license_center":"License Center",
     "game_mode_all_mods":"All Mods",
     "game_mode_desc_brawl": "Brawl is a frag score based mode between multiple teams or individual players where you pick up weapons and items to help you frag your opponents.",
-    "game_mode_desc_duel": "",
+    "game_mode_desc_duel": "Two players fight each other for control over the map and its resources. After the time limit is reached, a Duel is won when one of the players gets the Golden Frag.",
     "game_mode_desc_arena": "Round based mode played in compact arenas where each player has 2 lives per round and spawns with a full loadout, when a round ends players move on to a different arena.",
     "game_mode_desc_rocket_arena": "Test your skills in a Rocket Launcher only version of Arena 1v1.",
     "game_mode_desc_shaft_arena": "Test your skills in a Shaft only version of Arena 1v1.",

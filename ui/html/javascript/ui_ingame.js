@@ -828,14 +828,14 @@ function runHudUITest(str) {
 			"from": {
 				"rating": 1500,
 				"rank_tier": 25,
-				"rank_position": null,
+				"rank_position": 1,
 				"cur_tier_req": 1610,
 				"next_tier_req": 1650
 			},
 			"to": {
 				"rating": 1520,
 				"rank_tier": 25,
-				"rank_position": null,
+				"rank_position": 1,
 				"cur_tier_req": 1610,
 				"next_tier_req": 1650
 			},
@@ -858,8 +858,8 @@ function runHudUITest(str) {
 			},
 			"to": {
 				"rating": 1573.6258831622672,
-				"rank_tier": 26,
-				"rank_position": null,
+				"rank_tier": 40,
+				"rank_position": 1,
 				"cur_tier_req": 1610,
 				"next_tier_req": 1650
 			},
@@ -869,7 +869,7 @@ function runHudUITest(str) {
 			"ranked": true
         };
 
-        hudUITestRankScreen(mmr_updates, 10000);
+        hudUITestRankScreen(mmr_updates, 12000);
     }
     if (tmp[1] == "2") {
 		let mmr_updates = {
@@ -931,8 +931,8 @@ function runHudUITest(str) {
 			},
 			"to": {
                 "rating": 1693,
-				"rank_tier": 28,
-				"rank_position": null,
+				"rank_tier": 34,
+				"rank_position": 1,
 				"cur_tier_req": 1610,
                 "next_tier_req": 1650,
                 "placement_matches": "1010111011"
@@ -944,12 +944,8 @@ function runHudUITest(str) {
 			"ranked": true
         };
 
-        hudUITestRankScreen(mmr_updates, 15000);
+        hudUITestRankScreen(mmr_updates, 18000);
     }
-
-
-
-
 
 
 
@@ -1006,14 +1002,14 @@ function runHudUITest(str) {
 			"from": {
 				"rating": 1547.7387406072,
 				"rank_tier": 34,
-				"rank_position": null,
+				"rank_position": 115,
 				"cur_tier_req": 1610,
 				"next_tier_req": 1650
 			},
 			"to": {
-				"rating": 1500.6258831622672,
+				"rating": 1600.6258831622672,
 				"rank_tier": 33,
-				"rank_position": null,
+				"rank_position": 50,
 				"cur_tier_req": 1610,
 				"next_tier_req": 1650
 			},

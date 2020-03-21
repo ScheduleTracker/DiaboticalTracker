@@ -3726,6 +3726,21 @@ h2 {
     left:0;
 }
 #rank_screen .rank_progression .rank_icon_cont .rank_icon.next { display:none; }
+#rank_screen .rank_progression .rank_icon_cont .rank_icon .position { font-size:5vh; }
+#rank_screen .rank_progression .rank_icon_cont .rank_video {
+    width:400%;
+    height:400%;
+}
+#rank_screen .rank_progression .rank_icon_cont .rank_video_position {
+    display:none;
+    position: absolute;
+    bottom: 5%;
+    font-size: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
 #rank_screen .rank_progression .rank_name_cont {
     margin-top:2vh;
     height:5vh;
@@ -3833,6 +3848,21 @@ h2 {
     display:none;
 }
 #rank_screen .placement_rank .rank_icon_cont .rank_icon.visible { display:block; }
+#rank_screen .placement_rank .rank_icon_cont .rank_icon .position { font-size:5vh; }
+#rank_screen .placement_rank .rank_icon_cont .rank_video {
+    width:400%;
+    height:400%;
+}
+#rank_screen .placement_rank .rank_icon_cont .rank_video_position {
+    display:none;
+    position: absolute;
+    bottom: 5%;
+    font-size: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
 #rank_screen .placement_rank .rank_name_cont {
     margin-top:2vh;
     height:5vh;
@@ -4071,6 +4101,8 @@ h2 {
     font-family:var(--mont-font);
     font-size:1.3vh;
     text-transform: uppercase;
+    display:none;
+    opacity:0;
 }
 .g_meter_container {
     justify-content: center;

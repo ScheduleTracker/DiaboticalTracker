@@ -867,3 +867,52 @@ var global_fov_preview_images = {
         },
     ],
 };
+
+
+
+var global_ranks = {
+    "1": { "anim": "01_paintjob.webm" },
+    "2": { "anim": "02_paintjob.webm" },
+    "3": { "anim": "03_paintjob.webm" },
+    "4": { "anim": "04_paintjob.webm" },
+    "5": { "anim": "05_paintjob.webm" },
+    "6": { "anim": "06_stone.webm" },
+    "7": { "anim": "07_stone.webm" },
+    "8": { "anim": "08_stone.webm" },
+    "9": { "anim": "09_stone.webm" },
+    "10": { "anim": "10_stone.webm" },
+    "11": { "anim": "11_wood.webm" },
+    "12": { "anim": "12_wood.webm" },
+    "13": { "anim": "13_wood.webm" },
+    "14": { "anim": "14_wood.webm" },
+    "15": { "anim": "15_wood.webm" },
+    "16": { "anim": "16_iron.webm" },
+    "17": { "anim": "17_iron.webm" },
+    "18": { "anim": "18_iron.webm" },
+    "19": { "anim": "19_iron.webm" },
+    "20": { "anim": "20_iron.webm" },
+    "21": { "anim": "21_copper.webm" },
+    "22": { "anim": "22_copper.webm" },
+    "23": { "anim": "23_copper.webm" },
+    "24": { "anim": "24_copper.webm" },
+    "25": { "anim": "25_copper.webm" },
+    "26": { "anim": "26_silver.webm" },
+    "27": { "anim": "27_silver.webm" },
+    "28": { "anim": "28_silver.webm" },
+    "29": { "anim": "29_silver.webm" },
+    "30": { "anim": "30_silver.webm" },
+    "31": { "anim": "31_gold.webm" },
+    "32": { "anim": "32_gold.webm" },
+    "33": { "anim": "33_gold.webm" },
+    "34": { "anim": "34_gold.webm" },
+    "35": { "anim": "35_gold.webm" },
+    "36": { "anim": "36_crystal.webm" },
+    "37": { "anim": "37_crystal.webm" },
+    "38": { "anim": "38_crystal.webm" },
+    "39": { "anim": "39_crystal.webm" },
+    "40": { "anim": "40_crystal.webm" },
+    //"top_1": { "anim": ".webm" },  // TBA top1000
+    //"top_2": { "anim": ".webm" },  // TBA top100
+    //"top_3": { "anim": ".webm" },  // TBA top50
+    "top_4": { "anim": "44_legend.webm" },
+};
