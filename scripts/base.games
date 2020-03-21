@@ -188,14 +188,15 @@ game duel
 {
 	setting game_initial_item_time 0
 	setting game_truce_time 0
-	setting game_tide_bonus 20
+	setting game_tide_bonus 30
 	setting game_confirmation_frag 1
 	setting game_time_limit 720
 	
-	map duel_outpost_dunia
 	map duel_bioplant
-	map duel_frontier
 	map duel_f1sks_house
+	map duel_frontier
+	map duel_kasbah
+	map duel_outpost_dunia
 	
 
 	weapon blasta 100
@@ -203,25 +204,13 @@ game duel
 	weapon sword 999
 }
 
-//game ad
-//{
-//	setting game_team_mode 1
-	
-//	map ad_pr_01
-//	map ad_pr_03
-	
-//	weapon blasta 100
-//	weapon shelly 20
-
-//}
-
 game ca
 {
-	map a_junktion
-	map a_heikam
 	map a_barrows_gate
-	map a_enclosure
 	map a_bazaar
+	map a_enclosure
+	map a_heikam
+	map a_junktion
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
@@ -255,17 +244,17 @@ game ca
 
 game rocket_arena
 {
-	map a_junktion
-	map a_heikam
 	map a_barrows_gate
-	map a_enclosure
 	map a_bazaar
+	map a_enclosure
+	map a_heikam
+	map a_junktion
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
 	setting game_team_mode 1
     setting game_rounds 10
-	setting game_frag_limit 3
+	setting game_frag_limit 4
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -288,11 +277,12 @@ game rocket_arena
 
 game shaft_arena
 {
-	map a_junktion
-	map a_heikam
 	map a_barrows_gate
-	map a_enclosure
 	map a_bazaar
+	map a_enclosure
+	map a_heikam
+	map a_junktion
+
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
@@ -321,10 +311,11 @@ game shaft_arena
 
 game wipeout
 {
-	map wo_furnace
-	map wo_wellspring
-	map wo_refinery
 	map wo_crystal_cove
+	map wo_furnace
+	map wo_refinery
+	map wo_wellspring
+
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
@@ -357,32 +348,6 @@ game wipeout
 	weapon sword 999
 }
 
-
-
-game ctf
-{
-	setting game_team_mode 1
-	setting game_enable_drop 1
-	setting game_friendly_fire 0
-	setting game_weapon_respawn_time 3
-	setting game_frag_limit 5
-	setting game_time_limit 960
-
-	
-	map ctf_cathedral
-	map ctf_dojo
-	map ctf_waterworks_wip_col
-	map ctf_quarry_wip_col
-	map ctf_qunai_peaks
-	map ctf_titans_crossing
-	map ctf_cliffside_canyons
-
-	
-	weapon blasta 100
-	weapon sword 999
-
-}
-
 game brawl
 {
 	setting game_team_mode 1
@@ -394,10 +359,11 @@ game brawl
 	setting game_time_limit 480
 	setting game_frag_limit 0
 
+	map b_crystal_cove
 	map b_furnace
 	map b_refinery
 	map b_wellspring
-	map b_crystal_cove
+
 		
 	weapon blasta 100
 	weapon sword 999
@@ -419,20 +385,6 @@ game brawl
 
 }
 
-game macguffin
-{
-	setting game_team_mode 1
-	setting game_weapon_respawn_time 5
-	setting game_enable_drop 1
-	
-	map test_map_1
-	map test_map_2
-	
-
-	weapon blasta 100
-	weapon sword 999
-}
-
 //This game mode isn't used directly normally, it's used as a metatemplate when another
 //game mode has the instagib flag
 game instagib
@@ -443,17 +395,34 @@ game instagib
 	setting game_enable_items 1
 	setting game_self_damage 0
 
-	map ig_egg-plant
-	map ig_stronghold
+    map wo_crystal_cove
 	map wo_furnace
 	map wo_refinery
 	map wo_wellspring
-	map b_temple_quarry
+
 
 	weapon crossbow 999
 	weapon sword 999
 }
 
+//Another metamode
+game instagib_brawl
+{	
+    //These two settings are only here for using the mode locally during testing, the dedicated
+	//server component currently sets this in response to the instagib flag being active.
+	setting game_full_charge 1
+	setting game_enable_items 1
+	setting game_self_damage 0
+
+    map wo_crystal_cove
+	map wo_furnace
+	map wo_refinery
+	map wo_wellspring
+
+
+	weapon pncr 999
+	weapon sword 999
+}
 game ghosthunt
 {	
 	setting game_team_mode 1
@@ -491,216 +460,14 @@ game coinrun
 	setting game_overtime 60
         setting game_deposit_coins 1
 
+	map gr_cliffside_canyons
 	map gr_qunai_peaks
 	map gr_titans_crossing
-	map gr_cliffside_canyons
 
 
 	weapon crossbow 999
 	weapon sword 999
 }
-
-game race
-{
-    setting game_hp 100
-	setting game_friendly_fire 0
-	setting game_warmup_time 0
-	setting game_countdown 0
-	setting game_time_limit 0
-	setting game_frag_limit 0
-	
-	map df_p0_01
-	map df_p0_02
-	map df_p0_03
-	map df_p0_04
-	map tt_cathedral_wip
-	map tt_dojo_wip
-	map tt_waterworks_wip_col
-	map tt_qunai_crossing
-	map tt_titan
-	map tt_ctf_pr_09
-	map tt_from_dust_till_dawn
-	
-	weapon sword 999
-}
-
-game tdm
-{
-	setting game_team_mode 1
-	setting game_friendly_fire 1
-	setting game_weapon_respawn_time 30
-	setting game_hp 125
-	setting game_time_limit 960
-	setting game_enable_drop 1
-
-	map b_temple_quarry
-	map tdm_alchemy
-	map tdm_chateau_wip_001
-	map tdm_underbelly
-	map b_chateau
-	map b_underbelly
-	map b_furnace
-	map b_refinery
-	map b_wellspring
-	map duel_outpost_dunia
-	map duel_bioplant
-	map duel_kasbah
-	map duel_frontier
-	map duel_f1sks_house
-	map duel_pr_07 
-		
-	weapon blasta 100
-	weapon sword 999
-}
-
-
-game tw
-{
-	setting game_team_mode 1
-	setting game_friendly_fire 0
-	setting game_classes 1
-	setting game_self_damage 0
-	
-	map ad_pr_01bases
-	map ad_pr_02
-	map ad_pr_03
-	
-	class sapper
-	class doctor
-	class sniper
-	class scout
-	
-	weapon rocket_launcher 999
-}
-
-/// PICKUPS
-//pickup ammorl
-//{
-//    respawn_time 15   
-//}
-
-//game tdm
-//{
-//	setting game_team_mode 1
-	
-//	map dt_gd_01
-//	map dt_gz_01
-//	map dt_ma_01
-//	map dt_pr_01
-//	map dt_pr_02
-//	map dt_prb_01
-//	map dt_prb_02
-
-//	weapon blasta 75
-//	weapon shelly 20
-//}
-
-//game ffa
-//{
-//	map dt_gd_01
-//	map dt_gz_01
-//	map dt_ma_01
-//	map dt_pr_01
-//	map dt_pr_02
-//	map dt_prb_01
-//	map dt_prb_02
-
-//	weapon blasta 75
-//	weapon shelly 10
-
-//	weapon blasta 999 true
-//	weapon shelly 999 true
-//	weapon rocket_launcher 999
-//	weapon pncr 999
-//	weapon defacer 999
-//	weapon grenade_launcher 999
-//	weapon weapon9 999
-//	weapon minigun 999
-//	weapon gl 999
-//	weapon implosive_weeble 999
-//  	weapon slowfield_weeble 999
-//  	weapon flak_gun 999
-//	weapon showtime 999
-//	weapon portal_gun 999
-
-//game rt
-//{
-//	setting game_freeze_time 6
-//	setting game_freeze_save_time 3
-//	setting game_team_mode 1
-//	setting game_enable_items 0
-	
-//	setting game_hp 200
-//	setting game_stable_hp 200
-//	setting game_max_hp 200
-
-//	setting game_armor 0
-//	setting game_stable_armor 0
-//	setting game_max_armor 0
-	
-//	setting game_self_damage 0
-	
-//	setting game_friendly_fire 0
-
-//	setting phy_gravity 300
-	
-//	map dt_ma_01
-
-//	weapon bsf7 999
-//}
-
-//game br
-//{
-
-//    weapon br_sniper_rifle 999 true
-//	weapon br_assault_rifle 999 true
-//	weapon br_shotgun 999 true
-
-//	setting game_camera_offset 69
-//	setting game_camera_hor_offset 20
-//	setting game_player_view_height 37
-//	setting game_player_col_radius_hor 27
-	
-//	setting phy_jump_impulse 300
-//	setting phy_double_jump 1
-//	setting phy_double_jump_impulse 575
-//	setting phy_speed 200
-//	setting phy_bolt_base_speed 500
-//	setting phy_bolt_pitch 27
-//	setting phy_vertical_smoothing_factor 0
-	
-//   setting phy_sprint_max 50
-//	setting phy_sprint_rate 275
-//	setting phy_accel_air 1.3
-//	//setting phy_strafe_jumping 1
-//	setting phy_max_hor_speed 275
-//	setting phy_lateral_speed_multiplier 1
-//	setting phy_back_speed_multiplier 0.85
-
-//	setting game_inventory_slots 6
-	
-//	map br_01
-//}
-
-//game teamwar
-//{
-//	setting game_team_mode 1
-//	setting phy_accel_air 63
-//	setting phy_air_speed_multiplier 0.09375
-//	setting game_self_damage 0
-//	setting phy_max_ground_speed 300
-//	setting phy_speed 300
-//	setting phy_back_speed_multiplier 0.9
-
-//	map ad_pr_01
-//	map test_testbox
-
-//	weapon blasta 75
-//	weapon shelly 20
-//	weapon rocket_launcher 20
-//	weapon grenade_launcher 20
-//	weapon minigun 20
-//}
 
 // DONT CHANGE ID NUMBERS ASSIGNED TO  SKILLS!
 
