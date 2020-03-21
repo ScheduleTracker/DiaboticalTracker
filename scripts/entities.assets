@@ -321,6 +321,13 @@ asset tpexit
   command /add tpexit
 }
 
+asset spawn
+{
+  listed true
+  type entity
+  command /add spawn
+}
+
 ///////////////////////////////////////WEAPON_PICKUP_LIGHTS///////////////////////////////////////////////////
 
 asset weapondf
