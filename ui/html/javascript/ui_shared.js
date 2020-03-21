@@ -139,7 +139,20 @@ class BarSegmentHandler {
         } else {
             width = (100 / ((segment_perc * idx + segment_perc) - (segment_perc * idx))) * (value - (segment_perc * idx));
         }
-        element.style.width = width+"%";
+        let fillattr = Number(element.dataset.fillattr);
+        if (fillattr == 1) {
+          element.style.width = "100%";
+          element.style.height = width+"%";
+          element.style.opacity = 1;
+        } else if (fillattr == 2) {
+          element.style.width = "100%";
+          element.style.height = "100%";
+          element.style.opacity = width/100;
+        } else {
+          element.style.width = width+"%";
+          element.style.height = "100%";
+          element.style.opacity = 1;
+        }
     }
 }
 

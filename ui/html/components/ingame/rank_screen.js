@@ -38,7 +38,8 @@ function renderRankScreen(data) {
             }
             if (data.from.rank_tier > data.to.rank_tier) {
                 type = "rank-down";
-                time = 7;
+                time = 5;
+                if (data.match_type == 2) time = 7;
             }
             if (data.from.rank_position != null && data.to.rank_position != null) {
                 if (data.from.rank_position > data.to.rank_position) {
@@ -47,7 +48,8 @@ function renderRankScreen(data) {
                 }
                 if (data.from.rank_position < data.to.rank_position) {
                     type = "rank-down";
-                    time = 7;
+                    time = 5;
+                    if (data.match_type == 2) time = 7;
                 }
             }
             if (data.from.rank_position == null && data.to.rank_position != null) {
@@ -56,13 +58,15 @@ function renderRankScreen(data) {
             }
             if (data.from.rank_position != null && data.to.rank_position == null) {
                 type = "rank-down";
-                time = 7;
+                time = 5;
+                if (data.match_type == 2) time = 7;
             }
         }
 
         global_rank_screen_queue.push({
             "type": type,
-            "time": time
+            "time": time,
+            "match_type": data.match_type
         });
     }
 }
@@ -156,7 +160,7 @@ function renderPlacementRank(data) {
     let team_size = 1;
     if (data.mode in global_queue_modes) team_size = global_queue_modes[data.mode].team_size;
 
-    let rank = renderRankIcon(data.to.rank_tier, data.to.rank_position, team_size);
+    let rank = renderRankIcon(data.to.rank_tier, data.to.rank_position, team_size, "big");
     rank_icon_cont.appendChild(rank);
     /*
     let rank_icon = _createElement("video", "rank_video");
@@ -166,29 +170,24 @@ function renderPlacementRank(data) {
     fragment.appendChild(rank_icon_cont);
 
     let rank_name_cont = _createElement("div", "rank_name_cont");
-    let rank_name = _createElement("div", "rank_name", getRankName(data.to.rank_tier, data.to.rank_position));
+    let rank_name = _createElement("div", "rank_name");
+    rank_name.appendChild(getRankName(data.to.rank_tier, data.to.rank_position));
     rank_name_cont.appendChild(rank_name);
     fragment.appendChild(rank_name_cont);
 
-    /*
-    let progress_cont = _createElement("div", "progress_cont");
-    
-    let progress = _createElement("div", "progress");
-    let value = _createElement("div", "value");
-    value.textContent = Math.floor(data.to.rating);
-    let unit = _createElement("div", "unit");
     if (data.match_type == 2) {
+        let progress_cont = _createElement("div", "progress_cont");
+        let progress = _createElement("div", "progress");
+        let value = _createElement("div", "value");
+        value.textContent = Math.floor(data.to.rating);
+        let unit = _createElement("div", "unit");
         // Competitive
         unit.textContent = "SR";
-    } else if (data.match_type == 3) {
-        // Quickplay
-        unit.textContent = "Points";
+        progress.appendChild(value);
+        progress.appendChild(unit);
+        progress_cont.appendChild(progress);
+        fragment.appendChild(progress_cont);
     }
-    progress.appendChild(value);
-    progress.appendChild(unit);
-    progress_cont.appendChild(progress);
-    fragment.appendChild(progress_cont);
-    */
 
     let cont = _id("rank_screen").querySelector(".placement_rank");
     _empty(cont);
@@ -205,10 +204,10 @@ function renderRankUpdate(data) {
     let team_size = 1;
     if (data.mode in global_queue_modes) team_size = global_queue_modes[data.mode].team_size;
 
-    let prev_rank = renderRankIcon(data.from.rank_tier, data.from.rank_position, team_size);
+    let prev_rank = renderRankIcon(data.from.rank_tier, data.from.rank_position, team_size, "big");
     prev_rank.classList.add("prev");
     rank_icon_cont.appendChild(prev_rank);
-    let next_rank = renderRankIcon(data.to.rank_tier, data.to.rank_position, team_size);
+    let next_rank = renderRankIcon(data.to.rank_tier, data.to.rank_position, team_size, "big");
     next_rank.classList.add("next");
     rank_icon_cont.appendChild(next_rank);
 /*    
@@ -220,10 +219,12 @@ function renderRankUpdate(data) {
 
 
     let rank_name_cont = _createElement("div", "rank_name_cont");
-    let prev_rank_name = _createElement("div", "rank_name", getRankName(data.from.rank_tier, data.from.rank_position));
+    let prev_rank_name = _createElement("div", "rank_name");
+    prev_rank_name.appendChild(getRankName(data.from.rank_tier, data.from.rank_position));
     prev_rank_name.classList.add("prev");
     rank_name_cont.appendChild(prev_rank_name);
-    let next_rank_name = _createElement("div", "rank_name", getRankName(data.to.rank_tier, data.to.rank_position));
+    let next_rank_name = _createElement("div", "rank_name");
+    next_rank_name.appendChild(getRankName(data.to.rank_tier, data.to.rank_position));
     next_rank_name.classList.add("next");
     rank_name_cont.appendChild(next_rank_name);
     fragment.appendChild(rank_name_cont);
@@ -246,9 +247,16 @@ function renderRankUpdate(data) {
 
     let value = _createElement("div", "value");
     progress.dataset.win = win;
-    value.dataset.from = 0;
-    value.dataset.to = Math.floor(Math.abs(data.to.rating - data.from.rating));
-    value.textContent = 0;
+    if (data.match_type == 2) {
+        value.dataset.from = Math.floor(data.from.rating);
+        value.dataset.to = Math.floor(data.to.rating);
+        value.textContent = Math.floor(data.from.rating);
+    } else {
+        value.dataset.from = 0;
+        value.dataset.to = Math.floor(Math.abs(data.to.rating - data.from.rating));
+        value.textContent = 0;
+    }
+    
     
     /*
     value.dataset.from = Math.floor(data.to.rating);
@@ -261,13 +269,21 @@ function renderRankUpdate(data) {
         unit.textContent = "SR";
     } else if (data.match_type == 3) {
         // Quickplay
-        unit.textContent = "Points";
+        unit.textContent = localize("rank_points");
+        unit.classList.add("points");
     }
     progress.appendChild(change_icon);
     if (win == 1) {
-        progress.appendChild(prefix);
+        if (data.match_type == 3) {
+            progress.appendChild(prefix);
+        }
         progress.appendChild(value);
         progress.appendChild(unit);
+    } else {
+        if (data.match_type == 2) {
+            progress.appendChild(value);
+            progress.appendChild(unit);
+        }
     }
     progress_cont.appendChild(progress);
     fragment.appendChild(progress_cont);
@@ -319,12 +335,13 @@ function showRankScreen(cb, initial) {
         anim_show(rank_screen, 500, "flex", function() {
             setTimeout(function() {
                 let win = Number(rank_screen.querySelector(".progress").dataset.win);
-                if (win == 1) {
+                if (win == 1 || first.match_type == 2) {
                     let value = rank_screen.querySelector(".progress_cont .value");
                     let from = value.dataset.from;
                     let to = value.dataset.to;
                     let prev = 0;
                     let play_sound = true;
+                    engine.call('ui_sound', "ui_ranked_xp_gain");
                     anim_start({
                         "element": value,
                         "duration": 3000,
@@ -360,6 +377,7 @@ function showRankScreen(cb, initial) {
                     let to = value.dataset.to;
                     let prev = 0;
                     let play_sound = true;
+                    engine.call('ui_sound', "ui_ranked_xp_gain");
                     anim_start({
                         "element": value,
                         "duration": 3000,
@@ -403,9 +421,14 @@ function showRankScreen(cb, initial) {
         current = rank_screen;
         anim_show(rank_screen, 500, "flex", function() {
             setTimeout(function() {
+
+                let time = 1000;
+
                 let win = Number(rank_screen.querySelector(".progress").dataset.win);
-                if (win == 1) {
-                    /*
+                if (win == 1 || first.match_type == 2) {
+
+                    time = 3500;
+
                     let value = rank_screen.querySelector(".progress_cont .value");
                     let from = Number(value.dataset.from);
                     let to = Number(value.dataset.to);
@@ -430,7 +453,6 @@ function showRankScreen(cb, initial) {
                         "easing": easing_functions.easeOutQuart,
                         "completion": function() {}
                     });
-                    */
                 }
 
                 let prev = rank_screen.querySelector(".rank_icon.prev");
@@ -443,8 +465,8 @@ function showRankScreen(cb, initial) {
                     setTimeout(function() {
                         anim_show(next, 900);
                         anim_show(next_name, 900);
-                    },400);
-                },3500);
+                    },200);
+                }, time);
             }, 700);
         });
     }
@@ -457,6 +479,8 @@ function showRankScreen(cb, initial) {
                 _for_each_with_class_in_parent(placement_rank_screen, 'rank_icon', function(el) { el.classList.add("visible"); });
                 _for_each_with_class_in_parent(placement_rank_screen, 'rank_name', function(el) { el.classList.add("visible"); });
                 _for_each_with_class_in_parent(placement_rank_screen, 'progress', function(el) { el.classList.add("visible"); });
+
+                engine.call('ui_sound', "ui_ranked_rank_up");
             },700);
         });
     }

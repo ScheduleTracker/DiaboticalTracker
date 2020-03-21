@@ -44,7 +44,7 @@ function clear_player_profile() {
 
 let global_profile_nav = undefined;
 function load_player_profile(origin, page, id) {
-
+    echo(origin+" "+page+" "+id);
     clear_profile_data_cache();
 
     if (!id.length || id.trim().length == 0) {
@@ -280,6 +280,8 @@ function player_profile_render_head(data, simple) {
 
 function player_profile_render_main(data) {
 
+    console.log(_dump(data));
+
     let alltime_combined = {
         "match_count": 0,
         "match_won": 0,
@@ -301,13 +303,11 @@ function player_profile_render_main(data) {
     }
 
     let highest_rank = false;
-    let highest_rank_tier = 0;
+    let highest_rank_data = undefined;
     if (_check_nested(data, "mmr", "data") && Array.isArray(data.mmr.data)) {
-        for (let r of data.mmr.data) {
-            if (r.rank_tier && r.rank_tier > highest_rank_tier) {
-                highest_rank = r;
-                highest_rank_tier = r.rank_tier;
-            }
+        if (data.mmr.data.length) {
+            highest_rank = true;
+            highest_rank_data = data.mmr.data[0];
         }
     }
 
@@ -346,13 +346,14 @@ function player_profile_render_main(data) {
     cont.appendChild(summary_top);
 
 
-    let featured_topics = ["rank", "battlepass", "trophies"];
+    //let featured_topics = ["rank", "battlepass", "trophies"];
+    let featured_topics = ["rank"];
     let summary_featured = _createElement("div", "summary_featured");
     
 
     // ==========================================================
     // HIDE FOR NOW since nothing in there is currently available
-    summary_featured.style.display = "none";
+    //summary_featured.style.display = "none";
     // ==========================================================
 
     
@@ -373,9 +374,18 @@ function player_profile_render_main(data) {
         if (featured_topics[i] == "rank") {
             if (highest_rank) {
                 // TODO render rank with mode name and games played
+                content.appendChild(renderRankIcon(highest_rank_data.rank_tier, highest_rank_data.rank_position));
+                let rank_name = _createElement("div", "rank_name");
+                rank_name.appendChild(getRankName(highest_rank_data.rank_tier, highest_rank_data.rank_position));
+                content.appendChild(rank_name);
+
+                if (highest_rank_data.mode_name in global_queue_modes) {
+                    content.appendChild(_createElement("div", "rank_mode_name", localize(global_game_mode_map[global_queue_modes[highest_rank_data.mode_name].mode].i18n)+" "+global_queue_modes[highest_rank_data.mode_name].vs));
+                }
             } else {
                 // TODO render weeball in a cardboard box without extra info
-                content.appendChild(_createElement("div", ["rank_tier_icon","unranked"]));
+                content.appendChild(renderRankIcon(0, null));
+                content.appendChild(_createElement("div", "rank_name", localize("rank_unranked")));
             }
         }
         if (featured_topics[i] == "battlepass") {

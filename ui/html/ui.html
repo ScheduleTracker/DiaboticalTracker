@@ -2190,14 +2190,7 @@
             <div id="leaderboards_screen">
     <div class="leaderboards_screen_head">
         <div>
-            <div id=leaderboards_screen_filter_gamemode class="select-field" data-theme="gray2">
-                <div class="i18n" data-value=r_ctf_5 data-i18n="game_mode_capture_the_flag">Capture The Flag</div>
-                <div class="i18n" data-value=r_wo_5 data-selected=1 data-i18n="game_mode_wipeout">Wipeout</div>
-                <div class="i18n" data-value=r_ca_1 data-i18n="game_mode_arena">Arena</div>
-                <div class="i18n" data-value=r_tdm_3 data-i18n="game_mode_tdm">Team Deathmatch</div>
-                <div class="i18n" data-value=r_macguffin_3 data-i18n="game_mode_macguffin">MacGuffin</div>
-                <div class="i18n" data-value=r_duel data-i18n="game_mode_duel">Duel</div>
-            </div>
+            <div id=leaderboards_screen_filter_gamemode class="select-field" data-theme="gray2"></div>
             <!--
             <div class="separator"></div>
             <div id="leaderboards_filter_friends_button" class="db-btn click-sound mouseover-sound4 plain"><span class="icon"></span><span class="i18n" data-i18n="menu_button_only_friends">Friends only</span></div>
@@ -2208,27 +2201,7 @@
         </div>
     </div>
 
-    <div id="leaderboards_table_header">
-        <div class="tr tr_position"></div>
-        <div class="tr tr_image"></div>
-
-        <div class="tr tr_player">
-            <div class="title i18n" data-i18n="leaderboards_table_head_player">Player</div>
-        </div>
-        <div class="tr tr_division">
-            <div class="title i18n" data-i18n="leaderboards_table_head_division">Division</div>
-        </div>
-        <div class="tr tr_rating">
-            <div class="title i18n" data-i18n="leaderboards_table_head_rating">Rating</div>
-        </div>
-        <div class="tr tr_wins">
-            <div class="title i18n" data-i18n="leaderboards_table_head_wins">Wins</div>
-        </div>
-        <div class="tr tr_matches">
-            <div class="title i18n" data-i18n="leaderboards_table_head_matches">Matches</div>
-        </div>
-    </div>
-
+    <div id="leaderboards_table_header"></div>
     <div id="leaderboards_table"></div>
     <div id="leaderboards_bottom"></div>
 </div>
@@ -4772,7 +4745,12 @@
         <div class="overflow_container">
             [[for start=0 end=(+segments)]]
             <div class="fg_container">
-                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:~root.threshold]]"  data-idx="[[:#getIndex()]]" data-segments="[[:~root.segments]]" data-bind-bar="{{battle_data.self.hp_percentage}}"></div>
+                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:~root.threshold]]"  
+                                            data-idx="[[:#getIndex()]]" 
+                                            data-fillattr="[[:~root.fillStyle]]"
+                                            data-segments="[[:~root.segments]]" 
+                                            data-bind-bar="{{battle_data.self.hp_percentage}}">
+                </div>
             </div>
             [[/for]]
         </div>
@@ -4788,7 +4766,12 @@
         <div class="overflow_container">
             [[for start=0 end=(+segments)]]
             <div class="fg_container">
-                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:~root.threshold]]"  data-idx="[[:#getIndex()]]" data-segments="[[:~root.segments]]" data-bind-bar="{{battle_data.self.armor_percentage}}"></div>
+                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:~root.threshold]]"  
+                                            data-idx="[[:#getIndex()]]" 
+                                            data-fillattr="[[:~root.fillStyle]]"
+                                            data-segments="[[:~root.segments]]" 
+                                            data-bind-bar="{{battle_data.self.armor_percentage}}">
+                </div>
             </div>
             [[/for]]
         </div>
@@ -4963,7 +4946,7 @@
                             <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
                         </div>
                     </div>
-                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{player_iter.alive}}">
+                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca'">
                         <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
                                            [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
                                            [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
@@ -5056,7 +5039,7 @@
                             <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
                         </div>
                     </div>
-                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{player_iter.alive}}">
+                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca'">
                         <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
                                            [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
                                            [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">

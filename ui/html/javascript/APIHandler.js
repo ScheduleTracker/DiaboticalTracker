@@ -46,6 +46,14 @@ class APIHandler {
         xhr.send();
 
         xhr.onload = function() {
+            /*
+            console.log("path: ",path);
+            console.log("response: ",xhr.response);
+            console.log("status: ",xhr.status);
+            echo("PATH:"+path);
+            echo("RESPONSE:"+xhr.response);
+            echo("STATUS:"+xhr.status);
+            */
             //console.log("response_header",xhr.getResponseHeader("HTTP-Status-Code"));
             if (xhr.status != 200) { // analyze HTTP status of the response
                 //console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found

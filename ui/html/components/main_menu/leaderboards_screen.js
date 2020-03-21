@@ -1,5 +1,5 @@
 let global_leaderboards_data = {
-    "game_mode": "r_wo_5",
+    "game_mode": "r_duel",
     "friends_only": false,
     "page": 1,
     "max_per_page": 15
@@ -24,6 +24,19 @@ function init_screen_leaderboards() {
     */
 
     let mode_filter = _id("leaderboards_screen_filter_gamemode");
+    _empty(mode_filter);
+
+    for (let mode in global_queue_modes) {
+        if ("leaderboard" in global_queue_modes[mode] && global_queue_modes[mode].leaderboard == true) {
+            let opt = _createElement("div");
+            opt.dataset.value = mode;
+            opt.textContent = localize(global_game_mode_map[global_queue_modes[mode].mode].i18n)+" "+global_queue_modes[mode].vs;
+
+            if (mode == "r_duel") opt.dataset.selected = 1;
+            mode_filter.appendChild(opt);
+        }
+    }
+
     ui_setup_select(mode_filter, function(opt, field) {
         global_leaderboards_data.game_mode = field.dataset.value;
         global_leaderboards_data.page = 1;
@@ -119,6 +132,34 @@ function render_leaderboard(first_pos, data, self) {
     let leaderboards_table = _id("leaderboards_table");
     _empty(leaderboards_table);
 
+    let leaderboards_table_header = _id("leaderboards_table_header");
+    let header_fragment = new DocumentFragment();
+    header_fragment.appendChild(_createElement("div", ["tr", "tr_position"]));
+    header_fragment.appendChild(_createElement("div", ["tr", "tr_image"]));
+    let tr_player = _createElement("div", ["tr", "tr_player"]);
+    tr_player.appendChild(_createElement("div", "title", localize("leaderboards_table_head_player")));
+    header_fragment.appendChild(tr_player);
+    let tr_division = _createElement("div", ["tr", "tr_division"]);
+    tr_division.appendChild(_createElement("div", "title", localize("leaderboards_table_head_rank")));
+    header_fragment.appendChild(tr_division);
+
+    let tr_rating = _createElement("div", ["tr", "tr_rating"]);
+    if (data && data.length && data[0].match_type == 3) {
+        tr_rating.appendChild(_createElement("div", "title", localize("leaderboards_table_head_points")));
+    } else {
+        tr_rating.appendChild(_createElement("div", "title", localize("leaderboards_table_head_rating")));
+    }
+    header_fragment.appendChild(tr_rating);
+
+    let tr_wins = _createElement("div", ["tr", "tr_wins"]);
+    tr_wins.appendChild(_createElement("div", "title", localize("leaderboards_table_head_wins")));
+    header_fragment.appendChild(tr_wins);
+    let tr_matches = _createElement("div", ["tr", "tr_matches"]);
+    tr_matches.appendChild(_createElement("div", "title", localize("leaderboards_table_head_matches")));
+    header_fragment.appendChild(tr_matches);
+    _empty(leaderboards_table_header);
+    leaderboards_table_header.appendChild(header_fragment);
+
     let position = first_pos;
     let self_rendered = false;
     let fragment = new DocumentFragment();
@@ -161,7 +202,7 @@ function render_leaderboard_row(target, position, data, self) {
     _addButtonSounds(row, 1);
 
     let pos = _createElement("div", ["tr", "tr_position"]);
-    pos.innerHTML = position;
+    pos.textContent = position;
     row.appendChild(pos)
 
     let img = _createElement("div", ["tr", "tr_image"]);
@@ -173,23 +214,23 @@ function render_leaderboard_row(target, position, data, self) {
     row.appendChild(img);
 
     let player = _createElement("div", ["tr", "tr_player"]);
-    player.innerHTML = data.name;
+    player.textContent = data.name;
     row.appendChild(player);
 
     let division = _createElement("div", ["tr", "tr_division"]);
-    division.innerHTML = "&lt;icon"+data.rank_tier+"&gt;";
+    division.appendChild(renderRankIcon(data.rank_tier, data.rank_position, undefined, "small"));
     row.appendChild(division);
 
     let rating = _createElement("div", ["tr", "tr_rating"]);
-    rating.innerHTML = data.rating;
+    rating.textContent = data.rating;
     row.appendChild(rating);
 
     let wins = _createElement("div", ["tr", "tr_wins"]);
-    wins.innerHTML = data.match_won;
+    wins.textContent = data.match_wins;
     row.appendChild(wins);
 
     let matches = _createElement("div", ["tr", "tr_matches"]);
-    matches.innerHTML = data.match_count;
+    matches.textContent = data.match_count;
     row.appendChild(matches);
 
     target.appendChild(row);

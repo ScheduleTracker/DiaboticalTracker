@@ -22,6 +22,13 @@ function init_element_hp_bar() {
         defaultY,
         defaultWidth,
         defaultHeight,
+        {"inputType": "list",   "type": "fillStyle", "text": "Segment Fill", "listValues":
+            [
+                {"name": "Inline", "value": "0"},
+                {"name": "Transverse", "value": "1"},
+                {"name": "Fade", "value": "2"},
+            ]
+        },
         {"inputType": "float", "type": "segments", "text": "Num of Segments"},
         {"inputType": "float", "type": "gap", "text": "Segment Gap Width"},
         {"inputType": "float", "type": "threshold", "text": "Low HP Threshold"},

@@ -647,6 +647,7 @@ function renderRankIcon(rank, position, team_size, size) {
     }
 
     if (size == "small") div.classList.add("small");
+    if (size == "big") div.classList.add("big");
     return div;
 }
 
@@ -662,17 +663,18 @@ let global_rank_tier_lookup = [
     [36,40]
 ];
 function getRankName(rank, position) {
+    let fragment = new DocumentFragment();
     if (position && position > 0) {
 
-        if (position == 1) return localize("rank_tier_top1");
-        else if (position <= 50) return localize("rank_tier_top50");
-        else if (position <= 100) return localize("rank_tier_top100");
-        else return localize("rank_tier_top1000");
+        if (position == 1) fragment.appendChild(_createElement("div", "name", localize("rank_tier_top1")));
+        else if (position <= 50) fragment.appendChild(_createElement("div", "name", localize("rank_tier_top50")));
+        else if (position <= 100) fragment.appendChild(_createElement("div", "name", localize("rank_tier_top100")));
+        else return fragment.appendChild(_createElement("div", "name", localize("rank_tier_top1000")));
 
     } else {
         if (rank === null || rank === undefined || rank == 0) {
 
-            return localize("rank_unranked");
+            fragment.appendChild(_createElement("div", "name", localize("rank_unranked")));
 
         } else {
             
@@ -682,10 +684,21 @@ function getRankName(rank, position) {
                     break;
                 }
             }
-            return localize("rank_tier_"+tier);
 
+            let tier_sub_rank = 5 - (global_rank_tier_lookup[tier][1] - Number(rank));
+
+            let tier_sub_rank_text = "";
+            if (tier_sub_rank == 1) tier_sub_rank_text = "I";
+            else if (tier_sub_rank == 2) tier_sub_rank_text = "II";
+            else if (tier_sub_rank == 3) tier_sub_rank_text = "III";
+            else if (tier_sub_rank == 4) tier_sub_rank_text = "IV";
+            else if (tier_sub_rank == 5) tier_sub_rank_text = "V";
+            fragment.appendChild(_createElement("div", "name", localize("rank_tier_"+tier)));
+            fragment.appendChild(_createElement("div", "name-post", tier_sub_rank_text));
         }
     }
+    
+    return fragment;
 }
 
 function send_view_data(view, string) {

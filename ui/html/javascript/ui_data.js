@@ -290,6 +290,7 @@ let global_queue_modes = {
         "team_size": 1,
         "mode": "rocket_arena",
         "locked": false,
+        "leaderboard": true,
     },
     "qp_brawl_3": {
         "variable": "lobby_search_qp_brawl_3",
@@ -318,6 +319,7 @@ let global_queue_modes = {
         "team_size": 1,
         "mode": "ca",
         "locked": false,
+        "leaderboard": true,
     },
     "qp_ca_2": {
         "variable": "lobby_search_qp_ca_2",
@@ -325,6 +327,7 @@ let global_queue_modes = {
         "team_size": 2,
         "mode": "ca",
         "locked": false,
+        "leaderboard": true,
     },
     "qp_ffa": {
         "variable": "lobby_search_qp_ffa",
@@ -377,7 +380,8 @@ let global_queue_modes = {
         "vs": "1v1",
         "team_size": 1,
         "mode": "duel",
-        "locked": false, 
+        "locked": false,
+        "leaderboard": true,
     }
 };
 

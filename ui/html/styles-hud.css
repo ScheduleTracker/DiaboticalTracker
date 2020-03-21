@@ -609,6 +609,55 @@ h2 {
 .rank_icon.small.top_3      { background-image: url("/html/ranks/100x100/11_special.png"); }
 .rank_icon.small.top_4      { background-image: url("/html/ranks/100x100/12_special.png"); }
 
+.rank_icon.big.unranked_1 { background-image: url("/html/ranks/00_cardboardbox_01.png"); }
+.rank_icon.big.unranked_2 { background-image: url("/html/ranks/00_cardboardbox_02.png"); }
+.rank_icon.big.unranked_3 { background-image: url("/html/ranks/00_cardboardbox_03.png"); }
+.rank_icon.big.unranked_4 { background-image: url("/html/ranks/00_cardboardbox_04.png"); }
+.rank_icon.big.unranked_5 { background-image: url("/html/ranks/00_cardboardbox_05.png"); }
+.rank_icon.big.rank_1     { background-image: url("/html/ranks/01_paintjob_01.png"); }
+.rank_icon.big.rank_2     { background-image: url("/html/ranks/01_paintjob_02.png"); }
+.rank_icon.big.rank_3     { background-image: url("/html/ranks/01_paintjob_03.png"); }
+.rank_icon.big.rank_4     { background-image: url("/html/ranks/01_paintjob_04.png"); }
+.rank_icon.big.rank_5     { background-image: url("/html/ranks/01_paintjob_05.png"); }
+.rank_icon.big.rank_6     { background-image: url("/html/ranks/02_stone_01.png"); }
+.rank_icon.big.rank_7     { background-image: url("/html/ranks/02_stone_02.png"); }
+.rank_icon.big.rank_8     { background-image: url("/html/ranks/02_stone_03.png"); }
+.rank_icon.big.rank_9     { background-image: url("/html/ranks/02_stone_04.png"); }
+.rank_icon.big.rank_10    { background-image: url("/html/ranks/02_stone_05.png"); }
+.rank_icon.big.rank_11    { background-image: url("/html/ranks/03_wood_01.png"); }
+.rank_icon.big.rank_12    { background-image: url("/html/ranks/03_wood_02.png"); }
+.rank_icon.big.rank_13    { background-image: url("/html/ranks/03_wood_03.png"); }
+.rank_icon.big.rank_14    { background-image: url("/html/ranks/03_wood_04.png"); }
+.rank_icon.big.rank_15    { background-image: url("/html/ranks/03_wood_05.png"); }
+.rank_icon.big.rank_16    { background-image: url("/html/ranks/04_iron_01.png"); }
+.rank_icon.big.rank_17    { background-image: url("/html/ranks/04_iron_02.png"); }
+.rank_icon.big.rank_18    { background-image: url("/html/ranks/04_iron_03.png"); }
+.rank_icon.big.rank_19    { background-image: url("/html/ranks/04_iron_04.png"); }
+.rank_icon.big.rank_20    { background-image: url("/html/ranks/04_iron_05.png"); }
+.rank_icon.big.rank_21    { background-image: url("/html/ranks/05_copper_01.png"); }
+.rank_icon.big.rank_22    { background-image: url("/html/ranks/05_copper_02.png"); }
+.rank_icon.big.rank_23    { background-image: url("/html/ranks/05_copper_03.png"); }
+.rank_icon.big.rank_24    { background-image: url("/html/ranks/05_copper_04.png"); }
+.rank_icon.big.rank_25    { background-image: url("/html/ranks/05_copper_05.png"); }
+.rank_icon.big.rank_26    { background-image: url("/html/ranks/06_silver_01.png"); }
+.rank_icon.big.rank_27    { background-image: url("/html/ranks/06_silver_02.png"); }
+.rank_icon.big.rank_28    { background-image: url("/html/ranks/06_silver_03.png"); }
+.rank_icon.big.rank_29    { background-image: url("/html/ranks/06_silver_04.png"); }
+.rank_icon.big.rank_30    { background-image: url("/html/ranks/06_silver_05.png"); }
+.rank_icon.big.rank_31    { background-image: url("/html/ranks/07_gold_01.png"); }
+.rank_icon.big.rank_32    { background-image: url("/html/ranks/07_gold_02.png"); }
+.rank_icon.big.rank_33    { background-image: url("/html/ranks/07_gold_03.png"); }
+.rank_icon.big.rank_34    { background-image: url("/html/ranks/07_gold_04.png"); }
+.rank_icon.big.rank_35    { background-image: url("/html/ranks/07_gold_05.png"); }
+.rank_icon.big.rank_36    { background-image: url("/html/ranks/08_crystal_01.png"); }
+.rank_icon.big.rank_37    { background-image: url("/html/ranks/08_crystal_02.png"); }
+.rank_icon.big.rank_38    { background-image: url("/html/ranks/08_crystal_03.png"); }
+.rank_icon.big.rank_39    { background-image: url("/html/ranks/08_crystal_04.png"); }
+.rank_icon.big.rank_40    { background-image: url("/html/ranks/08_crystal_05.png"); }
+.rank_icon.big.top_1      { background-image: url("/html/ranks/09_special.png"); }
+.rank_icon.big.top_2      { background-image: url("/html/ranks/10_special.png"); }
+.rank_icon.big.top_3      { background-image: url("/html/ranks/11_special.png"); }
+.rank_icon.big.top_4      { background-image: url("/html/ranks/12_special.png"); }
 
 /*
  *  Default flag style
@@ -2290,6 +2339,7 @@ h2 {
     position:relative;
     margin-right:calc(1px * var(--zero-onevh-rounded) * var(--gap) * var(--ratio));
     flex:1;
+    transform:scaleY(-1);
 }
 .ha_bar_container .fg_container .bar_segment_fg {
     background-color: var(--color);
@@ -3686,6 +3736,8 @@ h2 {
     position:absolute;
     top:0;
     display:flex;
+    flex-direction: row;
+    align-items:center;
     justify-content:center;
     width:100%;
     font-family:var(--mont-font);
@@ -3694,6 +3746,10 @@ h2 {
     text-shadow:2px 2px 4px rgba(0,0,0,0.6);
 }
 #rank_screen .rank_progression .rank_name_cont .rank_name.next { display:none; }
+#rank_screen .rank_progression .rank_name_cont .rank_name .name {}
+#rank_screen .rank_progression .rank_name_cont .rank_name .name-post {
+    margin-left:3vh;
+}
 #rank_screen .rank_progression .progress_cont {
     margin-top:8vh;
     display:flex;
@@ -3712,8 +3768,8 @@ h2 {
     text-shadow:2px 2px 4px rgba(0,0,0,0.6);
 }
 #rank_screen .rank_progression .progress_cont .progress .icon {
-    width:8vh;
-    height:8vh;
+    width:5vh;
+    height:5vh;
     margin-right:1vh;
     background-repeat:no-repeat;
     background-position: center;
@@ -3725,6 +3781,9 @@ h2 {
     margin-left:0.8vh;
     font-size:4vh;
     color:gold;
+}
+#rank_screen .rank_progression .progress_cont .progress .unit.points {
+    color:rgb(65, 214, 19);
 }
 
 
@@ -3747,7 +3806,7 @@ h2 {
 }
 #rank_screen .placement_rank .title {
     text-transform: uppercase;
-    font-size:5vh;
+    font-size:4vh;
     margin-top:10vh;
     font-weight:bold;
     font-family:var(--mont-font);
@@ -3784,6 +3843,8 @@ h2 {
     position:absolute;
     top:0;
     display:flex;
+    flex-direction: row;
+    align-items:center;
     justify-content:center;
     width:100%;
     font-family:var(--mont-font);
@@ -3796,6 +3857,10 @@ h2 {
     display:none;
 }
 #rank_screen .placement_rank .rank_name_cont .rank_name.visible { display:flex; }
+#rank_screen .placement_rank .rank_name_cont .rank_name .name {}
+#rank_screen .placement_rank .rank_name_cont .rank_name .name-post {
+    margin-left:3vh;
+}
 #rank_screen .placement_rank .progress_cont {
     margin-top:5vh;
 }
@@ -3813,8 +3878,8 @@ h2 {
 }
 #rank_screen .placement_rank .progress_cont .progress.visible { display:flex; }
 #rank_screen .placement_rank .progress_cont .progress .icon {
-    width:8vh;
-    height:8vh;
+    width:5vh;
+    height:5vh;
     margin-right:1vh;
     background-repeat:no-repeat;
     background-position: center;
@@ -3826,6 +3891,9 @@ h2 {
     margin-left:0.8vh;
     font-size:4vh;
     color:gold;
+}
+#rank_screen .placement_rank .progress_cont .progress .unit.points {
+    color:rgb(65, 214, 19);
 }
 @keyframes placement_rank_in {
     0%   { opacity:0.5; transform:scale(0.8); }
@@ -3973,8 +4041,8 @@ h2 {
 }
 #rank_screen .placement_progression .match_list .dot.block .result_box.loss { top: 2.4vh; }
 #rank_screen .placement_progression .match_list .dot .result_box .icon {
-    width:8vh;
-    height:8vh;
+    width:5vh;
+    height:5vh;
     background-position: center;
     background-size:100%;
     background-repeat:no-repeat;

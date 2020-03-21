@@ -3255,6 +3255,55 @@ h2 {
 .rank_icon.small.top_3      { background-image: url("/html/ranks/100x100/11_special.png"); }
 .rank_icon.small.top_4      { background-image: url("/html/ranks/100x100/12_special.png"); }
 
+.rank_icon.big.unranked_1 { background-image: url("/html/ranks/00_cardboardbox_01.png"); }
+.rank_icon.big.unranked_2 { background-image: url("/html/ranks/00_cardboardbox_02.png"); }
+.rank_icon.big.unranked_3 { background-image: url("/html/ranks/00_cardboardbox_03.png"); }
+.rank_icon.big.unranked_4 { background-image: url("/html/ranks/00_cardboardbox_04.png"); }
+.rank_icon.big.unranked_5 { background-image: url("/html/ranks/00_cardboardbox_05.png"); }
+.rank_icon.big.rank_1     { background-image: url("/html/ranks/01_paintjob_01.png"); }
+.rank_icon.big.rank_2     { background-image: url("/html/ranks/01_paintjob_02.png"); }
+.rank_icon.big.rank_3     { background-image: url("/html/ranks/01_paintjob_03.png"); }
+.rank_icon.big.rank_4     { background-image: url("/html/ranks/01_paintjob_04.png"); }
+.rank_icon.big.rank_5     { background-image: url("/html/ranks/01_paintjob_05.png"); }
+.rank_icon.big.rank_6     { background-image: url("/html/ranks/02_stone_01.png"); }
+.rank_icon.big.rank_7     { background-image: url("/html/ranks/02_stone_02.png"); }
+.rank_icon.big.rank_8     { background-image: url("/html/ranks/02_stone_03.png"); }
+.rank_icon.big.rank_9     { background-image: url("/html/ranks/02_stone_04.png"); }
+.rank_icon.big.rank_10    { background-image: url("/html/ranks/02_stone_05.png"); }
+.rank_icon.big.rank_11    { background-image: url("/html/ranks/03_wood_01.png"); }
+.rank_icon.big.rank_12    { background-image: url("/html/ranks/03_wood_02.png"); }
+.rank_icon.big.rank_13    { background-image: url("/html/ranks/03_wood_03.png"); }
+.rank_icon.big.rank_14    { background-image: url("/html/ranks/03_wood_04.png"); }
+.rank_icon.big.rank_15    { background-image: url("/html/ranks/03_wood_05.png"); }
+.rank_icon.big.rank_16    { background-image: url("/html/ranks/04_iron_01.png"); }
+.rank_icon.big.rank_17    { background-image: url("/html/ranks/04_iron_02.png"); }
+.rank_icon.big.rank_18    { background-image: url("/html/ranks/04_iron_03.png"); }
+.rank_icon.big.rank_19    { background-image: url("/html/ranks/04_iron_04.png"); }
+.rank_icon.big.rank_20    { background-image: url("/html/ranks/04_iron_05.png"); }
+.rank_icon.big.rank_21    { background-image: url("/html/ranks/05_copper_01.png"); }
+.rank_icon.big.rank_22    { background-image: url("/html/ranks/05_copper_02.png"); }
+.rank_icon.big.rank_23    { background-image: url("/html/ranks/05_copper_03.png"); }
+.rank_icon.big.rank_24    { background-image: url("/html/ranks/05_copper_04.png"); }
+.rank_icon.big.rank_25    { background-image: url("/html/ranks/05_copper_05.png"); }
+.rank_icon.big.rank_26    { background-image: url("/html/ranks/06_silver_01.png"); }
+.rank_icon.big.rank_27    { background-image: url("/html/ranks/06_silver_02.png"); }
+.rank_icon.big.rank_28    { background-image: url("/html/ranks/06_silver_03.png"); }
+.rank_icon.big.rank_29    { background-image: url("/html/ranks/06_silver_04.png"); }
+.rank_icon.big.rank_30    { background-image: url("/html/ranks/06_silver_05.png"); }
+.rank_icon.big.rank_31    { background-image: url("/html/ranks/07_gold_01.png"); }
+.rank_icon.big.rank_32    { background-image: url("/html/ranks/07_gold_02.png"); }
+.rank_icon.big.rank_33    { background-image: url("/html/ranks/07_gold_03.png"); }
+.rank_icon.big.rank_34    { background-image: url("/html/ranks/07_gold_04.png"); }
+.rank_icon.big.rank_35    { background-image: url("/html/ranks/07_gold_05.png"); }
+.rank_icon.big.rank_36    { background-image: url("/html/ranks/08_crystal_01.png"); }
+.rank_icon.big.rank_37    { background-image: url("/html/ranks/08_crystal_02.png"); }
+.rank_icon.big.rank_38    { background-image: url("/html/ranks/08_crystal_03.png"); }
+.rank_icon.big.rank_39    { background-image: url("/html/ranks/08_crystal_04.png"); }
+.rank_icon.big.rank_40    { background-image: url("/html/ranks/08_crystal_05.png"); }
+.rank_icon.big.top_1      { background-image: url("/html/ranks/09_special.png"); }
+.rank_icon.big.top_2      { background-image: url("/html/ranks/10_special.png"); }
+.rank_icon.big.top_3      { background-image: url("/html/ranks/11_special.png"); }
+.rank_icon.big.top_4      { background-image: url("/html/ranks/12_special.png"); }
 
 /*
  *  Default flag style
@@ -5047,6 +5096,7 @@ h2 {
     position:relative;
     margin-right:calc(1px * var(--zero-onevh-rounded) * var(--gap) * var(--ratio));
     flex:1;
+    transform:scaleY(-1);
 }
 .ha_bar_container .fg_container .bar_segment_fg {
     background-color: var(--color);
@@ -12591,6 +12641,13 @@ h2 {
     height:2.6vh;
 }
 
+#leaderboards_screen .tr.tr_division .rank_icon {
+    width:2.6vh;
+    height:2.6vh;
+    position:relative;
+}
+#leaderboards_screen .tr.tr_division .rank_icon .position { display:none; }
+
 #leaderboards_bottom {
     display:flex;
     flex-direction:row;
@@ -12849,10 +12906,32 @@ h2 {
     margin-top:2vh;
 }
 
-#player_profile_screen .profile .summary_featured .featured .content .rank_tier_icon {
-    margin-top:2vh;
+#player_profile_screen .profile .summary_featured .featured .content .rank_icon {
+    margin-top:0.4vh;
+    width:10vh;
+    height:10vh;
 }
-
+#player_profile_screen .profile .summary_featured .featured .content .rank_icon .position {
+    font-size:1.3vh;
+}
+#player_profile_screen .profile .summary_featured .featured .content .rank_name {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:var(--mont-font);
+    margin-top:0.5vh;
+    font-size:1.3vh;
+    font-weight:bold;
+}
+#player_profile_screen .profile .summary_featured .featured .content .rank_name .name-post {
+    margin-left:1vh;
+}
+#player_profile_screen .profile .summary_featured .featured .content .rank_mode_name {
+    margin-top:0.4vh;
+    text-align:center;
+    font-size:1.1vh;
+    font-weight:bold;
+}
 
 #player_profile_screen .profile .most_played_mode {
     display:flex;

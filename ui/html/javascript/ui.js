@@ -537,10 +537,12 @@ window.addEventListener("load", function(){
                     #define ERROR_OUTDATED_CLIENT_VERSION 1
                     #define ERROR_OUTDATED_SERVER_VERSION 2
                     #define ERROR_PROTOCOL_BREACH 4  -> 'protocol breach, dont call it that, call it "protocol error"'
+                    #define ERROR_BANNED 6
                     #define ERROR_SERVER_FULL 7
                     #define ERROR_BAD_AUTH 8
                     #define REASON_SERVER_SHUTTING_DOWN 10
                     #define ERROR_BAD_MAP 12
+                    #define ERROR_BANNED_WHILE_IN_GAME 13
                 30: Server disconnected us unexpectedly.
                 31: Abnormal connection error 1
                 32: Connection attempt failed.
@@ -554,7 +556,7 @@ window.addEventListener("load", function(){
                 [12:58 AM] FireFrog: 35 is your regular timeout
             */
             engine.call("echo","Disconnected from server, code:"+value);
-            if (value == 10 || value == 30) { // 30 happens when the gameserver shuts down normally at the end of the game apparently
+            if (value == 10) {
                 // Check if state == 4 == GAME_STATE_ENDED
                 
                 /* commented for now because game_state isn't realibly set to 4 here when we get disconnected for some reason
@@ -566,6 +568,11 @@ window.addEventListener("load", function(){
                     });
                 }
                 */
+            } else if (value == 6 || value == 13) {
+
+                // handle ban
+                set_logged_out_screen(true, "disabled");
+
             } else {
             //if ([5,6,7,8].includes(value)) {
                 queue_dialog_msg({
