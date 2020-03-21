@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html><head>
+    <style>
+
+        body, html {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: rgba(0,0,0,0.5);
+			background-image: url("../html/images/editpad/bg.png");
+			background-position: left top;
+            color: white;
+        }
+
+        * {
+            cursor: default;
+            word-wrap: break-word;
+        }
+
+		#right_container {
+			position: absolute;
+			left: 11%;
+			width: 79.5%;
+			top: 28%;
+			height: 65%;
+			flex-wrap: wrap;
+			display: flex;
+			overflow-y: scroll;
+		}
+		
+		.asset_button {
+			width: 14vh;
+			height: 14vh;
+		}
+		.asset_button > img {
+			width: 14vh;
+			height: 14vh;		
+		}
+    </style>
+
+    <script src="javascript/cohtml.js"></script>
+	<script src="vendors/zepto.js"></script>
+<script>
+	window.addEventListener("load", function () {
+		$('#filter_input').on("input", function () {
+			populate();
+		});
+	});
+		  
+	function populate() {
+		engine.call("editpad_filter", $('#filter_input').val()).then(function (reply) {
+	    assets = [];
+		try {
+			//$("#test").html(reply);
+			assets = JSON.parse(reply);
+			$("#right_container").html(assets.join(""));
+		} catch (err){}
+          
+      });
+	}
+
+	</script>
+</head>
+
+<body>
+<div>asdja sdkjah sjkdh ajksdh ajd</div>
+<div>asdja sdkjah sjkdh ajksdh ajd</div>
+<div>asdja sdkjah sjkdh ajksdh ajd</div>
+<div>asdja sdkjah sjkdh ajksdh ajd</div>
+<div>asdja sdkjah sjkdh ajksdh ajd</div>
+<div>asdja sdkjah sjkdh ajksdh ajd</div>
+<div>asdja sdkjah sjkdh ajksdh ajd</div>
+<div id=test></div>
+<div id="right_container"></div>
+<input id="filter_input">
+
+</body>

@@ -1,0 +1,238 @@
+/*
+#available_skills_container {
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: inset 0 0 16vh rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 94%;
+    margin-left: 3%;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    height: 42vh;
+    text-align: center;
+    padding: 3vh;
+    display: grid;
+    grid-template-rows: 30% auto;
+}
+*/
+#available_skills {
+    text-align: left;
+}
+
+.shop_class_selection {
+    display: flex;
+}
+.shop_class_selection > div {
+    width: 33.333%;
+}
+.shop_class_selection_title {
+    color: white;
+}
+#respawn_message {
+    font-size: 3vh;
+    margin-bottom: 2vh;
+
+    display: none;
+    bottom: 20vh;
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 50vh; /* Need a specific value to work */
+    text-align: center;
+
+    text-transform: capitalize;
+}
+
+
+#game_shop_container {
+    position: absolute;
+    bottom: 20%;
+    left: 0%;
+    width: 30%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#game_shop {
+    background-color: rgba(20,30,80,0.85);
+    width: 40vh;
+    height: 40vh;
+    border:1px solid rgba(255,255,255,0.1);
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+#game_shop > * {
+}
+.available_skills_container {
+    width: 100%;
+    text-align: center;
+}
+.shop_category {
+    
+}
+.available_skills {
+    text-align: left;
+}
+.skill_container {
+    background-color: rgba(50, 50, 50, 0.5);
+    box-shadow: inset 0 0 2vh rgba(0,0,0,0.5);
+    margin-right: 3vh;
+    margin-left: 3vh;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+    font-size: 2vh;
+    padding: 2vh;
+    background-size: 100% 100%;
+    vertical-align: middle;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.skill_tooltip {
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+}
+.skill_tooltip * {
+    background-color: transparent;
+    margin-left: 6vh;
+    margin-top: 6vh;
+}
+
+.shop_category > .cannot_buy {
+    opacity: 0.35;
+    filter: grayscale(75%);   
+}
+#game_shop_revenge_section .cannot_buy {
+    opacity: 0.35;
+    filter: grayscale(75%);   
+}
+.shop_skill_choice {
+    display: inline-block;
+    background-color: rgba(50, 50, 50, 0.5);
+    box-shadow: inset 0 0 2vh rgba(0,255,255,0.5), 0 0 2vh rgba(0,0,0,0.5);
+    nop-border: 0.1vh inset rgba(255,255,255,0.5);
+    width: 7vh;
+    height: 7vh;
+    margin-left: 3vh;
+    margin-bottom: 3vh;
+    background-size: 100% 100%;
+    color: transparent;
+    margin-top: 1vh;
+}
+
+#shop_skill_information {
+    background-color: rgba(0,0,0,0.4);
+    padding: 1.5vh;
+}
+.shop_class_selection_category {
+    padding-top: 1.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.125);
+}
+.shop_class_selection_category:hover {
+    background-color: rgba(255,255,255,0.4);
+}
+.shop_class_selection_category:active {
+    background-color: rgba(255,255,255,0.7);
+}
+.outline {
+}
+
+.game_shop_category_header {
+    text-align: left;
+    background-color: rgba(0,0,0,0.15);
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    justify-content: space-between;
+}
+
+.game_shop_section > div {
+    padding: 1.2vh;
+    padding-top: 0.2vh;
+    padding-bottom: 0.2vh;
+}
+#game_shop_favor_money, .skill_tip_cost_favor {
+    color: #efc437;
+}
+#game_shop_revenge_money, .skill_tip_cost_revenge {
+    color: #837aff;
+}
+
+.shop_class_selection_category {
+    margin-left: 1vh;
+}
+
+.shop_class_selection_category:first-child {
+    margin-left: 0vh;
+}
+
+.shop_class_selection_category {
+    text-align: center;
+}
+.shop_class_selection_title {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0.5vh;
+}
+.game_shop_section_content {
+    
+}
+
+.skill_tip_cost_favor, .skill_tip_cost_revenge {
+    float: right;
+}
+.skill_tip_name {
+    text-transform: uppercase;
+}
+.skill_tip_description {
+    color: rgba(255,255,255,0.75);
+}
+
+.shop_skill_choice:first-child {
+    margin-left: 0;
+}
+.shop_class_selection .shop_skill_choice {
+    width: 4vh;
+    height: 4vh;
+    nop-border: 0.1vh inset rgba(0,0,0,0.1);
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.5);
+    margin-left: 1vh;
+}
+.revenge_item {
+    outline: 0px solid white;
+    display: inline-block;
+    width: 4vh;
+    height: 4vh;
+    margin: 1vh;
+    position: relative;
+}
+
+.revenge_item .shop_shortcut {
+    position: absolute;
+    bottom: -1vh;
+    right: 0.5vh;
+    text-transform: uppercase;
+    text-shadow: -2px -2px 1px black;
+}
+.revenge_item > svg {
+    fill: var(--weapon-color);
+}
+.revenge_item:hover > svg {
+    fill: rgba(255,255,255,0.75);
+}
+.revenge_item:active > svg {
+    fill: white;
+}
+#available_revenge_shop_items {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}

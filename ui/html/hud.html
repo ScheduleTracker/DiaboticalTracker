@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+
+    <style>
+             
+/* 
+ *  Roboto main text font
+ *  License: Apache License, Version 2.0
+ *  https://fonts.google.com/specimen/Roboto
+ */
+@font-face {
+    font-family: "roboto";
+    src: url("/html/fonts/Roboto-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "roboto";
+    src: url("/html/fonts/Roboto-RegularItalic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "roboto";
+    src: url("/html/fonts/Roboto-Black.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "roboto";
+    src: url("/html/fonts/Roboto-BlackItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Separate font for "Light Roboto" as GameFace only supports font weight normal & bold */
+@font-face {
+    font-family: "robotolight";
+    src: url("/html/fonts/Roboto-Light.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "robotolight";
+    src: url("/html/fonts/Roboto-LightItalic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "robotolight";
+    src: url("/html/fonts/Roboto-Black.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "robotolight";
+    src: url("/html/fonts/Roboto-BlackItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Roboto medium & bold (rather than black).. just to have all the options available */
+@font-face {
+    font-family: "robotomedium";
+    src: url("/html/fonts/Roboto-Medium.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "robotomedium";
+    src: url("/html/fonts/Roboto-MediumItalic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "robotomedium";
+    src: url("/html/fonts/Roboto-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "robotomedium";
+    src: url("/html/fonts/Roboto-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* 
+ *  notosans fallback font for languages not supported by roboto 
+ *  License: Apache License, Version 2.0
+ *  https://fonts.google.com/specimen/Noto+Sans
+ */
+@font-face {
+    font-family: "notosans";
+    src: url("/html/fonts/NotoSans-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans";
+    src: url("/html/fonts/NotoSans-RegularItalic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "notosans";
+    src: url("/html/fonts/NotoSans-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans";
+    src: url("/html/fonts/NotoSans-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+/*
+ *  notosans fallback for Simplified Chinese
+ */
+@font-face {
+    font-family: "notosans-sc";
+    src: url("/html/fonts/NotoSansSC-Medium.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans-sc";
+    src: url("/html/fonts/NotoSansSC-Medium.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "notosans-sc";
+    src: url("/html/fonts/NotoSansSC-Bold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans-sc";
+    src: url("/html/fonts/NotoSansSC-Bold.otf");
+    font-weight: bold;
+    font-style: italic;
+}
+/*
+ *  notosans fallback for Traditional Chinese
+ */
+@font-face {
+    font-family: "notosans-tc";
+    src: url("/html/fonts/NotoSansTC-Medium.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans-tc";
+    src: url("/html/fonts/NotoSansTC-Medium.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "notosans-tc";
+    src: url("/html/fonts/NotoSansTC-Bold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans-tc";
+    src: url("/html/fonts/NotoSansTC-Bold.otf");
+    font-weight: bold;
+    font-style: italic;
+}
+/*
+ *  notosans fallback for Japanese
+ */
+@font-face {
+    font-family: "notosans-jp";
+    src: url("/html/fonts/NotoSansJP-Medium.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans-jp";
+    src: url("/html/fonts/NotoSansJP-Medium.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "notosans-jp";
+    src: url("/html/fonts/NotoSansJP-Bold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans-jp";
+    src: url("/html/fonts/NotoSansJP-Bold.otf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/*
+ *  Montserrat
+ *  License: Open Font License http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web
+ *  https://fonts.google.com/specimen/Montserrat
+ */
+@font-face {
+    font-family: "montserrat";
+    src: url("/html/fonts/Montserrat-SemiBold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "montserrat";
+    src: url("/html/fonts/Montserrat-SemiBoldItalic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "montserrat";
+    src: url("/html/fonts/Montserrat-ExtraBold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "montserrat";
+    src: url("/html/fonts/Montserrat-ExtraBoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: "montserrat-bold";
+    src: url("/html/fonts/Montserrat-ExtraBold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "montserrat-bold";
+    src: url("/html/fonts/Montserrat-ExtraBoldItalic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* 
+ *  Poppins 
+ *  License: Open Font License http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web
+ *  https://fonts.google.com/specimen/Poppins
+ */
+@font-face {
+    font-family: "poppins";
+    src: url("/html/fonts/Poppins-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "poppins";
+    src: url("/html/fonts/Poppins-RegularItalic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "poppins";
+    src: url("/html/fonts/Poppins-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "poppins";
+    src: url("/html/fonts/Poppins-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: "poppins-light";
+    src: url("/html/fonts/Poppins-Light.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "poppins-light";
+    src: url("/html/fonts/Poppins-LightItalic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "poppins-medium";
+    src: url("/html/fonts/Poppins-Medium.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "poppins-medium";
+    src: url("/html/fonts/Poppins-MediumItalic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* 
+ *  Droid sans monospace font
+ *  License: Apache License, Version 2.0
+ *  https://www.fontsquirrel.com/license/droid-sans-mono
+ */
+@font-face {
+    font-family: "droidsansmono";
+    src: url("/html/fonts/DroidSansMono.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 
+ *  CP Mono 
+ *  License http://creativecommons.org/licenses/by/3.0/de/deed.en_GB 
+ *  DL Link with license info https://1-free-fonts.com/font/6748 
+ */
+@font-face {
+    font-family: "cpmono";
+    src: url("/html/fonts/CPMono_v07-Plain.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "cpmono";
+    src: url("/html/fonts/CPMono_v07-Bold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* 
+ *  Furore, similar font to one used in Q3A 
+ *  License https://www.fontsquirrel.com/license/Furore
+ *  https://www.fontsquirrel.com/fonts/furore
+ */
+@font-face {
+    font-family: "furore";
+    src: url("/html/fonts/furore.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+ *  Veneer Clean, similar font to one used in Overwatch
+ *  Commercial font
+ *  https://www.fonts.com/font/yellow-design-studio/veneer-clean
+ */
+@font-face {
+    font-family: "veneer";
+    src: url("/html/fonts/veneer.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "veneer";
+    src: url("/html/fonts/veneer_italic.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "veneer-italic";
+    src: url("/html/fonts/veneer_italic.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+ *  Agency FB
+ *  Commercial font
+ *  https://store.typenetwork.com/foundry/fontbureau/fonts/agency-fb/bold
+ */
+@font-face {
+    font-family: "agencyfb-bold";
+    src: url("/html/fonts/agencyfb-bold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* No idea what this font is about */
+@font-face {
+    font-family: 'mainmenu';
+    src: url('/html/fonts/mainmenu.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Extra Hud Editor specific definitions (to avoid having to deal with font-weight/font-style */
+@font-face {
+    font-family: "notosans-bold";
+    src: url("/html/fonts/NotoSans-Bold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "poppins-bold";
+    src: url("/html/fonts/Poppins-Bold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "roboto-bold";
+    src: url("/html/fonts/Roboto-Bold.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
+    
+<link href="/html/styles-hud.css" rel="stylesheet"></head>
+
+<body>
+    <div id="hud">
+    <div id="play_of_the_game">
+        <div id="play_of_the_game_header" class="i18n" data-i18n="ingame_play_of_the_game">Play of the game</div>
+        <div id="play_of_the_game_player"></div>
+    </div>
+
+    <div id="game_loading_message">Waiting for all players to load.</div>
+
+    <div id="game_intro_screen">
+        <div class="mode_map">
+            <div id="game_intro_mode"></div>
+            <div id="game_intro_map"></div>
+        </div>
+        <div id="game_intro_server">Frankfurt - i3D.net</div>
+    </div>
+
+    <div id="teams_scoreboard" class="scoreboard" style="display:none;">  
+        <div class="scoreboard_header">
+            <span class="scoreboard_mode"><span class="i18n" data-i18n="ingame_scoreboard_mode">MODE: </span><span class="scoreboard_gamemode_name" data-bind-value="{{game_data.game_mode}}">???</span></span>
+            <span class="scoreboard_head i18n" data-bind-if="!{{game_data.race_mode}}" data-i18n="ingame_scoreboard_kills">Frags</span>
+            <span class="scoreboard_head i18n" data-bind-if="!{{game_data.race_mode}}" data-i18n="ingame_scoreboard_points">Points</span>
+            <span class="scoreboard_head i18n" data-bind-if="{{game_data.race_mode}}" data-i18n="ingame_scoreboard_time">Best Time</span>
+        </div>
+
+        <div class="scoreboard_player_scores">
+            <div data-bind-for="team_iter:{{game_data.teams}}" class="scoreboard_team">
+                <div data-bind-if="{{team_iter.team_id}} != -1 && {{team_iter.players}}.length > 0">
+
+                    <div class="scoreboard_player_score_holder">
+                        <div data-bind-for="player_iter:{{team_iter.players}}" class="score_line">
+                            <div class="score_color" data-bind-style-background-color="{{team_iter.color}}"></div>
+                            <div class="score_avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})">
+                                <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
+                            </div>
+                            <div class="score_name" data-bind-value="{{player_iter.name}}">&nbsp;</div>
+                            <div class="score_score" data-bind-if="!{{game_data.race_mode}}" data-bind-value="{{player_iter.kills}}">&nbsp;</div>
+                            <div class="score_score points" data-bind-if="!{{game_data.race_mode}}" data-bind-value="{{player_iter.score}}">&nbsp;</div>
+                            <div class="score_score points" data-bind-if="{{game_data.race_mode}}" data-bind-value="{{player_iter.best_time}}">&nbsp;</div>
+
+                            <div class=score_place>&nbsp;</div>
+                            <div class=score_skill>&nbsp;</div>
+                            <div class=score_skill>&nbsp;</div>
+                        </div>
+                    </div>
+
+                    <div class="scoreboard_team_score" data-bind-if="!{{game_data.race_mode}}" data-bind-style-background-color="{{team_iter.color}}" data-bind-value="{{team_iter.team_score}}">
+                        0
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game_hud_special">
+        <div id="hud_load_during_loading" class="hud"></div>              
+    </div>
+
+    <div id="game_hud">
+
+        <div id="game_masks_container" class="game_masks_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"></div>
+        <div id="game_masks_container_zoom" class="game_masks_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"></div>
+
+        <div id="non_editing_hud_container">
+
+            <div id="real_hud_container" class="hud_container">
+                <div id="real_3D_hud" class="hud"></div>
+                <div id="real_hud" class="hud"></div>
+            </div>
+
+            <div id=teamscore_container>
+                <div id="teamscore">
+                    <div id="current_gamestate"></div>
+                    <div id="time_left_holder_bar" class="duel_dynamic_timer">
+                        <div class="timer_bar" id="time_left_bar"></div>
+                        <div class="tide_left_bar" id="tide_bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id=announcements></div>
+
+            <div id="following_label"></div>
+
+            <div id="respawn_timer" data-bind-if="{{game_data.show_respawn_timers}}"></div>
+
+            <div id="respawn_message" class="i18n" data-i18n="ingame_press_attack_to_respawn">Press attack to respawn</div>
+            
+            <div id="f3_message" class="unready" 
+                data-bind-if="{{game_data.game_stage}} == 1 && !{{battle_data.self.ready}} && !{{game_data.race_mode}} && !{{battle_data.is_editor_loaded}}" 
+                data-bind-i18n="'ingame_status_unready:'+{{battle_data.ready_key}}"></div>
+            <div id="f3_message" 
+                data-bind-if="{{game_data.game_stage}} == 1 && {{battle_data.self.ready}} && !{{battle_data.is_editor_loaded}}" 
+                data-bind-i18n="'ingame_status_ready:'+{{battle_data.self.ready}}"></div>
+
+            <div id="paused_message" class="i18n" data-i18n="ingame_game_is_paused">Game Is Paused.</div>
+
+        </div>
+
+        <div id="game_crosshairs_container"                class="game_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"></div>
+        <div id="game_crosshairs_container_zoom"           class="game_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"></div>
+        <div id="game_crosshairs_container_hitmarker"      class="game_zoom_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}" data-bind-style-opacity="{{frame_data.hit_marker_opacity}}"></div>
+        <div id="game_crosshairs_container_hitmarker_zoom" class="game_zoom_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}" data-bind-style-opacity="{{frame_data.hit_marker_opacity}}"></div>
+
+    </div>
+
+    <div id="join_menu" onclick="join_menu_visible(false)">
+    <div class="inner" onclick="event.stopPropagation();">
+        <div class="left">
+            <!-- Show Teams table with player count and Team Join Buttons, don't show Team Join Buttons if team_size == 1 or maybe also not if the current team player count == team_size -->
+            <div class="join_header">
+                <div class="header_team">Teams</div>
+                <div class="header_count">Players</div>
+            </div>
+            <div class="join_row" data-bind-for="team_iter:{{game_data.teams}}">
+                <div class="team" data-bind-i18n="'team_with_idx:'+({{team_iter.team_id}} + 1)"></div>
+                <div class="count" data-bind-value="{{team_iter.players}}.length"></div>
+                <div class="join">
+                    <div class="join_btn" data-bind-i18n="'ingame_menu_join:'+{{team_iter.team_id}}" data-bind-click="join_menu_join_team({{team_iter.team_id}})">Join</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="right">
+            <!-- Show automatic Join Match button and Spectate button -->
+            <div class="join_match mouseover-sound4 click-sound i18n" data-i18n="ingame_menu_join_match" onclick="join_menu_join_match()">Join Match</div>
+            <div class="spectate i18n" data-i18n="ingame_menu_spectate" data-bind-if="{{game_data.team_switching}} == 2" onclick="join_menu_spectate()">Spectate</div>
+        </div>
+    </div>
+</div>
+
+    <div id=game_over_screen>
+        <div id=game_over_victory class="i18n" data-i18n="ingame_victory">VICTORY</div>
+        <div id=game_over_defeat class="i18n" data-i18n="ingame_defeat">DEFEAT</div>
+        <div id=game_over_effect></div>
+    </div>
+
+    <div id="game_report">
+    <div class="head"></div>
+    <div class="report_scoreboard"></div>
+    <div class="bottom">
+        <div class="countdown">
+            <div class="text" data-bind-if="{{game_data.continuous}} == 0" data-bind-i18n="'report_leaving_game_in:'+{{game_data.continuous}}">Leaving game in</div>
+            <div class="text" data-bind-if="{{game_data.continuous}} == 1" data-bind-i18n="'report_next_map_in:'+{{game_data.continuous}}" >Next map in</div>
+            <div id="game_report_countdown" class="value"></div>
+        </div>
+
+        <div class="chat">
+            <div class="chat_container">
+                <div class="chat_messages"></div>
+            </div>
+            <input class="chat_input" />
+        </div>
+        
+        <div class="container">
+            <div id="game_report_progression" class="cont_box"></div>
+            <div id="game_report_map_vote" class="cont_box"></div>
+            <div id="game_report_stats" class="cont_box"></div>
+        </div>
+
+        <div class="menu">
+            <div style="display:none;" class="btn i18n mouseover-sound4 click-sound progress" data-i18n="report_progression" onclick="game_report_show_progression(true)">Progression</div>
+            <div class="btn mouseover-sound4 map_vote" onclick="game_report_show_map_vote(true)" data-bind-i18n="report_map_vote" data-bind-if="{{game_data.continuous}} == 1">Map Vote</div>
+            <div class="btn i18n mouseover-sound4 stats" onclick="game_report_show_stats(true)" data-i18n="report_stats" >Statistics</div>
+            <div class="btn i18n mouseover-sound4 click-sound quit" onclick="button_game_over_quit()" data-i18n="report_disconnect" >Disconnect</div>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+
+    <script id="customization_decal_entrys" type="text/x-jsrender">
+    [[for items itemVar="~decal"]]
+        <div onclick="char_decal(this)" class="customization_decal rarity_bg_[[:~decal.quality]] mouseover-sound3 [[if ~decal.id == ~root.selected]]asset_selected[[/if]]" data-decalid="[[:~decal.id]]">
+            <div class="customization_decal_img [[if ~decal.id == ~root.selected]]active[[/if]]" style="background-image:url('[[:~decal.thumbnail_path]]')"></div>
+            <!--<div class="customization_decal_name">[[:~decal.cleanId]]</div>-->
+        </div>
+    [[/for]]
+</script>
+
+<script id="customization_decal_detail" type="text/x-jsrender">
+    <div class="preview customization_decal_preview rarity_bg_[[:quality]]">
+        <div class="customization_decal_img" style="background-image:url('[[:thumbnail_path]]')"></div>
+    </div>
+    <div class="text">
+        <div class="title">[[:cleanId]]</div>
+        <div class="desc"></div>
+    </div>
+</script>
+
+<script id="hud_round_mvp" type="text/x-jsrender">
+    <div class="round_mvp_container">
+        [[if ar==1]]
+        <div class="top">
+            <div class="avatar"></div>
+            <div class="name">Mr. Eggbot</div>
+        </div>
+        [[/if]]
+        <div class="gradient"></div>
+        <div class="header row">
+            <div class="name i18n" data-i18n="settings_hud_round_mvp">Round MVP</div>
+            <div class="label i18n" data-i18n="stats_frags">Frags</div>
+            <div class="label i18n" data-i18n="stats_dmg_done">Dmg</div>
+            <div class="label i18n" data-i18n="stats_healing">Healing</div>
+            [[if accs==1]]
+            <div class="label icon"></div>
+            <div class="label icon"></div>
+            <div class="label icon"></div>
+            [[/if]]
+        </div>
+        <div class="mvp_row row">
+            <div class="name">Mr. Eggbot</div>
+            <div class="data">6</div>
+            <div class="data">794</div>
+            <div class="data">426</div>
+            [[if accs==1]]
+            <div class="data acc"><span class="value">53</span><span class="unit">%</span></div>
+            <div class="data acc"><span class="value">25</span><span class="unit">%</span></div>
+            <div class="data acc"><span class="value">33</span><span class="unit">%</span></div>
+            [[/if]]
+        </div>
+        <div class="avg_row row">
+            <div class="name">Round 1 avg</div>
+            <div class="data">6</div>
+            <div class="data">525</div>
+            <div class="data">252</div>
+            [[if accs==1]]
+            <div class="data acc"><span class="value">43</span><span class="unit">%</span></div>
+            <div class="data acc"><span class="value">27</span><span class="unit">%</span></div>
+            <div class="data acc"><span class="value">35</span><span class="unit">%</span></div>
+            [[/if]]
+        </div>
+    </div>
+</script>
+
+<script id="hud_group" type="text/jsrender"></script>
+
+<script id="hud_player_name" type="text/jsrender">
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]] data-bind-value="{{battle_data.self.name}}" [[if teamColor==1]]data-bind-style-color="{{game_data.own_team.color}}[[/if]]">Mr. Eggbot</div>
+</script>
+
+<script id="hud_weapons_list" type="text/x-jsrender">
+    <div class="ammo_container [[:direction]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
+
+        [[if render_normal]]
+            <div class="ammo_row [[:wDirection]]" data-bind-for="weapon_iter:{{weapons_group.weapons}}" data-bind-property="'--weapon_color:'+{{weapon_iter.color}}">
+                
+                [[if accShow==1]]
+                <div class="ammo_stats"  data-bind-value="{{weapon_iter.accuracy}} + '%'">0%</div>
+                [[/if]]
+
+                <div class="ammo_label [[:aBGC]]_bg [[:aC]]_color [[:aBGCActive]]_bg_active [[:aCActive]]_color_active" data-bind-class-toggle="selected:{{weapon_iter.current}}">
+                    [[if aKeybindShow == 1]]
+                        <div data-bind-if="{{weapon_iter.current}} && {{weapon_iter.unlimited_ammo}}">&infin;</div>
+                        <div data-bind-if="{{weapon_iter.current}} && !{{weapon_iter.unlimited_ammo}}" data-bind-value="{{weapon_iter.ammo}}">0</div>
+                        <div data-bind-if="!{{weapon_iter.current}}" data-bind-value="{{weapon_iter.key}}"></div>
+                    [[else]]
+                        <div data-bind-if="{{weapon_iter.unlimited_ammo}}">&infin;</div>
+                        <div data-bind-if="!{{weapon_iter.unlimited_ammo}}" data-bind-value="{{weapon_iter.ammo}}">0</div>
+                    [[/if]]
+                </div>
+                
+                <div class="ammo_icon [[:iBGC]]_bg [[:iBGCActive]]_bg_active" data-bind-class-toggle="selected:{{weapon_iter.current}}">
+                    <div [[if iShadow==1]]class="shadow"[[/if]] data-bind-if="!{{weapon_iter.current}}" data-bind-style-background-image-url="{{weapon_iter.icon_url}}+'?fill='+[[if iC=="weapon"]]{{weapon_iter.color}}[[/if]][[if iC=="custom"]]'[[:iCCustom]]'[[/if]]"></div>
+                    <div [[if iShadow==1]]class="shadow"[[/if]] data-bind-if="{{weapon_iter.current}}"  data-bind-style-background-image-url="{{weapon_iter.icon_url}}+'?fill='+[[if iCActive=="weapon"]]{{weapon_iter.color}}[[/if]][[if iCActive=="custom"]]'[[:iCActiveCustom]]'[[/if]]"></div>
+                </div>
+                
+                <div class="ammo_accent"></div>
+
+                [[if aBarShow==1]]
+                <div class="ammo_bar">
+                    <div class="ammo_bar_inner [[if aBarWC==1]]weapon_bg[[/if]]" data-bind-if="{{weapon_iter.unlimited_ammo}}"
+                        [[if wDirection.startsWith("horizontal")]]style="height:100%"[[/if]]
+                        [[if wDirection.startsWith("vertical")]]style="width:100%"[[/if]]
+                    ></div>
+                    <div class="ammo_bar_inner [[if aBarWC==1]]weapon_bg[[/if]]" data-bind-if="!{{weapon_iter.unlimited_ammo}}"
+                        [[if wDirection.startsWith("horizontal")]]data-bind-style-height="({{weapon_iter.ammo}} / {{weapon_iter.max_ammo}} * 100) +'%'"[[/if]]
+                        [[if wDirection.startsWith("vertical")]]data-bind-style-width="({{weapon_iter.ammo}} / {{weapon_iter.max_ammo}} * 100) +'%'"[[/if]]
+                    ></div>
+                </div>
+                [[/if]]
+
+                <div class="ammo_key_cont" style="[[if !(keybindShow==1)]]display: none;[[/if]]">
+                    <div class="ammo_key" data-bind-value="{{weapon_iter.key}}"></div>
+                </div>
+
+            </div>
+        [[/if]]
+        [[if render_separator]]<div class="ammo_category_separator" data-bind-if="{{super_weapons_group.weapons}}.length > 0"></div>[[/if]]
+        [[if render_super]]
+            <div class="ammo_row [[:wDirection]]" data-bind-for="weapon_iter:{{super_weapons_group.weapons}}" data-bind-property="'--weapon_color:'+{{weapon_iter.color}}">
+                
+                [[if accShow==1]]
+                <div class="ammo_stats"  data-bind-value="{{weapon_iter.accuracy}} + '%'">0%</div>
+                [[/if]]
+
+                <div class="ammo_label [[:aBGC]]_bg [[:aC]]_color [[:aBGCActive]]_bg_active [[:aCActive]]_color_active" data-bind-class-toggle="selected:{{weapon_iter.current}}">
+                    [[if aKeybindShow == 1]]
+                        <div data-bind-if="{{weapon_iter.current}} && {{weapon_iter.unlimited_ammo}}">&infin;</div>
+                        <div data-bind-if="{{weapon_iter.current}} && !{{weapon_iter.unlimited_ammo}}" data-bind-value="{{weapon_iter.ammo}}">0</div>
+                        <div data-bind-if="!{{weapon_iter.current}}" data-bind-value="{{weapon_iter.key}}"></div>
+                    [[else]]
+                        <div data-bind-if="{{weapon_iter.unlimited_ammo}}">&infin;</div>
+                        <div data-bind-if="!{{weapon_iter.unlimited_ammo}}" data-bind-value="{{weapon_iter.ammo}}">0</div>
+                    [[/if]]
+                </div>
+                
+                <div class="ammo_icon [[:iBGC]]_bg [[:iBGCActive]]_bg_active" data-bind-class-toggle="selected:{{weapon_iter.current}}">
+                    <div [[if iShadow==1]]class="shadow"[[/if]] data-bind-if="!{{weapon_iter.current}}" data-bind-style-background-image-url="{{weapon_iter.icon_url}}+'?fill='+[[if iC=="weapon"]]{{weapon_iter.color}}[[/if]][[if iC=="custom"]]'[[:iCCustom]]'[[/if]]"></div>
+                    <div [[if iShadow==1]]class="shadow"[[/if]] data-bind-if="{{weapon_iter.current}}"  data-bind-style-background-image-url="{{weapon_iter.icon_url}}+'?fill='+[[if iCActive=="weapon"]]{{weapon_iter.color}}[[/if]][[if iCActive=="custom"]]'[[:iCActiveCustom]]'[[/if]]"></div>
+                </div>
+                
+                <div class="ammo_accent"></div>
+
+                [[if aBarShow==1]]
+                <div class="ammo_bar">
+                    <div class="ammo_bar_inner [[if aBarWC==1]]weapon_bg[[/if]]" data-bind-if="{{weapon_iter.unlimited_ammo}}"
+                        [[if wDirection.startsWith("horizontal")]]style="height:100%"[[/if]]
+                        [[if wDirection.startsWith("vertical")]]style="width:100%"[[/if]]
+                    ></div>
+                    <div class="ammo_bar_inner [[if aBarWC==1]]weapon_bg[[/if]]" data-bind-if="!{{weapon_iter.unlimited_ammo}}"
+                        [[if wDirection.startsWith("horizontal")]]data-bind-style-height="({{weapon_iter.ammo}} / {{weapon_iter.max_ammo}} * 100) +'%'"[[/if]]
+                        [[if wDirection.startsWith("vertical")]]data-bind-style-width="({{weapon_iter.ammo}} / {{weapon_iter.max_ammo}} * 100) +'%'"[[/if]]
+                    ></div>
+                </div>
+                [[/if]]
+
+                <div class="ammo_key_cont" style="[[if !(keybindShow==1)]]display: none;[[/if]]">
+                    <div class="ammo_key" data-bind-value="{{weapon_iter.key}}"></div>
+                </div>
+
+            </div>
+        [[/if]]
+
+    </div>
+
+</script>
+
+
+<script id="hud_game_timer" type="text/x-jsrender">
+    [[if analog==1]]
+    <div style="width:calc([[:fontSize]]vh*var(--ratio));height:calc([[:fontSize]]vh*var(--ratio));border-radius:50%;border:2px solid [[:color]]">
+        <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;"><div style="position:absolute;width:2px;top:2px;bottom:50%;background-color: [[:color]]"></div></div>
+        <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;"><div style="position:absolute;width:2px;top:25%;bottom:50%;background-color: [[:color]]"></div></div>
+        <div style="width:100%;height:100%;position:absolute;">
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 30deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 60deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 90deg)"><div style="position:absolute;width:2px;top:0;bottom:85%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(120deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(150deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(180deg)"><div style="position:absolute;width:2px;top:0;bottom:85%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(210deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(240deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(270deg)"><div style="position:absolute;width:2px;top:0;bottom:85%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(300deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(330deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(360deg)"><div style="position:absolute;width:2px;top:0;bottom:85%;background-color: [[:color]]"></div></div>
+        </div>
+    </div>
+    [[else]]
+    88:88
+    [[/if]]
+</script>
+
+<script id="hud_system_clock" type="text/x-jsrender">
+    [[if analog==1]]
+    <div style="width:calc([[:fontSize]]vh*var(--ratio));height:calc([[:fontSize]]vh*var(--ratio));border-radius:50%;border:2px solid [[:color]]">
+        <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;"><div style="position:absolute;width:2px;top:2px;bottom:50%;background-color: [[:color]]"></div></div>
+        <div style="width:100%;height:100%;position:absolute;display:flex;justify-content:center;"><div style="position:absolute;width:2px;top:25%;bottom:50%;background-color: [[:color]]"></div></div>
+        <div style="width:100%;height:100%;position:absolute;">
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 30deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 60deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate( 90deg)"><div style="position:absolute;width:2px;top:0;bottom:85%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(120deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(150deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(180deg)"><div style="position:absolute;width:2px;top:0;bottom:85%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(210deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(240deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(270deg)"><div style="position:absolute;width:2px;top:0;bottom:85%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(300deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(330deg)"><div style="position:absolute;width:2px;top:0;bottom:90%;background-color: [[:color]]"></div></div>
+            <div style="position:absolute;display:flex;justify-content:center;width:100%;height:100%;transform:rotate(360deg)"><div style="position:absolute;width:2px;top:0;bottom:85%;background-color: [[:color]]"></div></div>
+        </div>
+    </div>
+    [[else]]
+    00:00:00
+    [[/if]]
+</script>
+    
+<script id="hud_simple_text" type="text/x-jsrender">
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>200</div>
+</script>
+
+<script id="hud_hp" type="text/x-jsrender">
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:threshold]]"[[/if]] data-bind-value="{{battle_data.self.hp}}">200</div>
+</script>
+
+<script id="hud_armor" type="text/x-jsrender">
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && !([[:hideIf0]] && {{battle_data.self.armor}} <= 0)" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:threshold]]"[[/if]] data-bind-value="{{battle_data.self.armor}}">100</div>
+</script>
+
+<script id="hud_stack" type="text/x-jsrender">
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}" [[if gradientColor==1]]data-bind-style-color="hslToRgbString(Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})/400, 1, 0.5)"[[/if]] data-bind-value="Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})"[[/if]] [[if hudPreview && gradientColor==1]]style="color:cyan"[[/if]]>300</div>
+    [[if showDormant==1]]
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}" [[if gradientColor==1]]data-bind-style-color="hslToRgbString(Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})/400, 1, 0.5)"[[/if]] data-bind-value="'+'+Math.max(0, {{battle_data.self.hp}}+{{battle_data.self.armor}}-{{battle_data.self.hp}}*3)"[[/if]] style="font-size:0.5em;[[if hudPreview && gradientColor==1]]color:cyan[[/if]]">+0</div>
+    [[/if]]
+</script>
+<!--
+[[if gradientColor==1]]data-bind-style-color="'hsl('+Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})*0.6+',100%,50%)'"[[/if]]
+
+
+   /*<div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && {{current_weapon_data.unlimited_ammo}}"[[/if]] [[if weapon_fill == 1]]data-bind-style-color="{{current_weapon_data.color}}"[[/if]]>[[if !hudPreview]]&infin;[[/if]]</div>
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && !{{current_weapon_data.unlimited_ammo}}"[[/if]] [[if weapon_fill == 1]]data-bind-style-color="{{current_weapon_data.color}}"[[/if]] data-bind-value="{{current_weapon_data.ammo}}"></div>
+        */
+-->
+<script id="hud_current_ammo" type="text/x-jsrender">
+    <span data-bind-if="{{battle_data.self.alive}}">
+            <div data-bind-if="!{{current_weapon_data.unlimited_ammo}}" [[if weapon_fill == 1]]data-bind-style-color="{{current_weapon_data.color}}"[[/if]] data-bind-value="{{current_weapon_data.ammo}}"></div>
+
+            <div data-bind-if="{{current_weapon_data.unlimited_ammo}}" [[if weapon_fill == 1]]data-bind-style-color="{{current_weapon_data.color}}"[[/if]]">&infin;</div>
+    </span>        
+</script>
+
+<script id="hud_speed" type="text/x-jsrender">
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]><span data-bind-value="{{frame_data.speed}}">0</span>[[if !(hideUnit==1)]]<span>ups</span>[[/if]]</div>
+</script>
+
+<script id="hud_itempickup" type="text/x-jsrender">    
+    [[if hudPreview]]
+        <div class="container">
+            [[if icon == 1]]
+            <div class="icon" style="background-image:url('images/weapon_rl.svg?fill=#df1f2d')"></div>
+            [[/if]]
+            <div class="text">
+                [[if owner == 1]]
+                <div class="owner">Mr Eggbot's</div>
+                [[/if]]
+                <div class="name">Rocket Launcher</div>
+            </div>
+        </div>
+    [[else]]
+        <div class="container" data-bind-if="{{battle_data.self.alive}}">
+            [[if icon == 1]]
+            <div class="icon"></div>
+            [[/if]]
+            <div class="text">
+                [[if owner == 1]]
+                <div class="owner"></div>
+                [[/if]]
+                <div class="name"></div>
+            </div>
+        </div>
+    [[/if]]
+</script>
+
+<script id="hud_rect" type="text/x-jsrender">
+    [[if hudPreview]]
+        <div style="[[if bgC == "weapon"]]background-color:#df1f2d;[[/if]]"></div>
+    [[else]]
+        <div [[if hide_dead==1]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] 
+             [[if bgC == "team"]]data-bind-style-background-color="{{game_data.own_team.color}}"[[/if]]
+             [[if bgC == "team_dark"]]data-bind-style-background-color="{{game_data.own_team.color_dark}}"[[/if]]
+             [[if bgC == "team_darker"]]data-bind-style-background-color="{{game_data.own_team.color_darker}}"[[/if]]
+             [[if bgC == "weapon"]]data-bind-style-background-color="{{current_weapon_data.color}}"[[/if]]>
+        </div>
+    [[/if]]
+</script>
+
+<script id="hud_you_fragged" type="text/x-jsrender">
+    <div class="live [[:align]]"></div>
+    <div class="editor"><span style="margin-right:0.4vh" class="i18n" data-i18n="ingame_you_fragged">Fragged</span><span style="color:white"> Mr. Eggbot</span></div>
+</script>
+
+<script id="hud_voicechat" type="text/x-jsrender">
+    [[if hudPreview]]
+        <div class="player">
+            <div class="row">
+                <div class="name">Mr. Eggbot</div>
+                <div class="mic_icon" style="background-image: url(/html/images/icons/fa/microphone.svg?fill=[[:iC]])"></div>
+            </div>
+        </div>
+    [[else]]
+        <div class="player" data-bind-for="player_iter:{{game_data.own_team.players}}">
+            <div class="row" data-bind-if="{{player_iter.voip_talking}}">
+                <div class="name" data-bind-value="{{player_iter.name}}"></div>
+                <div class="mic_icon" style="background-image: url(/html/images/icons/fa/microphone.svg?fill=[[:iC]])"></div>
+            </div>
+        </div>
+    [[/if]]
+</script>
+
+<script id="hud_hp_bar" type="text/x-jsrender">
+    <div class="ha_bar_container [[if rightToLeft==1]]reverse[[/if]] [[if boxShadow == 1]]shadow[[/if]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
+        <div class="bg_container">
+            [[for start=0 end=(+segments)]]
+                <div class="bar_segment_bg"></div>
+            [[/for]]
+        </div>
+        <div class="overflow_container" data-bind-style-width="{{battle_data.self.hp_percentage}} + '%'">
+            <div class="fg_container">
+                [[for start=0 end=(+segments)]]
+                    <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:~root.threshold]]"></div>
+                [[/for]]
+            </div>
+        </div>
+    </div>
+</script>
+<script id="hud_armor_bar" type="text/x-jsrender">
+    <div class="ha_bar_container [[if rightToLeft==1]]reverse[[/if]] [[if boxShadow == 1]]shadow[[/if]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
+        <div class="bg_container">
+            [[for start=0 end=(+segments)]]
+                <div class="bar_segment_bg"></div>
+            [[/for]]
+        </div>
+        <div class="overflow_container" data-bind-style-width="{{battle_data.self.armor_percentage}} + '%'">
+            <div class="fg_container">
+                [[for start=0 end=(+segments)]]
+                    <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:~root.threshold]]"></div>
+                [[/for]]
+            </div>
+        </div>
+    </div>
+</script>
+<script id="hud_stack_bar" type="text/x-jsrender">
+    <div class="ha_bar_container"        [[if !hudPreview]] data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] style="background-color:rgba(0,0,0,0.3);transform: [[if rightToLeft==1]]scaleX(-1)[[/if]] [[if armorOnTop==1]]scaleY(-1)[[/if]];">
+      <!--<div class="stack_hp_overtip"      [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.min(100, 200-{{battle_data.self.hp}}) + '%'"[[/if]]></div>-->
+      <div class="stack_hp_overbase"     [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.max(  0, {{battle_data.self.hp}}-100) + '%'"[[/if]] style="background-color:[[:hpColour]]"></div>
+      <div class="stack_hp_overbase"     [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.max(  0, {{battle_data.self.hp}}-100) + '%'"[[/if]] style="background-color:rgba(255,255,255,0.3)"></div>
+      <div class="stack_hp_base"         [[if !hudPreview]] data-bind-style-width="Math.min({{battle_data.self.hp}},100) + '%'" [[/if]] style="--base_health_color_state:[[:hpColour]]"></div>
+      <div [[if !hudPreview]] data-bind-style-width="Math.min({{battle_data.self.hp}},100) + '%'" [[/if]] style="background-color:[[:hpColour]];position:absolute;left:0;top:25%;bottom:50%"></div>
+      <div class="stack_armor"           [[if !hudPreview]] data-bind-style-width="( {{battle_data.self.armor}}/2 ) + '%'" [[/if]] style="background-color:[[:armorColour]]">
+          <div class="stack_armor_waste" [[if !hudPreview]] data-bind-style-width="( 100*Math.max( {{battle_data.self.armor}}-({{battle_data.self.hp}}*2) , 0 ) / {{battle_data.self.armor}} ) + '%'" [[/if]]></div>
+      </div>
+      <div class="stack_armor_over"      [[if !hudPreview]] data-bind-style-width="( Math.max(Math.min( {{battle_data.self.armor}} - 100 , {{battle_data.self.hp}}*2 - 100 ),0) / 2 ) + '%'" [[/if]]></div>
+    </div>
+</script>
+
+<script id="hud_frag_feed" type="text/x-jsrender">
+    <div class="fraglog_container">
+        <div class="fraglog [[if bottomUp == "1"]] fraglog_bottomUp [[/if]]" style="text-align: [[:align]]; --fraglog_font_size:[[:fontSize]]"></div>
+    </div>
+</script>
+
+
+
+<script id="hud_chat" type="text/x-jsrender">
+
+    <div class="chat_container">
+        <div class="chat_temp_cont">
+            <div class="chat_temp"></div>
+        </div>
+        <div class="chat_window">
+            <div class="chat_messages_container">
+                <div class="chat_messages"></div>
+            </div>
+            <input class="ingame_chat_input"/>
+        </div>
+    </div>
+
+</script>
+
+<script id="hud_icon" type="text/x-jsrender">
+    <div class="icon_cont" [[if hide_dead==1 && !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
+        <img [[if iconShadow==1]]class="shadow"[[/if]] src="/html/images/hud_icon_[[:icon]].svg?fill=[[:fill]]&stroke=[[:stroke]]&stroke-width=[[:stroke_width]]">
+    </div>
+</script>
+
+<script id="hud_current_weapon_icon" type="text/x-jsrender">
+    <div class="icon_cont [[if iconShadow==1]]shadow[[/if]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]
+        [[if weapon_fill == 1]]
+            data-bind-style-background-image-url="'images/weapon_' + {{current_weapon_data.tag}} + '.svg?fill=' + {{current_weapon_data.color}}"
+        [[else]]
+            data-bind-style-background-image-url="'images/weapon_' + {{current_weapon_data.tag}} + '.svg?fill=[[:fill]]'"
+        [[/if]]
+    ></div>
+</script>
+
+<script id="hud_score" type="text/x-jsrender">
+    <div class="score [[if sC=="custom"]]customcolor[[/if]] [[if bgC=="custom"]]custombg[[/if]]" [[if hide_dead==1]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]
+    [[if team=="own"]]
+        [[if sC=="team"]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]] 
+        [[if bgC=="team"]]data-bind-style-background-color="{{game_data.own_team.color}}"[[/if]]
+        [[if sType=="score"]]data-bind-value="{{game_data.own_team.team_score}}"[[/if]]
+        [[if sType=="round"]][[if !hudPreview]]data-bind-if="{{game_data.round_mode}}"[[/if]] data-bind-value="{{game_data.own_team.game_score}}"[[/if]]>0</div>
+    [[else team=="enemy"]]
+        [[if sC=="team"]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]] 
+        [[if bgC=="team"]]data-bind-style-background-color="{{game_data.enemy_team.color}}"[[/if]]
+        [[if sType=="score"]]data-bind-value="{{game_data.enemy_team.team_score}}"[[/if]]
+        [[if sType=="round"]][[if !hudPreview]]data-bind-if="{{game_data.round_mode}}"[[/if]] data-bind-value="{{game_data.enemy_team.game_score}}"[[/if]]>0</div>
+    [[/if]]
+</script>
+
+<script id="hud_flag" type="text/x-jsrender">
+    <div class="flag [[if bgC=="custom"]]custombg[[/if]]" [[if hide_dead==1]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] [[if !hudPreview]]data-bind-if="{{game_data.game_mode}} == 'ctf'"[[/if]]
+    [[if team=="own"]]
+        [[if bgC=="team"]]data-bind-style-background-color="{{game_data.own_team.color}}"[[/if]]>
+        <div class="home" data-bind-if="{{game_data.own_team.team_flag_state}} == 0" [[if iC=="default"]]data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{game_data.own_team.color}}"[[/if]]
+                                                                                     [[if iC="custom"]]style="background-image:url('/html/images/item_flag.svg?fill=[[:iCCustom]]')"[[/if]]></div>
+        <div class="enemy"   data-bind-if="{{game_data.own_team.team_flag_state}} == 1" [[if iC=="custom"]]style="background-image: url(/html/images/icons/fa/times.svg?fill=[[:iCCustom]])"[[/if]]></div>
+        <div class="dropped" data-bind-if="{{game_data.own_team.team_flag_state}} == 2" [[if iC=="custom"]]style="background-image: url(/html/images/icons/fa/question.svg?fill=[[:iCCustom]])"[[/if]]></div>
+    [[else team=="enemy"]]
+        [[if bgC=="team"]]data-bind-style-background-color="{{game_data.enemy_team.color}}"[[/if]]>
+        <div class="home" data-bind-if="{{game_data.enemy_team.team_flag_state}} == 0" [[if iC=="default"]]data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{game_data.enemy_team.color}}"[[/if]]
+                                                                                       [[if iC="custom"]]style="background-image:url('/html/images/item_flag.svg?fill=[[:iCCustom]]')"[[/if]]></div>
+        <div class="enemy"   data-bind-if="{{game_data.enemy_team.team_flag_state}} == 1" [[if iC=="custom"]]style="background-image: url(/html/images/icons/fa/times.svg?fill=[[:iCCustom]])"[[/if]]></div>
+        <div class="dropped" data-bind-if="{{game_data.enemy_team.team_flag_state}} == 2" [[if iC=="custom"]]style="background-image: url(/html/images/icons/fa/question.svg?fill=[[:iCCustom]])"[[/if]]></div>
+    [[/if]]
+    </div>
+</script>
+
+<script id="hud_my_team_score" type="text/x-jsrender">
+    <div class="teamscore_team_container [[if reverse == 1]]reverse[[/if]]">
+        <div class="teamscore_score [[if sS == 1]]shadow[[/if]]" data-bind-style-background-color="{{game_data.own_team.color}}" data-bind-value="{{game_data.own_team.team_score}}">X</div>
+        <div class="teamscore_subscore" data-bind-if="{{game_data.round_mode}}" data-bind-value="{{game_data.own_team.game_score}}">0</div>
+        <div class="teamscore_macguffin" data-bind-if="{{game_data.own_team.team_has_macguffin}}"><div></div></div>
+        <div class="teamscore_flag" data-bind-if="{{game_data.game_mode}} == 'ctf'">
+            <div class="home"    data-bind-if="{{game_data.own_team.team_flag_state}} == 0" data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{game_data.own_team.color}}"></div>
+            <div class="enemy"   data-bind-if="{{game_data.own_team.team_flag_state}} == 1"></div>
+            <div class="dropped" data-bind-if="{{game_data.own_team.team_flag_state}} == 2"></div>
+        </div>
+        [[if players == true]]
+        <div class='teamscore_solo' data-bind-if="{{game_data.solo_mode}}">
+            <div class="solo_player" data-bind-for="player_iter:{{game_data.own_team.players}}">
+                <div class="name" data-bind-style-background-color="{{game_data.own_team.color_dark}}+'[[:name_bg_opacity]]'"><div data-bind-value="{{player_iter.name}}">Player1</div></div>
+                <div class="avatar" style="--height:[[:height]]" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-style-background-color="{{game_data.own_team.color_dark}}+'[[:name_bg_opacity]]'" data-bind-class-toggle="player_dead:!{{player_iter.alive}}">
+                    <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="solo_player_stack_cont" data-bind-for="player_iter:{{game_data.own_team.players}}">
+            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.solo_mode}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
+                <div class="hp_bar_cont"><div class="hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.own_team.color}}"></div></div>
+                <div class="armor_bar_cont"><div class="armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div></div>
+            </div>
+            <!--<div data-bind-for="player_iter:{{game_data.enemy_team.players}}">
+                <div data-bind-for="_:(dummy_stock_array_maker({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{battle_data.self.alive}},{{player_iter.alive}}))">O</div>
+                <div data-bind-value="'x'+duel_stocks({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{battle_data.self.alive}},{{player_iter.alive}})"></div>
+            </div>-->
+        </div>
+
+
+
+        <div class="teamscore_team" data-bind-if="!{{game_data.solo_mode}}">
+            <div class="teamscore_score_players">
+                <div class="player_icon" data-bind-for="player_iter:{{game_data.own_team.players}}">
+                    <div class="avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-class-toggle="player_self:{{player_iter.is_self}};player_dead:!{{player_iter.alive}}">
+                        <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
+                    </div>
+                    <div class="name" data-bind-value="{{player_iter.name}}"></div>
+                    <div class="icon_bars" data-bind-if="{{player_iter.alive}}">
+                        <div class="icon_hp_bar_holder">
+                            <div class="icon_hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.own_team.color}}"></div>
+                        </div>
+                        <div class="icon_hp_armor_holder">
+                            <div class="icon_armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div>
+                        </div>
+                    </div>
+                    <div class="player_respawn_timer" data-bind-if="{{player_iter.alive}} == false && {{game_data.show_respawn_timers}} == true" data-bind-value="{{player_iter.respawn_timer}}">X</div>
+                    <div class="player_powerup_holder">
+                        <div class="player_macguffin" data-bind-if="{{player_iter.has_macguffin}}">
+                            <div data-bind-class-toggle="small:{{player_iter.has_powerup}}"></div>
+                        </div>
+
+                        <div class="player_flag_icon" data-bind-if="{{player_iter.has_flag}}">
+                            <div data-bind-class-toggle="small:{{player_iter.has_powerup}}" data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{player_iter.flag_color}}"></div>
+                        </div>
+                                                
+                        <div class="player_powerup" data-bind-if="{{player_iter.has_powerup}}">
+                            <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        [[/if]]
+    </div>
+</script>
+
+<script id="hud_enemy_team_score" type="text/x-jsrender">
+    <div class="teamscore_team_container [[if reverse == 1]]reverse[[/if]]">
+        <div class="teamscore_score [[if sS == 1]]shadow[[/if]]" data-bind-style-background-color="{{game_data.enemy_team.color}}" data-bind-value="{{game_data.enemy_team.team_score}}">X</div>
+        <div class="teamscore_subscore" data-bind-if="{{game_data.round_mode}}" data-bind-value="{{game_data.enemy_team.game_score}}">0</div>
+        <div class="teamscore_macguffin" data-bind-if="{{game_data.enemy_team.team_has_macguffin}}"><div></div></div>
+        <div class="teamscore_flag" data-bind-if="{{game_data.game_mode}} == 'ctf'">
+            <div class="home"    data-bind-if="{{game_data.enemy_team.team_flag_state}} == 0" data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{game_data.enemy_team.color}}"></div>
+            <div class="enemy"   data-bind-if="{{game_data.enemy_team.team_flag_state}} == 1"></div>
+            <div class="dropped" data-bind-if="{{game_data.enemy_team.team_flag_state}} == 2"></div>
+        </div>
+        [[if players == true]]
+        <div class='teamscore_solo' data-bind-if="{{game_data.solo_mode}}">
+            <div class="solo_player" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
+                <div class="name" data-bind-style-background-color="{{game_data.enemy_team.color_dark}}+'[[:name_bg_opacity]]'"><div data-bind-value="{{player_iter.name}}">Player2</div></div>
+                <div class="avatar" style="--height:[[:height]]" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-style-background-color="{{game_data.enemy_team.color_dark}}+'[[:name_bg_opacity]]'" data-bind-class-toggle="player_dead:!{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
+                    <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="solo_player_stack_cont" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
+            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.solo_mode}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
+                <div class="hp_bar_cont"><div class="hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.enemy_team.color}}"></div></div>
+                <div class="armor_bar_cont"><div class="armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div></div>
+            </div>
+        </div>
+
+        <div class="teamscore_team" data-bind-if="!{{game_data.solo_mode}}">
+            <div class="teamscore_score_players">
+                <div class="player_icon" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
+                    <div class="avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-class-toggle="player_dead:!{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
+                        <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
+                    </div>
+                    <div class="name" data-bind-value="{{player_iter.name}}"></div>
+                    <div class="icon_bars" data-bind-if="{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
+                        <div class="icon_hp_bar_holder">
+                            <div class="icon_hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.enemy_team.color}}"></div>
+                        </div>
+                        <div class="icon_hp_armor_holder">
+                            <div class="icon_armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div>
+                        </div>
+                    </div>
+                    <div class="player_respawn_timer" data-bind-if="{{player_iter.alive}} == false && {{game_data.show_respawn_timers}} == true" data-bind-value="{{player_iter.respawn_timer}}">X</div>
+                    <div class="player_powerup_holder">
+                        <div class="player_macguffin" data-bind-if="{{player_iter.has_macguffin}}">
+                            <div data-bind-class-toggle="small:{{player_iter.has_powerup}}"></div>
+                        </div>
+
+                        <div class="player_flag_icon" data-bind-if="{{player_iter.has_flag}}">
+                            <div data-bind-class-toggle="small:{{player_iter.has_powerup}}" data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{player_iter.flag_color}}"></div>
+                        </div>
+                                                
+                        <div class="player_powerup" data-bind-if="{{player_iter.has_powerup}}">
+                            <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        [[/if]]
+    </div>
+</script>
+
+<script id="hud_time_limit" type="text/x-jsrender">
+    88:88
+</script>
+
+<script id="hud_dodge" type="text/x-jsrender">
+    <div class="indicator_cont [[if flip==1]]reverse[[/if]]" [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]>
+        [[if aT == 0]]
+        <div class="indicator_icon ability_dodge [[if hudPreview]]active[[/if]]" data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} == 0">
+            <div class="indicator_icon_bg">
+                <div class="dodge_icon_part [[if hudPreview]]active[[/if]]" [[if !hudPreview]]data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} == 0"[[/if]]>
+                    <img src="/html/images/icons/dodge_arrow_single.svg?fill=[[:mC]]" />
+                </div>
+            </div>
+        </div>
+        [[else]]
+        <div class="indicator_icon ability_dodge [[if hudPreview]]active[[/if]]" data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} == 0">
+            <div class="indicator_icon_bg">
+                <div class="dodge_icon_part [[if hudPreview]]active[[/if]]" [[if !hudPreview]]data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} >= 33.3333 || {{frame_data.bolt_recharging_progress}} == 0"[[/if]]>
+                    <img src="/html/images/icons/dodge_arrow_type[[:aT]]_1.svg?fill=[[:mC]]" />
+                </div>
+                <div class="dodge_icon_part dodge_part_2 [[if hudPreview]]active[[/if]]" [[if !hudPreview]]data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} > 66.66666 || {{frame_data.bolt_recharging_progress}} == 0"[[/if]]>
+                    <img src="/html/images/icons/dodge_arrow_type[[:aT]]_2.svg?fill=[[:mC]]" />
+                </div>
+                <div class="dodge_icon_part dodge_part_3 [[if hudPreview]]active[[/if]]" [[if !hudPreview]]data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} == 0"[[/if]]>
+                    <img src="/html/images/icons/dodge_arrow_type[[:aT]]_3.svg?fill=[[:mC]]" />
+                </div>
+            </div>
+        </div>
+        [[/if]]
+        <div class="indicator_below" data-bind-if="{{frame_data.bolt_cooldown_recovery}}">
+            <div class="indicator_below_text_cont">
+                <div class="indicator_below_progress">
+                    <div class="indicator_below_progress_bar" data-bind-style-width="{{frame_data.bolt_recharging_progress}} + '%'"></div>
+                    <div class="indicator_below_text" data-bind-if="{{frame_data.bolt_recharging_progress}}">KERS</div>
+                </div>
+            </div>
+        </div>
+        [[if !hudPreview]]
+        <div class="indicator_above" data-bind-if="{{frame_data.slide_time_max}}">
+            <div class="indicator_below_text_cont">
+                <div class="indicator_below_progress">
+                    <div class="indicator_below_progress_bar" data-bind-style-width="(100*{{frame_data.slide_time_left}}/{{frame_data.slide_time_max}}) + '%'"></div>
+                    <div class="indicator_below_text" data-bind-value="{{frame_data.slide_time_left}}.toFixed(3)" data-bind-if="{{frame_data.slide_time_left}}"></div>
+                </div>
+            </div>
+        </div>
+        [[/if]]
+    </div>
+</script>
+
+<script id="hud_item" type="text/x-jsrender">
+    <div class="indicator_cont [[if flip==1]]reverse[[/if]] [[:style]]" [[if !hudPreview]]data-bind-if="{{battle_data.have_item}}" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]>
+        <div class="indicator_icon">
+            <div class="indicator_icon_bg">
+                <div class="icon" data-bind-class-toggle="active:{{frame_data.item_cooldown}} <= 0" [[if style=="default"]]data-bind-border-color="{{battle_data.item_color}}"[[/if]]>
+                    <div class="icon_image [[if iShadow==1]]shadow[[/if]]" data-bind-class-toggle="active:{{frame_data.item_cooldown}} <= 0"
+                                            data-bind-style-background-image-url="{{battle_data.item_image}}+'?fill='+[[if iC=="item"]]{{battle_data.item_color}}[[/if]][[if iC=="custom"]]'[[:iCCustom]]'[[/if]]"></div>
+                </div>
+                <div class="cooldown" data-bind-if="{{frame_data.item_cooldown}} > 0" data-bind-value="{{frame_data.item_cooldown}}"></div>
+            </div>
+        </div>
+        <div class="indicator_below">
+            <div class="indicator_below_text_cont" data-bind-if="{{battle_data.is_item_countable}}">
+                <div class="indicator_below_text" data-bind-if="{{battle_data.is_item_countable}}" data-bind-value="{{battle_data.item_charge}}"></div>
+            </div>
+            <!--<div class="indicator_below_desc">ITEM NAME</div>-->
+            [[if keybind == 1]]
+            <div class="indicator_key_cont">
+                <div class="indicator_keybind" data-bind-value="{{battle_data.item_keybind}}"></div>
+                <!-- icons for binds MMB, LMB, RMB, MWU, MWD, reference for when we its implemented properly engine side -->
+                <!--<div class="indicator_keybind" data-bind-value="{{battle_data.item_keybind}}" data-bind-style-background-image-url="'images/'+{{battle_data.item_keybind}}+'.svg'" style="background-color:transparent;background-size:contain;background-repeat:no-repeat;background-position:center;color:transparent"></div>-->
+            </div>
+            [[/if]]
+        </div>
+    </div>
+</script>
+
+<script id="hud_powerup" type="text/x-jsrender">
+    <div class="indicator_cont [[if flip==1]]reverse[[/if]] [[:style]]" [[if !hudPreview]]data-bind-if="{{battle_data.have_powerup}}" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]>
+        <div class="indicator_icon active">
+            <div class="indicator_icon_bg">
+                <div class="icon active" [[if style=="default"]]data-bind-border-color="{{battle_data.powerup_color}}"[[/if]]>
+                    <div class="icon_image active [[if iShadow==1]]shadow[[/if]]" data-bind-style-background-image-url="{{battle_data.powerup_image}}+'?fill='+[[if iC=="powerup"]]{{battle_data.powerup_color}}[[/if]][[if iC=="custom"]]'[[:iCCustom]]'[[/if]]"></div>
+                </div>
+            </div>
+        </div>
+        <div class="indicator_below">
+            <div class="indicator_below_text_cont">
+                <div class="indicator_below_text" data-bind-value="{{frame_data.powerup_countdown}}"></div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="hud_throttle" type="text/x-jsrender">
+    [[if !(hidePercent==1)]]
+    <div [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] 
+         data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="true?strafe_data.efficiency:{{frame_data.speed}}" style="opacity:[[:opacity]]">0</div>
+    <div [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]
+         data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" style="font-size:0.4em;opacity:[[:opacity]]" class="need_strafe_calc">%</div>
+
+    [[else]]
+    <div class="need_strafe_calc" [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] 
+         style="display:flex;justify-content:center;opacity:[[:opacity]];width:calc([[:barWidth]]vh*var(--ratio));height:calc([[:barHeight]]vh*var(--ratio));border: 1px solid rgba(255,255,255,0.25);[[if !(reversed==1)]]transform:scaleX(-1)[[/if]]">
+        <div data-bind-style-background-color="true?strafe_data.color:{{frame_data.speed}}"
+             data-bind-style-width="true?strafe_data.throttle:{{frame_data.speed}}"
+             data-bind-class-toggle="right:(true?strafe_data.spin:{{frame_data.speed}})"
+             style="position:absolute;height:100%;z-index:-1"
+             class="throttle_bar">
+        </div>
+        <div style="width:0;height:100%;border-left:1px solid rgba(0,0,0,0.25);border-right:1px solid rgba(0,0,0,0.25)"></div>
+    </div>
+    [[/if]]
+</script>
+
+<script id="hud_g_meter" type="text/x-jsrender">
+    <div data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}" 
+       [[if !hudPreview && showIn3D==1]]
+         data-bind-style-width ="Math.max({{frame_data.speed}}/320,1)*[[:size]] + 'vh'" 
+         data-bind-style-height="Math.max({{frame_data.speed}}/320,1)*[[:size]] + 'vh'"
+         data-bind-property="'--efficiency_dot_size_ref:'+(32000/Math.max(320,{{frame_data.speed}})+'%')"
+       [[/if]]
+         class="g_meter_container [[if showIn3D==1]]need_pitch_calc[[/if]] need_strafe_calc" 
+         style="opacity:[[:opacity]];--inner_ring_percentage:[[:ringInnerSize]]%;[[if hudPreview || !(showIn3D==1)]]width:calc([[:size]]vh*var(--ratio));height:calc([[:size]]vh*var(--ratio))[[/if]][[if showIn3D==1]];transform:rotate(360deg)[[/if]]">
+        <div class="jumppress_indicator"   data-bind-if="true?strafe_data.jump  :{{frame_data.speed}}"></div>
+        <div class="crouchpress_indicator" data-bind-if="true?strafe_data.crouch:{{frame_data.speed}}"></div>
+        <div class="groundstate_indicator" data-bind-if="true?strafe_data.cj    :{{frame_data.speed}}" data-bind-style-opacity="strafe_cj_opacity({{frame_data.speed}},[[:cjspeed]])"></div>
+      [[if !(hideKeypress==1||showIn3D==1)]]
+        <div class="g_meter_outer_ring" data-bind-class-toggle="heated:(strafe_data.cj&&({{frame_data.speed}}>[[:cjspeed]]))"
+                                        style="z-index:-1;background-image:radial-gradient(circle closest-side, black var(--inner_ring_percentage), rgba(255,255,255,0.25) calc(var(--inner_ring_percentage) + 1%), rgba(255,255,255,0.05) 100%, transparent 100.001%)">
+             <div class="g_meter_vert_line"></div>
+        </div>
+        <div class="g_meter_outer_ring" style="transform:rotate(  45deg)"><div class="g_meter_vert_line"></div></div>
+        <div class="g_meter_outer_ring" style="transform:rotate( -45deg)"><div class="g_meter_vert_line"></div></div>
+        <div class="g_meter_outer_ring" style="transform:rotate(  90deg)"><div class="g_meter_vert_line"></div></div>
+        <div class="g_meter_outer_ring" style="transform:rotate( -90deg)"><div class="g_meter_vert_line"></div></div>
+        <div class="g_meter_outer_ring" style="transform:rotate( 135deg)"><div class="g_meter_vert_line"></div></div>
+        <div class="g_meter_outer_ring" style="transform:rotate(-135deg)"><div class="g_meter_vert_line"></div></div>
+        <div class="g_meter_outer_ring" style="transform:rotate( 180deg)"><div class="g_meter_vert_line"></div></div>
+        <div class="g_meter_outer_ring" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}" style="border-radius:50%">
+            <div class="g_meter_outer_ring" style="transform:rotate(45deg);align-items:flex-start;justify-content:flex-start">
+                <div class="g_meter_outer_ring" style="transform:translate(-50%, -50%)">
+                    <div class="g_meter_outer_ring_highlight" data-bind-property="'--efficiency_color:'+(true?strafe_data.color:{{frame_data.speed}})"></div>
+                </div>
+                <div class="g_meter_outer_ring" style="transform:rotate( -90deg)"><div class="g_meter_vert_line"></div></div>
+                <div class="g_meter_outer_ring" style="transform:rotate(   0deg)"><div class="g_meter_vert_line"></div></div>
+                <div class="g_meter_outer_ring" style="transform:rotate( -45deg)"><div class="g_meter_vert_line"></div>
+                    <div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*0.992773891679)) scale(calc([[:ringInnerSize]]/100))"></div>
+                </div>
+            </div>
+        </div>
+      [[/if]]
+      [[if !(showSpeed==4)]][[if showSpeed==1||showSpeed==3]]
+        [[if showSpeed==3]]
+        <div style="position:absolute;display:flex;align-items:center;justify-content:center;transform:translateY(-150%)">
+             <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="true?strafe_data.efficiency:{{frame_data.speed}}" style="font-size:0.4em"></div>
+             <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" style="font-size:0.3em">%</div>
+        </div>
+        [[/if]]
+        <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="{{frame_data.speed}}">0</div>
+        <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" style="font-size:0.4em;position:absolute;transform:translateY(125%)">ups</div>
+      [[else]]
+        <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="true?strafe_data.efficiency:{{frame_data.speed}}">0</div>
+        <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" style="font-size:0.4em">%</div>
+        [[if showSpeed==2]]<div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="{{frame_data.speed}}+'ups'" style="font-size:0.4em;position:absolute;transform:translateY(150%)"></div>[[/if]]
+      [[/if]][[/if]]
+        <div class="g_meter_inner_ring">
+        [[if hideKeypress==1||showIn3D==1]]
+          <div class="g_meter_octagon" data-bind-class-toggle="heated:(strafe_data.cj&&({{frame_data.speed}}>[[:cjspeed]]))"><div class="g_meter_vert_line"></div></div>
+          <div class="g_meter_octagon" style="border:none;transform:rotate(  45deg)"><div class="g_meter_vert_line"></div></div>
+          <div class="g_meter_octagon" style="border:none;transform:rotate( -45deg)"><div class="g_meter_vert_line"></div></div>
+          <div class="g_meter_octagon" style="border:none;transform:rotate(  90deg)"><div class="g_meter_vert_line"></div></div>
+          <div class="g_meter_octagon" style="border:none;transform:rotate( -90deg)"><div class="g_meter_vert_line"></div></div>
+          <div class="g_meter_octagon" style="border:none;transform:rotate( 135deg)"><div class="g_meter_vert_line"></div></div>
+          <div class="g_meter_octagon" style="border:none;transform:rotate(-135deg)"><div class="g_meter_vert_line"></div></div>
+          <div class="g_meter_octagon" style="border:none;transform:rotate( 180deg)"><div class="g_meter_vert_line"></div></div>
+        [[/if]]
+          <div class="sound_barrier" data-bind-style-transform-rotate="true?strafe_data.veldir:{{frame_data.speed}}">
+             <div class="airstate_indicator" data-bind-style-opacity="true?strafe_data.arrowopa:{{frame_data.speed}}" data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}}>0"></div>
+             <div class="g_meter_ripple g_meter_ripple_animation" data-bind-style-opacity="true?strafe_data.rippleopa:{{frame_data.speed}}"></div>
+             <div class="sound_barrier_wall"        data-bind-style-height="true?strafe_data.wallheight:{{frame_data.speed}}" data-bind-if="true?strafe_data.abovebase:{{frame_data.speed}}">
+               <div class="sound_barrier_inner_wall" data-bind-style-width="true?strafe_data.wallwidth :{{frame_data.speed}}"></div>
+               <div class="sound_barrier_inner_back" style="left:0%"></div>
+               <div class="sound_barrier_inner_back" style="left:10%"></div>
+               <div class="sound_barrier_inner_back" style="left:20%"></div>
+               <div class="sound_barrier_inner_back" style="left:30%"></div>
+               <div class="sound_barrier_inner_back" style="left:40%"></div>
+               <div class="sound_barrier_inner_back" style="right:0%"></div>
+               <div class="sound_barrier_inner_back" style="right:10%"></div>
+               <div class="sound_barrier_inner_back" style="right:20%"></div>
+               <div class="sound_barrier_inner_back" style="right:30%"></div>
+               <div class="sound_barrier_inner_back" style="right:40%"></div>
+             </div>
+          </div>
+          <div style="position:absolute;width:100%;height:100%;" data-bind-property="'--efficiency_color:'+(true?strafe_data.color:{{frame_data.speed}})" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}">
+               <div class="g_meter_vert_line"  style="height:50%;background-color:var(--efficiency_color)" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}"></div>
+               <div class="accel_dot_indicator_circle" data-bind-property="'--eff_dot_trans:'+(true?strafe_data.dot_trans:{{frame_data.speed}})"></div>
+          </div>
+        </div>
+    </div>
+</script>
+
+<script id="hud_misc_settings" type="text/x-jsrender">
+    <div style="display:none"></div>
+</script>
+
+<script id="hud_yaw_ruler" type="text/x-jsrender">
+    [[if hudPreview]]
+    <div style="color:[[:bandColor]]">Aim Helper</div>
+    [[else]]
+    <div data-bind-style-height="true?strafe_data.pitch_clip:{{frame_data.speed}}" [[if crop==1]]data-bind-style-width="true?strafe_data.pitch_crop:{{frame_data.speed}}"[[/if]]
+         data-bind-if="{{battle_data.self.alive}}"
+         style="overflow:hidden;transform:translateY(50%);display:flex;justify-content:center;align-items:flex-start">
+        <div data-bind-style-width="true?strafe_data.pitch_diam:{{frame_data.speed}}" 
+             data-bind-style-height="true?strafe_data.pitch_diam:{{frame_data.speed}}"
+             style="border-radius:50%;border:1px solid [[:bandColor]]">
+        </div>
+    </div>
+    [[/if]]
+    <div class="need_pitch_calc" style="display:none"></div>
+</script>
+
+<script id="hud_editor_input" type="text/x-jsrender">
+    <div class="hud_editor_option_row row_input">
+        <div class="label">[[:title]]</div>
+        <div class="option">
+            <input type=text id='[[:id]]' data-idx="[[:idx]]" data-key="[[:key]]" value="[[:value]]" ondblclick="this.setSelectionRange(0, this.value.length);">
+        </div>
+    </div>
+</script>
+
+<script id="hud_editor_toggle" type="text/x-jsrender">
+    <div class="hud_editor_option_row row_toggle">
+        <div class="label">[[:name]]</div>
+        <div class="option">
+            <div class="checkbox" id="[[:id]]" data-idx="[[:idx]]" data-key="[[:key]]" data-enabled="[[if isOn]]true[[/if]]"">
+                <div class="[[if isOn]]inner_checkbox_enabled[[/if]]"></div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="hud_editor_color" type="text/x-jsrender">
+    <div class="hud_editor_option_row row_color">
+        <div class="label">[[:name]]</div>
+        <div class="option">
+            <input type=text class="color-picker-new" data-key="[[:key]]" id='[[:id]]' value="[[:color]]">
+        </div>
+    </div>
+</script>
+
+<script id="hud_editor_list" type="text/x-jsrender">
+    <div class="hud_editor_option_row">
+        <div class="label">[[:title]]</div>
+        <div class="option">
+            <div id='[[:id]]' data-idx="[[:idx]]" data-key="[[:key]]" class="select-field" data-theme="settings">
+                [[for value]]
+                    <div data-value='[[>value]]'>[[>name]]</div>
+                [[/for]]
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<script id="hud_teammates_alive" type="text/x-jsrender">
+    [[if hudPreview]]
+        <div [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]]>4[[if aliveText == 1]] alive[[/if]]</div>
+    [[else]]
+        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}})" 
+            [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]] 
+            data-bind-value="{{game_data.own_team.players}}.filter(x => x.alive==true).length[[if aliveText == 1]] + ' alive'[[/if]]">
+        </div>
+    [[/if]]
+</script>
+
+<script id="hud_enemies_alive" type="text/x-jsrender">  
+    [[if hudPreview]]
+        <div [[if teamColor == 1]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]]>4[[if aliveText == 1]] alive[[/if]]</div>
+    [[else]]
+        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}})" 
+            [[if teamColor == 1]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]] 
+            data-bind-value="{{game_data.enemy_team.players}}.filter(x => x.alive==true).length[[if aliveText == 1]] + ' alive'[[/if]]">
+        </div>
+    [[/if]]
+</script>
+
+    <div id="preload_trick_container"></div>
+
+
+    <script src="javascript/cohtml.js"></script>
+    <script src="vendors/zepto.js"></script>
+
+    <script src="vendors/jsrender/jsrender.min.js"></script>
+
+    <NOPscript src="vendors/anime/anime.min.js"></NOPscript>
+
+    <script src="vendors/numeral/numeral.min.js"></script>
+    <script src="vendors/numeral/locales.js"></script>
+
+    <script src="javascript/i18next.min.js"></script>
+    <script src="vendors/loc-i18next/loc-i18next.js"></script>
+
+    <script src="translations/translation-en.js"></script>
+    <script src="translations/translation-zh-TW.js"></script>
+    <script src="translations/translation-zh-CN.js"></script>
+    <script src="translations/translation-ja.js"></script>
+    <script src="translations/translation-it.js"></script>
+    <script src="translations/translation-ru.js"></script>
+
+    <script src="translations/countries_en.js"></script>
+    <script src="translations/countries_cn.js"></script>
+    <script src="translations/countries_tw.js"></script>
+    <script src="translations/countries_ja.js"></script>
+    <script src="translations/countries_it.js"></script>
+    <script src="translations/countries_ru.js"></script>
+
+    <script src="javascript/ui_data.js"></script>
+    <script src="javascript/ui_helpers.js"></script>
+
+    <script src="javascript/ui_anim.js"></script>
+
+    <!-- HUD View main js-->
+    <script src="javascript/ui_ingame.js"></script>
+    
+    <script src="javascript/ui_shared.js"></script>
+
+    <script src="components/ingame/game_report.js"></script>
+    <script src="components/ingame/join_menu.js"></script>
+
+    <script src="javascript/HUD_element.js"></script>
+    <script src="javascript/ui_hud_creator.js"></script>
+    <script src="javascript/ui_strafe.js"></script>
+    <script src="javascript/ui_fov.js"></script> <!-- FILM notation code used for focal length calc for onscreen indicators-->
+
+    <script src="javascript/hud_elements/element_group.js"></script>
+
+<script src="javascript/hud_elements/element_hp.js"></script>
+<script src="javascript/hud_elements/element_hp_bar.js"></script>
+<script src="javascript/hud_elements/element_armor.js"></script>
+<script src="javascript/hud_elements/element_armor_bar.js"></script>
+<script src="javascript/hud_elements/element_stack.js"></script>
+<script src="javascript/hud_elements/element_fps.js"></script>
+<script src="javascript/hud_elements/element_speed.js"></script>
+<script src="javascript/hud_elements/element_current_ammo.js"></script>
+<script src="javascript/hud_elements/element_low_ammo_warning.js"></script>
+<script src="javascript/hud_elements/element_weapon_list.js"></script>
+<script src="javascript/hud_elements/element_kill_feed.js"></script>
+<script src="javascript/hud_elements/element_game_timer.js"></script>
+<script src="javascript/hud_elements/element_time_limit.js"></script>
+<script src="javascript/hud_elements/element_round_mvp.js"></script>
+<script src="javascript/hud_elements/element_score.js"></script>
+<script src="javascript/hud_elements/element_team_scores.js"></script>
+<script src="javascript/hud_elements/element_flag.js"></script>
+<script src="javascript/hud_elements/element_dodge.js"></script>
+<script src="javascript/hud_elements/element_item.js"></script>
+<script src="javascript/hud_elements/element_player_name.js"></script>
+<script src="javascript/hud_elements/element_powerup.js"></script>
+<script src="javascript/hud_elements/element_g_meter.js"></script>
+<script src="javascript/hud_elements/element_misc_settings.js"></script>
+<script src="javascript/hud_elements/element_you_killed.js"></script>
+<script src="javascript/hud_elements/element_chat.js"></script>
+<script src="javascript/hud_elements/element_voicechat.js"></script>
+<script src="javascript/hud_elements/element_rect.js"></script>
+<script src="javascript/hud_elements/element_icon.js"></script>
+<script src="javascript/hud_elements/element_current_weapon_icon.js"></script>
+<script src="javascript/hud_elements/element_teammates_alive.js"></script>
+<script src="javascript/hud_elements/element_item_pickups.js"></script>
+
+    <div id="watermark" class="ingame"></div>
+<script type="text/javascript" src="/html/hud.bundle.js"></script></body>
+</html>

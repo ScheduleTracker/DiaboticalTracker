@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html><link>
+    <style>
+
+        @font-face {
+            font-family: "cpmono";
+            src: url("fonts/CPMono_v07-Plain.otf");
+            font-weight: normal;
+            font-style: normal;
+        }
+		
+        body, html {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: rgba(0,0,0,0.5);
+			background-image: url("../html/images/editpad/bg.png");
+			background-position: left top;
+            color: white;
+        }
+		
+		input {
+			border-width: 0;
+			background-color: rgba(255,255,255,0.1);
+			color: white;
+		}
+
+        * {
+            cursor: default;
+            word-wrap: break-word;
+        }
+
+		
+		#filter_input {
+			position: absolute;
+			left: 71.75%;
+			top: 22%;
+			width: 17%;
+			border-width: 0;
+			background-color: transparent;
+			color: white;
+		}
+		
+		.asset_button {
+			width: 13.8vh;
+			height: 14.3vh;
+			margin: 0.15vh;
+			margin-bottom:2vh;
+			position: relative;
+			overflow: hidden;
+		}
+		.asset_button > * {
+			pointer-events: none;
+		}
+		.asset_icon {
+			width: 13.8vh;
+			height: 13.8vh;		
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.asset_button:hover {
+			background-color: rgba(255,255,255,0.15);
+		}
+		.asset_button:active {
+			background-color: rgba(255,128,0,0.85);
+		}
+		.asset_name {
+			display: none;
+		}
+		.type_label {
+			position: absolute;
+			background-color: gray;
+			left: 0;
+			bottom: 0;
+			width: 97%;
+			border-top-right-radius: 1.5vh;
+			font-size: 2vh;
+			color: rgba(255,255,255);
+			text-transform: uppercase;
+			padding-left: 0.6vh;
+			font-weight: bold;
+		}
+		.asset_type_label_decal {
+			background-color: #e42424;
+		}
+		.asset_type_label_material {
+			background-color: #53bc32;
+		}
+		.asset_type_label_entity {
+			background-color: #df9a15;
+		}
+		.asset_type_label_prop {
+			background-color: #176fe8;
+		}
+		.asset_type_label_dynprop {
+			background-color: #de25e5;
+		}
+		#browser_status {
+			position: fixed;
+			top: 23vh;
+			left: 22vh;
+			width:125vh;
+			height:3.5vh;
+			display: flex;
+			align-items:center;
+			overflow: hidden;
+			padding-left: 1.5vh;
+		}
+		
+		.section {
+		}
+		
+		.section-subcontainer {
+			position: absolute;
+			left: 11vw;
+			width: 79.5vw;
+			top: 28vh;
+			height: 65vh;
+			flex-wrap: wrap;
+			display: flex;
+			overflow-y: scroll;
+		}
+		
+		#buttons {
+			font-family: "cpmono";
+			position: absolute;
+			top: 24.25vh;
+			left: 4.7vh;
+			width: 13.9vh;
+		}
+		#buttons > div {
+			height: 6.2vh;
+			position: relative;
+			background-color: rgba(255,255,255,0.1);
+			margin-bottom: 0.6875vh;
+			overflow: hidden;
+		}
+		#buttons > div:hover {
+			background-color: #940;
+		}
+		#buttons > div:active {
+			background-color: orange;
+			color: #333;
+		}
+		#buttons > div > div {
+			pointer-events: none;
+		}
+		#buttons > div > div.label {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 2.1vh;
+			text-align: center;
+			display: flex;
+			align-items: flex-end;
+		}
+		#buttons > div > div.image {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			opacity: 0.15;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		#buttons > div > div.image:hover {
+			opacity: 0.4;
+		}
+		#buttons > div > div.image:active {
+			opacity: 0.8;
+		}
+		.section_button_hl {
+			box-shadow: inset 0vh 0vh 10px orange;
+			background-color: #840;
+		}
+		#tabs-button-1 > div.image {
+			background-image: url("images/editpad_menu_add.png");
+		}
+		#tabs-button-2 > div.image {
+			background-image: url("images/editpad_menu_properties.png");
+		}
+		#tabs-button-3 > div.image {
+			background-image: url("images/editpad_menu_map.png");
+		}
+		#tabs-button-4 > div.image {
+			background-image: url("images/editpad_menu_tools.png");
+		}
+		#tabs-button-5 > div.image {
+			background-image: url("images/editpad_menu_settings.png");
+		}
+		#tabs-button-6 > div.image {
+			background-image: url("images/editpad_menu_help.png");
+		}
+		.dropper_tool {
+			background-image: url('images/editpad_menu_dropper.png');
+			background-size: 80% 80%;
+			background-position: center center;
+			background-repeat: no-repeat;
+			display: inline-block;
+			width: 5vh;
+			height: 5vh;
+			vertical-align: middle;
+			margin-bottom: 0.45vh;
+			margin-left: 0.45vh;
+			margin-right: 1.125vh;
+			border: 2px solid transparent;
+		}
+
+		.dropper_tool:hover {
+			box-shadow: inset 0 0 4px rbga(0,0,0,0.3);
+			border: 2px outset rgba(255,255,255, 0.4);
+		}
+
+		.dropper_tool:active {
+			background-color: rgba(255,255,255,0.5);
+			box-shadow: inset 0 0 4px rbga(0,0,0,0.3);
+			border: 2px inset rgba(255,255,255, 0.4);
+		}
+		.entity_properties {
+		    width: 140vh;
+			display: flex;
+			flex-direction: column;
+		}
+		.entity_property_category {
+			text-transform: uppercase;
+			background-color: rgba(255,255,255,0.05);
+            color: rgb(200,200,200);
+            padding: 0.5vh;
+            padding-left: 1.5vh; 
+		}
+		.entity_property {
+			display: flex;
+			flex-direction: row;
+			margin-bottom: 1vh;
+            margin-top: 1vh;
+			/*border-bottom: 0.5vh solid rgba(255,255,255,0.05);*/
+		}
+		.entity_property_header {
+			width: 26vh;
+            padding-left: 1.5vh;
+		}
+        .entity_properties_columns {
+            flex-direction: row;
+            display: flex;
+        }
+        .entity_properties_panel {
+            width: 50%;
+            padding-right: 2vh;
+        }
+    </style> 
+	
+    <script src="javascript/cohtml.js"></script>
+	<script src="vendors/zepto.js"></script>
+	<script src="vendors/jscolor/_jscolor.js"></script>
+	<script src="javascript/ui_helpers.js"></script>
+	<script src="javascript/ui_scrollbar.js"></script>
+	<script src="javascript/ui_select_component.js"></script>
+
+<script>
+	window.addEventListener("load", function () {
+		//$('#filter_input').on("input", function () {
+		//	populate();
+		//});
+		initialize_select(_id("main_menu"));
+		engine.call("on_editpad_loaded");
+	});
+		 
+	function addbits(s) { //https://stackoverflow.com/a/44282109
+		return (s.replace(/\s/g, '').match(/[+\-]?([0-9\.]+)/g) || [])
+			.reduce(function(sum, value) {
+				return parseFloat(sum) + parseFloat(value);
+			});
+	}
+	function on_dropper_tool() {
+		engine.call("on_dropper_tool");
+	}
+	function colorPickerValueUpdated(element, jscolor){
+		engine.call("set_color_property", element.dataset.entity, element.dataset.property, String(jscolor));
+	}
+
+	function _setup_color_pickers(selector) {
+		var colorPickers = document.querySelectorAll(selector);
+
+		for(var i = 0; i < colorPickers.length; i++){
+			var cp = colorPickers[i];
+
+			cp.jscolor = new jscolor(cp);
+
+			cp.jscolor.onFineChange = function(){ 
+				engine.call("set_color_property_preview", cp.dataset.entity, cp.dataset.property, String(cp.jscolor));
+			};
+
+		}
+	}
+
+	engine.on('entity_details', function (content, id) {
+		//$("#" + id).empty();
+		//$("#" + id).html(content);
+		var el = _id(id);
+		_html(el, content);
+
+		_setup_color_pickers("#" + id + " .color-picker-new");
+		
+		$(".detail_text_field").each(function (i) {
+			$(this).keyup(function (e) {
+			  if (e.keyCode == 13) {
+				  var property = "" + $(this).data("property");
+				  var entity = "" + $(this).data("entity");
+				  var expression = "" + $(this).data("expression");
+				  var val = ""+$(this).val();
+				  if (expression == "1"){
+					val = ""+addbits(val);
+					$(this).val(val);
+				  }
+				  engine.call("set_string_property", $(this).data("entity"), $(this).data("property"), val);
+				  this.setSelectionRange(0, this.value.length);
+				  //$(this).select();
+			  }
+			});
+		});
+		
+		_for_each_with_class_in_parent(el, 'detail_select_field', function(subel) {
+			setup_select(subel, function(opt, field){
+				engine.call("set_string_property",
+					subel.dataset.entity, subel.dataset.property, opt.dataset.value);
+			});
+		});
+
+	});
+
+	function populate() {
+		engine.call("editpad_filter", $('#filter_input').val()).then(function (reply) {
+	    assets = [];
+		try {
+			////$("#test").html(reply);
+			//assets = JSON.parse(reply);
+			//$("#asset_browser").html(assets.join(""));
+			_id("asset_browser").innerHTML = reply;
+			
+			//var elements = document.querySelectorAll("*");
+
+			//for(var i = 0; i < elements.length; i++){
+				//elements[i].getClientRects();
+				//elements[i].getBoundingClientRect();
+			//}
+
+		} catch (err){}
+          
+      });
+	}
+	
+	
+	var search_debouncer = new InputDebouncer(function(){populate()});
+
+	var _last_click_x = null;
+	var _last_click_y = null;
+	var _last_click_time = null;
+	
+	//PITFALL:
+	//We do our own double click selection for two reasons:
+	//- a gameface bug where click events are ignored the first time for a dynamically created object
+	//  this affects double click
+	//- this allows us to use onmousedown which isn't affected by the bug above
+	function check_double_click(event){
+		var double_click = false;
+		if (_last_click_x !== null && _last_click_y !== null && _last_click_time !== null){
+			if (event.clientX == _last_click_x && event.clientY == _last_click_y &&
+				performance.now() - _last_click_time < 500)
+			{
+				double_click = true;
+			}
+		}
+		_last_click_x = event.clientX;
+		_last_click_y = event.clientY;
+		_last_click_time = performance.now();
+		return double_click;
+	}
+	
+	function asset_click(event, element, name) {
+		if (check_double_click(event)){
+			engine.call("asset_double_click", name);
+			//$(element).effect("highlight", {color: 'white'}, 500);
+		} else {
+			engine.call("asset_click", name);
+			$(".asset_selected").removeClass("asset_selected");
+			$(element).addClass("asset_selected");
+		}
+	}
+
+	function asset_over(event, element, name) {
+		$("#browser_status").text(name);
+	}
+	function reset_status_bar(){
+		$("#browser_status").text("");
+	}
+
+	//function asset_double_click(event, element, name){
+	//	engine.call("asset_double_click", name);
+	//	$(element).effect("highlight", {color: 'white'}, 500);
+	//}
+
+	function palette_double_click(event, element, index){
+		engine.call("palette_double_click", "" + index);
+		$(element).effect("highlight", {color: 'white'}, 500);
+	}
+
+	function _section(idx) {
+		for (var i = 1; i <= 6; i++) {
+			if (idx == i) {
+				var section = _id("section-" + i);
+				if (section){
+					section.style.display = "flex";
+				}
+				$("#tabs-button-" + i).addClass("section_button_hl");
+			} else {
+				var section = _id("section-" + i);
+				if (section){
+					section.style.display = "none";
+				}
+			
+				$("#tabs-button-" + i).removeClass("section_button_hl");
+			}
+		}
+	}
+
+	function on_asset_browser_scroll(event){
+		var el = _id("asset_browser");
+		engine.call("echo", "TOP="+el.scrollTop+" =" + el.scrollHeight + " ="+el.getBoundingClientRect().height);
+	}
+	
+	document.addEventListener("mouseover", function(e) {
+		if (e.target && e.target.dataset.legend){
+			$("#browser_status").text(e.target.dataset.legend);
+		} else {
+			$("#browser_status").text("");
+		}
+	});
+
+
+
+	</script>
+	<link href="css/ui_components.css" rel="stylesheet"></head>
+</head>
+
+<body id="main_menu" onmouseover='reset_status_bar()'>
+
+<div id="section-1" class=section>
+	<div class="section-subcontainer" id="asset_browser" onscroll="on_asset_browser_scroll(event)"></div>
+	<div id=browser_status></div>
+</div>
+
+<div id="section-2" class=section style="display: none;">
+	<!--<img src="images/editpad/section_header.png" style='position: absolute; left: 200px; top: 200px'>-->
+	<div class="property_view section-subcontainer" id="entity_details"></div>
+</div>
+
+<div id="section-3" class=section style="display: none;">
+	<div class="property_view section-subcontainer" id="global_properties"></div>
+</div>
+
+<input id="filter_input" oninput="search_debouncer.execute()">
+	  <div id="buttons">
+		<div id="tabs-button-1" onclick="_section(1)"><div class=image></div><div class=label>Add</div></div>
+        <div id="tabs-button-2" onclick="_section(2)"><div class=image></div><div class=label>Properties</div></div>
+		<div id="tabs-button-3" onclick="_section(3)"><div class=image></div><div class=label>Map</div></div>
+		<div id="tabs-button-4" onclick="_section(4)"><div class=image></div><div class=label>Tools</div></div>
+		<div id="tabs-button-5" onclick="_section(5)"><div class=image></div><div class=label>Settings</div></div>
+		<div id="tabs-button-6" onclick="_section(6)"><div class=image></div><div class=label>Help</div></div>
+	  </div>
+	  
+</body>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="Layer_1"
+   version="1.1"
+   viewBox="0 0 256 256"
+   height="256"
+   width="256">
+  <style type="text/css" >
+	 .st0{ fill:#FFFFFF }
+  </style>
+  <path class="st0" d="M 128,20.58339 C 104.78958,34.187107 88.162879,47.036745 33.295,45.124382 33.295,137.24837 61.144954,196.81783 128,235.4166 194.85504,196.81783 222.705,137.24837 222.705,45.124382 167.83711,47.036745 151.21042,34.187106 128,20.58339 Z" />
+</svg>

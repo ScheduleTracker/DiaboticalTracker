@@ -1,0 +1,1875 @@
+//
+
+window.current_screen = "home";
+window.fade_time = 70;
+
+function set_logged_out_screen(visible, reason) {
+    if (reason && reason == "ghosted")    _id("logout_reason").textContent = localize("message_multi_user_logged_out");
+    if (reason && reason == "version")    _id("logout_reason").textContent = localize("message_version_user_logged_out");
+    if (reason && reason == "offline")    _id("logout_reason").textContent = localize("message_game_is_currently_offline");
+    if (reason && reason == "unverified") _id("logout_reason").textContent = localize("message_verification_failed");
+
+    if (visible) {
+        console.log("show logged out screen, disable console");
+        _id("main_menu").style.visibility = "hidden";
+        anim_show(_id("main_logged_out"));
+        engine.call("set_console_enabled", false);
+    } else {
+        /*
+        _id("main_menu").style.visibility = "visible";
+        anim_hide(_id("main_logged_out"));
+        // set_console_enabled true isn't implemented in the engine, will be added if we ever actually need it
+        engine.call("set_console_enabled", true);
+        */
+    }
+}
+
+window.setup_section_markers = {};
+function change_screen(new_screen) {
+    if (window.current_screen == "customization") {
+        engine.call("on_show_customization_screen", false);
+    }
+
+    if (!window.setup_section_markers[new_screen]) {
+        window.setup_section_markers[new_screen] = true;
+    }
+
+    window.current_screen = new_screen;
+}
+
+function processSliderUpdate(el) {
+    let id_str = "" + el.id;
+    if (id_str.startsWith("setting_mouse")) {
+        //update_accel_chart();
+    }
+}
+
+function update_selectmenu(element, from_engine){
+    console.log("update selectmenu");
+    var id_str = element.id;
+    if (id_str == "setting_imperial") {
+        update_physical_sens(id_str,from_engine);
+    }
+    if (id_str.startsWith("film_fov")) {
+        update_fov_conversion_options(id_str);
+    }
+    if (id_str == "setting_mouse_accel_type") {
+        update_accel_options(element);
+    }
+}
+
+function settings_combat_update(weapon) {
+
+    let weapon_settings = _id("custom_weapon_settings");
+    let weapon_settings_checkboxes = _id("weapon_sheet").querySelectorAll('.settings_block_header .checkbox_component');
+    if (weapon == 0) {
+        anim_show(_id("combat_subheader_row_default"));
+        anim_hide(_id("combat_subheader_row_weapon"));
+        if (weapon_settings.style.display == "none") {
+            weapon_settings.style.display = "flex";
+            weapon_settings.style.opacity = 1;
+        }
+
+        for (let i=0; i<weapon_settings_checkboxes.length; i++) {
+            weapon_settings_checkboxes[i].classList.add("hidden");
+        }
+    } else {
+        anim_hide(_id("combat_subheader_row_default"));
+        anim_show(_id("combat_subheader_row_weapon"));
+
+        for (let i=0; i<weapon_settings_checkboxes.length; i++) {
+            weapon_settings_checkboxes[i].classList.remove("hidden");
+        }
+    }
+    
+    let combat_header = _id("combat_panel_header");
+    _for_each_with_class_in_parent(combat_header, 'button-weapon-selected', function(el) {
+        el.classList.remove("button-weapon-selected");
+    });
+    _for_each_with_class_in_parent(combat_header, 'img-weapon-selected', function(el) {
+        el.classList.remove("img-weapon-selected");
+    });
+
+    let button = _id("combat_panel_weapon_"+weapon);
+    button.classList.add("button-weapon-selected");
+    _for_each_with_tag_in_parent(button, 'img', function(el) {
+        el.classList.add("img-weapon-selected");
+    });
+
+
+    //Override default values checkboxes    
+    _id("setting_weapon_use_sensitivity").dataset.variable = ("game_custom_weapon_sensitivity:" + weapon);
+    engine.call("initialize_checkbox_value", "game_custom_weapon_sensitivity:" + weapon);
+    _id("setting_weapon_use_accel").dataset.variable = ("game_custom_weapon_accel:" + weapon);
+    engine.call("initialize_checkbox_value", "game_custom_weapon_accel:" + weapon);
+    _id("setting_weapon_use_fov").dataset.variable = ("game_custom_weapon_fov:" + weapon);
+    engine.call("initialize_checkbox_value", "game_custom_weapon_fov:" + weapon);
+    _id("setting_weapon_use_crosshair").dataset.variable = ("game_custom_weapon_crosshair:" + weapon);
+    engine.call("initialize_checkbox_value", "game_custom_weapon_crosshair:" + weapon);
+    _id("setting_weapon_use_zoom_crosshair").dataset.variable = ("game_custom_weapon_zoom_crosshair:" + weapon);
+    engine.call("initialize_checkbox_value", "game_custom_weapon_zoom_crosshair:" + weapon);
+    
+
+    //sensitivity
+    _id("setting_sensitivity").dataset.variable = ("mouse_sensitivity:" + weapon);
+    global_range_slider_map["mouse_sensitivity:" + weapon] = new rangeSlider(_id("setting_sensitivity"), true, function(value) { update_zoom_sensitivity_tick(0) });
+    engine.call("initialize_range_value", "mouse_sensitivity:" + weapon);
+    //zoomed sensitivity
+    _id("setting_zoom_sensitivity").dataset.variable = ("mouse_zoom_sensitivity:" + weapon);
+    global_range_slider_map["mouse_zoom_sensitivity:" + weapon] = new rangeSlider(_id("setting_zoom_sensitivity"), true);
+    engine.call("initialize_range_value", "mouse_zoom_sensitivity:" + weapon);
+
+    //mouse accel stuff
+    _id("setting_mouse_accel_type").dataset.variable = ("mouse_accel_type:" + weapon);
+    engine.call("initialize_select_value", "mouse_accel_type:" + weapon);
+
+    _id("setting_mouse_accel_stigma_x").dataset.variable = ("mouse_accel_stigma_x:" + weapon);
+    global_range_slider_map["mouse_accel_stigma_x:" + weapon] = new rangeSlider(_id("setting_mouse_accel_stigma_x"), true);
+    engine.call("initialize_range_value", "mouse_accel_stigma_x:" + weapon);
+
+    _id("setting_mouse_accel_stigma_y").dataset.variable = ("mouse_accel_stigma_y:" + weapon);
+    global_range_slider_map["mouse_accel_stigma_y:" + weapon] = new rangeSlider(_id("setting_mouse_accel_stigma_y"), true);
+    engine.call("initialize_range_value", "mouse_accel_stigma_y:" + weapon);
+
+    _id("setting_mouse_accel_norm").dataset.variable = ("mouse_accel_norm:" + weapon);
+    global_range_slider_map["mouse_accel_norm:" + weapon] = new rangeSlider(_id("setting_mouse_accel_norm"), true);
+    engine.call("initialize_range_value", "mouse_accel_norm:" + weapon);
+
+    _id("setting_mouse_accel_offset").dataset.variable = ("mouse_accel_offset:" + weapon);
+    global_range_slider_map["mouse_accel_offset:" + weapon] = new rangeSlider(_id("setting_mouse_accel_offset"), true);
+    engine.call("initialize_range_value", "mouse_accel_offset:" + weapon);
+
+    _id("setting_mouse_accel_cap").dataset.variable = ("mouse_accel_cap:" + weapon);
+    global_range_slider_map["mouse_accel_cap:" + weapon] = new rangeSlider(_id("setting_mouse_accel_cap"), true);
+    engine.call("initialize_range_value", "mouse_accel_cap:" + weapon);
+
+    _id("setting_mouse_accel_toe").dataset.variable = ("mouse_accel_toe:" + weapon);
+    global_range_slider_map["mouse_accel_toe:" + weapon] = new rangeSlider(_id("setting_mouse_accel_toe"), true);
+    engine.call("initialize_range_value", "mouse_accel_toe:" + weapon);
+
+    _id("setting_mouse_accel_ramp").dataset.variable = ("mouse_accel_ramp:" + weapon);
+    global_range_slider_map["mouse_accel_ramp:" + weapon] = new rangeSlider(_id("setting_mouse_accel_ramp"), true);
+    engine.call("initialize_range_value", "mouse_accel_ramp:" + weapon);
+
+    _id("setting_mouse_accel_gamma").dataset.variable = ("mouse_accel_gamma:" + weapon);
+    global_range_slider_map["mouse_accel_gamma:" + weapon] = new rangeSlider(_id("setting_mouse_accel_gamma"), true);
+    engine.call("initialize_range_value", "mouse_accel_gamma:" + weapon);
+
+    _id("setting_mouse_accel_domain").dataset.variable = ("mouse_accel_domain:" + weapon);
+    global_range_slider_map["mouse_accel_domain:" + weapon] = new rangeSlider(_id("setting_mouse_accel_domain"), true);
+    engine.call("initialize_range_value", "mouse_accel_domain:" + weapon);
+
+    _id("setting_mouse_accel_bias_x").dataset.variable = ("mouse_accel_bias_x:" + weapon);
+    global_range_slider_map["mouse_accel_bias_x:" + weapon] = new rangeSlider(_id("setting_mouse_accel_bias_x"), true);
+    engine.call("initialize_range_value", "mouse_accel_bias_x:" + weapon);
+
+    _id("setting_mouse_accel_bias_y").dataset.variable = ("mouse_accel_bias_y:" + weapon);
+    global_range_slider_map["mouse_accel_bias_y:" + weapon] = new rangeSlider(_id("setting_mouse_accel_bias_y"), true);
+    engine.call("initialize_range_value", "mouse_accel_bias_y:" + weapon);
+
+    _id("setting_mouse_accel_post_scale_x").dataset.variable = ("mouse_accel_post_scale_x:" + weapon);
+    global_range_slider_map["mouse_accel_post_scale_x:" + weapon] = new rangeSlider(_id("setting_mouse_accel_post_scale_x"), true, function(value) { update_physical_sens('setting_mouse_accel_post_scale_x',false) });
+    engine.call("initialize_range_value", "mouse_accel_post_scale_x:" + weapon);
+
+    _id("setting_mouse_accel_post_scale_y").dataset.variable = ("mouse_accel_post_scale_y:" + weapon);
+    global_range_slider_map["mouse_accel_post_scale_y:" + weapon] = new rangeSlider(_id("setting_mouse_accel_post_scale_y"), true, function(value) { update_physical_sens('setting_mouse_accel_post_scale_y',false) });
+    engine.call("initialize_range_value", "mouse_accel_post_scale_y:" + weapon);
+
+    _id("setting_mouse_cpi").dataset.variable = ("mouse_dpi");
+    global_range_slider_map["mouse_dpi"] = new rangeSlider(_id("setting_mouse_cpi"), true, function(value) { update_physical_sens('setting_mouse_cpi',false) });
+    engine.call("initialize_range_value", "mouse_dpi");
+
+    _id("setting_imperial").dataset.variable = ("mouse_imperial");
+    engine.call("initialize_select_value", "mouse_imperial");
+
+    //unbound physical sens
+    global_range_slider_map["incre_field"] = new rangeSlider(_id("incre_field"), false, function(value) { update_physical_sens('incre_field',false) });
+    global_range_slider_map["curvat_field"] = new rangeSlider(_id("curvat_field"), false, function(value) { update_physical_sens('curvat_field',false) });
+    global_range_slider_map["circum_field"] = new rangeSlider(_id("circum_field"), false, function(value) { update_physical_sens('circum_field',false) });
+    global_range_slider_map["incre_zoom_field"] = new rangeSlider(_id("incre_zoom_field"), false, function(value) { update_physical_sens('incre_zoom_field',false) });
+    global_range_slider_map["curvat_zoom_field"] = new rangeSlider(_id("curvat_zoom_field"), false, function(value) { update_physical_sens('curvat_zoom_field',false) });
+    global_range_slider_map["circum_zoom_field"] = new rangeSlider(_id("circum_zoom_field"), false, function(value) { update_physical_sens('circum_zoom_field',false) });
+
+
+    //fov
+    _id("setting_fov").dataset.variable = ("game_fov:" + weapon);
+    global_range_slider_map["game_fov:" + weapon] = new rangeSlider(_id("setting_fov"), true, function(value) { update_fov_preview(); });
+    engine.call("initialize_range_value", "game_fov:" + weapon);
+    //zoomed fov
+    _id("setting_zoom_fov").dataset.variable = ("game_zoom_fov:" + weapon);
+    global_range_slider_map["game_zoom_fov:" + weapon] = new rangeSlider(_id("setting_zoom_fov"), true, function(value) { update_fov_preview(); });
+    engine.call("initialize_range_value", "game_zoom_fov:" + weapon);
+    //zoom toggle
+    _id("setting_zoom_mode").dataset.variable = ("game_zoom_mode:" + weapon);
+    engine.call("initialize_checkbox_value", "game_zoom_mode:" + weapon);
+
+    global_range_slider_map["film_fov_notation_prefix"] = new rangeSlider(_id("film_fov_notation_prefix"), false, function(value) { update_fov_conversion_options('film_fov_notation_prefix'); });
+    global_range_slider_map["film_fov_notation_suffix"] = new rangeSlider(_id("film_fov_notation_suffix"), false, function(value) { update_fov_conversion_options('film_fov_notation_suffix'); });
+    global_range_slider_map["film_fov_converted"] = new rangeSlider(_id("film_fov_converted"), false, function(value) { update_fov_conversion_options('film_fov_converted'); });
+    global_range_slider_map["film_fov_zoom_converted"] = new rangeSlider(_id("film_fov_zoom_converted"), false, function(value) { update_fov_conversion_options('film_fov_zoom_converted'); });
+
+    /// REGULAR CROSSHAIRS
+
+    //crosshair type 1
+    _id("setting_hud_crosshair_layer_enabled").dataset.variable = ("hud_crosshair_type:" + weapon);
+    _id("setting_hud_crosshair_type").dataset.variable = ("hud_crosshair_type:" + weapon);
+    engine.call("initialize_select_value", "hud_crosshair_type:" + weapon);
+    //crosshair type 2
+    _id("setting_hud_crosshair_layer_enabled2").dataset.variable = ("hud_crosshair_type2:" + weapon);
+    _id("setting_hud_crosshair_type2").dataset.variable = ("hud_crosshair_type2:" + weapon);
+    engine.call("initialize_select_value", "hud_crosshair_type2:" + weapon);
+    //crosshair type 3
+    _id("setting_hud_crosshair_layer_enabled3").dataset.variable = ("hud_crosshair_type3:" + weapon);
+    _id("setting_hud_crosshair_type3").dataset.variable = ("hud_crosshair_type3:" + weapon);
+    engine.call("initialize_select_value", "hud_crosshair_type3:" + weapon);
+
+    //crosshair color 1
+    _id("crosshair_color_1").dataset.variable = ("hud_crosshair_color:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_color:" + weapon);
+    //crosshair color 2
+    _id("crosshair_color_2").dataset.variable = ("hud_crosshair_color2:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_color2:" + weapon);
+    //crosshair color 3
+    _id("crosshair_color_3").dataset.variable = ("hud_crosshair_color3:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_color3:" + weapon);
+    //crosshair stroke 1
+    _id("setting_hud_crosshair_stroke").dataset.variable = ("hud_crosshair_stroke:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_stroke:" + weapon);
+    //crosshair stroke 2
+    _id("setting_hud_crosshair_stroke2").dataset.variable = ("hud_crosshair_stroke2:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_stroke2:" + weapon);
+    //crosshair stroke 3
+    _id("setting_hud_crosshair_stroke3").dataset.variable = ("hud_crosshair_stroke3:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_stroke3:" + weapon);
+    //crosshair size 1
+    _id("setting_hud_crosshair_size").dataset.variable = ("hud_crosshair_size:" + weapon);
+    global_range_slider_map["hud_crosshair_size:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_size"), true);
+    engine.call("initialize_range_value", "hud_crosshair_size:" + weapon);
+    //crosshair size 2
+    _id("setting_hud_crosshair_size2").dataset.variable = ("hud_crosshair_size2:" + weapon);
+    global_range_slider_map["hud_crosshair_size2:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_size2"), true);
+    engine.call("initialize_range_value", "hud_crosshair_size2:" + weapon);
+    //crosshair size 3
+    _id("setting_hud_crosshair_size3").dataset.variable = ("hud_crosshair_size3:" + weapon);
+    global_range_slider_map["hud_crosshair_size3:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_size3"), true);
+    engine.call("initialize_range_value", "hud_crosshair_size3:" + weapon);
+    //crosshair stroke width 1
+    _id("setting_hud_crosshair_stroke_width").dataset.variable = ("hud_crosshair_stroke_width:" + weapon);
+    global_range_slider_map["hud_crosshair_stroke_width:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_stroke_width"), true);
+    engine.call("initialize_range_value", "hud_crosshair_stroke_width:" + weapon);
+    //crosshair stroke width 2
+    _id("setting_hud_crosshair_stroke_width2").dataset.variable = ("hud_crosshair_stroke_width2:" + weapon);
+    global_range_slider_map["hud_crosshair_stroke_width2:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_stroke_width2"), true);
+    engine.call("initialize_range_value", "hud_crosshair_stroke_width2:" + weapon);
+    //crosshair stroke width 3
+    _id("setting_hud_crosshair_stroke_width3").dataset.variable = ("hud_crosshair_stroke_width3:" + weapon);
+    global_range_slider_map["hud_crosshair_stroke_width3:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_stroke_width3"), true);
+    engine.call("initialize_range_value", "hud_crosshair_stroke_width3:" + weapon);
+    //crosshair hit style 1
+    _id("setting_hud_crosshair_hit_style").dataset.variable = ("hud_crosshair_hit_style:" + weapon);
+    engine.call("initialize_checkbox_value", "hud_crosshair_hit_style:" + weapon);
+    //crosshair hit style 2
+    _id("setting_hud_crosshair_hit_style2").dataset.variable = ("hud_crosshair_hit_style2:" + weapon);
+    engine.call("initialize_checkbox_value", "hud_crosshair_hit_style2:" + weapon);
+    //crosshair hit style 3
+    _id("setting_hud_crosshair_hit_style3").dataset.variable = ("hud_crosshair_hit_style3:" + weapon);
+    engine.call("initialize_checkbox_value", "hud_crosshair_hit_style3:" + weapon);
+    //crosshair hit color 1
+    _id("setting_hud_crosshair_hit_color").dataset.variable = ("hud_crosshair_hit_color:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_hit_color:" + weapon);
+    //crosshair hit color 2
+    _id("setting_hud_crosshair_hit_color2").dataset.variable = ("hud_crosshair_hit_color2:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_hit_color2:" + weapon);
+    //crosshair hit color 3
+    _id("setting_hud_crosshair_hit_color3").dataset.variable = ("hud_crosshair_hit_color3:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_hit_color3:" + weapon);
+
+
+    /// ZOOM CROSSHAIRS
+
+    //zoom crosshair type 1
+    _id("setting_hud_zoom_crosshair_layer_enabled").dataset.variable = ("hud_zoom_crosshair_type:" + weapon);
+    _id("setting_hud_zoom_crosshair_type").dataset.variable = ("hud_zoom_crosshair_type:" + weapon);
+    engine.call("initialize_select_value", "hud_zoom_crosshair_type:" + weapon);
+    //zoom crosshair type 2
+    _id("setting_hud_zoom_crosshair_layer_enabled2").dataset.variable = ("hud_zoom_crosshair_type2:" + weapon);
+    _id("setting_hud_zoom_crosshair_type2").dataset.variable = ("hud_zoom_crosshair_type2:" + weapon);
+    engine.call("initialize_select_value", "hud_zoom_crosshair_type2:" + weapon);
+    //zoom crosshair type 3
+    _id("setting_hud_zoom_crosshair_layer_enabled3").dataset.variable = ("hud_zoom_crosshair_type3:" + weapon);
+    _id("setting_hud_zoom_crosshair_type3").dataset.variable = ("hud_zoom_crosshair_type3:" + weapon);
+    engine.call("initialize_select_value", "hud_zoom_crosshair_type3:" + weapon);
+    //zoom crosshair color 1
+    _id("zoom_crosshair_color_1").dataset.variable = ("hud_zoom_crosshair_color:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_color:" + weapon);
+    //zoom crosshair color 2
+    _id("zoom_crosshair_color_2").dataset.variable = ("hud_zoom_crosshair_color2:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_color2:" + weapon);
+    //zoom crosshair color 3
+    _id("zoom_crosshair_color_3").dataset.variable = ("hud_zoom_crosshair_color3:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_color3:" + weapon);
+    //zoom crosshair stroke 1
+    _id("setting_hud_zoom_crosshair_stroke").dataset.variable = ("hud_zoom_crosshair_stroke:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_stroke:" + weapon);
+    //zoom crosshair stroke 2
+    _id("setting_hud_zoom_crosshair_stroke2").dataset.variable = ("hud_zoom_crosshair_stroke2:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_stroke2:" + weapon);
+    //zoom crosshair stroke 3
+    _id("setting_hud_zoom_crosshair_stroke3").dataset.variable = ("hud_zoom_crosshair_stroke3:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_stroke3:" + weapon);
+    //zoom crosshair size 1
+    _id("setting_hud_zoom_crosshair_size").dataset.variable = ("hud_zoom_crosshair_size:" + weapon);
+    global_range_slider_map["hud_zoom_crosshair_size:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_size"), true);
+    engine.call("initialize_range_value", "hud_zoom_crosshair_size:" + weapon);
+    //zoom crosshair size 2
+    _id("setting_hud_zoom_crosshair_size2").dataset.variable = ("hud_zoom_crosshair_size2:" + weapon);
+    global_range_slider_map["hud_zoom_crosshair_size2:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_size2"), true);
+    engine.call("initialize_range_value", "hud_zoom_crosshair_size2:" + weapon);
+    //zoom crosshair size 3
+    _id("setting_hud_zoom_crosshair_size3").dataset.variable = ("hud_zoom_crosshair_size3:" + weapon);
+    global_range_slider_map["hud_zoom_crosshair_size3:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_size3"), true);
+    engine.call("initialize_range_value", "hud_zoom_crosshair_size3:" + weapon);
+    //zoom crosshair stroke width 1
+    _id("setting_hud_zoom_crosshair_stroke_width").dataset.variable = ("hud_zoom_crosshair_stroke_width:" + weapon);
+    global_range_slider_map["hud_zoom_crosshair_stroke_width:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_stroke_width"), true);
+    engine.call("initialize_range_value", "hud_zoom_crosshair_stroke_width:" + weapon);
+    //zoom crosshair stroke width 2
+    _id("setting_hud_zoom_crosshair_stroke_width2").dataset.variable = ("hud_zoom_crosshair_stroke_width2:" + weapon);
+    global_range_slider_map["hud_zoom_crosshair_stroke_width2:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_stroke_width2"), true);
+    engine.call("initialize_range_value", "hud_zoom_crosshair_stroke_width2:" + weapon);
+    //zoom crosshair stroke width 3
+    _id("setting_hud_zoom_crosshair_stroke_width3").dataset.variable = ("hud_zoom_crosshair_stroke_width3:" + weapon);
+    global_range_slider_map["hud_zoom_crosshair_stroke_width3:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_stroke_width3"), true);
+    engine.call("initialize_range_value", "hud_zoom_crosshair_stroke_width3:" + weapon);
+    //zoom crosshair hit style 1
+    _id("setting_hud_zoom_crosshair_hit_style").dataset.variable = ("hud_zoom_crosshair_hit_style:" + weapon);
+    engine.call("initialize_checkbox_value", "hud_zoom_crosshair_hit_style:" + weapon);
+    //zoom crosshair hit style 2
+    _id("setting_hud_zoom_crosshair_hit_style2").dataset.variable = ("hud_zoom_crosshair_hit_style2:" + weapon);
+    engine.call("initialize_checkbox_value", "hud_zoom_crosshair_hit_style2:" + weapon);
+    //zoom crosshair hit style 3
+    _id("setting_hud_zoom_crosshair_hit_style3").dataset.variable = ("hud_zoom_crosshair_hit_style3:" + weapon);
+    engine.call("initialize_checkbox_value", "hud_zoom_crosshair_hit_style3:" + weapon);
+    //crosshair hit color 1
+    _id("setting_hud_zoom_crosshair_hit_color").dataset.variable = ("hud_zoom_crosshair_hit_color:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_hit_color:" + weapon);
+    //crosshair hit color 2
+    _id("setting_hud_zoom_crosshair_hit_color2").dataset.variable = ("hud_zoom_crosshair_hit_color2:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_hit_color2:" + weapon);
+    //crosshair hit color 3
+    _id("setting_hud_zoom_crosshair_hit_color3").dataset.variable = ("hud_zoom_crosshair_hit_color3:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_hit_color3:" + weapon);
+
+    // PER-WEAPON & ZOOM FULLSCREEN MASK
+    
+    _id("setting_hud_crosshair_sizemask").dataset.variable = ("hud_crosshair_mask_diameter:" + weapon);
+    global_range_slider_map["hud_crosshair_mask_diameter:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_sizemask"), true);
+    engine.call("initialize_range_value", "hud_crosshair_mask_diameter:" + weapon);
+    
+    _id("crosshair_color_mask").dataset.variable = ("hud_crosshair_mask_color:" + weapon);
+    engine.call("initialize_color_value", "hud_crosshair_mask_color:" + weapon);
+    
+    _id("setting_hud_crosshair_typemask").dataset.variable = ("hud_crosshair_mask_aperture:" + weapon);
+    engine.call("initialize_select_value", "hud_crosshair_mask_aperture:" + weapon);
+    
+    _id("setting_hud_zoom_crosshair_sizemask").dataset.variable = ("hud_zoom_crosshair_mask_diameter:" + weapon);
+    global_range_slider_map["hud_zoom_crosshair_mask_diameter:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_sizemask"), true);
+    engine.call("initialize_range_value", "hud_zoom_crosshair_mask_diameter:" + weapon);
+    
+    _id("zoom_crosshair_color_mask").dataset.variable = ("hud_zoom_crosshair_mask_color:" + weapon);
+    engine.call("initialize_color_value", "hud_zoom_crosshair_mask_color:" + weapon);
+    
+    _id("setting_hud_zoom_crosshair_typemask").dataset.variable = ("hud_zoom_crosshair_mask_aperture:" + weapon);
+    engine.call("initialize_select_value", "hud_zoom_crosshair_mask_aperture:" + weapon);
+
+
+    /// HIT SOUNDS
+    _id("setting_game_hit_sound").dataset.variable = ("game_hit_sound:" + weapon);
+    engine.call("initialize_select_value", "game_hit_sound:" + weapon);
+    _id("setting_game_critical_hit_sound").dataset.variable = ("game_critical_hit_sound:" + weapon);
+    engine.call("initialize_select_value", "game_critical_hit_sound:" + weapon);
+
+
+    //notify engine of page change
+    engine.call("weapon_settings_tab_changed", weapon);
+    //change name in substitle
+    if (weapon > 0) {
+        _id("customize_weapon_name").textContent = localize(global_item_name_map[global_weapon_idx_name_map[weapon]][1]);
+        window.current_selected_setting_weapon_number = weapon;
+    } else {
+        _id("customize_weapon_name").textContent = "";
+        window.current_selected_setting_weapon_number = 0;
+    }
+}
+
+function update_crosshair_selection(el) {
+    let val = el.dataset.value;
+    _for_each_with_class_in_parent(el, 'crosshair-option', function(opt) {
+        if (opt.dataset.cross == val) {
+            opt.classList.add("selected");
+        } else {
+            opt.classList.remove("selected");
+        }
+    });
+}
+
+function on_updated_crosshair_type_selection() {
+    
+    let cont = _id("crosshair_editor_screen");
+
+    let val  = _id("setting_hud_crosshair_layer_enabled").dataset.enabled;
+    let val2 = _id("setting_hud_crosshair_layer_enabled2").dataset.enabled;
+    let val3 = _id("setting_hud_crosshair_layer_enabled3").dataset.enabled;
+    if (val == "false") {
+        _for_each_with_class_in_parent(cont, "crosshair1_properties", function(el) { el.style.display = "none"; });
+    } else {
+        _for_each_with_class_in_parent(cont, "crosshair1_properties", function(el) { el.style.display = "flex"; });
+    }
+    if (val2 == "false") {
+        _for_each_with_class_in_parent(cont, "crosshair2_properties", function(el) { el.style.display = "none"; });
+    } else {
+        _for_each_with_class_in_parent(cont, "crosshair2_properties", function(el) { el.style.display = "flex"; });
+    }
+    if (val3 == "false") {
+        _for_each_with_class_in_parent(cont, "crosshair3_properties", function(el) { el.style.display = "none"; });
+    } else {
+        _for_each_with_class_in_parent(cont, "crosshair3_properties", function(el) { el.style.display = "flex"; });
+    }
+    _for_each_with_class_in_parent(_id("crosshair_editor_screen"), 'crosshair_scroll', function(el) {
+        refreshScrollbar(el);
+    });
+
+
+    let z_cont = _id("zoom_crosshair_editor_screen");
+
+    let z_val  = _id("setting_hud_zoom_crosshair_layer_enabled").dataset.enabled;
+    let z_val2 = _id("setting_hud_zoom_crosshair_layer_enabled2").dataset.enabled;
+    let z_val3 = _id("setting_hud_zoom_crosshair_layer_enabled3").dataset.enabled;
+    if (z_val == "false") {
+        _for_each_with_class_in_parent(z_cont, "zoom_crosshair1_properties", function(el) { el.style.display = "none"; });
+    } else {
+        _for_each_with_class_in_parent(z_cont, "zoom_crosshair1_properties", function(el) { el.style.display = "flex"; });
+    }
+    if (z_val2 == "false") {
+        _for_each_with_class_in_parent(z_cont, "zoom_crosshair2_properties", function(el) { el.style.display = "none"; });
+    } else {
+        _for_each_with_class_in_parent(z_cont, "zoom_crosshair2_properties", function(el) { el.style.display = "flex"; });
+    }
+    if (z_val3 == "false") {
+        _for_each_with_class_in_parent(z_cont, "zoom_crosshair3_properties", function(el) { el.style.display = "none"; });
+    } else {
+        _for_each_with_class_in_parent(z_cont, "zoom_crosshair3_properties", function(el) { el.style.display = "flex"; });
+    }
+    _for_each_with_class_in_parent(_id("zoom_crosshair_editor_screen"), 'crosshair_scroll', function(el) {
+        refreshScrollbar(el);
+    });
+}
+
+function on_updated_mask_type_selection() {
+
+    let cont = _id("crosshair_editor_screen");
+    let mask = _id("setting_hud_crosshair_typemask");
+    if (mask.dataset.value == "none" || mask.dataset.value == "custom") {
+        _for_each_with_class_in_parent(cont, "crosshairmask_properties", function(el) { el.style.display = "none"; });
+    } else {
+        _for_each_with_class_in_parent(cont, "crosshairmask_properties", function(el) { el.style.display = "flex"; });
+    }
+    _for_each_with_class_in_parent(cont, 'crosshair_scroll', function(el) {
+        refreshScrollbar(el);
+    });
+    
+    let cont_zoom = _id("zoom_crosshair_editor_screen");
+    let mask_zoom = _id("setting_hud_zoom_crosshair_typemask");
+    if (mask_zoom.dataset.value == "none" || mask_zoom.dataset.value == "custom") {
+        _for_each_with_class_in_parent(cont_zoom, "zoom_crosshairmask_properties", function(el) { el.style.display = "none"; });
+    } else {
+        _for_each_with_class_in_parent(cont_zoom, "zoom_crosshairmask_properties", function(el) { el.style.display = "flex"; });
+    }
+    _for_each_with_class_in_parent(cont_zoom, 'crosshair_scroll', function(el) {
+        refreshScrollbar(el);
+    });
+}
+
+function sound_enter() {
+    engine.call('ui_sound', 'ui_mouseover1');
+}
+
+function sound_click() {
+    engine.call('ui_sound', 'ui_click1');
+}
+
+function open_home(silent) {
+    change_screen("home");
+    hl_button("mm_home");
+    engine.call('set_blur', false);
+    switch_screens(_id("home_screen"), silent);
+    engine.call("set_avatar_camera_main");
+}
+
+function reset_animation_trick(element_id) {
+    var elm = document.getElementById(element_id);
+    var newone = elm.cloneNode(true);
+    elm.parentNode.replaceChild(newone, elm);
+}
+
+function reset_animation_trick_by_class(clas) {
+    var objs = document.getElementsByClassName(clas);
+    for(var i = 0; i < objs.length; i++)
+    {
+     
+        console.log(objs.item(i));
+        var elm = objs.item(i);
+        var newone = elm.cloneNode(true);
+        elm.parentNode.replaceChild(newone, elm);
+    }
+
+ 
+}
+
+function reset_animation_trick_by_element(elm) {
+    var newone = elm.cloneNode(true);
+    elm.parentNode.replaceChild(newone, elm);
+    return newone;
+}
+
+function button_game_over_play_again() {
+    engine.call("game_over_play_again");
+}
+
+let global_fullscreen_spinner_state = false;
+function setFullscreenSpinner(bool) {
+    if (global_fullscreen_spinner_state == false) {
+        if (bool) {
+            anim_show(_id("fullscreen_spinner"));
+            global_fullscreen_spinner_state = true;
+        }
+    } else {
+        if (!bool) {
+            anim_hide(_id("fullscreen_spinner"));
+            global_fullscreen_spinner_state = false;
+        }
+    }
+}
+
+function play_transition_if_hidden(elem, sound_type) {
+    if (getComputedStyle(elem).display == "none") {
+        engine.call('ui_sound', sound_type);
+    }
+}
+
+function _fade_out_if_not(selector, exception) {
+    anim_remove(selector);
+
+    if (selector != exception) {
+        if (getComputedStyle(selector).display != "none") {
+            anim_hide(selector);
+
+            if (selector.id == "shop_screen") shop_set_animation_state(false);
+        }
+    } else {
+        if (selector.id == "shop_screen") shop_set_animation_state(true);
+        
+        anim_show(selector);
+    }
+}
+
+function switch_screens(dst, silent) {
+    setFullscreenSpinner(false);
+    if (!silent) {
+        play_transition_if_hidden(dst, 'ui_transition1');
+    }
+    _fade_out_if_not(_id('ingame_menu_screen'), dst);
+    _fade_out_if_not(_id('settings_screen'), dst);
+    _fade_out_if_not(_id('play_panel'), dst);
+    _fade_out_if_not(_id('home_screen'), dst);
+    _fade_out_if_not(_id('customize_screen'), dst);
+    _fade_out_if_not(_id('battlepass_screen'), dst);
+    _fade_out_if_not(_id('battlepass_list_screen'), dst);
+    //_fade_out_if_not(_id('replays_screen'), dst);
+    //_fade_out_if_not(_id('watch_screen'), dst);
+    _fade_out_if_not(_id('shop_screen'), dst);
+    _fade_out_if_not(_id('shop_item_screen'), dst);
+    _fade_out_if_not(_id('coin_shop_screen'), dst);
+    _fade_out_if_not(_id('create_screen'), dst);
+    _fade_out_if_not(_id('leaderboards_screen'), dst);
+    _fade_out_if_not(_id('player_profile_screen'), dst);
+    _fade_out_if_not(_id('practice_screen'), dst);
+    _fade_out_if_not(_id('license_center_screen'), dst);
+
+    global_menu_page = dst.id;
+    
+    cleanup_floating_containers();
+}
+
+function play_menu_change_tab(tab, newPage) {
+    if (tab.classList.contains("locked")) {
+        return;
+    }
+
+    highlight_play_menu(tab);
+
+    if(newPage == _id("play_screen_customlist") || newPage == _id("play_screen_custom")) {
+        if (global_lobby_id == -1) {
+            play_transition_if_hidden(_id('play_screen_customlist'), 'ui_transition1');
+            _fade_out_if_not(_id('play_screen_custom'), _id('play_screen_customlist'));
+            _fade_out_if_not(_id('play_screen_customlist'), _id('play_screen_customlist'));
+
+            global_play_menu_page = "play_screen_customlist";
+            updateCustomMatchList();
+        } else {
+            play_transition_if_hidden(_id('play_screen_custom'), 'ui_transition1');
+            _fade_out_if_not(_id('play_screen_customlist'), _id('play_screen_custom'));
+            _fade_out_if_not(_id('play_screen_custom'), _id('play_screen_custom'));
+
+            global_play_menu_page = "play_screen_custom";
+        }
+    } else {
+        play_transition_if_hidden(newPage, 'ui_transition1');
+        _fade_out_if_not(_id('play_screen_customlist'), newPage);
+        _fade_out_if_not(_id('play_screen_custom'), newPage);
+
+        global_play_menu_page = newPage.id;
+    }
+    
+    _fade_out_if_not(_id('play_screen_quickplay'), newPage);
+    _fade_out_if_not(_id('play_screen_ranked'), newPage);
+    //_fade_out_if_not(_id('play_screen_esports'), newPage);
+}
+
+
+
+function highlight_play_menu(selector) {
+
+    var items = document.querySelectorAll(".bar_panel > div");
+
+    for (var i = 0; i < items.length; i++) {
+        items[i].classList.remove('active')
+    }
+
+    selector.classList.add("active");
+}
+
+
+function open_play(screen, silent) {
+    change_screen("play");
+    hl_button("mm_play");
+    engine.call('set_blur', true);
+    engine.call("set_avatar_camera_main");
+
+    if (screen != undefined) {
+        global_play_menu_page = screen;
+    }
+
+    if (screen && screen == 'custom') {
+        play_screen_open_custom(true);
+    } else if (screen && screen == 'competitive') {
+        play_screen_open_competitive_play();
+    } else if (screen && screen == 'quickplay') {
+        play_screen_open_quick_play();
+    } else {
+        play_screen_open_default(silent);
+    }
+}
+
+function play_screen_open_custom(switch_screen) {
+    play_menu_change_tab(_id("play_menu_tab_custom"), _id('play_screen_custom'));
+    if (switch_screen) {
+        switch_screens(_id('play_panel'));
+    }
+    //engine.call('load_custom_screen', true);
+}
+function play_screen_open_quick_play() {
+    play_menu_change_tab(_id("play_menu_tab_quickplay"), _id('play_screen_quickplay'));
+    switch_screens(_id("play_panel"));
+    //engine.call('load_quick_play_screen', true);
+}
+function play_screen_open_competitive_play() {
+    play_menu_change_tab(_id("play_menu_tab_ranked"), _id('play_screen_ranked'));
+    switch_screens(_id("play_panel"));
+    //engine.call('load_quick_play_screen', true);
+}
+function play_screen_open_default(silent) {
+    switch_screens(_id("play_panel"), silent);
+}
+
+function open_ingame_menu(silent) {
+    change_screen("ingame_menu");
+    engine.call('set_blur', true);
+    hl_button("mm_ingame");
+    switch_screens(_id("ingame_menu_screen"), silent);
+}
+
+function open_create() {
+    change_screen("create");
+    engine.call('set_blur', true);
+    hl_button("mm_create");
+    switch_screens(_id("create_screen"));
+}
+
+function open_practice() {
+    change_screen("practice");
+    engine.call('set_blur', true);
+    hl_button("mm_practice");
+    switch_screens(_id("practice_screen"));
+}
+
+function open_license_center(button) {
+    if (button.classList.contains("locked")) {
+        return;
+    }
+    change_screen("license_center");
+    switch_screens(_id("license_center_screen"));
+}
+
+function open_shop() {
+    load_shop();
+
+    change_screen("shop");
+    engine.call('set_blur', true);
+    hl_button("mm_shop");
+    switch_screens(_id("shop_screen"));
+}
+
+function open_shop_item() {
+    change_screen("shop_item");
+    engine.call('set_blur', true);
+    hl_button("mm_shop");
+    switch_screens(_id("shop_item_screen"));
+}
+
+function open_coin_shop() {
+    change_screen("shop_item");
+    engine.call('set_blur', true);
+    hl_button("mm_shop");
+    switch_screens(_id("coin_shop_screen"));
+}
+
+function open_watch() {
+    change_screen("watch");
+    engine.call('set_blur', true);
+    hl_button("mm_watch");
+    switch_screens(_id("watch_screen"));
+}
+
+function open_leaderboards() {
+    change_screen("leaderboards");
+    engine.call('set_blur', true);
+    hl_button("mm_leaderboards");
+    switch_screens(_id("leaderboards_screen"));
+    
+    load_leaderboard();
+}
+
+function open_stats() {
+    change_screen("stats");
+    engine.call('set_blur', true);
+    hl_button("mm_stats");
+    switch_screens(_id("stats_screen"));
+}
+
+function open_replays() {
+    change_screen("replays");
+    engine.call('set_blur', true);
+    hl_button("mm_replays");
+    switch_screens(_id("replays_screen"));
+}
+
+function open_player_profile(id) {
+    let origin = global_menu_page;
+
+    change_screen("player_profile");
+    engine.call('set_blur', true);
+    hl_button("mm_stats");
+    switch_screens(_id("player_profile_screen"));
+
+    if (id == "own") {
+        load_player_profile(origin,"profile",global_self.user_id);
+    } else {
+        load_player_profile(origin,"profile",id);
+    }
+}
+
+function open_battlepass() {
+    if (_id("battlepass_screen").style.display == "none" || _id("battlepass_screen").style.display == undefined) {
+        // unset any previous button highlights
+        hl_button();
+
+        if (!global_user_battlepass.battlepass_id) {
+            send_string("get-battlepass-data", "battlepass-data", function(data) {
+                global_user_battlepass = data.data;
+
+                if (!global_user_battlepass.battlepass_id) {
+                    open_battlepass_list();
+                } else {
+                    change_screen("battlepass");
+                    engine.call('set_blur', true);
+                    switch_screens(_id("battlepass_screen"));
+                    load_battlepass();
+                }
+            });
+        } else {
+            change_screen("battlepass");
+            engine.call('set_blur', true);
+            switch_screens(_id("battlepass_screen"));
+            load_battlepass();
+        }
+
+    } else {
+        //open_home();
+    }
+}
+
+function open_battlepass_list() {
+    change_screen("battlepass_list");
+    engine.call('set_blur', true);
+    switch_screens(_id("battlepass_list_screen"));
+
+    if (!global_battlepass_list.length) {
+        send_string("get-battlepass-list", "battlepass-list", function(data) {
+            global_battlepass_list = data.data;
+            load_battlepass_list();
+        });
+    } else {
+        load_battlepass_list();
+    }
+}
+
+function updateMenuBottomBattlepass(bp) {
+    //console.log("update Main Menu battlepass data", _dump(bp));
+
+    let cont = _id("menu_background_bottom");
+    if (bp && bp.battlepass_id in global_battlepass_data) _set_battle_pass_colors(cont, global_battlepass_data[bp.battlepass_id].colors);
+    
+    let bp_cont = cont.querySelector(".menu_bottom_battlepass_open");
+    _empty(bp_cont);
+    
+    let label = _createElement("div", "menu_bottom_battlepass_label");
+    label.innerHTML = localize("battlepass");
+    bp_cont.appendChild(label);
+
+    if (!bp) {
+        label.classList.add("no_bp");
+        cont.querySelector(".menu_bottom_battlepass_daily").style.display = "none";
+        return;
+    }
+    
+    if (bp.battlepass) {
+        let level_icon = _createElement("div", "bp_level_icon");
+        level_icon.innerHTML = bp.battlepass.level;
+        if (bp.battlepass.owned) {
+            level_icon.style.backgroundImage = "url("+global_battlepass_data[bp.battlepass_id]['level-image']+")";
+        }
+        bp_cont.appendChild(level_icon);
+
+        if (bp.challenges && bp.challenges.length) {
+            let state_cont = cont.querySelector(".daily_challenges_state");
+            _empty(state_cont);
+            for (let c of bp.challenges) {
+                let circle = _createElement("div", "simple_circle");
+                if (c.achieved) circle.classList.add("circle_filled");
+                state_cont.appendChild(circle);
+            }
+            cont.querySelector(".menu_bottom_battlepass_daily").style.display = "flex";
+        } else {
+            cont.querySelector(".menu_bottom_battlepass_daily").style.display = "none";
+        }
+    } else {
+        label.classList.add("no_bp");
+        cont.querySelector(".menu_bottom_battlepass_daily").style.display = "none";
+    }
+}
+
+
+
+
+
+function accept_invitation(lobby_id) {
+    // obsolete?
+    /*
+    engine.call('accept_invitation', lobby_id);    
+    hide_dialog();
+    */
+}
+
+
+
+
+
+function hl_button(selector) {
+    
+    var items = document.querySelectorAll(".hl_button");
+
+    for (var i = 0; i < items.length; i++) {
+        items[i].classList.remove('hl_button')
+    }
+
+    if (selector) {
+        let el = _id(selector);
+        if (el) {
+            el.classList.add("hl_button");
+        }
+    }
+}
+
+function open_settings() {
+    hud_editor_fullscreen(false);
+
+    if (global_arguments.includes("-showmods")) {
+        _id("settings_section_title_mods").style.display = "block";
+    }
+
+    // Timeout just for redraw reasons (smoother view change animation in case hud_editor_fullscreen has to do lots of stuff first)
+    setTimeout(function() {
+        change_screen("settings");
+        hl_button("mm_options");
+        engine.call('set_blur', true);
+
+        switch_screens(_id("settings_screen"));        
+        update_fov_preview();
+        setTimeout(function() {
+            update_accel_chart();
+        });
+    });
+}
+
+function set_settings_section_visible(section, current_section) {
+    {
+        let el = _id("settings_screen_" + section);
+        if (el){
+            if (section == current_section){
+                anim_show(el);
+            } else {
+                if (getComputedStyle(el).display != "none") {
+                    anim_hide(el);
+                }
+            }
+        }
+    }
+    {
+        let el = _id("settings_section_title_" + section);
+        if (el){
+            if (section == current_section){
+                el.classList.add("settings_highlighted_section_title");
+            } else {
+                el.classList.remove("settings_highlighted_section_title");
+            }
+        }
+    }
+}
+
+function settings_section(section) {
+    set_settings_section_visible("weapons", section);
+    set_settings_section_visible("controls", section);
+    set_settings_section_visible("options", section);
+    set_settings_section_visible("video", section);
+    set_settings_section_visible("audio", section);
+    set_settings_section_visible("hud", section);
+    set_settings_section_visible("mods", section);
+    
+    cleanup_floating_containers();
+}
+
+function set_skin_section_visible(section, current_section) {
+    if (_id("skin_screen_" + section).display == "none") {
+        if (section == current_section) {
+            anim_show(_id("skin_screen_" + section));
+        } else {
+            anim_show(_id("skin_screen_" + section));
+        }
+    }
+
+    if (_id("skin_section_title_" + section).display == "none") {
+        if (section == current_section) {
+            _id("skin_section_title_" + section).classList.add("skin_highlighted_section_title");
+        } else {
+            _id("skin_section_title_" + section).classList.remove("skin_highlighted_section_title");
+        }
+    }
+}
+
+function settings_reset(section) {
+    if (section == "controls") {
+        genericModal(localize("settings_reset_controls"), "", localize("menu_button_cancel"), undefined, localize("menu_button_confirm"), function() {
+            console.log("resetting controls");
+            queue_dialog_msg({"msg": "Not implemented"});
+        });
+    }
+    if (section == "weapons") {
+        genericModal(localize("settings_reset_weapons"), "", localize("menu_button_cancel"), undefined, localize("menu_button_confirm"), function() {
+            console.log("resetting weapons");
+            queue_dialog_msg({"msg": "Not implemented"});
+        });
+    }
+}
+
+/*
+function request_character_browser_update(section) {
+    engine.call("request_character_browser_update", section);
+}
+
+function skin_section(section) {
+    //set_skin_section_visible("skins", section);
+    //set_skin_section_visible("decals", section);
+    //set_skin_section_visible("shop", section);
+    engine.call("on_customize_section_loaded", section);
+    if (section == "decals") {
+        request_character_browser_update(section);
+    }
+}
+*/
+
+function open_customization() {
+    customization_show_window("list");
+    
+    change_screen("customization");
+    switch_screens(_id("customize_screen"));
+    hl_button("mm_customize");
+    anim_show(_id("customize_screen"));
+
+    //open_customization_section(_id("customization_tab_decals"), "decals");
+    //anim_show(_id("skin_screen_decals"), window.fade_time);
+
+    engine.call('set_blur', false);
+
+    engine.call("on_customize_section_loaded", "decals");
+    engine.call("on_show_customization_screen", true);
+
+  //  skin_section("decals");
+}
+
+let draft_screen_queued = undefined;
+function set_draft_visible(visible) {
+    //console.log("set_draft_visible", visible);
+    
+    if (visible) {
+        draft_screen_queued = setTimeout(function() {            
+            anim_show(_id("draft_screen"), window.fade_time);
+            anim_hide(_id("lobby_container"), window.fade_time);
+            engine.call('set_blur', false);
+        },100);
+    } else {
+        if (draft_screen_queued !== undefined) clearTimeout(draft_screen_queued);
+        if (getComputedStyle(_id("draft_screen")).display != "none") {
+            anim_hide(_id("draft_screen"), window.fade_time);
+            anim_show(_id("lobby_container"), window.fade_time);
+            engine.call('set_blur', true);
+        }
+    }
+}
+
+function set_draft_countdown(countdown) {
+    _html(_id("draft_screen_countdown"),countdown);
+}
+
+function leave_skin_screen() {
+    $("#customize_screen").fadeOut(window.fade_time);
+
+    anim_show(_id("screens_container"), window.fade_time);
+    engine.call('set_blur', true);
+
+    engine.call("on_show_customization_screen", false);
+}
+
+function delete_bindings(command, mode) {
+    engine.call("delete_bindings", command, mode);
+}
+
+function update_checkbox(checkbox) {
+    var value = false;
+    var data_value = checkbox.dataset.enabled;
+    if (data_value && (data_value === "true" || data_value === true)) {
+        value = true;
+    }
+    //echo("VAL="+value + " : " + data_value);
+    if (value) {
+        checkbox.classList.add("checkbox_enabled");
+        checkbox.firstElementChild.classList.add("inner_checkbox_enabled");
+    } else {
+        checkbox.classList.remove("checkbox_enabled");
+        checkbox.firstElementChild.classList.remove("inner_checkbox_enabled");
+    }
+
+    var variable = checkbox.dataset.variable;
+    if (checkbox.id == "setting_weapon_use_sensitivity") {
+        if (value || variable == "game_custom_weapon_sensitivity:0") {
+            _id("settings_block_sensitivity").classList.remove("locked");
+        } else {
+            _id("settings_block_sensitivity").classList.add("locked");
+        }
+    } else if (checkbox.id == "setting_weapon_use_accel") {
+        if (value || variable == "game_custom_weapon_accel:0") {
+            _id("settings_block_accel").classList.remove("locked");
+        } else {
+            _id("settings_block_accel").classList.add("locked");
+        }
+    } else if (checkbox.id == "setting_weapon_use_fov") {
+        if (value || variable == "game_custom_weapon_fov:0") {
+            _id("settings_block_fov").classList.remove("locked");
+        } else {
+            _id("settings_block_fov").classList.add("locked");
+        }
+    } else if (checkbox.id == "setting_weapon_use_crosshair") {
+        if (value || variable == "game_custom_weapon_crosshair:0") {
+            _id("settings_block_crosshair").classList.remove("locked");
+        } else {
+            _id("settings_block_crosshair").classList.add("locked");
+        }
+    } else if (checkbox.id == "setting_weapon_use_zoom_crosshair") {
+        if (value || variable == "game_custom_weapon_zoom_crosshair:0") {
+            _id("settings_block_zoom_crosshair").classList.remove("locked");
+        } else {
+            _id("settings_block_zoom_crosshair").classList.add("locked");
+        }
+    }
+}
+
+function load_crosshair_editor() {
+    open_modal_screen("crosshair_editor_screen");
+    on_updated_crosshair_type_selection();
+    on_updated_mask_type_selection();
+}
+
+function load_zoom_crosshair_editor() {
+    open_modal_screen("zoom_crosshair_editor_screen");
+    on_updated_crosshair_type_selection();
+    on_updated_mask_type_selection();
+}
+
+
+/*
+function close_skill_selection() {
+    if (!$("#accept_skills_button").hasClass("button_disabled")) {
+        $("#skill_selection").hide();
+        //$("#score").hide();
+        window.draft_visible = false;
+        engine.call("skill_selection_closed");
+        //$("#game_hud").fadeIn(window.fade_time);
+        anim_show(_id("game_hud"), window.fade_time);
+    }
+}
+*/
+
+function send_json_data(data, returnaction, cb) {
+    if (returnaction != undefined && cb != undefined) {
+        global_ms.addResponseHandler(returnaction, cb);
+    }
+    engine.call("send_json", "j "+JSON.stringify(data));
+}
+function send_string(string, returnaction, cb) {
+    if (returnaction != undefined && cb != undefined) {
+        global_ms.addResponseHandler(returnaction, cb);
+    }
+    engine.call("send_json", "s "+string);
+}
+
+
+function draft_select_map(map) {
+    _for_each_with_class_in_parent(_id("draft_maps_container"), "active", function(el) {
+        el.classList.remove("active");
+    });
+    map.classList.add("active");
+    map.children[0].classList.add("active");
+    
+    engine.call("draft_select_map", map.dataset.map);
+}
+
+function update_party(data) {
+
+    engine.call("set_party_info", data['user-id'], data.data['leader-id'], data.data.members);
+
+    global_party['modes-quickplay'] = data.data['modes-quickplay'];
+    global_party['modes-ranked'] = data.data['modes-ranked'];
+    global_party['valid-modes'] = data['valid-modes'];
+
+    /*
+    if (data.data.members.length > 1) {
+        _id("party_leave").style.display = "flex";
+    } else {
+        _id("party_leave").style.display = "none";
+    }
+
+    _id("party_slot_add").style.display = "flex";
+    
+    let list = _id("party_list");
+    _empty(list);
+    */
+
+    global_party['members'] = {};
+
+    for (let m of data.data.members) {
+        global_party['members'][m['user_id']] = m;
+
+        if (m.user_id == data['user-id']) {
+            global_self.data = m;
+            set_friend_list_avatar_self(m);
+            set_customize_data(m);
+        }
+
+        _for_each_with_class_in_parent(friends_list_in_diabotical_cont, "friend", function(friend) {
+            if (friends_in_party_user_ids.includes(friend.dataset.user_id)) {
+                friend.classList.add("hidden");
+            } else {
+                friend.classList.remove("hidden");
+            }
+        });
+
+        /*
+        let div = document.createElement("div");
+        div.classList.add("party_slot");
+        div.classList.add("tooltip");
+        div.style.backgroundImage = "url("+_avatarUrl(m.data.avatar)+")";
+
+        let ctx_options = [];
+
+        if (bool_am_i_leader && data['user-id'] != m.user_id) {
+            ctx_options.push({
+                "text": "Make Party Leader",
+                "callback": function(e) {
+                    party_context_select("promote", m.user_id);
+                }
+            });
+            ctx_options.push({
+                "text": "Remove Player",
+                "callback": function(e) {
+                    party_context_select("remove", m.user_id);
+                }
+            });
+        }
+        if (data['user-id'] == m.user_id && data.data.members.length > 1) {
+            ctx_options.push({
+                "text": "Leave Party",
+                "callback": function(e) {
+                    party_context_select("leave");
+                }
+            });
+        }
+
+        if (ctx_options.length > 0) {
+            div.addEventListener("mousedown", function(e) {
+                if (e.button == 2) {
+                    e.preventDefault();
+                    context_menu(e, ctx_options);
+                }
+            });
+        }
+        div.addEventListener("mouseenter", function() {
+            engine.call('ui_sound', "ui_mouseover4");
+        });
+        div.addEventListener("mousedown", function(e) {
+            if (e.button == 0) {
+                engine.call('ui_sound', "ui_click1");
+                open_player_profile(m['user_id']);
+            }
+        });
+
+        if (m.user_id == data.data['leader-id']) {
+            div.classList.add("leader");
+        }
+
+        let name = document.createElement("div");
+        name.classList.add("tip_inner");
+        name.classList.add("top");
+        name.innerHTML = m.name;
+        if (m.match_connected == 2) {
+            name.innerHTML = m.name +": in game";
+
+            let ingame = document.createElement("div");
+            ingame.classList.add("ingame");
+            div.appendChild(ingame);
+        }
+
+        div.appendChild(name);
+        list.appendChild(div);
+
+        initialize_element_tooltip_hover(div);
+        */
+    }
+
+    update_queue_modes_availability();
+}
+
+function party_context_select(cmd, user_id) {
+    if (cmd == "remove") {
+        send_json_data({"action": "party-remove", "user-id": user_id });
+    }
+    if (cmd == "leave") {
+        send_json_data({"action": "party-leave" });
+    }
+    if (cmd == "promote") {
+        send_json_data({"action": "party-promote", "user-id": user_id });
+    }
+}
+
+function process_queue_msg(type, msg) {
+    //console.log("process_queue_msg", type, msg);
+
+    var elem;
+    if (type == "all") {
+        process_queue_msg("ranked", msg);
+        process_queue_msg("quickplay", msg);
+        return;
+    }
+
+    if (type == "ranked")    { elem = _id("queue_mm_box"); }
+    if (type == "quickplay") { elem = _id("queue_quickplay_box"); }
+
+    if (msg == "start") {
+
+        elem.style.display = "flex";
+        elem.style.opacity = 1;
+
+        var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_info');
+        queueInfoDOM.style.display = "flex";
+
+        var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_cancel_box');
+        queueInfoDOM.style.display = "";
+
+        var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_match_found');
+        queueInfoDOM.style.display = "none";
+
+        anim_remove(elem);
+        anim_start({
+            element: elem,
+            translateX: [-50, 0, "vh"],
+            duration: 500,
+            easing: easing_functions.easeOutQuad,
+        });      
+
+        var queueTimerDOM = _get_first_with_class_in_parent(elem, 'queue_queue_time');
+        _html(queueTimerDOM, "00:00");
+                    
+        if (type == 'ranked')    global_mm_start_ranked = true;
+        if (type == 'quickplay') global_mm_start_quickplay = true;
+
+    } else if (msg == "stop") {
+
+        if (type == "ranked")    global_mm_searching_ranked = false;
+        if (type == "quickplay") global_mm_searching_quickplay = false;
+
+        anim_remove(elem);
+        anim_start({
+            element: elem,
+            translateX: [0, -50, "vh"],
+            duration: 500,
+            hide: true,
+            easing: easing_functions.easeOutQuad,
+        });   
+
+    } else if (msg == "found") {
+
+        engine.call('ui_sound', "ui_match_found");
+
+        if (type == "ranked")    global_mm_searching_ranked = false;
+        if (type == "quickplay") global_mm_searching_quickplay = false;
+
+        var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_info');
+        queueInfoDOM.style.display = "none";
+
+        var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_cancel_box');
+        queueInfoDOM.style.display = "none";
+
+        var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_match_found');
+        queueInfoDOM.style.display = "flex";
+        
+        anim_remove(elem);
+        anim_start({
+            element: elem,
+            translateX: [0, -50, "vh"],
+            delay: 5000,
+            duration: 500,
+            hide: true,
+            easing: easing_functions.easeOutQuad,
+            completion: function() {
+                elem.style.display = "none";
+            }
+        });
+
+    }
+
+    // Set Timeout to wait for the next animationFrame update which updates global_mm_searching_ranked and global_mm_searching_quickplay 
+    setTimeout(function() {
+        update_queue_mode_selection();
+    },50);
+}
+
+function cancel_search(type) {
+    if (type == "ranked")    global_mm_searching_ranked = false;
+    if (type == "quickplay") global_mm_searching_quickplay = false;
+
+    var elem;
+    if (type == "ranked")    elem = _id('queue_mm_box');
+    if (type == "quickplay") elem = _id('queue_quickplay_box');
+
+    if (elem == undefined) return;
+
+    send_json_data({"action": "party-cancel-queue", "type": type });
+
+    update_queue_mode_selection();
+
+    //elem.style.display = "none";
+}
+
+/*
+function update_clock() {
+    var today = new Date();
+
+    var options = { weekday: 'numeric', year: 'numeric', month: 'numeric', day: 'numeric' };
+
+    //Coherent doesn't suppor tthe option parameters in Date.toLocaleDateString or Date.toLocaleTimeString so we
+    //need to trim some things manually.
+
+    //Trim the timezone from the date string
+    var time_str = today.toLocaleTimeString("en-US");
+    var time_str_toks = time_str.split(" ");
+    var trimmed_time_str = "";
+    if (time_str_toks.length >= 2) {
+        //Trim the seconds from the time string
+        var time_str = time_str_toks[0];
+        var time_arr = time_str.split(":");
+        if (time_arr.length >= 2) {
+            time_str = time_arr[0] + ":" + time_arr[1];
+        }
+        trimmed_time_str = time_str + " " + time_str_toks[1];
+    }
+    _id("clock_time").innerHTML = ("<p>" + trimmed_time_str + "</p><p>" + today.toLocaleDateString("en-US", options)+"</p>");// + " : " + s);
+    setTimeout(function () { update_clock() }, 500);
+}
+*/
+
+window.chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+};
+
+window.randomScalingFactor = function () {
+    return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+};
+
+function controls_section(element) {
+    _for_each_with_class_in_parent(_id("settings_screen_controls_bar"), "active_controls_section", function(el) {
+        el.classList.remove("active_controls_section");
+    });
+    element.classList.add("active_controls_section");
+
+    if (element.id == "settings_controls_section_spectating") {
+        anim_show(_id("settings_screen_controls_subsection_spectating"), window.fade_time, "flex", function() {
+            refreshScrollbar(_id("settings_screen_controls_subsection_spectating"));
+        });
+    } else {
+        anim_hide(_id("settings_screen_controls_subsection_spectating"), window.fade_time, function() {
+            resetScrollbar(_id("settings_screen_controls_subsection_spectating"));
+        });
+    }
+    if (element.id == "settings_controls_section_editing") {
+        anim_show(_id("settings_screen_controls_subsection_editing"), window.fade_time, "flex", function() {
+            refreshScrollbar(_id("settings_screen_controls_subsection_editing"));
+        });
+    } else {
+        anim_hide(_id("settings_screen_controls_subsection_editing"), window.fade_time, function() {
+            resetScrollbar(_id("settings_screen_controls_subsection_editing"));
+        });
+    }
+    if (element.id == "settings_controls_section_shop") {
+        anim_show(_id("settings_screen_controls_subsection_shop"), window.fade_time, "flex", function() {
+            refreshScrollbar(_id("settings_screen_controls_subsection_shop"));
+        });
+    } else {
+        anim_hide(_id("settings_screen_controls_subsection_shop"), window.fade_time, function() {
+            resetScrollbar(_id("settings_screen_controls_subsection_shop"));
+        });
+    }
+    if (element.id == "settings_controls_section_communication") {
+        anim_show(_id("settings_screen_controls_subsection_communication"), window.fade_time, "flex", function() {
+            refreshScrollbar(_id("settings_screen_controls_subsection_communication"));
+        });
+    } else {
+        anim_hide(_id("settings_screen_controls_subsection_communication"), window.fade_time, function() {
+            resetScrollbar(_id("settings_screen_controls_subsection_communication"));
+        });
+    }
+    if (element.id == "settings_controls_section_gameplay") {
+        anim_show(_id("settings_screen_controls_subsection_gameplay"), window.fade_time, "flex", function() {
+            refreshScrollbar(_id("settings_screen_controls_subsection_gameplay"));
+        });
+    } else {
+        anim_hide(_id("settings_screen_controls_subsection_gameplay"), window.fade_time, function() {
+            resetScrollbar(_id("settings_screen_controls_subsection_gameplay"));
+        });
+    }
+}
+
+
+
+
+
+function set_weapon_skin(element) {
+    engine.call("set_weapon_skin", $(element).data("weapon"), $(element).data("alias"));
+}
+
+function customize_screen_previous_weapon(element) {
+    engine.call("customize_screen_change_weapon", -1);
+}
+
+function customize_screen_next_weapon(element) {
+    engine.call("customize_screen_change_weapon", 1);
+}
+
+/*
+function shop_skill_over(skill_button) {
+    var code = "";
+    if ($(skill_button).data("item-category") == "favor") {
+        code += "<div class='skill_tip_cost_favor'>" + $(skill_button).data("cost") + "</div>";
+    } else if ($(skill_button).data("item-category") == "revenge") {
+        code += "<div class='skill_tip_cost_revenge'>" + $(skill_button).data("cost") + "</div>";
+    }
+    code += "<div class='skill_tip_name'>" + $(skill_button).data("name") + "</div>";
+    code += "<div class='skill_tip_description'>" + $(skill_button).data("description") + "</div>";
+    $("#shop_skill_subcontainer").html(code);
+}
+
+function shop_skill_out() {
+    $("#shop_skill_subcontainer").html("");
+}
+
+function shop_category_over(category_name, category_description) {
+    $("#shop_category_subcontainer").html(
+        "<div class='skill_tip_name'>" + category_name + "</div>" +
+        "<div class='skill_tip_description'>" + category_description + "</div>"
+    );
+}
+
+function shop_category_out() {
+    $("#shop_category_subcontainer").html("");
+}
+
+function shop_skill_buy(e) {
+    engine.call("buy_skill", $(e.target).data("skill"), e.which == 3 ? true : false);
+}
+
+function _shop_category_click(category_div) {
+    engine.call("select_class", $(category_div).data("category"));
+}
+*/
+
+
+function initialize_tooltip_hovers() {
+    _for_each_in_class('tooltip', function(el) {
+        el.addEventListener("mouseenter", function() {
+            _for_each_with_class_in_parent(el, 'tip_inner', function(tip) {
+                tip.classList.add("active");
+            });
+        });
+        el.addEventListener("mouseleave", function() {
+            _for_each_with_class_in_parent(el, 'tip_inner', function(tip) {
+                tip.classList.remove("active");
+            });
+        });
+    });
+}
+
+function initialize_element_tooltip_hover(el) {
+    if (!el.classList.contains("tooltip")) return;
+
+    el.addEventListener("mouseenter", function() {
+        _for_each_with_class_in_parent(el, 'tip_inner', function(tip) {
+            tip.classList.add("active");
+        });
+    });
+    el.addEventListener("mouseleave", function() {
+        _for_each_with_class_in_parent(el, 'tip_inner', function(tip) {
+            tip.classList.remove("active");
+        });
+    });
+}
+
+function initialize_tooltip_type2() {
+    _for_each_in_class('tooltip2', function(el) {
+        add_tooltip2_listeners(el);
+    });
+}
+
+var global_tooltip2_active = false;
+var global_tooltip2_last_update = undefined;
+function add_tooltip2_listeners(el) {
+    let tt2 = _id('tooltip2');
+    let menu = _id('main_menu');
+    let menu_rect = menu.getBoundingClientRect();
+    let posY = "bottom";
+    let posX = "right";
+    let timeout = undefined;
+    let last_pos_x = undefined;
+    let last_pos_y = undefined;
+    
+    el.addEventListener("mouseenter", function(e) {
+        e.stopPropagation();
+        last_pos_x = e.clientX;
+        last_pos_y = e.clientY;
+
+        menu_rect = menu.getBoundingClientRect();
+        
+        timeout = setTimeout(function() {
+            if ("msgId" in el.dataset) {
+                _html(tt2, localize(el.dataset.msgId));
+            } else if ("msg" in el.dataset) {
+                _html(tt2, el.dataset.msg);
+            } else if ("msgHtmlId" in el.dataset) {
+                _empty(tt2);
+                tt2.appendChild(generate_tt_content(el));
+            }
+            tt2.style.opacity = 0;
+            tt2.style.display = "flex";
+            setTimeout(function() {
+                tt2_rect = tt2.getBoundingClientRect();
+                tt2.style.display = "none";
+            
+                if (last_pos_y + tt2_rect.height > menu_rect.height) {
+                    posY = "top";
+                    tt2.style.bottom = (menu_rect.height - last_pos_y + 10) + "px";
+                    tt2.style.top = "auto";
+                } else {
+                    tt2.style.bottom = "auto";
+                    tt2.style.top = (last_pos_y + 20) + "px";
+                }
+                if (last_pos_x + tt2_rect.width > menu_rect.width) {
+                    posX = "left";
+                    tt2.style.left = "auto";
+                    tt2.style.right = (menu_rect.width - last_pos_x + 10) + "px";
+                } else {
+                    tt2.style.left = (last_pos_x + 25) + "px";
+                    tt2.style.right = "auto";
+                }
+
+                anim_show(tt2);
+
+                global_tooltip2_last_update = Date.now();
+                global_tooltip2_active = true;
+            });
+        },300);
+    });
+    el.addEventListener("mouseleave", function(e) {
+        if (timeout != undefined) {
+            clearTimeout(timeout);
+        }
+        tt2.style.display = "none";
+
+        global_tooltip2_last_update = undefined;
+        global_tooltip2_active = false;
+    });
+    el.addEventListener("mousemove", function(e) {
+        global_tooltip2_last_update = Date.now();
+        last_pos_x = e.clientX;
+        last_pos_y = e.clientY;
+        if (!global_tooltip2_active) return;
+        
+        if (posY == "top") {
+            tt2.style.bottom = (menu_rect.height - e.clientY + 10) + "px";
+            tt2.style.top = "auto";
+        } else {
+            tt2.style.bottom = "auto";
+            tt2.style.top = (e.clientY + 20) + "px";
+        }
+        if (posX == "left") {
+            tt2.style.left = "auto";
+            tt2.style.right = (menu_rect.width - e.clientX + 10) + "px";
+        } else {
+            tt2.style.left = (e.clientX + 25) + "px";
+            tt2.style.right = "auto";
+        }
+    });
+}
+
+function initialize_tooltip2_cleanup_listener() {
+    document.addEventListener("mousemove", function() {
+        if (!global_tooltip2_active) return;
+        if (global_tooltip2_last_update) {
+            if ((Date.now() - global_tooltip2_last_update) > 1) {
+                global_tooltip2_active = false;
+                global_tooltip2_last_update = undefined;
+                cleanup_floating_containers();
+            }
+        }
+    });
+}
+
+function cleanup_floating_containers() {
+    _id('tooltip2').style.display = "none";
+}
+
+function generate_tt_content(el) {
+    let msg_id = el.dataset.msgHtmlId
+    //console.log("generate TT content, id:",msg_id);
+
+    if (msg_id == "daily_quests") {
+        return generate_tooltip_daily_quests();
+    }
+
+    if (msg_id == "queue_info_quickplay") {
+        return generate_tooltip_queue_info("quickplay");
+    }
+
+    if (msg_id == "queue_info_ranked") {
+        return generate_tooltip_queue_info("ranked");
+    }
+
+    if (msg_id == "customization_item") {
+        return generate_customization_item_info(el.dataset.id, el.dataset.type, el.dataset.rarity);
+    }
+
+    if (msg_id == "custom_match_info") {
+        return generate_custom_match_info(el.dataset.sessionId);
+    }
+
+    if (msg_id == "mode_description") {
+        if (el.dataset.mode) {
+            return generate_mode_info(el.dataset.mode);
+        } else {
+            return;
+        }
+    }
+
+    return _createElement("div","");
+}
+
+function generate_mode_info(mode) {
+    let modes = mode.split(':');
+
+    let cont = _createElement("div", "mode_description_cont");
+
+    let count = 0;
+    for (let mode of modes) {
+        if (count > 0) {
+            let separator = _createElement("div", "separator");
+            cont.appendChild(separator);
+        }
+        count++;
+        let title = '';
+        let desc = '';
+        if (mode in global_game_mode_map) {
+            title = localize(global_game_mode_map[mode].i18n);
+            desc = localize(global_game_mode_map[mode].desc_i18n);
+        }
+        
+        let desc_cont = _createElement("div", "mode_description");
+        desc_cont.appendChild(_createElement("div", "title", title));
+        desc_cont.appendChild(_createElement("div", "desc", desc));
+        cont.appendChild(desc_cont);
+    }
+
+    return cont;
+}
+
+function generate_tooltip_daily_quests() {
+    let list = _createElement("div", "challenge_list");
+    render_daily_challenges(list, global_user_battlepass.challenges);
+    return list;
+}
+
+function generate_tooltip_queue_info(type) {
+    let list = _createElement("div", "queue_mode_list");
+
+    let groups = {};
+    if (type == "quickplay") {
+        _for_each_in_class("_quick_play_checkbox",function(el) {
+            if (el.dataset.mode.length && el.dataset.enabled == "true") {
+                let group = el.parentNode.parentNode.querySelector(".card_top").textContent;
+                if (!(group in groups)) {
+                    groups[group] = [];
+                }
+                groups[group].push(el.querySelector(".checkbox_label").textContent);
+            }
+        });
+    }
+
+    if (type == "ranked") {
+        _for_each_in_class("_comp_play_checkbox",function(el) {
+            if (el.dataset.mode.length && el.dataset.enabled == "true") {
+                let group = el.parentNode.parentNode.querySelector(".card_top").textContent;
+                if (!(group in groups)) {
+                    groups[group] = [];
+                }
+                groups[group].push(el.querySelector(".checkbox_label").textContent);
+            }
+        });
+    }
+
+    let count = 0;
+    let max = Object.keys(groups).length;
+    for (let g of Object.keys(groups)) {
+        let row = _createElement("div","row");
+        let dot = _createElement("div",["dot", type]);
+        row.appendChild(dot);
+
+        let group = _createElement("div", "group");
+        group.innerHTML = g;
+        row.appendChild(group);
+
+        let modes = _createElement("div", "modes");
+        row.appendChild(modes);
+        for (let m of groups[g]) {
+            let mode = _createElement("div", "mode");
+            mode.innerHTML = m;
+            modes.appendChild(mode);
+        }
+
+        list.appendChild(row);
+
+        count++;
+        if (count < max) {
+            list.appendChild(_createElement("div", "separator"));
+        }
+    }
+
+    return list;
+}
+
+function generate_customization_item_info(id, type, rarity) {
+
+    let cont = _createElement("div", "customization_info");
+    cont.style.maxWidth = "25vh";
+    let type_cont = _createElement("div", ["type","rarity_bg_"+rarity]);
+    type_cont.appendChild(_createElement("div", "rarity", localize(global_rarity_map[rarity].i18n)));
+    type_cont.appendChild(_createElement("div", "separator", "/"));
+    type_cont.appendChild(_createElement("div", "item_type", localize(global_customization_type_map[type].i18n)));
+    cont.appendChild(type_cont);
+    //cont.appendChild(_createElement("div", "name", localize("customization_"+id)));
+
+    return cont;
+}
+
+function generate_custom_match_info(session_id) {
+    let cont = _createElement("div", "custom_match_info");
+    let m = undefined;
+    if (global_custom_list_data && global_custom_list_data.length) {
+        for (let match of global_custom_list_data) {
+            if (match.session_id == session_id) {
+                m = match;
+            }
+        }
+    }
+    if (!m) return cont;
+
+    let left = _createElement("div", "left");
+    left.appendChild(_createElement("div", ["label"], localize("custom_game_settings_duration")));
+    left.appendChild(_createElement("div", ["label","even"], localize("custom_game_settings_score_limit")));
+    left.appendChild(_createElement("div", ["label"], localize("custom_game_settings_teams")));
+    left.appendChild(_createElement("div", ["label","even"], localize("custom_game_settings_team_size")));
+    left.appendChild(_createElement("div", ["label"], localize("custom_settings_instagib")));
+    left.appendChild(_createElement("div", ["label"], localize("custom_settings_physics")));
+    cont.appendChild(left);
+
+    let right = _createElement("div","right");
+    right.appendChild(_createElement("div", ["value"], (m.time_limit == 0) ? localize("time_unlimited") : _seconds_to_digital(m.time_limit)));
+    right.appendChild(_createElement("div", ["value","even"], (m.score_limit == 0) ? localize("score_unlimited") : m.score_limit));
+    right.appendChild(_createElement("div", ["value"], m.team_count));
+    right.appendChild(_createElement("div", ["value","even"], m.team_size));
+    right.appendChild(_createElement("div", ["value"], (m.modifier_instagib) ? localize("enabled") : localize("disabled")));
+    right.appendChild(_createElement("div", ["value"], (m.modifier_physics in global_physics_map) ? localize(global_physics_map[m.modifier_physics].i18n) : localize("unknown")));
+    cont.appendChild(right);
+
+    return cont;
+}
