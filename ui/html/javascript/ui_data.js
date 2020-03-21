@@ -143,6 +143,7 @@ var global_region_map = {
     "syd": { "flag": "au", "i18n": "datacenter_syd", "provider": "i3D.net", "name": "Sydney" },
     "tok": { "flag": "jp", "i18n": "datacenter_tok", "provider": "i3D.net", "name": "Tokyo" },
     "war": { "flag": "pl", "i18n": "datacenter_war", "provider": "i3D.net", "name": "Warsaw" },
+    "tes": { "flag": "nl", "i18n": "datacenter_test", "provider": "i3D.net", "name": "Test Location" },
 };
 
 

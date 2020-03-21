@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_you_fragged() {
 
     const hud_elem = new HUD_element('you_fragged', 
      "", 
@@ -107,4 +107,4 @@ global_onload_callbacks.push(function(){
         });
 
     });
-});
+}

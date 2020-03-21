@@ -1,6 +1,3 @@
-global_onload_callbacks_hud.push(function() {
-
-});
 
 function join_menu_visible(visible) {
     if (visible) {

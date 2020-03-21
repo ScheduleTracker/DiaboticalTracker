@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_powerup() {
 
     var hud_elem = new HUD_element('powerup', //Name
     "",     //Editor Text
@@ -47,4 +47,4 @@ global_onload_callbacks.push(function(){
 
     hud_elements.push(hud_elem);
     
-});
+}

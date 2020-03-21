@@ -10,10 +10,6 @@ var global_variable = new VariableHandler();
 // id -> debouncer instance map
 var global_input_debouncers = {}
 
-var global_onload_callbacks = [];
-var global_onload_callbacks_other = [];
-var global_shared_onload_callbacks = [];
-
 var global_range_slider_map = {};
 
 // animationframe timestamp when queue started:
@@ -42,14 +38,6 @@ var global_server_selected_locations = [];
 var global_user_battlepass = {};
 var global_battlepass_list = [];
 var global_competitive_season = {};
-
-var global_self = {
-    "user_id": 0,
-    "lan_ip": "",
-    "data": undefined,
-    "private": undefined,
-    "mmr": {}
-};
 
 window.self_egs_id = "";
 
@@ -94,9 +82,10 @@ window.addEventListener("load", function(){
     initialize_references();   
 
     // load all the hud element definitions
-    for (var i = 0; i < global_onload_callbacks.length; i++){
-        global_onload_callbacks[i]();
-    }
+    init_hud_elements();
+
+    init_friends_list();
+    init_main_chat();
 
     console.log("LOAD001");
     
@@ -395,7 +384,8 @@ window.addEventListener("load", function(){
                     "title": localize("title_info"),
                     "msg": localize("message_no_servers_avail"),
                 });
-
+                
+                lobby_hide_loading_overlay();
                 set_draft_visible(false);
             }
 
@@ -525,6 +515,7 @@ window.addEventListener("load", function(){
     bind_event('on_masterclient_outdated',   function() { set_logged_out_screen(true, "version"); });
     bind_event('on_masterclient_unverified', function() { set_logged_out_screen(true, "unverified"); });
     bind_event('on_masterclient_down',       function() { set_logged_out_screen(true, "service_down"); });
+    bind_event('on_masterclient_disabled',   function() { set_logged_out_screen(true, "disabled"); });
 
     bind_event('global_event', function(event_name, value) {
 
@@ -909,7 +900,7 @@ window.addEventListener("load", function(){
         place_direction_hints_element(value);
         
         // include/exclude element in default hud according to explicit user intent
-        place_direction_hints_element(value, window.experimental_default_hud_definition_json, true);
+        //place_direction_hints_element(value, window.experimental_default_hud_definition_json, true);
     });
     
 
@@ -1059,7 +1050,6 @@ window.addEventListener("load", function(){
 
         post_load_setup_hud_editor();
 
-        engine.call("set_bool_variable", "input_mouse_filtering", false);
         engine.call("update_friends_list");
         
         set_logged_out_screen(false);
@@ -1079,6 +1069,8 @@ window.addEventListener("load", function(){
         })
     });
 
+    console.log("LOAD201");
+
     // This only allows for a single slider to be set for a variable, dunno if that can be an issue
     _for_each_with_class_in_parent(_id("main_menu"), "range-slider", function(el) {
         let variable = el.dataset.variable ? el.dataset.variable : null;
@@ -1095,8 +1087,12 @@ window.addEventListener("load", function(){
         }
     });
 
+    console.log("LOAD202");
+
     // Initialize character sticker decals variable
     engine.call("initialize_select_value", "game_decals");
+
+    init_custom_modes();
 
     // Select list setup, initialize just adds the "click outside to hide list" listeners
     initialize_select(_id("main_menu"));
@@ -1114,22 +1110,32 @@ window.addEventListener("load", function(){
         });
     });
 
-    // load callbacks from other files (like customgame, customize)
-    for (var i = 0; i < global_onload_callbacks_other.length; i++){
-        global_onload_callbacks_other[i]();
-    }
+    console.log("LOAD208");
+
+    init_screen_ingame_menu();
+    init_screen_home();
+    init_screen_coin_shop();
+    init_screen_customize();
+    init_screen_battlepass_list();
+    init_screen_battlepass();
+    init_screen_create();
+    init_screen_leaderboards();
+    init_screen_play_customlist();
+    init_screen_play();
+    init_screen_practice();
+    init_screen_custom();
+
+    console.log("LOAD209");
 
     // load shared code between menu and hud views
-    for (var i = 0; i < global_shared_onload_callbacks.length; i++){
-        global_shared_onload_callbacks[i]();
-    }
+    init_shared();
 
     initialize_scrollbars();
     
     setupMenuSoundListeners();
     setupVariousListeners();
 
-    console.log("LOAD201");
+    console.log("LOAD210");
     engine.call('menu_view_loaded');
 });
 

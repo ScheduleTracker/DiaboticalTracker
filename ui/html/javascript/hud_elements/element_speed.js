@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_speed() {
 
     const element = new HUD_element('speed', "",
     {
@@ -21,4 +21,4 @@ global_onload_callbacks.push(function(){
 
     hud_elements.push(element);
 
-});
+}

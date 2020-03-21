@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_coins() {
 
     const hud_elem = new HUD_element('coins', //Name
     "", //Edior Text
@@ -18,4 +18,4 @@ global_onload_callbacks.push(function(){
     , "#hud_coins");  //Template Name
     hud_elements.push(hud_elem);
 
-});
+}

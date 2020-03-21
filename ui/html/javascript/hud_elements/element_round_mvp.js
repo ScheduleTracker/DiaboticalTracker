@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_round_mvp() {
 
     const hud_elem = new HUD_element('round_mvp',
     "",
@@ -16,4 +16,4 @@ global_onload_callbacks.push(function(){
     , "#hud_round_mvp");
     hud_elements.push(hud_elem);
 
-});
+}

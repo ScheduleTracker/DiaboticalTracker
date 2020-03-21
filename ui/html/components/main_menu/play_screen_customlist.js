@@ -4,7 +4,7 @@ let global_custom_list_data = [];
 let global_custom_list_data_ts = undefined;
 let global_custom_list_search = '';
 
-global_onload_callbacks_other.push(function() {
+function init_screen_play_customlist() {
 
     global_input_debouncers['customlist_filter_input'] = new InputDebouncer(function(){ onCustomListFilter(); });
     
@@ -88,7 +88,7 @@ global_onload_callbacks_other.push(function() {
         fragment.appendChild(filter);
     }
     mode_filters.appendChild(fragment);
-});
+}
 
 function lobby_join_with_key() {
     let cont = _createElement("div","custom_password_prompt");

@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_misc_settings() {
 
     const element = new HUD_element('misc_settings', "",
     {
@@ -8,4 +8,4 @@ global_onload_callbacks.push(function(){
     , "#hud_misc_settings");
 
     hud_elements.push(element);
-});
+}

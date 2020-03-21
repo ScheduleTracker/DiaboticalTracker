@@ -1,5 +1,5 @@
 
-global_onload_callbacks_other.push(function() {
+function init_screen_create() {
 
     global_input_debouncers['create_screen_filter_input'] = new InputDebouncer(function(){ onCreateScreenFilter(); });
 
@@ -27,7 +27,7 @@ global_onload_callbacks_other.push(function() {
     }
     mode_filter.appendChild(fragment);
     ui_setup_select(mode_filter);
-});
+}
 
 function create_screen_new_map() {
     engine.call("edit_new_map");

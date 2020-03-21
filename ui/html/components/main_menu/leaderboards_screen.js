@@ -5,7 +5,7 @@ let global_leaderboards_data = {
     "max_per_page": 15
 };
 
-global_onload_callbacks_other.push(function() {
+function init_screen_leaderboards() {
     /*
     _id("leaderboards_filter_friends_button").addEventListener("click", function(e) {
         if (global_menu_page != "leaderboards_screen") return;
@@ -29,7 +29,7 @@ global_onload_callbacks_other.push(function() {
         global_leaderboards_data.page = 1;
         load_leaderboard();
     });
-});
+}
 
 
 function load_leaderboard() {

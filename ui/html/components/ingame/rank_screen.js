@@ -1,6 +1,3 @@
-global_onload_callbacks_hud.push(function() {
-
-});
 
 let global_rank_screen_queue = [];
 
@@ -40,6 +37,24 @@ function renderRankScreen(data) {
                 time = 7;
             }
             if (data.from.rank_tier > data.to.rank_tier) {
+                type = "rank-down";
+                time = 7;
+            }
+            if (data.from.rank_position != null && data.to.rank_position != null) {
+                if (data.from.rank_position > data.to.rank_position) {
+                    type = "rank-up";
+                    time = 7;
+                }
+                if (data.from.rank_position < data.to.rank_position) {
+                    type = "rank-down";
+                    time = 7;
+                }
+            }
+            if (data.from.rank_position == null && data.to.rank_position != null) {
+                type = "rank-up";
+                time = 7;
+            }
+            if (data.from.rank_position != null && data.to.rank_position == null) {
                 type = "rank-down";
                 time = 7;
             }
@@ -138,7 +153,10 @@ function renderPlacementRank(data) {
 
     let rank_icon_cont = _createElement("div", "rank_icon_cont");
 
-    let rank = renderRankIcon(data.mode, data.to.rank_tier, data.to.rank_position);
+    let team_size = 1;
+    if (data.mode in global_queue_modes) team_size = global_queue_modes[data.mode].team_size;
+
+    let rank = renderRankIcon(data.to.rank_tier, data.to.rank_position, team_size);
     rank_icon_cont.appendChild(rank);
     /*
     let rank_icon = _createElement("video", "rank_video");
@@ -184,10 +202,13 @@ function renderRankUpdate(data) {
 
     let rank_icon_cont = _createElement("div", "rank_icon_cont");
 
-    let prev_rank = renderRankIcon(data.mode, data.from.rank_tier, data.from.rank_position);
+    let team_size = 1;
+    if (data.mode in global_queue_modes) team_size = global_queue_modes[data.mode].team_size;
+
+    let prev_rank = renderRankIcon(data.from.rank_tier, data.from.rank_position, team_size);
     prev_rank.classList.add("prev");
     rank_icon_cont.appendChild(prev_rank);
-    let next_rank = renderRankIcon(data.mode, data.to.rank_tier, data.to.rank_position);
+    let next_rank = renderRankIcon(data.to.rank_tier, data.to.rank_position, team_size);
     next_rank.classList.add("next");
     rank_icon_cont.appendChild(next_rank);
 /*    
@@ -212,18 +233,23 @@ function renderRankUpdate(data) {
     let progress = _createElement("div", "progress");
     let change_icon = _createElement("div", "icon");
     let prefix = _createElement("div", "prefix");
+    let win = 1;
     if (data.from.rating > data.to.rating) {
+        win = 0;
         prefix.textContent = "-";
         change_icon.style.backgroundImage = "url(/html/ranks/200x200/weeball_loser.png)";
     } else {
+        win = 1;
         prefix.textContent = "+";
         change_icon.style.backgroundImage = "url(/html/ranks/200x200/weeball_winner.png)";
     }
 
     let value = _createElement("div", "value");
-    value.dataset.from = Math.floor(Math.abs(data.to.rating - data.from.rating));
-    value.dataset.to = 0;
-    value.textContent = Math.floor(Math.abs(data.to.rating - data.from.rating));
+    progress.dataset.win = win;
+    value.dataset.from = 0;
+    value.dataset.to = Math.floor(Math.abs(data.to.rating - data.from.rating));
+    value.textContent = 0;
+    
     /*
     value.dataset.from = Math.floor(data.to.rating);
     value.dataset.to = Math.floor(data.to.rating);
@@ -238,9 +264,11 @@ function renderRankUpdate(data) {
         unit.textContent = "Points";
     }
     progress.appendChild(change_icon);
-    progress.appendChild(prefix);
-    progress.appendChild(value);
-    progress.appendChild(unit);
+    if (win == 1) {
+        progress.appendChild(prefix);
+        progress.appendChild(value);
+        progress.appendChild(unit);
+    }
     progress_cont.appendChild(progress);
     fragment.appendChild(progress_cont);
 
@@ -264,7 +292,7 @@ function showRankScreen(cb, initial) {
     }
 
     if (!global_rank_screen_queue.length) {
-        cb();
+        if (typeof cb == "function") cb();
         return;
     }
 
@@ -290,17 +318,20 @@ function showRankScreen(cb, initial) {
         current = rank_screen;
         anim_show(rank_screen, 500, "flex", function() {
             setTimeout(function() {
-                let value = rank_screen.querySelector(".progress_cont .value");
-                let from = value.dataset.from;
-                let to = value.dataset.to;
-                anim_start({
-                    "element": value,
-                    "duration": 3000,
-                    "delay": 0,
-                    "number": [from, to],
-                    "easing": easing_functions.easeOutQuart,
-                    "completion": function() {}
-                });
+                let win = Number(rank_screen.querySelector(".progress").dataset.win);
+                if (win == 1) {
+                    let value = rank_screen.querySelector(".progress_cont .value");
+                    let from = value.dataset.from;
+                    let to = value.dataset.to;
+                    anim_start({
+                        "element": value,
+                        "duration": 3000,
+                        "delay": 0,
+                        "number": [from, to],
+                        "easing": easing_functions.easeOutQuart,
+                        "completion": function() {}
+                    });
+                }
             }, 700);
         });
     }
@@ -309,17 +340,20 @@ function showRankScreen(cb, initial) {
         current = rank_screen;
         anim_show(rank_screen, 500, "flex", function() {
             setTimeout(function() {
-                let value = rank_screen.querySelector(".progress_cont .value");
-                let from = value.dataset.from;
-                let to = value.dataset.to;
-                anim_start({
-                    "element": value,
-                    "duration": 3000,
-                    "delay": 0,
-                    "number": [from, to],
-                    "easing": easing_functions.easeOutQuart,
-                    "completion": function() {}
-                });
+                let win = Number(rank_screen.querySelector(".progress").dataset.win);
+                if (win == 1) {
+                    let value = rank_screen.querySelector(".progress_cont .value");
+                    let from = value.dataset.from;
+                    let to = value.dataset.to;
+                    anim_start({
+                        "element": value,
+                        "duration": 3000,
+                        "delay": 0,
+                        "number": [from, to],
+                        "easing": easing_functions.easeOutQuart,
+                        "completion": function() {}
+                    });
+                }
 
                 let prev = rank_screen.querySelector(".rank_icon.prev");
                 let next = rank_screen.querySelector(".rank_icon.next");
@@ -343,17 +377,23 @@ function showRankScreen(cb, initial) {
         current = rank_screen;
         anim_show(rank_screen, 500, "flex", function() {
             setTimeout(function() {
-                let value = rank_screen.querySelector(".progress_cont .value");
-                let from = Number(value.dataset.from);
-                let to = Number(value.dataset.to);
-                anim_start({
-                    "element": value,
-                    "duration": 3000,
-                    "delay": 0,
-                    "number": [from, to],
-                    "easing": easing_functions.easeOutQuart,
-                    "completion": function() {}
-                });
+                let win = Number(rank_screen.querySelector(".progress").dataset.win);
+                if (win == 1) {
+                    /*
+                    let value = rank_screen.querySelector(".progress_cont .value");
+                    let from = Number(value.dataset.from);
+                    let to = Number(value.dataset.to);
+                    
+                    anim_start({
+                        "element": value,
+                        "duration": 3000,
+                        "delay": 0,
+                        "number": [from, to],
+                        "easing": easing_functions.easeOutQuart,
+                        "completion": function() {}
+                    });
+                    */
+                }
 
                 let prev = rank_screen.querySelector(".rank_icon.prev");
                 let next = rank_screen.querySelector(".rank_icon.next");

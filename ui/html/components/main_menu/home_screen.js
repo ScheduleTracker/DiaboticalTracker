@@ -1,4 +1,4 @@
-global_onload_callbacks_other.push(function() {
+function init_screen_home() {
   const apiEndpoint = "https://dbgg.prismic.io/api/v2";
   const newsURL = "https://diabotical-portal.now.sh/news";
 
@@ -35,7 +35,7 @@ global_onload_callbacks_other.push(function() {
         console.error("Error while calling CMS: ", err);
       }
     );
-});
+}
 
 function updateMotd(title, subtitle, body, link, background) {
   const motdView = _id("home_screen_motd_window");

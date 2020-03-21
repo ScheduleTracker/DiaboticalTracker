@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_player_name() {
 
     const element = new HUD_element('player_name', "",
     {
@@ -22,4 +22,4 @@ global_onload_callbacks.push(function(){
 
     hud_elements.push(element);
 
-});
+}

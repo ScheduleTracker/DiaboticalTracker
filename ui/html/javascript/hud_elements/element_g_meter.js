@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_g_meter() {
 
     const element = new HUD_element('g_meter', //Editor name
     "", //Default content
@@ -134,7 +134,7 @@ global_onload_callbacks.push(function(){
         }
     });
 
-});
+}
 
 let global_hud_fov_sin_cache = 1;
 let global_hud_fov_cos_cache = 1;

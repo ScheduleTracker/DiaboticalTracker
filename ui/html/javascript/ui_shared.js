@@ -24,6 +24,14 @@ let global_crosshair_hitmarker_zoom_map = {};
 let global_mask_map = {};
 let global_mask_zoom_map = {};
 
+var global_self = {
+    "user_id": 0,
+    "lan_ip": "",
+    "data": undefined,
+    "private": undefined,
+    "mmr": {}
+};
+
 // CUSTOM DATA BINDING HANDLER FOR BORDER COLOR
 class BorderColorHandler {
     init(element, value) {
@@ -111,15 +119,59 @@ class DatasetHandler {
     }
 }
 
+class BarSegmentHandler {
+    init(element, value) {
+        this.handler(element,value);
+    }
+    deinit(element) {}
+    update(element, value) {        
+        this.handler(element,value);
+    }
+
+    handler(element, value) {
+        let idx = Number(element.dataset.idx);
+        let segment_perc = 100/Number(element.dataset.segments);
+        let width = 0;
+        if (value > (segment_perc * idx + segment_perc)) {
+            width = 100;
+        } else if (value < (segment_perc * idx)) {
+            width = 0;
+        } else {
+            width = (100 / ((segment_perc * idx + segment_perc) - (segment_perc * idx))) * (value - (segment_perc * idx));
+        }
+        element.style.width = width+"%";
+    }
+}
+
+class RankIconHandler {
+    init(element, value) {
+        this.handler(element,value);
+    }
+    deinit(element) {}
+    update(element, value) {        
+        this.handler(element,value);
+    }
+
+    handler(element, value) {
+        _empty(element);
+        
+        let data = value.split(":");
+        let el = renderRankIcon(data[0], data[1], data[2], "small");
+        element.appendChild(el);
+    }
+}
+
 bind_event("Ready", function() {
     engine.registerBindingAttribute("border-color", BorderColorHandler);
     engine.registerBindingAttribute("i18n", i18nHandler);
     engine.registerBindingAttribute("property", PropertyHandler);
     engine.registerBindingAttribute("dataset", DatasetHandler);
+    engine.registerBindingAttribute("bar", BarSegmentHandler);
+    engine.registerBindingAttribute("rank-icon", RankIconHandler);
 });
 
 
-global_shared_onload_callbacks.push(function() {
+function init_shared() {
 
     bind_event('set_arguments', function (json) {
         try {
@@ -398,7 +450,7 @@ global_shared_onload_callbacks.push(function() {
             }
         );
     });
-});
+}
 
 function localize_country(country) {
     if (country in global_countries) return global_countries[country];

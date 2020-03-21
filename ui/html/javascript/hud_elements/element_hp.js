@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_hp() {
 
     const hud_elem = new HUD_element('hp', //Name
     "", //Edior Text
@@ -28,7 +28,7 @@ global_onload_callbacks.push(function(){
     , "#hud_hp");  //Template Name
     hud_elements.push(hud_elem);
     
-});
+}
 
 
 bind_event('flash_hp', function (value) {

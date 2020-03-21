@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_weapon_list() {
 
     class newArray extends HUD_element{
 
@@ -246,4 +246,4 @@ global_onload_callbacks.push(function(){
     , "#hud_weapons_list");
 
     hud_elements.push(element);
-});
+}

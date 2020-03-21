@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_item_picked() {
 
     const element = new HUD_element('item_picked', "", 
     {
@@ -116,6 +116,6 @@ global_onload_callbacks.push(function(){
             el.style.opacity = 1;
         });
     });
-});
+}
 
 

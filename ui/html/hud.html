@@ -426,6 +426,7 @@
     <div id="teams_scoreboard" class="scoreboard" style="display:none;">  
         <div class="scoreboard_header">
             <span class="scoreboard_mode"><span class="i18n" data-i18n="ingame_scoreboard_mode">MODE: </span><span class="scoreboard_gamemode_name" data-bind-value="_format_game_mode({{game_data.game_mode}})">???</span></span>
+            <span class="scoreboard_rank i18n" data-bind-if="{{game_data.ranked}} == 1" data-i18n="ingame_scoreboard_rank">Rank</span>
             <span class="scoreboard_head i18n" data-bind-if="!{{game_data.race_mode}}" data-i18n="ingame_scoreboard_kills">Frags</span>
             <span class="scoreboard_head i18n" data-bind-if="!{{game_data.race_mode}}" data-i18n="ingame_scoreboard_points">Points</span>
             <span class="scoreboard_head i18n" data-bind-if="{{game_data.race_mode}}" data-i18n="ingame_scoreboard_time">Best Time</span>
@@ -442,6 +443,9 @@
                                 <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
                             </div>
                             <div class="score_name" data-bind-value="{{player_iter.name}}">&nbsp;</div>
+                            <div class="score_rank" data-bind-if="{{game_data.ranked}} == 1" data-bind-rank-icon="{{player_iter.rank_tier}}+':'+{{player_iter.rank_position}}+':'+{{game_data.team_size}}">
+                                <div class="rank_icon rank_8 small"></div>
+                            </div>
                             <div class="score_score" data-bind-if="!{{game_data.race_mode}}" data-bind-value="{{player_iter.kills}}">&nbsp;</div>
                             <div class="score_score points" data-bind-if="!{{game_data.race_mode}}" data-bind-value="{{player_iter.score}}">&nbsp;</div>
                             <div class="score_score points" data-bind-if="{{game_data.race_mode}}" data-bind-value="{{player_iter.best_time}}">&nbsp;</div>
@@ -971,12 +975,12 @@
                 <div class="bar_segment_bg"></div>
             [[/for]]
         </div>
-        <div class="overflow_container" data-bind-style-width="{{battle_data.self.hp_percentage}} + '%'">
+        <div class="overflow_container">
+            [[for start=0 end=(+segments)]]
             <div class="fg_container">
-                [[for start=0 end=(+segments)]]
-                    <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:~root.threshold]]"></div>
-                [[/for]]
+                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:~root.threshold]]"  data-idx="[[:#getIndex()]]" data-segments="[[:~root.segments]]" data-bind-bar="{{battle_data.self.hp_percentage}}"></div>
             </div>
+            [[/for]]
         </div>
     </div>
 </script>
@@ -987,12 +991,12 @@
                 <div class="bar_segment_bg"></div>
             [[/for]]
         </div>
-        <div class="overflow_container" data-bind-style-width="{{battle_data.self.armor_percentage}} + '%'">
+        <div class="overflow_container">
+            [[for start=0 end=(+segments)]]
             <div class="fg_container">
-                [[for start=0 end=(+segments)]]
-                    <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:~root.threshold]]"></div>
-                [[/for]]
+                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:~root.threshold]]"  data-idx="[[:#getIndex()]]" data-segments="[[:~root.segments]]" data-bind-bar="{{battle_data.self.armor_percentage}}"></div>
             </div>
+            [[/for]]
         </div>
     </div>
 </script>

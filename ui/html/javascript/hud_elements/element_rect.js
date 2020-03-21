@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_rect() {
      const element = new HUD_element('rect', "", 
     {
         "width": "30",
@@ -41,6 +41,6 @@ global_onload_callbacks.push(function(){
     ]
     , "#hud_rect");
     hud_elements.push(element);
-});
+}
 
  

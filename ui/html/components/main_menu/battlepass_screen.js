@@ -1,6 +1,6 @@
 let battlepass_rewards_drag_scroll = undefined;
 let global_battlepass_rewards_cache = {};
-global_onload_callbacks_other.push(function() {
+function init_screen_battlepass() {
     _for_each_with_selector_in_parent(_id("battlepass_screen"), ".rewards_arrow", function(el) {
         if (el.classList.contains("prev")) {
             el.addEventListener("click", function(e) { 
@@ -25,7 +25,7 @@ global_onload_callbacks_other.push(function() {
             battlepass_rewards_drag_scroll.scrollTo(true, 0.05);
         }
     });
-});
+}
 
 function load_battlepass() {
     //console.log("load_battlepass",_dump(global_user_battlepass));

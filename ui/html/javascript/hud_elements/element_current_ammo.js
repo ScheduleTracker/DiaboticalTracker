@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_current_ammo() {
 
     const element = new HUD_element('current_ammo', //Editor name
     "", //Default content
@@ -25,4 +25,4 @@ global_onload_callbacks.push(function(){
     , "#hud_current_ammo"); //Template name
 
     hud_elements.push(element);
-});
+}

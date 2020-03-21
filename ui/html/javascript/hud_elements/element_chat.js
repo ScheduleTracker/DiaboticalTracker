@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_chat() {
 
     const hud_elem = new HUD_element('chat', //Name
     "",     //Editor Text
@@ -36,7 +36,7 @@ global_onload_callbacks.push(function(){
     });
     
     //Need two max limits when max charaters and second max without a whitespace
-});
+}
 
 
 

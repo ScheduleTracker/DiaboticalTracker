@@ -851,7 +851,7 @@
                                 </div>
                                 <div class="controls_pair">
                                     <div class="controls_header i18n" data-i18n="settings_controls_editor_fly">Fly/no-clip</div>
-                                    <div class="controls_value" data-db-binding="toggle phy fly" data-db-binding-mode="editor"></div>
+                                    <div class="controls_value" data-db-binding="toggle phy_fly" data-db-binding-mode="editor"></div>
                                 </div>
                             </div>
                             <div class="controls_row terminal_row">
@@ -4405,7 +4405,10 @@
                 <div id="draft_screen_mode_name" class="title"></div>
                 <div id="draft_screen_mode_text" class="text"></div>
             </div>
-            <div id="draft_screen_countdown" class="countdown"></div>
+            <div class="bottom_right">
+                <div id="draft_screen_countdown" class="countdown"></div>
+                <div id="draft_screen_backbutton" class="db-btn mouseover-sound4 click-sound mousei18n" data-i18n="menu_button_cancel" style="display:none;" onclick="set_draft_visible(false)">Cancel</div>
+            </div>
         </div>
     </div>
 
@@ -4765,12 +4768,12 @@
                 <div class="bar_segment_bg"></div>
             [[/for]]
         </div>
-        <div class="overflow_container" data-bind-style-width="{{battle_data.self.hp_percentage}} + '%'">
+        <div class="overflow_container">
+            [[for start=0 end=(+segments)]]
             <div class="fg_container">
-                [[for start=0 end=(+segments)]]
-                    <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:~root.threshold]]"></div>
-                [[/for]]
+                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:~root.threshold]]"  data-idx="[[:#getIndex()]]" data-segments="[[:~root.segments]]" data-bind-bar="{{battle_data.self.hp_percentage}}"></div>
             </div>
+            [[/for]]
         </div>
     </div>
 </script>
@@ -4781,12 +4784,12 @@
                 <div class="bar_segment_bg"></div>
             [[/for]]
         </div>
-        <div class="overflow_container" data-bind-style-width="{{battle_data.self.armor_percentage}} + '%'">
+        <div class="overflow_container">
+            [[for start=0 end=(+segments)]]
             <div class="fg_container">
-                [[for start=0 end=(+segments)]]
-                    <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:~root.threshold]]"></div>
-                [[/for]]
+                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:~root.threshold]]"  data-idx="[[:#getIndex()]]" data-segments="[[:~root.segments]]" data-bind-bar="{{battle_data.self.armor_percentage}}"></div>
             </div>
+            [[/for]]
         </div>
     </div>
 </script>

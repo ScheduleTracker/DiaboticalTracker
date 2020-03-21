@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_frag_feed() {
 
 
     const hud_elem = new HUD_element('frag_feed', //Name
@@ -109,4 +109,4 @@ global_onload_callbacks.push(function(){
             remove: true,
         });
     }
-});
+}

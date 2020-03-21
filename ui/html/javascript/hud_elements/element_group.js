@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_group() {
     hud_group = new HUD_element('group', "", 
     {
         "width": "30",
@@ -15,6 +15,6 @@ global_onload_callbacks.push(function(){
         {"inputType": "advanced", "type": "advanced"},
     ]
     , "#hud_group");
-});
+};
 
  

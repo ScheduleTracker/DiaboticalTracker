@@ -3,7 +3,7 @@ let global_main_chat_open = false;
 let global_main_chat_active_channel = "party";
 let global_main_chat_last_msg_sent = undefined;
 let global_main_chat_opening = false;
-window.addEventListener("load", function() {
+function init_main_chat() {
     let main_chat = _id("main_chat");
     let main_chat_buffer = _id("main_chat_buffer");
     main_chat.addEventListener("click", function(e) {
@@ -54,7 +54,7 @@ window.addEventListener("load", function() {
             global_main_chat_opening = false;
         }
     });
-});
+}
 
 function updateChatHighlight() {
     let count = 0;

@@ -15,23 +15,18 @@ const d = {"width": 10,
 
 
 function reset_hud(){
-    copy_default_hud_definition();
-    write_misc_hud_preference('hudaspect', 'default');
-    write_misc_hud_preference('fl', '1');
-    refresh_preview_hud();
+    engine.call('reset_hud');
+    engine.call('get_hud_json').then(function (str) {
+        try {
+            editing_hud_data = JSON.parse(str);
+            write_misc_hud_preference('hudaspect', 'default');
+            write_misc_hud_preference('fl', '1');
+            refresh_preview_hud();
+        } catch (err) {
+            echo("Error parsing HUD definition (Maybe it was too long so it got clamped.)");
+        }
+    });
 }
-
-//// just for old reference
-//function reset_hud_old_via_engine(){
-//    console.log("RESETHUD1" + JSON.stringify(editing_hud_data));
-//    engine.call('reset_hud').then(function () {
-//        post_load_setup_hud_editor();
-//        write_misc_hud_preference('hudaspect', 'default');
-//        refresh_preview_hud();
-//        console.log("RESETHUDCB" + JSON.stringify(editing_hud_data));
-//    });
-//    console.log("RESETHUD2" + JSON.stringify(editing_hud_data));    
-//}
 
 window.addEventListener("keydown", function(event){
     if(_id("settings_screen_hud").style.display == "flex" && this.document.activeElement.tagName.toLowerCase() == "body") {
@@ -254,12 +249,15 @@ function post_load_setup_hud_editor() {
     engine.call('get_hud_json').then(function (str) {
         try {
             editing_hud_data = JSON.parse(str);
+            refresh_preview_hud();
             // if misc setting not present => HUD is default. Sync default definition to HUD_override.js, in case engine definition is out of date.
+            /*
             if (!read_misc_hud_preference(editing_hud_data)) {
                 reset_hud();
             } else {
                 refresh_preview_hud();
             }
+            */
         } catch (err) {
             echo("Error parsing HUD definition (Maybe it was too long so it got clamped.)");
         }        
@@ -968,14 +966,12 @@ function read_misc_hud_preference(def) {
                 break;
             }
         }
-    } if (!haveMisc) editing_hud_data = window.experimental_default_hud_definition_json;
+    } 
+    //if (!haveMisc) editing_hud_data = window.experimental_default_hud_definition_json;
     callback_on_misc_hud_preference_read(misc);
     return haveMisc;
 }
 
-function copy_default_hud_definition() {
-    editing_hud_data = JSON.parse(JSON.stringify(window.experimental_default_hud_definition_json));
-}
 
 function write_misc_hud_preference(key, value, forceupdate){
     global_misc_hud_preference[key] = value;

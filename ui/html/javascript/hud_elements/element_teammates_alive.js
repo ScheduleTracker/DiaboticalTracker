@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_teammates_alive() {
 
 
     const hud_elem = new HUD_element('teammates_alive', //Name
@@ -52,4 +52,4 @@ global_onload_callbacks.push(function(){
     ]
     , "#hud_enemies_alive");  //Template Name
     hud_elements.push(hud_elem2);
-});
+}

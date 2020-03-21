@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_flag() {
 
     const hud_elem = new HUD_element('flag', //Name
     "", //Edior Text
@@ -45,4 +45,4 @@ global_onload_callbacks.push(function(){
     ]
     , "#hud_flag");  //Template Name
     hud_elements.push(hud_elem);
-});
+}

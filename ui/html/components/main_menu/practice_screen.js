@@ -1,6 +1,6 @@
-global_onload_callbacks_other.push(function() {
+function init_screen_practice() {
     renderPracticeCards();
-});
+}
 
 function practice_start_match(type) {
     if (type == "practice_range") {

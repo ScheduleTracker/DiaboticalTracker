@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_low_ammo_warning() {
 
 
     const hud_hp = new HUD_element('low_ammo_warning', "Low Ammo Warning", 
@@ -21,6 +21,6 @@ global_onload_callbacks.push(function(){
     hud_elements.push(hud_hp);    
 
     
-});
+}
 
  

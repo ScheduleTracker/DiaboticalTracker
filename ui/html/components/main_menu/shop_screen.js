@@ -1,8 +1,3 @@
-global_onload_callbacks_other.push(function() {
-
-
-
-});
 
 
 let global_shop_is_rendered = false;

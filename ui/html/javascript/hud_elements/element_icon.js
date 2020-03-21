@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_icon() {
 
     const hud_elem = new HUD_element('icon', //Name
     "", //Edior Text
@@ -37,4 +37,4 @@ global_onload_callbacks.push(function(){
     , "#hud_icon");  //Template Name
 
     hud_elements.push(hud_elem);
-});
+}

@@ -3,6 +3,42 @@ var hud_group = null;
 var hud_editor_group_map = {};
 var hud_editor_group_map_list = {};
 
+function init_hud_elements() {
+    init_element_group();
+    init_element_hp();
+    init_element_hp_bar();
+    init_element_armor();
+    init_element_armor_bar();
+    init_element_coins();
+    init_element_stack();
+    init_element_fps();
+    init_element_speed();
+    init_element_current_ammo();
+    init_element_low_ammo_warning();
+    init_element_weapon_list();
+    init_element_frag_feed();
+    init_element_game_timer();
+    init_element_time_limit();
+    init_element_round_mvp();
+    init_element_score();
+    init_element_team_scores();
+    init_element_flag();
+    init_element_dodge();
+    init_element_item();
+    init_element_player_name();
+    init_element_powerup();
+    init_element_g_meter();
+    init_element_misc_settings();
+    init_element_you_fragged();
+    init_element_chat();
+    init_element_voicechat();
+    init_element_rect();
+    init_element_icon();
+    init_element_current_weapon_icon();
+    init_element_teammates_alive();
+    init_element_item_picked();
+}
+
 function make_hud_in_element(container_id, editing_mode) {
     var container_element = _id(container_id);
    

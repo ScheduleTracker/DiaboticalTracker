@@ -3,7 +3,7 @@
 let global_game_report_active = false;
 let global_game_report_countdown_interval = false;
 let global_game_report_countdown = 45;
-global_onload_callbacks_hud.push(function() {
+function init_hud_screen_game_report() {
 
     _id("game_report_cont").querySelector(".chat_input").addEventListener("blur", function() {
         engine.call('set_chat_enabled', false);
@@ -106,9 +106,9 @@ global_onload_callbacks_hud.push(function() {
             anim_show(_id("game_report"), 500, "flex");
 
             if (global_show_rank_change) {
-                showRankScreen(function() {
-                    anim_show(_id("game_report_cont"), 500, "flex");
-                }, true);
+                showRankScreen(null, true);
+
+                anim_show(_id("game_report_cont"), 500, "flex");
                 global_show_rank_change = false;
             } else {
                 anim_show(_id("game_report_cont"), 100, "flex");
@@ -142,7 +142,7 @@ global_onload_callbacks_hud.push(function() {
         }
     });
     */
-});
+}
 
 
 function create_game_report(game_status, model_data) {
@@ -292,13 +292,12 @@ function create_game_report(game_status, model_data) {
                 head_row.appendChild(_createElement("div","team_name", team_name));
 
                 if (!header_row_rendered) {
+                    if (model_data.ranked == 1) {
+                        head_row.appendChild(_createElement("div","label", localize("stats_rank")));
+                    }
                     if (game_status.mode == "race") {
                         head_row.appendChild(_createElement("div","label", localize("stats_best_time")));
                     } else {
-                        //if (ranked mode) {
-                        //    head_row.appendChild(_createElement("div","label"));
-                        //}
-
                         if (game_status.mode == "ctf" || game_status.mode == "macguffin") {
                             head_row.appendChild(_createElement("div","label", localize("stats_captures")));
                         } else {
@@ -307,12 +306,12 @@ function create_game_report(game_status, model_data) {
                         head_row.appendChild(_createElement("div","label", localize("stats_frags")));
                         head_row.appendChild(_createElement("div","label", localize("stats_deaths")));
                         if (model_data.team_size > 1) {
-                            head_row.appendChild(_createElement("div","label", localize("stats_assists")));
+                            //head_row.appendChild(_createElement("div","label", localize("stats_assists")));
                         }
                         head_row.appendChild(_createElement("div","label", localize("stats_dmg_done")));
                         head_row.appendChild(_createElement("div","label", localize("stats_dmg_taken")));
-                        head_row.appendChild(_createElement("div","label", localize("stats_time")));
-                        head_row.appendChild(_createElement("div","label", localize("stats_acc")));
+                        //head_row.appendChild(_createElement("div","label", localize("stats_time")));
+                        //head_row.appendChild(_createElement("div","label", localize("stats_acc")));
                         header_row_rendered = true;
                     }
                 }
@@ -340,23 +339,30 @@ function create_game_report(game_status, model_data) {
                     avatar.style.backgroundImage = "url("+_avatarUrl(player_lookup[p.user_id].avatar)+")";
                     player_row.appendChild(avatar);
                     player_row.appendChild(_createElement("div","name", p.name));
+
+                    if (model_data.ranked == 1) {
+                        let rank_icon_cont = _createElement("div", "rank");
+                        if (p.user_id == global_self.user_id && current_match.mm_mode && current_match.mm_mode in global_self.mmr) {
+                            rank_icon_cont.appendChild(renderRankIcon(global_self.mmr[current_match.mm_mode].rank_tier, global_self.mmr[current_match.mm_mode].rank_position, model_data.team_size, "small"));
+                        } else {
+                            rank_icon_cont.appendChild(renderRankIcon(player_lookup[p.user_id].rank_tier, player_lookup[p.user_id].rank_position, model_data.team_size, "small"));
+                        }
+                        player_row.appendChild(rank_icon_cont);
+                    }
+
                     if (game_status.mode == "race") {
                         player_row.appendChild(_createElement("div","stat", player_lookup[p.user_id].best_time));
                     } else {
-                        //if (ranked mode) {
-                        //    head_row.appendChild(_createElement("div","label"));
-                        //    player_row.appendChild(_createElement("div",["stat","rank"]));
-                        //}
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_SCORE]));
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]));
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]));
                         if (model_data.team_size > 1) {
-                            player_row.appendChild(_createElement("div","stat", "--"));
+                            //player_row.appendChild(_createElement("div","stat", "--"));
                         }
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED]));
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_DAMAGE_TAKEN]));
-                        player_row.appendChild(_createElement("div","stat", "--"));
-                        player_row.appendChild(_createElement("div","stat", "--"));
+                        //player_row.appendChild(_createElement("div","stat", "--"));
+                        //player_row.appendChild(_createElement("div","stat", "--"));
                     }
                     team.appendChild(player_row);
 
@@ -389,6 +395,17 @@ function create_game_report(game_status, model_data) {
         game_report_show_map_vote();
     } else {
         game_report_show_stats();
+    }
+}
+
+function updateGameReportRank(mode) {
+    if (!(mode in global_self.mmr)) return;
+    if (!(mode in global_queue_modes)) return;
+
+    let self_rank = _id("game_report_cont").querySelector(".player_row.self .rank");
+    if (self_rank) {
+        _empty(self_rank);
+        self_rank.appendChild(renderRankIcon(global_self.mmr[mode].rank_tier, global_self.mmr[mode].rank_position, global_queue_modes[mode].team_size, "small"));
     }
 }
 

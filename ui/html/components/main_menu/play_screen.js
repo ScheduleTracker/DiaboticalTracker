@@ -2,7 +2,8 @@
 let global_queue_mode_checkboxes = [];
 
 // on load
-window.addEventListener("load", function() {
+
+function init_screen_play() {
     renderQuickPlayCards();
     renderRankedCards();
 
@@ -21,7 +22,7 @@ window.addEventListener("load", function() {
             _id("match_found_splash").classList.remove("out");
         }
     });
-});
+}
 
 // functions
 function play_screen_setup_card_sliding() {
@@ -1137,6 +1138,8 @@ function set_draft_visible(visible, data) {
     let countdown = 10;
     
     if (visible) {
+        anim_show(_id("draft_screen_countdown"));
+        _id("draft_screen_backbutton").style.display = "none";
 
         engine.call('ui_sound', "ui_transition_mapvote");
 
@@ -1157,6 +1160,13 @@ function set_draft_visible(visible, data) {
             countdown_interval = setInterval(function() {
                 if (countdown < 0) {
                     clearInterval(countdown_interval);
+
+                    setTimeout(function() {
+                        anim_hide(_id("draft_screen_countdown"), 200, function() {
+                            anim_show(_id("draft_screen_backbutton"));
+                        });
+                    },5000);
+
                     return;
                 }
 
@@ -1167,6 +1177,8 @@ function set_draft_visible(visible, data) {
 
         },200);
     } else {
+        anim_show(_id("draft_screen_countdown"));
+        _id("draft_screen_backbutton").style.display = "none";
         engine.call("show_draft", false);
         if (draft_screen_queued !== undefined) clearTimeout(draft_screen_queued);
         if (getComputedStyle(_id("draft_screen")).display != "none") {
@@ -1185,6 +1197,17 @@ function set_draft_countdown(countdown) {
 function updateQueueRanks() {
     if (Object.keys(global_self.mmr).length == 0) return;
 
+    _for_each_with_class_in_parent(_id("play_screen_quickplay"), "card_flex", function(el) {
+        let best = el.querySelector('.card_best_rank');
+        delete best.dataset.rank;
+        delete best.dataset.position;
+    });
+    _for_each_with_class_in_parent(_id("play_screen_ranked"), "card_flex", function(el) {
+        let best = el.querySelector('.card_best_rank');
+        delete best.dataset.rank;
+        delete best.dataset.position;
+    });
+
     for (let mode of Object.keys(global_self.mmr)) {
         if (!(mode in play_card_checkboxes)) continue;
 
@@ -1197,12 +1220,15 @@ function updateQueueRanks() {
             rank_cont.appendChild(placement_matches);
         }
 
-        rank_cont.appendChild(renderRankIcon(mode, global_self.mmr[mode].rank_tier, global_self.mmr[mode].rank_position, "small"));
+        let team_size = 1;
+        if (mode in global_queue_modes) team_size = global_queue_modes[mode].team_size;
+
+        rank_cont.appendChild(renderRankIcon(global_self.mmr[mode].rank_tier, global_self.mmr[mode].rank_position, team_size, "small"));
 
         let best_cont = rank_cont.closest('.card_flex').querySelector('.card_best_rank');
 
         let best_rank = 0;
-        let best_position = 999999;
+        let best_position = 99999999;
         if ("position" in best_cont.dataset && Number(best_cont.dataset.position) > 0) best_position = Number(best_cont.dataset.position);
         if ("rank" in best_cont.dataset && Number(best_cont.dataset.rank) >= 0) best_rank = Number(best_cont.dataset.rank);
 
@@ -1210,11 +1236,11 @@ function updateQueueRanks() {
         if (global_self.mmr[mode].rank_position != null && global_self.mmr[mode].rank_position < best_position) best_position = global_self.mmr[mode].rank_position;
 
         best_cont.dataset.rank = best_rank;
-        if (best_position == 999999) { best_position = null };
+        if (best_position == 99999999) { best_position = null };
         best_cont.dataset.position = best_position;
 
         _empty(best_cont);
-        let icon = renderRankIcon(mode, best_rank, best_position, "");
+        let icon = renderRankIcon(best_rank, best_position, team_size, "");
         icon.addEventListener("click", function(e) {
             e.stopPropagation();
             showRankOverview();

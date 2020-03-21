@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_armor() {
     const hud_armor = new HUD_element('armor', 
     "", 
     {     
@@ -29,7 +29,7 @@ global_onload_callbacks.push(function(){
     , "#hud_armor");
 
     hud_elements.push(hud_armor);
-});
+}
 
 
 

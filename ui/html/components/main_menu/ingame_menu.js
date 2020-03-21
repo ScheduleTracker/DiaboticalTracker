@@ -1,5 +1,5 @@
 
-global_onload_callbacks_other.push(function() {
+function init_screen_ingame_menu() {
     bind_event("set_in_game", function(bool) {
         if (bool) {
             // show menu screen
@@ -12,7 +12,7 @@ global_onload_callbacks_other.push(function() {
             }
         }
     });
-});
+}
 
 function ingame_menu_close_menu() {
     engine.call("set_menu_view", false);

@@ -4,16 +4,22 @@ window.current_screen = "home";
 window.fade_time = 70;
 
 function set_logged_out_screen(visible, reason) {
-    if (reason && reason == "ghosted")      _id("logout_reason").textContent = localize("message_multi_user_logged_out");
-    if (reason && reason == "version")      _id("logout_reason").textContent = localize("message_version_user_logged_out");
-    if (reason && reason == "unverified")   _id("logout_reason").textContent = localize("message_verification_failed");
-    if (reason && reason == "service_down") _id("logout_reason").textContent = localize("message_service_down");
+    if (reason) {
+        if (reason == "ghosted")      _id("logout_reason").textContent = localize("message_multi_user_logged_out");
+        if (reason == "version")      _id("logout_reason").textContent = localize("message_version_user_logged_out");
+        if (reason == "unverified")   _id("logout_reason").textContent = localize("message_verification_failed");
+        if (reason == "service_down") _id("logout_reason").textContent = localize("message_service_down");
+        if (reason == "disabled")     _id("logout_reason").textContent = localize("message_disabled");
+    }
 
     if (visible) {
-        console.log("show logged out screen, disable console");
+        
         _id("main_menu").style.visibility = "hidden";
         anim_show(_id("main_logged_out"));
-        engine.call("set_console_enabled", false);
+
+        // Turn off the console for disabled accounts
+        if (reason && reason == "disabled") engine.call("set_console_enabled", false);
+
     } else {
         /*
         _id("main_menu").style.visibility = "visible";

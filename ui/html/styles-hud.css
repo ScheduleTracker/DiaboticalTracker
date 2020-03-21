@@ -1424,6 +1424,9 @@ h2 {
     justify-content:flex-end;
     width:10vh;
 }
+.scoreboard_header .scoreboard_rank {
+    width:5.6vh;
+}
 .scoreboard_header .scoreboard_mode {
     width:19.97vh;
 }
@@ -1473,6 +1476,15 @@ h2 {
     margin-left: 1vh;
 
     width: 15vh;
+}
+.score_line .score_rank {
+    width:3.6vh;
+    height:3.6vh;
+    margin-right:2vh;
+}
+.score_line .score_rank .rank_icon {
+    width:3.6vh;
+    height:3.6vh;
 }
 .score_line .score_place {
     width: 7vh;
@@ -2247,32 +2259,30 @@ h2 {
     display:flex;
 }
 .ha_bar_container .bg_container .bar_segment_bg {
-    background-color:rgba(0,0,0,0.2);
-    margin-right:calc(0.3vh*var(--ratio));
+    background-color:var(--bC);
+    margin-right:calc(1px * var(--zero-onevh-rounded) * var(--gap) * var(--ratio));
     flex:1;
     border-top-right-radius: calc(1vh * var(--border-top-right-radius));
     border-top-left-radius: calc(1vh * var(--border-top-left-radius));
     border-bottom-left-radius: calc(1vh * var(--border-bottom-left-radius));
     border-bottom-right-radius: calc(1vh * var(--border-bottom-right-radius));
-    border:1px solid rgba(255,255,255,0.05);
 }
 .ha_bar_container .overflow_container {
     overflow:hidden;
     z-index:1;
-    transition-property: width;
-    transition-duration: 50ms;
-    transition-timing-function: ease;
+    width:calc(1vh * var(--width) * var(--ratio));
+    display:flex;
+    flex-direction:row;
 }
 .ha_bar_container .fg_container {
-    width: calc(1vh * var(--width) * var(--ratio));
     height:100%;
-    display:flex;
     position:relative;
+    margin-right:calc(1px * var(--zero-onevh-rounded) * var(--gap) * var(--ratio));
+    flex:1;
 }
 .ha_bar_container .fg_container .bar_segment_fg {
     background-color: var(--color);
-    margin-right:calc(0.3vh*var(--ratio));
-    flex:1;
+    height:100%;
     border-top-right-radius: calc(1vh * var(--border-top-right-radius));
     border-top-left-radius: calc(1vh * var(--border-top-left-radius));
     border-bottom-left-radius: calc(1vh * var(--border-bottom-left-radius));
@@ -3218,6 +3228,16 @@ h2 {
     font-fit-mode:shrink;
     white-space:nowrap;
 }
+#game_report_cont .report_scoreboard .team .player_row .rank {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:9vh;
+}
+#game_report_cont .report_scoreboard .team .player_row .rank .rank_icon {
+    width:3.6vh;
+    height:3.6vh;
+}
 #game_report_cont .report_scoreboard .team .player_row .stat {
     width:9vh;
     font-size:1.5vh;
@@ -3594,12 +3614,13 @@ h2 {
     top:0;
     left:0;
     width:100%;
-    height:100%;
+    height:80%;
     background-image: url("/html/images/backgrounds/game_report.png");
     background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
     background-color: #21212B;
+    z-index:1;
     display:none;
 }
 
@@ -3627,7 +3648,7 @@ h2 {
 #rank_screen .rank_progression .rank_icon_cont {
     width:35vh;
     height:35vh;
-    margin-top:15vh;
+    margin-top:8vh;
     position:relative;
     display: flex;
     align-items: center;
@@ -3671,7 +3692,7 @@ h2 {
     display:flex;
     flex-direction:row;
     align-items: center;
-    font-size:8vh;
+    font-size:6vh;
     font-weight:bold;
     font-family:var(--mont-font);
     text-shadow:2px 2px 4px rgba(0,0,0,0.6);
@@ -3713,7 +3734,7 @@ h2 {
 #rank_screen .placement_rank .title {
     text-transform: uppercase;
     font-size:5vh;
-    margin-top:20vh;
+    margin-top:10vh;
     font-weight:bold;
     font-family:var(--mont-font);
     text-shadow:2px 2px 4px rgba(0,0,0,0.6);
@@ -3767,7 +3788,7 @@ h2 {
 #rank_screen .placement_rank .progress_cont .progress {
     flex-direction:row;
     align-items: center;
-    font-size:8vh;
+    font-size:6vh;
     font-weight:bold;
     font-family:var(--mont-font);
     text-shadow:2px 2px 4px rgba(0,0,0,0.6);
@@ -3820,7 +3841,7 @@ h2 {
 #rank_screen .placement_progression .title {
     text-transform: uppercase;
     font-size:5vh;
-    margin-top:20vh;
+    margin-top:10vh;
     font-weight:bold;
     font-family:var(--mont-font);
     text-shadow:2px 2px 4px rgba(0,0,0,0.6);

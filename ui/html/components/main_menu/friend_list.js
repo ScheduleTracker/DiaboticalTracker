@@ -6,7 +6,7 @@ let global_friend_invites_count = 0;
 let global_friends_online_data = undefined;
 let global_friends_online_data_requested = false;
 
-window.addEventListener("load", function() {
+function init_friends_list() {
     let friends_popup = _id("friends_list_popup");
     global_active_friends_list_cont = friends_popup.querySelector(".friends_list_cont.active");
 
@@ -117,7 +117,7 @@ window.addEventListener("load", function() {
             "msg": msg,
         });
     });
-});
+}
 
 function send_friend_request() {
     let cont = _id("friends_list_cont_invites");

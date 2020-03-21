@@ -1,7 +1,3 @@
-global_onload_callbacks_other.push(function() {
-    
-});
-
 function set_party_box_visible(bool) {
     console.log("set_party_box_visible", bool);
     let party_box = _id("party_box");

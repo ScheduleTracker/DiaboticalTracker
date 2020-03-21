@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_game_timer() {
 
 
     const hud_elem = new HUD_element('game_timer', //Name
@@ -49,4 +49,4 @@ global_onload_callbacks.push(function(){
     , "#hud_system_clock");  //Template Name
     hud_elements.push(hud_elem2);
     
-});
+}

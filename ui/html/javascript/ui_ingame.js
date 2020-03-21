@@ -71,10 +71,6 @@ var GameStatesEnum = Object.freeze({
 var my_player_id;
 var my_team_id;
 
-var global_onload_callbacks = [];
-var global_onload_callbacks_hud = [];
-var global_shared_onload_callbacks = [];
-
 var mask_containers = [];
 var zoom_crosshair_containers = [];
 var crosshair_containers = [];
@@ -125,9 +121,7 @@ window.addEventListener("load", function(){
 
 
     // Load all the hud element definitions
-    for (var i = 0; i < global_onload_callbacks.length; i++){
-        global_onload_callbacks[i]();
-    }
+    init_hud_elements();
 
     bind_event('view_data_received', function(string) {
         // data from another view received
@@ -153,7 +147,28 @@ window.addEventListener("load", function(){
                 if ("mmr_updates" in json_data.data && json_data.data.mmr_updates.ranked) {
                     global_show_rank_change = true;
                     renderRankScreen(json_data.data.mmr_updates);
+
+                    let mmr_data = json_data.data.mmr_updates;
+                    if (mmr_data.mode in global_self.mmr) {
+                        global_self.mmr[mmr_data.mode].rank_tier = mmr_data.to.rank_tier;
+                        global_self.mmr[mmr_data.mode].rank_position = mmr_data.to.rank_position;
+                    } else {
+                        global_self.mmr[mmr_data.mode] = {
+                            "rating": null,
+                            "rank_tier": mmr_data.to.rank_tier,
+                            "rank_position": mmr_data.to.rank_position,
+                        }
+                    }
+
+                    updateGameReportRank(mmr_data.mode);
                 }
+            }
+            if (json_data.action == "party-status") {
+                global_self.user_id = json_data['user-id'];
+            }
+
+            if (json_data.action == "get-ranked-mmrs") {
+                global_self.mmr = json_data.data;
             }
 
         }
@@ -162,7 +177,7 @@ window.addEventListener("load", function(){
             let action_data = data.substr(data.indexOf(' ')+1);
             if (data.indexOf(' ') == -1) {
                 action = data;
-                action_data = ""; 
+                action_data = "";
             }
 
             //...
@@ -241,6 +256,11 @@ window.addEventListener("load", function(){
 
         if (manifest) {
             var mani = JSON.parse(manifest);
+            //console.log("manifest",_dump(mani));
+
+            current_match.map = mani.map;
+            current_match.mode = mani.mode;
+            current_match.mm_mode = mani.mm_mode;
 
             if ("lingering_time" in mani) global_game_report_countdown = Number(mani.lingering_time);        
             if (Number(mani.continuous) == 0) global_game_report_countdown = global_game_report_countdown + 5;
@@ -777,14 +797,10 @@ window.addEventListener("load", function(){
     });
 
     // load callbacks from other files
-    for (var i = 0; i < global_onload_callbacks_hud.length; i++){
-        global_onload_callbacks_hud[i]();
-    }
+    init_hud_screen_game_report();
 
     // load shared code between menu and hud views
-    for (var i = 0; i < global_shared_onload_callbacks.length; i++){
-        global_shared_onload_callbacks[i]();
-    }
+    init_shared();
 
     setupMenuSoundListeners();
 

@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_fps() {
 
     const element = new HUD_element('fps', '420', 
     {
@@ -28,4 +28,4 @@ global_onload_callbacks.push(function(){
         })
     });
     
-});
+}

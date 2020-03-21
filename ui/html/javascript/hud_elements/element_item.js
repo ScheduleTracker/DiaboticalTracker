@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_item() {
 
     var hud_elem = new HUD_element('item', //Name
     "",     //Editor Text
@@ -53,7 +53,7 @@ global_onload_callbacks.push(function(){
 
     hud_elements.push(hud_elem);
 
-});
+}
 
 function format_item_name(id) {
     if (!(id in global_item_name_map)) return '';

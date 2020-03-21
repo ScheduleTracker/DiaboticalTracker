@@ -48,7 +48,22 @@ var global_send_region_selection = false;
 var custom_lobby_map_selected = false;
 var global_lobby_init_mode = '';
 
-global_onload_callbacks_other.push(function(){
+function init_custom_modes() {
+    // Add all the modes to the filter select list
+    let modes = Object.keys(global_game_mode_map);
+    for (let mode of modes) {
+        if (!global_game_mode_map[mode].enabled) continue;
+        if (!global_lobby_init_mode.length) global_lobby_init_mode = mode;
+        
+        let opt = _createElement("div", "i18n");
+        opt.dataset.i18n = global_game_mode_map[mode].i18n;
+        opt.dataset.value = mode;
+        opt.innerHTML = global_game_mode_map[mode].name;
+        _id("custom_game_setting_mode").appendChild(opt);
+    }
+}
+
+function init_screen_custom() {
 
     global_customSettingElements = {
         "visibility":       _id("custom_game_setting_visibility"),
@@ -124,21 +139,6 @@ global_onload_callbacks_other.push(function(){
         _id("custom_player_color_15"),
     ];
     
-    // Add all the modes to the filter select list
-    let modes = Object.keys(global_game_mode_map);
-    for (let mode of modes) {
-        if (!global_game_mode_map[mode].enabled) continue;
-        if (!global_lobby_init_mode.length) global_lobby_init_mode = mode;
-        
-        let opt = _createElement("div", "i18n");
-        opt.dataset.i18n = global_game_mode_map[mode].i18n;
-        opt.dataset.value = mode;
-        opt.innerHTML = global_game_mode_map[mode].name;
-        global_customSettingElements["mode"].appendChild(opt);
-    }
-    engine.call("initialize_select_value", "lobby_custom_mode");
-
-
     /***************************
      * SETUP CUSTOM GAME OPTIONS
      */
@@ -360,7 +360,7 @@ global_onload_callbacks_other.push(function(){
                 <div class="lobby_invite" data-id="3">LOBBY Invite 3</div>
 -->
 */
-});
+}
 
 function set_lobby_datacenter(value) {
     if (value.trim().length == 0 || value.trim() == '""' || value.trim() == "''") {

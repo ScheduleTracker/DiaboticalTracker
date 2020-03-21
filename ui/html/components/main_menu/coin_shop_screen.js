@@ -1,8 +1,8 @@
-global_onload_callbacks_other.push(function() {
+function init_screen_coin_shop() {
 
     coin_shop_render_options();
 
-});
+}
 
 
 function coin_shop_render_options() {

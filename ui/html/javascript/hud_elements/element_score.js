@@ -1,4 +1,4 @@
-global_onload_callbacks.push(function(){
+function init_element_score() {
 
     const hud_elem = new HUD_element('score', //Name
     "", //Edior Text
@@ -66,4 +66,4 @@ global_onload_callbacks.push(function(){
     ]
     , "#hud_score");  //Template Name
     hud_elements.push(hud_elem);
-});
+}

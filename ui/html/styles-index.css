@@ -23,7 +23,6 @@ body, html {
     background-image:no-repeat;
     background-position:center;
     background-size:cover;
-    z-index:1;
     display:none;
 }
 #main_logged_out .logo {
@@ -974,11 +973,20 @@ body, html {
     font-size:1.3vh;
     color:#e5e5e5;
 }
-#draft_screen .bottom .countdown {
+#draft_screen .bottom_right {
     flex:1;
+    height:100%;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding-right:8vh;
+}
+#draft_screen .bottom .countdown {
     font-size:6vh;
     text-align:right;
-    margin-right:8vh;
+}
+#draft_screen .bottom .db-btn {
+    
 }
 
 
@@ -5011,32 +5019,30 @@ h2 {
     display:flex;
 }
 .ha_bar_container .bg_container .bar_segment_bg {
-    background-color:rgba(0,0,0,0.2);
-    margin-right:calc(0.3vh*var(--ratio));
+    background-color:var(--bC);
+    margin-right:calc(1px * var(--zero-onevh-rounded) * var(--gap) * var(--ratio));
     flex:1;
     border-top-right-radius: calc(1vh * var(--border-top-right-radius));
     border-top-left-radius: calc(1vh * var(--border-top-left-radius));
     border-bottom-left-radius: calc(1vh * var(--border-bottom-left-radius));
     border-bottom-right-radius: calc(1vh * var(--border-bottom-right-radius));
-    border:1px solid rgba(255,255,255,0.05);
 }
 .ha_bar_container .overflow_container {
     overflow:hidden;
     z-index:1;
-    transition-property: width;
-    transition-duration: 50ms;
-    transition-timing-function: ease;
+    width:calc(1vh * var(--width) * var(--ratio));
+    display:flex;
+    flex-direction:row;
 }
 .ha_bar_container .fg_container {
-    width: calc(1vh * var(--width) * var(--ratio));
     height:100%;
-    display:flex;
     position:relative;
+    margin-right:calc(1px * var(--zero-onevh-rounded) * var(--gap) * var(--ratio));
+    flex:1;
 }
 .ha_bar_container .fg_container .bar_segment_fg {
     background-color: var(--color);
-    margin-right:calc(0.3vh*var(--ratio));
-    flex:1;
+    height:100%;
     border-top-right-radius: calc(1vh * var(--border-top-right-radius));
     border-top-left-radius: calc(1vh * var(--border-top-left-radius));
     border-bottom-left-radius: calc(1vh * var(--border-bottom-left-radius));

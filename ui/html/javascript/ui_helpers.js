@@ -621,7 +621,7 @@ function getRandomElementsFromArray(arr, n) {
     return result;
 }
 
-function renderRankIcon(mode, rank, position, size) {
+function renderRankIcon(rank, position, team_size, size) {
     let div = _createElement("div", "rank_icon");
     if (position && position > 0) {
         if (position == 1) div.classList.add("top_4");
@@ -632,9 +632,9 @@ function renderRankIcon(mode, rank, position, size) {
         div.appendChild(_createElement("div", "position", position));
     } else {
         if (rank === null || rank === undefined || rank == 0) {
-            if (mode in global_queue_modes) {
-                if (global_queue_modes[mode].team_size <= 4) {
-                    div.classList.add("unranked_"+global_queue_modes[mode].team_size);
+            if (team_size && team_size >= 1) {
+                if (team_size <= 4) {
+                    div.classList.add("unranked_"+team_size);
                 } else {
                     div.classList.add("unranked_4");
                 }
@@ -649,8 +649,7 @@ function renderRankIcon(mode, rank, position, size) {
     if (size == "small") div.classList.add("small");
     return div;
 }
-            
-            
+
 let global_rank_tier_lookup = [
     [0,0],  // spaceholder because tier 0 doesn't exist
     [1,5], 
