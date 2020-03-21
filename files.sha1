@@ -2760,7 +2760,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-391b0178ed63a48b34ceff93646a145076fc83ba	diabotical.exe
+c82b32ce23dedc292ccd3b07b0394bded51c61e2	diabotical.exe
 cbeea3eeb54e6dbecf60558b444999cf269c59f1	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -33887,7 +33887,7 @@ bd3736d24c71f9fdaae8dd107d044ade41c7930f	ui/html/avatar/smileyteal.png.dds
 9a84032035af8d72a71dadff3f75397de0c8ad79	ui/html/avatar/smileyyellow.png.dds
 e898e2dd69e758afdb6f93a683301f628b6ec110	ui/html/components/ingame/game_report.js
 f05157e48569d746e5190a0b9b5b8295f21c6cf4	ui/html/components/ingame/join_menu.js
-778aa3088a211bd1e8343c088f2ec8fab957ea1a	ui/html/components/ingame/rank_screen.js
+cbb657af9a547292c97df9500cae74a66743043c	ui/html/components/ingame/rank_screen.js
 dc77346f8fba596ee7221b89c8e61d6e17f554c1	ui/html/components/main_menu/battlepass_list_screen.js
 b48797fb64a3ac8e1eb7f62d3876a23a3112215a	ui/html/components/main_menu/battlepass_screen.js
 70ec2e9f54b109d273fb159592fac324a4bb6865	ui/html/components/main_menu/coin_shop_screen.js
@@ -34229,7 +34229,7 @@ d5558a3f6dbc6fad73e63ed68bf6a17a33411278	ui/html/fonts/veneer.otf
 8a565b6639a2c641b73ee59562c03c32d8fb3071	ui/html/fonts/veneer_italic.otf
 5fc5bc24de0991a2ff0d27ba57a9a40e7402f89f	ui/html/fonts/veneer_italic.ttf
 78d78c4080aee05bae473ef1c832c08a7280b88e	ui/html/hud.bundle.js
-09a3e3d9915b2840d6aa38489c252b7d90c69a19	ui/html/hud.html
+6c32a00004e27e94b0499197f1cf3882972658e4	ui/html/hud.html
 19e2adc1899d26fac9898d7882958342feb78509	ui/html/images/Spark.svg
 542165899a9d5da612fbb8e7912d1eb17cd3f37c	ui/html/images/armor.svg
 a88ca6f1937d73ca626c24b97f0ebd47286bc7f7	ui/html/images/arrow.png
@@ -34577,9 +34577,9 @@ bb26082d5038b5ce9f202924772e11be1fa5fb25	ui/html/javascript/coherent.mock.style.
 0dcf86d74f45bdd8f2471c9c524c89ceca1a24dc	ui/html/javascript/cohtml.js
 92e404420f881987462474e303e490e342e2d7f0	ui/html/javascript/hud_elements/element_armor.js
 6c180d539b4f22234c27cd2a78ee740f9e8fc90c	ui/html/javascript/hud_elements/element_armor_bar.js
-1622e328dc585e598ed9077d1ddb66c34ce24f41	ui/html/javascript/hud_elements/element_chat.js
+103ba9fd13c9940f96d9098b6009cc8c7a6745d8	ui/html/javascript/hud_elements/element_chat.js
 0baf159b2188abe1690ded8466d8e1be236d408b	ui/html/javascript/hud_elements/element_coins.js
-001a04ad3a04fcf5fabefb0811baa3cd98e7a665	ui/html/javascript/hud_elements/element_current_ammo.js
+8f2a861af6741165d6c0b91c8fb4f97c21db62b8	ui/html/javascript/hud_elements/element_current_ammo.js
 18325c409f15b354ca6141dde565a01d6e54e7df	ui/html/javascript/hud_elements/element_current_weapon_icon.js
 5c56f780917c46c6150c176d508fca40da77c124	ui/html/javascript/hud_elements/element_dodge.js
 e9ce42eb301482cdd517823b8bba312f0b967aea	ui/html/javascript/hud_elements/element_flag.js
@@ -34628,8 +34628,8 @@ a639fa10ac0eb53da7d6c95cba74c9d63466f4d2	ui/html/javascript/jstree/themes/defaul
 90c1d234f480f543533f124a8079e5e0d03c3bcf	ui/html/javascript/moment.min.js
 8c8e0bc0b7ea99fedd7ae667834be60101867408	ui/html/javascript/spectrum.js
 a84138605e1dba56c8b44d59317d6a3af716f794	ui/html/javascript/spectrum_custom.js
-5f816221c962568196b41c5db23850fdfe4c4725	ui/html/javascript/ui.js
-18e7645e0dca8739b73028ba960f1553ef938c9c	ui/html/javascript/ui_anim.js
+b4d6f87829298667c70e79586d919cb789f4dc73	ui/html/javascript/ui.js
+65af777adc23b66a34f76bfa65e239317f319c30	ui/html/javascript/ui_anim.js
 aaa6b0c3cf1486d4b388b8557c05b1582be520ac	ui/html/javascript/ui_br.js
 9100c32beb38557d418a516ef5ad8dbfee8445c3	ui/html/javascript/ui_contextmenu.js
 129059c5423071b77d345a29bc6adec85ac0e832	ui/html/javascript/ui_customgame.js
@@ -34639,7 +34639,7 @@ c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
 ea7553cd495d8b9e6b06cf728fb85d9bd2fcd601	ui/html/javascript/ui_fov.js
 66195b73bc588656e526b4d469fa355b3aec1369	ui/html/javascript/ui_helpers.js
 c8b6072e36324f75ceba75f0452dcfadb3eae17a	ui/html/javascript/ui_hud_creator.js
-d3e5535c49d879f72be7b83238ac34d917867a0b	ui/html/javascript/ui_hud_editor.js
+04617933292361356c19fde43ae3c01409edd080	ui/html/javascript/ui_hud_editor.js
 2f920f99c236fe7d9191bb46c8cfd4591de0cfdd	ui/html/javascript/ui_ingame.js
 439af0cb72c44dce9b51ec83061dbfbd6118d02f	ui/html/javascript/ui_mouse.js
 888be6f8df6b06fe4aae0f0a956bd07e39b15378	ui/html/javascript/ui_ms.js
@@ -34879,8 +34879,8 @@ fa61a858cc85ced2f5d90dee0a37e65a84902adb	ui/html/ranks/200x200/weeball_loser.png
 f2fd1caf67315d037ea44b86cfabb790d8d13fb5	ui/html/ranks/200x200/weeball_winner.png
 b541dadfc60b72a7a4cab17f080ff67692aedd16	ui/html/ranks/weeball_loser.png
 faf695fba4347262911ad847c658f1aab9adb401	ui/html/ranks/weeball_winner.png
-9087cde30d2caf1515d28d9cf71f58b0490160b1	ui/html/styles-hud.css
-1edc5af513142df76af5423f4027e339d7c6ea51	ui/html/styles-index.css
+e985e706c82ad39966595e9bb9f021a33ab40c56	ui/html/styles-hud.css
+ef669568b490bcfcb80ebd7b6453cce97cc1ad37	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
@@ -34909,7 +34909,7 @@ d11246ea894450205f2ba269ddfb73ddb7236581	ui/html/translations/translation-pt-BR.
 84def22752081e19826cd5a8d05ce0da04799d9f	ui/html/translations/translation-ru.js
 560b156db5e1797071007e2f0ff378c696ca5708	ui/html/translations/translation-zh-CN.js
 187869298504e958ec01d10c40a15855687b315b	ui/html/translations/translation-zh-TW.js
-ced4fd1bdd77af883a5fdff8ad58030318928a45	ui/html/ui.html
+bc59af4c6242c76c8d5b66fecb225673917538df	ui/html/ui.html
 18c61eaa43f0b2d2d56cabd10bfb4191336debf7	ui/html/vendors/anime/anime.min.js
 104a6b83cc91c7e87b2581bcbffe225d4262219e	ui/html/vendors/chartjs/_Chart.bundle.js
 388ec557ec1e260c59ce61d819077cb52949bd02	ui/html/vendors/fetch.umd.js
