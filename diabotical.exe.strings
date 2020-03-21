@@ -1,29 +1,33 @@
+` `@
 `_^[
 `_^]
-`:+@
-`/`@
-`'`@
-`@`@
+`"`@
+^;;@
 ~?&)
 ~&@"
 <'`+
 <#<*
-=^$>
+=~ @
 ===========
 ===================
 ========================
 =============================
 =====================================
 =========== 
-=>;=
-=?(:
-=/	>
-={`+
-=}&*
-=*}?
-=\(@
-=+;?
-|`_@
+=|}<
+=;}*
+=:/?
+=:$@
+=/~<
+=[*\
+={;<
+={]?
+=}_<
+=@(>
+=*(>
+=\)@
+=+@?
+=	@<
 |?(;|?
 |/-\
 |/	.
@@ -45,9 +49,10 @@
 |\\$@
  ^.`
  ^][
- <?@
+ ~;@
  => 
  = [
+ >>@
     
      
       
@@ -64,11 +69,16 @@
  _^]
  _][
  !"#
+ ?>@
+ /=@
  //--------------------------------------------------------------------------------------------------------- 
+ .=@
  (?)
  {	 
+ }?@
  *""
  \!@
+ #@@
  	  
  	   
  		 
@@ -76,20 +86,21 @@ _^[]
 _^][
 _ _/
 -~??
-- (?
 --------------------------------
--)|-
--\(?
+-(?,
 ,~.	
 ,=@"
+,>,@
 , ,^,
 , ,"&$,&,(
+,.;;
 ,",$
 ;<=>
 ;|$$
 ;;.}
 ;],|
 ;}(}
+:;;@
 :???
 :@"	
 :&"(
@@ -98,10 +109,7 @@ _ _/
 !?[_ ?
 !#!/
 !	@=
-?`-`@
 ? ?(?-
-/=,/
-/-=*?
 .` (
 . ,"
 ' },
@@ -113,21 +121,21 @@ _ _/
 ")' 
 ")' >
 "#'#
-(^`@
 (~ !
 (~*!
 (<*~.
-(=~`
+(=\,)
+(>`@
 (|$`
 (|$`@
 (|$ 
 (|$ ;
 (|$@
 (_^][
+(!`@
+(]`@
 (\$`
 (\$ 
-(%!}#
-(%.&*
 )|$`
 )|$ 
 )|$@
@@ -139,26 +147,18 @@ _ _/
 {<?\
 };]_
 }&@<
-@<?@
-@=?@
-@>>@
+@=>@
 @_^[
 @_^]
 @_][
-@/=@
-@.=@
-@(`@
+@;;@
+@:`@
 @(>]
-@];@
 @@@@@@@@@@
 @$!@
-@*`@
 @#!@
-@%`@
 $`<`
-$<;@
 $,&((,*,,
-$.=@
 $(&(( *
 $)?(
 $$$$
@@ -166,8 +166,6 @@ $$$$$$
 $$$$$$$$$
 $$$$$$$$$$$$$$$$$$$
 $	$	
-*<;@
-\<?@
 \|$@
 \$`;
 \$ _
@@ -179,18 +177,15 @@ $	$
 \\$ 
 \\$(
 \\$\
-&>,@
 & ,"
 &&&&&&$$$$$$$$$$$$$$$$$$$$
 #'#:
-%.|>
-%' /
-%"[=
 %[^=] = '%[^']'
 %[^=] = "%[^"]"
 %[^=] = %[^;]
 %[^=] = %[;]
 %[^=] %[=]
+%+/-
 +'+.
 +\$(
 	!	%
@@ -206,7 +201,7 @@ $	$
 																																												
 `:0>
 <0|,
-=0,*
+=0>,
 |?\0 
 |?\0 >
 |$0;
@@ -230,17 +225,16 @@ $	$
 \$0+
 \\$0
 \0 >%
+%{[0
 %	0>
-0<>@
-0 `@
 0_^[
 0_^]
 0_][
-0,`@
 0,(.
 0$!@
 0\`@
 0&|_
+0%`@
 000000
 0,0,0,0,0,0
 00000000
@@ -257,8 +251,8 @@ $	$
 0.06
 0.0625
 0.0697941
+00C@
 .00cfg
-00D@
 ^00ff00
 ^00ffff
 ^00ffff* Entity renamed to 
@@ -273,6 +267,7 @@ $	$
 0123456789ABCDEF
 0123456789ABCDEFOverflow in png_memcpy_check.
 #015
+=0[2
 ..(02.|
 }02~
 \$02
@@ -281,11 +276,14 @@ $	$
 ,*$,,.(0,2,4
 (,$.$0&2&406
 @0,2(4 6
+0(2&4"6(8 :(<&>(@ B
 ` `"`$`&`(`*`,`.`0`2`4`6`8`:`<`>`@`B`D`F`H`J`L`N`P`R`T`V`X`Z`\`^```b`d`f`h`j`l`n`p`r`t`v`x`z`|`~`
 .$0.2,4&6(8v:
 0.25
 0..255
+026@
 0.28
+029@
 #%02x%02x%02x
 %02x%02x%02x
 #%02X%02X%02X
@@ -295,39 +293,43 @@ $	$
 02X4
 |$03
 \$03
-0&3@
 03<?
 %0.3f
-0-3I
+% 04
+04<@
 ' '$'(','0'4'8'<'@0
 ( ($(((,(0(4(8(<(@0
 %04d
-04D@
 %04d: scrollable region
+`	0|4I
+0|4I
 050s0
-=057
+059@
 !)059=@BEGIKLNPRUWY[\^`begiklnpruwy{|~
 0.66666666
 %.06f ns
 .".08
 ]0]8
-0{8@
-@08~33I
-08~33I
-0@85M
+@08~
+0;8@
+0#8@
+08`@
+0@85
 08a8ff
  (08@HPX`hpx
-08v33I
 %08x
 %08X
 -%08x%08x
 |$0@8yft
 |$09
-0_9@
+0 9@
+0#9@
+0%9@
 0.965
 $09LWiv
 `*`0a
 @'@0a
+=0%A
 |$0A
 (}0A
 (\$0A
@@ -379,24 +381,20 @@ $09LWiv
 0A_A^A]A\_^[
 0A_A^A]A\_^]
 0A_A^A]A\[
-=0ae
 ??0aiMaterial@@QEAA@XZ
 ??0aiNode@@QEAA@XZ
 ??0aiScene@@QEAA@XZ
 0|aM
+-0aR
 |$0B
 ??0?$basic_ios@DU?$char_traits@D@std@@@std@@IEAA@XZ
 ??0?$basic_iostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@@Z
 ??0?$basic_istream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z
 ??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z
 ??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAA@XZ
-0BC@
 0B_u
-(%0c
 |$0C
  0C@
-0`C@
-0<C@
 0cn1
 ??0?$codecvt@_WDU_Mbstatet@@@std@@QEAA@_K@Z
 |$0D
@@ -406,18 +404,12 @@ $09LWiv
 )\$0D
 @0D;
 \$0D
-0 D@
-0/D@
-0#D@
-0+D@
-0D`@
 0D;>
 ]0D8
-|$0D9=6<B
+|$0D9=f,B
 #0dffff
 	0dl
 0!e 
-0e`@
 |$0E
 )|$0E
 )}0E
@@ -457,7 +449,10 @@ $09LWiv
 \$0f
 %.0f
 %.0f%%
+0f`@
 |$0F
+-0&F
+0F`@
 %.0f/%.0f
 %.0f/%0.f
 )\$0fA
@@ -470,10 +465,10 @@ $09LWiv
 |$0fE
 |$0fff
 0(F(H(J.L(N.P0R
-.0fJ
 [0fL
 0: Flip fullscreen, 1: Exclusive fullscreen, 2: Borderless fullscreen, 3: Windowed
 %.0fx%.0f
+0G;@
 \0 >gM|
 ~0H+
 |$0H
@@ -494,6 +489,7 @@ $09LWiv
 \$0H+
 0|#H
 0_][H
+0h8@
 ~0Hc
 |$0Hc
 {0Hc
@@ -502,6 +498,7 @@ $09LWiv
 0HcY
 0H;|$h
 |0HH
+.0hJ
 |$0Hk
 \$0Hk
 |$0H;U@t
@@ -516,11 +513,9 @@ $09LWiv
 \$0I;
 +\0I
 0|(I
-0@<I
 ??0IAllocator@cohtml@@QEAA@XZ
 ??0IAsyncResourceHandler@cohtml@@QEAA@XZ
 }0Ic
-(=0IC
 0I+D
 ??0IFileSystemReader@cohtml@@QEAA@XZ
 @0I+@(H
@@ -531,16 +526,13 @@ $09LWiv
 ??0ITextInputHandler@cohtml@@QEAA@XZ
 ??0ITextTransformationManager@cohtml@@QEAA@XZ
 ??0IViewListener@cohtml@@QEAA@XZ
-.0	J
 "."0J
 \$0J
 0J,@2.4j648
->0jK
-0k;@
->&0K
+0>jLL
+..0K
 \$0K
 0K0O0S0W0[0_0c0g0k0o0
-0kA@
 !0Km
 |$0L
 (\$0L
@@ -549,47 +541,37 @@ $09LWiv
 \$0L
 \$0L+
 ^0L3
-0l4I
 0L9`
 }0Lc
 0L;f
-.0lK
 ??0_Locinfo@std@@QEAA@PEBD@Z
 ??0_Lockit@std@@QEAA@H@Z
 |$0M
 |$0M;
+(=[0M
 }0M+
 @:0M
 \$0M
+%'0M
 0[M@
 ??0MiniDmpSender@@QEAA@PEB_W000K@Z
 ??0MutexImpl@shdfnd@physx@@QEAA@XZ
 "*0,N
-.0NL
-0O;@
-0p=@
--0pK
  0@P`p
-0q;@
+0Q`@
 0|qA
--0qR
+=0Qe
 |$0r
 \$0r
-0r`@
-0R8@
 0	+R+f+
 ?0RFP
-.0RL
->0SJ
 ??0SListImpl@shdfnd@physx@@QEAA@XZ
 ??0SyncImpl@shdfnd@physx@@QEAA@XZ
 >0|t
 |$0t
 \$0t
 ,0T!
-0T_@
 0T	@
-0tA@
 ??0task_continuation_context@Concurrency@@AEAA@XZ
 0tbI
 \$0t"H
@@ -604,7 +586,7 @@ $09LWiv
 \$0u
 \$0u_
 (|$0u3A
-0u3I
+0u7@
 |$0u-A
 0u	H
 |$0u,I
@@ -614,7 +596,6 @@ $09LWiv
 \$0w
 <0|x
  - 0x
-0X;@
 0x%02X%02X%02X
 0x%02X%02X%02X%02X
 ((0-x) * -2) + 1000
@@ -622,17 +603,14 @@ $09LWiv
 0XM@
 0YO@
 .@0z
-0zA@
 0ZM@
-`1`@
 ^1^;
 <1<:
-=!&1
-=?#1
+={^1
+-{\1
 ;(;1;?;];
 /1,'
 .(.,1
-(1{`
 @1!@
 *%*1
  	//10 
@@ -654,7 +632,6 @@ $09LWiv
 1050,1050,1050,1050,1050,1050,160,160,160
 10646
 1.0.6 or earlier
-=108
 1100
 110,15,120
 1,1,0.25
@@ -678,11 +655,11 @@ $09LWiv
 127.0.0.1
 1.2.8
 12800
-=12Q
  	//13 
 133.333
 133.33333
  	//14 
+-1'4
 14/88
  	//15 
 1500
@@ -696,68 +673,71 @@ $09LWiv
 188.122.71.68
 )18>BFJMPSVX[]_acegiklnpqstvwyz{}~
 18c7ff
-(-18E
+`19@
+(1]a
+(1$a
 1a1e1
 1A26b
+=1AG
 ??1aiScene@@QEAA@XZ
 1}AM
 1ANYckrx~
 !1AQaq
 1ASdu
  // 1a. Void Cannon 
+(=1b
+(1-b
+(1"b
 ??1?$basic_ios@DU?$char_traits@D@std@@@std@@UEAA@XZ
 ??1?$basic_iostream@DU?$char_traits@D@std@@@std@@UEAA@XZ
 ??1?$basic_istream@DU?$char_traits@D@std@@@std@@UEAA@XZ
 ??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UEAA@XZ
 ??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ
  // 1. Blaster 
-(1)c
 1: Clan Arena mode, 2: Pure wipe out mode
 1CMR]c
 ??1?$codecvt@_WDU_Mbstatet@@@std@@MEAA@XZ
-()1d
+(1%d
 1D+D
+(=1e>
+-&1E
 ~1E3
 -1e+9999
 1e+9999
-(1ed
+(1Ed
 ??1ExtGroupTaskManager@Blast@Nv@@MEAA@XZ
 ??1ExtSyncEvent@Blast@Nv@@UEAA@XZ
 %.1f
-(1fa
 ??1facet@locale@std@@MEAA@XZ
 }1Hc
 ~1HcD$8H
+(1Hd
 ??1IAllocator@cohtml@@UEAA@XZ
 1. I am selectable
 ??1IAsyncResourceHandler@cohtml@@UEAA@XZ
 }1Ic
 ??1IFileSystemReader@cohtml@@UEAA@XZ
-^1IJ
 ??1ILogHandler@Logging@cohtml@@UEAA@XZ
+=1iS
 ??1ISyncStreamReader@cohtml@@UEAA@XZ
 ??1ITextInputHandler@cohtml@@UEAA@XZ
 ??1ITextTransformationManager@cohtml@@UEAA@XZ
 ??1IViewListener@cohtml@@UEAA@XZ
--1<J
-(1jb
-(1jd
+-1,J
 1Kay
-=1kS
 1}.L
-(1ld
 ??1_Locinfo@std@@QEAA@XZ
 ??1_Lockit@std@@QEAA@XZ
 ??1MiniDmpSender@@UEAA@XZ
 ??1MutexImpl@shdfnd@physx@@QEAA@XZ
-(1nb
 1>O\kw
 1pytt
 1PYTu
-=1QG
+=1"Q
 1r"?
 1!Rwp
 1?{s
+=1[S
 ??1SListImpl@shdfnd@physx@@QEAA@XZ
 ??1SyncImpl@shdfnd@physx@@QEAA@XZ
 }1T;0
@@ -772,11 +752,8 @@ $09LWiv
 1w-!_!@
 1wsHp
 :1X:
-=1yS
-(1Zd
 `*2`
 <>>2<
-=+2\
 |$ 2
 |$,@2
 |$@2
@@ -792,14 +769,13 @@ $09LWiv
 	$	$	?	2	
 	2	?	
 2"*%
-^=2)0
 	20 
 2 0" $
 2000
 200x200
 #202020
 204800
-`20]8
+@206+
 20ffff
 %20s	[%s]
 `20T
@@ -812,87 +788,90 @@ $09LWiv
 23.8426
 23c841
 "2$4\
-2(4&6"8(: <(>&@(B D
 2\4$8v:
 (2<4Z
 256000
 25}E
 25ff20
+@26@
 266.667
 -.-2-6-:->-B-F-J-N-R0
 &2&6&:&>&B&F&J&N&R&V0
 %2%6%:%>%B%F%J%N%R%V0
+=2%7
 27.5
-=_28
 "%/28;=#$019:>?11 4 22 44 44 22 444444
 285.93
 #28cdcd
 28":z<x>
 2a\|
  // 2a. supershotgun 
+=	2B
+=2$B
 "2BRbr
 2C2L
+=2C5
 "2CScs
 2CZu
 <*>$@2>D<$>
+\-2d1
 |2E;
-^2eK
 %.2f
 2FFCI
 :2FFCu
-=2G7
+=2h_
 2H9N u
 2Hax
 |2Hc
-%2i?
+%2i(
 $2I+
 2. I am selectable
 ??2IEventHandler@cohtml@@SAPEAX_K@Z
 #2=IVanw
-%2<J
-=2J6
+.2	J
+%2,J
 2j(l
 2%k_
 	2	L	
 2L4.6 8
-.2lI
 ,2M+
 2nd layer of physics acceleration.
 2nd layer of physics friction rate.
 2nd layer of physics max speed.
-=2,O
 2Ogx
 $2?O_n~
 +2_p
 2p"	
 `2P=!
-.2PJ
 ??2Property@cohtml@@SAPEAX_K@Z
 2@Q	
 2q2z2
 $2$r$
 $2&r()
+=2R7
 "2$RJ
+.2RL
  // 2. shotgun 
-.2SI
 2/SOE3
 2	t	
 2tkH
 2u"M
  // 2. Void Cannon 
 2w	H
-=2x_
 2:x<^>
+=2X*
 %.2X
 %.2X-
 <$3|$
-=_3@
-=&3@
+=)/3
+=[3?
+=&?3
 |$`3
 |$ 3
 |$(3
 |$@3
-(3`@
+ 3`@
+-.,3
 )<$3
 )|$ 3
 \$`3
@@ -903,7 +882,6 @@ $2&r()
 \$@3
 \$$3
 \$\3
-%3\?
 (3?0
  // 300 min switch times added for animation 
 301.993
@@ -925,29 +903,21 @@ $2&r()
 ?333?333?333?
 333?333?333?333?333?
 ?333?333?fff?
-`>33I
-^33I
-~33I
->33I
-.33I
-@>33I
-	33I
 >33S
--34\
 346$Z\
 3600
 36336ee97ec543bbae85abaca618182b
 !&.37<
-=37d
 ~3~8
-=]38
 3.81
-(!3a
+=3+A
 %3AObq~
  *3B
 '3<CIOSW[^adfikosvy|~
  3CQ`p
 #3CScs
+=3'd
+=3{D
 ~?3e
 3}?e
 3$EE
@@ -959,62 +929,60 @@ $2&r()
 3H9u
 "3Hau
 }3Hc
-`-3I
 3. I am not selectable
 ??3IEventHandler@cohtml@@SAXPEAX@Z
+.>3J
 	3l0
 3L$0}
 !3Mt
 3|mU3
 "3=N\j~
 %3;NYk{
-3P8j
+3P(j
 ??3Property@cohtml@@SAXPEAX@Z
 |3?q`
+-3Q5
 {3>R
 3Rich
 (?3s'?
  // 3. shaft 
 3T$8I
 3 (tab skip)
-(%3tN
 @3V^eikjf_WE
+.3VL
 ?(3w
 3ZS<
-=]4=
-=$\4
-=*!4
+=}!4
 | |4
  ;~4
+-!&4
 :@*4
+(4`@
 )*)4);
 *!=4
 \$4;
 \\$4
 &$(4*
-%;!4
-4<?@
-4.=@
+4;;@
 *>40
 #404040
 406p8
 &40D^FD40D^FD40D^F~B
 #42fc42
 |$43
+-=43
 (4$3
 \$43
 4%43
 4500
+=46:
  '-46
 4*6(8(<
 46E3
 4,6x8
 }4:7
-=*48
-=&48
 494.773
 49fD
-="4A
 |$4A
 _4A;
 \$4A
@@ -1023,10 +991,8 @@ _4A;
  *4ajqsrkdZR(A
 4:A;p|vGH
 {4A+v0A+~4
-=$4B
 :4	/B/F/J/N/R/V/Z/^/b0
 |$4C
-=4$d
 |$4D
 |$4D;
 \$4D
@@ -1039,7 +1005,6 @@ _4A;
 $4DTdt
 4DXgu~
  4	E]
--*4E
 )4$E
 \$4E
 4'E;
@@ -1062,10 +1027,11 @@ $4DTdt
 ??4ExtSyncEvent@Blast@Nv@@QEAAAEAU012@AEBU012@@Z
 (4$f
 %.4f
+-4(F
 4f6@8&4@:,<L>
 `4fA
 4F]t
-=4|G
+%4G?
 4G4Pe
 4@G8d
 |$4H
@@ -1077,31 +1043,34 @@ $4DTdt
 4<H+
 4$H;
 4?HQ
+`|4I
 |$4I
 \$4I
 4. I am selectable
 4$Ic
 4j4r4}4
 %4?K\fw
-.4KJ
 ~4L+
 |$4L
 )4$L
+=4L3
 |$4L9=
 ~4Lc
+=4lG
 |$4M
 4$M;
 	4	N	\a
--4oU
-4q;@
+=4O3
 4QfD;t$0t"
-.4rI
  // 4. Rocket Launcher 
 4S=?8_=i
 4< t
 4 (tab skip)
 4$tRA
+=4U	
+-4_U
 4 uH
+=4v>
 )4$v
 4v65
 4v6H
@@ -1117,314 +1086,284 @@ $4DTdt
 ^~4z-
 4ZM@
 ^|?5
-=,	5
 =!=5
-=5;=
+=#%5
 >5^:
  	//5 
 ??5^
-(5]{#
-% {5
-%"5=
+(5~`
+(5):\
+\5{/@
 +!+5-
-5~.#
+5<=:
+5=":
 5|(~
-5 ][
-5,@?
-5!$-
-5!	*
-5/#=
-5(:*
-5{*?
-5@&*
-5$|#
-5&*:
-5	^+
+5_*\
+5:/?
+(50-)
 5000
 500x500
-5]0F
-50<J
-50P4
+50,J
 51200
-(5	1N
-51WH
-(5^2\
-5/2\
-5%~2
-5#29
+516?
+51GH
+5+1L
+5|1Q
 52F*
-=52Q
-(53[/
-53qV
-5 !4
-54f3
-54i*
-54qV
+5!/3
+5]-3
+53aV
+(53c
+=+54
+54+8
+54aV
 5 5'
-5:'5
-5("5
-5[,5
+55%4
 5_5i5p
-55yP
+55iP
 5~(6
-56~?
-^5$6J
-56qV
-56Xe
-=#57
-5~7+
+5-\6
+56aV
+56He
+56PA
+(575\
 575A
-(57b
-5]7F
+57I?
 57oG
-5=;8
-586S
-(58D\
--58F
-58oU
-58sf
- 59@
-5+9/
+5`7R
+(58_)
+5/,8
+5\8?
+58cf
+58&S
+58_U
+@59@
+59BJ
 5	9c
-59_e
-5'9P
-59RJ
-59`V
-(5 [A
-(5A|#
-5#|A
+\5'9F
+(59)N
+59Oe
+59PV
+59R@
+(5/a
+(5\a
 #5a811e
-5%aC
-5acV
-5ae?
 (5/AO
-5>aV
-5?aV
-5@aV
-5_]B
-5&b2
+5@AP
+5aSV
+(5,b
+(5B<\
+5##B
+5b"9
 (5b9O
-5B~A
 ??5?$basic_istream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@AEAI@Z
 ??5?$basic_istream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@AEAN@Z
 ??5?$basic_istream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAVios_base@1@AEAV21@@Z@Z
-5bcV
-5?BQ
-5bRQ
-(5[c
-(5%c
-%_5C
-5C.B
-5CCM
-5CL5
-(5cP)
-5~cV
-5}cV
-5cyh
-(5'd
-(5<D\
-5\DK
-5DlA
-5DO:
-5Dy<
-5>e?
-5e2	
-5E_6
-(5ea
+(5bC)
+5BC@
+5bSV
+5B{Z
+(5{c
+5',C
+5.CF
+5%CF
+5cih
+5C$P
+`5D@
+ 5D@
+%5D+
+(5D6E
+5;dC
+5dk#
+5|e?
+5$=e
+='5E
+5? E
+5EaV
 5EEI
-5EKA
+=5eH
+\5E>L
+(5/EN
 5EPX_f
-5EqV
+5[EQ
 %5EUeu
-^5f,*
-5{f?
-5f<#
-5F51
+5_[f
+5/`f
+5+$F
+5F</
+(5(F0
 +5FSgr
-5'G5
+5fv?
+5+FY
+5/@G
+5G^\
+5G-;
 5G5S
-5GaV
 ?5=G_{b
-5gf@
-5g=F
+5(GD
+(5gI1
 5gib
-5gj<
-5g[M
-5Gn\
-5`GR
-5GxU
-5`^H
-5h:8
-5HaV
-5Hif
-5?HM
-5>HW
-5HW/
+5GQV
+(5h<\
+/5%HP
+5HQV
+5HYf
 5. I am double clickable
-5i$M
-5J\-
-5?j5
-/5JPP
-5\k*
-=5>K
-5({K
-5K`;
-5K{=
-5k]5
-\5K7@
-5k7H
-5_kf
-5(KG
+5?idle_floor
+5&Ie
+5Ie6
+^5(iM
+(5\j#
+^5$&J
+5J:5
+5:K6
+5KA0
+5k'H
+5kiV
+5kl.
+5Km5
 *5KS
 -5?KYks
-5kyV
-5L9Q
-5l_A
-5Lu?
-5m&?
-5m6Q
-(5M73
-5Mb<
-5$Me
-5MI=
-5MjA
-5mKE
-5[mM
-5Mm3
-5>,N
-5n)c
-5Ne?
-5NXM
-5_o<
-5o!,
-%5O?
-5o1K
-5O5P
-(5Oc
-(5(OC
-5o\e
-5OIS
-5OR5
-5p{-
-5p},
-5/pf
-5/PG
+(5l<\
+5	LQ
+5LQW
+- 5M
+5 M[
+5m;E
+5mGA
+5m&Q
+=5mS
+5mwS
+5.N?
+5n.2
+5Ng<
+5`NH
+5n$N
+5nU?
+5n@W
+5`o!
+5O9S
+5oLe
+5o@M
+(5O=N
+5O%P
+5o:Q
+5~pA
+5~PM
+5PN(
  // 5. PnCR 
-5Pz#
-5"q<
-.5}.Q
-5{{Q
-5+&Q
-5Q*@
-5q63
-5Qa0
-5q&F
+(5PSA
+5>pT
+=5"Q
+5)Q$
+5QaV
+5QFd
 5?q=J?
-5QpR
-5QqV
-5QVd
-5"qW
-(5^s]
-5s-:
-5s!\
-5s}=
-=5}S
-5S?0
-(5S E
-5.SF
-5%SF
+(5Qk#
+5Q`R
+5Qv_
+5>QV
+5?QV
+5@QV
+%5r4
+5%r4
+5rh;
+5R	H
+5Ri<
+5RiW
+5rj2
+_5+RL
+5rnA
+5{s=
+5SD/
+5SlA
+5s;M
+5SM(
+5"sO
 !5@Su
+5~SV
+5}SV
+5$t3
 5t8H
-5TcO
-^5'TP
-5tUY
-5tyh
-5U#-
-5@U5
-(5u[E
-=5uH
-5umT
-5uq*
-5[UQ
-5_v;
-5-v;
-=\5V
-=5V?
-5V_=
-5v^e
-5?vector_x
-5&vF
-*5VL3
-5VM0
-5+VY
-5*w2
-\5W9F
-5=WA
-5W#I
+5tdA
+5tEY
+5tih
+]5,TM
+5TSO
+5~U?
+5u;A
+(5Ua
+5Ub;
+5UQC
+5Ut-
+5vNe
+5VnF
+5	~W
+5W1P
+(5}wE
+5W~e
 5wJe
-5w%K
 5w!L
-(5wR)
-5wz<
-5X.?
-5x3B
-5xFF
-5x:J
-5XOe
-5xVe
-5xy2
-5xZe
-5y):
+^5WLP
+5wpU
+\5wu#
+5>x,
+(5X`)
+5>X[
+5XCG
+5xD6
+5X?e
+5xFe
+(5XGC
+5xJe
+5xm5
+5XsK
 5y?4
-5&Ye
+5;y5
+5Y<6
+`5Yd
+5Ydf
 5#yj7
-5Ytf
-(5-z#
+5Y~W
 *?5z(?
-5	Z@
-5[Z2
-5z}A
-5z-F
-5ZrC
-5Zx<
-`.6@
-`*6@
+5}Z<
+5}ZA
+5zh;
+/5zHP
+5ZX*
+`!6@
 ~6? 
-=={6
+=6;?
  6")
-:  6
 }6};
-@ 6@
 @-6@
+@!6@
+@/6@
 @6!@
-%6;=
 6~_'
 6000
 60,-5,-10,-27,0
 #606060
-60 J
+60!J
 ".60T
 6"*1
 62,-21,-2,-22,-6
 62,-21,-2,-25,-6
 62.5
-633I
-`633I
-(633I
+=62B
 646B
-=647
 6"4:8
-64;K
+64KJ
 6*6.6[
-6\6K
 6&8$:
-68%J
-6$8K
+68cI
+6(8K
+68LL
 (6<8Z
-69+K
+=6!9
 |$6A
 ,6A;
-=6a7
+%,6A
 #,6AMZhw
 ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@G@Z
 ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@H@Z
@@ -1440,94 +1379,86 @@ $4DTdt
 ,6,:,>,B,F,J,N,R,V,Z0
 ,6bP
 6bP&
-6CcK
-)6cd
 6D8f
-6D!J
-6dMJ
+6D"J
+6dLJ
 \$6E
 ~6E3
 6E81uPI;
 6E8%9
 &6EUdt
 <6fB
-6f_I
-6,FI
 6f;sD
 &6FVfv
 %@6G
 6GQ^h~
-6h9K
-6HEK
 6HiL$ 
-6&hK
-6H<K
-6HoJ
-6hRI
-=6I7
+6h:K
+6\HL
+^==6I
 ~6Ic
 <6Ic
 	 	$	6	I	Y	h	s	z	
 $^(\*6(J
 $.$6J
-6$$J
-6|_K
-6|:K
-6 :K
-6,>K
-6%*K
+6$%J
+`6\jI
+6J+L
+`6|^K
+`6|*K
+6`=K
+6|;K
+6 ;K
 6K6S
 6?k 6?t
-`6('L
-6|@L
-6l#J
-@6L,K
+6\kI
+@6\KL
+6.lI
+6l$J
+6L@L
+6LRI
 6Ltv6
-.6mK
-=6nF
-`6\NI
+6LZL
+%6mZ
+-6nA
+`6\NJ
 ^6o}
 }6;O
-6O;@
 6o6v6
-6pBJ
-.6rK
-6SAJ
+6O_K
+`6,PI
 6s?fBbEcJYG[I[NYVP\B]@f;g<h<u4{,
-6t=K
+6T9K
+6t>K
 6u	@
-6U}I
-6,UK
 >6uu
 6uu?>
-6UUK
 >6uu?L
 >6uu?uj
 6uu?uj
-6<wI
-6-XJ
-6X"J
-6xjI
+6v_I
+6x2K
+6x J
+6X#J
+6ycI
 6z0|
-=7;=
-\=)7@
+={%7
 70,-10,140
 70R+
+-,73
 736 Error creating render target view. Code=
-%7@4
 +?78+?
 7890
 7~8A
 79]%
 797k7
 7a874e
+%7AQ
 >7>Ba
 #7dd82b
 }7D;G
 7D)}<I
-=7dY
 _7?e
-(=]7E
 )7ESbp
 ??_7ExtGroupTaskManager@Blast@Nv@@6B@
 ??_7ExtImpactDamageManager@Blast@Nv@@6B@
@@ -1544,36 +1475,33 @@ _7?e
 7H9G
 }7Hc
 7])#######hV0qs'/###[),##/l:$#Q6>##5[n42>c-TH`->>#/e>11NNV=Bv(*:.F?uu#(gRU.o0XGH`$vhLG1hxt9?W`#,5LsCp#-i>.r$<$6pD>Lb';9Crc6tgXmKVeU2cD4Eo3R/2*>]b(MC;$jPfY.;h^`IWM9<Lh2TlS+f-s$o6Q<BWH`YiU.xfLq$N;$0iR/GX:U(jcW2p/W*q?-qmnUCI;jHSAiFWM.R*kU@C=GH?a9wp8f$e.-4^Qg1)Q-GL(lf(r/7GrRgwV%MS=C#`8ND>Qo#t'X#(v#Y9w0#1D$CIf;W'#pWUPXOuxXuU(H9M(1<q-UE31#^-V'8IRUo7Qf./L>=Ke$$'5F%)]0^#0X@U.a<r:QLtFsLcL6##lOj)#.Y5<-R&KgLwqJfLgN&;Q?gI^#DY2uLi@^rMl9t=cWq6##weg>$FBjVQTSDgEKnIS7EM9>ZY9w0#L;>>#Mx&4Mvt//L[MkA#W@lK.N'[0#7RL_&#w+F%HtG9M#XL`N&.,GM4Pg;-<nLENhvx>-VsM.M0rJfLH2eTM`*oJMHRC`NkfimM2J,W-jXS:)r0wK#@Fge$U>`w'N7G#$#fB#$E^$#:9:hk+eOe--6x)F7*E%?76%^GMHePW-Z5l'&GiF#$956:rS?dA#fiK:)Yr+`&#0j@'DbG&#^$PG.Ll+DNa<XCMKEV*N)LN/N*b=%Q6pia-Xg8I$<MR&,VdJe$<(7G;Ckl'&hF;;$<_=X(b.RS%%)###MPBuuE1V:v&cX&#2m#(&cV]`k9OhLMbn%s$G2,B$BfD3X*sp5#l,$R#]x_X1xKX%b5U*[r5iMfUo9U`N99hG)tm+/Us9pG)XPu`<0s-)WTt(gCRxIg(%6sfh=ktMKn3j)<6<b5Sk_/0(^]AaN#(p/L>&VZ>1i%h1S9u5o@YaaW$e+b<TWFn/Z:Oh(Cx2$lNEoN^e)#CFY@@I;BOQ*sRwZtZxRcU7uW6CXow0i(?$Q[cjOd[P4d)]>ROPOpxTO7Stwi1::iB1q)C_=dV26J;2,]7op$]uQr@_V7$q^%lQwtuHY]=DX,n3L#0PHDO4f9>dC@O>HBuKPpP*E,N+b3L#lpR/MrTEH.IAQk.a>D[.e;mc.x]Ip.PH^'/aqUO/$1WxLoW0[iLA<QT;5HKD+@qQ'NQ(3_PLhE48R.qAPSwQ0/WK?Z,[x?-J;jQTWA0X@KJ(_Y8N-:/M74:/-ZpKrUss?d#dZq]DAbkU*JqkL+nwX@@47`5>w=4h(9.`GCRUxHPeR`5Mjol(dUWxZa(>STrPkrJiWx`5U7F#.g*jrohGg`cg:lSTvEY/EV_7H4Q9[Z%cnv;JQYZ5q.l7Zeas:HOIZOB?G<Nald$qs]@]L<J7bR*>gv:[7MI2k).'2($5FNP&EQ(,)U]W]+fh18.vsai00);D3@4ku5P?DP8aJt+;qUM]=+b'8@;mViBKx0DE[-auGl8:PJ&Dj+M6OC]O^((##]`0i)drT;-7X`=-H3[igUnPG-NZlo.#k@h#=Ork$m>a>$-?Tm$UV(?#P6YY#'/###xe7q.73rI3*pP/$1>s9)W,JrM7SN]'/4C#v$U`0#V.[0>xQsH$fEmPMgY2u7Kh(G%siIfLSoS+MK2eTM$=5,M8p`A.;_R%#u[K#$x4AG8.kK/HSB==-'Ie/QTtG?-.*^N-4B/ZM_3YlQC7(p7q)&](`6_c)$/*JL(L-^(]$wIM`dPtOdGA,U3:w2M-0<q-]L_?^)1vw'.,MRsqVr.L;aN&#/EgJ)PBc[-f>+WomX2u7lqM2iEumMTcsF?-aT=Z-97UEnXglEn1K-bnEO`guFt(c%=;Am_Qs@jLooI&NX;]0#j4#F14;gl8-GQpgwhrq8'=l_f-b49'UOqkLu7-##oDY2L(te+Mch&gLYtJ,MEtJfLh'x'M=$CS-ZZ%P]8bZ>#S?YY#%Q&q'3^Fw&?D)UDNrocM3A76//oL?#h7gl85[qW/NDOk%16ij;+:1a'iNIdb-ou8.P*w,v5#EI$TWS>Pot-R*H'-SEpA:g)f+O$%%`kA#G=8RMmG1&O`>to8bC]T&$,n.LoO>29sp3dt-52U%VM#q7'DHpg+#Z9%H[K<L%a2E-grWVM3@2=-k22tL]4$##6We'8UJCKE[d_=%wI;'6X-GsLX4j^SgJ$##R*w,vP3wK#iiW&#*h^D&R?jp7+/u&#(AP##XU8c$fSYW-J95_-Dp[g9wcO&#M-h1OcJlc-*vpw0xUX&#OQFKNX@QI'IoPp7nb,QU//MQ&ZDkKP)X<WSVL(68uVl&#c'[0#(s1X&xm$Y%B7*K:eDA323j998GXbA#pwMs-jgD$9QISB-A_(aN4xoFM^@C58D0+Q+q3n0#3U1InDjF682-SjMXJK)(h$hxua_K]ul92%'BOU&#BRRh-slg8KDlr:%L71Ka:.A;%YULjDPmL<LYs8i#XwJOYaKPKc1h:'9Ke,g)b),78=I39B;xiY$bgGw-&.Zi9InXDuYa%G*f2Bq7mn9^#p1vv%#(Wi-;/Z5ho;#2:;%d&#x9v68C5g?ntX0X)pT`;%pB3q7mgGN)3%(P8nTd5L7GeA-GL@+%J3u2:(Yf>et`e;)f#Km8&+DC$I46>#Kr]]u-[=99tts1.qb#q72g1WJO81q+eN'03'eM>&1XxY-caEnOj%2n8)),?ILR5^.Ibn<-X-Mq7[a82Lq:F&#ce+S9wsCK*x`569E8ew'He]h:sI[2LM$[guka3ZRd6:t%IG:;$%YiJ:Nq=?eAw;/:nnDq0(CYcMpG)qLN4$##&J<j$UpK<Q4a1]MupW^-sj_$%[HK%'F####QRZJ::Y3EGl4'@%FkiAOg#p[##O`gukTfBHagL<LHw%q&OV0##F=6/:chIm0@eCP8X]:kFI%hl8hgO@RcBhS-@Qb$%+m=hPDLg*%K8ln(wcf3/'DW-$.lR?n[nCH-eXOONTJlh:.RYF%3'p6sq:UIMA945&^HFS87@$EP2iG<-lCO$%c`uKGD3rC$x0BL8aFn--`ke%#HMP'vh1/R&O_J9'um,.<tx[@%wsJk&bUT2`0uMv7gg#qp/ij.L56'hl;.s5CUrxjOM7-##.l+Au'A&O:-T72L]P`&=;ctp'XScX*rU.>-XTt,%OVU4)S1+R-#dg0/Nn?Ku1^0f$B*P:Rowwm-`0PKjYDDM'3]d39VZHEl4,.j']Pk-M.h^&:0FACm$maq-&sgw0t7/6(^xtk%LuH88Fj-ekm>GA#_>568x6(OFRl-IZp`&b,_P'$M<Jnq79VsJW/mWS*PUiq76;]/NM_>hLbxfc$mj`,O;&%W2m`Zh:/)Uetw:aJ%]K9h:TcF]u_-Sj9,VK3M.*'&0D[Ca]J9gp8,kAW]%(?A%R$f<->Zts'^kn=-^@c4%-pY6qI%J%1IGxfLU9CP8cbPlXv);C=b),<2mOvP8up,UVf3839acAWAW-W?#ao/^#%KYo8fRULNd2.>%m]UK:n%r$'sw]J;5pAoO_#2mO3n,'=H5(etHg*`+RLgv>=4U8guD$I%D:W>-r5V*%j*W:Kvej.Lp$<M-SGZ':+Q_k+uvOSLiEo(<aD/K<CCc`'Lx>'?;++O'>()jLR-^u68PHm8ZFWe+ej8h:9r6L*0//c&iH&R8pRbA#Kjm%upV1g:a_#Ur7FuA#(tRh#.Y5K+@?3<-8m0$PEn;J:rh6?I6uG<-`wMU'ircp0LaE_OtlMb&1#6T.#FDKu#1Lw%u%+GM+X'e?YLfjM[VO0MbuFp7;>Q&#WIo)0@F%q7c#4XAXN-U&VB<HFF*qL($/V,;(kXZejWO`<[5??ewY(*9=%wDc;,u<'9t3W-(H1th3+G]ucQ]kLs7df($/*JL]@*t7Bu_G3_7mp7<iaQjO@.kLg;x3B0lqp7Hf,^Ze7-##@/c58Mo(3;knp0%)A7?-W+eI'o8)b<nKnw'Ho8C=Y>pqB>0ie&jhZ[?iLR@@_AvA-iQC(=ksRZRVp7`.=+NpBC%rh&3]R:8XDmE5^V8O(x<<aG/1N$#FX$0V5Y6x'aErI3I$7x%E`v<-BY,)%-?Psf*l?%C3.mM(=/M0:JxG'?7WhH%o'a<-80g0NBxoO(GH<dM]n.+%q@jH?f.UsJ2Ggs&4<-e47&Kl+f//9@`b+?.TeN_&B8Ss?v;^Trk;f#YvJkl&w$]>-+k?'(<S:68tq*WoDfZu';mM?8X[ma8W%*`-=;D.(nc7/;)g:T1=^J$&BRV(-lTmNB6xqB[@0*o.erM*<SWF]u2=st-*(6v>^](H.aREZSi,#1:[IXaZFOm<-ui#qUq2$##Ri;u75OK#(RtaW-K-F`S+cF]uN`-KMQ%rP/Xri.LRcB##=YL3BgM/3MD?@f&1'BW-)Ju<L25gl8uhVm1hL$##*8###'A3/LkKW+(^rWX?5W_8g)a(m&K8P>#bmmWCMkk&#TR`C,5d>g)F;t,4:@_l8G/5h4vUd%&%950:VXD'QdWoY-F$BtUwmfe$YqL'8(PWX(P?^@Po3$##`MSs?DWBZ/S>+4%>fX,VWv/w'KD`LP5IbH;rTV>n3cEK8U#bX]l-/V+^lj3;vlMb&[5YQ8#pekX9JP3XUC72L,,?+Ni&co7ApnO*5NK,((W-i:$,kp'UDAO(G0Sq7MVjJsbIu)'Z,*[>br5fX^:FPAWr-m2KgL<LUN098kTF&#lvo58=/vjDo;.;)Ka*hLR#/k=rKbxuV`>Q_nN6'8uTG&#1T5g)uLv:873UpTLgH+#FgpH'_o1780Ph8KmxQJ8#H72L4@768@Tm&Qh4CB/5OvmA&,Q&QbUoi$a_%3M01H)4x7I^&KQVgtFnV+;[Pc>[m4k//,]1?#`VY[Jr*3&&slRfLiVZJ:]?=K3Sw=[$=uRB?3xk48@aeg<Z'<$#4H)6,>e0jT6'N#(q%.O=?2S]u*(m<-V8J'(1)G][68hW$5'q[GC&5j`TE?m'esFGNRM)j,ffZ?-qx8;->g4t*:CIP/[Qap7/9'#(1sao7w-.qNUdkJ)tCF&#B^;xGvn2r9FEPFFFcL@.iFNkTve$m%#QvQS8U@)2Z+3K:AKM5isZ88+dKQ)W6>J%CL<KE>`.d*(B`-n8D9oK<Up]c$X$(,)M8Zt7/[rdkqTgl-0cuGMv'?>-XV1q['-5k'cAZ69e;D_?$ZPP&s^+7])$*$#@QYi9,5P&#9r+$%CE=68>K8r0=dSC%%(@p7.m7jilQ02'0-VWAg<a/''3u.=4L$Y)6k/K:_[3=&jvL<L0C/2'v:^;-DIBW,B4E68:kZ;%?8(Q8BH=kO65BW?xSG&#@uU,DS*,?.+(o(#1vCS8#CHF>TlGW'b)Tq7VT9q^*^$$.:&N@@$&)WHtPm*5_rO0&e%K&#-30j(E4#'Zb.o/(Tpm$>K'f@[PvFl,hfINTNU6u'0pao7%XUp9]5.>%h`8_=VYbxuel.NTSsJfLacFu3B'lQSu/m6-Oqem8T+oE--$0a/k]uj9EwsG>%veR*hv^BFpQj:K'#SJ,sB-'#](j.Lg92rTw-*n%@/;39rrJF,l#qV%OrtBeC6/,;qB3ebNW[?,Hqj2L.1NP&GjUR=1D8QaS3Up&@*9wP?+lo7b?@%'k4`p0Z$22%K3+iCZj?XJN4Nm&+YF]u@-W$U%VEQ/,,>>#)D<h#`)h0:<Q6909ua+&VU%n2:cG3FJ-%@Bj-DgLr`Hw&HAKjKjseK</xKT*)B,N9X3]krc12t'pgTV(Lv-tL[xg_%=M_q7a^x?7Ubd>#%8cY#YZ?=,`Wdxu/ae&#w6)R89tI#6@s'(6Bf7a&?S=^ZI_kS&ai`&=tE72L_D,;^R)7[$s<Eh#c&)q.MXI%#v9ROa5FZO%sF7q7Nwb&#ptUJ:aqJe$Sl68%.D###EC><?-aF&#RNQv>o8lKN%5/$(vdfq7+ebA#u1p]ovUKW&Y%q]'>$1@-[xfn$7ZTp7mM,G,Ko7a&Gu%G[RMxJs[0MM%wci.LFDK)(<c`Q8N)jEIF*+?P2a8g%)$q]o2aH8C&<SibC/q,(e:v;-b#6[$NtDZ84Je2KNvB#$P5?tQ3nt(0d=j.LQf./Ll33+(;q3L-w=8dX$#WF&uIJ@-bfI>%:_i2B5CsR8&9Z&#=mPEnm0f`<&c)QL5uJ#%u%lJj+D-r;BoF&#4DoS97h5g)E#o:&S4weDF,9^Hoe`h*L+_a*NrLW-1pG_&2UdB86e%B/:=>)N4xeW.*wft-;$'58-ESqr<b?UI(_%@[P46>#U`'6AQ]m&6/`Z>#S?YY#Vc;r7U2&326d=w&H####?TZ`*4?&.MK?LP8Vxg>$[QXc%QJv92.(Db*B)gb*BM9dM*hJMAo*c&#b0v=Pjer]$gG&JXDf->'StvU7505l9$AFvgYRI^&<^b68?j#q9QX4SM'RO#&sL1IM.rJfLUAj221]d##DW=m83u5;'bYx,*Sl0hL(W;;$doB&O/TQ:(Z^xBdLjL<Lni;''X.`$#8+1GD:k$YUWsbn8ogh6rxZ2Z9]%nd+>V#*8U_72Lh+2Q8Cj0i:6hp&$C/:p(HK>T8Y[gHQ4`4)'$Ab(Nof%V'8hL&#<NEdtg(n'=S1A(Q1/I&4([%dM`,Iu'1:_hL>SfD07&6D<fp8dHM7/g+tlPN9J*rKaPct&?'uBCem^jn%9_K)<,C5K3s=5g&GmJb*[SYq7K;TRLGCsM-$$;S%:Y@r7AK0pprpL<Lrh,q7e/%KWK:50I^+m'vi`3?%Zp+<-d+$L-Sv:@.o19n$s0&39;kn;S%BSq*$3WoJSCLweV[aZ'MQIjO<7;X-X;&+dMLvu#^UsGEC9WEc[X(wI7#2.(F0jV*eZf<-Qv3J-c+J5AlrB#$p(H68LvEA'q3n0#m,[`*8Ft)FcYgEud]CWfm68,(aLA$@EFTgLXoBq/UPlp7:d[/;r_ix=:TF`S5H-b<LI&HY(K=h#)]Lk$K14lVfm:x$H<3^Ql<M`$OhapBnkup'D#L$Pb_`N*g]2e;X/Dtg,bsj&K#2[-:iYr'_wgH)NUIR8a1n#S?Yej'h8^58UbZd+^FKD*T@;6A7aQC[K8d-(v6GI$x:T<&'Gp5Uf>@M.*J:;$-rv29'M]8qMv-tLp,'886iaC=Hb*YJoKJ,(j%K=H`K.v9HggqBIiZu'QvBT.#=)0ukruV&.)3=(^1`o*Pj4<-<aN((^7('#Z0wK#5GX@7u][`*S^43933A4rl][`*O4CgLEl]v$1Q3AeF37dbXk,.)vj#x'd`;qgbQR%FW,2(?LO=s%Sc68%NP'##Aotl8x=BE#j1UD([3$M(]UI2LX3RpKN@;/#f'f/&_mt&F)XdF<9t4)Qa.*kTLwQ'(TTB9.xH'>#MJ+gLq9-##@HuZPN0]u:h7.T..G:;$/Usj(T7`Q8tT72LnYl<-qx8;-HV7Q-&Xdx%1a,hC=0u+HlsV>nuIQL-5<N?)NBS)QN*_I,?&)2'IM%L3I)X((e/dl2&8'<M:^#M*Q+[T.Xri.LYS3v%fF`68h;b-X[/En'CR.q7E)p'/kle2HM,u;^%OKC-N+Ll%F9CF<Nf'^#t2L,;27W:0O@6##U6W7:$rJfLWHj$#)woqBefIZ.PK<b*t7ed;p*_m;4ExK#h@&]>_>@kXQtMacfD.m-VAb8;IReM3$wf0''hra*so568'Ip&vRs849'MRYSp%:t:h5qSgwpEr$B>Q,;s(C#$)`svQuF$##-D,##,g68@2[T;.XSdN9Qe)rpt._K-#5wF)sP'##p#C0c%-Gb%hd+<-j'Ai*x&&HMkT]C'OSl##5RG[JXaHN;d'uA#x._U;.`PU@(Z3dt4r152@:v,'R.Sj'w#0<-;kPI)FfJ&#AYJ&#//)>-k=m=*XnK$>=)72L]0I%>.G690a:$##<,);?;72#?x9+d;^V'9;jY@;)br#q^YQpx:X#Te$Z^'=-=bGhLf:D6&bNwZ9-ZD#n^9HhLMr5G;']d&6'wYmTFmL<LD)F^%[tC'8;+9E#C$g%#5Y>q9wI>P(9mI[>kC-ekLC/R&CH+s'B;K-M6$EB%is00:+A4[7xks.LrNk0&E)wILYF@2L'0Nb$+pv<(2.768/FrY&h$^3i&@+G%JT'<-,v`3;_)I9M^AE]CN?Cl2AZg+%4iTpT3<n-&%H%b<FDj2M<hH=&Eh<2Len$b*aTX=-8QxN)k11IM1c^j%9s<L<NFSo)B?+<-(GxsF,^-Eh@$4dXhN$+#rxK8'je'D7k`e;)2pYwPA'_p9&@^18ml1^[@g4t*[JOa*[=Qp7(qJ_oOL^('7fB&Hq-:sf,sNj8xq^>$U4O]GKx'm9)b@p7YsvK3w^YR-CdQ*:Ir<($u&)#(&?L9Rg3H)4fiEp^iI9O8KnTj,]H?D*r7'M;PwZ9K0E^k&-cpI;.p/6_vwoFMV<->#%Xi.LxVnrU(4&8/P+:hLSKj$#U%]49t'I:rgMi'FL@a:0Y-uA[39',(vbma*hU%<-SRF`Tt:542R_VV$p@[p8DV[A,?1839FWdF<TddF<9Ah-6&9tWoDlh]&1SpGMq>Ti1O*H&#(AL8[_P%.M>v^-))qOT*F5Cq0`Ye%+$B6i:7@0IX<N+T+0MlMBPQ*Vj>SsD<U4JHY8kD2)2fU/M#$e.)T4,_=8hLim[&);?UkK'-x?'(:siIfL<$pFM`i<?%W(mGDHM%>iWP,##P`%/L<eXi:@Z9C.7o=@(pXdAO/NLQ8lPl+HPOQa8wD8=^GlPa8TKI1CjhsCTSLJM'/Wl>-S(qw%sf/@%#B6;/U7K]uZbi^Oc^2n<bhPmUkMw>%t<)'mEVE''n`WnJra$^TKvX5B>;_aSEK',(hwa0:i4G?.Bci.(X[?b*($,=-n<.Q%`(X=?+@Am*Js0&=3bh8K]mL<LoNs'6,'85`0?t/'_U59@]ddF<#LdF<eWdF<OuN/45rY<-L@&#+fm>69=Lb,OcZV/);TTm8VI;?%OtJ<(b4mq7M6:u?KRdF<gR@2L=FNU-<b[(9c/ML3m;Z[$oF3g)GAWqpARc=<ROu7cL5l;-[A]%/+fsd;l#SafT/f*W]0=O'$(Tb<[)*@e775R-:Yob%g*>l*:xP?Yb.5)%w_I?7uk5JC+FS(m#i'k.'a0i)9<7b'fs'59hq$*5Uhv##pi^8+hIEBF`nvo`;'l0.^S1<-wUK2/Coh58KKhLjM=SO*rfO`+qC`W-On.=AJ56>>i2@2LH6A:&5q`?9I3@@'04&p2/LVa*T-4<-i3;M9UvZd+N7>b*eIwg:CC)c<>nO&#<IGe;__.thjZl<%w(Wk2xmp4Q@I#I9,DF]u7-P=.-_:YJ]aS@V?6*C()dOp7:WL,b&3Rg/.cmM9&r^>$(>.Z-I&J(Q0Hd5Q%7Co-b`-c<N(6r@ip+AurK<m86QIth*#v;-OBqi+L7wDE-Ir8K['m+DDSLwK&/.?-V%U_%3:qKNu$_b*B-kp7NaD'QdWQPKYq[@>P)hI;*_F]u`Rb[.j8_Q/<&>uu+VsH$sM9TA%?)(vmJ80),P7E>)tjD%2L=-t#fK[%`v=Q8<FfNkgg^oIbah*#8/Qt$F&:K*-(N/'+1vMB,u()-a.VUU*#[e%gAAO(S>WlA2);Sa>gXm8YB`1d@K#n]76-a$U,mF<fX]idqd)<3,]J7JmW4`6]uks=4-72L(jEk+:bJ0M^q-8Dm_Z?0olP1C9Sa&H[d&c$ooQUj]Exd*3ZM@-WGW2%s',B-_M%>%Ul:#/'xoFM9QX-$.QN'>[%$Z$uF6pA6Ki2O5:8w*vP1<-1`[G,)-m#>0`P&#eb#.3i)rtB61(o'$?X3B</R90;eZ]%Ncq;-Tl]#F>2Qft^ae_5tKL9MUe9b*sLEQ95C&`=G?@Mj=wh*'3E>=-<)Gt*Iw)'QG:`@IwOf7&]1i'S01B+Ev/Nac#9S;=;YQpg_6U`*kVY39xK,[/6Aj7:'1Bm-_1EYfa1+o&o4hp7KN_Q(OlIo@S%;jVdn0'1<Vc52=u`3^o-n1'g4v58Hj&6_t7$##?M)c<$bgQ_'SY((-xkA#Y(,p'H9rIVY-b,'%bCPF7.J<Up^,(dU1VY*5#WkTU>h19w,WQhLI)3S#f$2(eb,jr*b;3Vw]*7NH%$c4Vs,eD9>XW8?N]o+(*pgC%/72LV-u<Hp,3@e^9UB1J+ak9-TN/mhKPg+AJYd$MlvAF_jCK*.O-^(63adMT->W%iewS8W6m2rtCpo'RS1R84=@paTKt)>=%&1[)*vp'u+x,VrwN;&]kuO9JDbg=pO$J*.jVe;u'm0dr9l,<*wMK*Oe=g8lV_KEBFkO'oU]^=[-792#ok,)i]lR8qQ2oA8wcRCZ^7w/Njh;?.stX?Q1>S1q4Bn$)K1<-rGdO'$Wr.Lc.CG)$/*JL4tNR/,SVO3,aUw'DJN:)Ss;wGn9A32ijw%FL+Z0Fn.U9;reSq)bmI32U==5ALuG&#Vf1398/pVo1*c-(aY168o<`JsSbk-,1N;$>0:OUas(3:8Z972LSfF8eb=c-;>SPw7.6hn3m`9^Xkn(r.qS[0;T%&Qc=+STRxX'q1BNk3&*eu2;&8q$&x>Q#Q7^Tf+6<(d%ZVmj2bDi%.3L2n+4W'$PiDDG)g,r%+?,$@?uou5tSe2aN_AQU*<h`e-GI7)?OK2A.d7_c)?wQ5AS@DL3r#7fSkgl6-++D:'A,uq7SvlB$pcpH'q3n0#_%dY#xCpr-l<F0NR@-##FEV6NTF6##$l84N1w?AO>'IAOURQ##V^Fv-XFbGM7Fl(N<3DhLGF%q.1rC$#:T__&Pi68%0xi_&[qFJ(77j_&JWoF.V735&T,[R*:xFR*K5>>#`bW-?4Ne_&6Ne_&6Ne_&n`kr-#GJcM6X;uM6X;uM(.a..^2TkL%oR(#;u.T%fAr%4tJ8&><1=GHZ_+m9/#H1F^R#SC#*N=BA9(D?v[UiFY>>^8p,KKF.W]L29uLkLlu/+4T<XoIB&hx=T1PcDaB&;HH+-AFr?(m9HZV)FKS8JCw;SD=6[^/DZUL`EUDf]GGlG&>w$)F./^n3+rlo+DB;5sIYGNk+i1t-69Jg--0pao7Sm#K)pdHW&;LuDNH@H>#/X-TI(;P>#,Gc>#0Su>#4`1?#8lC?#<xU?#@.i?#D:%@#HF7@#LRI@#P_[@#Tkn@#Xw*A#]-=A#a9OA#d<F&#*;G##.GY##2Sl##6`($#:l:$#>xL$#B.`$#F:r$#JF.%#NR@%#R_R%#Vke%#Zww%#_-4&#3^Rh%Sflr-k'MS.o?.5/sWel/wpEM0%3'/1)K^f1-d>G21&v(35>V`39V7A4=onx4A1OY5EI0;6Ibgr6M$HS7Q<)58C5w,;WoA*#[%T*#`1g*#d=#+#hI5+#lUG+#pbY+#tnl+#x$),#&1;,#*=M,#.I`,#2Ur,#6b.-#;w[H#iQtA#m^0B#qjBB#uvTB##-hB#'9$C#+E6C#/QHC#3^ZC#7jmC#;v)D#?,<D#C8ND#GDaD#KPsD#O]/E#g1A5#KA*1#gC17#MGd;#8(02#L-d3#rWM4#Hga1#,<w0#T.j<#O#'2#CYN1#qa^:#_4m3#o@/=#eG8=#t8J5#`+78#4uI-#m3B2#SB[8#Q0@8#i[*9#iOn8#1Nm;#^sN9#qh<9#:=x-#P;K2#$%X9#bC+.#Rg;<#mN=.#MTF.#RZO.#2?)4#Y#(/#[)1/#b;L/#dAU/#0Sv;#lY$0#n`-0#sf60#(F24#wrH0#%/e0#TmD<#%JSMFove:CTBEXI:<eh2g)B,3h2^G3i;#d3jD>)4kMYD4lVu`4m`:&5niUA5@(A5BA1]PBB:xlBCC=2CDLXMCEUtiCf&0g2'tN?PGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CPGT4CP-qekC`.9kEg^+F$kwViFJTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5KTB&5o,^<-28ZI'O?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xpO?;xp;7q-#lLYI:xvD=#
+=7I?
 ~7Ic
 }7Ic
->,7K
-.<7K
+=7j<
+.@7K
 7K[iu
-=7M=
  7Me}
+=7nS
 "7?NWlv
+=7NY
 #|?7o|?
 /-7O
 7PO	
-=7r3
-=7~S
+-=7R
 |7S*$
+=7TY
 7wbH
-=7^Y
-`"8@
-`]8@
-=,(8
-=/'8
-="&8
-=&;8
+`#8@
 |$ @8=
 |$8;
 |$8@
 |$8$
+ @8@
  8"-
 ;_8}
-@^8@
 @8=|
+@8="|?
 @8=)
 @8;@
 *8.\.^&`
@@ -1583,13 +1511,8 @@ _7?e
 \$8@
 &\8!
 8_^][
-8-`@
-8:`@
-8@`@
 8@:,<
-8$`@
 8\$!
-8+`@
 {(@8{0
 80?"
 #800000
@@ -1600,8 +1523,9 @@ _7?e
 8>0RF>
 <80u
 @8,0u
-81`@
+81~d
 @81t
+81Zd
 \$82
 |$83
 \$83
@@ -1609,42 +1533,36 @@ _7?e
 8438f6
 8461 Error creating render texture. Code=
 @849u
-=8	5
-@85^
 @85'
-85`@
-@85	6W
-85ad
-85]b
-@85-DW
-@85hKS
-@85;KS
-@85K#W
-@85ywU
+@85,4W
+@85h;S
+@85K
+@85R
+@85;;S
+85Yb
+@85ygU
+@8=6|?
 87*P
+=87Q
 \$88
 8(: 8
 8@8=
-8@8=<
 8&8=
 8859
 8,8,8,8,8,8,8,8,8
-8}8a
+8@8=Bl<
 ^88ff88'
 `88:L
 @88t
 @8|$8t
-@8=~9	
-@8=&9	
-@89@
-89`@
+89Rc
 \$89t$<
 @8,9u
-(!8a
+8a`@
 |$8A
-@8=A
 \$8A
 \$8A^_^
+8A`@
 8A^_^[
 8A^[
 8A_^
@@ -1668,12 +1586,14 @@ _7?e
 8A_A^A]A\_^][
 8aM@
 8armou
-8	^b
+=8Bd
 &8&:&<(>"@(B D(F H
 8binau
 8B;t
+@8=	bU
 8bunz8
-8=Cd
+(=8c
+-8C3
 @8@C@N
 8csm
 8C(t
@@ -1681,9 +1601,11 @@ _7?e
 <8cu
 <8Cu
 8C{u
+8=}d
+8];d
 ^8D+
 |$8D
-@8D@
+@8=D|?
 \$8D
 8D$@
 8_DA
@@ -1716,30 +1638,27 @@ _7?e
 8duel
 8D$V
 8D$W
-8e?@
 |$8E
 \$8E
 ^8E3
 |$8E3
 {8E3
 \$8E3
-8Ena
+8efa
 8enabu
 8enabu	fA
--8EX
 |$8f
-%8F;
-8F33I
-@8F33I
+@8=F:	
 8falsu
 8 FDBu
 |$8ff
 8 FFCu
 |$8fH
+.8FI
 8fire
 8flicu
 !8F[q
-=8GQ
+@8=(Ge
 <8gu
 (8GXgw
 |$8H
@@ -1754,7 +1673,6 @@ _7?e
 \$8H
 \$8H;
 +\$8H
-8H`@
 8H9A
 8H;A
 8H;B
@@ -1763,16 +1681,14 @@ _7?e
 8@HPX`hpx
 <8hu
 (8HXhx
-=8~i
 |$8I
 ]8I;
 \$8I
-8i#a
-8I\b
+8IBa
 ]8Ic
->8\J
+8iTb
+>8{J
 $*$8J
-8)Ja
 <8ku
 |$8L
 \$8L
@@ -1782,23 +1698,22 @@ $*$8J
 <8lu
 8lu8H
 8luCH
-@8=]m>
 |$8M
 |$8M;
-(=+8M
 $8M+
 #.8M\j{
+.8mK
 =8>Mo
 <8mu
 @8=n
 8n!@
-@8@N33I
+@8@N
 8n8y
+=8ni
 8nonet
 8nonet+
 8noneu
 8nou
-@8=o
 8ofu
  $8O[lv
 8ontpL
@@ -1806,8 +1721,6 @@ $8M+
 8peaku
 @8|$Pt
 @8=q
-@8=Q:	
-8q)b
 8^qu
 ;^8r
 ;_8r
@@ -1815,9 +1728,8 @@ $8M+
 8race
 8raceu	
 8ravgu
-=8Rd
+.8rK
 8rtu
-@8=	rU
 \$ @8s
 8siu
 8STs
@@ -1837,9 +1749,9 @@ $8M+
 @8{Tu
 |$8u
 8u	@
-8u1b
 8[u1H
 8 u8H
+8	Ub
 @8ug
 8/u H
 8/u&H
@@ -1848,11 +1760,13 @@ $8M+
 8#u~H
 8#u%I
 @8uo@
+8UUb
 8uuNH
 @8uwt!A
+8UYd
 8vallu
+8)Vb
 @8w%
-@8=(We
 8W?i
 8wipe
 8w[L
@@ -1865,31 +1779,29 @@ $8M+
 8XPE
 8\$Xt
 	@8y
-8Y`@
 8yau
-8y]b
-8yda
 @8yet
 8yeu
 8YM@
-@8=Ys2
 &8Yv
 "8$z"
 8Z?.
 8ZM@
 8z<`>:<V
-`/9@
-=,9@
-=[&9
+`,9@
+`:9@
+`#9@
 |$<9
+  9@
+ &9@
 _,\9
-@+9@
+@:9@
+@.9@
+@'9@
 9|$`
 9\$<
 9\$(
-(=9\0
 9|$0
-(90a
 ^90ff70') 
  ^90ff70(Forced by server, your local value is '^ffcc70
  ^90ff70(Overriden by server, your local value is '
@@ -1900,23 +1812,22 @@ _,\9
 92FFCu
 93|#f
 >9.4&
-\=95#
-95e\e
-95ES@
-(97c
+=94W
+95eLe
+95uC@
 97v}H
 9\$8
-(98b
 98t:;
 98tn
 9]8uP9
 9_8v0
+`99@
 9"9*
 9999
 99999
 -99999
 9@9Y9`9y9
-(9`a
+(-9a
 9A }
 9A(|
 9A$|
@@ -1924,25 +1835,25 @@ _,\9
 @ 9A |8M;
 9=aA\E
 9a&g
+9-}aR
 9A s
 9ATu%
 9A,u+
-9^`b
+(9#b
 @ 9B
 @(9B
 @$9B
 9B\|
 9B<}4
-(9bb
+(9ba
 9B`t
 9BTu
 9B u
 @$9C
 9C8uXD
 9C }&H
-%9CL
 9C s+H
-(9_d
+`9<d
 9?=d>?
 9D$4D
 9D$d
@@ -1950,24 +1861,20 @@ _,\9
 9!depu
 9D$h
 9D$h~
-9=D>H
+9=D.H
 9D$p
-=9DW
 -9E 
 }9E`
 9Ed|SD
-9-epR
+9-e`R
 9F9O
 9fA;
-(9fd
 9FlH
 9fylgu
 %.9g
 @ 9G
 @(9G
-9=G-8
 9g9p
-9=)gd
 9G(t
 9?Gw8?Q
 .9GXdx
@@ -1986,13 +1893,14 @@ _,\9
 9JtK4O
 9JTu
 ,9JYiy
-%9k	
+.9+K
 9k4vmD
 9k t
 9l$0
 9L$0
 9l$0uV
 9Lc#M
+-9LO
 9l$`uSD
 9l$x
 }9M+
@@ -2001,26 +1909,24 @@ _,\9
 9n8v,
 9Nlu
 9N(tCE
--9\O
 9|$p
 9p(|
 9p$|
 9|$P
 9P }
 9P }	
-9p(H@
 9^PR
 9p s
 9P s
 9\$pt
 9p,u
+=9q)
 9q }
 9Q }
 9Q4~
 9Q4}	A
 9q8v'fff
 9q`}9
-9-}qR
 9Q t
 9Q,u
 9radiu
@@ -2036,25 +1942,26 @@ _,\9
 9{,t
 9\$@t
 9t$,
+(9tc
 9T$,D
 9t$Dt
 9:t	H
 9t$P
 9|$Tu
 9\$@u
-(9ua
 9#u)H
 9ulu
 9Uo}{
 9u(t
-=9uT
 9u(vgH
-9=vfd
 9_ viA
 9|$@vMH
+9=vVd
 <9w{
 		9w
 9w0t
+(9wa
+9=)Wd
 9wDu
 <9we
 9weapu
@@ -2074,26 +1981,23 @@ _,\9
 9X }
 9X(|
 9x2I
+9~Xb
 9x s
 9X s
-(-\9Y
 9Y8v2
 9Y>)F$
 9Y s
 9Y(v,
 9Y(v(fff
-`=#a
-=)#a
 ,<a|
 ?)a<
-(=(a
-(- a
-(-*a
-(}?a
-(%.a
-(	/a
+(-=a
+(-%a
+()`a
+()'a
+(]<a
+(] a
 ]!])a
-%{a#
 a```
 `:A(
 `A^_^
@@ -2107,7 +2011,6 @@ a```
 ~!A+
 ~*A;
 <$A;
-=#|A
 | A+
 |$`A
 |$|A
@@ -2154,6 +2057,7 @@ _A`:`
 (A__
 (A__^[
 (A_[
+(A{`
 (A\_^]
 )|$`A
 )|$ A
@@ -2164,6 +2068,7 @@ _A`:`
 @A^_^
 @A^_^][
 @A^_[
+@A>@
 @A__^][
 @A]_[
 @A]][
@@ -2180,6 +2085,7 @@ _A`:`
 \$@A+
 \$$A
 %-<A
+%A*\
 A^^]
 A^^][
 A^_^
@@ -2219,10 +2125,11 @@ A\_[
 A\_]
 A\_][
 A\[]
--a01
 A:%0.3f
+(A0a
 A0A;
 A0A9@0~
+(-a0E
 A0E;
 a0E3
 A0E3
@@ -2232,7 +2139,6 @@ A0H9A(
 A;1A
 (/a2
 %a2	
--'a3
 A:%3.0f
 a3d939efc70848baaf996f6040d9cb19
  A;~4|
@@ -2242,9 +2148,9 @@ A;4$A
 ;A4H
 a7B_
 {A7Dd
-`a8@
 @ A8
 A89C
+(A8b
 A8D	
 A8E3
 A8Ex
@@ -2265,7 +2171,6 @@ A8vtt
 /A8w
 A8wEA
 a`8Yhu
--A9*
 @ A9
 A9@(|*
 A9@$|*
@@ -2302,9 +2207,7 @@ A9t$P~\L
 A9?u
 !a9X
 `a~a
-(=aa
-(a!a
-(a.a
+(A+a
 `A^A]]
 `A^A\_^]
 `A_A^_^]
@@ -2522,11 +2425,9 @@ aaoff.ps.cso
 aaoff.vs.cso
 a=ATEMuZA
 $?aB$?
-(A{b
 %Ab*
 ?@AB
 A;B.}
-(aba
 abc.h
 %aBI
 ability_hook
@@ -2535,9 +2436,12 @@ ability_vampire_hit
 abort
 About Dear ImGui
 absolute_acceleration
+@aC@
+(A c
+(=`AC
 A;C/}
 A call to a standard soundcard driver failed, which could possibly mean a bug in the driver or resources were missing or exhausted.
-(acc
+(acb
 accel
 acceleration
 accent
@@ -2586,8 +2490,11 @@ ActiveIdWindow: '%s'
 Active layer in the editor.
 acute
 Acutesmall
+(a@d
 a$^d
 ~aD;
+()Ad
+(A_d
 A<D;
 A D;
 A:D	
@@ -2600,6 +2507,7 @@ AD9A@
 AD9A@r(
 Adapter name: 
 	Adapter name: %s
+(ADd
 Add 1000 lines
 Add another modal..
 add_character_folder
@@ -2653,20 +2561,18 @@ Advanced setting. A value of 0 is strongly recommended.
 Advanced setting. Higher values give more stability, lower values give lower latency.
 Advanced, with Selectable nodes
 AdvanceX: %.1f
+=Ae?
 A(E;
 a E3
 A E3
 A(E3
 aeam
-(Aec
 aehh
 aehv
 AeI;
 AEsmall
-%a)F
 \A(f
 A;F	
-A	F	
 A;F0
 A;F0}%I
 A`fA
@@ -2679,11 +2585,12 @@ Africa
 after_
 After issuing this command, press a key or mouse button,
 AF_UNSPEC
+=<AG
 Agent camera view height.
-%AGF
 agrave
 Agrave
 Agravesmall
+=`ah
 |$aH
  ,aH
 <AH;
@@ -2706,7 +2613,6 @@ A(H9C(
 A H9C r
 A"Hc
 A@HcP
-(AHd
 AhD9|$h
 AHE+
 (Ah(m
@@ -2727,6 +2633,7 @@ A@I9B@sZL
 A@I9C@s
 A I9E
 A@I9@@s	L
+(Aia
 AiAtA
 [AI] cannot find state 
 {`AiE
@@ -2742,12 +2649,10 @@ Air steering jumping power. 0 to disable.
 [AI] tree changing to 
 [AI] tree could not find state 
 -Aj|
-.&AJ
 aJaP
 AJAU
 A+jPH
 A+jTH
-(Akb
 AkF82
 "A_l
 A;l$(|
@@ -2873,6 +2778,7 @@ ampersandsmall
 A;m r
 A;MX
 a&M-=Z]<i*k)n-t&q&p&|
+=#AN
 analyze
 anchors
  and 
@@ -3069,7 +2975,9 @@ app setup on_post_load
 app setup post_load_finished
 Apt$
 apuOH
+(Aq`
 A;q }?I
+.aQL
 Aquarium
 A;>r
 A	r0>
@@ -3101,7 +3009,8 @@ array
 arrow
 Arrow
 [Arrows] XY Move  [Home/End] Z move
-=As3
+=as<
+(asb
 Ascender
 ascending_saw
 Ascending Saw
@@ -3761,7 +3670,6 @@ A`<>w
 away
 Aw?e
 Aw_H
-.aWL
 a?wSa?\
 A;x$|
 Ax([
@@ -3790,18 +3698,18 @@ $AYn
 .A`z
 A+zLH
 A+ZXHc
+=^b?
 ,`,b
 (`<b
-(-)b
-(!@b
-()_b
+(-;b
+(-$b
+(%(b
 ](~b\+
-%b#,
 b:.:
-=%B,
+`B>@
+= %B
+=%"B
 |$ B
- B`@
- B?@
 ;B |
 ;B$|
 :B&?
@@ -3824,18 +3732,17 @@ B0Hc
 B0L;
 B0~O
 `b0T
-.B1K
 ,B2,4
 B2Bk
 B:%3.0f
 B33;
+^B3K
 :B<4:
 #b4513b
-=B48
 b4c61212277e48a29b0a5351eedc3df8
 b}4H
 B4Hc
-=B5B
+=(B6
 b701ba72b92f45c28cd41703eaef085d
 B8D	
 B8D1
@@ -3844,7 +3751,6 @@ B8<:u
 +B 9B
 B9D>
 B9D	
-=B~A
 B A+
 B(A;
 B$A9@
@@ -3922,7 +3828,7 @@ BBBB
 b b"b$b&b(b*b,b.b0b2b4b6b8b:b<b>P@6
 bBbMb
 b^be
-`BC@
+ BC@
 BC4S
 =BC4Su
 BC4U
@@ -3932,9 +3838,6 @@ BC5S
 BC5U
 =BC5U
 Bcooldown
-=bcV
-=(bd
-=b^d
 )>Bd&>
 (: <(> @.B D
 $$BD#`
@@ -3946,7 +3849,6 @@ B<D2BD
 &B&D&F,H,J,L
 :>>,@:B:D*F:H(J<L(NhR
 `.b.d.hhlB
--bDM
 BD$pH
 BD;u
 (b<dZ
@@ -3966,7 +3868,6 @@ Below we are testing adding menu items to a regular window. It's rather unusual 
 benchmark1
 benchmark_json
 bend
-=BEP
 best_time
 bevel
 <Bf;
@@ -3978,7 +3879,6 @@ b`ff
 ^.`.b.fhjB
 .B.F.J.N.R.V.Z.^2
   bg
-='bG
 B(H;
 ;?Bh9?
 B@H9C@s
@@ -3992,7 +3892,6 @@ B`H;J tAA
 BhL;
 BhLcB`
 ;BhuSH
->\BI
 %\BI
 B`I;
 B I;
@@ -4044,11 +3943,13 @@ BINORMAL
 b"Iq
 BITMAP
 )BIV_o
+.b,K
+.b+K
 |bK7(
-=BKA
 bKGD
 b;!l
 b}$l
+.B[L
 B(L;
 Black
 blah
@@ -4096,18 +3997,17 @@ BL)z
 b#M**y`Bl+o(u,{ x$w!
 bmys
 b?'N
-=Bn<
+=bNd
 B~?Nd~?
--bnF
 bnMG
 .BNW^h
 ,bO,-
-BO;@
 B?:oA?4U@?
 BODA
 BODA3
 BODAf
 </body></html>
+.BOJ
 Bold
 Bold Italic
 bolt
@@ -4205,6 +4105,7 @@ broken_shield
  br_sniper_rifle2 
 brush_bigger
 brush_smaller
+=BS2
 bsearch_s
 bset
 /bset footstep_sound 
@@ -4213,15 +4114,19 @@ bset offset_x_rel -1
 bset offset_y_rel 1
 bset offset_y_rel -1
 /bset surface_material 
+.BsK
 Bsmall
 Bsp info is currently disabled.
 .bss
 bsuperior
+=bSV
 @b:t 
 \b\t
 B}T}
 bTbm
+-BtD
 b(",U
+(-BU0
 Buffer contents: %d lines, %d bytes
 Buffer creation failed
 Buffer creation failed with error code 
@@ -4280,24 +4185,26 @@ BXHc
 BXL;
 BXLc
 @BXV
+%bY?
 By Omar Cornut and all dear imgui contributors.
 *BYr
 .b\z
 bzo=
 ~c~{~
-=^c$
-=c}?
  c: 
-(-#c
-(!?c
-(}/c
-(}(c
+-'c;
+-c,\
+(]/c
+(%	c
 c{].
-=C&>
+`^C@
+=C=?
 |$(C
- |C@
- ?C@
+ ~C@
 (?-C
+@`C@
+@^C@
+@=C@
 \{?C
 \$@C
 C\$ 
@@ -4327,20 +4234,16 @@ C0M;
 ;C0v
 C&=2
 C3O5
-=C$4
 C4;B
 C4;C,A
 C4E3
-C5fXF
-(-|C7
+C5fHF
 ^C796FF> 
 c7cPc
 C7]D
-=|c8
 C8Ak
 c8E2
 C8E3
-=c8F
 C|$8H
 C8H;
 C8H9C(tpL
@@ -4359,7 +4262,7 @@ C A9E
 cable
 cacute
 Cacute
-.cAJ
+^CaI
 CALLBACK
 "CALLBACK"
 ?_CallInContext@_ContextCallback@details@Concurrency@@QEBAXV?$function@$$A6AXXZ@std@@_N@Z
@@ -4372,6 +4275,7 @@ Call to GetAdaptersAddresses failed with error: %d
 Call to NULL read function
 Call to NULL write function
 CallWindowProcA
+C-am;
 cAMD
 camera
 camera_decals
@@ -4462,8 +4366,7 @@ CBf;
 CBf9C@vLD
 cB$$"$""""SE$4"tfFDD
 cbuffer vertexBuffer : register(b0)             {            float4x4 ProjectionMatrix;             };            struct VS_INPUT            {            float2 pos : POSITION;            float4 col : COLOR0;            float2 uv  : TEXCOORD0;            };                        struct PS_INPUT            {            float4 pos : SV_POSITION;            float4 col : COLOR0;            float2 uv  : TEXCOORD0;            };                        PS_INPUT main(VS_INPUT input)            {            PS_INPUT output;            output.pos = mul( ProjectionMatrix, float4(input.pos.xy, 0.f, 1.f));            output.col = input.col;            output.uv  = input.uv;            return output;            }
-(!cc
- CC@
+`CC@
 c c2
 C@;C8
 ccaron
@@ -4481,12 +4384,12 @@ c>cG
 C(+C H
 Ccharges
 $cd<
+=	Cd
  C+D
 $C+D
 +C<D
 C`D;
 C<D;
-C=|,D
 C:D 
 C(D;{@
 CD$ 
@@ -4571,6 +4474,7 @@ CEP3
 CEx3
 _cexit
 _c_exit
+=c(F
 C}]F
 C(fA
 C(fD
@@ -4578,8 +4482,6 @@ C(fD
 C@fE
 CFF 
 .cfg
-.CfJ
-.CGL
 C*GUYTLKG+"
 (~cH
 )c=H
@@ -4682,7 +4584,7 @@ chunk_size
 chunks.size()
 chunk upload
 .CHz
-.c\I
+=cI[
 C`I;
 C|$`I;
 C|$@I
@@ -4716,11 +4618,14 @@ circumflex
 Circumflexsmall
 City
 CIwS
-.C	J
+-cJ2
 CjfD
 cjH+
 CJK text will only appears if the font was loaded with the appropriate CJK character ranges. Call io.Font->LoadFromFileTTF() manually to load extra character ranges.
-/=~CL
+>$cK
+.&CK
+-ck6
+%cL?
 C`L;
 C L;
 C(L;
@@ -4735,7 +4640,6 @@ CL$0fD
 CL$0H
 CL$0K
 CL$0L
-%Cl5
 CL$8
 CL$8H
 C(L9x
@@ -4814,6 +4718,7 @@ Cl`l
 CL$(L
 CL$@L
 CLL#
+(%clN
 clock
 close
 Close
@@ -4840,7 +4745,6 @@ CL$xH
 CL$XH
 CL$XJ
 CL$XL
--c/M
 C M;
 CM8H
 cmap
@@ -4848,7 +4752,6 @@ CM H
 CMhE3
 CMHE3
 CMHH
-%CMK
 CMPH
 CMPH+
 CMPI
@@ -4867,7 +4770,6 @@ _Cnd_wait
 CnfD
 cnt=
 CN(v
-%Co*
  < C O [ c
 CoCreateInstance
 code
@@ -5249,6 +5151,7 @@ CpH+ChH
 CPH+CHH
 CPI;
 CPI+
+.CPJ
 CPL;
 cpr::Timeout: timeout value overflow: 
 cpr::Timeout: timeout value underflow: 
@@ -5259,6 +5162,7 @@ cpr::Timeout: timeout value underflow:
 ;CPuv
 CQCtC
 CqI;
+.cQJ
 /C$r
 ;C@r3
 crash
@@ -5340,7 +5244,6 @@ Critical error 802. Present()
 Critical error 802. Present() failed err=
 critical_hit
 critical_hit_sound
-.CRL
  crossbow 
  //----------------------------------------- C R O S S  B O W  --------------------------------------------- 
 Crouching camera transition speed.
@@ -5377,6 +5280,8 @@ C`stib
 C`stibA
 ct= 
 C;t>
+- CT
+%!CT
 CT$(
 CT$0H
 CT$0L
@@ -5535,11 +5440,10 @@ CVBN
 %c;w.
 c|w{
 ,C<*w
-^=CW;
 Cw1*;
-=Cw6
 /C w9
 CWCf
+.cWL
 /C wl
 CxA;
 CXD;
@@ -5565,20 +5469,17 @@ CXuPH
 __CxxFrameHandler3
 __CxxFrameHandler4
 _CxxThrowException
-=*cY
-=cY[
 cylinder
 Cylinder height must be finite for TIQuery.
 C-Yn
 C>YPH>z
+=cz2
 cZcccqc
-`d`@
 ~=d]
-=^\d
-()@d
-(}^d
-(}&d
-(%~d
+(=:d)
+(! d
+(%/d
+(	\d
 (d$`
 (d$ 
 (d$@
@@ -5589,12 +5490,13 @@ cZcccqc
 \d$<
 \d$ 
 %.*d
+d;;@
 d" $,&.( *(,
 d$ %
 d$!@
 d$(@
 d$@@
-`)D@
+`-D@
 ^D$@
 ~~D;
 ~!D;
@@ -5609,13 +5511,13 @@ d$@@
 |$\D
 |$&D;
 |$D|
- =D@
- %D@
+ :D@
 _D/@
 ,D$<#
 ,D$|
 ,D$\
 (<$D
+(=|D)
 (|$`D
 (|$ D
 (|$@D
@@ -5641,7 +5543,9 @@ _D/@
 )D$@
 }`D#
 } D+
-@>D@
+@|D@
+@:D@
+@D`@
 *D$$
 \|$`D
 \[@D
@@ -5725,6 +5629,7 @@ D$\;
 D$#<
 D$#(
 d$0;
+(%%D0
 (D$0
 )D$0
 *D$0
@@ -5965,32 +5870,37 @@ D$8`
 D$8|
 D$8;
 D$8@
-D8=^
+D8= 
+D8=*,@
 D8|$@
-D8%,
+D8%=
 D8%:
-D8%?
-D8%]
 D8%*
-D8=02B
+D8%\
+D8%+
+D8=0#B
 D80t
 D81t
 D$8@2
 D82tl
 D82u
 D$83
+D8%3
 D8%4
 %d: %8.4g
 D84>u
-D8=5
 D85`
+D85!
 D85L
-D85V/W
+D85V
+D85yc<
 d8?":7?
 D87u
 D$89
+D8-9s=
 d$8A
 	D8a
+D8%a
 	D8A
 D;8A
 D$8A
@@ -5998,18 +5908,19 @@ d$8A_A^^]
 D8aHtID
 D8a<u
 D$8B
+D8=`"B
 |$(D8c
-D8%c
 D$8C
 D8=C
 D8c8t
 D8c9t!
+D8%CEd
 D8cH
 D8cHtR
 D$8cinuf
-D8%CUd
 D8c	u,E3
 d$8D
+D8%]>d
 D$8D
 D$8D;
 D$8D#
@@ -6020,12 +5931,13 @@ D8D$`t
 D8D$tE
 D8D$uu
 d$8E
+D8%?}e
 D$8E
 D$8E2
 d$8E3
 D$8E3
 D8eg
-D8%eYd
+D8%eId
 D$8f
 D8f2
 D$8fA
@@ -6033,6 +5945,7 @@ D$8fA;
 D$8fB
 D$8ff
 D$8fff
+D8-fl	
 D8fVt
 ?D8G
 d$8H
@@ -6042,20 +5955,18 @@ D(8H
 D$8H
 D$8H;
 D$8H+
+D8%H
 D8h1u
 D8H9D9H
 D$8Hc
 D$8H;E
 D$8Hi
-D8-Hm	
 d$8I
 d$8I;
 D8%i
 D$8I
 D$8I;
 D$8I+
-D8-I
-D8%I
 D;8I9
 D8IX
 D8IYu
@@ -6063,6 +5974,7 @@ d$8J
 D8%j
 D$8J
 \$(D8k
+D8%K
 D8KDA
 d$8L
 D8%l
@@ -6077,20 +5989,19 @@ D8%M
 D$8Mc
 D$8M;F
 D8mwt
-D8%]Nd
+D8%N
 D$8nmrafD
-D8-&o	
+D8%*nS
 ?D8O
 D8oDtPA
+D8%pK7
 D8p!u
 	D8q
 D8%Q
 D8q`u
 D8r@
 D8%R
-D8%+~S
 D8s4t
-D8%SW7
 D$8t
 D8|$ t]
 D8)t
@@ -6115,23 +6026,23 @@ D8+u
 D8uo
 D8uw
 D8v 
-D8%=#V
 ?D8w
 D8%w
 D8W!
 D8wDA
 D8w t L97t
 D$@@8x
-D8%x
 D$`8X
 D8X0u
-D8-xm	
+D8=Xd9
 D8|$Xt$H
 	D8y
-D8%YYd
+D8%y
+D8%YId
 d$@9
 |$(D9
 ?D9{
+[D9% 
 {`D9
 }~D9,
 D$ 9
@@ -6145,15 +6056,19 @@ D9@ |
 D9@ }
 D9@ }	
 D9@$|
+D9%,
 D90~
 D90t
 D90t1A
 D90u
-D9-2
+D9%2
 D92v\
 D93v*
-D95*-E
+D95K
+D95o
+D95Z
 D96viA
+D9%7
 D97u
 D97vbA
 D$,9\$8
@@ -6166,6 +6081,7 @@ D9a8~dH
 D9B }
 D9b4~
 &D9c
+D9-c{=
 D9cDu@L
 D9d$`
  D9D
@@ -6185,11 +6101,9 @@ D9egA
 D9e t
 D$9f
 D9f$
-[D9% 'F
 D9%F
 D9f4
 D9fp
-D9%G
 D9g8t
 D9G\}cH
 D9gh
@@ -6203,15 +6117,13 @@ D9\$HfA
 D9H s
 $D9I | 
 D9I }
-D9%i"9
 D9I(t
 D9J0
 D9k4vc
 D9K@A
 D9kXt2D8-
-D9kXt2D8-hn	
-D9kXt`D8-
 D9kXt?D8-
+D9kXt`D8-F
 D9l$`
 D9l$(
 D9l$@
@@ -6223,7 +6135,6 @@ D9m8
 D9Ml|
 D9Mx|
 !D9n
-D9%o
 D9o8t
 D9o@v
 D$`9P |
@@ -6279,7 +6190,6 @@ D9x8
 D9x s
 D9Y(~
 D9yDt
-D9%yf9
 D9yLt
 D9y@t
 D9Y,~ZI
@@ -6297,7 +6207,6 @@ d$ A
 d$(A
 d$@A
 d$$A
-(=Da
 D;a 
 (D$@A
 )D$`A
@@ -6335,6 +6244,7 @@ D$\A;
 D$\A+
 D$#A
 D* A
+-da0
 D$@A;4
 D$a8
 D$\A9
@@ -6381,7 +6291,6 @@ damage3
 damage_effect_instances.size()
 _damage_image
 dA+Q`x%A
-D;A r
 Dark
 darkening-parameters
 data
@@ -6431,9 +6340,7 @@ D;B }lL9u
 .dbm
 DBUG(
  dc=
-()dc
 D$@c&
-`DC@
  D;C<
 "D;C`
 )D$ C
@@ -6447,15 +6354,14 @@ D#C|D
 D#C|H
 D$cI
 D$(cinu
->DCK
 D$cL
 dcroat
 D$ <Cu
  dd=
+(	dd
 \d$d
 %d %d
 %d/%d
-=/dD
 |$dD
 (d$`D
 (d$@D
@@ -6471,6 +6377,7 @@ d$@D
 d$$D
 d$\D
 ;D$d
+(	Dd
 &D+d
 D;d$,
 D;d$$|
@@ -6479,7 +6386,6 @@ D$(d
 D$d	
 |$DD
 "D+D
-(=`DD
 (D$`D
 (D$ D
 (D$@D
@@ -6526,8 +6432,8 @@ D;D$4u
 d$@D8%
 D$(D8|$0I
 d$d9
+d$@D9%
 D;D98|	
-d$@D9%J
 d$dA
 d$DA
 d$DA;
@@ -6577,6 +6483,7 @@ D$DU
 D$dv
 D$@;D$Xs
 D;d$xuyH
+de?@
 ~dE;
 )d$`E
 )d$@E
@@ -6863,7 +6770,6 @@ Destruction setup
 [Destruction] Setup complete
  	detached_shot_particles false 
 Determines how strongly sound attenuates with distance.
-=deV
 dev_collisions
 dev_debug
 dev_debug_collision
@@ -6964,8 +6870,10 @@ DFKaiShu
 d,frhlj
 D;f s
 D+FXD
+=d@G
 D$ g
 D$@g&
+=D\G
 D$ G
 D$(G
 D+G$
@@ -7073,6 +6981,7 @@ D$hA+
 D$HA
 D$hB
 D$HB
+)dhC
 D$hC
 |$DHc
 +D$\Hc
@@ -7190,7 +7099,6 @@ D$ H;UPt
 D$@H;W
 D$$H;W
 ^d^i
->?dI
 d$`I
 d$`I;
 d$ I
@@ -7201,7 +7109,6 @@ d$(I;
 d$(I+
 d$@I
 d$$I
--DI=
 (D$ I
 )D$`I;
 )D$ I
@@ -7391,10 +7298,10 @@ D$jA
 D$JA
 D$jf
 D$ jH
->DjI
 &dK^?
 D$ k
 D$@k
+>D-K
 D (K
 D$ K
 D$@K
@@ -7404,6 +7311,7 @@ D;K4r
 D$kA
 D#K|D
 D$KfA+
+.DKJ
 dkxw$
 |$dL
 (d$ L
@@ -7418,6 +7326,7 @@ d$@L;
 d$@L+
 d$$L
 ;D$l
+%Dl*
 D;l$@
 D$l;
 Dl$ 
@@ -7492,8 +7401,6 @@ D$lI
 D$ Li
 D$(Li
 D$LI
->dlJ
-.DLJ
 D$(Lk
 d$lL
 D$lL
@@ -7514,6 +7421,7 @@ d$ M
 d$(M
 d$@M
 d$$M
+dM>@
 )D$ M
 D;M,
 D[M@
@@ -7598,6 +7506,7 @@ Double-click on title bar to collapse window.
 Double-click or CTRL+click to input value.
 (double-click to auto fit window to its contents).
 doubledamage
+@doubledamage
 double_damage_pfx
 doublejump
 double_jump
@@ -7611,6 +7520,7 @@ down
 )d$p
 (d$P
 )d$P
+=Dp>
  D;p
 (D$p
 )D$p
@@ -7622,7 +7532,6 @@ D$p|
 D$p;
 D$p@
 ^D$P
-=D.P
 _D/P
 ,D$P
 ,D$P%
@@ -7717,7 +7626,6 @@ D$pff
 )D$pfH
 D$pfH
 )D$PfH
-=dPG
 )d$pH
 d$pH
 d$PH
@@ -7814,6 +7722,7 @@ d?qq
 dQy/
 (D$ r
 D;;r
+%	DR
 	D;R(}
 D$rA
 D$RA
@@ -8017,6 +7926,7 @@ Duration of the haste ability.
 Duration of the slide skill.
 Duration of truce at the start of the game.
 D)u(u
+=dUV
 d+UwxnrW3B
 |$dv
 d$ v	
@@ -8129,7 +8039,6 @@ d$xE
 d$XE
 D$xE
 D$XE
-d$XE2
 D$xE3
 D$XE3
 D$XEBDAfD
@@ -8192,7 +8101,7 @@ D$xL
 D$xL;
 D$XL
 D$XL;
-d$XL9%)
+d$XL9%
 d$XL9b
 D$xLc!3
 D$xLi
@@ -8234,7 +8143,6 @@ D$<=xtmht
 D$Xu
 /D$Xw
 ;D$xw~E3
-=Dy<
 D$ y
 D$YA
 D$YD
@@ -8263,14 +8171,13 @@ D$ZH
 DZM@
 ~]dzR
 D$`zTXtI
-=)>e
-=e,=
-=e+\
--~!e
--;e?
+=).e
 ]'&e
 `E!@
 <$E;
+=>!E
+= [E
+=;[E
 |$`E
 |$ E
 |$ E+
@@ -8278,7 +8185,9 @@ D$`zTXtI
 |$@E
 |$$E
 |&E;
+-*$E
 (|$`E
+(%(E)
 )<$E
 )|$ E
 )|$@E
@@ -8298,6 +8207,7 @@ D$`zTXtI
 E;|$
 E;\$
 E\$@
+	e	0
 E;|$0|
 E0@85
 E09|$0
@@ -8311,6 +8221,7 @@ E0D9
 E0D9}(u
 E0E;
 E0E3
+-e0F
 (E0f
 (E0fD
 E0H;
@@ -8361,20 +8272,20 @@ $$E3
 \$(E3
 \$@E3
 E3EAEL
-E3I@
+=e4	
 E4ff
 E5L;
 E5M+
 %E#6
-(=E6C
-=E[7
-=e7B
+=e6K
+(e7b
+(E7c
 E7E3
 e7fD
 E7HcAHH
 E;7r
 e7w3
-=e 8
+=e)8
 ;E8}
 @E8!}
 E\$8
@@ -8396,6 +8307,7 @@ E8L+M(L+M
 E8Mc
 E8/u
 E8$?u
+=e(9
 |$@E9
 $E9~
 E9<$
@@ -8423,7 +8335,9 @@ E9t$P~OI
 E9wD
 E9wDA
 E9wH
-(e(a
+(e\a
+(E_a
+(E&a
  E+A
 )E A
 )E@A
@@ -8442,21 +8356,21 @@ Eacutesmall
 E;A }lL9u
 easing
 eax~Z
-(e_b
-(E b
-(E?b
 E&'bB
-(ebc
 EBDA
 EBDAfD
 ebegeq
 E BH
-(e-c
-(E:c
+(e]c
+(E>c
+(E[c
+(E@c
+@EC@
 E;C |
 E;C$
 E;C0
-(eca
+(eCd
+=ECd
 echo
 echovoice
 ecircumflex
@@ -8465,15 +8379,13 @@ Ecircumflexsmall
 E/Co
 (e D
 (e@D
-(}Ed
 (E@D
 $E+D$
 E@D;}
 E+D	
+=ed9
 E D9~
-(Eda
 .edata
-(edd
 EdE3
 EDfA
 e{=Dg
@@ -8544,7 +8456,7 @@ EeM+
 EEM+
 eexec
 )e@f
-%eF&
+=eF?
 _E@f
 (E f
 (E@f
@@ -8580,6 +8492,8 @@ e@fff
 E@fff
 effffff
 )E fH
+=e?G
+%eG?
 E;g 
   e.g. [ 100 ], input '*2', result becomes [ 200 ]
 EgE3
@@ -8625,8 +8539,8 @@ E(H+
 E@H;
 ehA_A^A]A\_^[]
 EHA+E<
-(eHc
 |EHc
+(EHc
 }EHc
 E Hc
 E,Hc
@@ -8649,7 +8563,6 @@ eh?o
 |EH;~@u
 E@H;W
 E H;W(t	
-^%e$I
 e`I+
 e I+
 e@I;
@@ -8661,12 +8574,13 @@ eight
 eightinferior
 eightoldstyle
 eightsuperior
-\%ej#
-(eja
+>eiJ
+.E	J
 E#J$A
 E}JR
+.e&K
 E;K0sG
-(EKd
+(Eka
 ekhHD
 }(eL
 E;l$
@@ -8716,7 +8630,6 @@ empty dictionary
 empty distance tree with lengths
 Empty escape sequence in string
 Empty regular expression.
-=!EN
 enable
 enabled
 Enabled
@@ -8773,6 +8686,7 @@ Enables wall jumping. 0: Disabled 1: Enabled
 Enables writing of JSON game events to the game.log file.
 Enable this to set mouse_circumference in inches. 0: Disabled. 1:Enabled
 enableYAMLCompatibility
+(enb
 encode failed: %s
 Encoding
 ENCODING
@@ -8865,9 +8779,7 @@ envmap
 @En[vP
 env_props
 E;O,|
-(eOb
 EOE3
-=eOG
 EOS_AccountId_FromString
 EOS_AccountId_IsValid
 EOS_AccountId_ToString
@@ -8976,7 +8888,6 @@ epiclogin
 EpicPortal
 epicuserid
 epicusername
-.EPJ
 )EpL
 EpL+
 )EPL
@@ -8985,7 +8896,7 @@ EPL+
 )EpM
 EPM;
 =epudu[A
-=E&Q
+=_EQ
 	E;Q(}
 e?qq
 equ8_client_close_session
@@ -9028,6 +8939,7 @@ equip_sound
 equip_time
 eR2;K
 Er3H
+.ERL
 eRM@
 erodeWalkableArea: Out of memory 'dist' (%d).
  err=
@@ -9221,7 +9133,6 @@ Error writing UUID file. This usually means issues finding or accessing the appl
 Error: Wrong duration value. Aborting sequence 
 * Error: Your game version is outdated.
 Error: You've logged from elsewhere.
-=ERV
 E;S0
 escape
 Escape sequence did not encode a valid character.
@@ -9229,7 +9140,6 @@ Escape sequence terminated prematurely.
 Escape sequence was neither a valid property nor a valid character class name.
 ESCAPE to revert.
 EscChar
-=ESd
 Esmall
 eSOUax
 Essential game assets were not found! (Did you forget to use the override script?) Shutting down...
@@ -9241,7 +9151,9 @@ E;t$
 E;t$ 
 E+t$
 Et%(
+--ET
 ;E;T
+%.ET
 E;T$
 E;t$0
 Et$DD
@@ -9261,7 +9173,6 @@ EU Global
 EU Global view
 EU Groups
 Eu[H
-.euI
 ?euLH
 EU Lut
 EU Model cleanup
@@ -9276,7 +9187,7 @@ EU Sorting
 EU Tree Insertion
 eu?u
 EU-West
-(Evb
+(Evd
 event
  event_type=
 =Evt>
@@ -9396,14 +9307,13 @@ extrapolate
 Extrudes from a selected surface.
 EydV
 eyeVector
-=e&Z
 E;Z,|
-(eZc
-EzD;5N
+EzD;5
 eZe}e
 )EZf
 ,EZr
 ^\`f^
+>(@~f
 >f@-
 |$`f
 |$ f
@@ -9423,13 +9333,17 @@ $%&f
 \$@f
 \$$f
 %.*f
+%f(=
 f@?(
 `F(>
-=_%F
+=)_F
+=F~(
+=F;$
  F> 
+!	F(
 . F=
-%>(F
 	<	F
+F;;@
 F09A
 F0A9@
 F0E3
@@ -9449,19 +9363,14 @@ F0M+
 F0ue
 F0uj
 .F0z%u#
+=F$2
 .f21
  /F2d
-`f2+L
-f33I
-`f33I
-F33I
 f3f723
 f?3Jf?6
-f3'K
 F4A;
 f4}J
 (F 6*,,
-=F/8
 F8$2u
 F`8C,u	
 #f8d309
@@ -9469,7 +9378,6 @@ F8fA
 F8H;
 F8I;
 F8L;
-%f8T
 .F8z
 .F8zjuh
 @ f9
@@ -9589,10 +9497,10 @@ fatal
 Fatal error initializing culling.
 f@B$""
 fB94Bu
+fBDK
 FbfD
 FbFi
 .fbx
-(!Fc
 F*C>
 Fc8C/u|
 fC9l
@@ -9600,7 +9508,6 @@ f"cCR#`|
 f;CD
 f;CDr
 fclose
-FcpK
 fctt
 fcttt*
 _@fD
@@ -9611,7 +9518,6 @@ _@fD
 @fD+
 \$@fD
 fD;}
-=F'D
 F<D;
 F|/d2
 Fd8C0uR
@@ -9670,6 +9576,8 @@ fD;q
 fD;R
 fD+t$\A
 fD;u
+-fdY
+fDYK
 fD;Z
 <$fE
 {@fE
@@ -9698,7 +9606,6 @@ feedback_bolt_ready
 f@EI
 fE;j
 fE;J
-F<EL
 fE;r
 fE;"s
 fE;*s
@@ -9709,12 +9616,12 @@ fE;z
 <ff&
 |$(ff
 |$@ff
+-.ff
 :`<f>f@]
 ?ff&?
 ]@ff
 f f"`$<,
 f?|>f?
-ff&?
 \F`f
 F*.f
 F>F_@>
@@ -9797,6 +9704,7 @@ ffee20
 *fff
 \$(fff
 fff?
+=ffF
 ?fff?333?
 Fff9Fdu
 f!f=fEfwf
@@ -9823,7 +9731,6 @@ fff?fff?fff?fff?~|wmW)
 ^ffffff is not bound.
 f f"`$H,
 =ffitt
-FfJK
 fF;L
 fflush
 =FFOwtM=fctttF
@@ -9837,6 +9744,7 @@ fgetc
 fgetpos
 f*ggot
 f*gg*t
+	FG?L
 |$ fH
 F H+
 F.H0J.L N(P"R.T$V(X
@@ -9853,21 +9761,19 @@ FHH;
 FhH+F`H
 FHH+F@H
 FHI;
-,F(H,J,L&N,P
+.fhJ
+,F(H,J,L,N,P
 F,H,J,L,N(P(R&T.V&X(Z \(^ `.b d
-FHKI
 FhL;
 FHL;
 FH+N8+F<A
 (f<hZ
 (F<HZ
+fHZJ
 .FHz&u$
 |$ fI
-f,}I
-f\~I
-^==FI
-.<FI
-.\FI
+.^FI
+.%FI
 F`I;
 F I;
 F(I;
@@ -9878,7 +9784,6 @@ FI'`
 fight
 figuredash
 FIGURE_WIDTH
-F$II
 f i j k d b h
 File
 File 
@@ -9941,15 +9846,12 @@ fixed_timestep
 Fixed width.
 Fizz
 FizzBuzz
-.|fJ
-. fJ
-.f\J
 FjD+
 f;kD
 f;KD
 FKFV
 FKoh
-.f[L
+f[>L
 F`L;
 F L;
 F(L;
@@ -9981,7 +9883,6 @@ Flip fullscreen mode is not available in this computer. It's recommended to upgr
 _flipx
 _flipy
 _flipz
-.flK
 float
 float##1
 float##2
@@ -10008,8 +9909,8 @@ fmodf
 FMOD_System_Create
 FMOD was not initialized correctly to support this function.
 fmt=
+fN;@
 Fn.p.r.vhzB
-FNyK
 Focal distance for orientation of carried weapon.
 focus_chat_input
 focus_console_input
@@ -10022,7 +9923,7 @@ f;OD
 fog_color
 FogFactor
 Fog (Unique)
-.fOJ
+F,oI
 FoldStringW
 follow
 following_state_changed
@@ -10108,6 +10009,8 @@ foursuperior
  	fov 55 
  	fov 58 
  	fov 59 
+=}fP
+-"fP
 ;Fp~
 FP9C
 FP9FL
@@ -10121,6 +10024,7 @@ fPfo
 fpgiu
 FpH;
 FPH+
+f\pI
 FpI;
 FPI;
 FpI9
@@ -10131,8 +10035,6 @@ fps=
 fputc
 fP~V
 .FPz
-=fQ@
-fq?K
 f;Q s
 fraction
 fragged_by
@@ -10187,13 +10089,12 @@ fseek
 _fseeki64
 fsetpos
 f;;s<f
-.fsK
 F@#(\SlL0
 Fsmall
 fssm.ps.cso
 FSType
  fsvc=
-f;=t
+%f(T
 Ft$\
 FT9C u"
 ;FTD
@@ -10202,10 +10103,10 @@ ftell
 _ftelli64
 f+TF
 ftfL
+F|tK
 FT_Load_Char(1) returned:
 FT_Load_Char(2) returned:
 F	t$PH
--ftY
 ;F\u
 fu+A
 ?FudH
@@ -10230,7 +10131,7 @@ FvDH
 fvdI
 FvDI
 Fv(E
-.fvI
+.FVL
 |=Fvo=]
 /F<w
 Fw?>
@@ -10265,11 +10166,12 @@ fylg
 ;	Fzo
 .F<z]u[
 FZ?w
-`g;@
-=(;g
+=(+g
 %.*g
+ G;@
+(="|G
 [@[G
-@G<@
+%"@G
 G	< 
 ;G0}$
 }G0:
@@ -10292,6 +10194,7 @@ G0M;
 G0M;A
 G0ul
 ?	g	2	
+=G2?
 G2*&#!
 G:%3.0f
 G>33
@@ -10300,7 +10203,6 @@ G49G0
 g4D+o0D+g4E
 G4$E3
 G4H;
-='G5
 g5g>gK
 ?g+7
 G7G;G@GEGJM
@@ -10313,7 +10215,7 @@ G8Hc
 G8I;
 G8L;
 G8L+
-(%ga
+(=ga
 G@A;
 G@A9^4r
 G A9G
@@ -10477,17 +10379,15 @@ game_zoom_fov
 game_zoom_mode
 Gamma correction, 1.0 = default, higher values are brighter.
 gamma = (%d/100000)
+=gaY
 gbreve
 Gbreve
 'Gc{
 GCTL
-(!gd
-=g}D
 )G(D
 G(D9e(
 GDA+
 GDBytes
-=GdD
 Gd;F4
 GD+G<
 GDI32.dll
@@ -10623,7 +10523,6 @@ GetTickCount
 GetUserDefaultLCID
 GetWindowLongPtrA
 GetWindowRect
-=g/F
 G`fA
 GfA#
 G	fE
@@ -10691,9 +10590,9 @@ G@I;
 G I9E
 G I+G
 G(I+G H
+-GiT
 Gives information about current selection.
->|GK
->G K
+=GK%
 g`l	|:/
 G`L;
 G L;
@@ -10742,15 +10641,14 @@ glyph-to-script-map
 .Glz
 GL_ZERO
 :>gM|?
-(=g+M
 }gM+
 gM|?
 G M+
 G@M;
 gM|?\0 
 g>M-a>Y
+=gmD
 GMd^
-=Gn?
 =G_N
 gook
 gooks
@@ -10783,9 +10681,8 @@ GPPM;
 ,G;Q
 }{G;<!}QA
 gqr<
-=gqY
 _g_r
--=GR
+(%GR)
 G!?R
 GrabMinSize
 GrabRounding
@@ -10862,6 +10759,7 @@ Group limit of
 group_reset
 Groups
 GR V=
+=GSA
 g_sau
 gSB5*!
 Gsmall
@@ -10873,8 +10771,11 @@ G`stibE
  gt=
 &gt;
 gt/_
+->GT
+%?GT
 +GtA+
 GTA;
+=GTD
 GtPF
 .Gtz
 .GTz
@@ -10891,6 +10792,7 @@ G$uUI
 /G(w-
 /G wE
 /G wx
+%Gx-
 GX0L;]
 GXA9EX~
 GXA9FX
@@ -10912,7 +10814,8 @@ g`Z*
 .G`z
 gZgnhKhWhci
 gzip
-=h\?
+=(h;
+=\h<
 |$h@
 |$h+
  "@^@h
@@ -10922,16 +10825,16 @@ gzip
 ]`h&
 ]_;~h
 \$h@
-%h}$
-h<?@
 h_^][
+h;`@
+h.`@
 ^ H;
 ^(H;
 ~ H;
 ~,H+
 ~(H;
 ~@H;
-=H~:
+=<\H
 >	H	
 |;(H
 |/H;
@@ -11021,16 +10924,15 @@ $	H;
 H_^][
 H;~@
 H;==
-H;=>
-H;=|
-H;=:
 H;=]
-H;=*![
+H;=*
 H;|$`
 H;|$@
 H;_@
 H;}(
 H" &
+H+`@
+H	`@
 H;^0
 H;|$0
 H:%0.3f
@@ -11058,19 +10960,16 @@ H""$2
 H:%3.0f
  H3E H3E
 H;3u 
-H;=. 4
 H.>4
 H49J<u
 H4HcH8H
-H;5)
-H;5}'[
-H;5n
-H;5<r2
-H;5RLe
-H;5U9e
-h6`@
+=h(5
+h5`@
+H;5}
+H;5R<e
+H;5S
+H;5U)e
 H$6t
-%h7,
 H+7A
 H;|$8
 H89J@u
@@ -11089,18 +10988,15 @@ H;8u
 ] H9
 @ H9
 \$ H9
-H9=\
 H9\$ 
 H9{0vPI;
 H95e
 H95M
-H95Z
 H99t
 H99u
 H9A(
 H9B@s
 H9B t
-H9=C
 H9C8t
 @@H9C@r
 H9C t"H
@@ -11118,7 +11014,6 @@ H9D$@t&H
 H9D$@u
 H9D$x
 H9D$X
-H9=eC>
 H9E w<H
 H9F 
 @ H9F8r"L;
@@ -11127,11 +11022,11 @@ H9G
 H+9H
 H9H s
 H9\$HtdH
-H9=i
 H9i 
 H,9J4u A
 H<9JDuCI
 H9J t
+H9=K
 H9K(
 H9kPu
 H9L$0u
@@ -11148,7 +11043,7 @@ H9Q(u!A
 H9Q(u"A
 H9s 
 H9s(
-@\H9=S8V
+@\H9=S(V
 H9;t
 H9{ t
 H9*t	H
@@ -11169,7 +11064,6 @@ H9YH
 H9yHu
 H9y s
 H9z u
-(	ha
 |$hA
 \$hA
 \$hA;
@@ -11257,18 +11151,15 @@ have_powerup
 H;Ax
 >HB)
  H;B
--%HB
 {HB{
 \$HB
 Hb<0D
-(]hc
 ~`Hc
 ~=Hc
 ~ Hc
 ~#Hc
 ~%Hc
 |$ Hc
-(!Hc
 {,Hc
 }<Hc
 }.Hc
@@ -11277,8 +11168,6 @@ Hb<0D
 @(Hc
 @Hc*
 \$(Hc
-HC`@
-HC?@
 Hc\$(3
 Hc\$8L
 H;C8t
@@ -11400,6 +11289,7 @@ H;C v
 HcV(H
 HcVLH
 HcVPH
+=hCW
 HcWp
 Hcx0
 HcX0
@@ -11409,6 +11299,7 @@ H;Cxu
 |$hD
 \$hD
 \$hD;
+=HD:
 |$HD
  H+D
 'H;D$ 
@@ -11428,6 +11319,7 @@ H+D$@H
 HDHcHHH
  H;D$Ht
 H;D$Hv
+.HDJ
 hD;n0|
 H;D$P
 H;D$P|
@@ -11554,6 +11446,7 @@ Hey, if you want to run the game directly you have to do it through Diabotical-L
 H E Z L O C U S
 \$hf
 |$hF
+hF;@
 |$Hf
 \$Hf
 H@f;
@@ -11567,7 +11460,6 @@ hfdDD
 H~$f-F
 {Hfff
 H<fff
-(-hFM
 H;F v
 hG?)
 :>:H:`:g:
@@ -11584,15 +11476,18 @@ H;G t
 H;G v
 H;G(v
 H;G@v
+H;=GVC
 H;Gxt*I
 h.h>
-=h^H
+=h:H
 |$hH
 |$hH;
 ]hH;
 ]hH+
 \$hH
 \$hH;
+=Hh;
+=H:H
 |$HH
 |$HH=
 |$HH;
@@ -11686,24 +11581,25 @@ Hit sound.
 hit_sound_min_pitch
  	hit_sound_min_pitch 0.75 
  	hit_sound testhit1 
+. hJ
+.@hJ
 \$hJ
+	h J
+H;=j
 H+=J
 HJ}/
 hJ4%
+H;=J	7
 `H^JfL
-=hJH
-=HJH
 \ h j$l.n.p"r.t"v(x&z.|(~
 h(jNh.lxj2p(j8h
 h$j&v.xlz"| ~(
+-`hK
 |$(Hk
 }.Hk
->H?K
 \$HK
 H ;K
-HK`@
 H;K0r
-H;=k1:
 H+K8H
 ^HkE
 _HkE
@@ -11716,12 +11612,16 @@ HkL$`hH
 \$h;\$l
 `h]L
 |$hL
+.h[L
 \$hL
 |$HL
+.|HL
 \$HL
 H+L$@
+HL`@
 H+l$0I
 H$L1%N(P
+=hL3
 |$HL9~
 HL9|$xr
 |$HL9yP
@@ -11752,20 +11652,21 @@ H+MPH
 hmtx
 hn!@
 |$hN
-hN`@
 H.-%n
 |$HN
 _H;N(
 ~HNcT
+=hNH
 	H;NH
->HnJ
+H;=noC
 H;N(s I
 H&NxH
 H+NXI
 H;=o
 H$;O
-HO;@
+H;=O_C
 Ho	hwh
+.hOJ
 hold_dps
 holder
 holder_eggbot
@@ -11810,7 +11711,6 @@ Hover over me
 Hover to see mouse cursors:
 H;OxthH
 h  p@
-hP`@
 H;|$p
 H;]P
 H+]P
@@ -11825,7 +11725,6 @@ HPH;
 HPHcHTH
 H+]PI
 hPIcC
-.hPJ
 H+^pL
 H+_pL
 -h.png
@@ -11857,6 +11756,7 @@ H;Qxu
 Hr:0<(BlN
 hrcfA
 ;H s
+H;=s
 H;}(s
 H;s,
 \H\S
@@ -11872,7 +11772,6 @@ H;S t9f
 H;S tC3
 ##hsv
 HSV Input
-=hSW
 H SWATAUAVH
 H;Sxt*
 $H;t$`
@@ -11987,6 +11886,7 @@ H UVWATAUAVAWH
 H UWATH
 HuYL
 ~_h}V]
+HV`@
 HvFH
 h VH
 H+VpIc
@@ -11998,7 +11898,6 @@ HVWSATL
 HVWSI
 HVWSUH
 H+VXE3
-hW`@
 |$H w
 H;w(
 |$@H;W
@@ -12010,13 +11909,14 @@ H;W(r
 } H;W(t
 HwuH
 H;wxt%H
+-h=X
 @hxB
-@hxB0
 hXH+
 `HXJfL
 hXM@
 HXM@
 H;|$Xt2
+=]hY
 H;Y0t\H
 Hybrid class with game control abilities.
 hyphen
@@ -12040,11 +11940,11 @@ H;z s
 H;z sVH9^
 H;Z sYH
 `^`i
+=i{<
+(i|`
 @}`}i
 $i>%
 i->%
-`=I@
-`@<I
 `#I>
 ^ I;
 ~`I;
@@ -12053,8 +11953,8 @@ i->%
 <$I;
 <$I+
 =`#I>
-=;#I
 >`#I>
+>,=I
 |'I;
 |$`I
 |$ I
@@ -12065,7 +11965,6 @@ i->%
 |$$I
 |	?I
 _ I;
-.:\I
 (<$I
 (|$`I
 (|$ I
@@ -12091,23 +11990,23 @@ $	I;
 \$@I
 \$@I;
 \$$I
-%;I=
 I;<$
 I;]0
 I;}0
-(I0b
 i0E3
 i0H;
 I0I#
 i0pM
-`I2b
+=I\2
+(i2c
+(i3d
 I.`4
 I4E3
 I;4$ttK
-(i5c
 I5	/z/~/
 %i-6
 I+7H
+(I8d
 I8E3
 I8H;
 i8Ii
@@ -12133,11 +12032,14 @@ I9t$
 I9:u*A
 I9.v@I
 I9W(
-()ia
+(}ia
+(i>a
+(i!a
+(i%a
 *}ia
-(I-a
-(I)a
+=IA?
 I(A+
+(Iaa
 iacute
 Iacute
 Iacutesmall
@@ -12147,11 +12049,14 @@ I am a fancy tooltip
 I am a tooltip
 I am a tooltip over a popup
 I am upset but things will improve for me soon
-(i"b
-(I+b
+`i*b
+(i(b
+(i}b
+(i#b
 <)IB
 ~ Ic
 ,$Ic
+(I(c
 }<Ic
 }-Ic
 };Ic
@@ -12172,6 +12077,7 @@ Ic8A
 Ic@8L
 Ic8M
 	IcA
+(ICa
 IcB4H
 IcC,
 IcC0H
@@ -12223,9 +12129,9 @@ IcUHM
 !IcV
 IcV 
 IcZ<A
-(	Id
-(I;d
-(I/d
+(i<d
+(i'd
+(I)d
  I;D$
  ID=
 $I;D$
@@ -12254,15 +12160,14 @@ IDAT
 ?id@?$codecvt@DDU_Mbstatet@@@std@@2V0locale@2@A
 ?id@?$codecvt@_WDU_Mbstatet@@@std@@2V0locale@2@A
 ?id@?$ctype@D@std@@2V0locale@2@A
-(IDd
 identity
 identitylighting
 IDH;
 idieresis
 Idieresis
 Idieresissmall
-.iDJ
 idle
+]?idle_floor
 idle_floor
 idle_floor_end
 idle_floor_start
@@ -12278,12 +12183,9 @@ $IE3
 IEND
 I;E@v
 =iF#
-(IFa
-(ifb
 If enabled, game is free for all. If disabled, it's a two-team game.
 I+F H
 	IfIndex (IPv4 interface): %u
-.ifJ
 If no values are supplied, 0 and 1 are assumed. More than two values can be used and they will be cycled from left to right. If the current value isn't part of the cycle, the first value will be used.
 I+FpH
 If the show parameter is specified the navigation mesh will also be drawn.
@@ -12342,8 +12244,8 @@ IHE3
 I+HP
 I+HPH
 (i(i
+>i\I
 >`#I>`#I
->[II
 $II+
 I`I;
 I I;
@@ -12360,13 +12262,15 @@ $II+O8H
 I+IP
 I+IPH
 IISO
->|iJ
-.i	J
+>,iK
 \$ Ik
+(IKb
 Ik{J
 I+KPfD
-%iL?
+%i;L
 I+L$
+(iLb
+(ILc
 illum 1
 I love the sponginess!
 I M;
@@ -12396,7 +12300,6 @@ Image width exceeds user limit in IHDR
 Image width is too large for this architecture
 Image width is zero in IHDR
 ?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAXAEBVlocale@2@@Z
-(IMc
 <img class="asset_icon" src="
 <img class="asset_icon" src="asset_thumbnails/
 ImGui
@@ -12408,7 +12311,6 @@ imgui_log.txt
 ImGui Metrics
 ImGui %s
 {i?M#i?d
-.ImK
 IMM32.dll
 Immediately saves the current configuration.
 Immediate UI setup
@@ -12472,10 +12374,10 @@ import
 impressive_reward
  	impressive_reward true 
 Impulse-Response based
+=imT
 ImVec4* colors = ImGui::GetStyle().Colors;
 I;n 
 I;N 
-(iNb
 ?in@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEAD3AEAPEAD@Z
 ?in@?$codecvt@_WDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEBD1AEAPEBDPEA_W3AEAPEA_W@Z
 In columns
@@ -12755,6 +12657,7 @@ invite_sent
 ?Invoke@?$CoherentToString@_N@cohtml@@SA_N_NPEADPEA_K@Z
 ?Invoke@?$CoherentToString@N@cohtml@@SA_NNPEADPEA_K@Z
 I+O8H
+%ioe
 io.MouseDrawCursor
 I<OXb<^
 ~i~p
@@ -12764,6 +12667,7 @@ IPE3
 IPHLPAPI.DLL
 IpI;
 IPI;
+.iPJ
 iplApplyBinauralEffect
 iplCreateBinauralEffect
 iplCreateBinauralRenderer
@@ -12776,12 +12680,10 @@ I;p r
 	Ipv6IfIndex (IPv6 interface): %u
 	IPV6:%s
 .Ipz
-=Iq1
+(iQb
 I+QpI
 I;^(r
 I;.r
-.IrK
-.iRL
 iRR?
 IR.T.V.Zh^B
 %i. %s
@@ -12859,7 +12761,6 @@ I+T$
 Italic
 ItalicAngle
 ITALIC_ANGLE
-(ITb
 I;<$tc
 $ItCH
 it->debug_name
@@ -12886,6 +12787,7 @@ Item with focus: %d
 Item with focus: <none>
 it.first
 it->flash_time
+=ItG
 it=H
 %i The quick brown fox jumps over the lazy dog
 it->hologram
@@ -12921,73 +12823,74 @@ I;v(r
 I;W(
 I;W8v
 i]Wb
+(IWb
 IW]`cb^YQ-B
 ,I<&w:H
 I;w(s
 I|	X
 I;x r
 I;x s
-(IYb
   Iz
 @iZb
-=@	j
--j]?
 ?@?j
-(=[j>
 #|-j
-~(?J
 |$`J
 ;J |
 ;J }
-.|	J
+.~	J
+.$[J
 'J`'
+(%J.)
+(J`@
 {/,J
 $"$<J
 $&$:J
 &J;'@
-	| J
 (J0H
 J0H+J(H
 J0L+
 &j0Lg
 J1J7JU
-=\j2
 j2?;
 j?2*j?5
-=?j5
+=!J3
 J}5M
 J6LDJ
 j6	ny
-=J7@
+=J%7
+=j 8
 J8&:&<">(@"B(D F(H J
 J8E3
 J8Hc
 J8L+
-`jA@
 |jA+
 ~JA+
 JA>0
 J A8
 JA(o
+=JaY
 J B'
 /Jc|
 JcL#
-=J;D
+%JCR
  J+D
+-JDH
 jDjK
 jdlFj4n,j<p(r$t
 J*dQ
--'je
 j#!e
+=$jE
+=;Je
 |JE3
 J E3
 }J;Ea
 J E;J
 $j.f
+=@JF
+=+JF
 ~jfA
 J(fD
 JF.HBJ
-=JG7
 }jH;
 J'H;
 `JHc
@@ -13014,8 +12917,8 @@ jiggers
 jiggs
 ;J }iH
 Jij$`R
-=jIP
 @@jj
+%JJ[
 -j'j2j>jU
 J?JH
 JJJJ
@@ -13023,23 +12926,20 @@ JK"i
 .j&l
 J(L+
 ~JLc
+=JLO
 (j<lZ
 (J<LZ
-=@JM
 J(M;
 ~JMc
 j:N -
 *J,N*
 '!$J$N$R$V$Z$^$b$f$j$n0
-=J\O
 [@JO
 Johannesburg
 "JOINED TEAM "
 JOINED TEAM 
 join_team
 jpeg
-=JqY
-=}JR
 jRM@
 j[ros
 jr?z7
@@ -13051,11 +12951,10 @@ jsoncp
 [JSON-Event] 
 json_manifest
 (JSON) on Masterserver request. map/mode/match_id=
-%JSR
 	#jT$
--JTH
 jTh4r(t(rthDj
 jTh>j$|.~ |Lh
+.jTJ
 JTN$Jf
 .JTz
 j;UdS
@@ -13067,13 +12966,12 @@ jump_left
 jump_left_back
 jump_left_forward
 jumppad
-@jumppad
 jumppadfx
-]?jumppadfx
 jump_right
 jump_right_back
 jump_right_forward
 jump_still
+=jV3
 Jvfe
 jvhH
 JvHH
@@ -13081,25 +12979,22 @@ JvKsK}l	J
 >JVQ2,
 j$v.x.z x
 ;J }wL9d$@
-.JXJ
+=*JY
 +:JYix
-%JZ[
--JZ0
 *:JZjz
-`k;@
+ k;@
 !&]k
+(-k(<
+@k;@
 &=\k
-^	_K
+=,.K
+><<K
+><&K
 |$`K
 _?K<`?
-- K+
-.-)K
-.\,K
-.%*K
+.#)K
 '`"K
-(-]K)
 \$@K
-=k"0
 \K0A
 +K0A
 K0E3
@@ -13110,22 +13005,18 @@ K0H;C u4H
 K0I;
 K0I#
 k0V(
-=k17
+=k{2
 K4E3
 ;k4r
 K4V]]C
-=k]5
--k;5
 K?64B
-=K7	
 ;k8|
+@k8@
 K8H;
 k`@8l$Pt
 ;k8r
 K@9x
-(-ka
-=k;A
-()Ka
+`kA@
 K@A;
 Ka 1.000000 1.000000 1.000000
 kabcf
@@ -13133,19 +13024,16 @@ kabcf
 Kanjis: 
 ">Kav
 K},C
-=Kc5
  KcT!
 ^K(D
+=K{D
 |$KD
 K(D+
-=KD1
 Kd 1.000000 1.000000 1.000000
 K`D3
 k*do^
 KdrJL
 KDt-L
-= kE
-=;kE
 k E3
 k@E3
 K E3
@@ -13172,9 +13060,10 @@ keyword
 keyword length must be 1 - 79 characters
 \K`fA
 K(fA
+%kFH
+.KFI
 kF?j
 Kftc
-=kgd
 k(H;
 K H;
 K(H;
@@ -13192,12 +13081,13 @@ K@H+K8H
 KHL;
 KHM;
 {kHw
-.;kI
-.(kI
+.|kI
+.*KI
 K`I;
 K I+
 K(I;
 K@I;
+=KId
 kike
 kikes
 kill
@@ -13209,9 +13099,8 @@ kills
 Kill your own in-game character.
 kindness and love
 Kiwi
-.$KJ
+.k	J
 K +J
-=[kK
 !.<K\k{
 +;K[k{
 K&K8KFKQ
@@ -13220,15 +13109,16 @@ KKKK
 k k.k;m
 K(knN
 kkWfd
+.|KL
 K L9k uH
 K L9q
 kleene
 KLH#
+>KLI
 KLI#
 KLMG
 ;kLr
 kM`~
-=Km?
  KM@
 K(m9
 kM9u
@@ -13267,7 +13157,6 @@ knocked_down
 known
 Known team for player 
 kO4d
--K-P
 @k P)9
 kPA;
 kPD+
@@ -13285,20 +13174,21 @@ KPMi
 /KPv
 k^@[|q@
 "K"q
-=kQ4
 ;K@r3
+.KrK
+.kRL
 ;K s
 Ks 0.000000 0.000000 0.000000
 Ksmall
 ;K spH
 K SUVWATAVAWH
 K SVWH
-%K"T
+%Kt-
 k(t<H
 K(t"I
 K(t&I
->KTJ
 )k(u
+-kU?
 KUMUX
 KuqM
 :kuT
@@ -13306,37 +13196,31 @@ K UVWH
 K UWATAUAWI
 K UWAUAWH
 :KuY
--&kV
 /K@v
 K}VB
-%kVH
 KvIH
 k VWAVH
+=kWd
 Kw<H
 Kw	H
 KxH;
 kxHc
 KxI;
 KXLk
-=KYd
 ky"F$
 K(yX
 kZkjk
-`l;@
-=l+@
- l;@
+=!l#
 ;l$ |
-(%\l>
+(}l`
 (l$ 
 (l$@
 )l$`
 )l$ 
 )l$@
-@l;@
 \$l+
 \l$`
 \l$@
-	=	l
 l$<<
 l$ @
 l$,@
@@ -13345,14 +13229,14 @@ l$(_
 l$(@
 l$@;
 l$@@
+`L_@
 ~*L+
 <~L;
 <$L;
-=={L
+><%L
 >>?%L+
 >>?%L+?
->|&L
->\(L
+>,>L
 |=L;
 |$`L
 |$<L
@@ -13365,12 +13249,13 @@ l$@@
 |$\L
  L;}
 _|$L
--L#-
 ;_ L
 ;?%L+
 . \L."^
 . L=
-."[L
+./[L
+.{[L
+.	[L
 (|$`L
 (|$@L
 ($$L
@@ -13407,7 +13292,7 @@ $~`L
 L><+
 L;|$`
 L;|$(
-L;-`
+L;;@
 L$`+
 L$ ;
 L$ @
@@ -13429,7 +13314,7 @@ l$03
 L$03
 L08A
 L$0@8|$<t
-L$095
+L$095~)7
 (l$0A
 l$0A
 l$0A;
@@ -13498,6 +13383,7 @@ L$0M;
 )l$0t)
 L$0t
 $L;{0u
+=L'1
 L$13
 L$1f
 L$1H;
@@ -13507,6 +13393,7 @@ L$1L
 L1LH
 L1PH
 l$`2
+=L[2
 L$`@2
 l2$4.6(8&:(<&>.@*B
 L$2f
@@ -13539,15 +13426,15 @@ L$4fD
 l$4H
 L$4H
 L$4HcD$0H
-`l4I
 L$4I
 l$4L
 L$4L
 L$5I
-L;5Z
+L;5Z	`
+==l6
+=$l6
 <l6,@&B,D&F,H,J
 L$6f
-.l6K
 l6qnk
 $@L7
 {l~7!h
@@ -13555,6 +13442,7 @@ L7#H
 l$8;
 l$8@
 l$8$
+=L)8
 +L$8+
 L;\$8
 L$8|
@@ -13618,27 +13506,23 @@ L$8M
 l8nzp
 l$8t
 L;8t-M
-=l9@
 l$@9
-=L,9
-|$(L9=|
+|$(L9=
 { L9
 }`L9}
 }|L9=
 }\L9}
 \$L9
-L9=@
+L9=<
 L9|$`
 L9%@
 L9|0
 L90u
 L90u H
 L93u
-L95;
 L95B
 L9%6
 L9|$8
-L9-8
 L99u
 L9a`
 L9a8
@@ -13648,9 +13532,10 @@ L9c(
 L9Cht
 L9Cxu
 L9d$P
+L9%f
 L9f u4
-L9%f V
 L9`h
+L9-h
 L+9H
 L9HH
 l$@9i
@@ -13663,12 +13548,12 @@ L9k u*
 L9k unH
 +L9m
 L9m8s]H
-L9=O
 L9OX
+L9=p|>
 L9pH
-|$L9=piF
 L9p s
 L9~PteL9~`t_L9~htYH
+|$L9=pYF
  L9q
 L9q 
 L9@@r
@@ -13680,7 +13565,6 @@ L9u8
 L9vp
 L9xHt
 L9\$xI
-L9=Z
 L9-Z
 |lA;
 (l$@A
@@ -13697,6 +13581,7 @@ l$@A
 l$@A;
 l$$A
 l$\A
+=L&A
 |$LA
 )L$ A
 )L$@A
@@ -13747,7 +13632,6 @@ l$ B
 l$(B
 |$LB
  L;B
-@LB@
 L$ B
 L;B8L
 L$bA
@@ -13755,6 +13639,7 @@ l!;b	F
 =lbgrt
 L$bL
 lbracket
+L;=bs8
 L;B t#
 `L@bU
 ~ Lc
@@ -13841,10 +13726,11 @@ l$$D
 l$$D;
 l$\D
 l$\D;
+=^Ld
  L;d$@
-(!Ld
 L+d$
 ~L$ D+
+=L{D
 |$LD
 (L$`D
 (L$ D
@@ -13882,7 +13768,7 @@ L$d3
 L$D3
 l$|D8-
 L$ D8
-l$ D9-n
+l$ D9-
 L$ D9n
 lDa>
 L$dA
@@ -13903,7 +13789,6 @@ l$DI
 L$dI
 L$DI
 l$dIc
->LDJ
 l$DL
 L$dL
 L$DL
@@ -13917,7 +13802,6 @@ l$ E
 l$(E
 l$@E
 l$$E
-L;-e
 L*~e
 |$LE
 |$LE;
@@ -13930,6 +13814,7 @@ L$(E
 L$(E;
 L$@E
 L$$E
+l$`E2
 l$`E3
 l$<E3
 l$ E3
@@ -14003,7 +13888,6 @@ l$ f
 l$(f
 l$@f
 l	 f
--!lF
 (L$ f
 (L$@f
 )L$`f
@@ -14032,7 +13916,6 @@ L$,fff
 L$(fff
 LFHfA
 L$ fI
-.LFI
 L$fL
 L$FL
 LFlA
@@ -14041,7 +13924,6 @@ L+Fp
 L;Fx
 LFxfA
 L;Fxu9I
-=;lG
 |L*_g
 L;G8L
 L$gL
@@ -14051,7 +13933,6 @@ L;GP
 L;Gpuaf
 l$h@
 l$h+
-=<lH
 |$lH
 )l$`H
 )l$ H
@@ -14077,6 +13958,7 @@ L;\$h
 )L$@H
 ]L/H
 #L$ H
+% LH
 L< H
 L>#H
 L;|$H
@@ -14113,7 +13995,7 @@ L$(H3
 L$@H3
 (L$`H;6
 L$ H9
-l$(H95,
+l$(H95\
 L$H9H
 l$@H9n
 l$,H9N(u
@@ -14203,6 +14085,7 @@ L$ H;S
 l$ht1
 l$hu!
 L$Hu
+=lhV
 L$`H;V 
 ;L$hw
 L$@H;W
@@ -14219,7 +14102,6 @@ l$@ I
 l$@I;
 l$@I+
 l$$I
->-LI
 (L$`I
 L$`I
 L$`I+
@@ -14327,23 +14209,29 @@ L;I tDE
 literal-char
 livereport
 Living room
-=lj<
 L$`J
 L$ J
 L$@J
-%LjA
 L$JD
 L$JfA+
+.ljI
+>ljJ
 L$jL
 L$JL
 L;J@s
-.@lK
+.	lK
 l$(K
 l$&K
 -<L[k{
+.L<K
+.L)K
+	L/K
+.lkI
+.lKL
 L$kL
 L$KL
 lKlV
+>l/L
 (l$`L
 (l$ L
 (l$@L
@@ -14360,7 +14248,6 @@ l$$L
 ,<L\l|
 L$l;
 ~LL(
->L=L
 |$LL
 |$LL+
 )L$@L
@@ -14434,6 +14321,7 @@ l$|M
 l$ M
 l$(M
 l$@M
+=Lm?
  L;m
 (L;m
 L[M@
@@ -14447,25 +14335,25 @@ L$@M
 L$$M
 [-&LMb#{'
 L+m f
->lmI
 L$MI
 L$mL
 L$ML
 +lmLh
+lN;@
  (l.n2pJr.t&v
 LNH9^L
 L~NhL
-.lNI
+.lNJ
 L$nL
 L$NL
 LNL9^P
 %<LNNL>5"
 lnn,le
-,l(n|p
 L+NpI
 l n,pNn
 l n,pNnj."^
 l.n.p.thxB
+,l,n(pxr
 L;}o
 - Load additional fonts with io.Fonts->AddFontFromFileTTF().
 LoadCursorA
@@ -14674,6 +14562,7 @@ L;{P
 L;@P
 L$P@
 L$P+
+LP>@
 L$p@2
 l$p3
 l$P3
@@ -14783,14 +14672,13 @@ l$QD
 L$qf
 l$qH
 L$qL
-.LQL
 L$QL
 L;q skH
 L$Qt
 Lqyz{{
 L$ r
-L;=R
 L$rf
+.lRI
 lrint
 L$rL
 L$RL
@@ -14818,7 +14706,7 @@ L$ SVWAWH
 L$ SVWH
 L$ SWH
 &lt;
--l:T
+-l*T
 )L$ t
 L;t$@
 L$`t
@@ -14878,6 +14766,7 @@ L$ UVWATAUAVAWH
 L$ UVWATAWH
 L$ UVWH
 l$ v
+=l%V
 L;v,
 L$@;V
 l$ VATAV3
@@ -14889,8 +14778,8 @@ L$VI
  L.Vis=
 LvJI
 LvJL
+.lVL
 L$vL
-.LVL
 L$VL
 LVL=
 L$ VWATAUAVAWD
@@ -14989,9 +14878,9 @@ LXM@
 l$XN
 L$xt
 L$Xu
-=lxV
 !*=L]y
 L;Y8t
+L+=YCW
 L$yf
 L$yL
 L$YL
@@ -15000,24 +14889,28 @@ LYM@
 LYr;
 LYrAiM
 LYrD
-L+=YSW
 ._lz
 l$`z
 L$@z
 >lz4
 .|$lzDuB
-.LZJ
 /=LZjw
+.lZL
 L$zL
 L$ZL
 LZM@
 .L$|z'u%D
 `?m'_?&~]?(
+=|m?
+=&m?
+/-m"?
 {"%m
-%`m	
-%m<*
+%m;=
 `[M@
 <$M;
+=> M
+=@:M
+=M|>
 |[M@
 |$`M
 |$ M
@@ -15047,11 +14940,9 @@ $:M+
 \$ M
 \$(M
 \$@M
-%*:M
 M:000
 M:0.000
 M0>B
-(m0c
 )M0D
 M0E3
 )m0f
@@ -15065,10 +14956,12 @@ M0I;
 M0I+
 M0L;
 M0M;
-(m2a
+-M?3
 m4?2
 m4E;
 +M4w
+=M<5
+=#M7
 M7H3
 M89JDt
 M8A;
@@ -15095,11 +14988,10 @@ M90u/
 M97u
 M9e u
 M9.t
-(m`a
-(m_a
-(m]a
+(m:a
 (m@A
 )m A
+(M"a
 M A+
 M(A;
 macguffif
@@ -15323,30 +15215,31 @@ max_particles
 MAX_SPACE
 M;Axu
 Maybe
-(m:b
-(m.b
+(}mb
+(m\b
+(M!b
 Mb`?
 M;B0u
 MB0z
 }MB;4'}0I
-(MBa
+(mBd
 MbP?
 M+Bp
 : mc=
 #mc'
 <$Mc
 |$`Mc
-(M@c
+(M\c
 ]`Mc
 ](Mc
  MC: 
+(Mca
 McB@A
 McBDA
 McC8D
 McCDD
 McD$
 Mc)I
-.mCK
 >Mc!M
 Mc>M
 (m`D
@@ -15354,6 +15247,7 @@ Mc>M
 )m`D
 )m D
 )m@D
+-Md;
 |?MD|?
 |M$D
  MD: 
@@ -15361,12 +15255,10 @@ Mc>M
 )M@D
 M;D$
 &mdash;
-(Mdb
 mdef
 md_explosion_1
 %m%d%y%H%M%S
  me=
-=m$E
 )M@E
 M E;
 m`E3
@@ -15375,8 +15267,8 @@ M E3
 M(E3
 M@E3
 M&E3
-(meb
-(mEb
+(mea
+(mEc
 medianFilterWalkableArea: Out of memory 'areas' (%d).
 Media was ejected while reading.
 Medium
@@ -15445,16 +15337,17 @@ metrics-variations
 )m`f
 )m f
 (M@f
-(mfa
+(mFd
 M@fD
 M}fff
 M fI
 M;F(r
+=M?G
 M;g0
 MgA;
 MgA+
 MgA9
-(MGc
+=mGd
 MGH3
 mg-hold-counter=
 MgI9
@@ -15499,8 +15392,6 @@ mhL;
 MHL+
 MHM+
 M(H+M H
-.|mI
-.@MI
 M`I+
 M I+
 M(I;
@@ -15637,35 +15528,28 @@ Missing PLTE before tRNS
 mixed
 Mixed items
 mixer_window
-.M_J
-(MJd
+>m{J
 MJM|a
 MjMs
 M;J v
 M;Jxt
 mj>zjZ
-.\mK
-.#mK
-.m)K
+.%mK
 %mKA
-(mkd
 _mkdir
 (m@L
 Ml$(+
+>|ML
 ML$8D;L$<
 Ml$`A
 ML$$A
 M@LcE
-(mLd
 -=M]m}
 M(M;
 m	m9e
-(Mma
 MMMM
  mn=
-(=m"N
 mname = 
-(MNd
 MNG features are not allowed in a PNG datastream
 mock
 Modals
@@ -15849,7 +15733,6 @@ mods\*\
 Module32First
 Module32Next
 MOE3
-=MOG
 MOH3
 momentum
 monitor
@@ -15931,7 +15814,7 @@ moving_entities.size()
 moving_props_container
 moving_target
 MPA;
-(mPb
+(mPd
 (mPD
 (MpD
 )MpD
@@ -15950,6 +15833,8 @@ MpI+
 MPI+
 mP L
 m,pm
+%,MQ
+=mq2
 mrbugfixer
 mr"iR
 MRM\Mc
@@ -15962,12 +15847,13 @@ mRmom}m
 ms: 
  ms FREQ=
  msg=
+=msL
 Msmall
 ms tricount=
 msuperior
 MSVCP140.dll
 mSx@
-%m:T
+%m*T
 Mt$4D
 M@tB
 MT-Error: Special effect supressed
@@ -15982,7 +15868,6 @@ _Mtx_init_in_situ
 _Mtx_lock
 _Mtx_unlock
 mu?B0u?A
-(Muc
 much CPU time for your usage scenario. This setting causes FPS unstability.
 _MULE_BASELINE_OFFSET
 _MULE_RELATIVE_COMPOSE
@@ -16041,10 +15926,7 @@ muzzle_offset
  	muzzle_offset 4 -5 0 
  	muzzle_offset 8 -9 0 
 /m`v
-(mVc
-=mWd
-(mxc
-(MXd
+%MvK
 MXff
 MXH+
 MxH3
@@ -16068,7 +15950,6 @@ MY CUSTOM COLOR PICKER WITH AN AMAZING PALETTE!
 My first DSP unit
 My GUID is %s
 My IP addresses:
--myK
 M?y>O?
 MyObject %d
 MyObject: %d
@@ -16079,7 +15960,6 @@ My title is the same as window 2, but my identifier is unique.
 <mz/
 Mz5?_
 m?@Zl?~
-=*n?
 | %n
 |n!@
  n;^
@@ -16087,17 +15967,13 @@ m?@Zl?~
 ,n!@
 )_)n
 \n!@
-%n^=
 n|$`
 n|$@
 n\$\
 `?'N
-`N?@
+~N;@
 [_?'N
-@N>@
 \$@N
-%:N+
-=N0@
 "N0^
 N0E3
 n\$0fD
@@ -16106,13 +15982,16 @@ N0Hc
 N0H+N(H
 N0I;
 N0M;
+=n(1
+=N2$
 n2n?
-n33I
-`n33I
-@n33I
-`@N33I
+-'n4
 N%:4
+n7AL
+=N7R
+=n 8
 <N8^>:@
+=N'8
 N8H9H s
 N8Hc
 N8L;
@@ -16174,6 +16053,7 @@ NB5!&
  &nbsp; &nbsp;
 &nbsp; &nbsp; 
 NB: Tree node must be poped before ending the cell. There's no storage of state per-cell.
+(!nc
  NC=
 NCC.001
 NCC.002
@@ -16187,6 +16067,7 @@ nD$
 nD$,
 nD$(
 nD$$
+(]Nd
  ND=
 N<D;
 ND$<
@@ -16200,6 +16081,7 @@ NDI;
 nD$L
 nD$P
 nD$PL
+=NdS
 nD$x
 nD$X
 ndZTNGA:3-' 
@@ -16235,6 +16117,7 @@ New node =
 New player
 n<	f
 n_\f
+%n F
 nF0A
 |nfB
 NfD;
@@ -16242,7 +16125,6 @@ nfinity
 nfp|n
 NFuz/k
 NGCT
-=NGR
 ng_su
 NGTA
 ;nGVKUTS[BXIWH\KbHi:k6s4r7p8
@@ -16258,14 +16140,15 @@ nHcK
 `?NH]?E
 NhE3
 NHE3
-nHGI
 NHH;
 NHH+N@H
 &nH&i
 NHI;
 NHI+N@H
 |nhZNLFE9-"
->@nI
+^-nI
+.-nI
+.N?I
 &N"I
 N`I+
 N I+
@@ -16299,18 +16182,20 @@ nineinferior
 nineoldstyle
 ninesuperior
  ninja 
+=niP
+>@NJ
 , NJ
+.|NJ
 NJ2"v
 NjHc
 nj(l
-.N*K
+-NkA
 n\$l
 nl$|
 nL$`
 nL$ 
 nL$$
 !N^L
-.@NL
 NL$4A
 nL$4fD
 N L9y
@@ -16319,6 +16204,7 @@ nL$h
 N@L;H@
 nL$l
 nL$P
+nLXK
 n`M;
  NM@
 N M9~8r
@@ -16331,7 +16217,6 @@ N$N/
 n^nf
 N;NHNQNkN
 ->N^o
-NO;@
 	No addresses were found for the requested parameters
 	No Anycast Addresses
 noaudio
@@ -16361,7 +16246,6 @@ No error
 No errors.
 -NoG
 No GPU dispatcher
-.NoI
 No IDAT data (internal error)
 No IDATs written into file
 No image in file
@@ -16476,9 +16360,11 @@ N P|R
 (N<PZ
  NQ: 
 nQ:B
+.NQL
 NqNy
 "+=N]r
 nrek
+@^NrI
 Ns 0.000000
 n>sak><
 Nsmall
@@ -16488,7 +16374,6 @@ n>${t>
 nt$\
 nT$|
 [N[T
-=nt1
 NTD;
 ntel
 ntelA
@@ -16586,33 +16471,28 @@ NvRNT
 NvVolumetricLighting.win64.dll
 :n:w
 nw8f
-.NWL
 NWNb
 `NXB
 NxE3
 NxI;
 NxL;
 NxL+NpM
-=nyP
-.NzJ
-~o='
-~o=\
-=o^=
+=(NY
+ny@J
+~o=$
+~o-)
  ;o(|
 $/o|
 %/o<
 o::,
 `?O@
-`O;@
-<O;@
+`O`@
 =>=O
-=&,O
 |$ O
 ?@>O@
+(O`@
 ]O?@
 @[O@
-$O;@
-*O;@
 \$ O
 O0A+
 O0E3
@@ -16620,56 +16500,52 @@ O0H;
 o@0I
 O0I;
 O0I+O(H
-.O0K
 O0L;
 ?"o1@`
+=O1=
 O14W
+o=1BE
 O`@2
 O.?2
 O2c^
-o-&2E
-~o=4
 O4E;
-~o5};(
-~o5@_(
-o51$C
 o 5a
-o5.aE
-o5_&C
-o5@:D
-o5!+E
-~o5\k(
-~o5N
-~o5o
+~o5(b(
+~o5>B(
+o5BBE
+o--5E
 O5OFO\OgO
-~o5 v(
-~o=5x'
+o5p2D
+o5 qE
+o5Q#E
+o5x@
 O%5x(&5
-~o5Y/(
-=O|6
+~o5Y@(
+o5^YE
+~o%6
+=o$7
 +o*7
-o-7=C
+=O]7
 "O7v
-o=&7X
-~o-8
 O\$8
 O8A+
 O8D;
 O8E+
 o8L;
 O8Mr
--&o9
+o-8nE
 O@9u
 O*9y]
+(%oa
+-oA	
 o] A
 O<$A
 O(A:
-o%a0E
 oA0I
 oacute
 Oacute
 Oacutesmall
-o-?aE
+o="aE
 !:Oap}
 />Oas
 oB0f
@@ -16696,11 +16572,9 @@ ocean_surf_lq.ps.cso
 ocean_surf_lq.vs.cso
 ocean_surf.ps.cso
 ocean_surf.vs.cso
-=OCF
 ocircumflex
 Ocircumflex
 Ocircumflexsmall
-(=OcN
 Octal escape sequence is invalid.
 o] D
 o} D
@@ -16709,23 +16583,18 @@ oD$0f
 oD$0fA
 O;D$ }9D
 oD$@D;
-o-d?E
 od$`f
 oD$`f
 oD$ f
 oD$@f
-=OdF
 oD$`fA
 odieresis
 Odieresis
 Odieresissmall
 oD$Pf
 .Odz
-~o=E
 o}@E;
-o%'!E
-o%(!E
-o%{#E
+o%{	E
 oE0f
 O E3
 O@E3
@@ -16734,7 +16603,6 @@ oE@E;
 oE`f
 oE f
 oE@f
-o=eNE
 oEoOoZoaozo
 oEPE;
 oEpf
@@ -16745,12 +16613,14 @@ OEsmall
 o] f
 o]@f
 o@ f
+%|oF
 o]@fA
 O(fA;
 OfA#
 o}@fD
 ofD9
-o-FEE
+o- FE
+o-F.E
 Offensive class.
 offline
 oFFs
@@ -16774,16 +16644,15 @@ offset_x
 offset_x_rel
 offset_y
 offset_y_rel
-.oFI
 O fI
-=OG3
+~o-g
+o-g5C
 .ogg
 ogonek
 Ogoneksmall
 ograve
 Ograve
 Ogravesmall
-~o%h
 @o@H
 o`H;
 o H;
@@ -16806,8 +16675,7 @@ OHI+
 OHL;
 OHL+
 ohoq
-.^oI
-.>oI
+o-HWE
 O`I;
 O I;
 O(I+
@@ -16816,16 +16684,21 @@ O@I+
 oI0I
 O,I>e;
 oI f
+=OiF
+o-IkE
+o%IME
 O@I+O8H
 O@I;OHt
 |OI;Xxu
+./OJ
+.{OJ
+.	OJ
 oJ0H
+o-J;E
 oJ f
 oK0H
 OK@D9CDH
 oK f
-o%kLE
-o%kPE
 [Okz
 ol$@
 o L;
@@ -16843,8 +16716,10 @@ OL+H
 o(L+o L
 oL$P
 oL$PfA
+=oM7
 oM`A
 oM A
+o-M=C
 Omega
 oM f
 oM`fA
@@ -16853,13 +16728,14 @@ oM@I
 Omit the value to unset a property.
 Omit the value to unset the property.
  (Omitting subsequent instaces of this message)
-.omK
 OMMIT
 omni_volume
 omPE;
 oMpf
 oMPfA
 	+On
+o%N5E
+o%N7E
 On a per-widget basis we are occasionally clipping text CPU-side if it won't fit in its frame. Otherwise we are doing coarser clipping + passing a scissor rectangle to the renderer. The system is designed to try minimizing both execution and CPU/GPU rendering cost.
 ?OnAudioDataReceived@IViewListener@cohtml@@UEAAXHHPEAPEAMH@Z
 ?OnAudioStreamClosed@IViewListener@cohtml@@UEAAXH@Z
@@ -16944,11 +16820,13 @@ o O 0
 o _object_
 OOlH
 OOOOOOO
+o-oYE
  op=
+~o=P
+=oP<
 >O-p
 >O-p?
 O-p?
-o-P8E
 >O-p?A6
 O-p?A6
 opacity
@@ -16959,6 +16837,7 @@ _opaque_render_queue
 op brush_bigger
 op brush_smaller
 o]PD
+o%!PE
 OPE3
 open
 Open
@@ -17009,8 +16888,6 @@ op tool 3
 op tool 4
 .Opz
 .OPz
-~o=q
-(%oQ)
 OQOV
  or=
 Or;_
@@ -17029,12 +16906,9 @@ oriented
 ##original
 Original
 original_token
-.orK
 oRM@
 - or me
 ;O s
-o%s\E
-o-#SE
 ?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ
 OSGN
 OSGN,
@@ -17043,6 +16917,7 @@ OSGNl
 OSGNL
 OSGNP
 oSJ6-g
+o-SKE
 oslash
 Oslash
 Oslashsmall
@@ -17055,38 +16930,34 @@ osver.dwMajorVersion
 osver.dwMinorVersion 
 osver.dwOSVersionInfoSize 
 osver.dwPlatformId 
-%^oT
 *\Ot
 Ot$<
 oT$0fA
 oT$0H
 oT$0I
-o%T\E
+o-,tE
 oT$`f
 oT$@f
+=OTF
 ot+H
 OtherBlues
 OtI9
 otilde
 Otilde
 Otildesmall
-=OtS
 OTTO
 OTTOt
 OTTOt"
 =OTTOt$L
 ottou
 [?O?T?Y?e
-~o=u
 )o(u
-=Ou:
 ou0E;
 ou0f
 oU0f
 ou0fD
 ou`A
 oU D
-o-_UE
 oU f
 oU@fD
 ou)H
@@ -17128,6 +16999,8 @@ out_pos.to_string()
 output
 ##output_type
 output your content because that would create a feedback loop.
+o-v=E
+o-V*E
 ?overflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHH@Z
 Overflow in png_memset_check.
 overlay
@@ -17138,26 +17011,24 @@ oversubscribed dynamic bit lengths tree
 oversubscribed literal/length tree
 overtime
 Overtime in seconds.
-.oVL
-o-vmE
+o=V/X
+o--W
 own_player_id
 own_team
 own_team_id
-~o-X
 OxH;
 OXH;
 OxHc
 OXL9OPt
-=OyF
+o%y=
+-Oy2
 .O`z
 oz>!km>
 OZw3(?
-`p=@
-=p|?
+=|p<
 >p>_
 |$p@
 |$p+
- p=@
 :p"	
 (|$p
 (\$p
@@ -17166,21 +17037,19 @@ OZw3(?
 {^?p
 @:p(
 $	=p
+%)p,
 	p'?
-p`_@
-p^=@
-p @@
 p_^[
 p_^]
 p_][
-p}?@
-p#@@
-=~P#
-=\;P
+p;>@
+p\;@
 |$P;
 |$P@
 |$P+
+ P`@
  P: 
+-P ?
 ,P_!
 (|$P
 (\$P
@@ -17188,25 +17057,22 @@ p#@@
 )\$P
 ]\/P
 \$P;
-P^`@
-P<>@
+P<`@
 P<?@
-P>>@
+P=?@
 P_^[
 P_^]
 P_][
 P/};
-P.=@
-P];@
-P@>@
+P]`@
+P@`@
+P$`@
 P$!@
 P\;@
-P#`@
 'p*;0
 \P0>
-P08~33I
+P08~
 P0D;
-%P0g
 P0H;
 \$p2
 p2 =!
@@ -17214,48 +17080,51 @@ p2 =!
 \$P@2
 P20T
 p2`4
-P2C@
+P26@
 P2R466F
 |$p3
 (\$p3
 )}p3
 \$p3
-=P&3
 |$P3
 \$P3
-p>33I
-P>33I
 p?33s?
-p39@
-p-3I
-P-3I
 p3O@
 P3O@
 P4D;
-=]P5
+p|4I
+P|4I
 P5fD
 	P6_)
+P-6@
 P6*`|
-p633I
-p6,5K
 .P6AXPEAUCurlHolder@cpr@@@Z
 .P6AXPEAX@Z
-P6,dK
-P6	eK
-p6P&K
-P6<ZJ
-p7D@
+p6qDJ
+P6R,K
+p6RuI
+P6\VI
+=p$8
 \$p8
+p;8@
 )\$P@8
-P"8@
+P}8@
 P8A;Z r
+P8D@
 )P8D)@@H
 /P8i
 P8I;
 P8L9|$8
 p(@8w
+p(9@
+p)9@
+P,9@
+P:9@
+P*9@
+P9>@
 ,p9E;
 \$p9Q
+(!pa
 |$pA
 (|$pA
 (]pA
@@ -17264,7 +17133,6 @@ p(@8w
 \|$pA
 \$pA
 \$pA;
-p{A@
 pA^_^
 pA^_^[]
 pA^_^][
@@ -17273,6 +17141,7 @@ pA]^[
 pA]_^][
 pA\_^
 pA\_^][
+Pa;@
 |$PA
  PA: 
 (]PA
@@ -17314,8 +17183,7 @@ PA_A]A\][
 pA_A^A]A\_^]
 PA_A^A]A\_^[
 PA_A^A]A\_^]
-paC@
-PAC@
+PaC@
 packs
 Padded cell
 padding
@@ -17437,14 +17305,11 @@ $p?b
 PBO@
 pbP0
  pc=
-pc`@
 p`C@
-(!Pc
-P|C@
-P_C@
-P{C@
+p>C@
+p@C@
 pc2g
-pc3I
+Pc8@
 pCAL
 PCI IDs (Vendor/Device/Subsystem/Revision): 
 __p__commode
@@ -17456,6 +17321,10 @@ __p__commode
 )]pD
 )\$pD
 \$pD
+p|D@
+p.D@
+p$D@
+pD>@
 |$PD
 |$PD;
 (|$PD
@@ -17467,19 +17336,20 @@ __p__commode
 )\$PD
 \$PD
 \$PD;
+P=D@
 P D;
-P;D@
-P"D@
 P@D;
+P$D@
 PD>@
-|$PD8=
+Pd8@
+|$PD8=8
 \$pD8c
 P`D8\$(t"
 {PD9
-PD9@
 .pdata
 pDD;
 p.distance
+>pdK
 pd_powerup_color
 pd_powerup_image
 }PDX10u
@@ -17508,7 +17378,6 @@ peaks
 Peaks
 .PEAVPxMaterial@physx@@
 .PEAVPxShape@physx@@
-PEC@
 PeekMessageA
 peer=
  Peer=
@@ -17541,8 +17410,7 @@ perturbation
 |$Pf
 \$Pf
 P ;F
-pf33I
-Pf33I
+pf8@
 p!fA
 ]PfA
 \$PfA
@@ -17554,6 +17422,7 @@ P(fE
 )|$Pff
 |$Pfff
 }Pfff
+pfiPL
 pfr-metrics
 pfx: 
 pfx_beam
@@ -17582,13 +17451,14 @@ pfx_report
  	pfx shaft_filament muzzle 
  	//pfx slow_weeble_filament slot_particle_dial 
  	//pfx slow_weeble_filament slot_pfx_slow_weeble_exhaust 
-pg;@
 )|$pG
 'Pg"
+%P g
 pgdn
 [PgDn/PgUp] Scale offset  [Ctrl+PgDn/Ctrl+PgUp] Scale  [Shift+PgDn] Move Y pivot
 p#G H
 pgup
+=p_h
 ~pH;
 |$pH
 (|$pH
@@ -17598,7 +17468,6 @@ pgup
 *\$pH
 \$pH
 \$pH;
-p(H@
 p}?H
 p@H;
 ^PH;
@@ -17613,7 +17482,6 @@ _PH;
 \$PH
 \$PH;
 \$PH+
-%P^H
 |$pH9w0
 PH;A
 PH;B
@@ -17628,7 +17496,6 @@ pHcOP
 PHE3
 PHHc
 PHH;PPt-3
-.phJ
 @PHk
 phonon.dll
 P(H;P0
@@ -17749,23 +17616,18 @@ phy_wall_jumping
 |$pI;
 (|$pI
 \$pI
-p@<I
-Pi;@
 |$PI
 |$PI;
 |$PI+
+.<PI
 (|$PI
 @PI;
 \$PI
 \$PI;
 \$PI+
-P^;~I
 P I;
-P@<I
-PI<@
 )p.i1
 	 "pI3
-Pi8@
 PIcD
 pick
 pickable_entities.size()
@@ -17808,17 +17670,17 @@ pixel_shader_param
 pixel_shader tiledecal.ps.cso
 		pixel_shader tile.ps.cso
 PIXEL_SIZE
-pJ`@
-Pj8@
+Pj`@
+.|PJ
 Pjps
-Pj`Q+
-pK`@
+pk;@
+."pK
 Pk;@
 \$PK
-%P?K
 pkg->object_id
 pkg->value
  pl?
+>p&L
 |$pL
 (|$pL
 )|$pL
@@ -17834,8 +17696,6 @@ Pl.
 @PL;
 \$PL
 \$PL;
-pl4I
-Pl4I
 place
 placement
 Plain
@@ -17877,7 +17737,6 @@ plus-sign
 \$pM
 p[M@
 p%M@
-pM`@
 |$PM
 )|$PM
 \$PM
@@ -17893,9 +17752,10 @@ pmoc
 `pmoct
 `pmocu
 PmXh]=b
+pN?@
 Pn!@
+PN>@
 p|n1
-Pn33I
 pncr
  pncr 
 .png
@@ -17912,14 +17772,13 @@ png_inflate logic error
 png_total=
 PNG unsigned integer out of range.
 png_write_info was never called before png_write_row.
+%PNH
 ?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ
 p.normal.to_string()
 Pnotupg^S,
-pnz`K
 "po:
 p>O@
 P	O@
-=poh
 point
 Point light
 Point light+Volume
@@ -17998,20 +17857,18 @@ P.P5
 p#p7pP
 P`Pb
 PpE3
-PpH95U(=
+PpH95
 PPNi	
 P(P;P`
 PPPP
 PPZZ
-pq8@
 Pq?A6
 p q g j y
 P:QHL
 pqrs
 \pr~
-pr;@
-Pr;@
  PR: 
+pR6@
 practice
 P<RbV>PT
 P$Rc
@@ -18136,9 +17993,6 @@ p}?t`
 pu;@
 |$Pu
 \$Pu
-Pu;@
-pu3I
-Pu3I
 pu)H
 p UH
 |$pujH
@@ -18160,16 +18014,11 @@ PushItemWidth(GetWindowWidth() * 0.5f)
 ?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@D@Z
 p UWATAVAWH
 p UWAVH
-:pv:
 p</v
-pv?@
+pV`@
 |$Pv
 ;_Pv
 )|$Pv
-Pv8@
-PvA@
-pvC@
-=pvT
 ~)p$w
 )|$Pw
 p WATAUAVAWH
@@ -18178,9 +18027,9 @@ p WAVAWH
 p WH
 Pw]H
 pw'k
+.PWL
 pWM@
 PWO@
-px;@
 P?X94?
 PX9u
 PXA=
@@ -18198,7 +18047,6 @@ PxDistanceJoint
 PxFoundation_x64.dll
 PxGetFoundation
 PxGetProfilerCallback
-.pXJ
 PxJoint
 pXM@
 PXM@
@@ -18216,68 +18064,77 @@ PxWorker%02d
 )|$Py
 )P)y)
 \$Py
-Py8@
+PYC@
+pyD@
 pYM@
  //----------------------------------------- P Y S C H  W E E B L E  ---------------------------------------------- 
+pZ;@
 )|$Pz
 @PZj
 pZM@
 PZM@
 ^'?q
-@q;@
+=q/=
+(}q`
 *|"q
-=,.Q
-=Q][
+=)Q=
+=\&Q
  Q: 
 ;Q |
 ;Q }
 :@Q	
+(% Q)
 {Q}<
-%Q#?
 q0A;6
+(q0d
 q0E3
 q0I;
 Q0I;
 Q0L;
 Q>0P7>
+=Q1=
 Q,<1
 -Q1F
-=Q'3
+-.Q3
 %q>4
 q4qIqQ
+%.Q5
+-Q`6
 q(8_
 Q8A;
-(Q8c
-(Q8d
+(q8c
 Q8D+
 q8Lc
 Q 9P }
-(!qa
-(]qa
-(q'a
-@qA@
+(q$a
 q#|A
-(Q,a
-(Q,b
-(Q&b
+(Q^a
+(q$b
+(Qbb
+(Qbd
 %qBI
+(q?c
+(Q}c
 qcKUz
-(Q+d
+(q#d
+(%Qd
+(Q]d
 Q D;
-%q|e
+(Qdd
+-QdF
 $qE}
 @QE`
 q"E3
 Q@E3
 Q	E3
+%q?F
+(Qfb
 q fE
 q*fE
 qfefkv}
+.qFI
 ?q<G
-=<QG
-(Qgc
 QgMo
-=`qh
 q H;
 qH,	;`
 |$QH
@@ -18296,24 +18153,24 @@ q`Ic
 QIcL$
 QIcP,I
 QIcT$,I
--qif
->QIK
 QI*`Y
-=Q=K
+%QjF
 |qke_XRLF@93-'!
-.qKI
 Qkkbal
-.<QL
-.,QL
+.;QL
 }QL9}
+%qle
 _qm,
+-qm;
+=QM[
 Q(M;
+(qmc
 ;Q }mI
 [*QmU
 #Qn/"
-=#QN
-(qOd
+=Q=N
 QPI;
+.QpK
 Q Ps
 [QPTime 
 qpX:
@@ -18325,15 +18182,13 @@ Q_Qd
 Q=QH
 QQQQQQQQQQ
 ;Q r
-(qra
+(QRd
+.qrK
 ;Q s
-=QS@
-^QSI
+(Qs`
 Qsmall
 qsort
 qsuwc;Wo?opP~|}|
-%qsZ
-(qta
 Q(twD
 quad
 QUAD_WIDTH
@@ -18390,13 +18245,11 @@ qxs?L
 >qxs?z7
 qxs?z7
 Q@;ydI
+-qYf
 qYqaqnq
-(-Q	Z
 Qz?H
 ^~~r
 ~"r@
-=.r?
- r;@
 ;_ r
 ;_(r
 ;{ r
@@ -18405,37 +18258,41 @@ Qz?H
 &r(< 
 r $"(
 `R!@
-=R(@
+=}:R
 |$ R
  R!@
 ,R<{
-(-]R)
+R;;@
 R"($
 	r0>
--R\0
+%R0	
 R:%0.3f
 R0A;
 r0D8%
 R0ff
-%R0H
 r0Ic
 R0T.R
-r0t&v.x z
  r1@
 R1h58
+=r-2
+-.R2
 \$ r3
 R:%3.0f
 	r3H
-=R"4
  r5H
 <r6H
 	r6H
 R70(
+=r7F
 `@R=8
+=R"8
 R;876.
 R8L;
 r8tzv
  r9H
+=r;A
+@rA@
+=R$A
 rA?7
 raaaaaawwwwwwrrrr
 raB3G
@@ -18530,6 +18387,7 @@ RAW_SUPERSCRIPT_Y
 RAW_UNDERLINE_POSITION
 RAW_UNDERLINE_THICKNESS
 RAW_X_HEIGHT
+=r%B
 r@(B
 rBD9&u=H
 .rbe
@@ -18611,6 +18469,7 @@ rcMergePolyMeshes: The resulting mesh has too many vertices %d (max %d). Data ca
 rcontrol
 r~D;
 r'D;
+=(Rd
 -Rd<
 r#D8
 RD8p
@@ -18627,11 +18486,13 @@ RDEF\
 RDEFD
 RDEFh
 RDEFp
+-Rdf
 R: %d, G: %d, B: %d
 R:%d, G:%d, B:%d, A:%d
  rDH
 rDH+
 >Rdx
+(-Re)
 R(E3
 Reached 10 blocks. Aborting report.
 Reached maximum audible playback count for this sound's soundgroup.
@@ -18838,7 +18699,6 @@ retards
 ?_Rethrow_future_exception@std@@YAXVexception_ptr@1@@Z
 return
 Returning false on line_vs_line(). //TODO: Handle me!
-%reV
 reveal_ui
 revenge_cost
      //revenge_cost 10 
@@ -18851,8 +18711,7 @@ Reverb properties cannot be set on this channel because a parent channelgroup ow
 Revert
 Revert Ref
 revsubtract
-=r]F
-%!rF
+=	rF
 r	;F
 Rf9|
 r*fD
@@ -18860,7 +18719,9 @@ r#fD
  rFH
 =rF`JXKXWJYB[Cd;l2x(z%a+N2SNTQXKVJWGZI]J]Jm(r$u"u"
 }rf[QG<4+#
+%RFR
 RFRQR\Rf
+='RG
 RG10 4MS
 RG11 4MS
 RG12 4MS
@@ -18909,7 +18770,6 @@ RGBG
 rgbgen
 =RGBGu
 RGB Input
-=rGF
  r`H
  r~H
  r-H
@@ -18919,7 +18779,6 @@ RGB Input
  r}H
  r*H
  r&H
-%r\H
 	r	H
 r)H+
 r[H+
@@ -18934,11 +18793,14 @@ RHM;
 rhMcBHA
 R@H;WHt
 ,r.\,i
+..rI
 r,I+
 r/I;
 r(I+
 r	I;
 Ri(_
+.|RI
+.\RI
 ~rIc
 r_Ic
 Rich
@@ -18964,6 +18826,7 @@ right_front_top
 right-parenthesis
 right-square-bracket
 right_top
+>RIK
 ring
 ring_decal
 Ringsmall
@@ -18973,15 +18836,18 @@ Ringsmall
 RJO_m
 RJqn
 ?rJRTS\Rg>`H`CeIkHq7v4}4v4u7
-.\rK
-.#rK
+.^rK
+.%rK
 rK#MH<
 r`kp
 RkWy
 r"l$
+^r@L
 r"L;
-.|RL
+.~RL
 R(L;
+%rLH
+(=Rm	
 `RM@
 ~RM@
 }RM@
@@ -18989,10 +18855,12 @@ R(M;
 R@M;
 R	$^M
 r#M;E
+=rMF
 r<Mi
-=rmK
 -?rn/?
+rN;@
 R$N(
+=rnA
 rND8
 rocketexplosion
  rocket_launcher 
@@ -19040,11 +18908,12 @@ Rounding
 round_mode
 Round over!
 Row has too many bytes to allocate in memory.
+=r=P
 RPCRT4.dll
 RpcStringFreeA
 \RpfA
 RPM;
-r`Q+
+=;rQ
 rqIc
 rQr\
 R+R2
@@ -19052,7 +18921,7 @@ r*r4r;
 _RRQ
 R%R<RqS
 RrZ.Rf
-RSDS~
+RSDSMO
 rshift
 Rsmall
 /rsrc
@@ -19068,7 +18937,6 @@ R,T5
 .rtc$TAA
 .rtc$TZZ
 @rTf
--Rtf
 RtlCaptureContext
 RtlCaptureStackBackTrace
 RtlGetVersion
@@ -19101,32 +18969,31 @@ ru&o
 rupiah
 RurM
 Russia
+%rUV
 >R@VB:@N
 rvD8%
 rvH+
 RVN0V
 RvPI
-%RVR
 RvWH
 &r&v&z&~&
 %r%v%z%~%
 rwin
 rwZHc
+%ry:
+=R	Y
 Rz,|.~.
  rzH
  rZH
-=?s:
  %.*s
 -> %s
 ;^$s
 [%s]
 }{ s[]/
-=+$S
-=+S/
- S;@
+`S;@
+=S/=
 "S"^
 ;s0~
-=S"0
 S:%0.3f
 %s/%08X
 %s, %.0fpx
@@ -19138,16 +19005,18 @@ S0yPD8
 s1s:sHsX
 s2ff
 s2Li
+=s#3
 S:%3.0f
 %s: %.3f
 ;s4|
 S4A;C
 s4D+v4
 s4I;
--s!5
 s5fff
 s6D87t1E3
 s6L+
+%S72
+=S7F
 s'@8
 +S8A
 \S8D
@@ -19164,14 +19033,12 @@ s8Mc
 ;s8r
 S8;*r
 S@9s
-(%sa
 s/A+
 s	A+
 S`A+
 sadface :(
 Sailor
 saI;O
-.sAJ
 S`Ak~4d
 S`Akv4d
 saL;
@@ -19213,13 +19080,10 @@ s\ax}?
 /say 
 Says a message through the game's chat.
 =S=b
-()Sb
-=Sb2
 sBfff
 sBH+
 sBIT
 ?sbumpc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHXZ
-(}Sc
 ~S`-C
  SC: 
 sCAL
@@ -19290,7 +19154,6 @@ Scroll To Pos
 %s: %d
 s<D+
 s D;-
-=	Sd
  SD: 
 ;S\D
 \S`D
@@ -19308,7 +19171,6 @@ S(D9z8w
 SDBytes
 sdD83t[M
 s$D+r
-=s-E
 s-E;
 s E3
 s,E3
@@ -19339,6 +19201,7 @@ segment
 segments
 seH;
 _seh_filter_exe
+%sEK
 select
 </select>
 /select,"
@@ -19689,7 +19552,6 @@ sfnts
 sfnt-table
 sfx:
 ?sgetc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHXZ
-=SGF
 SG]G6
  s#H
 -s]H
@@ -19731,6 +19593,7 @@ shape
  	//Shared-model weapon upgrades: 
 Shared subsounds cannot be replaced or moved from their parent stream, such as when the parent stream is an FSB file.
 s(Hc
+=SHC
 shD9sXv6
 SHDR
 SHDR<
@@ -19776,6 +19639,7 @@ shield_broken
 Shields setup
 shift
 SHIFT 
+.ShJ
 sHL;
 SHLWAPI.dll
 shop
@@ -19902,6 +19766,7 @@ ShowWindow
 S@H;SH
 S@H;SHt
 SHxFH
+.^sI
 s(I;
 s[I;
 s[I+
@@ -19962,11 +19827,11 @@ sizes
 size_x
 size_y
 size_z
+>"SJ
 	sJ3
 sJA+
-=sJY
-.-sK
-.@sK
+./sK
+.	sK
  skater 
 sKfA;
 skill
@@ -20001,15 +19866,14 @@ sky material loaded
 sky_model
 SKyu
  s{L
-.s>L
 s L;
 s_L;
 s-L+
 s}L;
 #<Sl
 ;S\L
-.S[L
 s]L9u
+=SlA
 Slant
 SLANT
 slash
@@ -20038,7 +19902,6 @@ slider int4
 slider log float
 slide_time_left
 slide_time_max
-.SlK
 slnoise.png
 slopehead
 slopeheads
@@ -20070,7 +19933,6 @@ smb.vs.cso
 @SMc
 smc.vs.cso
  smH
-.SMI
 smileyblue
 sML;
 smoke
@@ -20086,12 +19948,12 @@ sNL+
 %s: No mass specified, setting mass to 1 and inertia to (1,1,1)
 ?snprintf@shdfnd@physx@@YAHPEAD_KPEBDZZ
 so"_
+=so6
 sOfD
 soft_destruction
 softness
 Softness of the shadow's penumbra in spotlights. Valid range is 0.0 to 1.0
 soI;
-.SOJ
 solid
 solo_mode
 Some content %d
@@ -20281,6 +20143,7 @@ s?&ps?v-s?
 ?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z
 ?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z
 sQH;
+.sQJ
 sQMc
 sqrt
 sqrtf
@@ -20302,17 +20165,13 @@ SRSd
 %s/%s_%08X
 S+S6
 S%S?a
-(%ssC
 !S?seT?
 s&sg
-.SsK
 ssL;
 Ssmall
 -sSO\
 SSSS
 ssuperior
-- ST
-%!ST
 .st0
 stab
 stab2
@@ -20585,6 +20444,7 @@ SUWAVH
 @SUWAVH
 SUWH
 @SUWH
+=SV*
 @SVATAUAVAWH
 @SVATAUH
 @SVATAVAW
@@ -20680,6 +20540,8 @@ SxHcJ
 Sxio?
 sxM;
 ;sXr
+=s:Y
+=*SY
 ^?sYa?
 Sydney
 sYfff
@@ -20706,14 +20568,13 @@ system_light_radius
 sZfff
 @szvt
 <>t*
+=]t<
 |$ t
 |$@t
--t_*
 ;t$<
 ;t$ |
 ;t$(
 !@t%
-(]t`
 (t$`
 (t$ 
 (t$@
@@ -20730,7 +20591,6 @@ $	t	/
 \t$$
 &t(\&!
 %+t,
-t<?@
 t(=`
 t$`@
 t$ _
@@ -20744,21 +20604,21 @@ t$(@
 t$(+
 t$@;
 t$@@
--{<T
+-{,T
 (T$`
 (T$ 
 (T$@
 )T$`
 )T$ 
 )T$@
-@T`@
 $T&&*	
 \T$`
 \T$ 
 \T$(
 \T$@
 %^[T
-%|<T
+%|,T
+%T}'
 T$ @
 T$(;
 T$(#
@@ -20784,9 +20644,9 @@ T$0@
 t$03
 )T$03
 T$03
-t0@8='
 T08A;
 T$08T
+t0@8=W|?
 T$09Q
 (t$0A
 t$0A
@@ -20868,7 +20728,6 @@ t$0w
 <>t1
 t$1@
 T$1:
--t15
 t19u
 t1A+
 ?t1B
@@ -20888,7 +20747,6 @@ T1XH
 (t$@2
 t$,@2
 t$!2
-=>T2
 T$ @2
 T$\2
 T$2E
@@ -20919,6 +20777,7 @@ T$3H
 t3I;
 t3Ic
 t3M;
+=T[4
 T$4;
 t$4A
 t$4D
@@ -20945,12 +20804,11 @@ t$5D
 t5D8
 t5E2
 t5f;
-T5FdL
-T5Kf*
 t5L;
 t5tF
-T5tg*
+T5?u3
 T5UZ
+T5v\L
 t5;W
 !@t6
 t6@8=
@@ -20980,7 +20838,6 @@ t$8@
 t$8+
 t%@8
 t	@8
-`T8@
 T@8=
 T$8;
 t$83
@@ -20996,7 +20853,7 @@ T>8C
 T$8C
 t$8D
 T$8D
-t8D8-
+t8D8-`n	
 t8D9A4t
 t$8E
 T$8E
@@ -21041,19 +20898,18 @@ t8WH
 t)@8x
 t%@8x
 t$8z
-=)t9
 t/9_
 t/9A
 t9A;F
 t$9D
-t9D8%%[7
+t9D8%
 t9E3
 @t9f
 t9fA
 t9ff
 @t9H
 t9Hc
-t:9oXt5@8-y`
+t:9oXt5@8-
 t.9Q
 t+9r
 t:9;t	H
@@ -21115,7 +20971,6 @@ T$@A
 T$$A
 T$$A+
 T$\A
--tA3
 t.A9~	
 tA9l$ tBE2
 t$(A_A^
@@ -21168,6 +21023,8 @@ t$ AVH
 t$ AWH
 tAx?D
 ?t$B
+(!Tb
+=T$B
 T$@B
 tBA+
 t\(^.`.b(d
@@ -21184,7 +21041,6 @@ t)BN
 t$`C
 t$ C
 t$(C
-(%Tc
 T$`C
 T$(C
 {&TC0
@@ -21234,6 +21090,8 @@ t*D;
 t\D;
 t#D+
 t	D+
+(-Td
+=/TD
 |$TD
 |$TD;
 (T$`D
@@ -21263,22 +21121,22 @@ t'D8-
 t$`D85
 t$@D8s	t
 t$D8t$@t
-t&D8%yeV
-t=D9%
+t&D8%yUV
 t:D9%
 t?D9%
+t'D9%-
 t)D9
 t{D9
 t+D9
 t	D9
 t!D9]0~
-td95$
 t-D95=
 t-D95Q
+td95T
 t/D9kXt)H
-t'D9%-&V
-t	D9%{\V
-t:D9%W
+t	D9%{LV
+t:D9%O
+t=D9%R
 t$dA
 |$`tDA
 t$DA
@@ -21318,7 +21176,7 @@ tDI;
 T$dI
 T$DI
 T$DI;
-t	D;=#=J
+t	D;=#-J
 t;Dk
 t$dL
 tdL;
@@ -21345,6 +21203,7 @@ t$(E;
 t$@E
 t$E+
 t%E+
+=Te(
 )T$`E
 )T$ E
 )T$@E
@@ -21421,7 +21280,6 @@ tEI;
 tEI;_ t
 tEI;] t
 teleport
-?teleport
 teleport_entry
 teleportfx
  //Teleports the enemy into a maze, where they have to find there way out in under 10 seconds, or they insta die. 
@@ -21563,6 +21421,7 @@ t	 f
 t	f;
 t#;F
 t#F;
+(%Tf)
 )T$ f
 )T$@f
 T$`f
@@ -21622,6 +21481,7 @@ tFI;
 t!f;K
 tfMk
 t!f;N
+%TfP
 ?t}G
 tg9{XtbH
 tGA9
@@ -21706,6 +21566,7 @@ t	H+
 tH?$
 T$h;
 |$TH
+-TH$
 "."TH
 (T$`H
 (T$ H;
@@ -21742,8 +21603,8 @@ t$H2
 t$H3
 T$h3
 T$H3
-tH@8-
 t$H@85
+tH@8-8
 t H9-
 t$ H95
 t$ H95s
@@ -22007,8 +21868,6 @@ t?H+WpI
 t*H;W`t
 <-t	I
 |$tI+
-.<tI
-.,tI
 (t$`I
 (t$`I+
 )t$`I
@@ -22122,6 +21981,7 @@ tIWH
 t ;J }
 t$ J
 t$@J
+.=TJ
 T$ J
 tjD8
 tJD8%
@@ -22141,6 +22001,7 @@ T$(K
 tKD8
 tKD;Q
 tkfff
+.TKJ
 tkL9
 tkL9{(ueD
 tKWH
@@ -22217,7 +22078,7 @@ T$lH
 T$LH
 tLHc
 T$lI
-.TLJ
+.tLJ
 t(Lk
 tLL9R
 tlLcm
@@ -22227,7 +22088,6 @@ tlLcm
 tlt~
 T$ L+T$(L+\$(A
 t$lv
-=tLV
 t$Lz
 %??t ?m-
 (t$ M
@@ -22243,6 +22103,7 @@ t$@M
 t$$M
 t#M;
 t	M;
+tM>@
 T[M@
 T$`M
 T$ M
@@ -22259,7 +22120,6 @@ tmHcK
 tmI;
 Tm?i
 tMIc
-.tMJ
 tMM;
 t$@M+O
 tmp_envmap_
@@ -22270,6 +22130,7 @@ tND+
 tNE3
 TN<f+TF<f;
 T$NH
+.tNL
 tnlsH
 t <Nt
 tnWH
@@ -22279,12 +22140,12 @@ tNWH
 t ~$=O
 T$(O
 T$@O
-TO;@
 -toA
 toA;
 To Clipboard
 toD;
 tOD8%
+%Toe
 To easily assign buttons, type /bindcapture, then press a button or key.
 tOfff
 toggle
@@ -22415,7 +22276,6 @@ T$pE;T$P
 t$pf
 )t$Pf
 t$Pf
-T=pf*
 T$pf
 T$Pf
 (t$PfA
@@ -22516,13 +22376,15 @@ tQff
 tQH;
 T$QH
 tQI9
+.tQL
+T-ql#
 tqL9
 tQM+
 </tr>
 <tr>
+=tr<
 t$R@
 ;T$@r
-%	TR
 Tr 1.000000
 tR@8
 trace.coverage
@@ -22564,7 +22426,6 @@ Tree within single cell
 [T] Reset [Y] Copy to clipboard
 trfff
 ;tRH
-`^TrI
 Tried to call a command on a 2d sound when the command was meant for 3d sound.
 Tried to call a function on a data type that does not allow this type of functionality (ie calling Sound::lock on a streaming sound).
 Tried to call a function on a thread that is not supported.
@@ -22600,8 +22461,9 @@ tS;+
 T$(s
 ts@2
 t%sA
-tSD8%OeV
+tSD8%OUV
 tSD;I
+%tse
 t{SH
 t\SH
 tsHc
@@ -22679,6 +22541,7 @@ t$ UWATAUAVH
 t$ UWATAVAWH
 t$ UWAVH
 t$\v
+=t<V
  &Tv
  tvcH
  tvct6
@@ -22687,7 +22550,6 @@ tVE3
 tVHc
 tVM;
 tVM+
-%TvP
 t v,x,z,|
 tw@8
 t$ WATAUAVAWH
@@ -22706,7 +22568,6 @@ t]WH
 t$ WH
 tWI;
 t$ WIc
-.tWL
 t$ WL
 @twM
 tWM@
@@ -22814,6 +22675,7 @@ T$XN
 .txt
 t$xt
 t$x;t$p
+txv(x.z&|
 Tx	z
 .T$xz1u/D
 .t$xz=u;D
@@ -22857,26 +22719,22 @@ tZfE
 tzI;
 tzM9B utA
 tZ)q
-`u;@
 <u`@
 |$ u
 |$@u
  u;@
-@u;@
 $`<`u
 *u	@
 #?#>"?u
-%[u'
 	<.u
 `"U@
 `U!@
- U;@
--U^=
+ U`@
 u0<:
 U+%04X..U+%04X (%d %s)
 u08E
 )U0A
-(u0b
+(u0c
 (u0D
 )u0D
 u0D;
@@ -22902,6 +22760,7 @@ u19y
 u1D8opt+
 u1ff
 u1fff
+-u1g
 u1I;
 u1M;
 U1(\Q
@@ -22913,12 +22772,11 @@ u2HcBp
 u2I;
 u2Ic
 <?u3
+=@u3
 #u>3
 u3D9x,u-H
 u3ff
 u3H;
-`u3I
-=%u4
 u4ff
 u4fff
 U4lOOMiqQgSaaGjTAtafj4TLkIWzKK6rdkFep5xB6uY
@@ -22946,12 +22804,12 @@ u7L;
 u7L+Gp
 u7L;t$8t
 u>@8
-u/@8=
+u/@8=({?
 u	@8
- U8@
 u)8A
 u$8A
 U8A+U
+-U8B
 <]u<8C
 u	8C t7
 u8D9
@@ -22982,7 +22840,7 @@ u%9X
 u%9X |
 u`9X u
 u	9Y,
-(u|a
+(u#a
 -u A
 ;%u*A
 :u&A
@@ -22998,7 +22856,8 @@ u&A;
 u%A;
 u	A;
 u	A+
-(U+a
+(U]a
+(U	a
 (U A
 (U@A
 )U`A
@@ -23010,14 +22869,12 @@ u$A9J u
 uacute
 Uacute
 Uacutesmall
-uAD9%IeV
+uAD9%IUV
 %uaE
--uAg
 uAH;
 uaI;
 u|Ak
 uAL9
-=UaS
 UATAUAVAWH
 |$ UATAUAVAWH
 @UATAUAVAWH
@@ -23043,10 +22900,8 @@ UAVH
  u. away: 
 UAWH
 @UAWH
-U=\AZ
-(]ub
-(u/b
-(u'b
+(=ub
+(U/b
 UB)-
 ub9O
 ubD9@
@@ -23054,11 +22909,11 @@ ubfA
 uBfA
 uBfff
 uBH;
->uBK
 ub?L
 	uBM
-(u^c
-(U'c
+(u_c
+(=u.C
+(U!c
 {U{c{
 uCE3
 ucHcW
@@ -23069,9 +22924,9 @@ Ucircumflexsmall
 *uCM
 	uCM
 U?:CU?K
-(u*d
 <-u	D
 <	u@D
+=`uD
 |$ .u)D
 -u	D
 )u@D
@@ -23112,10 +22967,10 @@ u-D8
 u,D8
 u)D8
 u]D8
+u\D8-
 u	D8
 u	D8%
 U.D.8
-u\D8-a
 u+D8opt%
 uD8U`u?3
 u D8z
@@ -23146,7 +23001,6 @@ udIc
 udieresis
 Udieresis
 Udieresissmall
-^UdK
 udL;
 [UDPNET] Connection attempt failed
 [UDPNET] Disconnection from 
@@ -23192,10 +23046,10 @@ u	E8
 u/E9
 u%E9q u
 ue9w
-(uEa
 uEA9P
 uED8
 uEfff
+=uEG
 ,uEH
 u#Ei
 uEI;
@@ -23204,8 +23058,8 @@ UEUeUt
 (u f
 u<f;
 u	f;
--u>F
 (U f
+=U=F
 u/f9
 u`fA
 u fA
@@ -23249,7 +23103,7 @@ uFI;
 u:f;Y r4H;
 +u]}g
 u"%g
-=U?G
+=U/G
 ug9W
 >ugA
 ugA;
@@ -23259,6 +23113,7 @@ uGfE9
 ugH;
 uGI;
 uGL;
+=UGQ
 ugrave
 Ugrave
 Ugravesmall
@@ -23303,7 +23158,6 @@ u	H;
 |$ UH
 \$ UH
 U`H;
-U-h6Z
 u H9
 u-H9=
 u,H;A
@@ -23448,7 +23302,9 @@ uJI;
 ujiE
 uj;Q |eI;
 uJ;Q |EI;
-.~UK
+=uJV
+(%uK0
+(uKd
 ukH;
  uKH
 ukI;
@@ -23468,6 +23324,7 @@ u!L;
 u@L+
 u%L;
 u	L;
+.U[L
 u$L9
 u#L9
 u"L9s
@@ -23501,7 +23358,6 @@ u"M97u
 uMD9e
 umD9G
 umE3
-=UMF
 umfA
 uMI;
 umM;
@@ -23614,7 +23470,6 @@ Unrecognized equation type for pCAL chunk
   unrecognized keyword [
 Unrecognized unit type for oFFs chunk
 Unrecognized unit type for pHYs chunk
-=unS
 ?unshift@?$codecvt@DDU_Mbstatet@@@std@@QEBAHAEAU_Mbstatet@@PEAD1AEAPEAD@Z
 ((unsigned int)0) - (int)1
 	UNSPEC
@@ -23625,6 +23480,7 @@ Unterminated \Q...\E sequence.
 UNW2
 ?uNz
  unzip 1.01 Copyright 1998-2004 Gilles Vollant - http://www.winimage.com/zLibDll
+=uoC
 uOE2
 uofE
 uOH;
@@ -23632,6 +23488,7 @@ uoHc
 uOI;
 {uoib\VPJC=71+$
 uOIk
+.UOJ
 	uOM
  up@
 <@upA
@@ -23698,7 +23555,6 @@ upper
 uppercase
 UptMD
 u	;Q |
-=_UQ
 'uqA
 uQE2
 uqH+
@@ -23708,17 +23564,17 @@ uqI;
 U(~QL
 u";Q r
 u?;Q r:I;
+=UQS
 ;u(r
-(ur`
+%UR2
 ur8C
 uRD9e
 urH;L$@t)A
 url=
 uRM@
 uR;Q rMH;
-(us`
+=u^S
 @U@s
-(%US)
 usage
 Usage: devop import SOURCE_MAP ENTITY_PATTERN
 Usage Error: Can't mix regular expression captures with POSIX matching rules
@@ -23731,7 +23587,6 @@ USAUAVH
 USAVI
 USAWH
 USAWI
-(USd
 usD9O
 Use a value greater than 0 to specify the threads to use. WARNING: This is an advanced
 (Use ImGui::SameLine() to keep adding items to the right of the preceding item)
@@ -23807,8 +23662,6 @@ USWAVI
 @USWAWH
 USWAWI
 USWH
---UT
-%.UT
 UTF-8 input
 UTF-8 Text
 uTI;
@@ -23816,25 +23669,20 @@ Utility command: Plays an audio sound.
 Utility command: Stops any sounds played through the command play_sound.
 =uTL
 uTL+
-\%UtW
 Uu#A
 uUD8
 uuD8|$$unE
 u,uEu
-=uUG
 )U uG
 uugH
 uu<H
 uUH;
 ?.uuI
-.uuI
 uUI;
->UuI
 uuid
 UuidCreate
 UuidToStringA
 uuid.txt
-.UUK
 'uuK;L'
 uuL;
 .uUL
@@ -23943,7 +23791,6 @@ uwH;
 @UWH
 uwH;S
 uWI;
-=UWQ
 ;?uX;?
 ux<8
 ux@8
@@ -23961,15 +23808,15 @@ uxM;
 uXM;
 UXM+
 u!;y |
-=UY2
-uyD8=c
+(Uyb
+uyD8=
 	uYH
 uyI;
 uYI;
 uYL;
 u	;z
+=uz6
 uZA9E
-(uzc
 <!uzD
 `"v>
 <^v.
@@ -23978,20 +23825,24 @@ uZA9E
 !v^@
 !v?<
 /@<v
+(]v`
 )|$@v	
 &]|v
-`V`@
-`V>@
+='V*
 =@[V
-=V+?
+=&V*
+=V#@
 >V?+
+ V>@
+-&[V
 :^V=
 :^V=/
 ?:^V
 ?:^V=/
 }V}|~
 @$V@
-%	=V
+@V>@
+%	-V
 +>-V-
 V:%0.3f
 @V<0D
@@ -24011,11 +23862,12 @@ v3(0,1,0)*v3(0,-0.99,0.01)
 v3(0,1,0)*v3(0,0.99,0.01)
 v3(0,1,0)*v3(0,1,0)
 V:%3.0f
-v33I
-`v33I
 v3fff
+=V61
 v7ff
  v7H
+=#v8
+=V(8
 V8A_A^A]A\_^]
 :v8H
 V8H+
@@ -24075,19 +23927,20 @@ VAVAWH
 VAWH
 @VAWH
 v},b
-=VB4
 Vb8S.
 -?Vb,?H$+?Z
+>VBI
 vb'vb'v
 Vc0a
 vCfE
 VCRUNTIME140_1.dll
 VCRUNTIME140.dll
 v	D+
-(=Vd
+)V[d
 "V$D&((&*(,&.
 vdtHr
 v-E;
+=V;E
 v E3
 v,E3
 v*E3
@@ -24096,9 +23949,7 @@ V(E3
 vector too long
 vector<T> too long
 vector_x
-@vector_y
 vector_y
-@vector_z
 vector_z
 velocity
 velocity_angles
@@ -24130,7 +23981,8 @@ Vertical Sliders
 vertical-tab
 vertical_wrap
 Vertices in submesh: 
--.vf
+-;vF
+(=vF)
 v-fA
 v?fA
 v/fA
@@ -24141,9 +23993,9 @@ v?ff
 v'ff
 v"ff
 v(ff
+=Vff
 vffD
 vFff
-.VfJ
 vGff
 VgVrV
 ^v\H
@@ -24164,10 +24016,10 @@ VhH+
 VHH;VPt
 VhIi
 VHI;VPt
-vhJI
 VHL;
 <v>I
 >v<I
+.$vI
 |$VI
 V I;
 VIc@
@@ -24221,19 +24073,13 @@ Visiting node
 Vis. Minimum
 Vis. Speed
 $v?j
-%v{J
 #?Vj{
-.V	J
+>VJI
 -?'v,?k
-^v&K
-.~vK
-^V+K
-=VKE
+%vkJ
 /@<v	L
 v:`L
 v(L;
-><VL
-.\VL
 V`L;
 }VL9W
 vLfff
@@ -24248,7 +24094,6 @@ vNMc]$M
 vnvyv
  vo=
 voff
-V.oI
 void __cdecl boost::geometry::index::detail::throw_runtime_error(const char *)
 void_context
 VOIP channel sound volume. This is modulated by the master volume. Valid range: 0-1.
@@ -24269,13 +24114,12 @@ Volume range
 Volumetric lighting setup
 vout
  voxels
-=}vP
--"vP
 VpE3
 vPff
 VPH+
 VpH;Vxt
 VPIk
+.VPJ
 }vpjd^WQKE?8-
 VPL;
 V`PS
@@ -24284,7 +24128,7 @@ vp=Y
 vQO+t
 vR$:
 vram
-.VRL
+%Vre
 vRQ>
 vs_4_0
 VSBasic
@@ -24351,6 +24195,7 @@ vsync,v
 {VtKo
 :Vu[
 Vu?N\t?8Ws?vGr?
+=VuO
 :vuT
 VUUU
 VUUUA
@@ -24362,7 +24207,6 @@ VUUUUUUUI
 v?/\v?
 V,V7VB
 VVector
-=Vvf
 V?V/V?
 V$VYW
 .vW@
@@ -24390,6 +24234,7 @@ VWAWH
 vWewe
 @VWH
 vwHc
+.vWL
 V?wm
 V_:X1:
 ;VXA
@@ -24403,28 +24248,31 @@ $v.x.z(|
 (V<XZ
 $V.X Z
 >V$X.Z Xt
+-vy*
 ?:^V=y
 =v<y5
 v<y5
 vyfE
+=vz;
 -v-z-~-
--VZ1
 \vZI
 v?[zt1
+=w^?
+=w/=
 /] w
 /{,w(
-`W;@
- W>@
+=^	W
+=W)>
 (:W"
 (W,!
 W { 
+W-[	;
 W0E3
 w0fE9
-W=0I#
+.W0K
 w0L;
 w0;N
 w1D;
-=w|2
 _w&2
 w2H;
 w2Hc
@@ -24433,14 +24281,15 @@ w3Xc
 %]w4
 w49w0
 W4D;
-W=4dA
 w4fA
 w4Hc
 W4vC
-W5a:X
+W5=0M
 w5E;
-W5EdL
+W5`E*
+W5*M+
 w5t,A
+W5u\L
  w7H
 W8A_
 W8E+
@@ -24450,16 +24299,15 @@ W8H+
 W8H+W`H
 w8M;
 w(@8w0t
-W-9-,
 w9E;
 w9Ic
 	w$A
 w`A+
 w*A;
+(!Wa
 W<A+
 W(A;
 w.A3
-W="a3
 W#a@8
 waC+
 wAE3
@@ -24521,11 +24369,11 @@ WATAVH
 @WATAWH
 watch
 water_enter
-water_leave
+@water_leave
 Watermelon
 water.png
-water_submerge
-water_surface
+?water_submerge
+@water_surface
 WAUAVH
 @WAUAVH
 WAUH
@@ -24538,8 +24386,8 @@ WAVH
 @WAVH
 @WAWH
 _W_a_x_
-=}WC
-W-C_
+ wC@
+ WC@
 <?wCf
 wcscat_s
 wcscpy_s
@@ -24553,9 +24401,11 @@ wcv?>
 w@D8
 w D9
 wDA;
+W=d\A
 WDA;
   w/ default threshold: %d,
 WDE+Q
+W=<dL
 ;WDt
 wDwNwYw`wy
 .wdz
@@ -24696,9 +24546,10 @@ w@fff
 wfHc
 wf~o^*
 _wfopen
+=WFQ
+=$wG
 w}G7
 wgH9G waL
-W-gI#
 wgwp
 < w>H
 < w_H
@@ -24764,7 +24615,6 @@ w	I;
 W@I;
 w=Ic
 WICTextureLoader
-=wid
  Wide
 WideCharToMultiByte
 ?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADD@Z
@@ -24822,8 +24672,9 @@ With Side Preview
 With the ImGuiColorEditFlags_NoInputs flag you can hide all the slider/text inputs.
 With the ImGuiColorEditFlags_NoLabel flag you can pass a non-empty label which will only be used for the tooltip and picker popup.
 WiWr
+=wJY
+=wK2
 wKHc
-W-k:X
 w`L;
 w L;
 w"L;
@@ -24831,8 +24682,8 @@ w(L;
 w@L;
 w	L;
  &WL
-.;WL
-.(WL
+.=WL
+.*WL
 W`L;
 W L;
   w/ large threshold: %d
@@ -24898,11 +24749,8 @@ Wsmall
 _wsplitpath_s
 wsqnmcb_OD420-+ 
 (wSW#
-->WT
-%?WT
 wtHc
 	?Wu
--wu4
 wU9%
 Wu?A9~
 wufD
@@ -24910,9 +24758,7 @@ wUHc
 	wUI
 wVHc
 wVHk
-=WVQ
 wvuM
--W,W
 W,W6
 wWfA
 {wwgEbDgxvvfGb
@@ -24933,24 +24779,26 @@ WXM9WPt(E
 Wxv*
 .Wxz
 .WXz
+=WY3
+=wYd
 .w`z
-=wzD
 wZE+
   w/ zero threshold: %d
 wzHc
 wZHc
-=wZY
+=*x?
 |$x%
  x"\ 
--x);
 \$x@
 \\$x
 		x-
+x=`@
 x  ~
-x_`@
 x_^][
-x!`@
-^%\+X
+x?;@
+x/`@
+x(`@
+x]`@
 |/	X
 |$X;
 |X,$
@@ -24960,19 +24808,22 @@ x!`@
 \$X+
 \\$X
 X_^][
+X-`@
+X;;@
+X)`@
+X#`@
+X%`@
 X\$0
-X0`@
 X\$0D
 (?>\x0D\x0A?|[\x0A\x0B\x0C\x85])
 X0H9u
-.x0K
 x0Lc
-=x1?
+=?X1
 x=150
-=x2(
+-X1Y
 .X,<2
+X2`@
 X2Z>X
-=x<3
 |$x3
 \$x3
 |$X3
@@ -24981,28 +24832,27 @@ x=300
 x3Hc
 X3O@
 x4;_
-=X46
 x4Hc
-x5`@
-X5.|#
-X53+Q
 X5AHx
-X5H-?
-X5iUR
-X5YRR
+X5c#Q
+X5iER
+X5nk#
+X5OW3
+X5x%?
+X5YBR
 x6E2
 x6;k
-X7`@
-X%%7B
+.X6K
 X{8D
 X}8fD
 x8H;
 \$X@8w0t$
 <X94=
 x9D;
-X-9HB
+(	xa
 |$xA
 |$xA;
+@xA@
 \$xA
 \$xA;
 x!A;
@@ -25010,6 +24860,7 @@ x?A;
 x\A;
 xA^^][
 xA]^[]
+(!Xa
 |$XA
 \$XA
 \$XA;
@@ -25043,21 +24894,23 @@ XA_A^A]A\
 XA_A^A]A\_^[]
 XA_A^A]A\_^][
 xA;|$PL
+X-|AR
 x ATAVAWH
 x AVH
--XAY
 !x?b
 x@?:B&
+X%_@B
+X%)+B
 ?_Xbad_alloc@std@@YAXXZ
 ?_Xbad_function_call@std@@YAXXZ
 @xB(D
-=#XC
 xCE3
 XC f
 XC(f
 XCpH
 XCPH
 XCXVXac
+=`xd
 x(d$@
 x)d$@
 |$xD
@@ -25099,7 +24952,6 @@ Xd$X
 XD$X
 |$xE
 \$xE
-Xe`@
 ^X(E
 |$XE
 }XE;
@@ -25109,12 +24961,11 @@ x.E2
 ~xE3
 |$xE3
 }xE3
-%XEA
 xE;L$P|
+X-_ER
 xe\Y]fv
 |$xf
 \$xf
-xf`@
 x>F;
 `:X<f>
 |$Xf
@@ -25133,7 +24984,7 @@ _xfD9
 |$XfD;m@
 |$Xff
 XfhE
-X%F%I
+X-%FR
 _XFREE86_GLYPH_RANGES
 x!g_
 XG`A
@@ -25152,7 +25003,6 @@ x H;
 X\$h
 |$XH
 |$XH+
--X^H
 "&"XH
 \$XH
 \$XH;
@@ -25170,6 +25020,7 @@ x#Hc
 X,Hc
 XHcA
 xhE2
+X%HEB
 XHeight
 X_HEIGHT
 X@hf
@@ -25191,18 +25042,22 @@ x)I;
 \$XI;
 X@I;
 xI3c
+X-i8B
 |$xI9
+X-I?B
 xibsH
 |$XIc
 XIXP
 xIxRx[xe
 |$XJ
+.X	J
 xjE2
-=xJM
+%xjP
 -xJZ
+-xk#
 x<;k
 |$XK
-X->k1
+	X:K
 XKHA
 XKHH
 xkt<I
@@ -25218,6 +25073,7 @@ XL$`
 XL$\
 x(l$0
 x)l$0
+=XL3
 XL>8f
 `xlA;
 x,Lc
@@ -25228,8 +25084,11 @@ xlHc
 x(L$p
 x)L$p
 Xl$X
+X-lY
 XLZu
+(%xm	
 ^xM;
+=x:M
 |$xM
 \$xM
 \$xM+
@@ -25256,17 +25115,20 @@ XM`H
 XM@H
 xmHc
 XMHH
+>XmI
 ]xML
 <?xml version="1.0"
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
   xmn=
 Xmxv
+xN`@
+xN;@
 (X*:(N
 xnbUH<1( 
 XNDt H
+-XNH
 xNHc
-=Xo$
-X-ORR
+X-OBR
 X?OsX?
 xOtF
 ?_Xout_of_range@std@@YAXPEBD@Z
@@ -25274,32 +25136,27 @@ x(\$P
 x)\$P
 X\$p
 XP A
-X%/PB
 xPDX10
 xPDX10u
 X|$pf
 xPH;
 Xp H
-.xPJ
-.XPJ
->xPL
+X%pZ
+XQ`@
 XqkY
-X-|QR
 X?/QY?s
 x:;;r
+xR`@
 Xr4-.
 Xr?9
 xr9B
 XrbfA
-X-RCB
 xrga[UNHB<6/)#
-.xRI
-X-rLB
-X-rPB
-X-rQB
+.XRL
 xRtX
 XR$z
 x`r&zdr8tzv
+(=xS)
 XsBI
 ?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z
 XS@H
@@ -25321,7 +25178,6 @@ Xt$0
 XT$0
 XT$ A
 |$Xt@A9
-X%tBB
 Xt%H
 XT$h
 XT$H
@@ -25339,30 +25195,28 @@ XT$T
 {x(u
 }x(u
 Xu1H
+=Xu3
 xuA;
 x UATAUAVAWH
 x UAVAWH
+X%U'B
 xueD
 x UH
 XU<H
-X=u$J
-X%uKB
-X-_UR
 X UVWATAUAVAWH
 (x,`.:,V
-X-%VR
 XvVH
 XW A
 X WATAWH
-X%'WB
 XW$D
+X%WGB
 Xw}H
 X WH
+>xwK
 xWM@
 X?wm
 |XX@
 ,X.X0F
-X%\XB
 X[XD
 X{xH
 xXM@
@@ -25375,102 +25229,84 @@ xx(uX
   "-xxx"     hide lines containing "xxx"
 ..-         -XXXXXXX-    X    -           X           -XXXXXXX          -          XXXXXXX..-         -X.....X-   X.X   -          X.X          -X.....X          -          X.....X---         -XXX.XXX-  X...X  -         X...X         -X....X           -           X....XX           -  X.X  - X.....X -        X.....X        -X...X            -            X...XXX          -  X.X  -X.......X-       X.......X       -X..X.X           -           X.X..XX.X         -  X.X  -XXXX.XXXX-       XXXX.XXXX       -X.X X.X          -          X.X X.XX..X        -  X.X  -   X.X   -          X.X          -XX   X.X         -         X.X   XXX...X       -  X.X  -   X.X   -    XX    X.X    XX    -      X.X        -        X.X      X....X      -  X.X  -   X.X   -   X.X    X.X    X.X   -       X.X       -       X.X       X.....X     -  X.X  -   X.X   -  X..X    X.X    X..X  -        X.X      -      X.X        X......X    -  X.X  -   X.X   - X...XXXXXX.XXXXXX...X -         X.X   XX-XX   X.X         X.......X   -  X.X  -   X.X   -X.....................X-          X.X X.X-X.X X.X          X........X  -  X.X  -   X.X   - X...XXXXXX.XXXXXX...X -           X.X..X-X..X.X           X.........X -XXX.XXX-   X.X   -  X..X    X.X    X..X  -            X...X-X...X            X..........X-X.....X-   X.X   -   X.X    X.X    X.X   -           X....X-X....X           X......XXXXX-XXXXXXX-   X.X   -    XX    X.X    XX    -          X.....X-X.....X          X...X..X    ---------   X.X   -          X.X          -          XXXXXXX-XXXXXXX          X..X X..X   -       -XXXX.XXXX-       XXXX.XXXX       ------------------------------------X.X  X..X   -       -X.......X-       X.......X       -    XX           XX    -           XX    X..X  -       - X.....X -        X.....X        -   X.X           X.X   -                 X..X          -  X...X  -         X...X         -  X..X           X..X  -                  XX           -   X.X   -          X.X          - X...XXXXXXXXXXXXX...X -           ------------        -    X    -           X           -X.....................X-                               ----------------------------------- X...XXXXXXXXXXXXX...X -                                                                 -  X..X           X..X  -                                                                 -   X.X           X.X   -                                                                 -    XX           XX    -           
   "xxx,yyy"  display lines containing "xxx" or "yyy"
-=]xY
+=xy2
 xyH;
 X"Z(\ ^
-XZ`@
 X^ZA
 XZM@
-%xzP
 ;xzQ
 x z r o e s c
 {X@zY
-=y(@
-=y[?
+=&y<
 -&?y
 ;y }
-(!y`
-(]y`
 *`(y
 y{? 
-`Y`@
-=(^Y
--\$Y
+=[	Y
 ; Y: 
 ;Y |
+\=Y/@
 Y|$@
 Y|$$
 Y\$(
 Y\$@
+Y%}>
 %Y!0
+Y-{0)
 Y}?\0 >%
 Y\$0
-(y0a
 Y\$0A
+(Y0b
 *y0E
 Y = %.0f px
 Y0H;
 ;y0s
 y0s9
 y##3
-Y=4I*
--Y,5
-Y5->
-Y5B!A
-Y5c1H
-Y5Eg<
-Y5H^)
-Y5jF1
-Y5LY)
-Y5M-N
-Y5QK*
-Y5S-?
-Y5WH1
-Y5zSV
-=y63
-Y%!7E
+=;y5
+Y5=6A
+Y5l_)
+Y5>m
+Y5}%N
+Y5q|,
+Y5;vK
+Y5WW3
 Y|$8
 Y@#=8
-Y%	8
 Y@8A
 y8D;
-.Y8L
 y8u=H
+Y=9 N
 y9*O
 (y	A
+(]Ya
+(Y(a
 Y<'A
-Y=)>A
 Y|$ A
 Ya4X
 Ya5~t
-(yaa
-(Yab
 yacute
 Yacute
 Yacutesmall
+(yad
 yaE3
 Yaw: 
 YAxI
-Y=B'0
 ybA+
 ybE3
 yBI;
-(y.c
 yc?<
-=yC%
 >y?C
-(ycb
+ YC@
 YC E
 y?$Cz?
-(y)d
-`yD@
+(}yd
 |$yD
-(}Yd
-(Y`d
-(Y	d
+@yD@
+(Y^d
 Yd$ 
 Yd$\
-=`YD
+Y-D;@
 Y{`D
 Y$D;
 YD$|
@@ -25484,11 +25320,13 @@ YD$0E
 YD$4
 YD$8
 y(D9%
+(yda
 YD$ A
 YD$(A
 YD$@A
 ~YD;D$8A
 YD$ E
+=yDH
 YD$h
 YD$H
 ydieresis
@@ -25506,14 +25344,11 @@ y dwU
 YD$x
 YD$X
 -Y %d +X %d
--y|e
 y|E3
 Y E3
 Y(E3
-(yea
 Yellow
 YE`M
-%YeV
 YEwH
 YeYii
 |$Yf
@@ -25523,28 +25358,25 @@ yfAT
 y fE
 Y ff
 YFHH
+(YGc
 YG,D
  YGw
-=yH@
 "y	H
 Y|$h
 (~YH
 Y|$H
 Y(H;
 YH0H
-(yha
+=yh9
 yHfD
+.yhJ
 yHLc
 y H;y
 .Yhz
-(yIa
-(Yid
-Y%;ID
-(yjd
--yje
-%y:K
+Y=(j#
+>(YK
 yk 1"""
-.y[L
+Y%kAD
 y`L;
 Y,L;
 YL$`
@@ -25560,13 +25392,10 @@ YL$0E
 Yl$`3
 Yl$4
 YL$8
-(yla
-(Yla
 y Lc
-Y%leR
+-yle
 Yl$H
 YL$hA
-.ylK
 YLLc
 YL$p
 YL$P
@@ -25579,14 +25408,13 @@ YLYVh
 \YM@
 YM0E
 yM+7
+(Yma
 ymyx
 yMzw
-Y=	(N
+%y@N
 Y|NP
 +Yo,
-Y=]o*
-.yOJ
-Y-ON)
+Y%&O/
  (You)
 You can apply arithmetic operators +,*,/ on numerical values.
  You can optionally use wildcards (*) to delete multiple entities.
@@ -25619,18 +25447,15 @@ Y\$P
 Yp(A
 +YpD
 Y}PE
-%yPN
 {{ypO2
-.=y.Q
 /yQA
+Y%Q/E
 {yqmL
 Y!Q!t!
 ;Y r
 yRM@
 ys2`
-Y-s<E
-Y%si)
-.ysK
+(YSc
 \ysK
 yslf`ZTMGA;5.
 Ysmall
@@ -25642,6 +25467,7 @@ Yt$
 Yt$@
 YT$`
 YT$(
+(-yT0
 Yt$0
 YT$0A
 Yt$4
@@ -25649,26 +25475,27 @@ Y>t$7?*
 Yt$8
 YT$8
 Yt$`A
-=yTH
 Yt$h
 YT$p
 YT$pD
 Yt$T
 %YU.
+Y=UD
 YU@ff
 YUPA
+%YUV
 YUY2
 =YUY2u
 {YV'
 YV(f
-Y%vk)
+.YVL
 YvWH
-(yWb
-Y-wQ)
+(YWd
 'YwW/
 Y?'WY?
-Y-?X)
 Y\$X
+(YXa
+(yXd
 yXE3
 YXE3
 Yxff
@@ -25689,24 +25516,27 @@ yxxxxxxxL
 yxxxxxxxL+
 .Yxz
 Y-Y=
+Y%Y%
+Y=Y6A
 y'y6y?yMa
+Y%y8
+(yYb
 Y]Ym[u[
+(YZb
+-yZe
 yZ:O
 yZygy
 y?Zzy?
-=z <
-=z$<
+=z'@
 ;z |
 ._|z
 ._\z
 .@(z
 .\$,z
-(=^z#
 )|$`z
 )|$ z
 ]?z?
-%;z>
-=Z"=
+=Z^?
 ,|&Z
 ; Z: 
 (^<`Z
@@ -25720,17 +25550,19 @@ Z\,%
 Z	?	
 Z"0*
 Z(^*0(
+(%z03
 z0*~ H
 z0u.
 z0u.D
 .z0z2
 z1u/
-=[Z2
+%Z2M
 z2u0
 z2u0A
 z{3^+
 z?33
 z?33s?
+=z3D
 z3u1
 z4>33
 Z4466
@@ -25749,33 +25581,32 @@ Z~$|7
 !&z8
 z8u6
 z8u6fA
-=Z&9
-@zA@
 z A+
+(	Za
 ~ZA;
+%|ZA
 Z ao slice: 
 zAu?
 +Z+^+b7
 z`(be
 ZbE3
 (Z(^(b(f(j(n(r(v(z1
-=ZbH
 ZbN0V
+`zC@
 zcaron
 Zcaron
 Zcaronsmall
  zcentered=
+>ZCJ
 zCuAI
 zCuAL
 zCzI
- zD@
+%ZD3
 Zd6f:
 zDuB
 ZDZUZ]Zj
-=zE>
-=;Ze
+-'Ze
 Z E3
-=zE6
 }ZE9B@t)A
 |zE9\$Dus
 {zel#|67
@@ -25791,20 +25622,17 @@ zerosuperior
 zeucA
 zezn
 #.zf
-=@ZF
 ZF6H:
 z	fD
 ~zff
 zFuD
 zGuA
 zGuE
--z\H
+=zh<
 """ZH
 (~ZH
 \$ZH
->zHI
 zhx9
-=zI5
 zigabo
 zigaboo
 zigaboos
@@ -25812,17 +25640,22 @@ zigabos
 zipperhead
 zipperheads
 zIuG
-.}zJ
+.<zJ
 <Z>J:>@!
 Zj6l:
-.ZjJ
 zjuhfD
--zK3
+%zk<
+%?zK
+>Z?K
 z^KD
+>ZKK
 	zKQ
 zkui
+.|ZL
+.\ZL
 ZL6N:
 ~ZLc
+-zLH
 zlib error
 zlib failed to initialize compressor
 zlib failed to initialize compressor -- mem error
@@ -25839,11 +25672,10 @@ zLx>
 $ZM@
 z?Mbz?H5z?
 zMuK
-(-Z~N
+=zmW
 zNuL
  ZO@
 	?	Z	$	O
-ZO;@
 	ZoneIndices (hex): 
 zoom
 zoomed_speed
@@ -25854,12 +25686,12 @@ zoom_sensitivity
 Zpft
 ZPKE?81("
 zPuNfD
-.zQL
 zQuO
 ;Z@$R
 ZR6T,
+=ZRH
 zrup
-%z?S
+%z/S
 ,@Zs
 ;Z s
 Z?SHX?
@@ -25904,14 +25736,11 @@ z\uZ
 zUZg
 ;=zV
 ]zV@
-=zV4
 zvutf
-=z}W
 zwq<
 ZW][Rb
 zWuUA
 Z:X	
-=zX4
 ZX6Z,
 zx?L
 zx(u
@@ -25919,7 +25748,6 @@ zx(u(
 zx(u8
 zx(u#H
 .ZXz
-=*ZY
 zyrE
 zYuW
 zYuWL
