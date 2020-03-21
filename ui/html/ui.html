@@ -4683,9 +4683,10 @@
 -->
 <script id="hud_current_ammo" type="text/x-jsrender">
     <span data-bind-if="{{battle_data.self.alive}}">
-            <div data-bind-if="!{{current_weapon_data.unlimited_ammo}}" [[if weapon_fill == 1]]data-bind-style-color="{{current_weapon_data.color}}"[[/if]] data-bind-value="{{current_weapon_data.ammo}}"></div>
-
-            <div data-bind-if="{{current_weapon_data.unlimited_ammo}}" [[if weapon_fill == 1]]data-bind-style-color="{{current_weapon_data.color}}"[[/if]]">&infin;</div>
+        <div class="[[:aC]]_color [[:lowAC]]_color_low" data-bind-class-toggle="threshold:{{current_weapon_data.ammo}} <= ({{current_weapon_data.max_ammo}} * [[:threshold]])" data-bind-property="'--weaponColor:'+{{current_weapon_data.color}}">
+            <div data-bind-if="!{{current_weapon_data.unlimited_ammo}}" data-bind-value="{{current_weapon_data.ammo}}"></div>
+            <div data-bind-if="{{current_weapon_data.unlimited_ammo}}">&infin;</div>
+        </div>
     </span>        
 </script>
 

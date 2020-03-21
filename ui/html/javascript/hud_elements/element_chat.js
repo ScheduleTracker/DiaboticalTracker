@@ -38,10 +38,22 @@ function init_element_chat() {
     //Need two max limits when max charaters and second max without a whitespace
 }
 
-
+// Catch any extra keypresses sent within 50ms of the chat keybind being pressed to avoid the bind char from ending up in the input field
+var global_chat_double_key_fix_timeout = undefined;
+var global_chat_double_key_fix_active = false;
 
 // Show the chat prompt and recent chat messages
 function set_chat(visible) {
+    if (global_chat_double_key_fix_timeout) {
+        clearTimeout(global_chat_double_key_fix_timeout);
+        global_chat_double_key_fix_timeout = undefined;
+    }
+    if (visible) {
+        global_chat_double_key_fix_active = true;
+        global_chat_double_key_fix_timeout = setTimeout(function() {
+            global_chat_double_key_fix_active = false;
+        },50);
+    }
     let game_report_input = _id("game_report_cont").querySelector(".chat_input");
     if (global_game_report_active) {
         game_report_input.value = '';
@@ -152,7 +164,17 @@ function element_chat_setup() {
     var chatinput = _get_first_with_class_in_parent(_id("hud_load_during_loading"), "ingame_chat_input");
     
     if (chatinput) {
+        chatinput.addEventListener("keypress", function(event) {
+            if (global_chat_double_key_fix_active) {
+                event.preventDefault();
+                return false;
+            }
+        });
         chatinput.addEventListener("keydown", function (event) {
+            if (global_chat_double_key_fix_active) {
+                event.preventDefault();
+                return false;
+            }
             _for_each_with_class_in_parent(_id("hud_load_during_loading"), "ingame_chat_input", chatPrompt => {
                 let chat_temp = chatPrompt.closest(".chat_container").querySelector(".chat_temp_cont");
                 if (event.keyCode == 27) { //Escape

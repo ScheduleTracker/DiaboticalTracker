@@ -21,7 +21,11 @@ function reset_hud(){
             editing_hud_data = JSON.parse(str);
             write_misc_hud_preference('hudaspect', 'default');
             write_misc_hud_preference('fl', '1');
-            refresh_preview_hud();
+    		if (global_misc_hud_preference["dirhint"]=='1') {
+    		    place_direction_hints_element(false); // include or exclude element in default hud according to explicit user intent
+    		} else {
+                refresh_preview_hud();
+            }
         } catch (err) {
             echo("Error parsing HUD definition (Maybe it was too long so it got clamped.)");
         }
@@ -921,6 +925,8 @@ function place_direction_hints_element(value, data, noupdate){
                 value=true;
                 write_misc_hud_preference('dirhint','1');
             }
+        } else if (elements[i].t === "coins"){
+                elements[i].y="20";
         }
     }
     if (noupdate) return;
@@ -946,7 +952,6 @@ function callback_on_misc_hud_preference_read(misc){
         update_select(_id('film_fov_measurement'));
     }
     if (misc["fovbkg"]&&global_fov_preview_images[misc["fovbkg"]]) fov_preview_background_series = misc["fovbkg"];
-    if (misc["dirhint"]=='1') place_direction_hints_element(false, window.experimental_default_hud_definition_json, true); // include or exclude element in default hud according to explicit user intent
 }
 
 function read_misc_hud_preference(def) {
@@ -966,8 +971,7 @@ function read_misc_hud_preference(def) {
                 break;
             }
         }
-    } 
-    //if (!haveMisc) editing_hud_data = window.experimental_default_hud_definition_json;
+    }
     callback_on_misc_hud_preference_read(misc);
     return haveMisc;
 }

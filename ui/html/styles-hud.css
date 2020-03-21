@@ -1486,6 +1486,9 @@ h2 {
     width:3.6vh;
     height:3.6vh;
 }
+.score_line .score_rank .rank_icon .position {
+    display:none;
+}
 .score_line .score_place {
     width: 7vh;
     text-align: left;
@@ -2224,6 +2227,14 @@ h2 {
 .elem_hp , .elem_armor, .elem_fps, .elem_current_ammo {
     font-family: furore;
 }
+
+/*
+*   ELEMENT current ammo
+*/
+.elem_current_ammo .custom_color { color: var(--aCCustom);}
+.elem_current_ammo .custom_color_low.threshold { color: var(--lowACCustom);}
+.elem_current_ammo .weapon_color { color: var(--weaponColor);}
+.elem_current_ammo .weapon_color_low.threshold { color: var(--weaponColor);}
 
 
 /*
@@ -3238,6 +3249,9 @@ h2 {
     width:3.6vh;
     height:3.6vh;
 }
+#game_report_cont .report_scoreboard .team .player_row .rank .rank_icon .position {
+    display:none;
+}
 #game_report_cont .report_scoreboard .team .player_row .stat {
     width:9vh;
     font-size:1.5vh;
@@ -3966,8 +3980,8 @@ h2 {
     background-repeat:no-repeat;
     filter:drop-shadow(0 1px 2px rgba(0,0,0,0.8));
 }
-#rank_screen .placement_progression .match_list .dot .result_box.win .icon { background-image: url(/html/images/ranks/200x200/weeball_winner.png); }
-#rank_screen .placement_progression .match_list .dot .result_box.loss .icon { background-image: url(/html/images/ranks/200x200/weeball_loser.png); }
+#rank_screen .placement_progression .match_list .dot .result_box.win .icon { background-image: url(/html/ranks/200x200/weeball_winner.png); }
+#rank_screen .placement_progression .match_list .dot .result_box.loss .icon { background-image: url(/html/ranks/200x200/weeball_loser.png); }
 
 #rank_screen .placement_progression .match_list .dot .result_box .arrow {
     width:2vh;

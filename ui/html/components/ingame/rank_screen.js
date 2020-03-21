@@ -323,11 +323,24 @@ function showRankScreen(cb, initial) {
                     let value = rank_screen.querySelector(".progress_cont .value");
                     let from = value.dataset.from;
                     let to = value.dataset.to;
+                    let prev = 0;
+                    let play_sound = true;
                     anim_start({
                         "element": value,
                         "duration": 3000,
                         "delay": 0,
-                        "number": [from, to],
+                        "number": [from, to, function(val) {
+
+                            if (prev != val) {
+                                if (play_sound == true) {
+                                    engine.call('ui_sound', "ui_ranked_xp_gain_tick");
+                                    play_sound = false;
+                                    setTimeout(function() { play_sound = true; }, 5);
+                                }
+                                prev = val;
+                            }
+                
+                        }],
                         "easing": easing_functions.easeOutQuart,
                         "completion": function() {}
                     });
@@ -345,11 +358,24 @@ function showRankScreen(cb, initial) {
                     let value = rank_screen.querySelector(".progress_cont .value");
                     let from = value.dataset.from;
                     let to = value.dataset.to;
+                    let prev = 0;
+                    let play_sound = true;
                     anim_start({
                         "element": value,
                         "duration": 3000,
                         "delay": 0,
-                        "number": [from, to],
+                        "number": [from, to,  function(val) {
+
+                            if (prev != val) {
+                                if (play_sound == true) {
+                                    engine.call('ui_sound', "ui_ranked_xp_gain_tick");
+                                    play_sound = false;
+                                    setTimeout(function() { play_sound = true; }, 5);
+                                }
+                                prev = val;
+                            }
+                
+                        }],
                         "easing": easing_functions.easeOutQuart,
                         "completion": function() {}
                     });
@@ -383,12 +409,24 @@ function showRankScreen(cb, initial) {
                     let value = rank_screen.querySelector(".progress_cont .value");
                     let from = Number(value.dataset.from);
                     let to = Number(value.dataset.to);
-                    
+                    let prev = 0;
+                    let play_sound = true;
                     anim_start({
                         "element": value,
                         "duration": 3000,
                         "delay": 0,
-                        "number": [from, to],
+                        "number": [from, to,  function(val) {
+
+                            if (prev != val) {
+                                if (play_sound == true) {
+                                    engine.call('ui_sound', "ui_ranked_xp_gain_tick");
+                                    play_sound = false;
+                                    setTimeout(function() { play_sound = true; }, 5);
+                                }
+                                prev = val;
+                            }
+                
+                        }],
                         "easing": easing_functions.easeOutQuart,
                         "completion": function() {}
                     });

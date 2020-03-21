@@ -37,9 +37,16 @@ function anim_update(timestamp){
         }
         
         //New parameters can be implemented by adding them here:
+
+        // [from, to, callback]
         if (anim.number){
-            let val = lerp(anim.number[0], anim.number[1], t);
-            anim.element.textContent = Math.floor(val);
+            let val = Math.floor(lerp(anim.number[0], anim.number[1], t));
+
+            if (typeof anim.number[2] == "function") {
+                anim.number[2](val);
+            }
+
+            anim.element.textContent = val;
         }
         if (anim.scale){
             let val = lerp(anim.scale[0], anim.scale[1], t);

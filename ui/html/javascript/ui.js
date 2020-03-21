@@ -39,6 +39,9 @@ var global_user_battlepass = {};
 var global_battlepass_list = [];
 var global_competitive_season = {};
 
+var global_menu_view_loaded = false;
+var global_masterserver_connected = false;
+
 window.self_egs_id = "";
 
 /*
@@ -282,7 +285,16 @@ window.addEventListener("load", function(){
 
     console.log("LOAD013")
 
-    bind_event('set_masterserver_state', function (connected) {
+    bind_event('set_masterserver_state', function (connected, code) {
+        // int code:
+        // 0 = normal message
+        // 1 = epic online service issue
+
+
+        // for reference:
+        //<div id="masterserver_warning">
+        // <img src="/html/images/icons/fa/exclamation-triangle.svg"> &nbsp; <span data-i18n="not_connected_to_master" class="i18n">Not connected to masterserver (Reconnecting...)</span>
+        //</div>
         if(connected) {
             _id("masterserver_warning").style.display = "none";
         } else {
@@ -544,6 +556,8 @@ window.addEventListener("load", function(){
             engine.call("echo","Disconnected from server, code:"+value);
             if (value == 10 || value == 30) { // 30 happens when the gameserver shuts down normally at the end of the game apparently
                 // Check if state == 4 == GAME_STATE_ENDED
+                
+                /* commented for now because game_state isn't realibly set to 4 here when we get disconnected for some reason
                 if (menu_game_data.game_stage && menu_game_data.game_stage != 4) {
                     console.log("GAME STAGE", menu_game_data.game_stage);
                     queue_dialog_msg({
@@ -551,6 +565,7 @@ window.addEventListener("load", function(){
                         "msg": localize("disconnected_error_"+value),
                     });
                 }
+                */
             } else {
             //if ([5,6,7,8].includes(value)) {
                 queue_dialog_msg({
@@ -1015,38 +1030,10 @@ window.addEventListener("load", function(){
         //Must do this after the engine has had an opportunity to send setting values like hit sounds.
         settings_combat_update(0);
         
-        // Request initial invite and party infos
-        send_string("invite-list");
-        send_string("party-status");
-        send_string("get-ranked-mmrs");
-       
         updateMenuBottomBattlepass();
-
-        // Request API token:
-        send_string("request-api-token", "apitoken", function(token) {
-            global_stats_api.updateToken(token);
-        });
-
-        // Request competitive season info
-        send_string("get-competitive-season", "competitive-season", function(data) {
-            global_competitive_season = data.data;
-        });
-
-        // Request Battlepass data:
-        send_string("get-battlepass-data", "battlepass-data", function(data) {
-            global_user_battlepass = data.data;
-        });
-
-        // Request personal data
-        send_string("get-personal-data", "get-personal-data", function(data) {
-            global_self.private = data.data;
-        });
 
         // Temporary solution to get list all the stickers available, see customize_screen.js -> set_asset_browser_content
         engine.call("request_character_browser_update", "decals");
-
-        // Request the users customization item list
-        load_user_customizations();
 
         post_load_setup_hud_editor();
 
@@ -1085,6 +1072,11 @@ window.addEventListener("load", function(){
         if (variable) {
             engine.call("initialize_range_value", variable);
         }
+    });
+
+    bind_event('on_masterserver_auth_success', function() {
+        global_masterserver_connected = true;
+        on_masterserver_auth_success();
     });
 
     console.log("LOAD202");
@@ -1137,7 +1129,49 @@ window.addEventListener("load", function(){
 
     console.log("LOAD210");
     engine.call('menu_view_loaded');
+    global_menu_view_loaded = true;
 });
+
+function on_masterserver_auth_success() {
+    if (global_menu_view_loaded == false) {
+        setTimeout(function() {
+            on_masterserver_auth_success();
+        },100);
+        return;
+    }
+
+    console.log("POSTMSAUTH000");
+
+    // Request initial invite and party infos
+    send_string("invite-list");
+    send_string("party-status");
+    send_string("get-ranked-mmrs");
+
+    // Request API token:
+    send_string("request-api-token", "apitoken", function(token) {
+        global_stats_api.updateToken(token);
+    });
+
+    // Request competitive season info
+    send_string("get-competitive-season", "competitive-season", function(data) {
+        global_competitive_season = data.data;
+    });
+
+    // Request Battlepass data:
+    send_string("get-battlepass-data", "battlepass-data", function(data) {
+        global_user_battlepass = data.data;
+    });
+
+    // Request personal data
+    send_string("get-personal-data", "get-personal-data", function(data) {
+        global_self.private = data.data;
+    });
+
+    // Request the users customization item list
+    load_user_customizations();
+
+    console.log("POSTMSAUTH100");
+}
 
 function update_variable(type, variable, value, callback_type, callback) {
     /* type: 
