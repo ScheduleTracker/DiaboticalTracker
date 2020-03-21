@@ -1,0 +1,296 @@
+//SHOTGUN IMPACT
+
+// scattergun_impact_smoke 
+{
+	map effects2.png
+	region tele_flow
+	// animation_speed 20
+	// animation_start 
+	// blend alpha
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 1.5
+	// fade_in 0.1
+	// fade_out 0.999
+	// rotation_start 0 360
+	// position 0 0 0 0 0 0
+	// period 0
+	// color_start 0.8 0.8 0.7 1
+	// color_end 0.3 0.3 0.3 0.2
+	// emitter line 0 0 1
+	// scale_start 50
+	// scale_end 100
+	
+	// map effects1.png
+	// region r_smokep1_a	
+	animation_speed 25
+	animation_start
+	// geometry directional
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3
+	sync_group 15
+	fade_in 0.1
+	fade_out 0.2
+	rotation_start 0 360
+	position 0 0 0 0 0 0
+	// position 0 0 -1 0 0 -1
+	period 0
+	velocity 5 5 5 -5 -5 -5
+	color_start 3 2 1 
+	color_end 1 1 1
+	// color_start -5 -5 -5 0.6
+	// color_end -2 -2 -2 0.2
+	emitter line 0 0 1
+	scale_start 30
+	scale_end 20
+}
+
+scattergun_impact_smoke2
+{
+	map particle_sheet4.png
+	region r_smoke_ae_new
+	animation_speed 30
+	animation_start
+	// geometry directional
+	blend alpha
+	max_particles 1
+	// sync_group 15
+	max_emissions 1
+	lifetime 0.45
+	fade_in 0.1
+	fade_out 0.1
+	rotation_start 160 200 
+	position 0 0 0 0 0 0
+	// position 0 0 -1 0 0 -1
+	period 0
+	velocity 5 5 80 -5 -5 90
+	color_start 0.5 0.5 0.5 1
+	color_end 0.5 0.5 0.5 0.5
+	// color_start -5 -5 -5 0.6
+	// color_end -2 -2 -2 0.2
+	emitter line 0 0 1
+	scale_start 10 10
+	scale_end 100 70
+}
+
+scattergun_impact_smoke3
+{
+	map particle_sheet4.png
+	region r_smoke_ae_new1
+	animation_speed 30
+	animation_start
+	// geometry directional
+	blend alpha
+	max_particles 1
+	// sync_group 15
+	max_emissions 1
+	lifetime 0.3
+	fade_in 0.1
+	fade_out 0.1
+	rotation_start 160 200 
+	position 0 0 0 0 0 0
+	// position 0 0 -1 0 0 -1
+	period 0
+	velocity 5 5 80 -5 -5 110
+	color_start 0.5 0.5 0.5 1
+	color_end 0.5 0.5 0.5 0.5
+	// color_start -5 -5 -5 0.6
+	// color_end -2 -2 -2 0.2
+	emitter line 0 0 1
+	scale_start 5 10
+	scale_end 90 60
+}
+
+// scattergun_impact_1
+{
+	map particle_sheet4.png
+	region r_spike
+	blend alpha
+	max_particles 1 2
+	// sync_group 10
+	max_emissions 1
+	lifetime 0.15
+	fade_in 0.05 0.07
+	fade_out 0.1 0.15
+	color_start 2 1 0 2
+	color_end 2 1 0 2
+	rotation_start 140 210
+	period 0
+	position 0 0 15
+	velocity 0 0 50
+	emitter line 0 0 1
+	scale_start 20 0
+	scale_end 40 0
+}
+
+scattergun_impact_2
+{
+	map effects1.png
+	region r_point_1
+	max_particles 1
+	max_emissions 1
+	bend alpha
+	sync_group 10
+	period 0
+	lifetime 0.05
+	scale_start 20
+	scale_end 20
+	rotation_start 0 360
+	blend alpha
+	position 0
+	velocity 0 0 50
+	fade_out 0.1 0.15
+	color_start 2 1 0 2
+	color_end 2 1 0 2
+}
+
+// scattergun_impact_decal
+{
+	map effects1.png
+	region r_point_1
+	max_particles 1
+	max_emissions 1
+	sync_group 10
+	period 0
+	lifetime 5
+	scale_start 5 8
+	rotation_start 0
+	// blend revsubtract
+	blend alpha
+	position 0
+	velocity 0 0 0
+	// fade_out 0.1 0.15
+	color_start 0.1 0.1 0.1 1
+	color_end 0.1 0.1 0.1 1
+}
+
+scattergun_impact_3
+{
+	map effects1.png
+	region r_point_2
+	max_particles 200
+	max_emissions 20
+	// blend blend
+	// sync_group 10
+	period 0.001
+	lifetime 0.1 0.05
+	rotation_start 0 360
+	velocity 200 0 500 200 0 500
+	blend alpha
+	position 0 0 
+	fade_out 0.1 0.15
+	color_start 2 1 0 1
+	color_end 1 1 0 1
+	drag 1
+	emmiter line 0 0 200
+	scale_start 13 
+	scale_end 3
+}
+
+scattergun_impact_4
+{
+	map effects1.png
+	region r_point_2
+	max_particles 200
+	max_emissions 20
+	// blend blend
+	// sync_group 10
+	period 0.001
+	lifetime 0.1
+	rotation_start 0 360
+	velocity 200 0 500 200 0 500
+	blend alpha
+	position 0 0 
+	fade_out 0.1 0.15
+	color_start 1 0.5 0 1
+	color_end 1 0.5 0 1
+	drag 1
+	emmiter line 0 0 200
+	scale_start 13 
+	scale_end 3
+}
+
+scattergun_impact_7
+{
+	map effects1.png
+	region r_point_2
+	max_particles 200
+	max_emissions 20
+	// blend blend
+	// sync_group 10
+	period 0.001
+	lifetime 0.1 0.05
+	rotation_start 0 360
+	velocity -200 0 600 -200 0 600
+	blend alpha
+	position 0 0 
+	fade_out 0.1 0.15
+	color_start 2 1 0 1
+	color_end 1 1 0 1
+	// drag 1
+	emmiter line 0 0 200
+	scale_start 13 
+	scale_end 3
+}
+
+scattergun_impact_4
+{
+	map effects1.png
+	region r_point_2
+	max_particles 1
+	max_emissions 1
+	blend blend
+	sync_group 15
+	period 0.01
+	lifetime 0.10
+	rotation_start 0 360
+	velocity 200 200 200 -200 -200 1000
+	blend alpha
+	position 10 10 0 
+	fade_out 0.1 0.15
+	color_start 2 1 0 
+	color_end 1 1 0
+	drag 1
+	emmiter line 0 0 200
+	scale_start 15
+	scale_end 8
+}
+
+
+scattergun_impact_6
+{
+	map effects1.png
+	region r_point_1
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.1
+	sync_group 10
+	scale_start 1.25
+	scale_end 0.8
+	rotation_start 0 360
+	blend add
+	fade_out 0.1 0.15
+	color_start 0.1 0.2 0 1
+	color_end 0.1 0.2 0 1
+	system_light_radius 100
+}
+
+
+
+
+
+sg_impact
+{
+	subsystem scattergun_impact_smoke 
+	subsystem scattergun_impact_smoke2 
+	subsystem scattergun_impact_smoke3
+	subsystem scattergun_impact_2
+	subsystem scattergun_impact_3
+	// subsystem scattergun_impact_4
+	subsystem scattergun_impact_7
+	// subsystem scattergun_impact_decal 0.2
+}
+

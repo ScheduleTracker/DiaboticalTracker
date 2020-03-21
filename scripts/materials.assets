@@ -1,0 +1,518 @@
+///
+
+asset checker
+{
+  type surface_material
+  material checker
+}
+
+asset concrete_clean2
+{
+  type surface_material
+  material concrete_clean2
+}
+
+asset concrete_stripes
+{
+  type surface_material
+  material concrete_stripes
+}
+
+asset concrete_clean3
+{
+  type surface_material
+  material concrete_clean3
+}
+
+asset concrete_clean4
+{
+  type surface_material
+  material concrete_clean4
+}
+asset concrete_clean6
+{
+  type surface_material
+  material concrete_clean6
+}
+asset bulletholes
+{
+  type surface_material
+  material bulletholes
+}
+
+asset concrete_clean
+{
+  type surface_material
+  material concrete_clean
+}
+
+asset concrete_dirt_01
+{
+  type surface_material
+  material concrete_dirt_01
+}
+
+asset concrete_dirt_02
+{
+  type surface_material
+  material concrete_dirt_02
+}
+
+asset concrete_grid_01
+{
+  type surface_material
+  material concrete_grid_01
+}
+
+asset concrete_grid_02
+{
+  type surface_material
+  material concrete_grid_02
+}
+
+asset floortile
+{
+  type surface_material
+  material floortile
+}
+
+
+asset grip_flat
+{
+  type surface_material
+  material grip_flat
+}
+
+asset scaffold
+{
+  type surface_material
+  material scaffold
+}
+
+asset scaffold_simple
+{
+  type surface_material
+  material scaffold_simple
+}
+
+asset floor_plate01
+{
+  type surface_material
+  material floor_plate01
+}
+
+asset floor_plate02
+{
+  type surface_material
+  material floor_plate02
+}
+
+asset floor_plate03
+{
+  type surface_material
+  material floor_plate03
+}
+
+asset floor_plate04
+{
+  type surface_material
+  material floor_plate04
+}
+
+asset ventilation
+{
+  type surface_material
+  material ventilation
+}
+
+asset concrete_straight01
+{
+  type surface_material
+  material concrete_straight01
+}
+
+asset concrete_straight02
+{
+  type surface_material
+  material concrete_straight02
+}
+
+asset metalwall_01
+{
+  type surface_material
+  material metalwall_01
+}
+
+asset metalwall_02
+{
+  type surface_material
+  material metalwall_02
+}
+
+asset metalwall_03
+{
+  type surface_material
+  material metalwall_03
+}
+
+asset metalwall_04
+{
+  type surface_material
+  material metalwall_04
+}
+
+asset metalwall_05
+{
+  type surface_material
+  material metalwall_05
+}
+
+asset metalwall_06
+{
+  type surface_material
+  material metalwall_06
+}
+
+asset metalwall_07
+{
+  type surface_material
+  material metalwall_07
+}
+
+asset metalwall_08
+{
+  type surface_material
+  material metalwall_08
+}
+
+asset metalwall_09
+{
+  type surface_material
+  material metalwall_09
+}
+
+asset metalwall_10
+{
+  type surface_material
+  material metalwall_10
+}
+
+asset metalwall_11
+{
+  type surface_material
+  material metalwall_11
+}
+
+asset metalwall_12
+{
+  type surface_material
+  material metalwall_12
+}
+asset metalwall_13
+{
+  type surface_material
+  material metalwall_13
+}
+asset plate01
+{
+  type surface_material
+  material plate01
+}
+
+asset plate02
+{
+  type surface_material
+  material plate02
+}
+
+asset plate03
+{
+  type surface_material
+  material plate03
+}
+
+asset stonewall
+{
+  type surface_material
+  material stonewall
+}
+
+asset woodwall
+{
+  type surface_material
+  material woodwall
+}
+
+asset metalwall_12
+{
+  type surface_material
+  material metalwall_12
+}
+
+asset metal_border_01
+{
+  type surface_material
+  material metal_border_01
+}
+
+asset metal_plates_color
+{
+  type surface_material
+  material metal_plates_color
+}
+
+asset metal_plates_color2
+{
+  type surface_material
+  material metal_plates_color2
+}
+
+asset metal_plates_color3
+{
+  type surface_material
+  material metal_plates_color3
+}
+
+asset floor_plate01b
+{
+  type surface_material
+  material floor_plate01b
+}
+
+asset floor_plate03b
+{
+  type surface_material
+  material floor_plate03b
+}
+
+asset metallist01
+{
+  type surface_material
+  material metallist01
+}
+
+asset metallist02
+{
+  type surface_material
+  material metallist02
+}
+
+asset metallist03
+{
+  type surface_material
+  material metallist03
+}
+
+asset metallist04
+{
+  type surface_material
+  material metallist04
+}
+
+asset metalwall_heat
+{
+  type surface_material
+  material metalwall_heat
+}
+
+asset heatmetal_plate01
+{
+  type surface_material
+  material heatmetal_plate01
+}
+
+asset heatmetal_plate02
+{
+  type surface_material
+  material heatmetal_plate02
+}
+
+
+asset stripe_1
+{
+  type surface_material
+  material stripe_1
+}
+
+asset stripe_2
+{
+  type surface_material
+  material stripe_2
+}
+
+asset stripe_1_s
+{
+  type surface_material
+  material stripe_1_s
+}
+
+//TEMPLE
+
+// omar texures
+asset temple_stone_plain01
+{
+  type surface_material
+  material temple_stone_plain01
+}
+
+asset temple_plaster
+{
+  type surface_material
+  material temple_plaster
+}
+asset temple_roof_plain
+{
+  type surface_material
+  material temple_roof_plain
+}
+
+asset temple_stone_border
+{
+  type surface_material
+  material temple_stone_border
+}
+
+asset temple_blend_plaster
+{
+  type surface_material
+  material temple_blend_plaster
+}
+
+asset temple_stone_plain02
+{
+  type surface_material
+  material temple_stone_plain02
+}
+
+asset temple_stone_plain02_2
+{
+  type surface_material
+  material temple_stone_plain02_2
+}
+
+
+asset temple_floor
+{
+  type surface_material
+  material temple_floor
+}
+
+asset temple_sand
+{
+  type surface_material
+  material temple_sand
+}
+
+asset temple_panel_01
+{
+  type surface_material
+  material temple_panel_01
+}
+
+asset temple_color
+{
+  type surface_material
+  material temple_color
+}
+
+asset temple_floor_test
+{
+  type surface_material
+  material temple_floor_test
+}
+
+asset temple_roof
+{
+  type surface_material
+  material temple_roof
+}
+
+asset temple_wall1
+
+{
+  type surface_material
+  material temple_wall1
+}
+
+asset temple_wall2
+
+{
+  type surface_material
+  material temple_wall2
+}
+
+asset temple_wall3
+
+{
+  type surface_material
+  material temple_wall3
+}
+
+asset temple_wall4
+{
+  type surface_material
+  material temple_wall4
+}
+
+asset temple_wall5
+{
+  type surface_material
+  material temple_wall5
+}
+
+asset temple_wall6
+{
+  type surface_material
+  material temple_wall6
+}
+
+asset temple_wall7
+{
+  type surface_material
+  material temple_wall7
+}
+
+asset temple_wall8
+{
+  type surface_material
+  material temple_wall8
+}
+
+asset temple_floor_polished
+{
+  type surface_material
+  material temple_floor_polished
+}
+
+asset temple_floor_checker
+{
+  type surface_material
+  material temple_floor_checker
+}
+
+asset temple_wall9
+{
+  type surface_material
+  material temple_wall9
+}
+
+asset temple_wall10
+{
+  type surface_material
+  material temple_wall10
+}
+
+asset temple_wood
+{
+  type surface_material
+  material temple_wood
+}
+
+asset concrete_type_01
+{
+  type surface_material
+  material concrete_type_01
+}
+
+
+

@@ -1,0 +1,169 @@
+//CONCRETE
+
+asset industry_concretefloor01
+{
+  type surface_material
+  material industry_concretefloor01
+}
+
+asset industry_concretewall01
+{
+  type surface_material
+  material industry_concretewall01
+}
+
+asset industry_concretewall01_damaged
+{
+  type surface_material
+  material industry_concretewall01_damaged
+}
+
+//METAL
+
+asset industry_corrugatedmetal01
+{
+  type surface_material
+  material industry_corrugatedmetal01
+}
+asset industry_corrugatedmetal01_blue
+{
+  type surface_material
+  material industry_corrugatedmetal01_blue
+}
+asset industry_corrugatedmetal01_red
+{
+  type surface_material
+  material industry_corrugatedmetal01_red
+}
+asset industry_corrugatedmetal01_yellow
+{
+  type surface_material
+  material industry_corrugatedmetal01_yellow
+}
+
+asset industry_corrugatedmetal01_green
+{
+  type surface_material
+  material industry_corrugatedmetal01_green
+}
+
+asset industry_metalcrossbar01_blue
+{
+  type surface_material
+  material industry_metalcrossbar01_blue
+}
+
+asset industry_metalcrossbar01_red
+{
+  type surface_material
+  material industry_metalcrossbar01_red
+}
+
+asset industry_metalcrossbar01_yellow
+{
+  type surface_material
+  material industry_metalcrossbar01_yellow
+}
+
+asset industry_metalcrossbar01_green
+{
+  type surface_material
+  material industry_metalcrossbar01_green
+}
+
+asset industry_metalcrossbar01_gray
+{
+  type surface_material
+  material industry_metalcrossbar01_gray
+}
+
+asset industry_metalplates_inbevelled_rust
+{
+  type surface_material
+  material industry_metalplates_inbevelled_rust
+}
+
+asset industry_metalplates01_blue
+{
+  type surface_material
+  material industry_metalplates01_blue
+}
+
+asset industry_metalplates01_red
+{
+  type surface_material
+  material industry_metalplates01_red
+}
+
+asset industry_metalplates01_yellow
+{
+  type surface_material
+  material industry_metalplates01_yellow
+}
+
+asset industry_metalplates01_green
+{
+  type surface_material
+  material industry_metalplates01_green
+}
+
+asset industry_metalplates03
+{
+  type surface_material
+  material industry_metalplates03
+}
+
+asset industry_metalplates03_large
+{
+  type surface_material
+  material industry_metalplates03_large
+}
+
+asset industry_metaltrim01
+{
+  type surface_material
+  material industry_metaltrim01
+}
+
+asset industry_metalwall01
+{
+  type surface_material
+  material industry_metalwall01
+}
+
+asset industry_metalwall02_red
+{
+  type surface_material
+  material industry_metalwall02_red
+}
+
+asset industry_metalwall02_yellow
+{
+  type surface_material
+  material industry_metalwall02_yellow
+}
+
+asset industry_metalwall02_blue
+{
+  type surface_material
+  material industry_metalwall02_blue
+}
+
+asset industry_metalwall02_green
+{
+  type surface_material
+  material industry_metalwall02_green
+}
+
+asset industry_metalwall03
+{
+  type surface_material
+  material industry_metalwall03
+}
+
+asset industry_metalwall03_large
+{
+  type surface_material
+  material industry_metalwall03_large
+}
+

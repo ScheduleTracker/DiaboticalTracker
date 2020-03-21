@@ -1,0 +1,56 @@
+//MUZZLE
+
+vc_muzzle_flash_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_18
+	animation_speed 10
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime .25
+	fade_in 0
+	fade_out 0.1
+	period 0
+	color_start 2 0.08 2.9 1
+	color_end  1.54 0.08 2.9 1
+	position 0 0 2
+    scale_start 3
+    scale_end 10
+    rotation_start 0 360
+    fade_out 0.2
+	speed_start 5 
+	speed_end 6.5 
+	turbulence 200
+}
+vc_muzzle_flash_2
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_18
+	animation_speed 10
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime .25
+	fade_in 0.1
+	fade_out 0
+	period 0
+	color_start 2 12 16 1
+	color_end  1.54 0.08 2.9 1
+	//position -0.7 1.4 8.35
+    scale_start 5
+    scale_end 20
+    rotation_start 0 360
+    fade_out 0.2
+	speed_start 5 5
+	speed_end 6.5 
+	turbulence 200
+}
+
+vc_muzzle_v2
+{	
+	subsystem vc_muzzle_flash_1
+	subsystem vc_muzzle_flash_2
+}

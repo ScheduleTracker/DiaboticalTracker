@@ -1,0 +1,135 @@
+//ROCKETLAUNCGER BULLET
+
+hrl_flame1
+{
+	advance 1
+	animation_start 5 8
+	geometry quad
+	map effects1.png
+	region r_flame3_a
+	blend alpha
+	max_particles 16
+	max_emissions 0
+	lifetime 0.7 0.6
+	period 0.05
+	fade_out 0.1 0.05
+	scale_start 25
+	//position 10 -20 50
+	scale_end 0
+	rotation_start 0 360
+color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	acceleration 0 0 -300 0 0 -300
+	// //position 1 1 -3 -1 -1 -3
+	turbulence 400 5
+}
+
+
+rl_light base_light_impact
+{
+	lifetime 5
+	system_light_radius 1000	
+	velocity 0 0 0
+	//position 0 50 0
+color_start  1 1.5 4 1
+	color_end  0 1 1 1
+}
+
+
+
+rocket_smoketrail base_smoke_trail
+{
+	velocity 5 10 5 -5 -10 -5
+	position 0 0 0
+}
+
+rocket_smoketrail_2 base_smoke_trail
+{
+	position 0 0 0
+	scale_start 20 25
+	scale_end 30 35
+	velocity 10 15 10 -12 -10 -20
+}
+
+rocket_smoketrail_3 base_smoke_trail
+{
+	position 0 0 0
+	scale_start 25
+	scale_end 5
+	velocity 5 5 5 -5 -5 -5
+	lifetime 0.13
+color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	period 0.0009
+}
+
+rocket_embers base_smoke_trail
+{
+	advance 1
+	animation_start 5 8
+	animation_speed 15
+	geometry quad
+	map particle_sheet1.png
+	region r_embers2
+	blend blend
+	max_particles 256
+	max_emissions 256
+	lifetime 1.5
+	period 0.005
+	fade_in 0.1
+	fade_out 0.4
+	scale_start 0.5 1
+	scale_end 0
+	rotation_start 0 360
+color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	// acceleration 0 0 -300
+	velocity -20 21 50 -10 0 5
+	position 0 0 0
+	turbulence 400 0
+	drag 0.9
+    // soft_destruction on
+    // this line above was misspelled as soft_destructiyon, fixed spelling and commented it out in case it not working is being relied upon 
+}
+
+hrl_star
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map rocket_bullet.png
+	region r_rocketbullet
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 10
+	// period 0.05
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 30
+	scale_end 30
+color_start  2 0 0 0.5
+	color_end  0 0 0 0.2
+	// velocity 0 0 -2800
+	rotation_start 0 
+color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -10
+	// turbulence 400 5
+}
+
+//SUBSYSTEM BULLET
+
+hrl_bullet
+{
+	subsystem hrl_flame1 
+	
+	subsystem hrl_star
+
+	subsystem rocket_smoketrail
+	subsystem rocket_smoketrail_2
+	subsystem rocket_smoketrail_3 0.1
+	subsystem rocket_embers
+	subsystem rl_light
+}

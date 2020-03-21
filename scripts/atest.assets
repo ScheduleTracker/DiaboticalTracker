@@ -1,0 +1,17 @@
+asset material_test_1
+{
+  type surface_material
+  material material_test_1
+}
+
+asset material_test_2
+{
+  type surface_material
+  material material_test_2
+}
+
+asset material_test_3
+{
+  type surface_material
+  material material_test_3
+}

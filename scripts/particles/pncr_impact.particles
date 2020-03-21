@@ -1,0 +1,31 @@
+// pncr_impact_1
+// {
+	// map rail_impact_effect.png
+	// region r_rail_impact
+	// max_particles 1
+	// max_emissions 1
+	// animation_speed 15
+	
+	// period 0.001
+	// lifetime 0.5 0.5
+	// rotation_start 0 360
+	// velocity 0 0 0
+	// position 0 0 
+	// //color_start 2 1 0 1     1 1 0.6 1
+	// //color_end 1 1 0 1       1 1 0.6 1
+	// rotation_start 0 0
+	// //rotation_start -20 20
+	// scale_start 200
+	// scale_end 200
+	// //aspect_start 1.5
+	// //aspect_end 0.4
+	
+	// hard_edges true
+	// auto_rotate true
+// }
+
+// pncr_impact
+// {
+	// subsystem pncr_impact_1
+// }
+

@@ -1,0 +1,83 @@
+pre_exec
+{
+   //devop movie_mode 2580ff
+   //devop movie_mode 65ff10
+   
+   //whiteblue
+   //devop movie_mode FFFFFF 2090FF
+   
+   //bluewhite
+   //devop movie_mode 2090FF FFFFFF
+   
+   //blackwhite
+   devop movie_mode 151515 FFFFFF
+   
+   //whiteblack
+   //devop movie_mode FFFFFF 151515
+   echo Started recording
+   sound_volume 1
+   game_fov 60
+}
+
+post_exec
+{
+   echo Done recording
+   //sound_volume 0.15
+   game_fov 90
+}
+
+movie movie_frags_test
+{
+    demo frag1
+    start 30
+    duration 60
+    framerate 47.952
+}
+
+movie movie_frags2
+{
+	demo frag2
+	start 30
+	duration 250
+	framerate 23.976
+}
+
+movie movie_james_1
+{
+	demo james2
+	start 25
+	duration 600
+	framerate 23.976
+}
+
+movie movie_james_2
+{
+	demo movie_james2
+	start 25
+	duration 680
+	framerate 23.976
+}
+
+movie movie_prom_1
+{
+	demo dbmovie_prom_1
+	start 25
+	duration 600
+	framerate 23.976
+}
+
+movie movie_prom_2
+{
+	demo movie_prom_2
+	start 25
+	duration 680
+	framerate 23.976
+}
+
+movie endgame
+{
+	demo endgame
+	start 0
+	duration 80
+	framerate 23.976
+}

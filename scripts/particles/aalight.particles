@@ -1,0 +1,19 @@
+base_light_impact
+{
+	map effects1.png
+	region r_transparent
+	blend add
+	max_particles 1
+	max_emissions 1
+	fade_in 0.1
+	velocity 0 0 0
+	absolute_acceleration true
+	//acceleration 0 -1700 0 0 -1700 0
+	fade_out 0.2
+	period 0
+	scale_start 4
+	scale_end 4
+	color_start 1 1 1 1
+	//color_end 1 0 0 0
+	system_light_radius 700
+}

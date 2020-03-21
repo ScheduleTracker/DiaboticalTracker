@@ -1,0 +1,150 @@
+
+ shield_broken1
+{	
+	geometry quad
+	map particle_sheet5.png
+	region plasma_circle
+	animation_speed 0
+	fade_in 0.1 0.1
+	fade_out 0.5 0.5
+	blend add
+	max_particles 1
+	max_emissions 1
+	rotation_start 0 0
+	color_start 0 1.5 2 1
+	lifetime 0.35
+	period 0.00
+	scale_start 50
+	scale_end 200
+	position 0 0 20
+	aspect_start 0.8
+}
+ shield_broken2
+{
+	map particle_sheet5.png
+	region  hexagon	 	
+	animation_speed 60 70
+	animation_start 0
+	blend add
+	max_particles 15
+	max_emissions 15
+	lifetime 0.3 0.4
+	fade_in 0
+	fade_out 0.10
+	period 0
+color_start 0 1.5 2 1
+	color_end  0 0.5 0.5 0.5
+     scale_start 13 17
+    scale_end 13 10
+    rotation_start 0 360
+   	hard_edges true
+	speed_start 325 350
+position 0  0  20
+velocity_angles 0 0 0 360 360 360
+angular_speed_start -1000 1000
+}
+shield_broken
+{
+	subsystem shield_broken1
+	 subsystem shield_broken2
+	// subsystem shield_broken3
+	// subsystem shield_broken4
+	// subsystem shield_broken5
+}
+
+// shield_broken1
+// {	
+	// geometry quad
+	// map effects1.png
+	// region r_orb3_a
+	// animation_speed 60
+	// fade_in 0.1 0.1
+	// fade_out 0.5 0.5
+	// blend add
+	// max_particles 10
+	// max_emissions 10
+	// rotation_start 0 10
+	// color_start 0 1.5 2 1
+	// lifetime 0.45
+	// period 0.001
+	// scale_start 120
+	// scale_end 0
+// }
+
+// shield_broken2
+// {	
+	// geometry quad
+	// map effects1.png
+	// region r_sphere1_a
+	// animation_speed 30
+	// fade_in 0.1 0.1
+	// fade_out 0.5 0.5
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// color_start 0 1.5 2 1
+	// lifetime 0.45
+	// period 0.001
+	// scale_start 110
+	// scale_end 0
+// }
+
+// shield_broken3
+// {
+	// geometry quad
+	// map effects1.png
+	// region r_point_1
+	// blend add
+	// max_particles 750
+	// max_emissions 750
+	// lifetime 0.65
+	// period 0.0001
+	// fade_in 0.1 0.1
+	// fade_out 0.4 0.5
+	// emitter ellipsoid 34 34 
+	// //position 1 1 1 -1 -1 -1
+	// color_start 0 1.5 2 1
+	// color_end 7 0 0 1
+	// turbulence 2500 1
+	// scale_start 5
+	// scale_end 0
+	// //velocity 10 15 10 -12 -10 -20
+// }
+
+// shield_broken4
+// {
+	// geometry quad
+	// map effects1.png
+	// region r_flare_5
+	// fade_in 0.25 0.3
+	// fade_out 0.1 0.1
+	// blend add
+	// max_particles 10
+	// max_emissions 10
+	// lifetime 0.6 0.65
+	// period 0.1
+	// scale_start 180
+	// scale_end 1
+	// color_start 0 1.5 2 1
+	// color_end	2 0 0 1
+	// rotation_start 0 360
+	// period 0.0001
+// }
+
+// shield_broken5
+// {
+	// geometry quad
+	// map effects1.png
+	// region r_flare_2
+	// fade_in 0.05 0.08
+	// fade_out 0.2 0.23
+	// blend add
+	// max_particles 10
+	// max_emissions 10
+	// color_start 0 1.5 2 1
+	// color_end	1 0 0 1
+	// lifetime 0.45
+	// period 0.001
+	// scale_start 420
+	// scale_end 30
+// }

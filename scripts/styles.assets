@@ -1,0 +1,35 @@
+asset style_none
+{
+  listed true
+  type entity
+  command bset surface_style 0
+}
+
+asset style_1
+{
+  listed true
+  type entity
+  command bset surface_style 1
+}
+
+asset style_2
+{
+  listed true
+  type entity
+  command bset surface_style 2
+}
+
+asset style_3
+{
+  listed true
+  type entity
+  command bset surface_style 3
+}
+
+asset style_4
+{
+  listed true
+  type entity
+  command bset surface_style 4
+}
+

@@ -1,0 +1,69 @@
+
+light_orange base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 3.5
+	system_light_color 4 3 0.8 
+	system_light_falloff 0.5
+	position 0 30 0
+	
+}
+
+light_orange_1 base_light_impact
+{
+	lifetime 0
+	system_light_radius 80	
+	system_light_intensity 1
+	system_light_color 4 3 0.8 
+	system_light_falloff 0.5
+}
+
+light_green base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 1
+	system_light_color 0.4 3 0.9
+	system_light_falloff 0.5
+	position 0 30 0
+}
+
+light_white base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 4
+	system_light_color 0.4 0.6 0.8
+	system_light_falloff 0.3
+	position 0 30 0
+}
+
+light_white_1 base_light_impact
+{
+	lifetime 0
+	system_light_radius 100	
+	system_light_intensity 4
+	system_light_color 1 1 1
+	system_light_falloff 0.3
+}
+
+light_blue base_light_impact
+{
+	lifetime 0
+	system_light_radius 40
+	system_light_intensity 1.5
+	system_light_color 0.2 0.8 1.2 
+	system_light_falloff 0.3
+
+	
+}
+light_white_vfx
+{
+subsystem light_white 
+}
+
+light_blue_vfx
+{
+subsystem light_blue
+}

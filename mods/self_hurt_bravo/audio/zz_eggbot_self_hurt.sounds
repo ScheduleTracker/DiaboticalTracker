@@ -1,0 +1,53 @@
+//--------------------------------------	EGGBOT SELF SOUNDS
+sound hurt_25
+{
+	id 1567
+	source eggbot/eggbot_self_hurt/eggbot_hurt_bravo_25
+	distance_max 1330
+	distance_min 80
+	volume 3.5
+	volume_2d 1.4
+	wetness 0.44
+	wetness_2d 0.31
+	group eggbot_hurt
+	enemy_sound 1740
+}
+sound hurt_50
+{
+	id 1568
+	source eggbot/eggbot_self_hurt/eggbot_hurt_bravo_50
+	distance_max 1330
+	distance_min 80
+	volume 2.7
+	volume_2d 1.2
+	wetness_2d 0.31
+	wetness 0.44
+	group eggbot_hurt
+	enemy_sound 1741
+}
+sound hurt_75
+{
+	id 1569
+	source eggbot/eggbot_self_hurt/eggbot_hurt_bravo_75
+	distance_max 1330
+	distance_min 80
+	volume 2.7
+	volume_2d 1.1
+	wetness_2d 0.31
+	wetness 0.44
+	group eggbot_hurt
+	enemy_sound 1742
+}
+sound hurt_100
+{
+	id 1570
+	source eggbot/eggbot_self_hurt/eggbot_hurt_bravo_100
+	distance_max 1330
+	distance_min 80
+	volume 2.7
+	volume_2d 1.45
+	wetness_2d 0.31
+	wetness 0.44
+	group eggbot_hurt
+	enemy_sound 1743
+}

@@ -1,0 +1,210 @@
+//////////////////////////////////////////////////////--------------------------EXPLODE-------------////////////////////////////////////////////////////
+
+bomb_fuse_static_particle
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.15 0.18
+	fade_in 0.01
+	fade_out 0.05
+	period 0.1
+color_start 8 4 0 1
+	color_end  4 2 0 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 30
+    rotation_start 0 360
+ 
+}
+bomb_fuse_static_particle_2
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.15 0.18
+	fade_in 0.01
+	fade_out 0.05
+	period 0.1
+color_start 8 4 0 1
+	color_end  4 2 0 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 45
+    rotation_start 0 360
+ 
+}
+bomb_fuse_static_particle_3
+{
+	map particle_sheet3.png
+	region s3_plasma_53
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.15 0.18
+	fade_in 0.01
+	fade_out 0.05
+	period 0.1
+color_start 8 4 0 1
+	color_end  4 2 0 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 35
+    rotation_start 0 360
+ 
+}
+bomb_fuse_static_particle_4
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_29
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.15 0.18
+	fade_in 0.01
+	fade_out 0.05
+	period 0.1
+color_start 8 4 0 1
+	color_end  4 2 0 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 35
+    rotation_start 0 360
+ 
+}
+bomb_fuse_sparks
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	max_particles 30
+	max_emissions 0
+	lifetime .25 .30
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.01
+	color_start 8 4 0 1
+	color_end  4 2 0 1
+	//position -1 0 0   
+    scale_start 3
+    scale_end 1
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 1 1 0 359 359 0
+	speed_start 30 60	
+	speed_end 30
+	auto_orient true
+	aspect_start 5
+	aspect_end 1
+	acceleration 0 -1 0 0 -2 0
+}
+bomb_fuse_sparks_2
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	max_particles 10
+	max_emissions 0
+	lifetime .25 .30
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.01
+	color_start 8 4 0 1
+	color_end  4 2 0 1
+	//position -1 0 0   
+    scale_start 2
+    scale_end 3
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 1 1 0 359 359 0
+	speed_start 15
+	speed_end 15
+	auto_orient true
+	aspect_start 5 
+	aspect_end 1
+	acceleration 0 -3 0 0 -2 0
+}
+bomb_fuse_sparks_3
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	max_particles 10
+	max_emissions 0
+	lifetime .3 0.325
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.01
+	color_start 8 4 0 1
+	color_end  4 2 0 1
+	//position -1 0 0   
+    scale_start 2
+    scale_end 4
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 1 1 0 359 359 0
+	speed_start 10
+	speed_end 10
+	auto_orient true
+	aspect_start 5 
+	aspect_end 5
+	acceleration 0 -3 0 0 -2 0
+}
+bomb_fuse_smoke
+{
+	geometry quad
+	map particle_sheet3.png
+	region s3_smoke02
+	blend alpha
+	max_particles 200
+	lifetime 1.8
+	period 0.05
+    fixed_timestep 0.002
+	fade_in 1
+	fade_out 0.5
+	position 0 0 0 0 0 0
+	color_start 1 0.55 0.15 1
+	color_end 0.05 0.05 0.075 0.3
+	color_end_point 0.07
+	rotation_start 0 0
+	rotation_end 0 0
+	velocity 0 10 0 0 10 0
+	acceleration 0 10 0 0 10 0
+	scale_start 10 10
+	scale_end 30 30
+	soft_destruction on
+	emitter_movement on
+	perlin_speed 8
+	perlin_scale 24
+}
+weeble_fuse_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 5	
+	system_light_intensity 4
+	system_light_color 0.8 0.3 0
+	system_light_falloff 0.0
+	
+}
+
+
+bomb_fuse_vfx
+{
+	subsystem bomb_fuse_static_particle 
+subsystem bomb_fuse_static_particle_2 
+subsystem bomb_fuse_static_particle_3 
+subsystem bomb_fuse_static_particle_4
+	subsystem bomb_fuse_sparks 
+	subsystem bomb_fuse_sparks_2  
+	// subsystem bomb_fuse_sparks_3
+	subsystem bomb_fuse_smoke
+	subsystem bomb_fuse_light
+}

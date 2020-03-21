@@ -1,0 +1,345 @@
+//////////////////////////////////////////////////////--------------------------EXPLODE-------------////////////////////////////////////////////////////
+
+bomb_weeble_static_particle
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.15 0.18
+	fade_in 0.01
+	fade_out 0.05
+	period 0.1
+color_start 8 4 0 1
+	color_end  4 2 0 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 2
+    rotation_start 0 360
+ 
+}
+bomb_weeble_static_particle_2
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.15 0.18
+	fade_in 0.01
+	fade_out 0.05
+	period 0.1
+color_start 8 4 0 1
+	color_end  4 2 0 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 3
+    rotation_start 0 360
+ 
+}
+bomb_weeble_sparks
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 30
+	max_emissions 0
+	lifetime .25 .30
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.01
+	color_start 8 4 0 1
+	color_end  4 2 0 1
+	//position -1 0 0   
+    scale_start 0.05
+    scale_end 0.05
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 1 1 0 359 359 0
+	speed_start 35
+	speed_end 2
+	auto_orient true
+	aspect_start 5
+	aspect_end 2
+	acceleration 0 -1 0 0 -2 0
+}
+bomb_weeble_sparks_2
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 10
+	max_emissions 0
+	lifetime .25 .30
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.01
+	color_start 8 4 0 1
+	color_end  4 2 0 1
+	//position -1 0 0   
+    scale_start 0.05
+    scale_end 0.05
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 1 1 0 359 359 0
+	speed_start 35
+	speed_end 1
+	auto_orient true
+	aspect_start 5 
+	aspect_end 2
+	acceleration 0 -3 0 0 -2 0
+}
+
+weeble_fuse_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 5	
+	system_light_intensity 4
+	system_light_color 0.8 0.3 0
+	system_light_falloff 0.0
+	
+}
+
+
+bomb_weeble_fuse_filament
+{
+	subsystem bomb_weeble_static_particle
+subsystem bomb_weeble_static_particle_2
+	subsystem bomb_weeble_sparks
+	subsystem bomb_weeble_sparks_2
+	subsystem weeble_fuse_light
+}
+
+bomb_weeble_explosion
+{
+	 // subsystem rl_explode_spark
+	 // subsystem rl_explode_spark_2
+	  // subsystem rl_explosion_ring_1 0 2.25
+	   // subsystem rl_explosion_ring_2 0 2.25
+	// subsystem rl_distortion 0 2.25
+	  // subsystem rl_explosion_center_1 0 2.25
+	  // subsystem rl_explosion_center_2 0 2.25
+	  // subsystem rl_explosion_center_3 0 2.25
+	  // subsystem rl_explosion_center_40 0 2.25
+	  // subsystem rl_impact_explosion_1 0 2.25
+	  // subsystem rl_impact_explosion_2 0 2.25
+	  // subsystem rl_impact_explosion_3 0 2.25
+	 // subsystem rl_impact_explosion_4 0 2.25
+	// subsystem rl_explode_flash01 0 2.25
+	 // subsystem rl_explode_ember 0 0.95
+	
+	
+	  // subsystem rl_debris 0 1.3
+	    // subsystem rl_debris 0 1.2
+		// subsystem rl_debris 0 1
+	 // subsystem rl_impact_light
+	// subsystem rl_smoke_impact_1 0 2.25
+	// subsystem rl_smoke_impact_2 0 2.25
+	// subsystem rl_smoke_impact_3 0 2.25
+	// subsystem rl_smoke_impact_4 0 2.25
+	// subsystem rl_floor_smoke_impact_center 0 2.25
+	// subsystem rl_floor_smoke_impact_center_2 0 2.25
+		  subsystem gl_smoke_impact_1 0 2
+	 	  subsystem gl_smoke_impact_20 0 2
+		  subsystem gl_smoke_explosion0 0 2
+		  subsystem gl_smoke_explosion_20 0 2
+	  subsystem explode_light 0.02 2.90
+	  //subsystem explode_light doesn't seem to currently exist in the files
+	 subsystem gl_explode_spark 0 1
+	 subsystem gl_explosion_ring_1 0 2
+	
+	 subsystem gl_explosion_center_1 0 2
+	  subsystem gl_explosion_center_2  0 2
+	 	  subsystem gl_explosion_center_3 0 2
+	  subsystem gl_impact_explosion_1  0 2
+	  subsystem gl_impact_explosion_2  0 2
+	  subsystem gl_impact_explosion_3  0 2
+ subsystem gl_impact_explosion_inner_01  0 2
+  subsystem gl_impact_explosion_inner_02 0 2
+   subsystem gl_impact_explosion_inner_03 0 2
+   
+	  
+	 subsystem gl_explode_flash01 0 2
+	  // subsystem gl_light
+	   subsystem gl_impact_light 0 1.3
+	   subsystem gl_explode_light 0 1.3
+	//subsystem gl_distortion
+	subsystem gl_smoke_center_1 0 1.3
+	subsystem gl_smoke_center_2 0 1.3
+	subsystem gl_explosion_smoke 0 1.3
+subsystem gl_explode_spark 0 0.4
+	 subsystem gl_explode_spark_2 0 .8
+	 subsystem gl_explode_ember_01 0 1.3
+	 subsystem gl_explode_ember_02 0 1.3
+	 subsystem gl_explode_ember_03 0 1.3
+	
+	
+		subsystem gl_explode_flash02 0 1.5
+	subsystem gl_explode_flash03 0 1.5
+subsystem gl_explode_flash04 0 1.5
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////-----------------------IMPLODE---------------------------------////////////////////////////////////////////////////////////////////////////////////
+implode_weeble_eye_ring_particle
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_39
+	animation_speed 0
+	animation_start 0
+	blend add
+	max_particles 3
+	max_emissions 0
+	lifetime 1
+	fade_in 0.01
+	fade_out 0.05
+	period 0.5
+color_start 30 0 30
+	color_end  8 0 8 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 1.25
+    scale_end 0
+    rotation_start 0 0
+ 
+}
+implode_weeble_eye_small_ring_particle
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_39
+	animation_speed 0
+	animation_start 0
+	blend add
+	max_particles 2
+	max_emissions 0
+	lifetime 1
+	fade_in 0.01
+	fade_out 0.05
+	period 0.5
+color_start 30 0 30
+	color_end  8 0 8 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 1.0
+    scale_end 0
+    rotation_start 0 0
+ 
+}
+
+weeble_implode_eye_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 2
+	system_light_intensity 15
+	system_light_color 1 0.5 1
+	system_light_falloff 0
+	
+}
+implode_weeble_filament
+
+{
+	subsystem implode_weeble_eye_ring_particle
+	subsystem implode_weeble_eye_small_ring_particle
+
+	subsystem weeble_implode_eye_light
+}
+////////////////////////////////////////////////////////////////////////////////////-----------------------------SMOKE---------------------------------------------////////////////////////////////////////////////////////////////////////////////////
+
+smoke_weeble_smoke
+{
+	map particle_sheet3.png
+	 region s3_smoke02
+	animation_speed 25
+	animation_start 10
+	max_particles 5
+	max_emissions 0
+	lifetime .25 .30
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.05
+color_start 0.2 1 2 1
+	color_end 0.1 0.5 1 1
+	//position -1 0 0   
+    scale_start 0.5
+    scale_end 2
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 1 1 1 45 45 45
+	speed_start 25
+	speed_end 1.5
+	auto_orient true
+	acceleration 0 -1 0 0 -2 0
+}
+
+smoke_weeble_static_particle
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 3
+	max_emissions 0
+	lifetime 0.2 0.25
+	fade_in 0.01
+	fade_out 0.05
+	period 0.15
+color_start 0.2 1 2 1
+	color_end 0.1 0.5 1 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 2
+    rotation_start 0 360
+ 
+}
+smoke_weeble_filament
+
+{
+subsystem smoke_weeble_smoke
+subsystem smoke_weeble_static_particle
+}
+
+///////////////////////////////////////////////////////////////////////////////////-----------------------------SLOW---------------------------------------------////////////////////////////////////////////////////////////////////////////////////
+
+
+slow_weeble_dial_particle
+{
+	map particle_sheet3.png
+	region s3_dial
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0
+	
+color_start 2 5 6 1
+	color_end 2 5 6 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0.5
+    scale_end 0.5
+    rotation_start 0 360
+ angular_speed_start 10
+ 	geometry segment 0.00 10 -5
+	position 0 8 -5
+}
+
+slow_weeble_filament
+
+{
+subsystem slow_weeble_dial_particle
+}

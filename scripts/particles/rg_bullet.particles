@@ -1,0 +1,615 @@
+//ROCKET LAUNCGER BULLET
+
+rail_1_puff_2
+
+{
+	map particle_sheet1.png
+	region r_explosion_test2
+	animation_speed 26
+	animation_start 
+	blend add
+	max_particles 30
+	max_emissions 30
+	lifetime 0.25
+	period 0
+	fade_out 0.25 
+	fade_in 0.25 
+	emitter line 0 0 1000
+	position 0 0 0 0 0 0
+	color_start 3 3 8
+	color_end 0 0 1 0.75
+	rotation_start 0 360
+	velocity 0.1 0.1 0.1 -0.1 -0.1 -0.1
+	turbulence 1 1
+	scale_start 2
+	scale_end 2 5
+}
+
+rail_1_puff_smoke
+
+
+{
+	map particle_sheet1.png
+	region r_explosion_test4
+	animation_speed 10
+	animation_start 
+	blend add
+	max_particles 30
+	max_emissions 30
+	lifetime 0.60
+	period 0
+	fade_out 0.25 
+	fade_in 0.25 
+	emitter line 0 0 1000
+	position 0 0 0 0 0 0
+	color_start 0.1 0.9 1.5 1
+	color_end 0 1 1 0.75
+	rotation_start 0 360
+	velocity 0.1 0.1 0.1 -0.1 -0.1 -0.1
+	turbulence 1 1
+	scale_start 1
+	scale_end 10 18
+	drag 0.8
+	soft_destruction on
+}
+
+rail_1_puff_smoke_2
+
+
+{
+	map particle_sheet1.png
+	region r_electric_smoke
+	animation_speed 15
+	animation_start 
+	blend add
+	max_particles 30
+	max_emissions 30
+	lifetime 0.60
+	period 0
+	fade_out 0.25 
+	fade_in 
+	emitter line 0 0 1000
+	position 0 0 0 0 0 0
+	color_start 0.1 0.9 1.5 0.5
+	color_end 0 0.5 0.5 0
+	rotation_start 0 360
+	velocity 0.1 0.1 0.1 -0.1 -0.1 -0.1
+	turbulence 1 1
+	scale_start 1
+	scale_end 5 8
+}
+
+// rail_2_rope1
+{
+	geometry tape
+	map effects1.png
+	region r_point_1
+	blend alpha
+	max_particles 500
+	max_emissions 200
+	lifetime 0.6
+	period 0.005
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 40 1000
+	position 0.1 0.1 0
+	color_start 0 1 3 1
+	color_end 0 1 1.5 1
+	turbulence 500
+	scale_start 2 
+	velocity 1.5 1.5 0 -1.5 -1.5 0
+	scale_end 1.5 2
+	// drag 1
+	// soft_destruction on
+
+}
+
+rail_3_rope1
+{
+	geometry tape
+	map effects1.png
+	region r_point_6
+	blend add
+	max_particles 700
+	max_emissions 700
+	lifetime 0.8
+	period 0
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 5 1000
+	position 0.2 0.1 1
+	color_start 0 1 1.1 
+	color_start 0 0.95 1.1
+	turbulence 300
+	scale_start 0.5 0.4
+	velocity 2 2 2 -2 -2 2
+	scale_end 0.2 0.3
+	// drag 1
+	// soft_destruction on
+}
+
+rail_31_rope1
+{
+	geometry tape
+	map effects1.png
+	region r_point_6
+	blend add
+	max_particles 700
+	max_emissions 700
+	lifetime 0.8
+	period 0
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 5 1000
+	position 0.2 0.1 10
+	color_start 0 1 1.1
+	color_start 0 0.95 1.1
+	turbulence 400
+	scale_start 0.7 0.5
+	velocity 1.5 1.5 1.5 -1.5 -1.5 1.5
+	scale_end 0.2 0.3
+	// drag 1
+	// soft_destruction on
+}
+
+
+rail_4_rope1
+{
+	// geometry tape
+	// map effects1.png
+	// region r_point_1
+	// blend add
+	// max_particles 500
+	// max_emissions 500
+	// lifetime 0.8
+	// period 0
+	// fade_in 0.5
+	// fade_out 0.25
+	// emitter array 0 0 15 1000
+	// position 0.3 2 3
+	// color_start 0 0.8 1 1
+	// color_start 0 0.8 1 1
+	// turbulence 40
+	// scale_start 2.7
+	// velocity 1.5 1.5 0 -1.5 -1.5 0
+	// scale_end 2.7
+	geometry tape
+	map effects1.png
+	region r_point_6
+	blend add
+	max_particles 1000
+	max_emissions 1000
+	lifetime 0.8
+	period 0
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 5 1000
+	position 0.5 0 -25
+	color_start 0 0.8 1 1
+	color_start 0 0.8 1 1
+	// turbulence 40
+	scale_start 0.8
+	// velocity 1.5 1.5 0 -1.5 -1.5 0
+	scale_end 0.5
+}
+
+// rail_5_rope1
+{
+	geometry tape
+	map effects1.png
+	region r_point_1
+	blend alpha
+	max_particles 500
+	max_emissions 500
+	lifetime 0.80
+	period 0
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 40 1000
+	position 0.1 0 5
+	// color_start 0 1 3 2
+	// color_end 0 1 1.5 2
+	color_start 0 2 0 2
+	color_end 0 2 0 2
+	turbulence 10 5
+	scale_start 2
+	velocity 1.5 1.5 0
+	scale_end 1.5 2
+	// drag 1
+	// soft_destruction on
+// rail_4_rope_spark
+// {
+	// geometry tape 0.5 0 360
+	// map effects1.png
+	// region r_point_1
+	// blend add
+	// max_particles 128
+	// max_emissions 128
+	// lifetime 0.25
+	// period 0
+	// fade_in 0.15
+	// fade_out 0.15
+	// emitter array 0 0 10 1000
+	// position 0.6 0.4 0.3  -0.6 -0.4 -0.3
+	// color_start 0.5 2 4 1
+	// color_end 0.5 2 4 1
+	// scale_start 3 4
+	// scale_end 1 0
+}
+
+explode_minicircle
+{
+	map particle_sheet1.png
+	region r_electric_spark
+	animation_speed 26
+	animation_start 
+	blend add
+	max_particles 5
+	max_emissions 5
+	lifetime 0.3
+	emitter array 0 0 50 1000
+	fade_in 0
+	position 0 0 2
+	period 0
+	color_start  1 1 1 0.03
+	// color_end  1 1 1 0.2
+	rotation_start 0 360
+	scale_start 5
+	scale_end 5 7
+}
+
+explode_minicircle_2 
+{
+	map particle_sheet1.png
+	region r_electric_spark_s
+	animation_speed 26
+	animation_start 
+	blend add
+	max_particles 5
+	max_emissions 5
+	lifetime 0.3
+	emitter array 0 0 50 1000
+	fade_in 0
+	position 1 -2 2
+	period 0
+	rotation_start 0 360
+	color_start  1 1 1 0.03
+	// color_end  1 1 1 0.2
+	rotation_start 0 360
+	scale_start 10
+	scale_end 15
+}
+
+
+//FLARE
+
+muzzle_flare
+
+{
+	map effects1.png
+	region r_flare_2
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	scale_start 1.25
+	scale_end 0.8
+	rotation_start 170 190
+	blend add
+	fade_out 0.5
+	position 20 -30 80
+	color_start  1 1 1 1
+	color_end  1 1 1 1
+	emitter line 0 0 1
+	scale_start 60
+	scale_end 80
+}
+
+rg_muzzle_ember
+{
+	// geometry quad
+	map particle_sheet1.png
+	region r_embers
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 200
+	max_emissions 200
+	lifetime 0.5
+	period 0
+	fade_in 0.1
+	velocity -2 1 5 2 -3 50
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 2 1 0 -1 -2 200
+	rotation_start 0 360
+	color_start  2 2 4 1
+	color_end  2 2 2 1
+	emitter line 0 0 1
+	turbulence 2000
+	scale_start 0.2
+	scale_end 0 0
+	drag 0.8
+}
+
+rg_muzzle_dust
+{
+	map effects1.png
+	region r_flare_5
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.1
+	scale_start 1.25
+	scale_end 0.8
+	rotation_start 170 190
+	blend add
+	fade_out 0.5
+	position 0 0 0
+	color_start  1 1 2 1
+	color_end  0.2 0.2 0.3 1
+	emitter line 0 0 1
+	scale_start 5
+	scale_end 10
+}
+
+rg_electricity
+{
+	map particle_sheet1.png
+	region r_electric_spark
+    animation_speed 15
+	animation start 
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 1
+	scale_start 1.25
+	scale_end 0.8
+	rotation_start 270
+	blend add
+	fade_out 0.5
+	position 0 1 -10
+	color_start  2 2 3 1
+	color_end  0.2 0.2 0.3 1
+	emitter line 0 0 1
+	scale_start 3
+	scale_end 3
+}
+
+rg_electricity2 rg_electricity
+{
+	scale_start 1.25
+	scale_end 0.8
+    animation_speed 20
+	lifetime 0.4
+	rotation_start 80
+	position 0 1 -10
+	emitter line 0 0 1
+	scale_start 3
+	scale_end 3
+}
+
+rg_electricity3 rg_electricity
+{
+	scale_start 1.25
+	scale_end 0.8
+    animation_speed 20
+	rotation_start 150
+	lifetime 0.2
+	position 0 1 -12
+	velocity 0 0 -10
+	emitter line 0 0 1
+	scale_start 2
+	scale_end 2
+}
+
+rg_electricity4 rg_electricity
+{
+	scale_start 1.25
+	scale_end 0.8
+    animation_speed 20
+	rotation_start 320
+	lifetime 0.3
+	position 0 1 -10
+	velocity 0 0 -10
+	emitter line 0 0 1
+	scale_start 2
+	scale_end 2
+}
+
+rail_5_rope1
+{
+	geometry tape
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 50
+	max_emissions 50
+	lifetime 0.6
+	period 0
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 1 1000
+	position 0.2 0.5 -13
+	// color_start 0 1 3 2
+	// color_end 0 1 1.5 2
+	color_start 0 0.8 1 1
+	color_start 0 0.8 1 1
+	turbulence 2
+	scale_start 0.7
+	// velocity 0.5 0.5 0 -0.5 -0.5 0
+	scale_end 0.2
+	// drag 1
+	// soft_destruction on
+}
+
+
+rg_beam_fat
+{
+    //noise radius, noise strength
+	geometry tape 0.8 0.15
+	map effects1.png
+	region r_point_3
+	blend add
+	max_particles 768
+	max_emissions 768
+	lifetime 0.3
+	period 0
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 5
+	//position 1 1 1 -1 -1 -1
+	//turbulence 2000 1
+	//scale_start 2
+	//scale_end 2
+	scale_start 10
+	scale_end 10
+	noise_time_seed 14
+	noise_seed_scale 1000
+	color_start 0.1 0.3 1.0 4 
+	color_end 0.1 0.3 1.0 4 
+}
+
+rg_beam_thin rg_beam_fat
+{
+    //noise radius, noise strength
+	geometry tape 3.2 0.16
+	scale_start 1.5
+	scale_end 1.5
+	noise_time_seed 20
+	color_start 0.1 0.3 1.0 4 
+	color_end 0.1 0.3 1.0 4 
+}
+rg_beam_thin2 rg_beam_thin
+{
+}
+rg_beam_thin3 rg_beam_thin
+{
+}
+
+
+rg_dispersion
+{
+    //noise radius, noise strength
+	//geometry tape 0.8 0.15
+	animation_speed 100
+	map particle_sheet3.png
+	//region s3_rl_muzzle_7
+	region s3_explosion02_33
+	blend alpha
+	max_particles 20
+	max_emissions 20
+	lifetime 0.2
+	period 0
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 18
+	rotation_start 0 360
+	//position 1 1 1 -1 -1 -1
+	//turbulence 2000 1
+	//scale_start 2
+	//scale_end 2
+	scale_start 5
+	scale_end 20
+	noise_time_seed 7
+	noise_seed_scale 1000
+	color_start 0.7 0.95 1.0 0.9 
+	color_end 0.7 0.95 1.0 0.0
+}
+
+rg_tube
+{
+    //noise radius, noise strength
+	map white.png
+	region ed_00
+	blend alpha
+	//length = 170*5 = 850
+	max_particles 170
+	max_emissions 170
+	//emitter array 0 0 5
+	lifetime 0.25
+	period 0
+	
+	scale_start 1
+	scale_end 1
+	noise_time_seed 14
+
+	system_light_radius 150
+	system_light_length 850
+	system_light_color 0.5 0.4 0.1
+	system_light_falloff 0.1
+	scale_start 2
+	scale_end 1
+	geometry tube 1 1
+	scale_start 1
+	fade_in 0
+	fade_out 1
+	color_start 0.25 0.75 1 1.4
+	color_end 0.25 0.75 1 0
+}
+
+rail_dettached
+{
+	//subsystem rail_1_puff_2
+	//subsystem rail_3_rope1
+	//subsystem rail_31_rope1
+	//subsystem rail_4_rope1
+	//subsystem rail_5_rope1
+	//subsystem explode_minicircle_2
+		// subsystem rg_muzzle_ember
+		// subsystem explode_minicircle
+		// subsystem rail_1_puff_smoke
+		// subsystem rail_1_puff_smoke_2
+		// subsystem rail_2_rope1 
+	
+	//subsystem rg_beam_fat 0 0.3
+	//subsystem rg_beam_thin 0 0.3
+	//subsystem rg_beam_thin2 0 0.3
+	//subsystem rg_beam_thin3 0 0.3
+	
+	subsystem rg_tube
+	subsystem rg_dispersion
+}
+
+rg_muzzleflash_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.25
+	scale_start .5
+	scale_end 3
+	rotation_start 0 360
+	blend add
+	fade_in 0
+	fade_out 0
+	color_start  0.25 3 7 1
+	color_end  0.25 3 7 1
+	scale_start 8
+	scale_end 16
+	light_radius 8 //needed to make light fade out work
+	system_light_radius 8
+	system_light_intensity 26
+	system_light_color 0.2 0.7 1 1
+}
+rail_attached
+{
+	//subsystem rg_muzzle_dust
+	//subsystem rg_electricity 
+	//subsystem rg_electricity2
+	//subsystem rg_electricity3
+	//subsystem rg_electricity4
+	//subsystem lg_beam
+    subsystem rg_muzzleflash_1 0 0.2
+}
+
+empty_system
+{
+
+}

@@ -1,0 +1,1307 @@
+//////////////////////////////////////////////////////////////////////---------------------HPT-----------------------------///////////////////////////////////////////////////////////////////
+
+
+ent_cross_01
+{
+	map particle_sheet3.png
+	region s3_cross
+	animation_speed 50
+	animation_start 10
+	max_particles 2
+	max_emissions 0
+	lifetime 0.6 0.7
+	fade_in 1
+	blend add
+	fade_out 0.0
+	period 0.4 0.5
+		color_start 1 5 3
+	color_start 0.5 4 1
+	//position -1 0 0   
+    scale_start 2 2.5
+    scale_end 8 15
+    rotation_start 0
+    fade_out 0.2
+	velocity_angles 85 0 0 95 0 0 
+	speed_start 200
+	speed_end 40
+}
+
+ent_cross_02 ent_cross_01
+{
+position 2 0 2
+period 0.45
+}
+
+ent_cross_03 ent_cross_01
+{
+position -2 0 -2
+period 0.5
+}
+
+ent_cross_04 ent_cross_01
+{
+position 4 0 4
+period 0.35
+}
+
+ent_cross_05 ent_cross_01
+{
+position -4 0 -4
+period 0.38
+}
+
+ health_01_vfx
+{	 
+subsystem ent_cross_01
+subsystem ent_cross_02
+subsystem ent_cross_03
+subsystem ent_cross_04
+subsystem ent_cross_05
+
+
+}
+////////////////////////////////////////////////////////////////////////////////-----------------HEALTH LIGHT-----------------///////////////////////////////////////////////////////////////////////////////////////
+
+
+ent_cross_green_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 50	
+	system_light_intensity 10
+	position 0 0 0
+	system_light_color 0.2 1.2 0.8
+	system_light_falloff 0.0	
+}
+
+health_light01_vfx
+{	 
+    subsystem ent_cross_green_light
+}
+
+////////////////////////////////////////////////////////////////////////////////-----------------HEALTH GLOBE-----------------///////////////////////////////////////////////////////////////////////////////////////
+
+ent_health_center
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_40
+	max_particles 10
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.1
+
+	color_start 0.175 0.375 0.2 1
+	color_end 0 1 0
+	//position -1 0 0   
+    scale_start 45
+    scale_end 50
+    rotation_start 180
+    fade_out 1
+	aspect_start 1
+	aspect_end 1
+}
+
+
+health_globe01_vfx
+{	 
+    subsystem ent_health_center
+}
+
+
+ent_health_ring
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_39
+	max_particles 15
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.07
+	color_start 1 1 1 1
+	color_start 0.35 0.75 0.4 1
+	//position -1 0 0   
+    scale_start 50
+    scale_end 50
+    rotation_start 180
+    fade_out 1
+	aspect_start 1
+	aspect_end 1
+}
+
+ent_health_fill
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_25
+	max_particles 1
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.07
+	color_start 1 1 1 1
+	color_start 0.1 0.2 0.75 1
+	//position -1 0 0   
+    scale_start 50
+    scale_end 50
+    rotation_start 180
+    fade_out 1
+	aspect_start 1
+	aspect_end 1
+}
+
+health_ring_vfx
+{	 
+    subsystem ent_health_ring
+    subsystem ent_health_center 0 0.7
+    subsystem ent_health_fill
+}
+////////////////////////////////////////////////////////////////////////////////-----------------BLUE/GREEN ARMOR-----------------///////////////////////////////////////////////////////////////////////////////////////
+
+
+ent_shield_01_green
+{
+	map particle_sheet3.png
+	region region s3_shield
+	animation_start 0
+	animation_speed 15
+	max_particles 15
+	max_emissions 0
+	lifetime .5
+	period 0.05
+	fade_in 0
+	blend add
+	fade_out 1
+	color_start 0.5 0.5 1 1
+	color_start 0.2 1 1.5 1
+	//position -1 0 0   
+    scale_start 20
+    scale_end 20
+    rotation_start 0
+    fade_out 1
+	aspect_start 2
+	aspect_end 2
+    perspective_radius 20
+    range 0
+	geometry segment 0.0 22 0
+	position 0 -9.5 0
+}
+
+ent_shield_01_center_green 
+{
+	map particle_sheet3.png
+ region s3_plasma_50
+
+	max_particles 25
+	max_emissions 0
+	lifetime .5
+	period 0.025
+	fade_in 0
+	blend add
+	fade_out 1
+	color_start 0.5 2 2 1
+	color_start 0.2 2 2 1
+	//position -1 0 0   
+    scale_start 5
+
+    rotation_start 180
+    fade_out 1
+	aspect_start .9
+	aspect_end .9
+    perspective_radius 20
+
+	scale_end 35
+    rotation_start 0 360
+	range 0
+
+}
+
+ent_shield_green_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 4
+	system_light_color 0.2 0.8 1.2 
+	system_light_falloff 0.0
+}
+
+shield_01_green_vfx
+{	 
+    subsystem ent_shield_01_center_green 0 1.25
+    subsystem ent_shield_01_green 0 1.25
+    subsystem ent_shield_green_light
+}
+
+////////////////////////////////////////////////////////////////////////////////-----------------YELLOW ARMOR-----------------///////////////////////////////////////////////////////////////////////////////////////
+ent_shield_02_yellow
+{
+	map particle_sheet3.png
+	region s3_shield
+
+	max_particles 20
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.05
+	color_start 4 2 .8 1
+	color_start 3 2 .4 1
+	//position -1 0 0   
+    scale_start 20
+    scale_end 60
+    rotation_start 0
+    fade_out 1
+	aspect_start .9
+	aspect_end .9
+    perspective_radius 20
+    range 0
+	  
+	geometry segment 0.0 25 0
+	position 0 -13 0
+}
+ent_shield_02_center_yellow 
+{
+region s3_plasma_50
+
+	map particle_sheet3.png
+
+
+	max_particles 20
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.05
+	color_start 4 2 .8 1
+	color_start 3 2 .4 1
+	//position -1 0 0   
+    scale_start 20
+    rotation_start 0
+    fade_out 1
+	aspect_start .9
+	aspect_end .9
+    perspective_radius 20
+	  
+    scale_end 40
+    rotation_start 0 360
+	range 0
+
+}
+ent_shield_yellow_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 4
+	system_light_color 1 1 0.1
+	system_light_falloff 0.0
+}
+
+ shield_02_yellow_vfx
+{
+    subsystem ent_shield_02_center_yellow	
+    subsystem ent_shield_02_yellow
+    subsystem ent_shield_yellow_light
+}
+
+////////////////////////////////////////////////////////////////////////////////-----------------RED ARMOR-----------------///////////////////////////////////////////////////////////////////////////////////////
+ent_shield_03_red
+{
+	map particle_sheet3.png
+	region s3_shield
+	max_particles 15
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.05
+	color_start 4 2 2 1
+	color_start 3 0.6 0.2 1
+	//position -1 0 0   
+    scale_start 20
+    scale_end 70
+    rotation_start 180
+    fade_out 1
+	aspect_start .9
+	aspect_end .9
+    perspective_radius 20
+    range 0
+		geometry segment 0.0 25 0
+	position 0 -13 0
+
+}
+
+ent_shield_03_center_red 
+{
+	map particle_sheet3.png
+	region s3_plasma_50
+		max_particles 15
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.05
+	color_start 4 2 2 1
+	color_start 3 0.6 0.2 1
+	//position -1 0 0   
+    scale_start 20
+    scale_end 70
+    fade_out 1
+	aspect_start .9
+	aspect_end .9
+    perspective_radius 20
+    scale_end 45
+    rotation_start 0 360
+    range 0
+}
+
+ent_shield_red_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 4
+	system_light_color 1.5 0.5 0.1
+	system_light_falloff 0.0
+}
+
+ shield_03_red_vfx
+{	 
+    subsystem ent_shield_03_red
+    subsystem ent_shield_03_center_red
+    subsystem ent_shield_red_light
+    range 0
+}
+//////////////////////////////////////////////////////////////////////////////////////WEAPON_9 PICKUP/////////////////////////////////////////////////////////////
+weapon_9_pickup_vfx_01_circle
+{
+	map particle_sheet3.png
+	region 	s3_plasma_52
+
+	max_particles 4
+	max_emissions 0
+	lifetime 2
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.45
+	color_start 5 1 8 1
+	color_end 0.3 .8 1 1
+
+    scale_start 0
+    scale_end 80
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 0 0   
+
+}
+
+weapon_9_pickup_vfx_01_circle2
+{
+	map particle_sheet3.png
+	region 	s3_rl_muzzle_5
+animation_speed 4
+	max_particles 8
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.3
+	color_start 5 1 8 1
+	color_end 0.3 .8 1 1
+
+    scale_start 30
+    scale_end 70
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 0 0   
+    angular_speed_start 10
+}
+
+weapon_9_pickup_vfx_01_circle3
+{
+	map particle_sheet3.png
+	region 	s3_rl_muzzle_25
+    animation_speed 8
+	max_particles 5
+	max_emissions 0
+	lifetime 2
+	fade_in 1
+	blend add
+	fade_out 0
+	period 0.3
+	color_start 5 1 8 1
+	color_end 0.3 .8 1 1
+
+    scale_start 0
+    scale_end 80
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 0 0   
+}
+
+weapon_9_pickup_vfx_01_bolt
+{
+	map particle_sheet3.png
+	region 	s3_plasma_54
+animation_speed 10
+	max_particles 4
+	max_emissions 0
+	lifetime 0.3
+	fade_in 0
+	blend add
+	fade_out 1
+	period 1 2
+	color_start 5 1 10 1
+	color_end 0.3 .8 1 1
+
+    scale_start 0
+    scale_end 100
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 0 0   
+}
+
+weapon_9_pickup_vfx_02
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 10
+	max_emissions 0
+	lifetime 0.8 2.2 
+	fade_in 0.2
+	blend add
+	fade_out 0.1
+	period 0.5
+	color_start 5 1 8 1
+	color_end 0.3 .8 1 1
+	position 0 5 0   
+    scale_start 3 1
+    scale_end 1 0.5
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 80 45 80 100  100
+	speed_start 35
+	speed_end 15
+	auto_orient true
+	turbulence 2000 1000 2000
+	aspect_start 1 1.5
+	//acceleration 0 -5 0 0 -2 0
+}
+
+weapon_9_pickup_vfx_03 weapon_9_pickup_vfx_02
+{
+	lifetime 0.5 2.2
+	period 0.4
+	position -2 5 -2   
+}
+
+weapon_9_pickup_vfx_04 weapon_9_pickup_vfx_02
+{
+	lifetime 0.9 1.8
+	period 0.45
+	position 4 5 4   
+}
+
+weapon_9_pickup_vfx_05 weapon_9_pickup_vfx_02
+{
+	lifetime 0.8 2.5
+	period 0.6
+	position 4 5 4   
+}
+
+weapon_9_pickup_vfx_06 weapon_9_pickup_vfx_02
+{
+	lifetime 1.0 2.1
+	period 0.4
+	position -5 5 -8
+}
+
+weapon_9_pickup_vfx_07 weapon_9_pickup_vfx_02
+{
+	lifetime 1 2
+	period 0.45
+	position 4 5 7   
+}
+
+weapon_9_pickup_vfx_08 weapon_9_pickup_vfx_02
+{
+	lifetime 0.7 2.3
+	period 0.6
+	position 8 5 8   
+}
+
+weapon_9_pickup_vfx
+{	 
+	  subsystem weapon_9_pickup_vfx_01_circle
+	 subsystem weapon_9_pickup_vfx_01_circle2
+	  subsystem weapon_9_pickup_vfx_01_circle3
+	   subsystem weapon_9_pickup_vfx_01_bolt
+	subsystem weapon_9_pickup_vfx_02
+	subsystem weapon_9_pickup_vfx_03
+	subsystem weapon_9_pickup_vfx_04
+	subsystem weapon_9_pickup_vfx_05
+	subsystem weapon_9_pickup_vfx_06
+	subsystem weapon_9_pickup_vfx_07
+	subsystem weapon_9_pickup_vfx_08
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////ARMOR_PADS/////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////SMALL_PAD/////////////////////////////////////////////////////////////////////
+armorpad_small_vfx_01_circle
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 10
+	max_emissions 0
+	lifetime 0.5 0.8 
+	fade_in 0.2
+	blend add
+	fade_out 0.1
+	period 0.15
+	color_start 0 2 5
+	color_end 0.3 .8 1 1
+	position 0 0 0   
+    scale_start 3 1
+    scale_end 1 0.5
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 80 45 80 100  100
+	speed_start 35
+	speed_end 15
+	auto_orient true
+	turbulence 2000 1000 2000
+	aspect_start 1 1.5
+	//acceleration 0 -5 0 0 -2 0
+}
+armorpad_small_vfx_02_circle armorpad_small_vfx_01_circle
+{
+
+
+	period 0.4
+	position -1 0 1 
+ 
+}
+armorpad_small_vfx_03_circle armorpad_small_vfx_01_circle
+{
+
+
+	period 0.45
+	position 1 0 -1.2  
+ 
+}
+armorpad_small_vfx_04_circle armorpad_small_vfx_01_circle
+{
+
+
+	period 0.6
+	position -2 0 2.4  
+ 
+}
+armorpad_small_vfx_05_circle armorpad_small_vfx_01_circle
+{
+
+
+	period 0.4
+	position 2 0 -1
+ 
+}
+armorpad_small_vfx_06_circle armorpad_small_vfx_01_circle
+{
+
+
+	period 0.45
+	position 0 -1 0   
+ 
+}
+armorpad_small_vfx_07_circle armorpad_small_vfx_01_circle
+{
+
+
+	period 0.6
+	position 0 1 0
+ 
+}
+
+armorpad_small_center_vfx_01
+{
+	map particle_sheet3.png
+	region 	s3_rl_muzzle_31
+animation_speed 8
+	max_particles 30
+	max_emissions 0
+	lifetime 2
+	fade_in 1
+	blend add
+	fade_out 0
+	period 0.05
+color_start 0 1 2
+	color_end 0.3 .8 1 1
+
+    scale_start 0
+    scale_end 40
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 2 0   
+
+}
+armorpad_small_vfx
+{	 
+	  subsystem armorpad_small_vfx_01_circle
+	  subsystem armorpad_small_vfx_02_circle
+	  subsystem armorpad_small_vfx_03_circle
+	  subsystem armorpad_small_vfx_04_circle
+	  subsystem armorpad_small_vfx_05_circle
+	  subsystem armorpad_small_vfx_06_circle
+	  subsystem armorpad_small_vfx_07_circle
+	   subsystem armorpad_small_center_vfx_01
+}
+////////////////////////////////////////////////////////////////////////////////////////////////MEDIUM_PAD/////////////////////////////////////////////////////////////////////
+
+armorpad_medium_vfx_01_circle
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 10
+	max_emissions 0
+	lifetime 0.5 0.8 
+	fade_in 0.2
+	blend add
+	fade_out 0.1
+	period 0.15
+	color_start 1.5 1.5 0
+	color_end 0.3 .5 0
+	position 0 0 0   
+    scale_start 3 1
+    scale_end 1 0.5
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 80 45 80 100  100
+	speed_start 35
+	speed_end 15
+	auto_orient true
+	turbulence 2000 1000 2000
+	aspect_start 1 1.5
+	//acceleration 0 -5 0 0 -2 0
+}
+armorpad_medium_vfx_02_circle armorpad_medium_vfx_01_circle
+{
+
+
+	period 0.4
+	position -1 0 1 
+ 
+}
+armorpad_medium_vfx_03_circle armorpad_medium_vfx_01_circle
+{
+
+
+	period 0.45
+	position 1 0 -1.2  
+ 
+}
+armorpad_medium_vfx_04_circle armorpad_medium_vfx_01_circle
+{
+
+
+	period 0.6
+	position -2 0 2.4  
+ 
+}
+armorpad_medium_vfx_05_circle armorpad_medium_vfx_01_circle
+{
+
+
+	period 0.4
+	position 2 0 -1
+ 
+}
+armorpad_medium_vfx_06_circle armorpad_medium_vfx_01_circle
+{
+
+
+	period 0.45
+	position 0 -1 0   
+ 
+}
+armorpad_medium_vfx_07_circle armorpad_medium_vfx_01_circle
+{
+
+
+	period 0.6
+	position 0 1 0
+ 
+}
+
+armorpad_medium_center_vfx_01
+{
+	map particle_sheet3.png
+	region 	s3_rl_muzzle_31
+animation_speed 8
+	max_particles 30
+	max_emissions 0
+	lifetime 2
+	fade_in 1
+	blend add
+	fade_out 0
+	period 0.05
+color_start 1.5 1.5 0
+	color_end 0.3 .5 0
+
+    scale_start 0
+    scale_end 50
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 0 0   
+
+}
+armorpad_medium_vfx
+{	 
+	  subsystem armorpad_medium_vfx_01_circle
+	  subsystem armorpad_medium_vfx_02_circle
+	  subsystem armorpad_medium_vfx_03_circle
+	  subsystem armorpad_medium_vfx_04_circle
+	  subsystem armorpad_medium_vfx_05_circle
+	  subsystem armorpad_medium_vfx_06_circle
+	  subsystem armorpad_medium_vfx_07_circle
+	   subsystem armorpad_medium_center_vfx_01
+}
+////////////////////////////////////////////////////////////////////////////////////////////////big_PAD/////////////////////////////////////////////////////////////////////
+
+armorpad_big_vfx_01_circle
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 10
+	max_emissions 0
+	lifetime 0.5 0.8 
+	fade_in 0.2
+	blend add
+	fade_out 0.1
+	period 0.15
+	color_start 3 1.0 0
+	color_end 0.5 .3 0
+	position 0 0 0   
+    scale_start 3 1
+    scale_end 1 0.5
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 80 45 80 100  100
+	speed_start 35
+	speed_end 15
+	auto_orient true
+	turbulence 2000 1000 2000
+	aspect_start 1 1.5
+	//acceleration 0 -5 0 0 -2 0
+}
+armorpad_big_vfx_02_circle armorpad_big_vfx_01_circle
+{
+
+
+	period 0.4
+	position -1 0 1 
+ 
+}
+armorpad_big_vfx_03_circle armorpad_big_vfx_01_circle
+{
+
+
+	period 0.45
+	position 1 0 -1.2  
+ 
+}
+armorpad_big_vfx_04_circle armorpad_big_vfx_01_circle
+{
+
+
+	period 0.6
+	position -2 0 2.4  
+ 
+}
+armorpad_big_vfx_05_circle armorpad_big_vfx_01_circle
+{
+
+
+	period 0.4
+	position 2 0 -1
+ 
+}
+armorpad_big_vfx_06_circle armorpad_big_vfx_01_circle
+{
+
+
+	period 0.45
+	position 0 -1 0   
+ 
+}
+armorpad_big_vfx_07_circle armorpad_big_vfx_01_circle
+{
+
+
+	period 0.6
+	position 0 1 0
+ 
+}
+
+armorpad_big_center_vfx_01
+{
+	map particle_sheet3.png
+	region 	s3_rl_muzzle_31
+animation_speed 8
+	max_particles 30
+	max_emissions 0
+	lifetime 2
+	fade_in 1
+	blend add
+	fade_out 0
+	period 0.05
+color_start 3 1.0 0
+	color_end 0.5 .3 0
+
+    scale_start 0
+    scale_end 50
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 0 0   
+
+}
+armorpad_big_vfx
+{	 
+	  subsystem armorpad_big_vfx_01_circle
+	  subsystem armorpad_big_vfx_02_circle
+	  subsystem armorpad_big_vfx_03_circle
+	  subsystem armorpad_big_vfx_04_circle
+	  subsystem armorpad_big_vfx_05_circle
+	  subsystem armorpad_big_vfx_06_circle
+	  subsystem armorpad_big_vfx_07_circle
+	   subsystem armorpad_big_center_vfx_01
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////megashield/////////////////////////////////////////////////////////////////////
+megashield_center_vfx_01
+{
+	map particle_sheet3.png
+	region 	s3_rl_muzzle_40
+animation_speed 8
+	max_particles 30
+	max_emissions 0
+	lifetime 2
+	fade_in 1
+	blend add
+	fade_out 0
+	period 0.05
+color_start 0 0.1 2.25 1
+color_end 0.0 0.3 1 1
+
+    scale_start 50
+    scale_end 60
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 0 0   
+
+}
+// megashield_rays_vfx_01
+// {
+	// map particle_sheet3.png
+	// region 	s3_rl_muzzle_15
+// animation_speed 8
+	// max_particles 30
+	// max_emissions 0
+	// lifetime 2
+	// fade_in 1
+	// blend add
+	// fade_out 0
+	// period 0.05
+// color_start 0 2 3 1
+// color_end 0.0 0.3 0.5 1
+
+    // scale_start 60
+    // scale_end 70
+    // rotation_start 0 360
+    // fade_out 0.2
+	// fade_in 1
+	// position 0 0 0   
+
+// }
+
+megashield_dots_01
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 10
+	max_emissions 0
+	lifetime 1.0
+	fade_in 0.2
+	blend add
+	fade_out 0.1
+	period 0.2
+color_start 0 1 2 1
+color_end 0.0 0.5 1 1
+	position 0 0 0   
+    scale_start 5 2
+    scale_end 2 1
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 80 45 80 100  100
+	speed_start 35
+	speed_end 15
+	auto_orient true
+	turbulence 2000 1000 2000
+	aspect_start 1 1.1
+	//acceleration 0 -5 0 0 -2 0
+}
+megashield_dots_02_ megashield_dots_01
+{
+
+
+	period 0.4
+	position -5 0 4
+ 
+}
+megashield_dots_03 megashield_dots_01
+{
+
+
+	period 0.45
+	position 4 0 -4 
+ 
+}
+megashield_dots_04 megashield_dots_01
+{
+
+
+	period 0.6
+	position -4 0 4  
+ 
+}
+megashield_dots_05 megashield_dots_01
+{
+
+
+	period 0.4
+	position 4 0 -4
+ 
+}
+megashield_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 5
+	system_light_color 0.0 0.8 2 
+	system_light_falloff 0.0
+}
+
+megashield_vfx
+{	 
+
+	   subsystem megashield_center_vfx_01 0 1.2
+
+	  subsystem megashield_rays_vfx_01
+	  subsystem megashield_dots_01
+	  subsystem megashield_dots_02_
+	  subsystem megashield_dots_03
+	  subsystem megashield_dots_04
+	  subsystem megashield_dots_05
+	subsystem 	megashield_light base_light_impact
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////------------SURVIVAL_PACK------------------//////////////////////////////////////////////////////////////////
+survival_pack_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 4
+	system_light_color 1 2 0 
+	system_light_falloff 0.0
+}
+
+
+survival_pack_vfx
+
+{
+	subsystem survival_pack_light
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////------------HASTE------------------//////////////////////////////////////////////////////////////////
+
+haste_lines_bottom
+{
+
+	map particle_sheet3.png
+	region   s3_rl_muzzle_2	
+	animation_speed 6 10
+	animation_start 0
+	blend add
+	max_particles 50
+	max_emissions 0
+	lifetime 0.1 0.3
+	fade_in 0
+	fade_out 0.10
+	period 0.0175
+	color_start  0.5 2 3 1 2 3
+	color_end  0.5 2 3 1 2 3
+     scale_start 3
+    scale_end 1
+    rotation_start 0
+   	hard_edges true
+	speed_start 100 75
+position 8 -8 0 8 -3 0
+velocity_angles -45 -90 -10 -10 -90 -5
+auto_orient true
+aspect_start 1.0
+aspect_end  1.0
+}
+
+haste_lines
+{
+
+	map particle_sheet3.png
+	region   s3_rl_muzzle_2	
+	animation_speed 6 10
+	animation_start 0
+	blend add
+	max_particles 50
+	max_emissions 0
+	lifetime 0.1 0.3
+	fade_in 0
+	fade_out 0.10
+	period 0.0125
+	color_start  0.5 2 3 1 2 3
+	color_end  0.5 2 3 1 2 3
+     scale_start 3
+    scale_end 1
+    rotation_start 0
+   	hard_edges true
+	speed_start 50 75
+position 2 -10 0 2 5 0
+velocity_angles 5 -90 5 -5 -90 -5
+aspect_start 1.0
+aspect_end  1.0
+}
+
+haste_lines_2
+{
+
+	map particle_sheet3.png
+	region   s3_rl_muzzle_2	
+	animation_speed 6 10
+	animation_start 0
+	blend add
+	max_particles 50	
+	max_emissions 0
+	lifetime 0.2 0.4	
+	fade_in 0
+	fade_out 0.10
+	period 0.0125
+	color_start  0.5 2 3 1 2 3
+	color_end  0.5 2 3 1 2 3
+     scale_start 3
+    scale_end 1
+    rotation_start 0
+   	hard_edges true
+	speed_start 50 100
+position 0 -5 0 0 5 0
+velocity_angles 10 -90 5 -10 -90 -5
+aspect_start 1.0
+aspect_end  1.0
+}
+haste_lines_3
+{
+
+	map particle_sheet3.png
+	region   s3_rl_muzzle_2	
+	animation_speed 6 10
+	animation_start 0
+	blend add
+	max_particles 50	
+	max_emissions 0
+	lifetime 0.3 0.5
+	fade_in 0
+	fade_out 0.10
+	period 0.0125
+	color_start  0.5 2 3 1 2 3
+	color_end  0.5 2 3 1 2 3
+     scale_start 3
+    scale_end 1
+    rotation_start 0
+   	hard_edges true
+	speed_start 50 100
+position 0 5 0 0 12 0
+velocity_angles 15 -90 5 15 -90 -5
+aspect_start 1.0
+aspect_end  1.0
+}
+
+
+haste_pfx
+{
+	subsystem haste_lines_bottom
+	subsystem haste_lines
+	subsystem haste_lines_2
+	subsystem haste_lines_3
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////------------COIN------------------//////////////////////////////////////////////////////////////////
+coin_sparkle
+{
+map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 20
+	max_emissions 0
+	lifetime 1
+	fade_in 0
+	fade_out 0.4
+	blend add
+	period 0.25
+
+    scale_start 0 0
+    scale_end 15 25
+    rotation_start -5 5
+	angular_speed_start 90
+
+	emitter horizontal_circle 10
+	position 0 -12 0 0 -10 0
+	emitter point	
+	position -12 -12 -5 12 15 5
+	
+
+		velocity_angles 0 0 90
+	speed_start 10
+	speed_end 5
+	color_start 3 2 0.4 1
+	color_end  3 2 0.4 1
+	
+	}
+	
+	
+coin_circles
+{
+	map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 30
+	max_emissions 0
+	lifetime 1.0 1.5
+	fade_in 0.2
+	blend alpha
+
+	period 0.08
+	
+    scale_start 8 10 
+    scale_end 5 8
+    rotation_start 10 -10
+    fade_out 0.5
+	velocity_angles 1 1 90 -1 -1 90
+	speed_start 35
+	speed_end 10
+
+	position 5 -3 5 -5 3 -5
+	color_start 2 2 0.8 1	
+    
+}
+
+coin_pfx
+{
+	subsystem coin_sparkle
+	subsystem coin_circles
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////------------COIN TEAM------------------//////////////////////////////////////////////////////////////////
+coin_team_sparkle
+{
+	map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 20
+	max_emissions 0
+	lifetime 1
+	fade_in 0
+	fade_out 0.4
+	blend add
+	period 0.25
+
+    scale_start 0 0
+    scale_end 15 25
+    rotation_start -5 5
+	angular_speed_start 90
+
+	emitter horizontal_circle 10
+	position 0 -12 0 0 -10 0
+	emitter point	
+	position -12 -12 -5 12 15 5
+	
+
+		velocity_angles 0 0 90
+	speed_start 10
+	speed_end 5
+	color_start 1.7 1.7 3 1
+	color_end  1.7 1.7 3 1
+
+
+	}
+	
+	
+coin_team_circles
+{
+	map particle_sheet1.png
+	region r_sparkle
+	animation_speed 50
+	animation_start 10
+	max_particles 30
+	max_emissions 0
+	lifetime 1.0 1.5
+	fade_in 0.2
+	blend alpha
+
+	period 0.08
+	
+    scale_start 8 10 
+    scale_end 5 8
+    rotation_start 10 -10
+    fade_out 0.5
+	velocity_angles 0 0 90
+	speed_start 35
+	speed_end 10
+	emitter horizontal_circle 10
+	position 0 -3 0
+	color_start 2 2 2 0.75 
+  
+}
+
+coin_team_pfx
+{
+	subsystem coin_team_sparkle
+	subsystem coin_team_circles
+}

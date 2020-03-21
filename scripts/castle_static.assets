@@ -1,0 +1,212 @@
+asset props/castle/roof01_steep_edge_corner
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/roof01_steep_a
+}
+
+
+asset props/castle/rooftrim01_corner
+{
+  listed true
+  type prop
+  tags castle
+
+}
+
+
+asset props/castle/stonetrim_corner
+{
+  listed true
+  type prop
+  tags castle
+	material props/castle/stonetrim_a
+}
+
+asset props/castle/stonetrim_corner_diag
+{
+  listed true
+  type prop
+  tags castle
+	material props/castle/stonetrim_a
+}
+
+asset props/castle/stonetrim_diag_a
+{
+  listed true
+  type prop
+  tags castle
+	material props/castle/stonetrim_a
+}
+
+asset props/castle/stonetrim_diag_b
+{
+  listed true
+  type prop
+  tags castle
+	material props/castle/stonetrim_a
+}
+
+
+asset props/castle/stonetrim_innercorner
+{
+  listed true
+  type prop
+  tags castle
+	material props/castle/stonetrim_a
+}
+
+
+asset props/castle/stonetrim_innercorner_diag
+{
+  listed true
+  type prop
+  tags castle
+	material props/castle/stonetrim_a
+}
+
+asset props/castle/windowbars01_1x2
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars01_1x2_frame
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars01_2x2
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars01_2x2_frame
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars02_1x2
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars02_1x2_frame
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars02_2x2
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars02_2x2_frame
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars03_1x2
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars03_1x2_frame
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars03_2x2
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+asset props/castle/windowbars03_2x2_frame
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowbars_wood01_beige
+}
+
+
+asset props/castle/windowframe_1x1_bevelled
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowframe_plaster01_beige
+}
+
+asset props/castle/windowframe_1x2_bevelled
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowframe_plaster01_beige
+}
+
+asset props/castle/windowframe_2x2_bevelled
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowframe_plaster01_beige
+}
+
+asset props/castle/windowframe_2x2_bevelled_ledge
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowframe_plaster01_beige
+}
+
+asset props/castle/windowframe_1x2_ornate
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowframe_plaster01_beige
+}
+
+asset props/castle/windowframe_2x2_ornate
+{
+  listed true
+  type prop
+  tags castle
+  material props/castle/windowframe_plaster01_beige
+}

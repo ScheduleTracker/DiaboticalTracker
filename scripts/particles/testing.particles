@@ -1,0 +1,315 @@
+testu1
+{
+	map effects1.png
+	region r_bhole_a
+	rotation_start 0 360
+	blend add
+	aspect 0.2
+	max_particles 10000
+	max_emissions 10000
+	lifetime 3 5
+	turbulence -3000 1
+	fade_in 0.05 0.07
+	fade_out 0.1 0.15
+	color_start 0 1 1 1 1 0 1 1
+	acceleration 0 0 0
+	color_end 2 0.2 0 1 1.5 0 0 1
+	period 0
+	emitter point
+	velocity 10 10 10 -10 -10 -10
+	magnet 1 1 1
+	scale_start 5
+	scale_end 10
+}
+
+testu2
+{
+	map effects1.png
+	region r_bhole_a
+	animation_speed 54
+	blend alpha
+	max_particles 1
+	max_emissions 1
+	lifetime 0.50
+	fade_in 0
+	fade_out 0
+	period 0
+	emitter point
+	scale_start 100
+	scale_end 100
+	color_start 1 1 1 1
+	position 0 0 100 0 0 100
+}
+
+bhole1
+{
+	map effects1.png
+	region r_orb2_a
+	animation_speed 48
+	emitter point
+	max_particles 1
+	max_emissions 1
+	rotation_start 0
+	rotation_end 30
+	period 0
+	fade_in 0
+	fade_out 0.15
+	blend alpha
+	lifetime 0.15
+	scale_start 80
+//	scale_end 80
+	scale_end 0
+	color_start 0.3 0 1 1
+	color_end 0 0 0.2 1
+}
+
+bhole2
+{
+	map effects1.png
+	region r_bhole_a
+	animation_speed 85
+	emitter point
+	max_particles 5
+	max_emissions 5
+	rotation_start 0 360
+	period 00
+	fade_in 0
+	fade_out 0
+	blend alpha
+	lifetime 0.3
+	scale_start 80
+	scale_end 80
+//	scale_end 0
+	color_start 0.1 0 0.2
+	color_end 0 0 0 1
+}
+
+bhole3
+{
+	delay 0.2
+	map effects1.png
+	region r_flame2_a
+	animation_speed 48
+	animation_start 9 12
+	emitter point
+	max_particles 30
+	max_emissions 30
+	rotation_start 0 360
+	period 0
+	fade_in 0
+	fade_out 0
+	blend alpha
+	lifetime 0.3
+	scale_start 0
+	scale_end 80 100
+	color_start 0.02 0.02 0.02 0.15
+	color_end 0.02 0.02 0.02 0
+	velocity 200 200 0 -200 -200 0
+}
+
+bhole4
+{
+	map effects1.png
+	region r_flare_5
+	emitter point
+	max_particles 1
+	max_emissions 1
+	rotation_start 0 360
+	period 0
+	fade_in 0
+	fade_out 0
+	blend alpha
+	lifetime 0.25
+	scale_start 250
+	scale_end 0
+	delay 0
+	color_start 0 0 0 1
+}
+
+bhole5
+{
+	map effects1.png
+	region r_orb1_a
+	animation_speed 48
+	emitter point
+	max_particles 1
+	max_emissions 1
+	rotation_start 0 360
+	period 0
+	fade_in 0
+	fade_out 0
+	blend add
+	lifetime 0.3
+	scale_start 222
+//	scale_end 50
+	scale_end 0
+	color_start 0.1 0.1 0.3 0.2
+}
+
+bhole6
+{
+	map effects1.png
+	region r_crack
+	emitter point
+	max_particles 1
+	max_emissions 1
+	rotation_start 0 360
+	period 0
+	fade_in 0
+	fade_out 0
+	blend add
+	lifetime 0.3
+	scale_start 200
+//	scale_end 20
+	scale_end 0
+	color_start 0.2 0 0.4 0.2
+}
+
+bhole7
+{
+	map effects1.png
+	region r_swirl
+	emitter point
+	max_particles 1
+	max_emissions 1
+	rotation_start 30
+	rotation_end 175
+	period 0
+	fade_in 0
+	fade_out 0.15
+	blend alpha
+	lifetime 0.15
+	scale_start 120
+	scale_end 0
+	color_start 0.1 0 0.2
+	color_end 0 0 0 1
+}
+
+bhole
+{
+	subsystem bhole1
+	subsystem bhole2
+	subsystem bhole3
+	subsystem bhole4
+	subsystem bhole5
+	subsystem bhole6
+//	subsystem bhole7
+}
+
+bproj1
+
+{
+	map effects1.png
+	region r_swirl
+	emitter point
+	max_particles 1
+	max_emissions 1
+	rotation_start 0
+	rotation_end -3000
+	period 0.1
+	lifetime 5
+	fade_out 1
+	scale_start 60
+	scale_end 60
+	color_start 1 1 1 1
+	color_end 1 1 1 1
+
+}
+
+tele1
+
+{
+	advance 1
+	aspect_start 0.75
+	aspect_end 0.75
+	map effects2.png
+	region tele_core
+	animation_speed 48
+	animation_start 0
+	lifetime 2
+	scale_start 45
+	scale_end 45
+	blend alpha
+	color_start 0 0 0 1
+	color_end 0 0 0 1
+	max_particles 1
+	max_emissions 0
+	period 1
+}
+
+tele2
+{
+	advance 1
+	map effects2.png
+	region tele_flow
+	animation_speed 48
+	animation_start 0
+	lifetime 2
+	scale_start 75
+	scale_end 15
+	blend alpha
+	max_particles 10
+	max_emissions 0
+	period 0.2
+	color_start 0.05 0 0.05 1
+	color_end 0.05 0 0.05 1
+	rotation_start 0 360
+	fade_in 0.5 0.2
+}
+
+tele3
+{
+	advance 1
+	aspect_start 2
+	map effects2.png
+	region tele_auora
+	animation_speed 48
+	animation_start 0
+	lifetime 2
+	scale_start 60
+	scale_end 25
+	blend alpha
+	max_particles 10
+	max_emissions 0
+	period 0.25
+	color_start 0.05 0 0.05 1
+	color_end 0.05 0 0.05 1
+	rotation_start 0 360
+	fade_in 1
+}
+
+tele4 tele1
+{
+	color_start 0.2 0 1 0.1
+	color_end 0.2 0 1 0.1
+	blend alpha
+}
+tele5 tele1
+{
+	color_start 0.15 0 0  1
+	color_end 0.15 0 0 1
+	blend alpha
+	scale_start 20
+	scale_end 20
+}
+tele6 tele1
+{
+	color_start 0.075 0 0 1
+	color_end 0.075 0 0 1
+	blend alpha
+	scale_start 32
+	scale_end 32
+}
+teleport
+{
+        subsystem tele6
+	subsystem tele5
+	subsystem tele1
+	//subsystem tele2
+	//subsystem tele3
+}
+
+
+
+
+

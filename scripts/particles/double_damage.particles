@@ -1,0 +1,271 @@
+orb_pickup
+{
+	map particle_sheet2.png
+	region r_orb_new	
+	animation_speed 30
+	animation_start 1
+	emitter point
+	// geometry directional
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0
+	//fade_in 0.1
+	//fade_out 0.999
+	rotation_start 0
+	position 0 0 0 0 0 0
+	period 0
+	color_start  2 1 0
+	color_end 2 1 0
+	// emitter line 0 0 1
+	scale_start 120
+	scale_end 120
+	range 0
+}
+
+orb_pickup_2
+{
+	map particle_sheet1.png
+	region r_electric_spark_s
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.2
+	// fade_in 0.1
+	// fade_out 999
+	rotation_start 0 360
+	position 0
+	//position 0 0 -1 0 0 -1s
+	period 5
+	color_start  2 1 0 
+	color_end 2 1 0
+	emitter line 0 0 6
+	scale_start  20
+	scale_end  30
+}
+
+orb_pickup_2_alt orb_pickup_2
+{
+	period 3.1783
+	color_start  2 1 0 
+	color_end 2 1 0
+}
+
+orb_pickup_2_alt2 orb_pickup_2
+{
+	region r_electric_spark
+	period 4.21236
+	scale_start 20
+	scale_end  30
+	color_start  2 1 0 
+	color_end 2 1 0
+}
+
+orb_pickup_2_alt3 orb_pickup_2
+{
+	region r_electric_spark
+	period 5.3216
+	scale_start 20
+	scale_end  30
+	color_start  2 1 0 
+	color_end 2 1 0
+}
+
+orb_inside
+{
+	map particle_sheet1.png
+	region r_point_big2	
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0
+	// fade_in 0.1
+	// fade_out 999
+	rotation_start 0 360
+	position 0
+	//position 0 0 -1 0 0 -1s
+	period 1
+	color_start  2 1 0 
+	color_end 2 1 0
+	// emitter line 0 0 6
+	scale_start 20
+	scale_end  20
+}
+
+orb_above
+{
+	map particle_sheet1.png
+	region r_point_big2	
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.4
+	fade_out 0
+	rotation_start 0 360
+	position 	0 0 0
+	velocity 0 0 20
+	period 0.07
+	color_start  0.5 0.5 0
+	color_end 0.5 0.5 0
+	// emitter line 0 0 6
+	scale_start 100
+	scale_end 100
+}
+
+double_damage_pfx
+{
+    subsystem light_orange
+	subsystem orb_pickup
+	subsystem orb_pickup_2
+	subsystem orb_pickup_2_alt
+	subsystem orb_pickup_2_alt2
+	subsystem orb_pickup_2_alt3
+	subsystem orb_inside
+	subsystem orb_above
+}
+	
+orb_pickup_green orb_pickup
+{
+	color_start 0.1 1 0.2
+	color_end 0.1 1 0.2
+}
+orb_pickup_2_green orb_pickup_2
+{
+	color_start 0.1 1 0.2
+	color_end 0.1 1 0.2
+}
+orb_pickup_2_alt_green orb_pickup_2_alt
+{
+	color_start 0.1 1 0.2
+	color_end 0.1 1 0.2
+}
+orb_pickup_2_alt2_green orb_pickup_2_alt2
+{
+	color_start 0.1 1 0.2
+	color_end 0.1 1 0.2
+}
+orb_pickup_2_alt3_green orb_pickup_2_alt3
+{
+	color_start 0.1 1 0.2
+	color_end 0.1 1 0.2
+}
+orb_inside_green orb_inside
+{
+	color_start 0.1 1 0.2
+	color_end 0.1 1 0.2
+}
+orb_above_green orb_above
+{
+	color_start 0.1 1 0.2
+	color_end 0.1 1 0.2
+}
+dropped_health_pfx
+{
+    subsystem light_green
+	subsystem orb_pickup_green
+	subsystem orb_pickup_2_green
+	subsystem orb_pickup_2_alt_green
+	subsystem orb_pickup_2_alt2_green
+	subsystem orb_pickup_2_alt3_green
+	subsystem orb_inside_green
+	subsystem orb_above_green	
+}
+	
+orb_pickup_white orb_pickup
+{
+    range 0
+	color_start 1.5 1.5 1.5
+	color_end 1.5 1.5 1.5
+}
+orb_pickup_2_white orb_pickup_2
+{
+    range 0
+	color_start 1.5 1.5 1.5
+	color_end 1.5 1.5 1.5
+}
+orb_pickup_2_alt_white orb_pickup_2_alt
+{
+    range 0
+	color_start 1.5 1.5 1.5
+	color_end 1.5 1.5 1.5
+}
+orb_pickup_2_alt2_white orb_pickup_2_alt2
+{
+    range 0
+	color_start 1.5 1.5 1.5
+	color_end 1.5 1.5 1.5
+}
+orb_pickup_2_alt3_white orb_pickup_2_alt3
+{
+    range 0
+	color_start 1.5 1.5 1.5
+	color_end 1.5 1.5 1.5
+}
+orb_inside_white orb_inside
+{
+    range 0
+	color_start 1.5 1.5 1.5
+	color_end 1.5 1.5 1.5
+}
+orb_above_white orb_above
+{
+    range 0
+	color_start 1.5 1.5 1.5
+	color_end 1.5 1.5 1.5
+}
+dropped_ghost_pfx
+{
+    range 0
+    subsystem light_white
+	subsystem orb_pickup_white
+	subsystem orb_pickup_2_white
+	subsystem orb_pickup_2_alt_white
+	subsystem orb_pickup_2_alt2_white
+	subsystem orb_pickup_2_alt3_white
+	subsystem orb_inside_white
+	subsystem orb_above_white	
+}
+	
+light_gold base_light_impact
+{
+	lifetime 0
+	system_light_radius 75	
+	system_light_intensity 4
+	system_light_color 2 1.5 1
+	system_light_falloff 0.3
+	position 0 20 0
+	
+}
+
+orb_pickup_gold orb_pickup
+{
+    range 0
+	color_start 1.5 1.2 0.5
+	color_end 1.5 1.2 0.5
+	position 0 8.5 0
+    scale_start 100
+	scale_end 100
+}
+
+macguffin_pfx
+{
+    range 0
+    subsystem light_gold
+	subsystem orb_pickup_gold
+}
+
+big_armor_pfx
+{
+
+	subsystem big_armor
+	subsystem big_armor_2
+	subsystem orb_pickup_2_alt
+	subsystem orb_pickup_2_alt2
+	subsystem orb_pickup_2_alt3
+}

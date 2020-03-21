@@ -1,0 +1,23 @@
+base_spark_drag
+{
+	map particle_sheet1.png
+	region r_spark_6
+	animation_speed 15
+	animation_start 0
+	blend add
+	max_particles 4
+	max_emissions 2
+	lifetime 0.25 0.25
+	fade_in 0
+	//fade_out 999
+	fade_out 0
+	rotation_start 0 360
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1
+	period 0
+	color_start  6 4 1.5 1
+	color_end  0.70 0.26 0 1
+	emitter line 0 0 1
+	scale_start 100
+	scale_end 150
+}

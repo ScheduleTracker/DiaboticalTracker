@@ -1,0 +1,123 @@
+
+
+
+
+bfg_muzzle_static_particle
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.15 0.18
+	fade_in 0.01
+	fade_out 0.05
+	period 0.1
+	color_start 4 1 3 1
+	color_end  0.3 1.2 1.75
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 8
+    rotation_start 0 360
+
+}
+
+bfg_muzzle_static_particle_2
+{
+	map particle_sheet3.png
+	region s3_plasma_52
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 20
+	max_emissions 0
+	lifetime 0.03
+	fade_in 0.01
+	fade_out 0.05
+	period 0.001
+	rotation_start 0 360
+	color_start 4 1 3 1
+	color_end  1.2 0.5 1.75
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end  3.8
+   
+ 
+}
+
+bfg_muzzle_static_particle_3
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_6
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 2
+	max_emissions 0
+	lifetime 1
+	fade_in 0.01
+	fade_out 0.05
+	period 0.5
+	rotation_start 0 360
+	color_start 4 1 3 1
+	color_end  1.2 0.5 1.75
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end  4.0
+   
+ 
+}
+// bfg_muzzle_sparks_decorative
+// {
+	// map particle_sheet3.png
+	// region region s3_explosion01_9
+	// animation_speed 20
+	// animation_start 10
+	// max_particles 3
+	// max_emissions 0
+	// lifetime .25 .30
+	// fade_in 0
+	// blend add
+	// fade_out 0.1
+	// period 0.1
+	// color_start 8 4 10 1
+	// color_end  3 .2 .7 1
+	// //position -1 0 0   
+    // scale_start 0.5
+    // scale_end 3
+    // rotation_start 90
+    // fade_out 0.2
+	// velocity_angles 1 1 0 359 359 0
+	// speed_start 35
+	// speed_end 5
+	// auto_orient true
+
+	// acceleration 0 0 0 0 0 0
+// }
+bfg_muzzle_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 25	
+	system_light_intensity 4
+	system_light_color 1 0.5 1
+	system_light_falloff 0.0
+
+	
+}
+
+
+bfg_muzzle_filament
+{
+
+	subsystem  bfg_muzzle_static_particle
+	subsystem  bfg_muzzle_static_particle_2
+	subsystem  bfg_muzzle_static_particle_3
+	// subsystem bfg_muzzle_sparks_decorative
+	subsystem  bfg_muzzle_light
+}
+

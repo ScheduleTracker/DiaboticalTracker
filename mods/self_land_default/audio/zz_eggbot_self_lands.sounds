@@ -1,0 +1,55 @@
+//--------------------------------------	EGGBOT SELF SOUNDS LANDS
+sound eggbot_land_self_default1
+{
+	id 1516
+	source eggbot/eggbot_self_lands/eggbot_land_self_default1
+	enemy_sound 1718
+	pitch 0.069
+	group land
+	volume 4.656
+	distance_min 80
+	distance_max 1330
+	wetness 0.6
+	wetness_2d 0.135
+	volume_2d 3.5
+}
+sound eggbot_land_self_default2
+{
+	id 1517
+	source eggbot/eggbot_self_lands/eggbot_land_self_default2
+	enemy_sound 1719
+	group land
+    link 1516
+}
+sound eggbot_land_self_default3
+{
+	id 1518
+	source eggbot/eggbot_self_lands/eggbot_land_self_default3
+	enemy_sound 1720
+	group land
+    link 1516
+}
+sound eggbot_land_self_default4
+{
+	id 1519
+	source eggbot/eggbot_self_lands/eggbot_land_self_default4
+	enemy_sound 1721
+	group land
+    link 1516
+}
+sound eggbot_land_self_default5
+{
+	id 1520
+	source eggbot/eggbot_self_lands/eggbot_land_self_default5
+	enemy_sound 1722
+	group land
+    link 1516
+}
+sound eggbot_land_self_default6
+{
+	id 1521
+	source eggbot/eggbot_self_lands/eggbot_land_self_default6
+	enemy_sound 1723
+	group land
+    link 1516
+}

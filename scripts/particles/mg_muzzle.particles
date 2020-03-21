@@ -1,0 +1,294 @@
+//MACHINEGUN MUZZLE
+
+mg_muzzleflame
+{
+	map effects1.png
+	region r_flare_1
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+	position 10 -6 50
+	color_start  1 2 1 1
+	color_end  0.15 0.1 0
+	emitter line 0 0 1
+	scale_start 30
+	scale_end 60
+}
+
+
+mg_muzzleflame2
+{
+	map effects1.png
+	region r_flare_1
+    animation_speed 30
+	max_particles 3
+	max_emissions 3
+	period 0
+	lifetime 0.05
+	rotation_start 0 360
+	blend add
+	velocity 10 10 3000 -10 -10 2000
+	fade_out 0.5
+	position 10 -6 10 8 0 8
+	color_start  1 2 1 1
+	color_end  0.15 0.1 0
+	emitter line 0 0 1
+	scale_start 42
+	scale_end 30
+	drag 0.9
+}
+
+mg_muzzleflame3
+{
+	map particle_sheet1.png
+	region r_sg_explosion	
+    animation_speed 35
+	blend add
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	rotation_start 0 360
+	blend add
+	fade_out 0.15
+	position 2 4 22
+	color_start  1 2 0 1
+	color_end  2 1 0 1
+	emitter line 0 0 1
+	scale_start 15
+	scale_end 24
+}
+
+mg_muzzleflame4
+{
+	map particle_sheet1.png
+	region r_sg_explosion	
+    animation_speed 35
+	blend add
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	rotation_start 0 360
+	blend add
+	fade_out 0.15
+	position 2 4 22
+	color_start  3 2 0 1
+	color_end  2 2 0 1
+	emitter line 0 0 1
+	scale_start 9
+	scale_end 12
+}
+
+mg_muzzleflame_embers
+{
+	// geometry quad
+	map particle_sheet1.png
+	region r_embers
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 20
+	max_emissions 20
+	lifetime 0.25
+	period 0
+	fade_in 0.1
+	velocity 90 90 22 -90 -90 50
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 2 4 22
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 0 0 1
+	emitter line 0 0 0
+	turbulence 200
+	scale_start 3 1.5
+	scale_end 0 0
+	drag 0.8
+}
+
+mg_shot1
+{
+	// geometry quad
+	map effects1.png
+	region r_point_3
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 200
+	max_emissions 200
+	lifetime 0.1
+	period 0.0001
+	// fade_in 0.1
+	velocity 0 50 5000 
+	// fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 2 4 22
+	rotation_start 0 360
+	color_start  0.3 0.3 0.1 
+	color_end  0.1 0.1 0.05
+	emitter line 0 0 0
+	turbulence 200
+	scale_start 3.6
+	scale_end 2.4
+	drag 0.8
+}
+
+mg_shot2 sg_shot1
+{
+	lifetime 0.05
+	velocity 0 -90 5000 
+	position 3 4 22
+}
+
+mg_shot3 sg_shot1
+{
+	lifetime 0.06 0.07
+	velocity 120 80 5000
+	position 2.5 4 22
+}
+ 
+mg_shot4 sg_shot1
+{
+	velocity -200 25 5000 
+}
+
+// mg_muzzleflame_embers2
+{
+	// geometry quad
+	map effects1.png
+	region r_point_3
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 20
+	max_emissions 20
+	lifetime 0.2
+	period 0
+	fade_in 0.1
+	velocity 50 50 400 -50 -50 600
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 2 4 22
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 0 0 1
+	emitter line 0 0 0
+	turbulence 200
+	scale_start 2 3
+	scale_end 0 0
+	drag 0.8
+}
+
+mg_muzzleflame5
+{
+	map particle_sheet1.png
+	region r_spark_impact	
+    animation_speed 35
+	max_particles 1
+	max_emissions 1
+	blend add
+	period 0
+	lifetime 0.15
+	// scale_start 1.25
+	// scale_end 0.8
+	rotation_start 190 270
+	blend add
+	fade_out 0.15
+	position 2 4 20
+	color_start  4 4 0 1
+	color_end  4 2 2  0
+	emitter line 0 0 1
+	scale_start 5
+	scale_end 5
+}
+
+mg_muzzleflame6
+{
+	map particle_sheet1.png
+	region r_spark_impact	
+    animation_speed 35
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	// scale_start 1.25
+	// scale_end 0.8
+	rotation_start 280 360
+	blend add
+	fade_out 0.15
+	position 2 4 20
+	color_start  4 4 0 1
+	color_end  4 2 2  0
+	emitter line 0 0 1
+	scale_start 5
+	scale_end 5
+}
+
+
+mg_light base_light_impact
+
+{
+	geometry quad
+	position 50 8 150
+	lifetime 6
+	scale_start 3
+	scale_end 1
+	fade_out 0.999
+	position 2 50 100
+	color_start 1 1 1 1
+	color_end 1 1 1 1
+	light_radius 200
+}
+
+// mg_smoke
+{
+	map effects1.png
+	region r_point_2 	
+    animation_speed 35
+	animation start 
+	blend add
+	max_particles 100
+	max_emissions 100
+	period 0.02
+	lifetime 0.5
+	turbulence 20
+	// scale_start 1.25
+	// scale_end 0.8
+	rotation_start 0 360
+	blend add
+	velocity 0 20 5 0 20 5
+	fade_in 0.2
+	fade_out 0.15
+	position 2 4 22
+	color_start  0.2 0.2 0.1
+	color_end  0.1 0.1 0.1
+	emitter line 0 0 1
+	scale_start 2 3
+	scale_end 2 3
+}
+
+mg_muzzle
+{
+	subsystem mg_muzzleflame 0 0.55
+	subsystem mg_muzzleflame2 0 0.55
+	subsystem mg_muzzleflame3 0 0.55
+	subsystem mg_muzzleflame4 0 0.55
+	subsystem mg_muzzleflame_embers 0 0.55
+	subsystem mg_shot1 0 0.55
+	subsystem mg_shot2 0 0.55
+	subsystem mg_shot3 0 0.55
+	subsystem mg_shot4 0 0.55
+	// subsystem mg_smoke 0.15
+	// subsystem mg_muzzleflame5
+	// subsystem mg_muzzleflame6
+	// subsystem mg_light
+}

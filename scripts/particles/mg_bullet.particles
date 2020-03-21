@@ -1,0 +1,359 @@
+lgpuff
+{
+	geometry quad
+	map particle_sheet1.png
+	region r_magma_drag
+	animation_speed 11
+	blend blend
+	max_particles 10
+	max_emissions 10
+	lifetime 0.4
+	period 0
+	fade_in 0.25 0.3
+	velocity 0 -5 0 0 -10 0
+	fade_out 0.15 0.12
+	emitter line 0 0 768
+	position 0
+	color_start 2 1 0 0.2
+	color_end 0.5 0.1 0 0
+	rotation_start 0 360
+	// velocity 0.1 0.1 0.1 
+	turbulence 0
+	scale_start 6 7
+	scale_end 6 8
+	soft_destruction on
+}
+
+
+lgpuff_bubble
+{
+	geometry quad
+	map particle_sheet1.png
+	region r_magma_explode
+	animation_speed 20 30
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.5 0.3
+	period 0
+	fade_in 0.25 0.3
+	velocity 0 -5 0 0 -10 0
+	fade_out 0.15 0.12
+	emitter line 0 0 768
+	position 0
+	color_start 4 2 2  4 4 2 
+	color_end 4 2 2  4 4 2 
+	rotation_start 0 360
+	// velocity 0.1 0.1 0.1 
+	turbulence 0
+	scale_start 2 3
+	scale_end 6 7
+	soft_destruction on
+}
+
+lgpuff2
+{
+	geometry quad
+	map particle_sheet1.png
+	region r_bubbles2
+	animation_speed 0.2
+	blend blend
+	max_particles 3
+	max_emissions 3
+	lifetime 0.50
+	period 0
+	fade_in 0.25 0.3
+	// velocity 0 -5 0 0 -10 0
+	fade_out 0.15 0.12
+	emitter line 0 0 768
+	position 0 0 0 0 0 0
+	color_start 2 2 0 2 
+	color_end 5 0 0 1
+	rotation_start 0 360
+	// velocity 0.1 0.1 0.1 
+	turbulence 100 1
+	scale_start 3
+	scale_end 10
+	soft_destruction on
+}
+
+lgpuff4
+{
+	geometry quad
+	map particle_sheet1.png
+	region r_magma
+	animation_speed 10
+	blend blend
+	max_particles 5
+	max_emissions 5
+	lifetime 0.6
+	period 0
+	fade_in 0.25 0.3
+	// velocity 0 -5 0 0 -10 0
+	// fade_out 0.15 0.12
+	emitter line 0 0 768
+	// position 1 1 1 - 1 -1 -1
+	color_start 2 2 0 2 
+	color_end 5 0 0 1
+	rotation_start 0 360
+	// velocity 0.1 0.1 0.1 
+	// turbulence 100 1
+	scale_start 3 4
+	scale_end 3 4
+	soft_destruction on
+}
+
+lgrope1
+{
+	geometry tape 1 0 100
+	map effects1.png
+	region r_point_3
+	blend add
+	max_particles 220
+	max_emissions 220
+	lifetime 0.045 0.06
+	period 0
+	fade_in 0.005 0.007
+	fade_out 0.020 0.03
+	emitter array 0 0 10 768
+	position 1 -2 -15
+	color_start 1 1 1 1
+	color_end 0.5 0 0 1
+	turbulence 20 40
+	scale_start 3 2
+}
+
+lgrope2
+{
+	geometry tape
+	map particle_sheet1.png
+	region r_magma_beam
+	blend add
+	max_particles 800
+	max_emissions 800
+	lifetime 0.1 
+	period 0
+	fade_in 0.005 0.007
+	emitter array 0 0 6 1000
+	position 2 -3 -23
+	color_start 3 0.1 0.1 1
+	color_end 2 0.1 0.1 1
+	scale_start 1.5 1
+	scale_end 1
+}
+
+lgrope32
+{
+	geometry tape
+	map effects1.png
+	region r_point_2
+	blend add
+	max_particles 500
+	max_emissions 500
+	lifetime 0.05 0.075
+	period 0
+	fade_in 0.005 0.007
+	// fade_out 0.020 0.03
+	emitter array 0 0 10 768
+	position 1 -2 -15
+	color_start 3 1.14 0.2 1
+	color_end 3 1.14 0.2 1
+	turbulence 250 1
+	scale_start 2
+	scale_end 2
+}
+
+lgrope33
+{
+	geometry tape
+	map effects1.png
+	region r_point_2
+	blend add
+	max_particles 500
+	max_emissions 500
+	lifetime 0.05 0.075
+	period 0
+	fade_in 0.005 0.007
+	// fade_out 0.020 0.03
+	emitter array 0 0 10 768
+	position 1 -2 -15
+	color_start 3 1.14 0.2 1
+	color_end 3 1.14 0.2 1
+	turbulence 250 1
+	scale_start 2
+	scale_end 2
+}
+
+lgrope3
+{
+	geometry tape
+	map effects1.png
+	region r_point_4
+	blend add
+	max_particles 1024
+	max_emissions 1024
+	lifetime 0.05 0.075
+	period 0
+	fade_in 0.005 0.007
+	fade_out 0.020 0.03
+	emitter array 0 0 10 768
+	position 1 -2 -15
+	color_start 2 2 5 2
+	color_end 2 0 2 1
+	turbulence 2000 1
+	scale_start 5 3
+	scale_end 0
+}
+
+lgrope4
+{
+	geometry tape
+	map effects1.png
+	region r_rope_1
+	blend add
+	max_particles 80
+	max_emissions 80
+	lifetime 0.045 0.06
+	period 0
+	fade_in 0.25 0.3
+	fade_out 0.25 0.5
+	emitter array 0 0 10 768
+	position 1 -2 -15
+	color_start 0 0.4 1 1 1 0.35 0 1
+	color_end 1 0.1 0 1
+	scale_start 10 6
+	scale_end 1 0
+}
+
+lgspark
+{
+	geometry quad
+	map effects1.png
+	region r_point_2
+	blend add
+	max_particles 64
+	max_emissions 64
+	lifetime 0.2 0.15
+	period 0
+	fade_in 0.05 0.075
+	fade_out 0.1
+	emitter line 0 0 1000
+	acceleration 0 -450 0 0 -400 0
+	position 2 2 1 -2 -2 -1
+	velocity 75 75 10 -75 -75 -10
+	color_start 0 0 1 1 0 0.3 1 1
+	color_end 0 0 2 1
+	turbulence 100 1
+	scale_start 5 4
+	scale_end 0 0
+}
+
+mg_light base_light_impact
+
+{
+	geometry quad
+	position -3 8 8
+	scale_start 1
+	scale_end 1
+	color_start 0.02 0.02 0 1
+	light_radius 200
+}
+
+mg_muzzle
+{
+	// geometry quad
+	map particle_sheet1.png
+	region r_magma_drag
+	animation_speed 20
+	blend add
+	sync_group 7
+	max_particles 2
+	max_emissions 2
+	lifetime 0.5
+	period 0
+	fade_in 0.25 0.3
+	velocity 10 -10 10
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 1 -2 -15
+	rotation_start 0 360
+	color_start  1 1 0 0.2
+	color_end  0.5 0.5 0 0
+	emitter line 0 0 1
+	scale_start 10 6
+	scale_end 10 2
+	drag 0.8
+}
+
+mg_innerball
+{
+
+	geometry quad
+	map effects2.png
+	region tele_core
+	animation_speed 20 30
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 2
+	period 0
+	fade_in 0.25 0.3
+	// velocity 0 0 0 0 -60 0
+	fade_out 0.15 0.12
+	// emitter line 0 0 768
+	position 1 -2 -15
+	color_start 0.2 0.1 0
+	color_start 0.2 0.1 0
+	rotation_start 0 360
+	// velocity 0.1 0.1 0.1 
+	turbulence 0
+	scale_start 2
+	scale_end 4
+	soft_destruction on
+}
+
+mg_liquid_muzzle
+{
+	geometry quad
+	map effects1.png
+	region r_point_2
+	blend add
+	max_particles 5
+	max_emissions 64
+	lifetime 0.3
+	period 0
+	fade_in 0.05 0.075
+	// fade_out 0.1
+	// emitter line 0 0 1000
+	acceleration 0 -450 0 0 -400 0
+	position 1 -2 -15
+	velocity 20 50 20 -20 -10 400
+	color_start  1 1 0 
+	color_end  2 0 0 
+	turbulence 100 1
+	scale_start 2 5
+	scale_end 0 1
+}
+
+lighting
+{
+	
+	subsystem lgpuff
+	subsystem lgpuff_bubble
+	subsystem lgpuff4
+	subsystem lgrope2
+	subsystem mg_light
+	subsystem mg_muzzle
+	subsystem mg_liquid_muzzle
+	subsystem mg_liquid_smoke
+	
+	// subsystem mg_innerball
+	// subsystem lgring
+	// subsystem lgrope1
+	// subsystem lgrope32
+	// subsystem lgrope33
+	// subsystem lgrope3
+	// subsystem lgspark
+	// subsystem lgpuff2
+}

@@ -1,0 +1,285 @@
+//weapon9 BULLET
+weapon9_bullet_center_1
+{
+	advance 1
+	map particle_sheet3.png
+	geometry quad
+	region s3_plasma_54
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.7 0.6
+	// period 0.05
+	fade_in 0.05
+	fade_out 0.1 0.05
+	scale_start 10
+	scale_end 10
+	color_start 5 2 10 1
+	color_end   0.4 4 6 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 400 5
+	range 0
+} 
+
+weapon9_bullet_center_2
+{
+	advance 1
+	map particle_sheet3.png
+	geometry quad
+	region s3_plasma_52
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.7 0.6
+	// period 0.05
+	fade_in 0.05
+	fade_out 0.1 0.05
+	scale_start 30
+	scale_end 50
+	color_start 0.3 0.15 0.6 1
+	color_end   0.3 0.05 6 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 400 5
+	range 0
+} 
+
+weapon9_bullet_center_3
+{
+	advance 1
+	map particle_sheet3.png
+	geometry quad
+		region s3_rl_muzzle_18
+	blend add
+	max_particles 2
+	max_emissions 0
+	lifetime 0.7 0.6
+	// period 0.05
+	fade_in 0.05
+	fade_out 0.1 0.05
+	scale_start 30
+	scale_end 1
+	color_start 5 1 10 1
+	color_end   0.4 0.05 6 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 400 5
+	angular_speed_start -100000
+	range 0
+}
+
+
+weapon9_bullet_ring
+{
+	advance 1
+	map particle_sheet3.png
+	geometry quad
+region s3_rl_muzzle_19
+	blend add
+	max_particles 2
+	max_emissions 0
+	lifetime 0.7 0.6
+	// period 0.05
+	fade_in 0.05
+	fade_out 0.1 0.05
+	scale_start 50 40
+	scale_end 40
+	color_start 5 1.25 10 1
+	
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 400 5
+	angular_speed_start 50000
+	range 0
+}
+
+weapon9_projectile_spark
+{
+	map particle_sheet3.png
+	region s3_explosion02_333
+	animation_speed 30
+	animation_start 0
+	max_particles 1
+	max_emissions 0
+	lifetime 0.4
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0.1
+	color_start 0.5 0.5 0.5 1
+	color_end   5 0 5
+	position 0 0 0  
+    scale_start 50
+    scale_end 200
+    rotation_start 0 360 
+    fade_out 0.02
+	hard_edges true
+		angular_speed_start -10000
+}
+weapon9_projectile_spark2
+{
+	map particle_sheet3.png
+	region s3_plasma_53
+	animation_speed 40
+	animation_start 0
+	max_particles 1
+	max_emissions 0
+	lifetime 0.12
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0.1
+	color_start 5 2 10 1
+	color_end   0 0 5
+	position 0 0 0  
+    scale_start 2
+    scale_end 100
+    rotation_start 0 360
+    fade_out 0.02
+	hard_edges true
+		angular_speed_start -10000
+}
+
+weapon9_bullet_light base_light_impact
+{
+	
+	lifetime 0
+	system_light_radius 75	
+	velocity 0 0 0
+	//position 0 50 0
+	system_light_color 3 .6 5	
+}
+weapon9_projectile_embers base_smoke_trail
+{
+	advance 1
+	
+	geometry quad
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	blend add
+	max_particles 200
+	max_emissions 0
+	lifetime 0.15 0.25
+	period 0.01
+	fade_in 0.1
+	fade_out 0.4
+	scale_start 100
+	scale_end 0
+	rotation_start 0 360
+color_start 2 0.8 4 1
+	color_end   1 0.2 1.0 1
+	// acceleration 0 0 -300
+	velocity -10 10 -5 10 -10 5
+	position 0 0.5 0
+	turbulence 5 5 5
+	drag 1
+	angular_speed_start 10000
+	// soft_destruction on
+    // this line above was misspelled as soft_destructiyon, fixed spelling and commented it out in case it not working is being relied upon 
+}
+
+weapon9_projectile_embers_2 base_smoke_trail
+{
+	advance 1
+	
+	geometry quad
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 250
+	max_emissions 0
+	lifetime 0.5 0.3
+	period 0.004
+	fade_in 0.1
+	fade_out 0.4
+	scale_start 45
+	scale_end 0
+	rotation_start 0 360
+color_start 0.4 0.25 1 1
+	color_end  0.2 0.08 0.4 0.65
+	// acceleration 0 0 -300
+	velocity -10 5 -5 10 -5 5
+	position 0 0.5 0
+	turbulence 5 5 5
+	drag 1
+	angular_speed_start 10000
+    // soft_destruction on
+    // this line above was misspelled as soft_destructiyon, fixed spelling and commented it out in case it not working is being relied upon 
+}
+weapon9_bullet_circle
+{
+	advance 1
+	map particle_sheet5.png
+	geometry quad
+	region plasma_circle
+	blend alpha	
+	max_particles 6
+	max_emissions 0
+	lifetime 0.2 0.2
+	// period 0.05
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 40
+	scale_end 30
+	//color_start 0.75 .25 2.5 1
+	color_start  1.0 1 2
+	color_start  1.0 1 2	
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 4000 5000
+	range 0
+	angular_speed_start 12000
+} 
+weapon9_bullet_dots
+{
+	advance 1
+	map particle_sheet3.png
+	geometry quad
+	region s3_dots
+	blend add	
+	max_particles 3
+	max_emissions 0
+	lifetime 0.2 0.2
+	// period 0.05
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 15 8
+	scale_end 15
+	//color_start 0.75 .25 2.5 1
+	color_start  0.7 0.4 0.7 	
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 4000 5000
+	range 0
+	angular_speed_start 1000
+}
+//SUBSYSTEM BULLET
+
+bfg_bullet
+{
+
+	subsystem weapon9_bullet_center_1
+	subsystem weapon9_bullet_center_2
+	subsystem weapon9_bullet_center_3
+	 //subsystem weapon9_projectile_spark
+	// subsystem weapon9_projectile_spark2
+	subsystem weapon9_bullet_ring
+	subsystem weapon9_bullet_light 
+	subsystem weapon9_projectile_embers
+	subsystem weapon9_projectile_embers_2
+	subsystem weapon9_bullet_circle
+	subsystem weapon9_bullet_dots
+}

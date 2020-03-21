@@ -1,0 +1,53 @@
+//--------------------------------------	EGGBOT SOUNDS
+
+/// LAND
+
+sound eggbot_land_enemy_heel1
+{
+	id 1718
+	distance_max 1330
+	distance_min 80
+	source eggbot/eggbot_enemy_lands/eggbot_land_enemy_heel1
+	group enemy_land
+	pitch 0.03
+	volume_2d 0.5
+	volume 0.6
+	wetness 0.4
+	wetness_2d 0
+	lopass_gain 0.5
+}
+sound eggbot_land_enemy_heel2
+{
+	id 1719
+	source eggbot/eggbot_enemy_lands/eggbot_land_enemy_heel2
+	group enemy_land
+    link 1718
+}
+sound eggbot_land_enemy_heel3
+{
+	id 1720
+	source eggbot/eggbot_enemy_lands/eggbot_land_enemy_heel3
+	group enemy_land
+    link 1718
+}
+sound eggbot_land_enemy_heel4
+{
+	id 1721
+	source eggbot/eggbot_enemy_lands/eggbot_land_enemy_heel4
+	group enemy_land
+    link 1718
+}
+sound eggbot_land_enemy_heel5
+{
+	id 1722
+	source eggbot/eggbot_enemy_lands/eggbot_land_enemy_heel5
+	group enemy_land
+    link 1718
+}
+sound eggbot_land_enemy_heel6
+{
+	id 1723
+	source eggbot/eggbot_enemy_lands/eggbot_land_enemy_heel6
+	group enemy_land
+    link 1718
+}

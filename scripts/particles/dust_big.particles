@@ -1,0 +1,74 @@
+dust_big
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 200
+	max_emissions 0
+	lifetime 20
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 1300 0 200 -1300 120 -200
+	// position 0 0 -1 0 0 -1
+	period 0.03
+	velocity 5 -5 5 -5 5 -5
+	color_start  0.9 0.34 0 0.8  0.9 0.34 0 0.5
+	color_end  0.9 0.34 0 0.8 0.9 0.34 0 0.2
+	// emitter line 0 0 1
+	scale_start 1 2
+	scale_end 0 
+}
+
+dust_big_blue
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 200
+	max_emissions 0
+	lifetime 20
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 1300 0 200 -1300 120 -200
+	// position 0 0 -1 0 0 -1
+	period 0.03
+	velocity 5 -5 5 -5 5 -5
+	color_start  0.3 0.85 0.93 0.8  0.3 0.85 0.93 0.5
+	color_end  0.3 0.85 0.93 0.8 0.3 0.85 0.93 0.2
+	// emitter line 0 0 1
+	scale_start 1 2
+	scale_end 0 
+}
+
+dust_big_vol
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 500
+	max_emissions 0
+	lifetime 20
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 35 0 35 -70 500 -35
+	// position 0 0 -1 0 0 -1
+	period 0.03
+	velocity 5 -5 5 -5 5 -5
+	color_start  0.3 0.85 0.93 0.8  0.3 0.85 0.93 0.5
+	color_end  0.3 0.85 0.93 0.8 0.3 0.85 0.93 0.2
+	// emitter line 0 0 1
+	scale_start 1 2
+	scale_end 0 
+}

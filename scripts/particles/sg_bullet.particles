@@ -1,0 +1,161 @@
+//SHOTGUN BULLET
+
+sg_flame1
+{
+	advance 1
+	animation_start 5 8
+	geometry quad
+	map effects1.png
+	region r_flame3_a
+	blend alpha
+	max_particles 16
+	max_emissions 0
+	lifetime 0.7 0.6
+	period 0.05
+	fade_out 0.1 0.05
+	scale_start 25
+	scale_end 0
+	rotation_start 0 360
+	color_start 1 1 0 1 1 0.5 0 1
+	color_end 5 0 0 1
+	acceleration 0 0 -300 0 0 -300
+	position 1 1 -3 -1 -1 -3
+	turbulence 400 5
+}
+
+sg_flametest
+{
+	advance 1
+	geometry quad
+	map effects1.png
+	region r_flame3_a
+	animation_start 5 8
+	blend add
+	max_particles 10
+	max_emissions 0
+	lifetime 1
+	period 0.1
+	scale_start 25
+	scale_end 10
+	rotation_start 90 90
+	color_start 1 1 0.5 1 1 0.3 0.3 1
+	color_end 1 0.75 0 1
+	acceleration 0 0 -20 0 0 -20
+}
+
+sg_flame2
+{
+	advance 1
+	geometry quad
+	map effects1.png
+	region r_point_2
+	blend add
+	max_particles 10
+	max_emissions 0
+	lifetime 1
+	period 0.1
+
+	scale_start 25
+	scale_end 10
+	rotation_start 90 90
+	color_start 1 1 0.5 1 1 0.3 0.3 1
+	color_end 1 0.75 0 1
+	acceleration 0 0 -20 0 0 -20
+}
+
+sg_flame3
+{
+	advance 5
+//	drag 0
+	geometry quad
+	map effects1.png
+	region r_part1_a
+	animation_speed 15
+	animation_start 0
+	blend alpha
+	max_particles 32
+	max_emissions 0
+	lifetime 0.5
+	period 0.05
+	fade_out 0.4 0.25
+	scale_start 15
+	scale_end 100
+	rotation_start 0 360
+	color_start  0.05 0.05 0.05 0.5
+	color_end 0 0 0 0.2
+	acceleration 0 0 -1000 0 0 -1000
+
+}
+
+sg_flame4
+{
+	advance 1
+	geometry quad
+	map effects1.png
+	region r_flare_2
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 10
+	period 10
+	scale_start 25
+	scale_end 25
+	color_start 1 0.2 0 1
+}
+
+sg_flame5
+{
+	advance 1
+	animation_start 5 8
+	geometry quad
+	map effects1.png
+	region r_flame2_a
+	blend add
+	max_particles 16
+	max_emissions 0
+	lifetime 0.7 0.6
+	period 0.05
+	fade_out 0.1 0.05
+	scale_start 18
+	scale_end 0
+	rotation_start 0 360
+	color_start 1 1 0 1 1 0.5 0 1
+	color_end 5 0 0 1
+	acceleration 0 0 -300 0 0 -300
+	position 1 1 -3 -1 -1 -3
+	turbulence 400 5
+}
+
+sg_flame6
+{
+	advance 1
+	map effects1.png
+	region r_flare_2
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 10
+	period 0
+	scale_start 1
+	scale_end 1
+	color_start 1 0.2 0 0
+	system_light_radius 250
+}
+
+rocket_smoketrail base_smoke_trail
+{
+
+}
+
+//SUBSYSTEM BULLET
+
+sg_projectile
+{
+	subsystem sg_flame1 0.2
+	subsystem sg_flame2 0.2
+	subsystem sg_flame3 0.2
+	subsystem sg_flame4 0.2
+	subsystem sg_flame5 0.2
+	subsystem rg_flame6 0.2
+	subsystem sg_smoketrail
+}

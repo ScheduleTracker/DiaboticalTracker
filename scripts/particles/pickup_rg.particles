@@ -1,0 +1,79 @@
+
+rg_glow_point
+{
+	map particle_sheet1.png
+	region r_point_big
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend add
+	fade_out 0
+	max_particles 200
+	max_emissions 0
+	lifetime 3.5
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 25 -130 25 -25 -130 -25
+	// position 0 0 -1 0 0 -1s
+	period 0.09
+	velocity 2 30 2 -2 40 -2
+	color_start 1 1 2 
+	// emitter line 0 0 1
+	scale_start 6 7s
+	scale_end  8 10
+}
+
+rg_glow_point_center rg_glow_point
+{
+	period 0.06
+	position 10 -130 10 -10 -130 -10
+	velocity 2 30 2 -2 40 -2
+	scale_start 11 12
+	scale_end 13 16
+}
+
+rg_glow_point_outer rg_glow_point
+{
+	position 50 -130 50 -50 -130 -50
+	velocity 2 30 2 -2 40 -2
+	scale_start 1 2
+	scale_end 2 3
+	period 0.04
+}
+
+
+rg_pickup_test2
+{
+	map particle_sheet1.png
+	region r_point_big
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 1
+	max_emissions 
+	lifetime 3
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 0 -80 0
+	// position 0 0 -1 0 0 -1s
+	period 0.03
+	velocity 0 20 0
+	color_start 1 1 2
+	// emitter line 0 0 1
+	scale_start 100
+	scale_end 100
+	drag 1
+}
+
+// pickup_rg
+{
+	subsystem rg_glow_point
+	subsystem rg_pickup_test2
+	subsystem rg_glow_point_center 
+	subsystem rg_glow_point_outer
+
+}
+	

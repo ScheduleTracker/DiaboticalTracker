@@ -1,0 +1,32 @@
+pickup_ring_1
+{
+	map ring.png
+	//region s3_rl_muzzle_39
+	blend alpha
+
+    mesh models/plane.fbx 20
+	geometry mesh
+
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2
+	// period 0.05
+	fade_in 0.05
+	fade_out 999
+	scale_start 50
+	scale_end 150
+	//color_start 0.2 3 4 6
+	//color_end 0.2 3 4 6
+
+	color_start 1 1 1 1
+	color_end 1 1 1 1
+	position 0 0 0
+	rotation_start 0 0
+	rotation_end 0 0
+	turbulence 400 5
+} 
+
+pickup_ring
+{
+	subsystem pickup_ring_1
+}

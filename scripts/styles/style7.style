@@ -1,0 +1,79 @@
+
+
+//BOTTOM-FACING WALL-TO-FLOOR HORIZONTAL BORDER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right_top empty
+	if right solid
+	if top solid
+	place inc_edge_bottom,inc_edge_bottom2 back 1.0 1 1 0
+	style 8
+}
+
+//CONCAVE VERTICAL CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if right_bottom solid
+	if front empty
+	place inc_edge_corner back 1.0 1 1 0
+	style 8
+}
+
+//TOP BORDER
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if bottom empty
+	if front solid
+	place inc_edge_bottom back 1 1 -1 0
+	style 8
+}
+
+
+//TOP BORDER
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if self solid
+	if right empty
+	if top empty
+	place top_border_industrial back 1.0 1 1 0
+	style 8
+}
+
+//THREE-WAY CONVEX CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if front empty
+	if right_front empty
+	if top empty
+	place top_corner_industrial back 1.0 1 1 0
+	style 8
+}
+
+
+//HORIZONTALLY-CONVEX, VERTICALLY-CONCAVE CORNER
+rule
+{
+	extrapolate + -
+	if self solid
+	if right solid
+	if front solid
+	if right_front empty
+	if top empty
+	place top_convex_corner_industrial,top_convex_corner_industrial2 back 1.0 1 1 0
+	style 8
+}

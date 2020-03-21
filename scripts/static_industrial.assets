@@ -1,0 +1,648 @@
+asset props/industrial/vent01
+{
+  listed true
+  type prop
+  tags vent01
+  ambient_sound_loop ambience_fan_loop2
+  surface metal
+}
+asset props/industrial/vent02
+{
+  listed true
+  type prop
+  tags vent02
+  ambient_sound_loop ambience_fan_loop2
+  surface metal
+}
+asset props/industrial/vent03
+{
+  listed true
+  type prop
+  tags vent03
+  ambient_sound_loop ambience_fan_loop2
+  surface metal
+}
+asset props/metro/redlight_sign_02
+{
+  listed true
+  type prop
+  tags redlight_sign_02
+}
+asset props/metro/redlight_sign_01_noholder
+{
+  listed true
+  type prop
+  tags redlight_sign_01_noholder
+}
+asset props/metro/redlight_sign_01
+{
+  listed true
+  type prop
+  tags redlight_sign_01
+}
+asset props/industrial/reinarmor_diagonal_flipped
+{
+  listed true
+  type prop
+  tags reinarmor_diagonal_flipped
+}
+asset props/industrial/reinarmor_diagonal
+{
+  listed true
+  type prop
+  tags reinarmor_diagonal
+}
+asset props/metro/metro_sign_01
+{
+  listed true
+  type prop
+  tags metro_sign_01
+}
+asset props/industrial/lightpost_wall_01
+{
+  listed true
+  type prop
+  tags lightpost_wall_01
+}
+asset props/industrial/trashcan_01
+{
+  listed true
+  type prop
+  tags trashcan_01
+  surface metal
+}
+asset props/box_01
+{
+  listed true
+  type prop
+  tags box
+}
+
+asset props/box_02
+{
+  listed true
+  type prop
+  tags box
+}
+
+asset props/box_03
+{
+  listed true
+  type prop
+  tags box
+}
+
+asset props/box_04
+{
+  listed true
+  type prop
+  tags box 
+}
+
+asset props/box_05
+{
+  listed true
+  type prop
+  tags box
+}
+
+asset props/commentatorbooth
+{
+  listed true
+  type prop
+  tags sport commentate
+  surface metal
+}
+
+asset props/computerpanel
+{
+  listed true
+  type prop
+  tags computer 
+}
+
+asset props/flood_light
+{
+  listed true
+  type prop
+  tags light
+}
+
+asset props/fusebox
+{
+  listed true
+  type prop
+  tags metal
+  ambient_sound_loop ambience_fusebox_loop
+  surface metal
+}
+
+asset props/harvester
+{
+  listed true
+  type prop
+  tags big red metal 
+  surface metal
+}
+
+asset props/monitor_01
+{
+  listed true
+  type prop
+  tags metal monitor display
+}
+
+asset props/monitor_02
+{
+  listed true
+  type prop
+  tags metal monitor display
+}
+
+asset props/prop_crane01
+{
+  listed true
+  type prop
+  tags metal crane
+  surface metal
+}
+
+asset props/prop_crane02
+{
+  listed true
+  type prop
+  tags metal crane
+  surface metal
+}
+
+asset props/prop_crane03
+{
+  listed true
+  type prop
+  tags metal crane
+  surface metal
+}
+
+asset props/spaceship
+{
+  listed true
+  type prop
+  tags metal big spaceship air transport
+  surface metal
+}
+
+asset props/spotlight_01
+{
+  listed true
+  type prop
+  tags light roof
+}
+
+asset props/spotlight_02
+{
+  listed true
+  type prop
+  tags light roof
+}
+
+asset props/teleporter
+{
+  listed true
+  type prop
+  tags teleport 
+}
+
+asset props/wall_light
+{
+  listed true
+  type prop
+  tags light wall
+}
+
+asset props/wall_light2
+{
+  listed true
+  type prop
+  tags light wall
+}
+
+asset props/vendingmachine_soda
+{
+  listed true
+  type prop
+  tags metal vendingmachine machine soda
+}
+
+asset props/vendingmachine_taco
+{
+  listed true
+  type prop
+  tags metal vendingmachine taco
+}
+
+//-------------------------------------------------------
+
+asset props/industrial/container
+{
+  listed true
+  type prop
+  tags 
+  surface metal
+}
+
+
+asset props/industrial/dp_convex_metalbox01
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/industrial/dp_convex_metalbox02
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/industrial/dp_convex_metalbox03
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/industrial/elevator_big
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/industrial/elevator_small
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/industrial/kiosk
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/industrial/kiosk_gate
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/industrial/pipe_curve
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/industrial/pipe_small_curve
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/industrial/pipe_xsmall_curve
+{
+  listed true
+  type prop
+  tags 
+}
+
+asset props/industrial/terminal_0102_combined
+{
+  listed true
+  type prop
+  tags 
+}
+
+asset props/industrial/terminal01
+{
+  listed true
+  type prop
+  tags 
+}
+
+asset props/industrial/terminal02
+{
+  listed true
+  type prop
+  tags 
+}
+
+asset props/monter_01
+{
+  listed true
+  type prop
+  tags
+}
+
+asset props/restaurant/chunk_sign
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/restaurant/barchair
+{
+  listed true
+  type prop
+  tags 
+}
+
+
+asset props/restaurant/plate
+{
+  listed true
+  type prop
+  tags 
+}
+
+asset props/restaurant/platestack
+{
+  listed true
+  type prop
+  tags 
+}
+
+asset props/restaurant/napkinholder
+{
+  listed true
+  type prop
+  tags 
+}
+
+asset props/restaurant/chunk_menu1
+{
+  listed true
+  type prop
+  tags 
+}
+
+asset props/restaurant/chunk_menu2
+{
+  listed true
+  type prop
+  tags
+}
+
+asset props/metro/wall_divider
+{
+  listed true
+  type prop
+  tags
+}
+
+asset props/monument_rings
+{
+  listed true
+  type prop
+}
+
+
+asset props/ad_board
+{
+  listed true
+  type prop
+}
+
+asset props/ticket_machine
+{
+  listed true
+  type prop
+  surface metal
+}
+
+asset props/metro/sign_plaza_district
+{
+  listed true
+  type prop
+}
+
+asset props/signs/display_big
+{
+  listed true
+  type prop
+}
+
+asset props/signs/display_medium
+{
+  listed true
+  type prop
+}
+
+asset props/signs/display_medium02
+{
+  listed true
+  type prop
+}
+
+asset props/signs/display_medium03
+{
+  listed true
+  type prop
+}
+
+asset props/signs/sign_quad01
+{
+  listed true
+  type prop
+}
+
+asset props/signs/sign_quad02
+{
+  listed true
+  type prop
+}
+
+asset props/signs/sign_quad03
+{
+  listed true
+  type prop
+}
+
+asset props/signs/store_sign
+{
+  listed true
+  type prop
+}
+
+asset props/signs/top_shelf_big
+{
+  listed true
+  type prop
+}
+
+asset props/signs/top_shelf_juiceup
+{
+  listed true
+  type prop
+}
+
+asset props/city_plaza_text
+{
+  listed true
+  type prop
+}
+
+asset props/ticket_booth
+{
+  listed true
+  type prop
+}
+
+asset props/ticket_booth_closed_01
+{
+  listed true
+  type prop
+}
+
+asset props/ticket_booth_closed_02
+{
+  listed true
+  type prop
+}
+
+asset props/closed_sign
+{
+  listed true
+  type prop
+}
+asset props/metro/circularrooflamp_01
+{
+  listed true
+  type prop
+  tags circularrooflamp_01
+}
+
+asset props/metro/sign_district_relax
+{
+  listed true
+  type prop
+}
+
+asset props/metro/sign_metro_relax
+{
+  listed true
+  type prop
+}
+
+asset props/metro/sign_plaza_district
+{
+  listed true
+  type prop
+}
+
+asset props/generator_turbine
+{
+  listed true
+  type prop
+  tags generator
+  ambient_sound_loop ambience_wallturbine_loop
+}
+
+asset props/generator_fuse
+{
+  listed true
+  type prop
+  tags generator
+  ambient_sound_loop ambience_wallgeneratorfuse_loop
+}
+
+asset props/generator_fuse
+{
+  listed true
+  type prop
+  tags walls
+  ambient_sound_loop ambience_wallgeneratorfuse_loop
+}
+
+
+asset props/signs/flyer_1
+{
+  listed true
+  type prop
+}
+
+asset props/signs/flyer_2
+{
+  listed true
+  type prop
+}
+
+asset props/signs/flyer_3
+{
+  listed true
+  type prop
+}
+asset props/signs/flyer_4
+{
+  listed true
+  type prop
+}
+
+asset props/signs/flyer_5
+{
+  listed true
+  type prop
+}
+
+asset props/signs/flyer_6
+{
+  listed true
+  type prop
+}
+
+asset props/metro/sign_metro_district
+{
+  listed true
+  type prop
+}
+
+asset props/podium
+{
+  listed true
+  type prop
+}
+
+asset props/podium2
+{
+  listed true
+  type prop
+}
+
+asset props/signs/display_medium04
+{
+  listed true
+  type prop
+}
+
+asset props/signs/display_medium05
+{
+  listed true
+  type prop
+}
+

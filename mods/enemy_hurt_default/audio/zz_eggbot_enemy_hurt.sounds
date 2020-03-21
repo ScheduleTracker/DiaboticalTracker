@@ -1,0 +1,53 @@
+//--------------------------------------	EGGBOT ENEMY HURT
+sound eggbot_enemy_hurt_default_25
+{
+	id 1740
+	source eggbot/eggbot_enemy_hurt/eggbot_enemy_hurt_default_25
+	distance_max 1330
+	distance_min 80
+	volume 3.51
+	volume_2d 1.93
+	wetness 0.44
+	wetness_2d 0.31
+	delay 0.02
+	// group eggbot_enemy_hurt
+}
+sound eggbot_enemy_hurt_default_50
+{
+	id 1741
+	source eggbot/eggbot_enemy_hurt/eggbot_enemy_hurt_default_50
+	distance_max 1330
+	distance_min 80
+	volume 3.922
+	volume_2d 1.91
+	wetness_2d 0.31
+	wetness 0.44
+	delay 0.02
+	// group eggbot_enemy_hurt
+}
+sound eggbot_enemy_hurt_default_75
+{
+	id 1742
+	source eggbot/eggbot_enemy_hurt/eggbot_enemy_hurt_default_75
+	distance_max 1330
+	distance_min 80
+	volume 5.112
+	volume_2d 1.928
+	wetness_2d 0.31
+	wetness 0.44
+	delay 0.02
+	// group eggbot_enemy_hurt
+}
+sound eggbot_enemy_hurt_default_100
+{
+	id 1743
+	source eggbot/eggbot_enemy_hurt/eggbot_enemy_hurt_default_100
+	distance_max 1330
+	distance_min 80
+	volume 5.98
+	volume_2d 3.024
+	wetness_2d 0.31
+	wetness 0.44
+	delay 0.06
+	// group eggbot_enemy_hurt
+}

@@ -1,0 +1,202 @@
+hp_pickup_vfx_bubbles
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_40
+	animation_speed 50
+	animation_start 10
+	max_particles 160
+	max_emissions 0
+	lifetime 1.3
+	fade_in 0.2
+	blend add
+	fade_out 0.1
+	period 0.04
+	color_start 0.75 1.5 0.5 0.5 1.5 0.75 0.6 0.5
+    scale_start 2.3 0.2
+    scale_end 1 0.4
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 90 0 0
+	speed_start 25
+	speed_end 10
+	//auto_orient true
+	//turbulence 2000 1000 2000
+	//acceleration 0 -5 0 0 -2 0
+	//position -5 -5 -5 5 -5 5
+	emitter horizontal_circle 10
+	position 0 -7 0
+}
+/////////////////////////////////////////////////////////////////////////////HPT0///////////////////////////////////////////////////
+hp_pickup_vfx_bubbles_hpt0 hp_pickup_vfx_bubbles
+{
+	velocity_angles 90 0 0
+	emitter horizontal_circle 5
+	position 0 -5 0
+	lifetime 0.8
+}
+hp_pickup_light_hpt0 base_light_impact
+{
+	lifetime 0
+	system_light_radius 50	
+	system_light_intensity 2
+	system_light_color 0.8 2.5 1.9
+	system_light_falloff 0.3
+	position 0 -5 0
+	
+}
+hp_pickup_vfx_cross_0
+{
+	map particle_sheet3.png
+	region region s3_cross
+	geometry mesh
+blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0
+	// period 0.05
+	fade_in 0.00
+	fade_out 999999
+	scale_start 100
+	scale_end 100	
+	position 0 0 0
+	rotation_start 0 0
+	rotation_end 0 0
+	color_start 1 1 1 1
+	color_end 1 1 1 1
+
+}
+////////////////////////////////////////////////////////////////////////////HPT1////////////////////////////////////////////////////
+
+hp_pickup_vfx_bubbles_hpt1 hp_pickup_vfx_bubbles
+{
+    lifetime 1.8
+	velocity_angles 75 180 0
+		emitter horizontal_circle 4.4
+	position 0 -7 1.4
+}
+hp_pickup_light_hpt1 base_light_impact
+{
+	lifetime 0
+	system_light_radius 64		
+	system_light_intensity 2.25
+	system_light_color 0.8 2.5 1.9
+	system_light_falloff 0.3
+	position 0 -7 1.4
+	
+}
+
+/////////////////////////////////////////////////////////////////////////HPT2///////////////////////////////////////////////////////
+hp_pickup_vfx_bubbles_hpt2 hp_pickup_vfx_bubbles
+{
+	velocity_angles 60 180 0
+	emitter horizontal_circle 10
+	position 0 -5 3
+}
+hp_pickup_light_hpt2 base_light_impact
+{
+	lifetime 0
+	system_light_radius 80	
+	system_light_intensity 2.5
+	system_light_color 0.8 2.5 1.9
+	system_light_falloff 0.3
+	position 0 -5 0
+	
+}
+///////////////////////////////////////////////////////////////////////HPT3/////////////////////////////////////////////////////////
+hp_pickup_vfx_bubbles_hpt3 hp_pickup_vfx_bubbles
+{
+	velocity_angles 90 180 0
+	emitter point
+	position -7 -6 -5 7 -6 5
+}
+hp_pickup_light_hpt3 base_light_impact
+{
+	lifetime 0
+	system_light_radius 100	
+	system_light_intensity 3.
+	system_light_color 0.8 2.5 1.9
+	system_light_falloff 0.3
+	position -7 -6 -5 
+	
+}
+///////////////////////////////////////////////////////////////////////HPT_drop/////////////////////////////////////////////////////////
+hp_pickup_vfx_bubbles_hpt_drop hp_pickup_vfx_bubbles
+{
+	velocity_angles 90 0 0
+	emitter horizontal_circle 5
+	position 0 -4 0
+	lifetime 0.5
+}
+hp_pickup_light_hpt_drop base_light_impact
+{
+	lifetime 0
+	system_light_radius 100	
+	system_light_intensity 3.
+	system_light_color 0.8 2.5 1.9
+	system_light_falloff 0.3
+	position -7 -6 -5 
+	
+}
+
+
+hpt_drop_ring 
+ {
+	 	
+	map particle_sheet3.png
+	region s3_rl_muzzle_39
+	animation_speed 30
+	animation_start 0
+	blend add
+	max_particles 4
+	max_emissions 0
+	lifetime 0.2
+	fade_in 0
+	fade_out1
+	rotation_start 0 360 
+	
+	
+	period 0.1
+	color_start 0.4 1 0.8 1
+		color_start 0.4 1 0.8 1
+
+	scale_start 55
+	scale_end 60
+	aspect_start 1
+	aspect_end 1
+	auto_orient_3d true
+	range 0
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+hp_pickup_vfx_hpt0
+{	 
+ 
+	subsystem hp_pickup_vfx_bubbles_hpt0
+	subsystem hp_pickup_light_hpt0
+	subsystem hp_pickup_vfx_cross_0
+}
+hp_pickup_vfx_hpt1
+{	 
+	subsystem hp_pickup_vfx_bubbles_hpt1
+	subsystem hp_pickup_light_hpt1
+}
+hp_pickup_vfx_hpt2
+{	 
+	subsystem hp_pickup_vfx_bubbles_hpt2
+	subsystem hp_pickup_light_hpt2
+}
+hp_pickup_vfx_hpt3
+{	 
+	subsystem hp_pickup_vfx_bubbles_hpt3
+	subsystem hp_pickup_light_hpt3
+}
+hp_pickup_vfx_hpt_drop
+{	 
+	subsystem hpt_drop_ring
+	subsystem hp_pickup_vfx_bubbles_hpt_drop
+	subsystem hp_pickup_light_hpt_drop
+	
+}

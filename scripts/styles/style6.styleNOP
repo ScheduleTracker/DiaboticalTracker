@@ -1,0 +1,91 @@
+/// STYLE 3 (LAYER 3))
+
+//front = -Z
+//back = +Z
+
+//TOP BORDER
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if bottom empty
+	if front solid
+	place inc_edge_top1,inc_edge_top2 back 1 1 -1 0
+	style 6
+}
+
+// BOTTOM BORDER
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right_top empty
+	if right solid
+	if top solid
+	place inc_edge_bottom,inc_edge_bottom2 back 1.0 1 1 0
+	style 6
+}
+
+//PILLAR
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if bottom solid
+	if front solid
+	if top empty
+	place inc_metal_border1 back 1.5 1 0 0
+	style 6
+}
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if right_bottom solid
+	if front empty
+	place inc_pillar1_base back 1.0 1 1 0
+	style 6
+}
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if right_bottom empty
+	if front empty
+	if right_top solid
+	// place inc_pillar1_base back 1.0 1 1 0
+	style 6
+}
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if back_top solid
+	if back empty
+	if top solid
+	place inc_pillar1_base back 1.0 1 1 0
+	style 6
+}
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if right_bottom empty
+	if front empty
+	place inc_pillar1_base back 1.0 1 1 0
+	style 6
+}
+

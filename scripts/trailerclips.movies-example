@@ -1,0 +1,198 @@
+pre_exec
+{
+   editor_layer 1
+   video_fov 70
+   sound_volume 0
+}
+post_exec
+{
+   editor_layer 1
+   video_fov 70
+   sound_volume 0.1
+   //stop
+   echo "done!"
+}
+
+//TRAILER CLIPS
+
+movie ashot1_intro
+{
+    dolly dolly_sky_new_1
+	dolly dolly_sky_new_2
+	easing l
+	duration 6
+}
+
+movie ashot2_intro
+{
+    dolly dolly_scene2_1
+    dolly dolly_scene2_2
+	easing l
+	duration 5
+}
+
+movie ashot3_pose2
+{
+    dolly dolly_pose2
+	dolly dolly_pose2b
+	sync_animation prop_pose2
+	layer 2
+	duration 3
+}
+
+movie ashot4_pose1
+{
+    dolly dolly_pose1
+	dolly dolly_pose1b
+	sync_animation prop_pose1
+	layer 2
+	duration 3
+}
+
+movie ashot5_pose4
+{
+    dolly dolly_pose4
+	dolly dolly_pose4b
+	sync_animation prop_pose4
+	layer 2
+	duration 3
+}
+
+movie ashot6_pose3
+{
+    dolly dolly_3_alt
+	dolly dolly_3b_alt
+	sync_animation prop_pose3_1
+	layer 2
+	duration 3
+}
+
+movie ashot7_drummer
+{
+    layer 4	
+	dolly dolly_drummer1
+    dolly dolly_drummer2
+   	easing l
+	sync_animation prop_1313
+	sync_animation prop_1314
+	duration 4
+}
+
+movie ashot8_guitar
+{
+    layer 4	
+	dolly dolly_guitar_intro
+    dolly dolly_guitar_intro2
+   	easing l
+	sync_animation prop_1313
+	sync_animation prop_1314
+	duration 4
+}
+
+movie shot9_frag1
+{
+	demo movie6
+	start 796
+	duration 8
+}
+
+movie shot9_frag1_server
+{
+	demo movie6server
+	dolly dolly_frag1
+	dolly dolly_frag2
+	dolly dolly_frag3
+	start 854.5
+	duration 7
+}
+
+movie shot10_frag2
+{
+	demo movie5
+	start 212
+	duration 10
+}
+
+movie shot11_frag3
+{
+	demo movie5
+	start 442
+	duration 17
+}
+
+movie shot12_frag4
+{
+	demo movie6
+	start 198
+	duration 7
+}
+
+movie shot13_frag5
+{
+	demo movie6
+	start 1020
+	duration 10
+}
+
+movie shot14_frag5_server
+{
+	demo movie6server
+	start 1079.5
+	duration 3.4  
+	dolly dolly_air_rocket1
+	dolly dolly_air_rocket2
+	easing l
+}
+
+movie shot15_band_middle
+{
+	demo movie6server
+	start 412.5
+    dolly dolly_band_middle_a
+	dolly dolly_band_middle_b
+	dolly dolly_band_middle_c
+	easing s
+	duration 13
+}
+
+movie shot16_pickup_dd
+{
+    demo movie5server
+	start 599
+	dolly dolly_pickup_1a
+    dolly dolly_pickup_2a
+    dolly dolly_pickup_3a
+    dolly dolly_pickup_4a
+    dolly dolly_pickup_5a
+	easing s
+	duration 9
+}
+
+movie shot17_dd_run
+{
+	demo movie5
+	start 550
+	duration 12
+}
+
+movie shot18_frag6
+{
+	demo movie4
+	start 528
+	duration 6
+}
+
+movie shot19_swordattack
+{
+	demo meleeattack
+	start 240
+	duration 6
+}
+movie shot20_air_rocket
+{
+	demo movie5
+	start 40
+	duration 10
+}
+
+

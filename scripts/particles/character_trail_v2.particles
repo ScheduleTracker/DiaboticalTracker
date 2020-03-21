@@ -1,0 +1,61 @@
+ch_trail_1
+{
+	map particle_sheet5.png 
+	region trail
+	//map uvtest.png
+	geometry oriented
+	trail true
+
+	blend max
+	max_particles 100
+	max_emissions 0
+	lifetime 1.0
+	period 0.025
+
+	rotation_start 0 0
+	rotation_end 0 0
+	fade_in 0 0
+	fade_out 0.01
+
+	color_start  1 1 1 0.7
+	color_end  1 1 1 0
+	color_accent true
+
+	scale_start 30
+	scale_end 30
+	position 0 -22 0
+}
+ch_trail_2
+{
+	map particle_sheet5.png 
+	region trail
+	//map uvtest.png
+	geometry oriented
+	trail true
+
+	blend add
+	max_particles 30
+	max_emissions 0
+	lifetime 0.1
+	period 0.0125
+
+	rotation_start 0 0
+	rotation_end 0 0
+	fade_in 0 0
+	fade_out 0
+
+	color_start 1 1 1 1
+	color_end  0 0 0 0
+	color_accent true
+
+	scale_start 10
+	scale_end 1
+	position 0 -22 0
+}
+
+	
+eggbot_trail
+{
+	 subsystem ch_trail_1
+	subsystem ch_trail_2
+}

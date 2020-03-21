@@ -1,0 +1,96 @@
+asset castle_dirt01
+{
+  type surface_material
+  material castle_dirt01
+}
+
+asset castle_grass01
+{
+  type surface_material
+  material castle_grass01
+}
+
+asset castle_grass01_dirt01
+{
+  type surface_material
+  material castle_grass01_dirt01
+}
+
+asset castle_gravel01
+{
+  type surface_material
+  material castle_gravel01
+}
+
+asset castle_plaster01_beige
+{
+  type surface_material
+  material castle_plaster01_beige
+}
+
+asset castle_plaster01_grey
+{
+  type surface_material
+  material castle_plaster01_grey
+}
+
+asset castle_plasterwindow01_beige
+{
+  type surface_material
+  material castle_plasterwindow01_beige
+}
+
+asset castle_plasterwindow01_grey
+{
+  type surface_material
+  material castle_plasterwindow01_grey
+}
+
+asset castle_stonefloor01
+{
+  type surface_material
+  material castle_stonefloor01
+}
+
+asset castle_stonefloor01_plaster01_grey
+{
+  type surface_material
+  material castle_stonefloor01_plaster01_grey
+}
+
+asset castle_stonewall01
+{
+  type surface_material
+  material castle_stonewall01
+}
+
+asset castle_stonewall01_plaster01_beige
+{
+  type surface_material
+  material castle_stonewall01_plaster01_beige
+}
+
+asset castle_stonewall01_plaster01_grey
+{
+  type surface_material
+  material castle_stonewall01_plaster01_grey
+}
+
+
+asset castle_stonewall01_mossy
+{
+  type surface_material
+  material castle_stonewall01_mossy
+}
+
+asset castle_stonewall01_moss01
+{
+  type surface_material
+  material castle_stonewall01_moss01
+}
+
+asset castle_stonewall02
+{
+  type surface_material
+  material castle_stonewall02
+}

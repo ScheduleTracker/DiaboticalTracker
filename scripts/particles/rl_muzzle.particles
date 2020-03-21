@@ -1,0 +1,162 @@
+//MUZZLE
+
+muzzle_flame explode_barrel
+{
+   position 0 0 0 0 0 0
+   scale_start 9
+   scale_end 12
+   rotation_start 0
+   fade_out 0.2
+   // color_start  1 1 0 1
+   // color_end  0.1 0.1 0 0
+}
+
+muzzle_spark explode_spark
+{
+   position 0 0 0 0 0 0
+   scale_start 8
+   scale_end 10
+}
+
+muzzle_spark_2 explode_spark_2
+{
+   position 0 0 0 0 0 0
+   scale_start 9
+   scale_end 14
+}
+
+rl_muzzle_flare
+{
+	map effects1.png
+	region r_flare_1
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	scale_start 1.25
+	scale_end 0.8
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+	position 13 -20 80
+	color_start  1 2 1 1
+	color_end  0.15 0.1 0
+	emitter line 0 0 1
+	scale_start 30
+	scale_end 100
+}
+
+// rl_muzzle_smoke
+// {
+	// map effects1.png
+	// region r_smoke_new	
+	// animation_speed 50
+	// animation_start 
+	// geometry directional
+	// blend alpha
+	// max_particles 10
+	// max_emissions 10
+	// lifetime 0.7
+	// fade_in 0.1
+	// fade_out 0.999
+	// rotation_start 0 360
+	// position 2 0 0
+	// position 0 0 -1 0 0 -1s
+	// period 0
+	// velocity 0 0 30 0 0 50
+	// color_start 0.6 0.6 0.6 1
+	// color_end 0.6 0.6 0.6 0
+	// emitter line 0 0 1
+	// scale_start 10
+	// scale_end 10
+	// drag 1
+// }
+
+rl_muzzle_flare2
+{
+	map particle_sheet1.png
+	region r_muzzle_rl
+    animation_speed 40
+	max_particles 2
+	max_emissions 2
+	period 0
+	lifetime 0.15
+	// scale_start 1.25
+	// scale_end 0.8
+	rotation_start 180 178
+	blend add
+	fade_out 0.15
+	position 1 0 -2
+	color_start  1 2 0 1
+	color_end  2 1 0  0
+	emitter line 0 0 1
+	scale_start 4 4.5
+	scale_end 4 4.2
+
+}
+
+rl_muzzle_flare3
+{
+	map particle_sheet1.png
+	region r_sg_explosion
+    animation_speed 40
+	max_particles 2
+	max_emissions 2
+	period 0
+	lifetime 0.08
+	// scale_start 1.25
+	// scale_end 0.8
+	rotation_start 180 178
+	blend add
+	fade_out 0.15
+	position 0 0 -2
+	color_start  1 2 0 1
+	color_end  2 1 0  0
+	emitter line 0 0 1
+	scale_start 4 
+	scale_end 8
+
+}
+
+rl_muzzle_embers
+{
+	// geometry quad
+	map particle_sheet1.png
+	region r_embers
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 20
+	max_emissions 20
+	lifetime 0.6
+	period 0
+	fade_in 0.1
+	velocity 8 8 40  -8 -8 40
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 0 0 0
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 0 0 1
+	emitter line 0 0 1
+	turbulence 200
+	scale_start 0.1 0.3
+	scale_end 0 0
+	drag 0.8
+}
+
+
+rocket_muzzle
+{	
+	subsystem muzzle_flame 0 5
+	subsystem muzzle_spark 0 5
+	subsystem muzzle_spark_2 0 5
+	subsystem rl_muzzle_explosion2 0 5
+	subsystem rl_muzzle_flare 0 5
+	// subsystem rl_muzzle_smoke
+	subsystem rl_muzzle_flare2 0 5
+	subsystem rl_muzzle_flare3 0 5
+	subsystem rl_muzzle_embers 0 15
+}

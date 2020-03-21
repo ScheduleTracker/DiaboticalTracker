@@ -1,0 +1,53 @@
+
+asset temple_plaster_01
+{
+  type surface_material
+  material temple_plaster_01
+}
+
+asset temple_plaster_02
+{
+  type surface_material
+  material temple_plaster_02
+}
+
+asset temple_plaster_03
+{
+  type surface_material
+  material temple_plaster_03
+}
+
+asset temple_plaster_04
+{
+  type surface_material
+  material temple_plaster_04
+}
+
+asset temple_plaster_05
+{
+  type surface_material
+  material temple_plaster_05
+}
+asset temple_stonemetal
+{
+  type surface_material
+  material temple_stonemetal
+}
+
+asset temple_girder
+{
+  type surface_material
+  material temple_girder
+}
+
+asset temple_girder2
+{
+  type surface_material
+  material temple_girder2
+}
+
+asset temple_sand_stone
+{
+  type surface_material
+  material temple_sand_stone
+}

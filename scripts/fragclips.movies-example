@@ -1,0 +1,107 @@
+
+//MAP: kickstarter44
+
+//SHOWS MOVEMENT IN AIR (ORANGE BOT USING BOLT)
+movie broll_game1
+{
+	demo movie5
+	start 385
+	duration 10
+}
+
+//SHOWS LOTS OF CLOSE COMBAT ACTION AND GIBS
+movie broll_game2
+{
+	demo movie4
+	start 343
+	duration 17
+}
+
+//SHOWS CHASE AND MOVEMENT ON GROUND (THROUGH CORRIDOR)
+movie broll_game3
+{
+	demo movie5
+	start 474
+	duration 10
+}
+
+//SHOWS BOLT TO EVADE DEATH (OVER THE EDGE)
+movie broll_game4
+{
+	demo movie5
+	start 235
+	duration 5
+}
+
+//SHOWS DOUBLE DAMAGE AND BOLT USAGE
+movie broll_game5
+{
+	demo movie6
+	start 94
+	duration 14
+}
+
+//SHOWS PICKING UP THE DOUBLE DAMAGE
+movie broll_game6
+{
+	demo movie6
+	start 1028
+	duration 5
+}
+
+
+//SHOWS GENERAL DOUBLE JUMP USAGE (AIR AND GROUND)
+movie broll_game7
+{
+	demo movie6
+	start 204
+	duration 10
+}
+
+//SHOWS GENERAL DOUBLE JUMP USAGE (AIR AND GROUND)
+movie broll_game8
+{
+	demo movie4
+	start 856
+	duration 16
+}
+
+//SHOWS DOUBLE LG USAGE (DOUBLE DAMAGE)
+movie broll_game9
+{
+	demo movie4
+	start 302
+	duration 12
+}
+
+//SHOWS ALL WEAPONS IN DOUBLE DAMAGE
+movie broll_game10
+{
+	demo movie4
+	start 286
+	duration 12
+}
+
+//SHOWS NEAT BOLT ADJUSTMENT
+movie broll_game11
+{
+	demo movie4
+	start 270
+	duration 10
+}
+
+//SHOWS JUST KILLS AND TURNING (QUITE NICE)
+movie broll_game12
+{
+	demo movie4
+	start 244
+	duration 24
+}
+
+//SHOWS STRAFE MOVEMENT SYSTEM AND DETAILED AIR CONTROL
+movie broll_game13
+{
+	demo movie4
+	start 187
+	duration 10
+}

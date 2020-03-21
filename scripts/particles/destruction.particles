@@ -1,0 +1,113 @@
+muzzle10
+{
+	map newparticles.png
+	region r_burst_1
+	animation_speed 25
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3 0.3
+	fade_in 0
+	rotation_start 0 360
+	//position 0 0 -1 0 0 -1
+	period 0
+	color_start  4 2 2 1
+	//color_end  4 2 2 1
+	emitter line 0 0 1
+	scale_start 300
+	scale_end 450
+}
+
+debris_trailNOP
+{
+
+	geometry quad
+	//magnet -3 -1 0 0 0 -100 0
+	drag 1.0
+	map particle_sheet1.png
+	region r_explosion_smoke
+	blend add
+	max_particles 20
+	max_emissions 0
+	lifetime 0.15
+	period 0.01
+	fade_in 0 0
+	fade_out 0.01 0.01
+	//emitter ellipsoid 34 34 
+	//position 1 1 1 -1 -1 -1
+	color_start 1 1 1 1
+	color_end  1 1 1 1
+	turbulence 200 10
+	scale_start 40
+	scale_end 35
+	//velocity 10 15 10 -12 -10 -20
+}
+
+
+debris_trail_a
+{
+	geometry quad
+	//magnet -3 -1 0 0 0 -100 0
+	drag 1.0
+	animation_speed 29
+	animation_start 0
+	map particle_sheet1.png
+	region r_point_big
+	blend alpha
+	max_particles 150
+	max_emissions 250
+	lifetime 0.4
+	period 0.006
+	rotation_start 0 360
+	fade_in 0 0
+	fade_out 0.01 0.01
+	//emitter ellipsoid 34 34 
+	//position 1 1 1 -1 -1 -1
+	//color_start 0 0.78 0.89 1
+	//color_end  0 0.78 0.89 0
+    color_start 1 1 1 1
+    color_end  1 1 1 0
+    color_accent true
+	turbulence 200 10
+	scale_start 15
+	scale_end 15
+	//velocity 10 15 10 -12 -10 -20
+}
+
+debris_trail_b debris_trail_a
+{
+	region r_sg_impact_spark
+	blend add
+	lifetime 0.5
+	max_particles 20
+	max_emissions 50
+	//color_start 0.5 0.8 1
+	//color_end  0.5 0.8 0
+	color_start 1 1 1 1
+    color_end  1 1 1 0
+    color_accent true
+	period 0.005
+	velocity 40 40 40 -40 -40 -40
+	scale_start 5
+	scale_end 2
+}
+
+debris_trail_c debris_trail_a
+{
+	blend alpha
+	lifetime 0.2
+	color_start 0 0.78 0.89 1
+	color_end  0 0.78 0.89 0.001
+	period 0.00725
+	scale_start 5
+	scale_end 5
+	emitter ellipsoid 34 34 
+}
+
+debris_trail_old
+{
+	subsystem debris_trail_a
+	subsystem debris_trail_b
+	// subsystem debris_trail_c
+}

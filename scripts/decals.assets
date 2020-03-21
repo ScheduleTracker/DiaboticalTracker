@@ -1,0 +1,598 @@
+asset burself
+{
+  listed true
+  type decal
+}
+
+asset billboard_glow1
+{
+  listed true
+  type decal
+}
+
+asset billboard_glow2
+{
+  listed true
+  type decal
+}
+
+asset display1
+{
+  listed true
+  type decal
+}
+
+asset worms_redarmor
+{
+  listed true
+  type decal
+}
+
+asset worms01
+{
+  listed true
+  type decal
+}
+asset worms02
+{
+  listed true
+  type decal
+}
+
+asset worms03
+{
+  listed true
+  type decal
+}
+
+asset octupus
+{
+  listed true
+  type decal
+}
+asset snake
+{
+  listed true
+  type decal
+}
+asset thin_coll
+{
+  listed true
+  type decal
+}
+
+asset yellow_room
+{
+  listed true
+  type decal
+}
+asset blue_room
+{
+  listed true
+  type decal
+}
+asset red_room
+{
+  listed true
+  type decal
+}
+
+
+asset splatter_alpha
+{
+  listed true
+  type decal
+}
+
+asset splatter01
+{
+  listed true
+  type decal
+}
+
+asset tag_1
+{
+  listed true
+  type decal
+}
+
+asset billboard_cutie
+{
+  listed true
+  type decal
+}
+
+asset RomeroRocket
+{
+  listed true
+  type decal
+}
+
+asset decal
+{
+  listed true
+  type decal
+}
+
+asset xspot1
+{
+  listed true
+  type decal
+}
+
+
+asset diabotical_graffiti
+{
+  listed true
+  type decal
+}
+
+
+asset gaspachelor_graffiti
+{
+  listed true
+  type decal
+}
+
+
+asset red_armor_graffiti
+{
+  listed true
+  type decal
+}
+
+
+asset dirt
+{
+  listed true
+  type decal
+}
+
+asset chillbot_graffiti
+{
+  listed true
+  type decal
+}
+
+asset flyer_1
+
+{
+  listed true
+  type decal
+}
+
+asset jazz
+
+{
+  listed true
+  type decal
+}
+
+asset eat_the_poo
+
+{
+  listed true
+  type decal
+}
+
+asset graff_tag1
+
+{
+  listed true
+  type decal
+}
+asset graff_tag2
+
+{
+  listed true
+  type decal
+}
+asset graff_tag3
+
+{
+  listed true
+  type decal
+}
+asset graff_tag4
+
+{
+  listed true
+  type decal
+}
+asset graff_tag5
+
+{
+  listed true
+  type decal
+}
+asset graff_tag6
+
+{
+  listed true
+  type decal
+}
+
+asset decal_sand_dirt
+{
+  listed true
+  type decal
+}
+asset decal_sand_dirt_variation
+{
+  listed true
+  type decal
+}
+asset decal_smudged_sand
+{
+  listed true
+  type decal
+}
+asset decal_sand_splatter
+{
+  listed true
+  type decal
+}
+
+
+asset sand_fade
+{
+  listed true
+  type decal
+}
+
+asset color_drop
+{
+  listed true
+  type decal
+}
+
+asset center_room
+{
+  listed true
+  type decal
+}
+
+asset monokel
+{
+  listed true
+  type decal
+}
+
+asset french_mustache
+{
+  listed true
+  type decal
+}
+
+asset monster_1
+{
+  listed true
+  type decal
+}
+
+asset monster_2
+{
+  listed true
+  type decal
+}
+
+asset monster_3
+{
+  listed true
+  type decal
+}
+
+asset pre_paint
+
+{
+  listed true
+  type decal
+}
+
+asset death_awaits
+{
+  listed true
+  type decal
+}
+
+asset pre_paint2
+
+{
+  listed true
+  type decal
+}
+
+asset pre_paint3
+
+{
+  listed true
+  type decal
+}
+
+asset pre_paint4
+
+{
+  listed true
+  type decal
+}
+
+graff_tag_diabotical
+
+{
+  listed true
+  type decal
+}
+
+asset graffiti_mario
+
+{
+  listed true
+  type decal
+}
+
+asset graffiti_mario2
+
+{
+  listed true
+  type decal
+}
+
+asset graffiti_mario3
+
+{
+  listed true
+  type decal
+}
+
+asset graffiti_mario4
+
+{
+  listed true
+  type decal
+}
+
+asset symbol_1
+
+{
+  listed true
+  type decal
+}
+
+asset symbol_2
+
+{
+  listed true
+  type decal
+}
+
+asset symbol_3
+
+{
+  listed true
+  type decal
+}
+
+asset symbol_4
+
+{
+  listed true
+  type decal
+}
+
+asset symbol_5
+
+{
+  listed true
+  type decal
+}
+
+asset symbol_6
+
+{
+  listed true
+  type decal
+}
+
+asset symbol_7
+
+{
+  listed true
+  type decal
+}
+
+asset symbol_8
+
+{
+  listed true
+  type decal
+}
+
+asset symbol_9
+
+{
+  listed true
+  type decal
+}
+
+asset arrow_right
+
+{
+  listed true
+  type decal
+}
+
+asset arrow_left
+
+{
+  listed true
+  type decal
+}
+
+asset arrow_down
+
+{
+  listed true
+  type decal
+}
+
+asset arrow_up
+
+{
+  listed true
+  type decal
+}
+
+asset sand_wall1
+
+{
+  listed true
+  type decal
+}
+
+asset sand_wall2
+
+{
+  listed true
+  type decal
+}
+
+asset sand_wall3
+
+{
+  listed true
+  type decal
+}
+
+asset plaster_1
+
+{
+  listed true
+  type decal
+}
+
+asset plaster_2
+
+{
+  listed true
+  type decal
+}
+asset plaster_3
+
+{
+  listed true
+  type decal
+}
+
+asset dignitas_quote
+
+{
+  listed true
+  type decal
+}
+
+asset dignitas
+
+{
+  listed true
+  type decal
+}
+
+asset dignitas_banner
+
+{
+  listed true
+  type decal
+}
+
+asset kawaii_quote
+
+{
+  listed true
+  type decal
+}
+
+asset kawaii
+
+{
+  listed true
+  type decal
+}
+
+asset kawaii2
+
+{
+  listed true
+  type decal
+}
+
+
+asset kawaii_banner
+
+{
+  listed true
+  type decal
+}
+
+asset no_entry
+
+{
+  listed true
+  type decal
+}
+asset ring_decal
+
+{
+  listed true
+  type decal
+}
+
+asset number_0
+{
+  listed true
+  type decal
+}
+asset number_1
+{
+  listed true
+  type decal
+}
+asset number_2
+{
+  listed true
+  type decal
+}
+asset number_3
+{
+  listed true
+  type decal
+}
+asset number_4
+{
+  listed true
+  type decal
+}
+asset number_5
+{
+  listed true
+  type decal
+}
+asset number_6
+{
+  listed true
+  type decal
+}
+asset number_7
+{
+  listed true
+  type decal
+}
+asset number_8
+{
+  listed true
+  type decal
+}
+asset number_9
+{
+  listed true
+  type decal
+}

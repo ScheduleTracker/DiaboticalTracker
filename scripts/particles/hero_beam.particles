@@ -1,0 +1,117 @@
+hero_tube
+{
+    //noise radius, noise strength
+	geometry tube
+	map effects_defacer.png
+	region ed_00
+	blend alpha
+	//length = 170*5 = 850
+	max_particles 30
+	max_emissions 30
+	//emitter array 0 0 5
+	lifetime 0
+	period 0
+	
+	scale_start 1
+	scale_end 1
+	noise_time_seed 14
+
+	color_start 1.0 0.5 0.1 4 
+	color_end 1.0 0.5 0.1 4 
+	system_light_radius 150
+	system_light_length 850
+	system_light_color 0.5 0.4 0.1
+	system_light_falloff 0.1
+	scale_start 2
+	scale_end 1
+	color_start 1 1 1 1
+	range 0
+}
+
+hero_beam1 hero_tube
+{
+	geometry tube 1 1
+	scale_start 20
+	scale_end 20
+	color_start 0.5 0.8 1.5 1
+}
+
+hero_beam_fat hero_tube
+{
+    geometry tube 0.2 0.2
+	scale_start 20
+	scale_end 20
+	color_start 0.5 0.8 1.5 1
+	region ed_spots
+}
+
+hero_beam1_alt hero_beam1
+{
+	color_start 1.5 0.7 0.5 1
+}
+
+hero_beam_fat_alt hero_beam_fat
+{
+	color_start 1.5 0.7 0.5 1
+}
+
+hero_beam1_alt_white hero_beam1
+{
+	color_start 1.5 1.5 1.5 1
+}
+
+hero_beam_fat_alt_white hero_beam_fat
+{
+	color_start 1.5 1.5 1.5 1
+}
+
+hero_light
+{
+    map effects1.png
+	region r_transparent
+	blend add
+	max_particles 1
+	max_emissions 1
+	//lifetime 0.3 0.3
+	fade_in 0.1
+	velocity 0 0 0
+	absolute_acceleration true
+	//acceleration 0 -1700 0 0 -1700 0
+	fade_out 0.2
+	period 0
+	scale_start 4
+	scale_end 4
+	color_start 1 1 1 1
+	//color_end 1 0 0 0
+	system_light_radius 700
+	lifetime 0
+	system_light_radius 200
+	system_light_intensity 4
+	system_light_color 1 1 1
+	color_accent true
+}
+
+hero_beam
+{
+    subsystem hero_light
+	subsystem hero_beam1
+	subsystem hero_beam1
+	subsystem hero_beam1
+	subsystem hero_beam_fat
+}
+
+hero_beam_alt
+{
+	subsystem hero_beam1_alt
+	subsystem hero_beam1_alt
+	subsystem hero_beam1_alt
+	subsystem hero_beam_fat_alt
+}
+
+hero_beam_alt_white
+{
+	subsystem hero_beam1_alt_white
+	subsystem hero_beam1_alt_white
+	subsystem hero_beam1_alt_white
+	subsystem hero_beam_fat_alt_white
+}

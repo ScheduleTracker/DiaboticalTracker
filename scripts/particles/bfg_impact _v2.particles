@@ -1,0 +1,810 @@
+// //IMPACT
+
+
+// bfg_center_spark_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_24
+	// animation_speed 13
+	// animation_start 0
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.2 0.2
+	// fade_in 0
+	// fade_out 999
+	// rotation_start 0
+	// position 0 0 5
+	// color_start 7 3 15 1
+	// color_end   0.1 0.1 0.1  1
+	// scale_start 1
+	// scale_end 900
+	// aspect_start 0.1
+	// aspect_end 1.2
+	// hard_edges true
+	// displacement true 0.5 0.005 35 0.2
+	// perspective_radius 180
+	// range 0
+// }
+
+// bfg_center_spark_2 bfg_center_spark_1
+// {
+	// scale_end 600
+	// range 0
+// }
+
+// bfg_ring_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_14
+	
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.2 0.25
+	// fade_in 0
+	// fade_out 0.15
+	// rotation_start 0 360
+	// position 0 0 2 
+	// //position 0 0 -3 0 0 -3
+	// color_start 3 3 5 1
+	// color_end   2 0 0 1
+	// scale_start 1
+	// scale_end 600
+	// aspect_start 1
+	// aspect_end 1
+	// hard_edges true
+	// perspective_radius 180
+	// range 0
+// }
+
+// bfg_ring_2 bfg_ring_1
+// {
+	// region s3_rl_muzzle_25
+	// color_start  0.6 0.6 1.5 1
+	// color_end   0.2 0.1 0.7 1
+	// scale_end 500
+	// range 0
+// }
+
+// bfg_ring_3 bfg_ring_1
+// {
+	// region s3_rl_muzzle_14
+	// color_start  .8 0.4 1.4 1
+	// color_end   0.2 0.1 0.2 1
+	// rotation_start 0 359
+	// scale_end 650
+	// range 0
+// }
+
+// bfg_ring_4 bfg_ring_1
+// {
+	// region s3_rl_muzzle_25
+	// color_start  .1 0.4 1.4 1
+	// color_end   0.2 0.1 1 1
+	// range 0
+// }
+// bfg_ring_5 bfg_ring_1
+// {
+	// region s3_rl_muzzle_5
+	// scale_end 800
+	// range 0
+// }
+
+// bfg_ring_6
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle
+	// blend add
+	// max_particles 1 
+	// max_emissions 1
+	// lifetime 0.2
+	// fade_out 0.1
+	// period 0.03	
+	// turbulence 60 1
+	// position 0 0 2
+	// scale_start 0
+	// scale_end 600
+	// color_start 1.5 0.75 1.25 1
+	// color_end   1 0 0 1
+	// rotation_start 0 360
+	// //rotation_end 0 360
+		// hard_edges true
+	// perspective_radius 180
+	// range 0
+// }
+
+// bfg_light base_light_impact
+// {
+	// map effects1.png
+	// region r_transparent
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.2
+	// fade_in 0.1
+	// velocity 0 0 0
+	// absolute_acceleration true
+	// acceleration 0 0 0 0 0 0
+	// fade_out 0.2
+	// scale_start 200
+	// scale_end 200
+	// color_start 0 1 1.5
+	// color_end 0 0 0
+	// light_radius 500
+		// hard_edges true
+	// perspective_radius 180
+	// range 0
+// }
+
+// bfg_spark_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_4
+	// animation_speed 40
+	// animation_start 0
+	// max_particles 50
+	// max_emissions 50
+	// delay 0.05
+	// lifetime 0.28
+	// fade_in 0
+	// blend add
+	// fade_out 0.03
+	// period 0
+	// color_start 6 6 10 1
+	// color_end  6 1 1 1
+	// position 0 0 0  
+    // scale_start 10 20
+    // scale_end 40 50
+    // rotation_start 0
+    // fade_out 0.02
+	// velocity_angles 0 0 0 360 360 0
+	// speed_start 200
+	// speed_end 200
+	// auto_orient_3d true
+	// aspect_start 1.4 1.5
+	// aspect_end 0.9 0.7
+	// hard_edges true
+	// perspective_radius 180
+	// range 0
+// }
+
+// bfg_embers_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_23
+	// animation_speed 40
+	// animation_start 0
+	// max_particles 80
+	// max_emissions 80
+	// delay 0.05
+	// lifetime 0.8 0.7
+	// fade_in 0
+	// blend add
+	// fade_out 0.03
+	// period 0
+	// color_start 8 4 10 1
+	// color_end  3 .2 .7 1
+	// position 0 0 0  
+    // scale_start 7
+    // scale_end 2
+    // rotation_start 0
+    // fade_out 0.02
+	// velocity_angles 0 0 0 360 360 0
+	// speed_start 200
+	// speed_end 200
+	// auto_orient_3d true
+	// turbulence 2000
+	// hard_edges true
+	// drag 1000
+	// perspective_radius 180
+	// range 0
+// }
+
+// bfg_explosion_border_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_37
+	// blend add
+	// delay 0.01
+	// max_particles 1
+	// max_emissions 1
+	// lifetime .8
+	// fade_in 0.1
+	// fade_out 0.5
+	// rotation_start 0 360
+	// position 0 0 2 
+	// //position 0 0 -3 0 0 -3
+	// color_start 3 3 5 1
+	// color_end   2 0 0 1
+	// scale_start 910
+	// scale_end 910
+	// aspect_start 1
+	// aspect_end 1
+	// hard_edges true
+	// perspective_radius 180
+	// range 0
+// }
+
+// bfg_explosion_border_2 bfg_explosion_border_1
+// {
+	// region s3_rl_muzzle_39 
+	// color_start 0.1 0.1 0.4 1
+	// color_end   0.3 0.3 1.5 1
+	// delay 0.02
+	// lifetime 0.35
+	// range 0
+// }
+
+// bfg_smoke_1
+// {
+	// map particle_sheet3.png
+	// region s3_explosion01_9
+	// animation_speed 20
+	// animation_start 0	
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.25
+	// fade_in 0.05 
+	// fade_out 0.30
+	// rotation_start 0
+	// position 0 0 8 0 0 8
+	// // position 0 0 -1 0 0 -1s
+	// color_start  3 1 4 1
+	// color_end  1 0 0 1
+	// velocity_angles 0 0 0 120 360 0
+	// speed_start 300
+	// speed_end  300
+	// auto_orient_3d true
+	// scale_start 0
+	// scale_end 300 325
+	// hard_edges true
+	// perspective_radius 180
+	// range 0
+// }
+
+// bfg_smoke_2 bfg_smoke_1
+// {
+    // velocity_angles 120 0 0 240 360 0
+	// range 0
+// }
+
+// bfg_smoke_3 bfg_smoke_1
+// {
+    // velocity_angles 240 0 0 360 360 0
+	// range 0
+// }
+
+// bfg_debris
+// {
+	// map particle_sheet3.png
+	// mesh models/particles/debris_01.fbx 100
+	// mesh models/particles/debris_02.fbx 00
+	// mesh models/particles/debris_03.fbx 0
+	// mesh_rotation 50 30 75
+	// geometry mesh
+	// blend alpha
+	// max_particles 20
+	// max_emissions 20
+	// period 0
+	// delay 0.05
+	// lifetime 2
+	// fade_in 0.05
+	// fade_out 999
+	// velocity -300 -300 -300 300 300 300
+	// color_start 1 1 1 1 1 1 1 1
+	// color_end 1 1 1 1 1 1 1 1
+	// rotation_start 0 360
+	// rotation_end 0 360
+	// scale_start 0.5 
+	// scale_end 0.5
+	// acceleration 0 -300 0 0 -350 0
+	// perspective_radius 180
+	// range 0
+// }
+
+// bfg_impact_light base_light_impact
+// {
+	// lifetime 0.3
+	// system_light_radius 250
+	// system_light_intensity 6
+	// system_light_color 0.7 0.1 1
+	// system_light_falloff 0
+	// velocity 0 0 0
+	// position 2 0 0
+	// fade_out 0.1
+	// fade_in 0.1
+	// perspective_radius 180
+	// range 0
+// }
+// bfg_floor_outer_line
+// {
+	// map ring.png
+
+	// blend alpha
+
+    // mesh models/plane2.fbx 20
+	// geometry mesh
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.19
+	// // period 0.05
+	// fade_in 0.05
+	// fade_out 999
+	// scale_start 0
+	// scale_end 900	
+   // color_start 0 1 0.5 1.0
+	// color_end  0 0 0 0
+	// position 0 0 0
+	// rotation_start 90 0
+	// rotation_end 90 0
+	// turbulence 400 5
+	// color_accent true
+	// color_start 1 1 1 1
+	// color_end 1 1 1 1
+	// displacement true 1 0.01 50 0.25
+// } 
+// bfg_impact_v2
+// {
+// subsystem bfg_floor_outer_line 0 0.64
+	// subsystem bfg_impact_light 0 0.64
+	// //subsystem bfg_light_impact doesn't exist, subsystem bfg_impact_light is at the bottom of these definitions, probably the one meant to be used above
+	// subsystem bfg_ring_1 0 0.9
+	
+		// subsystem bfg_ring_3 0 0.9
+		// subsystem bfg_ring_4 0 0.9
+	// subsystem bfg_ring_5 0 0.9
+	// subsystem bfg_ring_6 0 0.9
+	// //subsystem bfg_ring_implode_1
+	// //subsystem bfg_ring_implode_2
+	// subsystem bfg_center_spark_1 0 0.9
+	// subsystem bfg_center_spark_20 0.9
+	// //subsystem bfg_center_spark_2 0 1.4 is probably what the above should be
+		// subsystem bfg_embers_1 0 1.6
+	 // subsystem bfg_impact_center_1 0 0.9
+	 // subsystem bfg_impact_center_2 0 0.9
+	// // subsystem bfg_center_2
+	// subsystem bfg_explode_light 0.02 3.26
+	// //subsystem bfg_explode_light doesn't seem to currently exist in the files
+	// subsystem bfg_spark_1 0 0.9
+	// subsystem bfg_smoke_1 0 1.02
+	// subsystem bfg_smoke_2 0 1.02
+	// subsystem bfg_smoke_3 0 1.02
+	// subsystem bfg_debris
+	// subsystem bfg_explosion_border_1 0 0.64
+		// subsystem bfg_explosion_border_2 0 0.64
+
+// }
+//IMPACT
+
+
+weapon9_center_spark_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_24
+	
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2 0.2
+	fade_in 0
+	fade_out 999
+	rotation_start 0
+	position 0 0 5
+	color_start 7 3 15 1
+	color_end   0.1 0.1 0.1  1
+	scale_start 1
+	scale_end 900
+	aspect_start 0.1
+	aspect_end 1.2
+	hard_edges true
+	displacement true 0.5 0.002 30 0.2
+	perspective_radius 180
+	range 0
+}
+
+weapon9_center_spark_2 weapon9_center_spark_1
+{
+	scale_end 600
+	range 0
+}
+
+weapon9_center_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_14
+	
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2 0.25
+	fade_in 0
+	fade_out 0.15
+	rotation_start 0 360
+	position 0 0 2 
+	//position 0 0 -3 0 0 -3
+	color_start 3 3 5 1
+	color_end   2 0 0 1
+	scale_start 1
+	scale_end 600
+	aspect_start 1
+	aspect_end 1
+	hard_edges true
+	perspective_radius 180
+	range 0
+}
+
+weapon9_center_2 weapon9_center_1
+{
+	region s3_rl_muzzle_25
+	color_start  0.6 0.6 1.5 1
+	color_end   0.2 0.1 0.7 1
+	scale_end 500
+	range 0
+}
+
+weapon9_center_3 weapon9_center_1
+{
+	region s3_rl_muzzle_14
+	color_start  .8 0.4 1.4 1
+	color_end   0.2 0.1 0.2 1
+	rotation_start 0 359
+	scale_end 650
+	range 0
+}
+
+
+weapon9_ring_1
+{
+
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_5
+	animation_speed 26
+	 map particle_sheet5.png
+	region explosion_ring_5
+	blend add	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2
+	fade_in 0
+	fade_out 0.15
+	rotation_start 0 360
+	position 0 0 2 
+	//position 0 0 -3 0 0 -3
+	color_start 2 1 5 1
+	color_end   2 0 0 1
+	scale_start 1
+scale_end 850
+	aspect_start 1
+	aspect_end 1
+	hard_edges true
+	perspective_radius 180
+	range 0
+}
+
+
+
+weapon9_light base_light_impact
+{
+	map effects1.png
+	region r_transparent
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2
+	fade_in 0.1
+	velocity 0 0 0
+	absolute_acceleration true
+	acceleration 0 0 0 0 0 0
+	fade_out 0.2
+	scale_start 200
+	scale_end 200
+	color_start 0 1 1.5
+	color_end 0 0 0
+	light_radius 500
+		hard_edges true
+	perspective_radius 180
+	range 0
+}
+
+weapon9_spark_1
+{
+	map particle_sheet5.png
+	region spark_line
+	animation_speed 11
+	animation_start 0
+	max_particles 50
+	max_emissions 50
+	delay 0.05
+	lifetime 0.35
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 6 6 10 1
+	color_end  6 1 1 1
+	position 0 0 0  
+    scale_start 10 20
+    scale_end 40 50
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 700
+	speed_end 0
+	auto_orient_3d true
+	// aspect_start 1.4 1.5
+	// aspect_end 0.9 0.7
+	hard_edges true
+	perspective_radius 180
+	range 0
+}
+
+weapon9_embers_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 80
+	max_emissions 80
+	delay 0.05
+	lifetime 0.8 0.7
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 8 4 10 1
+	color_end  3 .2 .7 1
+	position 0 0 0  
+    scale_start 7
+    scale_end 2
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 200
+	speed_end 200
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+	drag 1000
+	perspective_radius 180
+	range 0
+}
+
+
+
+weapon9_debris
+{
+	map particle_sheet3.png
+	mesh models/particles/debris_01.fbx 100
+	mesh models/particles/debris_02.fbx 00
+	mesh models/particles/debris_03.fbx 0
+	mesh_rotation 50 30 75
+	geometry mesh
+	blend alpha
+	max_particles 20
+	max_emissions 20
+	period 0
+	delay 0.05
+	lifetime 2
+	fade_in 0.05
+	fade_out 999
+	velocity -200 -200 -200 200 250 200
+	color_start 1 1 1 1 1 1 1 1
+	color_end 1 1 1 1 1 1 1 1
+	rotation_start 0 360
+	rotation_end 0 360
+	scale_start 0.5 
+	scale_end 0.5
+	acceleration 0 -300 0 0 -350 0
+	perspective_radius 180
+	range 0
+}
+
+weapon9_impact_light base_light_impact
+{
+	lifetime 0.3
+	system_light_radius 250
+	system_light_intensity 6
+	system_light_color 0.7 0.1 1
+	system_light_falloff 0
+	velocity 0 0 0
+	position 2 0 0
+	fade_out 0.1
+	fade_in 0.1
+	perspective_radius 180
+	range 0
+}
+weapon9_floor_line
+{
+	map ring2.png
+
+	blend alpha
+
+    mesh models/plane2.fbx 20
+	geometry mesh
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3
+	// period 0.05
+	fade_in 0.00
+	fade_out 999
+	scale_start 0
+	scale_end 890	
+ 
+	position 0 0 0
+	rotation_start 90 0
+	rotation_end 90 0
+	turbulence 400 5
+	color_accent true
+	color_start 0.7 0.5 2 1
+		perspective_radius 180
+	range 0
+}
+weapon9_floor_outer_line
+{
+	map ring2.png
+
+	blend alpha
+
+    mesh models/plane2.fbx 20
+	geometry mesh
+	max_particles 1
+	max_emissions 1
+	lifetime 0.35
+	// period 0.05
+	fade_in 0.00
+	fade_out 999
+	scale_start 0
+	scale_end 800	
+ 
+	position 0 0 0
+	rotation_start 90 0
+	rotation_end 90 0
+	turbulence 400 5
+	color_accent true
+	color_start 0.7 0.5 2 1
+	scale_timeline 0=0.0,l;0.1=1,l;0.7=1,l;1=1,l
+		perspective_radius 180
+	range 0
+}
+weapon9_dome_alpha
+
+{
+
+	map particle_sheet3.png
+	geometry quad
+	region s3_rl_muzzle_5
+	blend alpha	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.5
+	fade_in 0
+	fade_out 0.45
+	scale_start 0
+	scale_end 585
+	color_start  1.5 1 2 0.75
+	color_start  1.5 1 2 0.1
+	rotation_start 0 
+	turbulence 4000 5000
+	range 0
+	
+	scale_timeline 0=0.0,l;0.1=1,l;0.7=1,l;1=1,l
+}
+weapon9_dome_add
+
+{
+
+	map particle_sheet3.png
+	geometry quad
+	region s3_rl_muzzle_39
+	blend add	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.
+	scale_start 0
+	scale_end 585	
+	color_start  4 0.8 10 1
+	rotation_start 0 
+	turbulence 4000 5000
+	range 0
+
+	scale_timeline 0=0.0,l;0.1=1,l;0.7=1,l;1=1,l
+}
+weapon9_center_dome_alpha
+
+
+{
+	map particle_sheet5.png
+	geometry quad
+	region plasma_circle
+	blend alpha	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2 0.2
+	// period 0.05
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 0
+	scale_end 300
+	//color_start 0.75 .25 2.5 1
+	color_start  0.4 0.5 1 1
+	color_end  0.4 0.5 1 0.5	
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	range 0
+	scale_timeline 0=0.0,l;0.3=.8,l;0.7=1,l;1=1,l
+}
+weapon9_floaters
+{
+	geometry quad
+	magnet 0 0.22
+	drag 5
+	map particle_sheet3.png
+	 region s3_rl_muzzle_2
+	blend add
+max_particles 60
+	max_emissions 60
+	// fade_in 1
+	 fade_out 0.5
+	lifetime 0.75
+	period 0.00022	
+	emitter ellipsoid 75 75 75 75 75 75
+	turbulence 0 0 0
+	scale_start 0 2
+	scale_end 2 10
+	//perspective_radius 300
+	perspective_radius 3
+		
+	color_start 1 1 2 1
+	color_end 2	 1 1 1
+		angular_speed_start 2000 -2000
+}
+
+
+
+bfg_impact_v2
+{
+	subsystem weapon9_dome_add 0 0.9
+	
+// subsystem weapon9_smoke_1
+	// subsystem weapon9_smoke_2
+		// subsystem weapon9_smoke_3
+			// subsystem weapon9_smoke_4
+	//subsystem weapon9_dome_back		
+subsystem weapon9_dome_alpha 0 0.9
+
+
+subsystem weapon9_impact_light
+
+subsystem weapon9_center_1 0 0.81
+	subsystem weapon9_center_3 0 0.81
+		subsystem weapon9_center_4 0 0.81
+		 
+subsystem weapon9_ring_1 0 0.81
+	
+subsystem weapon9_embers_1 0 0.9
+subsystem weapon9_impact_center_1 0 0.89
+subsystem weapon9_impact_center_2 0 0.89
+
+
+subsystem weapon9_spark_1 0 0.89
+
+ subsystem weapon9_debris
+
+ subsystem weapon9_floaters
+ 
+subsystem weapon9_center_spark_1 0 0.89
+	subsystem weapon9_center_spark_2 0 0.89
+	
+subsystem weapon9_floor_line 0 0.63
+subsystem weapon9_floor_outer_line 0 0.63
+
+subsystem  weapon9_center_dome_alpha
+
+}

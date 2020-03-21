@@ -1,0 +1,186 @@
+
+///////////////////////////////////////////////////////////////------------------------------------Slow WEEBLE--------------------------------////////////////////////////////////////////////////////////////////////
+slow_weeble_explode_ring
+{
+	map particle_sheet5.png
+	region explosion_ring_2
+	animation_speed 30
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .2
+	fade_out 0.0
+	fade_in 1
+	period 0
+	
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 1000
+
+		color_start 1 1 1 1
+	color_end 0 0.2 0.5 0
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 110
+	//scale_timeline 0=0.0,l;0.5=0.3,l;0.7=0.8,l;1=1,l
+	 displacement true 0.9 0.01 50 0.2
+}
+slow_weeble_explode_ring_2
+{
+	map particle_sheet5.png
+	region explosion_ring_1
+	animation_speed 30
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .2
+	fade_out 0.0
+	fade_in 1
+	period 0
+	
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 500
+
+		color_start 1 1 1 1
+	color_end 0 0.2 0.5 0
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 110
+	//scale_timeline 0=0.0,l;0.5=0.3,l;0.7=0.8,l;1=1,l
+}
+slow_weeble_dots_01
+{
+	geometry quad
+	magnet 0 0.0075
+	drag 5
+	map particle_sheet3.png
+	 region s3_rl_muzzle_2
+	blend add
+max_particles 60
+	max_emissions 60
+	// fade_in 1
+	 fade_out 4
+	lifetime 4 5.5
+	period 0.00022	
+	emitter ellipsoid 100 100 100 100 100 100
+	turbulence 0 0 0
+	scale_start 0 2
+	scale_end 2 10
+	//perspective_radius 300
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.24=1,l;0.44=0.5,l;0.66=1,l;1=0,l;
+		
+	color_start 0 1 2 1
+	color_end 0 1 1 2
+}
+
+
+slow_weeble_dots_01_2 slow_weeble_dots_01
+{
+	magnet 0 0.0075
+	delay 2
+	lifetime 2 2.5 
+	emitter ellipsoid 150 150 150 150 150 150
+	scale_timeline 0=0.0,l;0.5=1,l;1=0.5,l;
+}
+slow_weeble_dots_01_2 slow_weeble_dots_01
+{
+	magnet 0 0.001
+	lifetime 2 4
+	emitter ellipsoid 200 200 200 200 200 200
+	scale_timeline 0=0.0,l;0.5=1,l;1=0.5,l;
+}
+
+slow_weeble_dots_02
+{
+	geometry quad
+magnet 0 0.0075
+	drag 5
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+max_particles 60
+	max_emissions 60
+	lifetime 2  2.5 //1
+	period 0.00022
+	emitter ellipsoid 200 200 200 200 200 200
+    color_start 0 1 2 1
+	color_end  0 1 2 1
+	turbulence 0 0 0
+	scale_start 1 0
+	scale_end 7
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.5=1,l;1=0,l;
+
+
+}
+
+slow_weeble_dots_02_2 slow_weeble_dots_02
+{
+delay 2.5
+
+}
+slow_weeble_impact_light base_light_impact
+{
+	lifetime 5
+	system_light_radius 250
+	system_light_intensity 7.5
+	system_light_color 0.2 0.8 1
+	system_light_falloff 0.75
+	velocity 0 0 0
+	perspective_radius 110
+	position 0 10 0
+	range 0
+}
+slow_weeble_end_pulse
+{
+	map ring.png
+	//region s3_rl_muzzle_39
+	blend alpha
+
+    mesh models/plane2.fbx 20
+	geometry mesh
+
+	max_particles 1
+	max_emissions 1
+	delay 0.
+	lifetime 0.2
+	period 4.95
+	fade_in 0.05
+	fade_out 999
+	scale_start 0
+	scale_end 0
+	//color_start 0.2 3 4 6
+	//color_end 0.2 3 4 6
+   color_start 0 1 0.5 1.0
+	color_end  0 0 0 0
+	position 0 0 0
+	rotation_start 90 0
+	rotation_end 90 0
+	turbulence 400 5
+	color_accent true
+	color_start 1 1 1 1
+	color_end 1 1 1 1
+	//scale_timeline 0=0.675,l;0.1=0,,l;1=1,l;
+	displacement true 0.9 0.01 60	 0.2
+}
+slow_weeble_impact
+{
+ subsystem slow_weeble_explode_ring
+  subsystem slow_weeble_explode_ring_2
+   subsystem slow_weeble_dots_01
+   subsystem slow_weeble_dots_01_2
+   subsystem slow_weeble_dots_01_3
+	subsystem slow_weeble_dots_02
+	subsystem slow_weeble_dots_02_2
+	 subsystem  slow_weeble_impact_light
+	subsystem slow_weeble_end_pulse
+		
+}

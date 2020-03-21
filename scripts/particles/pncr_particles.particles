@@ -1,0 +1,943 @@
+
+
+//////////////////////////////////
+
+
+pncr_tube
+{
+    //noise radius, noise strength
+	geometry tube
+	map effects_defacer.png
+	region ed_02
+	blend add
+	//length = 170*5 = 850
+	max_particles 200
+	max_emissions 200
+	//emitter array 0 0 5
+	lifetime 0.7
+	period 0
+	fade_in 0
+	position 0 0 -5
+	fade_out 0.
+	noise_time_seed 10 12
+	noise_seed_scale 0.1
+
+	color_start 1.0 0.5 0.1 1 	
+	color_end 0.5 1 2 0  
+	
+	scale_start 1
+	scale_end 0.25
+	
+	
+	tapered_tube_detail true
+}
+
+pncr_beam_middle pncr_tube
+{
+lifetime 1.23
+	//lifetime 0.73
+    time_scale 0.005
+	geometry tube 100 0.2	
+scale_start 0.1
+	color_start 0.0 2 3 1 
+	color_end 0.5 1 2 0 
+}
+
+
+pncr_beam1 pncr_tube
+{
+	lifetime 1.05
+	//lifetime 0.55
+    time_scale 0.00
+	geometry tube 100 0.2
+scale_start 0.25
+	color_start 0.0 0.9 1 1
+	color_end 0.4 0.8 5 0
+}
+pncr_beam_thin pncr_tube
+{
+	position -0.05 0 0
+		lifetime 0.83
+		//lifetime 0.33
+    time_scale 0.00
+	geometry tube 500 0.2
+scale_start 0.03
+	color_start 0.0 3 5 1
+	color_end 0.5 1 2 0
+}
+pncr_beam_thin2 pncr_tube
+{
+	position 0.05 0 0
+		lifetime 0.83
+		//lifetime 0.33
+    time_scale 0.00
+	geometry tube 200 0.2
+scale_start 0.03
+	color_start 0.0 3 5 1
+	color_end 0.5 1 2 0
+}
+
+pncr_beam_thin3 pncr_tube
+{
+	position -0.05 0 0
+		lifetime 0.83
+		//lifetime 0.33
+    time_scale 0.000
+	geometry tube 500 0.15
+scale_start 0.03
+	color_start 0.0 3 5 1
+	color_end 0.5 1 2 0 
+}
+pncr_beam_thin4 pncr_tube
+{
+	position 0.05 0 0
+		lifetime 0.83
+		//lifetime 0.33
+    time_scale 0.00
+	geometry tube 200 0.15
+scale_start 0.03
+	color_start 0.0 3 5 1
+	color_end 0.5 1 2 0
+}
+
+
+pncr_dispersion
+{
+	//delay 0.1
+    //noise radius, noise strength
+	//geometry tape 0.8 0.15
+	
+	
+	// animation_speed 12
+	//map particle_sheet3.png
+	//region s3_explosion02_333
+	animation_speed 4	
+	map particle_sheet5.png
+	region explosion_ring_2_5		
+	blend add
+	
+	max_particles 30
+	max_emissions 30
+	lifetime .8 0.85
+	period 0.0025
+	fade_in 0.2
+	fade_out 0.1	
+	emitter array 0 0 10
+	rotation_start 0 360
+	//position 1 1 1 -1 -1 -1
+	//turbulence 2000 1
+	//scale_start 2
+	//scale_end 2
+	scale_start 3
+	scale_end 4 3
+	noise_time_seed 7
+	noise_seed_scale 1000
+	color_start 0 1 1.5 0.5
+	color_end 0.9 0.95 1.0 0.0
+	angular_speed_start -5000 5000
+	
+}
+pncr_dispersion_2 pncr_dispersion
+{
+	delay 0.1
+	animation_speed 21 17
+	map lightning_ring.png
+	region lightning_ring	
+	lifetime .4
+	period 0.0025
+	fade_in 0.2
+	fade_out 0.1	
+	scale_start 3
+	scale_end 4
+	color_start 0 2 3 1
+	color_end 0 2 3 1 0.0
+angular_speed_start -500 500
+	
+}
+
+
+pncr_tube_2
+{
+    //noise radius, noise strength
+	map white.png
+	region ed_00
+	blend add
+	//length = 170*5 = 850
+	max_particles 170
+	max_emissions 170
+	//emitter array 0 0 5
+	lifetime 0.2
+	period 0
+	
+	scale_start 1
+	scale_end 2
+	noise_time_seed 10
+	noise_seed_scale 0.1
+
+	system_light_radius 150
+	system_light_length 850
+	system_light_color 0.1 0.6 0.8
+	system_light_falloff 0.1
+
+	geometry tube  0.2
+
+	fade_in 0
+	fade_out 0.1
+	color_start 0.25 0.75 1 1.4
+	color_end 0.25 0.75 1 0
+	range 0
+}	
+
+pncr_shot_embers
+{
+	// geometry quad
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 10
+	max_emissions 10
+	lifetime 0.2
+	period 0.0001
+	// fade_in 0.1
+	velocity 30 30 1000 -30 -30 1000 
+	fade_out 0.05 0.07
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	//position 2 4 22
+	rotation_start 0 360
+	color_start  0.5 1 2 
+	color_end  0.1 0.5 1 	
+	emitter line 0 0 0
+	turbulence 200
+	scale_start 0.5 1
+	scale_end 0
+	drag 0.8
+}
+	pncr_muzzle_embers pncr_shot_embers
+{
+
+	velocity 10 10 100 -10 -10 100
+	fade_out 0.05 0.07
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 0 0 -5
+	color_start  0.5 1 2 
+	color_end  0.1 4 5 
+scale_start 0.1 0.2
+	scale_end 0
+	drag 0.8
+}
+
+	
+pncr_projectile_particles
+{
+	subsystem pncr_beam_middle
+	subsystem pncr_beam1 
+  subsystem pncr_beam_thin
+  subsystem pncr_beam_thin2
+    subsystem pncr_beam_thin3
+  subsystem pncr_beam_thin4
+subsystem pncr_shot_embers
+subsystem  pncr_embers_2
+	subsystem pncr_dispersion
+subsystem pncr_dispersion_2
+subsystem pncr_tube
+subsystem pncr_tube_2	
+}
+
+
+
+pncr_dispersion_3p
+{
+	//delay 0.1
+    //noise radius, noise strength
+	//geometry tape 0.8 0.15
+	
+	
+	// animation_speed 12
+	//map particle_sheet3.png
+	//region s3_explosion02_333
+	animation_speed 3
+	map particle_sheet3.png
+	region s3_explosion02_333
+	blend add
+	
+	max_particles 20
+	max_emissions 20
+	lifetime 1
+	period 0.0025
+	fade_in 0.2
+	fade_out 0.1	
+	emitter array 0 0 8
+	rotation_start 0 360
+	//position 1 1 1 -1 -1 -1
+	//turbulence 2000 1
+	//scale_start 2
+	//scale_end 2
+	scale_start 1
+	scale_end 3 4
+	noise_time_seed 7
+	noise_seed_scale 1000
+	color_start 0 2 3 1
+	color_end 0.9 0.95 1.0 0.0
+	angular_speed_start -5000 5000
+
+}
+pncr_dispersion_2_3p pncr_dispersion_3p
+{
+delay 0.1
+	animation_speed 28
+	region lightning_ring	
+	lifetime .5
+	period 0.0025
+	fade_in 0.2
+	fade_out 0.1	
+	scale_start 3
+	scale_end 4
+	
+
+}
+pncr_projectile_particles_3p
+{
+	subsystem pncr_beam_middle_3p 0 5
+	subsystem pncr_beam1 0 5
+  subsystem pncr_beam_thin 0 5
+  subsystem pncr_beam_thin2 0 5
+    subsystem pncr_beam_thin3 0 5
+  subsystem pncr_beam_thin4 0 5
+subsystem pncr_shot_embers 0 5
+subsystem  pncr_embers_2 0 5
+	subsystem pncr_dispersion_3p 0 3
+subsystem pncr_dispersion_2 0 3
+subsystem pncr_tube 0 5
+subsystem pncr_tube_2	 0 5	
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+pncr_muzzle_flash
+{
+	position -0.07 0 0.5
+	map particle_sheet3.png
+	region s3_rl_muzzle_15
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.1 0.1
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 0.2 3 5
+	color_end 0.1 0.5 2
+    scale_start 0
+    scale_end 5
+    rotation_start 0 360
+   	hard_edges true
+}
+pncr_muzzle_flash2
+{
+		position -0.07 0 0.5
+	map particle_sheet3.png
+	region s3_plasma_50
+	blend add
+	max_particles 2
+	max_emissions 2
+	lifetime 0.1 0.1
+	fade_in 0
+	fade_out 0.10
+	period 0
+color_start 0.2 4 5
+	color_end 0.1 1 2
+    scale_start 0
+    scale_end 5 4
+    rotation_start 0 360
+   	hard_edges true
+}
+pncr_light base_light_impact
+{
+	lifetime 0.3
+	system_light_radius 2
+	system_light_intensity 10
+	system_light_color 0.2 1 2
+	system_light_falloff 0
+	velocity 0 0 0
+	position 2 0 0
+	
+}
+
+pncr_muzzle_flash3 pncr_muzzle_flash2
+{
+
+	region s3_plasma_46
+
+}
+pncr_muzzle_flash4 pncr_muzzle_flash2
+{
+	
+	region s3_plasma_52
+	
+}
+pncr_muzzle_flash5 pncr_muzzle_flash2
+{
+	delay 0.05
+	region s3_plasma_52
+	position 0 0 2
+	 scale_end 2
+}
+pncr_muzzle_circle
+{
+		
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 2
+	max_emissions 2
+	lifetime 0.1 0.1
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 0.2 7 10
+	color_end 0.1 0.5 2
+    scale_start 0
+    scale_end 7
+    rotation_start 0 360
+   	hard_edges true
+	
+}
+pncr_muzzle_glow
+{
+		
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 10
+	max_emissions 10
+	lifetime 0.1 0.1
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 0.2 7 10
+	color_end 0.1 0.5 2
+    scale_start 0
+    scale_end 5
+    rotation_start 0 360
+   	hard_edges true
+	
+}
+// pncr_lightning_1
+
+// {
+	// map particle_lightning.png
+	// region lightning_test
+	// blend add
+	// animation_start 0
+	// animation_speed 30
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.2
+	// fade_in 0
+	// fade_out 0.10
+	// period 0.55
+	// position -0.0125 0.58 0.7
+	// color_start 0.2 8 10
+	// color_end 0.2 4 5
+    // scale_start 1.
+    // scale_end 1.
+	// aspect_start 1
+	// aspect_end 1
+    // rotation_start 180
+   	// hard_edges true
+	
+// }
+// pncr_lightning_2
+
+// {
+	// map particle_lightning.png
+	// region lightning_test
+	// blend add
+	// animation_start 0
+	// animation_speed 45
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.3
+	// fade_in 0
+	// fade_out 0.10
+	// period 0.5
+	// position -0.0125 0.62 0.7
+	// color_start 0.2 8 10
+	// color_end  0.2 4 5
+    // scale_start 1.
+    // scale_end 1.
+	// aspect_start 1
+	// aspect_end 1
+    // rotation_start 180
+   	// hard_edges true
+	
+// }
+pncr_muzzle_light base_light_impact
+{
+	lifetime 0.2
+	system_light_radius 50
+	system_light_intensity 10
+	system_light_color 0 0.6 1
+	system_light_falloff 0.1
+	
+}
+
+
+pncr_muzzle_particles
+
+{
+	//subsystem pncr_lightning_1
+	//subsystem pncr_lightning_2
+	subsystem pncr_light
+	
+	subsystem pncr_flare
+	subsystem pncr_muzzle_embers
+
+	subsystem pncr_muzzle_flash2
+	subsystem pncr_muzzle_flash3
+	subsystem pncr_muzzle_flash4
+	subsystem pncr_muzzle_flash5
+	subsystem pncr_muzzle_circle
+	subsystem pncr_muzzle_glow
+	subsystem pncr_muzzle_light
+}
+//////////////////////////////////////////////////////////////////---------------------------------------- IMPACT--------------------------------------////////////////////////////////////////////////////////////////////////////////////////
+
+pncr_impact_center
+{
+	map particle_sheet3.png
+	region s3_plasma_50
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20
+	fade_out 0.10
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 70
+	color_start  10 10 10 1
+color_end 1 0.0 0.5 0
+	rotation_start 0 180
+	hard_edges true
+	//rotation_end 0 360
+
+}
+
+
+pncr_impact_sparks
+{
+	delay 0.05
+	map particle_sheet3.png
+	region  s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 25
+	max_emissions 25
+	lifetime 0.15 0.125
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 0.2 7 12 1
+color_end 1 0.0 0.5 0
+	position 0 0 0  
+    scale_start 0
+    scale_end 20 25
+    rotation_start 0
+    fade_out 0.1
+	velocity_angles 0 0 0 360 360 0
+	speed_start 100
+	speed_end 5
+	auto_orient_3d true
+	aspect_start 0.5 0.7
+	aspect_end 0.3 0.2
+	hard_edges true
+}
+pncr_impact_sparks2 pncr_impact_sparks
+{ 
+	region  s3_rl_muzzle_2
+	color_start 0.2 3 20
+	color_end 1 0.0 0.5 0	
+	aspect_start 2.4 2.5
+	aspect_end 4 4
+	
+}
+
+pncr_impact_embers
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 40
+	max_emissions 40
+	delay 0.02
+	lifetime 0.5 0.6
+	fade_in 0
+	blend add
+	fade_out 0.01
+	period 0
+	color_start 2 6 10 1
+	color_end  3 .2 .7 1
+	position 0 0 0  
+    scale_start 4
+    scale_end 1
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 150
+	speed_end 7
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+	drag 1000
+	
+}
+pncr_impact_embers2
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 20
+	max_emissions 20
+	delay 0.02
+	lifetime 0.5 0.4
+	fade_in 0
+	blend add
+	fade_out 0.01
+	period 0
+	color_start 10 6 1 1
+	color_end 1 0.0 0.5 0
+	position 0 0 0  
+    scale_start 2
+    scale_end 4
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 100
+	speed_end 80
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+	drag 1000
+	
+}
+pncr_distortion
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20
+	fade_out 0.10
+	period 0
+	turbulence 60 1
+
+	scale_start 0
+	scale_end 0.1
+	color_start  10 10 10 1
+	color_end  20 8 0.25 1
+	rotation_start 0 180
+	hard_edges true
+	//rotation_end 0 360
+displacement true 0.2 0.006 3 0.2
+}
+pncr_impact_ring
+{
+	map particle_sheet5.png
+	region explosion_ring_4
+	blend add
+	animation_speed 40
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 0.2 7 10
+	color_end 1 0.0 0.5 0
+    scale_start 25
+    scale_end 100
+    rotation_start 0 360
+   	hard_edges true
+	
+}
+pncr_impact_ring2 
+{
+	map particle_sheet5.png
+	region explosion_ring_2
+	blend add
+	animation_speed 40
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 0.2 7 10
+	color_end 1 0.0 0.5 0
+    scale_start 25
+    scale_end 100
+    rotation_start 0 360
+   	hard_edges true
+	
+	
+}
+pncr_explode_ring
+{
+	map particle_sheet5.png
+	region explosion_ring_3
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .33
+	fade_out 0.0
+	fade_in 1
+	period 0
+	
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 150
+		color_start 0.2 7 10 1
+	color_end 1 0.0 0.5 0
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 110
+	//scale_timeline 0=0.0,l;0.5=0.3,l;0.7=0.8,l;1=1,l
+}
+pncr_explode_flash01
+{
+	map particle_sheet3.png
+	region s3_plasma_47
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .33
+	fade_out 0.0
+	fade_in 1
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 70
+		color_start 0.2 7 10 1
+	color_end 1 0.0 0.5 0
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 110
+	scale_timeline 0=0,l;0.5=0.8,l;1=1,l
+}
+
+// pncr_debris
+// {
+	// map particle_sheet3.png
+// region     s3_rl_muzzle_2
+	// blend add
+	// max_particles 12
+	// max_emissions 12
+	// period 0
+	// delay 0.05
+	// lifetime 1
+	// fade_in 0.05
+	// fade_out 0.2
+	// velocity -80 -80 -80 80 80 80
+	// color_start 0.5 1 4 1
+	// color_end 1 1 1 1
+	// rotation_start 0 360
+	// rotation_end 0 360	
+	// scale_start 3
+	// scale_end 5
+	// acceleration 0 -300 0 0 -350 0
+// }
+
+pncr_impact_ligtning_bolt
+{
+	
+	map particle_sheet5.png
+	region lightning_bolt
+	animation_speed 24
+	animation_start 0	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3 0.35
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0
+	color_start 0.2 3.5 6 1
+color_end 0 0.0 0.0 0
+	position 0 0 0  
+    scale_start 20
+    scale_end 70 100
+    rotation_start 0
+    fade_out 0.1
+	velocity_angles 20 20 0 70 70 0
+	speed_start 100	
+	speed_end 70 80
+	auto_orient_3d true
+	aspect_start 1
+	aspect_end 0.7 1
+	hard_edges true
+}
+pncr_impact_ligtning_bolt2 pncr_impact_ligtning_bolt
+{
+    velocity_angles 110 110 0 160 160 0
+	range 0
+}
+
+pncr_impact_ligtning_bolt3 pncr_impact_ligtning_bolt
+{
+    velocity_angles 180 180 0 250 250 0
+	range 0
+}
+
+pncr_impact_ligtning_bolt4 pncr_impact_ligtning_bolt
+{
+    velocity_angles 290 290 0 340 340 0
+	range 0
+}
+pncr_floor_lines_edge
+{
+	map ring.png
+	//region s3_rl_muzzle_39
+	blend alpha
+
+    mesh models/plane2.fbx 20
+	geometry mesh
+
+	max_particles 1
+	max_emissions 1
+	lifetime 0.22
+	// period 0.05
+	fade_in 0.05
+	fade_out 999
+	scale_start 0
+	scale_end 200
+	//color_start 0.2 3 4 6
+	//color_end 0.2 3 4 6
+   color_start 0 .5 1 1.0
+	color_end  0 0.3 1.0 0	
+	position 0 0 0
+	rotation_start 90 0
+	rotation_end 90 0
+	turbulence 400 5
+	color_accent true
+	color_start .5 1 1 1
+	color_start .2 .5 1 1
+} 
+pncr_distortion
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	blend add		
+	max_particles 1
+	max_emissions 1
+	lifetime 0.1
+	fade_out 0.10
+	period 0
+	turbulence 60 1
+	scale_start 0
+	scale_end 1
+	color_start  10 10 10 1
+	color_end  20 8 0.25 0.5
+	rotation_start 0 180
+	hard_edges true
+	//rotation_end 0 360
+    displacement true 1 0.008 2.5 0.2
+	perspective_radius 110
+	range 0
+}
+	pncr_impact_sparks
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 30
+	max_emissions 30
+	lifetime 0.12 0.1
+	fade_in 0.01
+	delay 0.05
+	blend add
+	fade_out 0.05
+	period 0
+	color_start 0 6 10 1
+	color_end  0 4 8 0.5
+	position 0 0 0  
+    scale_start 10
+    scale_end 30
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 400
+	speed_end 400
+	auto_orient_3d true
+	aspect_start .6
+	aspect_end .6
+	hard_edges true
+	perspective_radius 30
+	range 0
+}
+pncr_lightning_ring
+{
+	map particle_sheet5.png
+	region lightning_ring
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .33
+	fade_out 0.0
+	fade_in 1
+	period 0
+	
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 150
+		color_start 0.2 7 10 1
+	color_end 1 0.0 0.5 0
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 110
+	//scale_timeline 0=0.0,l;0.5=0.3,l;0.7=0.8,l;1=1,l
+}
+pncr_impact_particles
+
+{
+	subsystem pncr_impact_ligtning_bolt
+	subsystem pncr_impact_ligtning_bolt2
+	//subsystem pncr_impact_ligtning_bolt3
+	subsystem pncr_impact_ligtning_bolt4
+subsystem pncr_impact_center 0 1.5
+// subsystem	pncr_debris
+//subsystem pncr_impact_sparks 0 1.25
+//subsystem pncr_impact_sparks2 0 0.5
+subsystem pncr_impact_embers 0 1.5
+//subsystem pncr_impact_embers2 0 1.5
+subsystem pncr_impact_ring  0 1.5
+subsystem pncr_impact_ring2  0 1.2
+subsystem pncr_explode_ring 
+//subsystem pncr_explode_flash01
+subsystem pncr_distortion 0 1.
+subsystem  pncr_floor_lines_edge
+	subsystem  pncr_impact_sparks
+	subsystem pncr_lightning_ring
+}

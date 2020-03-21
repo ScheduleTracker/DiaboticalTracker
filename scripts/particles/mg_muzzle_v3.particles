@@ -1,0 +1,455 @@
+mg_muzzleflash
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	rotation_start 0 360
+	blend add
+	fade_out 0.05
+
+	position 0 0 0.5
+	color_start  4 4 1 1
+	color_end  4 0.1 .1 0
+	scale_start 3
+	scale_end 8
+	
+
+}
+mg_muzzleflash_2
+{
+	map particle_sheet3.png
+	region s3_plasma_52
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	rotation_start 0 360
+	blend add
+	fade_out 0.05
+
+	position 0 0 0.5
+	color_start  4 4 1 1
+	color_end  4 0.1 .1 0
+	scale_start 0
+	scale_end 4
+	
+
+}
+	mg_muzzlespark_aim
+{
+	map particle_sheet3.png
+	region s3_plasma_56
+	animation_speed 50
+	animation_start 10
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15
+	fade_in 0
+	blend add
+	fade_out 0.15
+	
+	// color_start 10 5 0.8 1
+	// color_end  6 2 0.2 1
+color_start  4 4 1 1
+	color_end  10 6 1 1
+	position -0.1 0 0   
+    scale_start 2
+    scale_end 5
+    rotation_start -210
+    fade_out 0.2
+	//velocity_angles 175 90 0 185 90 0
+	speed_start 20
+	speed_end 2
+	//auto_orient true
+	 aspect_start 1.5 
+	 aspect_end 1.5
+	 	period 0.1
+		position 0 0 0
+}
+	mg_muzzlespark_aim_2 mg_muzzlespark_aim
+{
+
+	 aspect_start 1.0
+	 aspect_end 1.0
+	 	
+}
+	mg_muzzlespark_aim_3 mg_muzzlespark_aim
+{
+
+	 aspect_start 1.7 
+	 aspect_end 1.7
+	 	
+}
+	mg_muzzlespark_aim_4 mg_muzzlespark_aim
+{
+
+	 aspect_start 1.2 
+	 aspect_end 1.2
+	 	
+}
+	mg_muzzlespark_large
+{
+	map particle_sheet3.png
+	region s3_plasma_56
+	animation_speed 50
+	animation_start 10
+	max_particles 1
+	max_emissions 1
+	lifetime 0.08
+	fade_in 0
+	blend add
+	fade_out 0.15
+	
+	// color_start 10 5 0.8 1
+	// color_end  6 2 0.2 1
+color_start  4 4 1 1
+	color_end  10 6 1 1
+	position -0.1 0 0   
+    scale_start 5
+    scale_end 7
+    rotation_start -212
+    fade_out 0.2
+	//velocity_angles 175 90 0 185 90 0
+	speed_start 20
+	speed_end 1
+	//auto_orient true
+	 aspect_start 1.5 
+	 aspect_end 1.2
+	 	period 0.1
+		position 0 0 0
+}
+mg_muzzle_flame_1
+{
+	map particle_sheet3.png
+	region  s3_rl_muzzle_29
+	animation_speed 40
+	animation_start 0
+	max_particles 1
+	max_emissions 1
+	delay 00
+	lifetime 0.14 0.1  
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 10 8 3 1 
+	color_end  2 0 1 1 
+    scale_start 0.1
+    scale_end 1.8 2.5
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 90 90 0 0 90 0
+	speed_start 7
+	speed_end 0.5
+	auto_orient true
+	aspect_start 1
+	aspect_end 1
+		
+}
+
+mg_muzzle_flame_2 mg_muzzle_flame_1
+{
+
+	velocity_angles 180 90 0 90 90 0
+	
+}
+mg_muzzle_flame_3 mg_muzzle_flame_1
+{
+
+	velocity_angles 270 90 0 180 90 0
+	
+}
+mg_muzzle_flame_4 mg_muzzle_flame_1
+{
+
+	velocity_angles 360 90 0 270 90 0
+	
+}
+mg_muzzle_flame_v2
+{
+	map particle_sheet5.png
+	region  muzzle_flash
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_26
+    animation_speed 30
+	animation_start 0
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	rotation_start 0 360
+	blend add
+	fade_out 0.10
+	//position -0.7 1.4 8.35
+	position 0 0 0
+	color_start  20 20 10 1
+
+		color_end  10 4 0 1
+	scale_start 0
+	scale_end 4 5
+	position 0 0 1
+position 0 0 0.5
+		
+}
+mg_muzzle_flame_v2_2 mg_muzzle_flame_v2
+{
+
+aspect_start1 1.25
+aspect_end 1.25
+	
+}
+
+
+
+mg_muzzle_spark_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 3
+	max_emissions 3
+	delay 
+	lifetime 0.1 0.15  
+	fade_in 2
+	blend add
+	fade_out 0.0
+	period 0
+	color_start 10 5 3 1 
+	color_end  1 0.8 0.2 1 
+    scale_start 2
+    scale_end 1
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 0 90 0 360 90 0
+	speed_start 3
+	speed_end 0
+	auto_orient true
+	aspect_start 0.7
+	aspect_end 0.3
+		
+}
+mg_muzzle_spark_2
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 1
+	max_emissions 1
+	delay 
+	lifetime 0.08 0.1  
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 10 5 3 1 
+	color_end  1 0.8 0.2 1 
+    scale_start 2
+    scale_end 1
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 115 90 0 125 90 0
+	speed_start 3
+	speed_end 0
+	auto_orient true
+	aspect_start 0.7
+	aspect_end 0.5
+		
+}
+mg_muzzle_light base_light_impact
+{
+	lifetime 0.3
+	system_light_radius 30
+	system_light_intensity 5
+	system_light_color 1 0.6 0.1
+	system_light_falloff 0.0
+	
+}
+mg_aim_shot_1
+{
+	// geometry quad
+map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_start 
+	
+	blend add
+	max_particles 100
+	max_emissions 100
+	lifetime 0.1
+	period 0.0004
+	 fade_in 0.1
+	 fade_out 0.0
+	 speed_start 3000		
+	 
+	// fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+
+	rotation_start 0 360
+	color_start  0.6 0.3 0.1  1
+	color_end  0.1 0.1 0.05 0.1
+	emitter line 0 0 0
+	turbulence 200
+	scale_start 0.8
+	scale_end .00
+	drag 1
+}
+mg_aim_shot_2 mg_aim_shot_1
+{
+
+	 speed_start 4000  
+scale_start 1
+}
+mg_aim_shot_3 mg_aim_shot_1
+{
+
+	 speed_start 2000 
+scale_start 0.6
+}
+mg_aim_shot_4 mg_aim_shot_1
+{
+
+	 speed_start 2500    
+scale_start 1.2
+}
+	mg_muzzle_spark_shot
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_start 0
+	max_particles 2
+	max_emissions 2
+	delay  
+	lifetime 0.14 0.1  
+	fade_in 1
+	blend add
+	fade_out 0.03
+	period 0.1
+	position 0 0 0.5
+	color_start 10 8 3 1 
+	color_end 10 8 3 1
+    scale_start 0.0
+    scale_end .45
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 75 -35 0 20 -90 0 
+	speed_start 30
+	speed_end 1
+	auto_orient true
+	aspect_start 1
+	aspect_end 0.1
+		
+}	
+mg_muzzle_v3
+{
+	
+
+	 subsystem mg_muzzleflash
+	 subsystem mg_muzzleflash_2
+  subsystem mg_muzzlespark_aim+empty+empty+empty+mg_muzzlespark_aim_2+empty+empty+empty+mg_muzzlespark_aim_3+empty+empty+mg_muzzlespark_aim_4+empty+empty+empty+empty
+	 subsystem mg_muzzlespark_large+empty+empty+empty+mg_muzzlespark_large+empty+empty
+	 subsystem mg_muzzle_flame_1+empty+empty+empty
+	 subsystem mg_muzzle_flame_2+empty+empty+empty
+	 subsystem mg_muzzle_flame_3+empty+empty+empty
+	 subsystem mg_muzzle_flame_4+empty+empty+empty
+ subsystem	mg_muzzle_light
+	subsystem mg_muzzle_flame_v2+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty
+	subsystem mg_muzzle_flame_v2_2+empty+empty+empty+empty+empty+empty+empty+empty
+	 subsystem mg_muzzle_flame_v2_3+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty+empty
+	
+	 subsystem mg_muzzle_spark_1+empty+empty+empty+empty+empty+empty+empty+empty+empty
+	subsystem mg_muzzle_spark_2+empty+empty+empty+empty+empty+empty
+	 	// subsystem mg_aim_shot_1+empty+empty+mg_aim_shot_2+empty+empty+mg_aim_shot_3+empty+empty+mg_aim_shot_4+empty+empty
+		// subsystem mg_muzzle_spark_shot+empty+empty+empty+empty+empty
+	
+	subsystem mg_aim_shot_1+empty+empty+empty+mg_aim_shot_2+empty+empty+empty+empty+mg_aim_shot_3+empty+empty+empty+empty+mg_aim_shot_4++empty+empty+empty+empty+empty
+	 
+
+}
+
+mg_muzzle_flame_v2_3p
+{
+	map particle_sheet5.png
+	region  muzzle_flash
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_26
+    animation_speed 30
+	animation_start 0
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	rotation_start 0 360
+	blend add
+	fade_out 0.10
+	//position -0.7 1.4 8.35
+	position 0 0 0
+	color_start  20 20 10 1
+
+		color_end  10 4 0 1
+	scale_start 0
+	scale_end 4 5
+	position 0 0 0
+
+		
+}
+	mg_muzzlespark_large_3p
+{
+	map particle_sheet3.png
+	region s3_plasma_56
+	animation_speed 50
+	animation_start 10
+	max_particles 1
+	max_emissions 1
+	lifetime 0.08
+	fade_in 0
+	blend add
+	fade_out 0.15
+	
+	// color_start 10 5 0.8 1
+	// color_end  6 2 0.2 1
+color_start  4 4 1 1
+	color_end  10 2 1 1
+	position 0   
+    scale_start 5
+    scale_end 7
+    rotation_start 0
+    fade_out 0.2
+	//velocity_angles 175 90 0 185 90 0
+	speed_start 20
+	speed_end 1
+	//auto_orient true
+	 aspect_start 1.5 
+	 aspect_end 1.2
+	 	period 0.1
+		position 0 0 0
+}
+
+
+// minigun_shot
+// {
+	// subsystem mg_aim_shot_1+empty+empty+empty+mg_aim_shot_2+empty+empty+empty+mg_aim_shot_3+empty+empty+empty+mg_aim_shot_4+empty+empty+empty
+	// }
+mg_muzzle_v3_3p
+{
+	
+  subsystem mg_muzzlespark_large_3p 0 5
+	  subsystem mg_muzzleflash 0 3
+	 subsystem mg_muzzle_flame_1_3p 0 9
+	 subsystem mg_muzzle_flame_2 0 9
+	 subsystem mg_muzzle_flame_3 0 9
+	 subsystem mg_muzzle_flame_4 0 9
+ subsystem	mg_muzzle_light
+	subsystem mg_muzzle_flame_v2_3p 0 10
+	
+	
+	subsystem mg_aim_shot_1 0 2
+	 
+
+}

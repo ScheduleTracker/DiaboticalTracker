@@ -1,0 +1,165 @@
+
+plasma_decorative_01
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0.0
+	fade_out 0.0
+	period 0.2
+	//color_start 5 1 3 1
+	color_start 1 1 1 1
+	//color_end  0 0 1 1
+	color_end 1 1 1 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 2.5
+    rotation_start 0 360
+ 
+}
+
+plasma_decorative_01_2
+{
+	map particle_sheet3.png
+	region s3_plasma_54
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0.0
+	fade_out 0.1
+	period 0.3
+	//color_start 5 1 3 1
+	color_start 1 1 1 1
+	//color_end  0 0 1 1
+	color_end 1 1 1 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 1.65
+    rotation_start 0 360
+ 
+}
+
+plasma_decorative_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 1.25	
+	system_light_intensity 100
+	//system_light_color 0.9 0.0 0.7 
+	system_light_color 0.95 0.7 1
+	system_light_falloff 0.0
+	
+}
+decorative_plasma_t1
+{
+subsystem plasma_decorative_01 
+subsystem plasma_decorative_01_2
+subsystem plasma_decorative_light
+
+}
+decorative_plasma_t1_1
+{
+subsystem plasma_decorative_01 0 0.7
+
+}
+decorative_plasma_t1_2
+{
+subsystem	plasma_decorative_01_2
+subsystem	plasma_decorative_01_2 0 0.7
+subsystem	plasma_decorative_01_2 
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+plasma_decorative_spark
+{
+	map shaft_ammo_lightning.png
+	region shaft_ammo_lightning
+	blend add
+	animation_start 0
+	animation_speed 15
+	max_particles 1
+	max_emissions 0
+	lifetime 1.35
+	//fade_in 0
+	//fade_out 0.10
+	period 1.35
+	
+	//color_start 10 5 1
+	//color_end 10 5 1
+	//color_start 1.2 0.9 0.3
+	//color_end  1.2 0.9 0.3
+	//color_start 1 .2 1
+	color_start 1 1 1 1
+	//color_end 1 0.2 1
+	color_end 1 1 1 1
+    scale_start .75
+    scale_end .75
+	aspect_start 1.1
+	aspect_end 1.1
+    rotation_start 40
+   	hard_edges true
+
+	//position 0.023 -12.371 3.349
+	//(Add 1.162)
+	
+}
+plasma_decorative_spark2 plasma_decorative_spark
+{
+
+	animation_start 20
+
+}
+plasma_decorative_spark3 plasma_decorative_spark
+{
+
+	animation_start 8
+}
+plasma_decorative_spark4 plasma_decorative_spark
+{
+
+	animation_start 12
+
+}
+plasma_decorative_spark5 plasma_decorative_spark
+{
+
+	animation_start 16
+}
+plasma_decorative_spark6 plasma_decorative_spark
+{
+
+	animation_start 4
+
+}
+decorative_plasma_spark_vfx
+{
+subsystem	plasma_decorative_spark
+subsystem	plasma_decorative_spark2
+subsystem	plasma_decorative_spark3
+// subsystem	plasma_decorative_spark4
+// subsystem	plasma_decorative_spark5
+// subsystem	plasma_decorative_spark6
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+plasma_decorative_light_2 base_light_impact
+{
+	lifetime 0
+	system_light_radius 1.0	
+	system_light_intensity 15
+	//system_light_color 0.9 0.0 0.7 
+	system_light_color 0.95 0.7 1
+	system_light_falloff 0.1
+	
+}
+plasma_weapon_light_vfx
+{
+subsystem plasma_decorative_light_2
+}

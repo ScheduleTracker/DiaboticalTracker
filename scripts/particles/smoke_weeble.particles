@@ -1,0 +1,162 @@
+//IMPACT
+
+
+
+smoke_weeble_smoke_01
+{
+	map particle_sheet3.png
+	region s3_explosion_03_04
+	
+	blend alpha
+	max_particles 10
+	delay 0
+	max_emissions 10
+	lifetime 2
+	fade_in .1 
+	fade_out 0.1
+	rotation_start 0 360
+	position 0 0 8 0 0 8
+	// position 0 0 -1 0 0 -1s
+	color_start  2 2 2 1
+	color_end  2 2 2 1
+		velocity_angles  20 20 20 20 20 20
+	speed_start 50
+	speed_end 25
+	auto_orient_3d true
+	scale_start 1183
+	scale_end 1352
+hard_edges false
+	perspective_radius 200
+	scale_timeline 0=0,l;0.5=0.3,l;0.9=0.7,l;1=1,l
+	angular_speed_start -500 500
+	range 0
+}
+smoke_weeble_smoke_02
+{
+	map particle_sheet3.png
+	region s3_explosion_03_04
+	
+	blend alpha
+	max_particles 15
+	delay 0.01
+	period 0.3
+	max_emissions 15
+	lifetime 3
+	fade_in 1 
+	fade_out 0.1
+	rotation_start 0 360
+	position 0 0 8 0 0 8
+	// position 0 0 -1 0 0 -1s
+	color_start  2 2 2 1
+	color_end  2 2 2 1
+	velocity_angles  20 20 20 20 20 20
+	speed_start 50
+	speed_end 25
+	auto_orient_3d true
+	scale_start 507
+	scale_end 1352
+hard_edges false
+	perspective_radius 200
+	scale_timeline 0=0,l;0.5=0.3,l;0.9=0.7,l;1=1,l
+	angular_speed_start -500 500
+	range 0
+}
+smoke_weeble_smoke_03
+{
+	map particle_sheet3.png
+	region s3_explosion_03_04
+	
+	blend alpha
+	max_particles 40
+	delay 0.01
+	period 0.15
+	max_emissions 40
+	lifetime 3
+	fade_in 1 
+	fade_out 0.1
+	rotation_start 0 360
+	position 0 0 8 0 0 8
+	// position 0 0 -1 0 0 -1s
+	color_start  2 2 2 1
+	color_end  2 2 2 1
+	velocity_angles  20 20 20 20 20 20
+	speed_start 50
+	speed_end 25
+	auto_orient_3d true
+	scale_start 507
+	scale_end 1352
+	hard_edges false
+	perspective_radius 200
+	scale_timeline 0=0,l;0.5=0.3,l;0.9=0.7,l;1=1,l
+	angular_speed_start -500 500
+	range 0
+}
+smoke_weeble_smoke_04
+{
+	map particle_sheet3.png
+	region s3_explosion_03_04
+	
+	blend alpha
+	max_particles 50
+	delay 0.01
+	period 0.1
+	max_emissions 50
+	lifetime 3
+	fade_in 0.5 
+	fade_out 0.1
+	rotation_start 0 360
+	position 0 0 10 0 0 10
+	// position 0 0 -1 0 0 -1s
+	color_start  2 2 2 1
+	color_end  2 2 2 1
+	velocity_angles  20 20 20 20 20 20
+	speed_start 50
+	speed_end 25
+	auto_orient_3d true
+	scale_start 169
+	scale_end 676
+	hard_edges false
+	perspective_radius 100
+	scale_timeline 0=0,l;0.5=0.3,l;0.9=0.7,l;1=1,l
+	angular_speed_start -500 500
+	range 0
+}
+
+smoke_primitive
+{
+    map particle_sheet1.png
+    max_particles 1
+    max_emissions 1
+    lifetime 8
+    geometry primitive 300
+	shader smoke
+}
+
+//IMPACT
+smoke_weeble_impact
+{
+  subsystem smoke_primitive
+  //subsystem rl_explosion_smoke 0 1.2
+    //subsystem rl_explosion_smoke_2 0 1.2 
+	 //subsystem rl_explode_spark
+	 //subsystem rl_explode_spark_2
+	//subsystem rl_explode_flash01 0 0.85
+	//subsystem rl_explode_flash02 0 1
+	 //subsystem rl_explode_flash03 0 1
+	 //subsystem rl_explode_ember_01 0 0.95
+	 //subsystem rl_explode_ember_02 0 0.95
+	 //subsystem rl_explode_ember_03
+	//subsystem rl_floor_smoke_impact_center 0 1.2
+	//subsystem rl_floor_smoke_impact_center 0 1.2
+	
+	
+	
+	//subsystem smoke_weeble_smoke_01 0 1.2
+	//subsystem smoke_weeble_smoke_02 0 1.2
+	//subsystem smoke_weeble_smoke_03 0 1.2
+	//subsystem smoke_weeble_smoke_04 0 1.2
+	//subsystem smoke_weeble_smoke_02 0 1.47
+	//subsystem smoke_weeble_smoke_03 0 1.47
+  	
+   range 0
+}

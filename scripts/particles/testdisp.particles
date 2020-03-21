@@ -1,0 +1,18 @@
+testdisp base_explosion
+{
+	region r_electric_explosion
+	sync_group 1
+	rotation_start 0 80
+	scale_start 50 
+	scale_end 350 400
+	blend add
+	color_start  1 1.4 1.86 1
+	color_end  1 1.6 1.8 0.1
+	//NOTE displacement, don't remove!
+	displacement true 1.0 0.3 0.1 0.1
+}
+
+disp
+{
+    subsystem testdisp   
+}

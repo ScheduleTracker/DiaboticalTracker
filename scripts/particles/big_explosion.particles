@@ -1,0 +1,314 @@
+//IMPACT
+
+bigexp_smoke_impact_1
+ {
+	map particle_sheet3.png
+	region s3_smoke01_41
+	animation_speed 3
+	animation_start 0
+	blend alpha
+	max_particles 4
+	max_emissions 4
+	lifetime 1.4
+	fade_in 0.50
+	fade_out 0.80
+	rotation_start 0
+	position 0 0 15 0 0 15
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start 0 1 1 0.7
+	color_end  0 1 1 0.0
+	emitter line 0 0 1
+	scale_start 0
+	scale_end 600
+	velocity_angles 0 0 0 355 360 0
+	auto_orient_3d true
+	speed_start 200
+	speed_end  60
+}
+
+bigexp_smoke_impact_2 bigexp_smoke_impact_1
+{
+	lifetime 1.1 1.2
+	scale_end 350 450
+	velocity_angles 0 0 0 355 360 0
+	speed_end  75
+}
+
+bigexp_explosion_ring_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_14
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime 0.35
+	fade_out 0.1
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 300
+	color_start 2 12 12 1 
+	color_end 0 0.2 10 1 
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+}
+
+bigexp_explosion_ring_2 bigexp_explosion_ring_1
+{
+	region s3_rl_muzzle	
+	lifetime 0.3
+}
+
+bigexp_explosion_center_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.40
+	fade_out 0.10
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 150
+	color_start  10 10 10 1
+	color_end  0.25 8 20 1
+	rotation_start 0 180
+	hard_edges true
+	//rotation_end 0 360
+}
+
+bigexp_explosion_center_2 bigexp_explosion_centre_1
+{
+	region s3_rl_muzzle_2
+	lifetime 0.3
+	delay 0.05
+	scale_end 50
+	//subsystem bigexp_explosion_center_2 is currently based on bigexp_explosion_centre_1 which doesn't exist, instead of bigexp_explosion_center_1
+}
+
+bigexp_impact_explosion_1
+{
+	map particle_sheet3.png
+	region s3_explosion01_9
+	animation_speed 10
+	animation_start 0	
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.5
+	fade_in 0 
+	fade_out 0.30
+	rotation_start 0
+	position 0 0 8 0 0 8
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start  0 4 4 1
+	color_end  .1 .8 16 1
+	velocity_angles 0 0 0 120 360 0
+	speed_start 300 150
+	speed_end 100 50
+	auto_orient_3d true
+	scale_start 0
+	scale_end 300 350
+	hard_edges true
+}
+
+bigexp_impact_explosion_2 bigexp_impact_explosion_1
+{
+    velocity_angles 120 0 0 240 360 0
+}
+
+bigexp_impact_explosion_3 bigexp_impact_explosion_1
+{
+    velocity_angles 240 0 0 360 360 0
+}
+
+bigexp_impact_explosion_4 bigexp_impact_explosion_1
+{
+velocity_angles 0 0 0 360 360 0
+	scale_start 25 30
+	scale_end 150 200
+	speed_start  200
+	speed_end 50
+}
+
+bigexp_explode_spark
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 20
+	animation_start 0
+	max_particles 25
+	max_emissions 25
+	lifetime 0.55
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 0.25  15 15 1
+	color_end  0.25 2 8 1
+	position 0 0 0  
+    scale_start 0
+    scale_end 40 50
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 300
+	speed_end 150
+	auto_orient_3d true
+	aspect_start 1.4 1.5
+	aspect_end 0.9 0.7
+	hard_edges true
+}
+
+bigexp_explode_ember
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 20
+	animation_start 0
+	max_particles 10
+	max_emissions 10
+	lifetime 1.2
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 0.24 2 4 1
+	color_end 0.24 2 4 1
+	position 0 0 0  
+    scale_start 10 20
+    scale_end 5
+    rotation_start 0 360
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 200
+	speed_end 75
+	drag 1000
+	auto_orient_3d true
+	hard_edges true
+}
+
+bigexp_explode_flash01
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 10
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .4
+	fade_out 0.1
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 200
+	color_start 2 12 12 1 
+	color_end  0.25 1 20 1
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+}
+
+rocket_light base_light_impact
+{
+	map effects1.png
+	region r_transparent
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.4
+	fade_in 0.1
+	velocity 0 0 0
+	absolute_acceleration true
+	acceleration 0 0 0 0 0 0
+	fade_out 0.2
+	period 0
+	scale_start 200
+	scale_end 200
+	color_start 0 1.5 1.5 1
+	color_end 0 0 1 0
+	light_radius 500
+}
+
+thegetaway
+{
+	geometry quad
+	map effects1.png
+	region r_smokep1_a
+	blend alpha
+	max_particles 200
+	max_emissions 200
+	lifetime 2
+	period 0.001
+	fade_in 0.2
+	rotation_start 0 360
+	// fade_out 0.25
+	emitter array 0 5 5
+	// position 0.2 0.1 -25
+	color_start 0.2 0.2 0.2 0.2
+	color_end 0.2 0.2 0.2 0.02
+	turbulence 0
+	scale_start 20 30
+	acceleration 0 -50 -20 0 0 20 
+	velocity 4 0 4 4 0 -4
+	scale_end 10
+	// drag 1
+	soft_destruction on
+}
+
+bigexp_debris
+{
+	map particle_sheet3.png
+	mesh models/particles/debris_01.fbx 50
+	mesh models/particles/debris_02.fbx 30
+	mesh models/particles/debris_03.fbx 20
+	mesh_rotation 1 1 1
+	geometry mesh
+	blend alpha
+	max_particles 12
+	max_emissions 12
+	period 0
+	delay 0.05
+	lifetime 4
+	fade_in 0.05
+	fade_out 999
+	velocity -275 -275 -275 275 275 275
+	color_start 1 1 1 1 1 1 1 1
+	color_end 1 1 1 1 1 1 1 1
+	rotation_start 0 360
+	rotation_end 0 360
+	scale_start .2 .5
+
+	acceleration 0 -300 0 0 -350 0
+}
+
+//IMPACT
+big_explosion
+{
+	subsystem bigexp_smoke_impact_1 0 5.3
+	subsystem bigexp_smoke_impact_2
+	subsystem explode_light 0 5.3
+	//subsystem bfg_explode_light doesn't seem to currently exist in the files
+	subsystem bigexp_explode_spark 0 5.3
+	subsystem bigexp_explosion_ring_1 0 5.3
+	subsystem bigexp_explosion_ring_2 0 5.3
+	subsystem bigexp_explosion_center_1 0 5.3
+	subsystem bigexp_explosion_center_2 0 5.3
+	//subsystem bigexp_explosion_center_2 is currently based on bigexp_explosion_centre_1 which doesn't exist, instead of bigexp_explosion_center_1
+	subsystem bigexp_impact_explosion_1 0 5.3
+	subsystem bigexp_impact_explosion_2 0 5.3
+	subsystem bigexp_impact_explosion_3 0 5.3
+	subsystem bigexp_impact_explosion_4 0 5.3
+	subsystem bigexp_explode_ember01 0 5.3
+	subsystem bigexp_explode_flash01 0 5.3
+	subsystem bigexp_debris 0 5.3
+}

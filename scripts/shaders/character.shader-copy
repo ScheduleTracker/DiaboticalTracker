@@ -1,0 +1,1099 @@
+//DIGNITASBOT
+
+eggbot1_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_dignitas_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot1_mat_uvset2
+{
+	{
+		map textures/character/characters/eggbot_uvset2_d.png
+		map textures/character/characters/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/eggbot_uvset2_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot1_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_dignitas_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot1_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_dignitas_d.png
+		map textures/character/eggbot_uvset4_dignitas_n.png
+		map textures/character/matte.png
+		map textures/character/black.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot1_mat_uvset4_dignitas
+{
+	{
+		map textures/character/eggbot_uvset4_dignitas_d.png
+		map textures/character/eggbot_uvset4_dignitas_n.png
+		map textures/character/matte.png
+		map textures/character/black.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+// ASSASINBOT
+
+eggbot2_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_assassin_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot2_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/eggbot_uvset2_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot2_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_assassin_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot2_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_assassin_d.png
+		map textures/character/eggbot_uvset4_assassin_n.png
+		map textures/character/matte.png
+		map textures/character/black.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot2_mat_uvset4_assassin
+{
+	{
+		map textures/character/eggbot_uvset4_assassin_d.png
+		map textures/character/eggbot_uvset4_assassin_n.png
+		map textures/character/matte.png
+		map textures/character/black.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot2_mat_rocketlauncher
+{
+	{
+		map textures/character/rl_diffuse.png
+		map textures/character/rl_normal.png
+		map textures/character/rl_specular.png
+		map textures/character/rl_i.png
+		//map textures/props/characters/black.png
+		material_id 40
+		//vertex_shader tilestatic.vs.cso 111 NGT
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		//vertex_shader_param material_id
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+		//pixel_shader entity.ps.cso
+	}
+}
+
+// SMILEYBOT
+
+eggbot3_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_smiley_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot3_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/black.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot3_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_smiley_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot3_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_smiley_d.png
+		map textures/character/eggbot_uvset4_n.png
+		map textures/character/eggbot_uvset4_s.png
+		map textures/character/black.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+
+eggbot3_mat_chair
+{
+	{
+		map textures/character/chair.png
+		map textures/character/flat_normal.png
+		map textures/character/black.png
+		map textures/character/black.png
+		material_id 0
+		vertex_shader tilestatic.vs.cso 111 NGT		
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot3_mat_straw
+{
+	{
+		map textures/character/straw.png
+		map textures/character/flat_normal.png
+		map textures/character/black.png
+		map textures/character/black.png
+		material_id 106
+		vertex_shader tilestatic.vs.cso 111 NGT		
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot3_mat_health_pickup
+{
+	{
+		map textures/character/hp.png
+		map textures/character/flat_normal.png
+		map textures/character/black.png
+		map textures/character/black.png
+		material_id 106
+		vertex_shader tilestatic.vs.cso 111 NGT		
+   		vertex_shader_param inverse
+		vertex_shader_param camera
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot3_mat_glasses
+{
+	{
+		map textures/character/black.png
+		map textures/character/flat_normal.png
+		map textures/character/gray.png
+		map textures/character/black.png
+		material_id 60
+		vertex_shader tilestatic.vs.cso 111 NGT
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		pixel_shader tile.ps.cso
+	}
+}
+
+
+// KAWAIIBOT
+
+eggbot4_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_kawaii_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot4_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/eggbot_uvset2_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot4_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_kawaii_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot4_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_kawaii_d.png
+		map textures/character/eggbot_uvset4_n.png
+		map textures/character/eggbot_uvset4_s.png
+		map textures/character/black.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+SHARKBOT
+
+eggbot5_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_shark_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/matte.png
+		map textures/character/black.png
+		material_id 105
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot5_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/matte.png
+		map textures/character/black.png
+		material_id 105
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot5_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_shark_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/matte.png
+		map textures/character/black.png
+		material_id 105
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot5_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_shark_d.png
+		map textures/character/eggbot_uvset4_n.png
+		map textures/character/matte.png
+		map textures/character/black.png
+		material_id 105
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+// //SKULLBOT
+
+// eggbot6_mat_uvset1
+// {
+	// {
+		// map textures/character/eggbot_uvset1_skull_d.png
+		// map textures/character/eggbot_uvset1_n.png
+		// map textures/character/matte.png
+		// map textures/character/black.png
+		// material_id 105
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot6_mat_uvset2
+// {
+	// {
+		// map textures/character/eggbot_uvset2_d.png
+		// map textures/character/eggbot_uvset2_n.png
+		// map textures/character/matte.png
+		// map textures/character/black.png
+		// material_id 105
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot6_mat_uvset3
+// {
+	// {
+		// map textures/character/eggbot_uvset3_skull_d.png
+		// map textures/character/eggbot_uvset3_n.png
+		// map textures/character/matte.png
+		// map textures/character/black.png
+		// material_id 105
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot6_mat_uvset4
+// {
+	// {
+		// map textures/character/eggbot_uvset4_skull_d.png
+		// map textures/character/eggbot_uvset4_n.png
+		// map textures/character/matte.png
+		// map textures/character/black.png
+		// material_id 105
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+// //SMILEYBOT
+
+// eggbot7_mat_uvset1
+// {
+	// {
+		// map textures/character/eggbot_uvset1_smiley_d.png
+		// map textures/character/eggbot_uvset1_n.png
+		// map textures/character/matte.png
+		// map textures/character/black.png
+		// material_id 105
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot7_mat_uvset2
+// {
+	// {
+		// map textures/character/eggbot_uvset2_d.png
+		// map textures/character/eggbot_uvset2_n.png
+		// map textures/character/matte.png
+		// map textures/character/black.png
+		// material_id 105
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot7_mat_uvset3
+// {
+	// {
+		// map textures/character/eggbot_uvset3_smiley_d.png
+		// map textures/character/eggbot_uvset3_n.png
+		// map textures/character/matte.png
+		// map textures/character/black.png
+		// material_id 105
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot7_mat_uvset4
+// {
+	// {
+		// map textures/character/eggbot_uvset4_smiley_d.png
+		// map textures/character/eggbot_uvset4_n.png
+		// map textures/character/matte.png
+		// map textures/character/black.png
+		// material_id 105
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+
+//TEAM RED SKULLBOT
+
+eggbot6_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_red_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot6_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/eggbot_uvset2_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot6_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_red_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot6_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_skull_red_d.png
+		map textures/character/eggbot_uvset4_n.png
+		map textures/character/eggbot_uvset4_s.png
+		map textures/character/eggbot_uvset4_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+//TEAM RED KAWAIIBOT
+
+eggbot7_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_red_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot7_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/eggbot_uvset2_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot7_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_red_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot7_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_bomb_red_d.png
+		map textures/character/eggbot_uvset4_bomb_n.png
+		map textures/character/eggbot_uvset4_s.png
+		map textures/character/eggbot_uvset4_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+
+//TEAM BLUE SMILEYBOT
+
+eggbot8_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_blue_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot8_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/eggbot_uvset2_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot8_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_blue_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot8_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_smiley_blue_d.png
+		map textures/character/eggbot_uvset4_n.png
+		map textures/character/eggbot_uvset4_s.png
+		map textures/character/eggbot_uvset4_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+// //TEAM BLUE ASSASSINBOT
+
+// eggbot9_mat_uvset1
+// {
+	// {
+		// map textures/character/eggbot_uvset1_blue_d.png
+		// map textures/character/eggbot_uvset1_n.png
+		// map textures/character/eggbot_uvset1_s.png
+		// map textures/character/eggbot_uvset1_i.png
+		// material_id 106
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+        // }
+// }
+
+// eggbot9_mat_uvset2
+// {
+	// {
+		// map textures/character/eggbot_uvset2_d.png
+		// map textures/character/eggbot_uvset2_n.png
+		// map textures/character/eggbot_uvset2_s.png
+		// map textures/character/eggbot_uvset2_i.png
+		// material_id 106
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot9_mat_uvset3
+// {
+	// {
+		// map textures/character/eggbot_uvset3_blue_d.png
+		// map textures/character/eggbot_uvset3_n.png
+		// map textures/character/eggbot_uvset3_s.png
+		// map textures/character/eggbot_uvset3_i.png
+		// material_id 106
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot9_mat_uvset4
+// {
+	// {
+		// map textures/character/eggbot_uvset4_assassin_blue_d.png
+		// map textures/character/eggbot_uvset4_assassin_n.png
+		// map textures/character/matte.png
+		// map textures/character/black.png
+		// material_id 106
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// //TEAM BLUE SKULLBOT
+
+// eggbot10_mat_uvset1
+// {
+	// {
+		// map textures/character/eggbot_uvset1_blue_d.png
+		// map textures/character/eggbot_uvset1_n.png
+		// map textures/character/eggbot_uvset1_s.png
+		// map textures/character/eggbot_uvset1_i.png
+		// material_id 106
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+// }
+
+// eggbot10_mat_uvset2
+// {
+	// {
+		// map textures/character/eggbot_uvset2_d.png
+		// map textures/character/eggbot_uvset2_n.png
+		// map textures/character/eggbot_uvset2_s.png
+		// map textures/character/eggbot_uvset2_i.png
+		// material_id 106
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot10_mat_uvset3
+// {
+	// {
+		// map textures/character/eggbot_uvset3_blue_d.png
+		// map textures/character/eggbot_uvset3_n.png
+		// map textures/character/eggbot_uvset3_s.png
+		// map textures/character/eggbot_uvset3_i.png
+		// material_id 106
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+// eggbot10_mat_uvset4
+// {
+	// {
+		// map textures/character/eggbot_uvset4_skull_blue_d.png
+		// map textures/character/eggbot_uvset4_n.png
+		// map textures/character/eggbot_uvset4_s.png
+		// map textures/character/eggbot_uvset4_i.png
+		// material_id 106
+		// vertex_shader tileanim.vs.cso 111 NGTA
+		// vertex_shader_param inverse
+		// vertex_shader_param camera
+		// vertex_shader_param bones
+		// pixel_shader tile.ps.cso
+	// }
+// }
+
+//TEAM RED SKULLBOT
+
+eggbot11_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_red_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+}
+
+eggbot11_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_red_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/eggbot_uvset2_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot11_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_red_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot11_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_skull_red_d.png
+		map textures/character/eggbot_uvset4_n.png
+		map textures/character/eggbot_uvset4_s.png
+		map textures/character/eggbot_uvset4_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+//TEAM RED KAWAIIBOT
+
+eggbot12_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_red_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+}
+
+eggbot12_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_red_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/eggbot_uvset2_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot12_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_red_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot12_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_kawaii_red_d.png
+		map textures/character/eggbot_uvset4_n.png
+		map textures/character/eggbot_uvset4_s.png
+		map textures/character/eggbot_uvset4_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+
+//TEAM RED BOMBBOT
+
+eggbot13_mat_uvset1
+{
+	{
+		map textures/character/eggbot_uvset1_red_d.png
+		map textures/character/eggbot_uvset1_n.png
+		map textures/character/eggbot_uvset1_s.png
+		map textures/character/eggbot_uvset1_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+}
+
+eggbot13_mat_uvset2
+{
+	{
+		map textures/character/eggbot_uvset2_red_d.png
+		map textures/character/eggbot_uvset2_n.png
+		map textures/character/eggbot_uvset2_s.png
+		map textures/character/eggbot_uvset2_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot13_mat_uvset3
+{
+	{
+		map textures/character/eggbot_uvset3_red_d.png
+		map textures/character/eggbot_uvset3_n.png
+		map textures/character/eggbot_uvset3_s.png
+		map textures/character/eggbot_uvset3_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}
+
+eggbot13_mat_uvset4
+{
+	{
+		map textures/character/eggbot_uvset4_bomb_red_d.png
+		map textures/character/eggbot_uvset4_bomb_n.png
+		map textures/character/eggbot_uvset4_s.png
+		map textures/character/eggbot_uvset4_i.png
+		material_id 106
+		vertex_shader tileanim.vs.cso 111 NGTA
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		vertex_shader_param bones
+		pixel_shader tile.ps.cso
+	}
+}

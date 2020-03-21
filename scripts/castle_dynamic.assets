@@ -1,0 +1,220 @@
+asset dp_castle_woodexterior
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 1 inf inf
+  	dynamic_default_size 1 1 2
+  
+  	dynamic_rule
+  	{
+    		select props/castle/woodexterior,props/castle/woodexterior_y,props/castle/woodexterior_z,props/castle/woodexterior_yz
+  	}
+	
+
+
+}
+
+asset dp_castle_woodexterior_corner
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 1 inf 1
+  	dynamic_default_size 1 1 1
+  
+  	dynamic_rule
+  	{
+    		select props/castle/woodexterior_corner,props/castle/woodexterior_corner_b
+  	}
+	
+
+
+}
+
+
+asset castle_roof01
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 inf inf inf
+  	dynamic_default_size 2 1 1
+
+  	dynamic_rule
+  	{
+		if offset_front / offset_bottom 2
+    		select props/castle/roof01_a,props/castle/roof01_b,props/castle/roof01_c,props/castle/roof01_d
+    
+  	}
+  
+
+
+}
+
+asset castle_roof01_edge
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 inf 1 1
+  	dynamic_default_size 2 1 1
+
+  	dynamic_rule
+  	{
+		
+    		select props/castle/roof01_edge_a,props/castle/roof01_edge_b,props/castle/roof01_edge_c,props/castle/roof01_edge_d
+    
+  	}
+  
+
+
+}
+
+asset castle_roof01_steep
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 inf inf inf
+  	dynamic_default_size 2 1 1
+
+  	dynamic_rule
+  	{
+		if offset_front / offset_bottom 1
+    		select props/castle/roof01_steep_a,props/castle/roof01_steep_b,props/castle/roof01_steep_c,props/castle/roof01_steep_d,props/castle/roof01_steep_e,props/castle/roof01_steep_f,props/castle/roof01_steep_g,props/castle/roof01_steep_h
+    
+  	}
+  
+
+
+}
+
+asset castle_roof01_steep_edge
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 inf 1 1
+  	dynamic_default_size 2 1 1
+
+  	dynamic_rule
+  	{
+		
+    		select props/castle/roof01_steep_edge_a,props/castle/roof01_steep_edge_b,props/castle/roof01_steep_edge_c,props/castle/roof01_steep_edge_d
+    
+  	}
+  
+
+
+}
+
+asset castle_rooftrim01
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 inf 1 1
+  	dynamic_default_size 2 1 1
+
+  	dynamic_rule
+  	{
+		
+    		select props/castle/rooftrim01_a
+    
+  	}
+  
+
+
+}
+
+
+asset castle_rooftrim03
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 inf 1 1
+  	dynamic_default_size 2 1 1
+
+  	dynamic_rule
+  	{
+		
+    		select props/castle/rooftrim03_a,props/castle/rooftrim03_b
+    
+  	}
+  
+
+
+}
+
+
+asset castle_stoneblock_corner_a
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 1 inf 1
+  	dynamic_default_size 1 1 1
+
+  	dynamic_rule
+  	{
+    	select props/castle/stoneblock_corner_a,props/castle/stoneblock_corner_b,props/castle/stoneblock_corner_c,props/castle/stoneblock_corner_d
+  	}
+}
+
+asset castle_stoneblock_corner_b
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 1 inf 1
+  	dynamic_default_size 1 1 1
+
+  	dynamic_rule
+  	{
+    	select props/castle/stoneblock_corner_b,props/castle/stoneblock_corner_c,props/castle/stoneblock_corner_d,props/castle/stoneblock_corner_a
+  	}
+}
+
+
+asset castle_stonestairs
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 inf inf inf
+  	dynamic_default_size 2 1 1
+
+  	dynamic_rule
+  	{
+		if offset_front / offset_bottom 2
+    		select props/castle/stonestairs_a,props/castle/stonestairs_b
+    
+  	}
+  
+
+
+}
+
+
+
+asset castle_stonetrim
+{
+	dynamic true
+	listed true
+  	//xmin ymin zmin xmax ymax zmax
+  	dynamic_dimensions 1 1 1 inf 1 1
+  	dynamic_default_size 1 1 1
+  
+	//CENTER
+  	dynamic_rule
+  	{
+    		select props/castle/stonetrim_a,props/castle/stonetrim_b,props/castle/stonetrim_c,props/castle/stonetrim_d,props/castle/stonetrim_e
+  	}
+  
+
+}
+
+
+

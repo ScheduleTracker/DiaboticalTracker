@@ -1,0 +1,574 @@
+//SHOTGUN MUZZLE
+
+flak_muzzleflash_1
+{
+	map particle_sheet3.png
+	region s3_plasma_50
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.12
+	scale_start .5
+	scale_end 3
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+
+color_start  16 8 4 1
+	color_end  8 4 0.25 1
+	scale_start 1
+	scale_end 5
+	position 0 0.25 0
+	// aspect_start 1
+	// aspect_end 1
+}
+flak_muzzleflash_2
+{
+	map particle_sheet3.png
+	region s3_plasma_53
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.12
+	scale_start .5
+	scale_end 3
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+    color_start  16 8 4 1
+    color_end  8 4 0.25 1
+	scale_start 0
+	scale_end 4
+		position 0 0.25 0
+}
+
+flak_muzzleflash_3
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.2
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+    color_start  16 8 4 1
+	color_end  16 8 4 1
+	scale_start 1
+	scale_end 3.5
+		position 0 0.25 0
+}
+
+flak_muzzleflash_4
+{
+	map particle_sheet3.png
+	region s3_plasma_52
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.12
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+    color_start  16 8 4 1
+	color_end  8 4 0.25 1
+	scale_start 1
+	scale_end 4
+	position 0 0.25 0
+	// aspect_start 1
+	// aspect_end 1
+}
+
+flak_muzzleflash_5
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.12
+	rotation_start 0 360
+	blend add
+	fade_out 0.1
+	color_start  50 40 10 1
+	color_end  16 8 4 1
+	scale_start 1
+	scale_end 8
+	position 0 0.25 0
+	// aspect_start 1
+	// aspect_end 1
+}
+
+flak_muzzleflame_1
+{
+	map particle_sheet3.png
+	region     s3_rl_muzzle_23
+    animation_speed 530
+	max_particles 2
+	max_emissions 2 
+	period 0
+	lifetime  0.15
+	rotation_start 180
+	blend add
+	fade_out 0.025
+	position 0.1 0.2 0
+	rotation_start 90
+	color_start  50 40 10 1
+    color_end  16 8 4 1
+	scale_start 1
+	scale_end 4
+	velocity_angles 40 -90 0 50 -90 0
+	speed_start 10
+	speed_end 1
+	auto_orient true
+	 // aspect_start 1
+	 // aspect_end 2
+}
+
+flak_muzzleflame_2 flak_muzzleflame_1
+{
+    velocity_angles 85 -90 0 95 -90 0
+}
+
+flak_muzzleflame_3 flak_muzzleflame_1
+{
+    velocity_angles 130 -90 0 140 -90 0	
+}
+
+flak_muzzleflame_4 flak_muzzleflame_1
+{
+	velocity_angles 175 -90 0 185 -90 0
+}
+
+flak_muzzleflame_5 flak_muzzleflame_1
+{
+	velocity_angles 220 -90 0 230 -90 0
+}
+
+flak_muzzleflame_6 flak_muzzleflame_1
+{
+	velocity_angles 265 -90 0 275 -90 0
+}
+
+
+flak_muzzle_spark_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 5
+	max_emissions 5
+	delay 
+	lifetime 0.14 0.1  
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 10 5 3 1 
+	color_end  1 0.8 0.2 1 
+    scale_start 0.1
+    scale_end 1
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 90 90 0 0 90 0
+	speed_start 15
+	speed_end 1
+	auto_orient true
+	aspect_start 1
+	aspect_end 0.7	
+}
+
+flak_muzzle_spark_2 flak_muzzle_spark_1
+{
+	velocity_angles 180 90 0 90 90 0
+}
+
+flak_muzzle_spark_3 flak_muzzle_spark_1
+{
+	velocity_angles 270 90 0 180 90 0
+}
+
+flak_muzzle_spark_4 flak_muzzle_spark_1
+{
+	velocity_angles 360 90 0 270 90 0
+}
+
+flak_spark
+{
+	map particle_sheet3.png
+	region s3_plasma_56	
+	animation_speed 
+	animation_start 
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15
+	fade_in 0
+	blend add
+	fade_out 0.15
+	// color_start 10 5 0.8 1
+	// color_end  6 2 0.2 1
+    color_start  4 4 1 1
+	color_end  16 8 4 1
+	position    0 0.25 -0.25
+    scale_start 1
+    scale_end 5
+    rotation_start -220
+    fade_out 0.2
+	//velocity_angles 175 90 0 185 90 0
+	speed_start 35
+	speed_end 1
+	//auto_orient true
+	// aspect_start 0.75 
+	aspect_end 1.2 1.5
+	 	period 0
+}
+
+flak_dispersion
+{
+	//delay 0.1
+    //noise radius, noise strength
+	//geometry tape 0.8 0.15
+	animation_speed 20
+	map particle_sheet3.png
+	//region s3_rl_muzzle_7
+	region s3_explosion02_333
+	blend add
+	max_particles 2
+	max_emissions 2
+	lifetime 0.15
+	period 0.015
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 3
+	rotation_start 0 360
+	//position 1 1 1 -1 -1 -1
+	//turbulence 2000 1
+	//scale_start 2
+	//scale_end 2
+	scale_start 3
+	scale_end 5
+	noise_time_seed 7
+	color_start 2 1.5 1.0 0.9 
+	color_end 0.9 0.95 1.0 0.0
+}
+
+flak_muzzle_spark_aim
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 5
+	max_emissions 5
+	delay 
+	lifetime 0.14 0.1  
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 10 5 3 1 
+	color_end  1 0.8 0.2 1 
+    scale_start 0.1
+    scale_end 2
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 110 90 0 135 90 0
+	speed_start 12
+	speed_end 12
+	auto_orient true
+	aspect_start 1
+	aspect_end 0.7	
+}
+
+flak_muzzle_embers
+{
+	// geometry quad
+    map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 10
+	max_emissions 10
+	lifetime 0.3
+	period 0
+	fade_in 0.1
+	velocity 2 2 20  -2 -2 20
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 0 0 -1
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 0 0 1
+	emitter line 0 0 1
+	turbulence 200
+	scale_start .3 0.25
+	scale_end 0 0
+	drag 0.8
+}
+
+flak_muzzle_embers_2
+{
+	// geometry quad
+    map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 20
+	max_emissions 20
+	lifetime 0.25
+	period 0
+	fade_in 0.1
+	velocity 8 8 20  -8 -8 20
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 0 0 -1
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 0 0 1
+	emitter line 0 0 1
+	turbulence 200
+	scale_start 0.2 0.1
+	scale_end 0 0
+	drag 0.8
+}
+
+flak_muzzle_distortion
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20
+	fade_out 0.10
+	period 0
+	turbulence 60 1
+	scale_start 0
+	scale_end 1
+	color_start  10 10 10 1
+	color_end  20 8 0.25 1
+	rotation_start 0 180
+	hard_edges true
+	//rotation_end 0 360
+    
+}
+
+flak_muzzle
+{
+	 subsystem flak_muzzleflash_1  
+	// subsystem flak_muzzleflash_2
+	   subsystem flak_muzzleflash_3
+	subsystem flak_muzzleflash_4
+		//subsystem flak_muzzleflash_5
+		//subsystem flak_muzzleflash_5
+	// subsystem flak_muzzleflame_1 
+	// subsystem flak_muzzleflame_2 
+	// subsystem flak_muzzleflame_3 
+	// subsystem flak_muzzleflame_4 
+	// subsystem flak_muzzleflame_5
+		// subsystem flak_muzzleflame_6
+	subsystem flak_muzzle_spark_1 
+	subsystem flak_muzzle_spark_2 
+	subsystem flak_muzzle_spark_3 
+	subsystem flak_muzzle_spark_4 
+	subsystem flak_muzzle_spark_5 
+subsystem flak_spark
+subsystem flak_dispersion
+subsystem flak_muzzle_spark_aim
+subsystem flak_muzzle_embers
+subsystem flak_muzzle_embers_2
+subsystem flak_muzzle_distortion
+}
+//////////////////////////////////////////-----------------I M P A C T --------------------/////////////////////////////////////////////////////////////////////
+
+flak_impact_1
+{
+	map particle_sheet3.png
+	region s3_plasma_56
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2
+	scale_start .5
+	scale_end 3
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+    period 0.05
+    color_start  16 8 4 1
+	color_end  8 4 0.25 1
+	scale_start 10
+	scale_end 50
+	position 0 5 0
+	aspect_start 1
+	aspect_end 0.8
+	perspective_radius 20
+}
+ 
+flak_impact_2
+{
+	map particle_sheet3.png
+	region s3_plasma_53
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	scale_start .5
+	scale_end 3
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+    color_start  16 8 4 1
+	color_end  8 4 0.25 1
+	scale_start 1
+	scale_end 70
+	position 0 0.25 0
+	// aspect_start 1
+	// aspect_end 1
+	perspective_radius 20
+}
+
+flak_impact_3
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	scale_start .5
+	scale_end 3
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+    color_start  16 8 4 1
+	color_end  8 4 0.25 1
+	scale_start 1
+	scale_end 20
+	position 0 0.25 0
+	// aspect_start 1
+	// aspect_end 1
+	perspective_radius 20
+}
+
+flak_impact_embers
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 10
+	max_emissions 10
+	//delay 0.05
+	lifetime 0.4
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 6 2 0 1
+	color_end  1 0 0 1
+	position 0 0 0  
+    scale_start 8
+    scale_end 2
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 45 45 0 315 315  0
+	speed_start 200
+	speed_end 100
+	auto_orient_3d true
+	turbulence 2000
+	aspect_start 1.2 1.5
+	aspect_end 0.5 0.6
+	hard_edges true
+	drag 1000
+    perspective_radius 20
+}
+
+flak_impact_embers
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 10
+	max_emissions 10
+	//delay 0.05
+	lifetime 0.4
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 6 2 0 1
+	color_end  1 0 0 1
+	position 0 0 0  
+    scale_start 8
+    scale_end 2
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 45 45 0 315 315  0
+	speed_start 200
+	speed_end 100
+	auto_orient_3d true
+	turbulence 2000
+	aspect_start 1.2 1.5
+	aspect_end 0.5 0.6
+	hard_edges true
+	drag 1000
+	perspective_radius 20
+	//there are 2 flak_impact_embers and they appear to be completely the same
+}
+
+flak_impact_sparks
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 40
+	animation_start 0
+	max_particles 10
+	max_emissions 10
+	//delay 0.05
+	lifetime 0.3
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 6 2 0 1
+	color_end  1 0 0 1
+	position 0 0 0  
+    scale_start 8
+    scale_end 2
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 45 45 0 315 315  0
+	speed_start 300
+	speed_end 200
+	auto_orient_3d true
+	turbulence 2000
+	aspect_start 0.5 0.5
+	aspect_end 0.01 0.01
+	hard_edges true
+	drag 1000
+	perspective_radius 20
+}
+
+flak_impact_system
+{
+	subsystem flak_impact_1
+	subsystem flak_impact_2
+	subsystem flak_impact_3
+	subsystem flak_impact_embers
+	subsystem flak_impact_sparks
+	}

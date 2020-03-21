@@ -1,0 +1,132 @@
+
+//MAP: broll_pickups
+
+movie broll_pickups_rg
+{
+	dolly dolly_broll_cam11
+	dolly dolly_broll_cam12
+	duration 16
+}
+
+movie broll_pickups_rl
+{
+	dolly dolly_broll_cam11
+	dolly dolly_broll_cam12
+	duration 16
+}
+
+movie broll_pickups_lg
+{
+	dolly dolly_broll_cam11
+	dolly dolly_broll_cam12
+	duration 16
+}
+
+movie broll_pickups_sg
+
+{
+	dolly dolly_broll_cam11
+	dolly dolly_broll_cam12
+	duration 16
+}
+
+movie broll_pickups_powerjump
+{
+	dolly dolly_broll_cam13
+	dolly dolly_broll_cam14
+	duration 16
+}
+
+movie broll_pickups_dd
+{
+	dolly dolly_broll_cam13
+	dolly dolly_broll_cam14
+	duration 16
+}
+
+movie broll_pickups_red
+{
+	dolly dolly_broll_cam11
+	dolly dolly_broll_cam12
+	duration 16
+}
+
+movie broll_pickups_greenhp
+{
+	dolly dolly_broll_cam11
+	dolly dolly_broll_cam12
+	duration 16
+}
+
+movie broll_pickups_bluehp
+{
+	dolly dolly_broll_cam11
+	dolly dolly_broll_cam12
+	duration 16
+}
+
+//CAMERA ZOOM OUT
+
+movie broll_pickups_rg_out
+{
+	dolly dolly_broll_cam12
+	dolly dolly_broll_cam11
+	duration 16
+}
+
+movie broll_pickups_rl_out
+{
+	dolly dolly_broll_cam12
+	dolly dolly_broll_cam11
+	duration 16
+}
+
+movie broll_pickups_lg_out
+{
+	dolly dolly_broll_cam12
+	dolly dolly_broll_cam11
+	duration 16
+}
+
+movie broll_pickups_sg_out
+
+{
+	dolly dolly_broll_cam12
+	dolly dolly_broll_cam11
+	duration 16
+}
+
+movie broll_pickups_powerjump_out
+{
+	dolly dolly_broll_cam14
+	dolly dolly_broll_cam13
+	duration 16
+}
+
+movie broll_pickups_dd_out
+{
+	dolly dolly_broll_cam14
+	dolly dolly_broll_cam13
+	duration 16
+}
+
+movie broll_pickups_red_out
+{
+	dolly dolly_broll_cam12
+	dolly dolly_broll_cam11
+	duration 16
+}
+
+movie broll_pickups_greenhp_out
+{
+	dolly dolly_broll_cam12
+	dolly dolly_broll_cam11
+	duration 16
+}
+
+movie broll_pickups_bluehp_out
+{
+	dolly dolly_broll_cam12
+	dolly dolly_broll_cam11
+	duration 16
+}

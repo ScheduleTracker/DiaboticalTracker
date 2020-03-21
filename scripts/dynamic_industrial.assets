@@ -1,0 +1,3581 @@
+asset pillar
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 1 inf 1
+  dynamic_default_size 1 4 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_pillar_pipe_tile
+  }
+  dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/industrial/dp_pillar_pipe_top_flipx
+  }
+  dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/industrial/dp_pillar_pipe_base
+  }
+}
+
+
+////////////////////////////////////////////////////////
+
+
+asset beam
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf 1 1
+  dynamic_default_size 4 1 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_beam_tile
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_beam_corner_flipx
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_beam_corner
+  }
+}
+
+////////////////////////////////////////////////////////
+
+asset bridge
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 2 inf 1 inf
+  dynamic_default_size 6 1 3
+  //CENTER
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_bridge_mid
+  }
+  
+  //SIDES
+  dynamic_rule
+  {
+	if offset_right is 0
+    select dynamic_props/industrial/dp_bridge_side_b
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/industrial/dp_bridge_corner_side
+  }
+  
+  dynamic_rule
+  {
+	if offset_front is 0
+    select dynamic_props/industrial/dp_bridge_side_a,dynamic_props/industrial/dp_bridge_side_a_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_back is 0
+    select dynamic_props/industrial/dp_bridge_side_a_flipz
+  }
+  
+  //CORNERS
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_bridge_corner
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_bridge_corner_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_bridge_outer_corner
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_bridge_outer_corner_flipz
+  }
+  
+}
+
+
+////////////////////////////////////////////////////////
+
+asset concave_wall1
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 1 inf inf 1
+  dynamic_default_size 3 3 1
+
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_concave_wall1_mid
+  }
+
+  dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_concave_wall1_base
+  }
+
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/industrial/dp_concave_wall1_base_flipy
+  }
+
+  dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/industrial/dp_concave_wall1_side	
+  }
+
+  dynamic_rule
+  {
+	if offset_right is 0
+    select dynamic_props/industrial/dp_concave_wall1_side_flipx
+  }
+
+  dynamic_rule
+  {
+	if offset_bottom is 0
+	if offset_left is 0
+    select dynamic_props/industrial/dp_concave_wall1_corner
+  }
+
+  dynamic_rule
+  {
+	if offset_bottom is 0
+	if offset_right is 0
+    select dynamic_props/industrial/dp_concave_wall1_corner_flipx
+  }
+
+  dynamic_rule
+  {
+	if offset_top is 0
+	if offset_left is 0
+    select dynamic_props/industrial/dp_concave_wall1_corner_flipy
+  }
+
+  dynamic_rule
+  {
+	if offset_top is 0
+	if offset_right is 0
+    select dynamic_props/industrial/dp_concave_wall1_corner_flipx_flipy
+  }
+
+}
+
+////////////////////////////////////////////////////////
+
+asset dp_window1
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 1 inf inf 1
+  dynamic_default_size 3 3 1
+  
+  // SIDES
+  
+  dynamic_rule
+  {
+	if offset_bottom is 0 
+    select dynamic_props/industrial/dp_window1_tile1_horizontal
+  }
+  
+  dynamic_rule
+  {
+	if offset_top is 0 
+    select dynamic_props/industrial/dp_window1_tile1_horizontal_flipy
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0 
+    select dynamic_props/industrial/dp_window1_tile1_vertical
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0 
+    select dynamic_props/industrial/dp_window1_tile1_vertical_flipx
+  }
+ 
+  // CORNERS
+ dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_window1_corner
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_window1_corner_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_window1_corner_flipy
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_window1_corner_flipx_flipy
+  }
+  
+  
+}
+
+
+////////////////////////////////////////////////////////
+
+asset dp_concave_2_floor
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 2 inf 1 inf
+  dynamic_default_size 4 1 4
+  
+   //CENTER
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_concave_2_floor_mid
+  }
+  
+  //SIDES
+  dynamic_rule
+  {
+	if left empty
+    select dynamic_props/industrial/dp_concave_2_floor_side_a
+  }
+  
+  dynamic_rule
+  {
+	if right empty
+    select dynamic_props/industrial/dp_concave_2_floor_side_a_flipx
+  }
+  
+  dynamic_rule
+  {
+	if front empty
+    select dynamic_props/industrial/dp_concave_2_floor_side_a_z
+  } 
+  
+  dynamic_rule
+  {
+	if back empty
+    select dynamic_props/industrial/dp_concave_2_floor_side_a_z_flipz
+  } 
+  
+  //CORNERS
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_concave_2_floor_corner_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_concave_2_floor_corner_flipz_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_concave_2_floor_corner
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_concave_2_floor_corner_flipz
+  }
+  
+}
+
+////////////////////////////////////////////////////////
+
+asset dp_concave_floor
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 2 inf 1 inf
+  dynamic_default_size 4 1 4
+  
+  
+   //CENTER
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_concave_floor_mid
+  }
+  
+  //SIDES
+  dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/industrial/dp_concave_floor_side_a
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+    select dynamic_props/industrial/dp_concave_floor_side_a_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_front is 0
+    select dynamic_props/industrial/dp_concave_floor_side_a_z
+  }
+  
+  dynamic_rule
+  {
+	if offset_back is 0
+    select dynamic_props/industrial/dp_concave_floor_side_a_z_flipz
+  }
+  
+  //CORNERS
+	
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_concave_floor_corner
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0 
+	if offset_front is 0
+    select dynamic_props/industrial/dp_concave_floor_corner_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_concave_floor_corner_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0 
+    select dynamic_props/industrial/dp_concave_floor_corner_flipx_flipz
+  }
+}
+
+////////////////////////////////////////////////////////
+  
+// asset dp_convex_metalbox
+// {
+  // dynamic true
+// listed true
+  // //xmin ymin zmin xmax ymax zmax
+  // dynamic_dimensions 1 2 1 1 inf 1
+  
+  
+  // dynamic_rule
+  // {
+    // select dynamic_props/industrial/dp_convex_metalbox01
+  // }
+// }
+
+////////////////////////////////////////////////////////
+
+asset dp_platform
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 2 inf 1 inf
+  dynamic_default_size 4 1 4
+  
+  //CENTER
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_platform1_middle
+  }
+  //SIDES
+  dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/industrial/dp_platform1_tile1z
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+    select dynamic_props/industrial/dp_platform1_tile1z_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_back is 0
+    select dynamic_props/industrial/dp_platform1_tile1x
+  }
+  
+  dynamic_rule
+  {
+	if offset_front is 0
+    select dynamic_props/industrial/dp_platform1_tile1x_flipz
+  }
+  
+  //CORNERS
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_platform1_corner
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_platform1_corner_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_platform1_corner_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_platform1_corner_flipz_flipx
+  }
+  
+}
+
+////////////////////////////////////////////////////////
+
+asset pillar2
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 1 inf 1
+  dynamic_default_size 1 4 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_pillar1_mid
+  }
+  dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/industrial/dp_pillar1_base_flipz_flipy
+  }
+  dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/industrial/dp_pillar1_base
+  }
+}
+
+////////////////////////////////////////////////////////
+
+
+asset big_pipe
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 3 1 1 inf 1
+  dynamic_default_size 1 3 1
+  dynamic_rule
+  {
+	if offset_bottom > 2
+    select dynamic_props/industrial/dp_pipe_mid
+  }
+  dynamic_rule
+  {
+    if offset_bottom is 0
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_pipe_base
+  }
+}
+
+////////////////////////////////////////////////////////
+
+
+asset big_pipe2
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 5 1 1 inf 1
+  dynamic_default_size 1 5 1
+  dynamic_rule
+  {
+	if offset_bottom > 4
+    select dynamic_props/industrial/dp_pipe_mid2
+  }
+  dynamic_rule
+  {
+    if offset_bottom is 0
+	if offset_left is 
+	if offset_front is 0
+    select dynamic_props/industrial/dp_pipe_base2
+  }
+}
+
+////////////////////////////////////////////////////////
+
+
+asset big_pipe_horizontal
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 1 1 1 1 inf
+  dynamic_default_size 1 1 5
+  num_channels 2
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_pipe_mid_horizontal
+	channel 0
+  }
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_pipe_mid_horizontal_trans
+	channel 1
+  }
+}
+
+////////////////////////////////////////////////////////
+
+asset dp_round_corner
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 1 inf 1
+  dynamic_default_size 1 4 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_rounded_corner_tile
+  }
+  dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/industrial/dp_rounded_corner_base_flipy
+  }
+  dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/industrial/dp_rounded_corner_base
+  }
+}
+
+////////////////////////////////////////////////////////
+
+asset enginetower
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 1 inf 1
+  dynamic_default_size 1 4 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_tower_mid
+  }
+  dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/industrial/dp_tower_top
+  }
+  dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/industrial/dp_tower_base
+  }
+}
+
+
+////////////////////////////////////////////////////////
+
+asset ironbar
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf 1 1
+  dynamic_default_size 5 1 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_ironbar_glue,dynamic_props/industrial/dp_ironbar_glue2
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_ironbar_end_flipx
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_ironbar_end
+  }
+}
+
+
+////////////////////////////////////////////////////////
+
+
+asset coveyor_belt
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 1 2 1 1 inf
+  dynamic_default_size 1 1 6
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_conveyor_01
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+    //select dynamic_props/industrial/dp_conveyor_start
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+    //select dynamic_props/industrial/dp_conveyor_end
+  }
+}
+
+////////////////////////////////////////////////////////
+
+// asset rail
+// {
+  // dynamic true
+// listed true
+  // //xmin ymin zmin xmax ymax zmax
+  // dynamic_dimensions 1 2 1 1 inf 1
+  // dynamic_rule
+  // {
+    // select dynamic_props/industrial/dp_rail
+  // }
+
+// }
+
+////////////////////////////////////////////////////////
+
+asset reinpillar
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 1 inf 1
+  dynamic_default_size 1 2 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_reinarmor_small_glue
+  }
+  
+  dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/industrial/dp_reinarmor_small_end
+  }
+  dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/industrial/dp_reinarmor_small_end_flipy
+  }
+
+}
+
+////////////////////////////////////////////////////////
+
+asset reinarmor
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 1 inf inf 1
+  dynamic_default_size 2 2 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_reinarmor_mid
+  }
+
+//SIDES
+  dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/industrial/dp_reinarmor_glue_vertical
+  }
+
+  dynamic_rule
+  {
+	if offset_right is 0
+    select dynamic_props/industrial/dp_reinarmor_glue_vertical_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/industrial/dp_reinarmor_glue_horizontal
+  }
+  
+  dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_reinarmor_glue_horizontal_flipy
+  }
+
+
+//CORNERS
+
+	dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_reinarmor_corner
+  }
+
+	dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_reinarmor_corner_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_reinarmor_corner_flipy
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_reinarmor_corner_flipy_flipx
+  }
+  
+}
+
+////////////////////////////////////////////////////////
+
+
+
+
+
+// asset smallpipe_horizontal
+// {
+  // dynamic true
+// listed true
+  // //xmin ymin zmin xmax ymax zmax
+  // dynamic_dimensions 1 2 1 1 inf 1
+  // dynamic_rule
+  // {
+    // select dynamic_props/industrial/dp_pipe_small_01,dynamic_props/industrial/dp_pipe_small_02,dynamic_props/industrial/dp_pipe_small_03,dynamic_props/industrial/dp_pipe_small_04
+  // }
+
+
+// }
+
+asset xsmallpipe_horizontal
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 1 1 inf 1 1
+  dynamic_default_size 3 1 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_pipe_xsmall_01,dynamic_props/industrial/dp_pipe_xsmall_02,dynamic_props/industrial/dp_pipe_xsmall_03,dynamic_props/industrial/dp_pipe_xsmall_04,dynamic_props/industrial/dp_pipe_xsmall_05
+  }
+
+}
+
+asset xsmallpipe_vertical
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 1 1 1 inf 1
+  dynamic_default_size 1 3 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_pipe_xsmall_01_v,dynamic_props/industrial/dp_pipe_xsmall_02_v,dynamic_props/industrial/dp_pipe_xsmall_03_v,dynamic_props/industrial/dp_pipe_xsmall_04_v,dynamic_props/industrial/dp_pipe_xsmall_05_v
+  }
+
+}
+
+////////////////////////////////////////////////////////
+
+asset pipe_holder
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 3 1 1 inf 1
+  dynamic_default_size 1 3 1
+   dynamic_rule
+  {
+	if offset_top > 2
+    select dynamic_props/industrial/dp_pipe_holder_mid
+  }
+  dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/industrial/dp_pipe_holder_bottom
+  }
+  dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/industrial/dp_pipe_holder_top
+  }
+}
+
+//////////////////////////////////////////////////////
+
+asset dp_stage
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 2 inf 1 inf
+  dynamic_default_size 4 1 4
+  
+   //CENTER
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_stage_inner
+  }
+  
+  //SIDES
+  dynamic_rule
+  {
+	if left empty
+    select dynamic_props/industrial/dp_stage_z,dynamic_props/industrial/dp_stage_z_flipz
+  }
+  
+  dynamic_rule
+  {
+	if right empty
+    select dynamic_props/industrial/dp_stage_z_flipx,dynamic_props/industrial/dp_stage_z_flipx_flipz
+  }
+  
+  dynamic_rule
+  {
+	if front empty
+    select dynamic_props/industrial/dp_stage_x,dynamic_props/industrial/dp_stage_x_flipx
+  } 
+  
+  dynamic_rule
+  {
+	if back empty
+    select dynamic_props/industrial/dp_stage_x_flipz,dynamic_props/industrial/dp_stage_x_flipz_flipx
+  } 
+  
+  //CORNERS
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_stage_corner_flipx_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_stage_corner_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_stage_corner_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_stage_corner
+  }
+  
+}
+
+//////////////////////////////////////////////////////
+
+asset pipe_holder_horizontal
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 3 1 1 inf 1 1
+  dynamic_default_size 4 1 1
+   dynamic_rule
+  {
+	if offset_left > 1
+    select dynamic_props/industrial/dp_pipe_holder_mid_horizontal
+  }
+	dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_pipe_holder_bottom_horizontal
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_pipe_holder_top_horizontal
+  }
+}
+
+
+///////////////
+
+asset bridge_2
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 1 3 inf 1 inf
+  dynamic_default_size 1 1 3
+  //CENTER
+
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_bridge2_tile_mid
+  }
+
+ //SIDES
+ 
+ 	dynamic_rule
+  {
+    if offset_front is 0
+    select dynamic_props/industrial/dp_bridge2_tile
+  }
+ 
+  	dynamic_rule
+  {
+    if offset_back is 0
+    select dynamic_props/industrial/dp_bridge2_tile_flipz
+  }
+ 
+  	dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_bridge2_base_mid
+  }
+ 
+  	dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_bridge2_base_mid_flipx
+  }
+  
+      dynamic_rule
+  {
+    if offset_left is 0
+    if offset_front is 0
+    select dynamic_props/industrial/dp_bridge2_base
+ }
+   	dynamic_rule
+  {
+    if offset_right is 0
+    if offset_front is 0
+    select dynamic_props/industrial/dp_bridge2_base_flipx
+ }
+ 
+     dynamic_rule
+  {
+    if offset_back is 0
+    if offset_left is 0
+    select dynamic_props/industrial/dp_bridge2_base_flipz
+ }
+ 
+      dynamic_rule
+  {
+    if offset_back is 0
+    if offset_right is 0
+    select dynamic_props/industrial/dp_bridge2_base_flipx_flipz
+ }
+
+ 
+ 
+ 
+}
+
+asset roofbar
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf 1 1
+  dynamic_default_size 2 1 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_roofbar_tile
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_roofbar_end_flipx
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_roofbar_end
+  }
+}
+
+asset solidsquare
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 2 inf inf inf
+  dynamic_default_size 2 2 2
+  dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_solidsquare_bottom_mid
+  }
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/industrial/dp_solidsquare_top_mid
+  }
+  
+  //SIDES
+  
+
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_solidsquare_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_solidsquare_tile_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+    select dynamic_props/industrial/dp_solidsquare_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+    select dynamic_props/industrial/dp_solidsquare_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_solidsquare_bottom_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_solidsquare_bottom_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_solidsquare_bottom_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_solidsquare_bottom_tile_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_solidsquare_top_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_solidsquare_top_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_solidsquare_top_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_solidsquare_top_tile_z_flipx
+  }
+  
+  
+  //2d corners
+  
+   dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_solidsquare_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_solidsquare_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_solidsquare_corner_flipx_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_solidsquare_corner_flipz
+  }
+  
+  //CORNERS
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_solidsquare_bottom_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_solidsquare_bottom_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_solidsquare_bottom_corner_flipz
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_solidsquare_bottom_corner_flipx_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_solidsquare_top_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_solidsquare_top_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_solidsquare_top_corner_flipz
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_solidsquare_top_corner_flipx_flipz
+  }
+  
+}
+
+asset roundsquare_01
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 2 inf inf inf
+  dynamic_default_size 2 2 2
+  dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_02_bottom_mid
+  }
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_02_top_mid
+  }
+  
+  //SIDES
+  
+
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_round_02_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_round_02_tile_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+    select dynamic_props/industrial/dp_round_02_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+    select dynamic_props/industrial/dp_round_02_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_02_bottom_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_02_bottom_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_02_bottom_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_02_bottom_tile_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_02_top_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_02_top_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_02_top_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_02_top_tile_z_flipx
+  }
+  
+  
+  //2d corners
+  
+   dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_02_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_02_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_02_corner_flipx_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_02_corner_flipz
+  }
+  
+  //CORNERS
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_02_bottom_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_02_bottom_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_02_bottom_corner_flipz
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_02_bottom_corner_flipx_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_02_top_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_02_top_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_02_top_corner_flipz
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_02_top_corner_flipx_flipz
+  }
+  
+}
+
+///////////////////////////////////////////////////////////////////////
+
+asset roundsquare_02
+
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 2 inf 1 inf
+  dynamic_default_size 2 1 2
+  //CENTER
+
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_round_01_bottom_mid
+  }
+
+ //SIDES
+ 
+ 	dynamic_rule
+  {
+    if offset_front is 0
+    select dynamic_props/industrial/dp_round_01_bottom_tile_x
+  }
+ 
+  	dynamic_rule
+  {
+    if offset_back is 0
+    select dynamic_props/industrial/dp_round_01_bottom_tile_x_flipz
+  }
+ 
+  	dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_round_01_bottom_tile_z
+  }
+ 
+  	dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_round_01_bottom_tile_z_flipx
+  }
+  
+  //CORNERS
+  
+      dynamic_rule
+  {
+    if offset_left is 0
+    if offset_front is 0
+    select dynamic_props/industrial/dp_round_01_bottom_corner
+ }
+   	dynamic_rule
+  {
+    if offset_right is 0
+    if offset_front is 0
+    select dynamic_props/industrial/dp_round_01_bottom_corner_flipx
+ }
+     dynamic_rule
+  {
+    if offset_back is 0
+    if offset_left is 0
+    select dynamic_props/industrial/dp_round_01_bottom_corner_flipz
+ }
+ 
+      dynamic_rule
+  {
+    if offset_back is 0
+    if offset_right is 0
+    select dynamic_props/industrial/dp_round_01_bottom_corner_flipx_flipz
+ }
+
+}
+
+ //---------------------------------
+ 
+asset pillar_concrete
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 2 inf inf inf
+  dynamic_default_size 2 2 2
+  dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_bottom_mid
+  }
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_top_mid
+  }
+  
+  //SIDES
+  
+
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_tile_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_bottom_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_bottom_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_bottom_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_bottom_tile_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_top is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_top_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_top is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_top_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_top is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_top_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_top is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_top_tile_z_flipx
+  }
+  
+  
+  //2d corners
+  
+   dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_corner,dynamic_props/industrial/3dp_pillarconcrete_corner_x_flipx,dynamic_props/industrial/3dp_pillarconcrete_corner_zx_flipx_flipz,dynamic_props/industrial/3dp_pillarconcrete_corner_z_flipz random
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_corner_x,dynamic_props/industrial/3dp_pillarconcrete_corner_flipx,dynamic_props/industrial/3dp_pillarconcrete_corner_zx_flipz,dynamic_props/industrial/3dp_pillarconcrete_corner_z_flipx_flipz random
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_corner_zx,dynamic_props/industrial/3dp_pillarconcrete_corner_flipx_flipz,dynamic_props/industrial/3dp_pillarconcrete_corner_x_flipz,dynamic_props/industrial/3dp_pillarconcrete_corner_z_flipx random
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_corner_z,dynamic_props/industrial/3dp_pillarconcrete_corner_flipz,dynamic_props/industrial/3dp_pillarconcrete_corner_x_flipx_flipz,dynamic_props/industrial/3dp_pillarconcrete_corner_zx_flipx random
+  }
+  
+  //CORNERS
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_bottom_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_bottom_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_bottom_corner_flipz
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_bottom_corner_flipx_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_top_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_top_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_top_corner_flipz
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/3dp_pillarconcrete_top_corner_flipx_flipz
+  }
+  
+}
+
+asset counter
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf 1 1
+  dynamic_default_size 2 1 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_counter_tile_z_01,dynamic_props/industrial/dp_counter_tile_z_02
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_counter_end_flip
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_counter_end
+  }
+}
+
+
+////////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////
+
+asset left_door
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 1 inf inf 1
+  dynamic_default_size 3 3 1
+  
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_leftdoor_mid
+  }
+
+  // SIDES
+  
+  dynamic_rule
+  {
+	if offset_bottom is 0 
+    select dynamic_props/industrial/dp_leftdoor_bottom_tile_x
+  }
+  
+  dynamic_rule
+  {
+	if offset_top is 0 
+    select dynamic_props/industrial/dp_leftdoor_top_tile_x
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0 
+    select dynamic_props/industrial/dp_leftdoor_side_left
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0 
+    select dynamic_props/industrial/dp_leftdoor_side_right
+  }
+ 
+  // CORNERS
+ dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_leftdoor_bottom_corner_left
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_leftdoor_bottom_corner_right
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_leftdoor_top_corner_left
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_leftdoor_top_corner_right
+  }
+  
+}
+
+////////////////////////////////////////////////////////
+
+asset right_door
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 1 inf inf 1
+  dynamic_default_size 3 3 1
+  
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_rightdoor_mid
+  }
+
+  // SIDES
+  
+  dynamic_rule
+  {
+	if offset_bottom is 0 
+    select dynamic_props/industrial/dp_rightdoor_bottom_tile_x
+  }
+  
+  dynamic_rule
+  {
+	if offset_top is 0 
+    select dynamic_props/industrial/dp_rightdoor_top_tile_x
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0 
+    select dynamic_props/industrial/dp_rightdoor_side_left
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0 
+    select dynamic_props/industrial/dp_rightdoor_side_right
+  }
+ 
+  // CORNERS
+ dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_rightdoor_bottom_corner_left
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_rightdoor_bottom_corner_right
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_rightdoor_top_corner_left
+  }
+  
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_rightdoor_top_corner_right
+  }
+  
+}
+
+
+////////////////////////////////////////////////////////
+
+
+
+asset watertank
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 2 inf inf inf
+  dynamic_default_size 2 2 2
+  dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_mid
+  }
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/industrial/dp_wt_top_mid
+  }
+  
+  dynamic_rule
+  {
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_wt_mid_nexus
+  }
+  
+  
+  //SIDES
+  
+
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_wt_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_wt_tile_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+    select dynamic_props/industrial/dp_wt_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+    select dynamic_props/industrial/dp_wt_tile_x_flipz
+  }
+
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_wt_tile_z_nexus
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_wt_tile_z_nexus_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_wt_tile_x_nexus
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_wt_tile_x_nexus_flipz
+  }
+  
+  ///
+  
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_tile_x
+  }
+
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_tile_x_flip_z
+  }
+
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_tile_z
+  }
+
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_tile_z_flip_x
+  }
+
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_wt_top_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_wt_top_tile_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_wt_top_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_wt_top_tile_z_flipx
+  }
+  
+  // Nexus
+  //
+  dynamic_rule
+  {
+	if offset_front is 0
+    if offset_right is 1
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_nexus_x_flip_x
+  }
+  
+  dynamic_rule
+  {
+	if offset_front is 0
+    if offset_left is 1
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_nexus_x
+  }
+  
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_left is 1
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_nexus_x_flip_z
+  }
+  
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_right is 1
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_nexus_x_flip_x_flip_z
+  }
+  //
+  dynamic_rule
+  {
+	if offset_front is 1
+    if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_nexus_z_flip_x
+  }
+  
+  dynamic_rule
+  {
+	if offset_back is 1
+    if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_nexus_z_flip_x_flip_z
+  }
+  //
+  
+  dynamic_rule
+  {
+	if offset_front is 1
+    if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_nexus_z
+  }
+  
+  dynamic_rule
+  {
+	if offset_back is 1
+    if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_wt_bottom_nexus_z_flip_z
+  }
+  
+ 
+  // 2d corners
+  
+   dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_wt_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_wt_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_wt_corner_flipz_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_wt_corner_flipz
+  }
+ 
+ // 2d corners 2nd level
+  
+   dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_wt_corner_nexus
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_wt_corner_nexus_flipx
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_wt_corner_nexus_flipz_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_wt_corner_nexus_flipz
+  }
+  
+  // CORNERS
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_wt_bottom_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_wt_bottom_corner_flip_x
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_wt_bottom_corner_flip_z
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_wt_bottom_corner_flip_x_flip_z
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_wt_top_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_wt_top_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_wt_top_corner_flipz
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_wt_top_corner_flipz_flipx
+  }
+  
+}
+
+////////////////////////////////////////////////////////
+
+asset screen_1
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 inf inf 1
+  // dynamic_default_size 1 2 1
+  
+      dynamic_rule
+  {
+    
+    select dynamic_props/dp_screen3.1_mid_tile
+  }
+  
+    dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/dp_screen1.1_mid
+  }
+
+        dynamic_rule
+  {
+	if offset_right is 0 
+    select dynamic_props/dp_screen3.1_mid_end
+  }
+  
+ //-----
+  
+    dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/dp_screen3.1_top_tile
+  }
+  
+    dynamic_rule
+  {
+    if offset_top is 0
+	if offset_left is 0
+    select dynamic_props/dp_screen1.1_top
+  }
+
+  
+        dynamic_rule
+  {
+    if offset_top is 0
+	if offset_right is 0 
+    select dynamic_props/dp_screen3.1_top_end
+  }
+  
+//------
+
+
+
+    dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/dp_screen3.1_bottom_tile
+  }
+  
+    dynamic_rule
+  {
+    if offset_bottom is 0
+	if offset_left is 0
+    select dynamic_props/dp_screen1.1_bottom
+  }
+
+    dynamic_rule
+  {
+    if offset_bottom is 0
+	if offset_right is 0 
+    select dynamic_props/dp_screen3.1_bottom_end
+  }
+
+  //these 3 at the end
+  dynamic_rule
+  {
+    if size_x is 1
+    select dynamic_props/dp_screen1_tile
+  }
+  dynamic_rule
+  {
+    if size_x is 1
+    if offset_top is 0
+    select dynamic_props/dp_screen1_base_flipy
+  }
+  dynamic_rule
+  {
+    if size_x is 1
+    if offset_bottom is 0
+    select dynamic_props/dp_screen1_base
+  }
+}
+
+asset screen_2
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 inf inf 1
+  // dynamic_default_size 1 2 1
+  
+      dynamic_rule
+  {
+    
+    select dynamic_props/dp_screen3.1_mid_tile
+  }
+  
+    dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/dp_screen2.1_mid
+  }
+
+        dynamic_rule
+  {
+	if offset_right is 0 
+    select dynamic_props/dp_screen2.1_mid_end
+  }
+  
+ //-----
+  
+    dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/dp_screen2.1_top_tile
+  }
+  
+    dynamic_rule
+  {
+    if offset_top is 0
+	if offset_left is 0
+    select dynamic_props/dp_screen2.1_top
+  }
+
+  
+        dynamic_rule
+  {
+    if offset_top is 0
+	if offset_right is 0 
+    select dynamic_props/dp_screen2.1_top_end
+  }
+  
+//------
+
+
+
+    dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/dp_screen2.1_bottom_tile
+  }
+  
+    dynamic_rule
+  {
+    if offset_bottom is 0
+	if offset_left is 0
+    select dynamic_props/dp_screen2.1_bottom
+  }
+
+    dynamic_rule
+  {
+    if offset_bottom is 0
+	if offset_right is 0 
+    select dynamic_props/dp_screen2.1_bottom_end
+  }
+
+  //these 3 at the end
+  dynamic_rule
+  {
+    if size_x is 1
+    select dynamic_props/dp_screen2_tile
+  }
+  dynamic_rule
+  {
+    if size_x is 1
+    if offset_top is 0
+    select dynamic_props/dp_screen2_base_flipy
+  }
+  dynamic_rule
+  {
+    if size_x is 1
+    if offset_bottom is 0
+    select dynamic_props/dp_screen2_base
+  } 
+}
+asset screen_3
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 inf inf 1
+  // dynamic_default_size 1 2 1
+
+  
+  
+      dynamic_rule
+  {
+    
+    select dynamic_props/dp_screen3.1_mid_tile
+  }
+  
+    dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/dp_screen3.1_mid
+  }
+
+        dynamic_rule
+  {
+	if offset_right is 0 
+    select dynamic_props/dp_screen3.1_mid_end
+  }
+  
+ //-----
+  
+    dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/dp_screen3.1_top_tile
+  }
+  
+    dynamic_rule
+  {
+    if offset_top is 0
+	if offset_left is 0
+    select dynamic_props/dp_screen3.1_top
+  }
+
+  
+        dynamic_rule
+  {
+    if offset_top is 0
+	if offset_right is 0 
+    select dynamic_props/dp_screen3.1_top_end
+  }
+  
+//------
+    dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/dp_screen3.1_bottom_tile
+  }
+  
+    dynamic_rule
+  {
+    if offset_bottom is 0
+	if offset_left is 0
+    select dynamic_props/dp_screen3.1_bottom
+  }
+
+    dynamic_rule
+  {
+    if offset_bottom is 0
+	if offset_right is 0 
+    select dynamic_props/dp_screen3.1_bottom_end
+  }
+
+  //these 3 at the end
+  dynamic_rule
+  {
+    if size_x is 1
+    select dynamic_props/dp_screen3_tile
+  }
+  dynamic_rule
+  {
+    if size_x is 1
+    if offset_top is 0
+    select dynamic_props/dp_screen3_top
+  }
+  dynamic_rule
+  {
+    if size_x is 1
+    if offset_bottom is 0
+    select dynamic_props/dp_screen3_base
+  }
+  
+ }
+  ////////////////////////////////
+  asset round_03
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 2 inf inf inf
+  dynamic_default_size 2 2 2
+  
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_round_03_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_round_03_tile_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+    select dynamic_props/industrial/dp_round_03_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+    select dynamic_props/industrial/dp_round_03_tile_x_flipz
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_03_corner
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_03_corner_flipx
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_03_corner_flipz_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_03_corner_flipz
+  }
+  // Nexus
+/////////////////////////////////////////////////////////////
+
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_top is 1
+    select dynamic_props/industrial/dp_round_03_top_nexus_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_top is 1
+    select dynamic_props/industrial/dp_round_03_top_nexus_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_top is 1
+    select dynamic_props/industrial/dp_round_03_top_nexus_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_top is 1
+    select dynamic_props/industrial/dp_round_03_top_nexus_x_flipz
+  }
+  
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+	if offset_top is 1
+    select dynamic_props/industrial/dp_round_03_top_corner_nexus
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+	if offset_top is 1
+    select dynamic_props/industrial/dp_round_03_top_corner_nexus_flipx
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+	if offset_top is 1
+    select dynamic_props/industrial/dp_round_03_top_corner_nexus_flipz_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+	if offset_top is 1
+    select dynamic_props/industrial/dp_round_03_top_corner_nexus_flipz
+  }
+
+  ////////////////////////////////////////////////////
+  
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_round_03_nexus_tile_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_round_03_nexus_tile_z_flipx
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_round_03_nexus_tile_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_round_03_nexus_tile_x_flipz
+  }
+  
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_front is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_round_03_corner_nexus
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_front is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_round_03_corner_nexus_flipx
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_back is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_round_03_corner_nexus_flipz_flipx
+  }
+  
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_back is 0
+	if offset_bottom is 1
+    select dynamic_props/industrial/dp_round_03_corner_nexus_flipz
+  }
+
+///////////////////////////////////////////////////////////
+  
+
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_03_top_mid
+   }
+  dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_03_bottom_mid
+  }
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_03_top_x
+  }
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_03_top_x_flipz
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_03_top_z
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_top is 0
+    select dynamic_props/industrial/dp_round_03_top_z_flipx
+  }
+  
+  dynamic_rule
+  {
+    if offset_front is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_03_bottom_tile_x
+  }
+
+  dynamic_rule
+  {
+    if offset_back is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_03_bottom_tile_x_flipz
+  }
+
+  dynamic_rule
+  {
+    if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_03_bottom_tile_z
+  }
+
+  dynamic_rule
+  {
+    if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_round_03_bottom_tile_z_flipx
+  }
+
+   // CORNERS
+   //
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_03_corner_top
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_03_corner_top_flipx
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_03_corner_top_flipz
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_top is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_03_corner_top_flipz_flipx
+  }
+ 
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_03_corner_bottom
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_front is 0
+    select dynamic_props/industrial/dp_round_03_corner_bottom_flipx
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_03_corner_bottom_flipz
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+	if offset_back is 0
+    select dynamic_props/industrial/dp_round_03_corner_bottom_flipx_flipz
+  }
+  
+}
+
+asset window_big
+
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 2 inf inf inf
+  dynamic_default_size 2 1 2
+  //CENTER
+
+  // dynamic_rule
+  {
+    select dynamic_props/industrial/dp_window_big_tile_x1
+  }
+
+ 
+ //SIDES
+ 
+ 	dynamic_rule
+  {
+    if offset_front is 0
+    if offset_bottom % 2 0
+    select dynamic_props/industrial/dp_window_big_tile_x1,dynamic_props/industrial/dp_window_big_tile_x2,dynamic_props/industrial/dp_window_big_tile_x3,dynamic_props/industrial/dp_window_big_tile_x4
+  }
+ 
+  	dynamic_rule
+  {
+    if offset_back is 0
+    if offset_bottom % 2 0
+    select dynamic_props/industrial/dp_window_big_tile_x1_flipz,dynamic_props/industrial/dp_window_big_tile_x2_flipz,dynamic_props/industrial/dp_window_big_tile_x3_flipz,dynamic_props/industrial/dp_window_big_tile_x4_flipz
+  }
+ 
+  	dynamic_rule
+  {
+    if offset_left is 0
+    if offset_bottom % 2 0
+    select dynamic_props/industrial/dp_window_big_tile_z1,dynamic_props/industrial/dp_window_big_tile_z2,dynamic_props/industrial/dp_window_big_tile_z3,dynamic_props/industrial/dp_window_big_tile_z4
+  }
+ 
+  	dynamic_rule
+  {                                                           
+    if offset_right is 0
+    if offset_bottom % 2 0
+   select dynamic_props/industrial/dp_window_big_tile_z1_flipx,dynamic_props/industrial/dp_window_big_tile_z2_flipx,dynamic_props/industrial/dp_window_big_tile_z3_flipx,dynamic_props/industrial/dp_window_big_tile_z4_flipx
+  }
+
+  // CORNERS
+
+ dynamic_rule
+{
+    if offset_left is 0
+    if offset_front is 0
+    if offset_bottom % 2 0
+    select dynamic_props/industrial/dp_window_big_corner1,dynamic_props/industrial/dp_window_big_corner2
+}
+
+dynamic_rule
+{
+    if offset_right is 0
+    if offset_front is 0
+    if offset_bottom % 2 0
+    select dynamic_props/industrial/dp_window_big_corner1_flipx,dynamic_props/industrial/dp_window_big_corner2_flipx
+}
+
+dynamic_rule
+{
+    if offset_back is 0
+    if offset_left is 0
+    if offset_bottom % 2 0
+    select dynamic_props/industrial/dp_window_big_corner1_flipz,dynamic_props/industrial/dp_window_big_corner2_flipz
+}
+ 
+dynamic_rule
+{
+    if offset_back is 0
+    if offset_right is 0
+    if offset_bottom % 2 0
+    select dynamic_props/industrial/dp_window_big_corner1_flipx_flipz,dynamic_props/industrial/dp_window_big_corner2_flipx_flipz
+}
+
+
+}
+
+asset metal_pipe_horizontal
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 1 1 inf 1 1
+  dynamic_default_size 3 1 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_cleanpipe2_x,dynamic_props/industrial/dp_cleanpipe2_x,dynamic_props/industrial/dp_cleanpipe2_x,dynamic_props/industrial/dp_cleanpipe2_x,dynamic_props/industrial/dp_cleanpipe3_x
+  }
+  
+    dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/industrial/dp_cleanpipe1_x
+  }
+
+}
+
+asset metal_pipe_vertical
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 1 1 1 inf 1
+  dynamic_default_size 1 3 1
+ 
+	dynamic_rule 
+  {
+    select dynamic_props/industrial/dp_cleanpipe2_y,dynamic_props/industrial/dp_cleanpipe2_y,dynamic_props/industrial/dp_cleanpipe2_y,dynamic_props/industrial/dp_cleanpipe2_y,dynamic_props/industrial/dp_cleanpipe2_y,dynamic_props/industrial/dp_cleanpipe3_y
+  }
+  
+    dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_cleanpipe1_y
+  }
+
+}
+asset dp_shutter_01
+{
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 1 1 inf inf 1
+  dynamic_default_size 1 1 1
+
+
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_shutter_middle_01
+  }
+
+  dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/industrial/dp_shutter_bottom_01
+  }
+
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/industrial/dp_shutter_top_01
+  }
+
+  dynamic_rule
+  {
+	if size_y is 1
+    select dynamic_props/industrial/dp_shutter_bottom_01
+  }
+  
+}
+///////////////////////////////////////////////////////////
+asset dp_adboard_01
+{
+  ambient_sound_loop ambience_screen_hum_loop
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 1 inf inf 1
+  dynamic_default_size 2 2 1
+
+
+  dynamic_rule
+  {
+    select dynamic_props/dp_adboard_middle_01
+  }
+ 
+  dynamic_rule
+  {
+	if offset_bottom is 0
+    select dynamic_props/dp_adboard_bottom_middle_01
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+    select dynamic_props/dp_adboard_corner_01_flipx
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+    select dynamic_props/dp_adboard_corner_01
+  }
+  dynamic_rule
+  {
+	if offset_left is 0
+	if offset_bottom is 0
+    select dynamic_props/dp_adboard_bottom_corner_01_flipx
+  }
+  dynamic_rule
+  {
+	if offset_right is 0
+	if offset_bottom is 0
+    select dynamic_props/dp_adboard_bottom_corner_01
+  }
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/dp_adboard_bottom_middle_01_flipy
+  }
+  dynamic_rule
+  {
+	if offset_top is 0
+	if offset_left is 0
+    select dynamic_props/dp_adboard_bottom_corner_01_flipx_flipy
+  }
+  dynamic_rule
+  {
+	if offset_top is 0
+	if offset_right is 0
+    select dynamic_props/dp_adboard_bottom_corner_01_flipy
+  }
+}
+asset dp_adboard_02
+{
+  ambient_sound_loop ambience_screen_hum_loop
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 1 inf inf 1
+  dynamic_default_size 2 2 1
+
+
+  dynamic_rule
+  {
+    select dynamic_props/dp_adboard_middle_02
+  }
+   dynamic_rule
+  {
+	  if offset_top is 0
+    select dynamic_props/dp_adboard_bottom_middle_02_flipy
+  }
+  dynamic_rule
+  {
+	  if offset_bottom is 0
+    select dynamic_props/dp_adboard_bottom_middle_02
+  }
+   dynamic_rule
+  {
+	  if offset_left is 0
+    select dynamic_props/dp_adboard_corner_02_flipx
+  }
+  dynamic_rule
+  {
+	  if offset_right is 0
+    select dynamic_props/dp_adboard_corner_02
+  }
+  dynamic_rule
+  {
+	  if offset_left is 0
+	  if offset_bottom is 0
+    select dynamic_props/dp_adboard_bottom_corner_02_flipx
+  }
+  dynamic_rule
+  {
+	  if offset_right is 0
+	  if offset_bottom is 0
+    select dynamic_props/dp_adboard_bottom_corner_02
+  }
+  dynamic_rule
+  {
+	  if offset_right is 0
+	  if offset_top is 0
+    select dynamic_props/dp_adboard_bottom_corner_02_flipy
+  }
+  dynamic_rule
+  {
+	  if offset_left is 0
+	  if offset_top is 0
+    select dynamic_props/dp_adboard_bottom_corner_02_flipx_flipy
+  }
+}
+///////////////////////////////////////////////////////////
+//asset dp_bench_01
+//{
+//  dynamic true
+//  listed true
+  //xmin ymin zmin xmax ymax zmax
+//  dynamic_dimensions 2 1 1 inf 1 1
+ // dynamic_default_size 2 1 1
+//
+
+ // dynamic_rule
+//  {
+//    select dynamic_props/industrial/dp_bench_01_middle
+ // }
+ // 
+ // dynamic_rule
+ // {
+//	if offset_right is 0
+//    select dynamic_props/industrial/dp_bench_01_end_flipx
+//  }
+ // dynamic_rule
+ // {
+//	if offset_left is 0
+ //   select dynamic_props/industrial/dp_bench_01_end
+ // }
+  
+// }
+/////////////////////////////////////////////////////////////////
+asset dp_adscreen_wall_01
+{
+  ambient_sound_loop ambience_screen_hum_loop
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 2 1 inf inf 1
+  dynamic_default_size 2 2 1
+
+
+  dynamic_rule
+  {
+    select dynamic_props/dp_adscreen_01_middle
+  }
+   dynamic_rule
+  {
+	  if offset_bottom is 0
+    select dynamic_props/dp_adscreen_01_bottom
+  }
+  dynamic_rule
+  {
+	  if offset_top is 0
+    select dynamic_props/dp_adscreen_01_bottom_flipy
+  }
+  dynamic_rule
+  {
+	  if offset_right is 0
+    select dynamic_props/dp_adscreen_01_corner
+  }
+   dynamic_rule
+  {
+	  if offset_left is 0
+    select dynamic_props/dp_adscreen_01_corner_wall
+  }
+  dynamic_rule
+  {
+	  if offset_bottom is 0
+	  if offset_left is 0
+    select dynamic_props/dp_adscreen_01_corner_wall_bottom
+  }
+  dynamic_rule
+  {
+	  if offset_top is 0
+	  if offset_left is 0
+    select dynamic_props/dp_adscreen_01_corner_wall_bottom_flipy
+  }
+  dynamic_rule
+  {
+	  if offset_top is 0
+	  if offset_right is 0
+    select dynamic_props/dp_adscreen_01_corner_bottom_flipy
+  }
+  dynamic_rule
+  {
+	  if offset_bottom is 0
+	  if offset_right is 0
+    select dynamic_props/dp_adscreen_01_corner_bottom
+  }
+}
+
+////////////////////////////////////////////////////////////////
+
+asset dp_fence
+
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf 1 inf
+  dynamic_default_size 2 1 2
+  num_channels 2
+  
+  //SIDES
+  
+dynamic_rule
+  {
+	  if offset_front is 0
+    select dynamic_props/dp_fence_center_tile_x,nomesh
+	channel 0
+  }
+
+dynamic_rule
+  {
+	  if offset_front is 0
+    select dynamic_props/dp_fenceglass_center_tile_x,dynamic_props/dp_fence_clean_tile_x
+	channel 1
+  }    
+ 
+  
+// dynamic_rule
+  // {
+	  // if offset_back is 0
+    // select dynamic_props/dp_fence_center_tile_x_flipz,nomesh
+	// channel 0
+  // }
+
+// dynamic_rule
+  // {
+	  // if offset_back is 0
+    // select dynamic_props/dp_fenceglass_center_tile_x_flipz,dynamic_props/dp_fence_clean_tile_x_flipz
+	// channel 1
+  // }  
+
+dynamic_rule
+  {
+	  if offset_left is 0
+    select dynamic_props/dp_fence_center_tile_z,nomesh
+	channel 0
+  }
+
+dynamic_rule
+  {
+	  if offset_left is 0
+    select dynamic_props/dp_fenceglass_center_tile_z,dynamic_props/dp_fence_clean_tile_z
+	channel 1
+  }  
+  
+dynamic_rule
+  {
+	  if offset_right is 0
+    select dynamic_props/dp_fence_center_tile_z_flipx,nomesh
+	channel 0
+  }
+
+dynamic_rule
+  {
+	  if offset_right is 0
+    select dynamic_props/dp_fenceglass_center_tile_z_flipx,dynamic_props/dp_fence_clean_tile_z_flipx
+	channel 1
+  }
+  
+  // CORNERS
+
+dynamic_rule
+  {
+	  if offset_left is 0
+	  if offset_back is 0
+    select dynamic_props/dp_fence_end_left_tile_z_flipz
+	channel 0
+  } 
+
+dynamic_rule
+  {
+	  if offset_left is 0
+	  if offset_back is 0
+    select dynamic_props/dp_fenceglass_end_left_tile_z_flipz
+	channel 1
+  }   
+  
+dynamic_rule
+  {
+	  if offset_right is 0
+	  if offset_back is 0
+    select dynamic_props/dp_fence_end_right_tile_z
+	channel 0
+  }
+
+dynamic_rule
+  {
+	  if offset_right is 0
+	  if offset_back is 0
+    select dynamic_props/dp_fenceglass_end_right_tile_z
+	channel 1
+  }  
+  
+dynamic_rule
+  {
+	  if offset_front is 0
+	  if offset_left is 0
+    select dynamic_props/dp_fence_corner_flipx
+	channel 0
+  }
+
+dynamic_rule
+  {
+	  if offset_front is 0
+	  if offset_left is 0
+    select dynamic_props/dp_fenceglass_corner_flipx
+	channel 1
+  }
+  
+dynamic_rule
+  {
+	  if offset_right is 0
+	  if offset_front is 0
+    select dynamic_props/dp_fence_corner
+	channel 0
+  }
+  
+dynamic_rule
+  {
+	  if offset_right is 0
+	  if offset_front is 0
+    select dynamic_props/dp_fenceglass_corner
+	channel 1
+  }
+//-----------------------------------------------------------
+dynamic_rule
+  {
+	  if offset_front is 0
+	  if offset_left is 0
+	  if size_z is 1
+    select dynamic_props/dp_fence_end_left_tile_x
+	channel 0
+  }
+
+dynamic_rule
+  {
+	  if offset_front is 0
+	  if offset_left is 0
+	  if size_z is 1
+    select dynamic_props/dp_fenceglass_end_left_tile_x
+	channel 1
+  }
+  
+dynamic_rule
+  {
+	  if offset_right is 0
+	  if offset_front is 0
+	  if size_z is 1
+    select dynamic_props/dp_fence_end_right_tile_x
+	channel 0
+  }
+  
+dynamic_rule
+  {
+	  if offset_right is 0
+	  if offset_front is 0
+	  if size_z is 1
+    select dynamic_props/dp_fenceglass_end_right_tile_x
+	channel 1
+  }
+ }
+/////////////////////////////////////////////////////////////////
+
+asset dp_lightpost_01
+
+{
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 1 inf 1
+  dynamic_default_size 1 2 1
+num_channels 2
+
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_lightpost_middle_01
+	channel 0
+  }
+   dynamic_rule
+  {
+	  if offset_bottom is 0
+    select dynamic_props/industrial/dp_lightpost_bottom_01
+	channel 0
+  }
+  dynamic_rule
+  {
+	  if offset_top is 0
+    select dynamic_props/industrial/dp_lightpost_top_01
+	channel 0
+  }
+  dynamic_rule
+  {
+	  if offset_top is 0
+    select dynamic_props/industrial/dp_lightpost_glass_01
+	channel 1
+  }
+}
+/////////////////////////////////////////////////////////////////
+
+asset dp_shutter_02
+{
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf inf 1
+  dynamic_default_size 2 1 1
+
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_shutter_02_middle
+	
+  }
+   dynamic_rule
+  {
+	  if offset_bottom is 0
+    select dynamic_props/industrial/dp_shutter_02_middle
+	
+  }
+  dynamic_rule
+  {
+	  if offset_right is 0
+    select dynamic_props/industrial/dp_shutter_02_corner_flipx
+	
+  }
+  dynamic_rule
+  {
+	  if offset_left is 0
+    select dynamic_props/industrial/dp_shutter_02_corner
+	
+  }
+}
+
+asset floor_plating01
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf 1 1
+  dynamic_default_size 4 1 1
+  dynamic_rule
+  {
+    select dynamic_props/industrial/dp_floor_plating01_tile1,dynamic_props/industrial/dp_floor_plating01_tile1,dynamic_props/industrial/dp_floor_plating01_tile1,dynamic_props/industrial/dp_floor_plating01_tile2
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/industrial/dp_floor_plating01_corner_flipx
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/industrial/dp_floor_plating01_corner
+  }
+}
+
+asset skylift
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 2 1 1 inf 1
+  dynamic_default_size 1 4 1
+  dynamic_rule
+  {
+    select dynamic_props/skylift_mid
+collision false
+  }
+  dynamic_rule
+  {
+    if offset_top is 0
+    select dynamic_props/skylift_top
+  }
+  dynamic_rule
+  {
+    if offset_bottom is 0
+    select dynamic_props/skylift_bottom
+  }
+}
+
+asset list
+{
+  dynamic true
+listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 1 1 1 inf 1 1
+  dynamic_default_size 4 1 1
+  dynamic_rule
+  {
+    select dynamic_props/dp_list_tile
+  }
+  dynamic_rule
+  {
+    if offset_right is 0
+    select dynamic_props/dp_list_corner_flipx
+  }
+  dynamic_rule
+  {
+    if offset_left is 0
+    select dynamic_props/dp_list_corner
+  }
+}
+/////////////////////////////////////////////////////////////////
+
+asset dp_awning_01
+{
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf 1 1
+  dynamic_default_size 2 1 1
+
+  dynamic_rule
+  {
+    select dynamic_props/dp_awning_01_middle
+	
+  }
+   dynamic_rule
+  {
+	  if offset_left is 0
+    select dynamic_props/dp_awning_01_corner
+	
+  }
+  dynamic_rule
+  {
+	  if offset_right is 0
+    select dynamic_props/dp_awning_01_corner_flipx
+	
+  }
+}
+/////////////////////////////////////////////////////////////////
+
+asset dp_awning_02
+{
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf 1 1
+  dynamic_default_size 2 1 1
+
+  dynamic_rule
+  {
+    select dynamic_props/dp_awning_02_middle
+	
+  }
+   dynamic_rule
+  {
+	  if offset_left is 0
+    select dynamic_props/dp_awning_02_corner
+	
+  }
+  dynamic_rule
+  {
+	  if offset_right is 0
+    select dynamic_props/dp_awning_02_corner_flipx
+	
+  }
+}
+/////////////////////////////////////////////////////////////////
+
+asset dp_awning_03
+{
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf 1 1
+  dynamic_default_size 2 1 1
+
+  dynamic_rule
+  {
+    select dynamic_props/dp_awning_03_middle
+	
+  }
+   dynamic_rule
+  {
+	  if offset_left is 0
+    select dynamic_props/dp_awning_03_corner
+	
+  }
+  dynamic_rule
+  {
+	  if offset_right is 0
+    select dynamic_props/dp_awning_03_corner_flipx
+	
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+asset doorframe_thin_02
+{
+  dynamic true
+  listed true
+  //xmin ymin zmin xmax ymax zmax
+  dynamic_dimensions 2 1 1 inf inf 1
+  dynamic_default_size 2 1 1
+
+  dynamic_rule
+  {
+	if offset_top is 0
+    select dynamic_props/dp_df_small_tile_x
+	
+  }
+   dynamic_rule
+  {
+	  if offset_left is 0
+    select dynamic_props/dp_df_small_tile_y
+	
+  }
+  dynamic_rule
+  {
+	  if offset_right is 0
+    select dynamic_props/dp_df_small_tile_y_flipx
+	
+  }
+     
+  dynamic_rule
+  {
+	  if offset_left is 0
+	  if offset_top is 0
+    select dynamic_props/dp_df_small_corner
+	
+  }
+  
+    dynamic_rule
+  {
+	  if offset_right is 0
+	  if offset_top is 0
+    select dynamic_props/dp_df_small_corner_flipx
+	
+  }
+  
+}
+
+//////////////////////////////////////////////////////////////////

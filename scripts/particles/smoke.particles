@@ -1,0 +1,58 @@
+fan_1
+{
+	map effects1.png
+	region r_smoke_new
+	animation_speed 15
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 20
+	max_emissions 0
+	lifetime 1.2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 180 360
+	// rotation_end 0 360
+	position 0
+	// position 0 0 -1 0 0 -1
+	period 0.5
+	velocity 40 50 3 30 20 -3
+	color_start 1 1 1 0.05
+	color_end  0 0.7 0.9 0
+	// emitter line 0 0 1
+	scale_start 200 250
+	scale_end 450 350
+}
+
+fan_2
+{
+	map effects1.png
+	region r_smoke_new
+	animation_speed 20
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 20
+	max_emissions 0
+	lifetime 1.2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 180 360
+	// rotation_end 0 360
+	position 0
+	// position 0 0 -1 0 0 -1
+	period 0.1
+	velocity 40 50 3 30 20 -3
+	color_start 1 1 1 0.04 
+	color_end  1 1 1 0
+	// emitter line 0 0 1
+	scale_start 300 350
+	scale_end 450 350
+}
+
+
+smoke_fan
+{
+	subsystem fan_1
+	// subsystem fan_2
+}

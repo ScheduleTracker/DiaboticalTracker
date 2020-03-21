@@ -1,0 +1,70 @@
+hook
+{
+ 	//group 7
+	speed 4000
+ 	rate 850
+  	damage 0
+  	knockback 0
+	ground_knockback 0
+  	splash_radius 325
+	deploy true
+	hook true
+	deploy_duration 10000
+	//shot_particles empty_system
+	//shot_particles_attached hook_pfx
+  	//missile_particles hook_hook
+	missile_model ability_hook_static_mesh
+	missile_trail_particles hook_pfx
+  	//impact_particles explode
+	//shot_particles_attached_follows_projectile true
+  	
+	model weaponrl_bobblehead
+	model_scale 0.081
+	model_position 2.5 -3.3 7.2
+	model_rotation 171 -7.7  -8
+	can_destroy 1
+	muzzle -4.0 -2 10
+	fov 45
+	
+	//shot_sound hook_shot
+	
+	//kill this on reconnection:
+	missile_loop_sound hook_projectile_loop
+	impact_sound hook_release
+	
+	detached_shot_particles false
+	force_load true
+}
+
+slash
+{
+	color 2047bc
+	//group 5
+	damage 40
+	knockback 250
+	ground_knockback 250
+	rate 1000
+	speed 0
+	can_destroy 1
+	unlimited_ammo true
+	distance 125	
+	
+	hit_radius 100
+	
+	shot_particles railtest
+	shot_particles_attached rail_attached
+	impact_particles rail_impact
+	equip_particles_attached sword_equip
+	
+	model weapon_sword
+	model_position 3.2 -4.7 7.8
+	model_scale 0.14 0.14 0.14
+	model_rotation 175 -4 0
+	muzzle 4.5 -6 20
+
+	fov 59
+	
+	shot_sound railgun
+	hit_sound testhit1
+}
+

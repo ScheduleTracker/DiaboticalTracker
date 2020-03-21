@@ -1,0 +1,702 @@
+//MUZZLE
+crossbow_shot_spark
+{
+	map particle_sheet3.png
+	region s3_plasma_55	
+	animation_speed 
+	animation_start 
+	max_particles 1
+	max_emissions 1
+	lifetime 0.12
+	fade_in 0.05
+	blend add
+	// color_start 10 5 0.8 1
+	// color_end  6 2 0.2 1
+color_start  4 2 1 1
+	color_end  16 4 1 1
+	position    0 0.0 0
+    scale_start 3
+    scale_end 4
+    rotation_start -220
+    fade_out 0.2
+	//velocity_angles 175 90 0 185 90 0
+	speed_start 0
+	speed_end 0
+	//auto_orient true
+	// aspect_start 0.75 
+	aspect_end 1
+	 	period 0
+
+}
+crossbow_muzzle_flash
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15 0.18
+	fade_in 0
+	fade_out 0.10
+	period 0
+color_start  4 2 1 1
+	color_end  16 4 1 1
+    scale_start 0
+    scale_end 2
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 0
+}
+crossbow_muzzle_flash_2 crossbow_muzzle_flash
+{
+
+    scale_end 1
+
+}
+// crossbow_muzzle_ring
+// {
+	// map particle_sheet5.png
+	// region explosion_ring_1
+	// animation_speed 20
+	// animation_start 0
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.3
+	// fade_in 0
+	// fade_out 0.10
+	// period 0
+// color_start  4 2 1 1
+	// color_end  16 5 1 1
+    // scale_start 0
+    // scale_end 2
+    // rotation_start 0 360
+   	// hard_edges true
+// position 0 0 -0.5
+// }
+// crossbow_muzzle_ring2
+// {
+	// map particle_sheet5.png
+	// region explosion_ring_3
+	// animation_speed 20
+	// animation_start 0
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.35
+	// fade_in 0
+	// fade_out 0.10
+	// period 0
+// color_start  4 2 1 1
+	// color_end  16 5 1 1
+    // scale_start 0
+    // scale_end 3
+    // rotation_start 0 360
+   	// hard_edges true
+// position 0 0 -0.5
+// }
+
+crossbow_muzzle_embers
+{
+	// geometry quad
+map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_start 
+	animation_speed 30
+	blend add
+	max_particles 10
+	max_emissions 10
+	lifetime 0.3
+	period 0
+	fade_in 0.1
+	velocity 1 1 20  -1 -1 20
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 0 0 -1
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 0 0 1
+	emitter line 0 0 1
+	turbulence 200
+	scale_start .3 0.25
+	scale_end 0
+	drag 0.8
+	
+}
+
+crossbow_muzzle_spark
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_17
+	animation_speed 50
+	animation_start 0
+	max_particles 8
+	max_emissions 8
+	lifetime .2 0.15
+	fade_in 0
+	
+	blend add
+	fade_out 0.1
+	period 0	
+	color_start 4 2 0.25 1
+	color_end  4 1 0 1
+	// position -2 3.25 0   
+    scale_start .5
+    scale_end 1
+    rotation_start 90
+    fade_out 0.2
+	velocity_angles 0 90 0 360 90 0
+	speed_start 15
+	speed_end 1
+	auto_orient true
+	aspect_start 1
+	aspect_end .5
+	position 0 0 -0.5
+	
+}
+// crossbow_muzzle_spark_aim
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_4
+	// animation_speed 40
+	// animation_start 0
+	// max_particles 3
+	// max_emissions 3
+	// delay 
+	// lifetime 0.14 0.1  
+	// fade_in 0
+	// blend add
+	// fade_out 0.03
+	// period 0
+	// color_start 10 5 3 1 
+	// color_end  1 0.8 0.2 1 
+    // scale_start 0.1
+    // scale_end .75
+    // rotation_start 90
+    // fade_out 0.02
+	// velocity_angles 125 90 0 130 90 0
+	// speed_start 30
+	// speed_end 5
+	// auto_orient true
+	// aspect_start 1
+	// aspect_end 0.7
+	// position 0.1 0 -0.5
+		
+// }
+crossbow_light base_light_impact
+{
+	lifetime 0.3
+	system_light_radius 5
+	system_light_intensity 20
+	system_light_color 1 0.4 0.1
+	system_light_falloff 0
+	velocity 0 0 0
+	position 2 0 0
+	
+}
+crossbow_muzzle_explosion
+ {
+	 	delay 0.05
+	map explosion_2.png
+	region explosion
+	animation_speed 60
+	animation_start 0
+	blend alpha
+	max_particles 1
+	max_emissions 1
+	lifetime .35
+	fade_in 2
+	fade_out 0.0
+	rotation_start 0 360
+	
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start 10 3 0 1
+	color_end 20 4 0 1
+
+	scale_start 2
+	scale_end 2
+	
+	auto_orient_3d true
+scale_timeline 0=0,l;0.1=1,l;1=1,l
+	perspective_radius 110
+	angular_speed_start 500
+	range 0
+	position 0 0 -1.25		
+	
+}
+crossbow_muzzle_sparks_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 5
+	max_emissions 5
+	delay 0.05 0
+	lifetime 0.14 0.1  
+	fade_in 0.1
+	blend add
+	period 0
+	color_start 10 4 3 0.5
+	color_end  1 0.8 0.2 0
+    scale_start 0.1
+    scale_end 1
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 90 90 0 0 90 0
+	speed_start 30
+	speed_end 7
+	auto_orient true
+	aspect_start 1
+	aspect_end 0.9
+	position 0.2 -0.2 0
+		
+}
+crossbow_muzzle_sparks_2 crossbow_muzzle_sparks_1
+{
+
+	velocity_angles -90 90 0 0 90 0
+
+		
+}
+crossbow_muzzle_sparks_3 crossbow_muzzle_sparks_1
+{
+
+	velocity_angles 90 90 0 180 90 0
+
+		
+}
+crossbow_muzzle_sparks_4 crossbow_muzzle_sparks_1
+{
+
+	velocity_angles 180 90 0 270 90 0
+
+		
+}
+
+crossbow_muzzle
+{	
+// subsystem crossbow_shot_spark 0 1.2
+ // subsystem crossbow_muzzle_flash 0 1.8
+// subsystem crossbow_muzzle_flash_2 0 1.2
+	 // subsystem crossbow_muzzle_ring 0 1.2
+	// subsystem crossbow_muzzle_ring2 
+// subsystem crossbow_muzzle_embers 0 1.2
+
+// subsystem crossbow_muzzle_spark 0 1.2
+// // subsystem  crossbow_muzzle_spark_aim
+// subsystem crossbow_muzzle_explosion
+	// subsystem  crossbow_light
+	// subsystem crossbow_muzzle_sparks_1
+	// subsystem crossbow_muzzle_sparks_2
+	// subsystem crossbow_muzzle_sparks_3
+	// subsystem crossbow_muzzle_sparks_4
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////PROJECTILE//////////////////////////////////////////
+
+
+// crossbow_bolt
+// {
+    // //This is duplicated into textures/, implement directories here:
+	// map ammo_boxes_d.png
+	// mesh models/entities/ammo_boxes/crossbow_bolt.fbx
+	// mesh_rotation_offset 90 0 0
+	// geometry mesh
+	// blend alpha
+	// max_particles 1
+	// max_emissions 1
+	// period 0
+	// delay 0.05
+	// lifetime 10
+	// fade_in 0.05
+	// fade_out 999
+	// velocity 0 0 0
+	// color_start 1 1 1 1 1 1 1 1
+	// color_end 1 1 1 1 1 1 1 1
+	// angular_speed_start 10000
+	// //rotation_start 0 360
+	// //rotation_end 0 360
+	// scale_start 1.3 1.3
+// scale_end 1.3
+	// acceleration 0 0 0 0 0 0
+// }
+crossbow_trail base_smoke_trail
+{
+	advance 1
+	
+	geometry quad
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	blend add
+	max_particles 1000
+	max_emissions 0
+	lifetime .3
+	period 0.00005
+	fade_in 1
+	fade_out 0.0
+	scale_start 5
+	scale_end 15
+	
+color_start 1 1 0.4 0
+	color_end   2 0 0 0.5
+	// acceleration 0 0 -300
+	velocity -2 1 -2 2 -1 2
+	position 0 0 0
+	turbulence 0 0 0
+	drag 1
+	angular_speed_start 10000
+	// soft_destruction on
+    // this line above was misspelled as soft_destructiyon, fixed spelling and commented it out in case it not working is being relied upon 
+}
+crossbow_smoke_trail
+{
+	geometry quad
+	map particle_sheet3.png
+	region s3_smoke02
+	blend alpha
+	max_particles 1024
+	lifetime 1.8
+	period 0.002
+    fixed_timestep 0.002
+	fade_in 0
+	fade_out 0
+	position 0 0 0 0 0 0
+	color_start 1 0.55 0.15 1
+	color_end 0.05 0.05 0.075 0.8
+	color_end_point 0.07
+	rotation_start 0 0
+	rotation_end 0 0
+	velocity -1 -1 -1 1 1 1
+	acceleration 0 0 0 0 0 0
+	//turbulence 1 0.5
+	scale_start 30
+	scale_end 30
+	//drag 1
+	soft_destruction on
+	emitter_movement on
+	perlin_speed 8
+	perlin_scale 72
+	range 0
+}
+crossbow_star
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_26
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 10
+	advance 0.05
+	// period 0.05
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 13
+	scale_end 15
+	
+	// velocity 0 0 -2800
+	angular_speed_start 10000
+	rotation_start 0 
+	color_start 0 1 2 1
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+	range 0
+}
+crossbow_star2
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_28
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.5
+	 period 0.15
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 13
+	scale_end 15
+	
+	// velocity 0 0 -2800
+	angular_speed_start 10000
+	rotation_start 0 360
+	color_start 0 1 2 1
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+	range 0
+}
+crossbow_projectile
+
+{	
+subsystem crossbow_star 0 2
+subsystem crossbow_star2 0 2
+//subsystem crossbow_bolt
+
+}
+
+crossbow_trail
+{
+	map effects_additive.png
+	region r_add_flash2
+	//map uvtest.png
+	geometry oriented
+	trail true
+
+	blend max
+	max_particles 200
+	max_emissions 0
+	lifetime 0.2
+	period 0.005
+
+	rotation_start 0 0
+	rotation_end 0 0
+	fade_in 0 0
+	fade_out 0.0025 0.0025
+
+	color_start 0 2 3 1 1 1 1 1
+	color_end  1 1 1 1
+	color_accent true
+
+	scale_start 3
+	scale_end 10
+	position 0 0 0
+}
+crossbow_bolt_dynamic_trail
+{
+	subsystem crossbow_trail
+
+	//subsystem base_smoke_trail
+}
+///////////////////////////////////////////////////////////////////////////////////////////////// 3P trail ////////////////////////////////////////////////////////////
+crossbow_trail_3p
+{
+	map effects_additive.png
+	region r_add_flash2
+	//map uvtest.png
+	geometry oriented
+	trail true
+
+	blend max
+	max_particles 150
+	max_emissions 0
+	lifetime 0.175
+	period 0.02
+
+	rotation_start 0 0
+	rotation_end 0 0
+	fade_in 0 0
+	fade_out 0.001 0.001
+
+	color_start 0 2 3 1 1 1 1 1
+	color_end  1 1 1 1
+	color_accent true
+
+	scale_start 1
+	scale_end 10
+	position 0 0 -20
+}
+crossbow_bolt_dynamic_trail_3p
+{
+	subsystem crossbow_trail_3p
+
+	//subsystem base_smoke_trail
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////// IMPACT ///////////////////////////////////////////////////////////////////////////////////////////////
+crossbow_impact_center
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 16
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1	
+	lifetime 0.2 0.25
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start  0 2 3 1
+	color_end  0 2 3 1
+    scale_start 10
+    scale_end 65
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 2
+}
+crossbow_impact_ring
+{
+	map particle_sheet3.png
+	region s3_explosion02_333
+	animation_speed 16
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2 0.25
+	fade_in 0
+	fade_out 0.10
+	period 0
+color_start  0 2 3 1
+	color_end  0 2 3 1
+    scale_start 10
+    scale_end 40
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 2
+}
+
+crossbow_impact_ring_2
+{
+	map particle_sheet3.png
+	region s3_plasma_52
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15 
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start  0 2 3 1
+	color_end  0 2 3 1
+    scale_start 0
+    scale_end 30
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 2
+}
+crossbow_impact_ring_3
+{
+	map particle_sheet5.png
+	region explosion_ring_2
+	animation_speed 20
+	animation_start 2
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start  0 2 3 1
+	color_end  0 2 3 1
+     scale_start 50
+    scale_end 50
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 -0.5
+}
+crossbow_impact_ring_4
+{
+	map particle_sheet5.png
+	region explosion_ring_3
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.35
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start  0 2 3 1
+	color_end  0 2 3 1
+     scale_start 50
+    scale_end 100
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 -0.5
+}
+crossbow_impact_embers
+{
+	delay 0.05
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 25
+	max_emissions 25
+	//delay 0.05
+	lifetime 0.255
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start  0 2 3 1
+	color_end  0 2 3 1
+	position 0 0 0  
+    scale_start 0
+    scale_end 15 18
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 45 45 0 315 315  0
+	speed_start 100
+	speed_end 15
+	auto_orient_3d true
+	aspect_start 1.2 1.5
+	aspect_end 0.5 0.6
+	hard_edges true
+	drag 1000
+
+}
+crossbow_impact_center_explosion
+ {
+	 
+	map explosion_2.png
+	region explosion
+	animation_speed 60
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime .35
+	fade_in 2
+	fade_out 0.0
+	rotation_start 0 360
+	
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start  0 2 3 1
+	color_end  0 2 3 1
+
+	scale_start 30
+	scale_end 30
+	
+	auto_orient_3d true
+scale_timeline 0=0,l;0.1=1,l;1=1,l
+	perspective_radius 110
+	angular_speed_start 500
+	range 0
+}
+
+
+crossbow_impact
+{
+	subsystem crossbow_impact_center 0 1.2
+	subsystem crossbow_impact_center_explosion 0 1.2
+subsystem crossbow_impact_embers 0 1.2
+subsystem crossbow_impact_ring 0 1.2
+subsystem crossbow_impact_ring_2 0 1.2
+subsystem crossbow_impact_ring_3
+subsystem crossbow_impact_ring_4 0 1.2
+// //subsystem crossbow_bolt
+// //subsystem crossbow_trail
+}

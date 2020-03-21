@@ -1,0 +1,33 @@
+///FLOOR
+
+asset sport_floor
+{
+  type surface_material
+  material sport_floor
+}
+
+asset sport_floor2
+{
+  type surface_material
+  material sport_floor2
+}
+
+asset sport_floor3
+{
+  type surface_material
+  material sport_floor3
+}
+
+
+asset sport_wall
+{
+  type surface_material
+  material sport_wall
+}
+
+asset sport_roof
+{
+  type surface_material
+  material sport_roof
+}
+

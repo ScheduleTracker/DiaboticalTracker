@@ -1,0 +1,198 @@
+ammodf_decorative_spark
+{
+	map shaft_ammo_lightning.png
+	region shaft_ammo_lightning
+	blend add
+	animation_start 0
+	animation_speed 15
+	max_particles 1
+	max_emissions 0
+	lifetime 1.35
+	//fade_in 0
+	//fade_out 0.10
+	period 1.35
+	
+	//color_start 10 5 1
+	//color_end 10 5 1
+	//color_start 1.2 0.9 0.3
+	//color_end  1.2 0.9 0.3
+	color_start 0.5 0.37 0.03
+	color_end 0.5 0.37 0.03
+    scale_start 10
+    scale_end 10
+	aspect_start 1
+	aspect_end 1
+    //rotation_start 90 90 90
+   	hard_edges true
+	geometry segment 0.024 7.283 -3
+	//position 0.023 -12.371 3.349
+	//(Add 1.162)
+	position 5.67 -3.023 4.68
+}
+
+ammodf_decorative_spark2 ammodf_decorative_spark
+{
+	position 5.67 -3.023 4.68
+	animation_start 20
+	color_start 0.6 0.55 0.04
+	color_end 0.6 0.55 0.04
+}
+ammodf_decorative_spark3 ammodf_decorative_spark
+{
+	geometry segment 0.008 7.413 -3
+    position -5.734 -3.172 4.648
+	animation_start 8
+}
+ammodf_decorative_spark4 ammodf_decorative_spark
+{
+		geometry segment 0.008 7.413 -3
+	position -5.734 -3.172 4.648
+	animation_start 12
+	color_start 0.6 0.55 0.04
+	color_end 0.6 0.55 0.04
+}
+ammodf_decorative_spark5 ammodf_decorative_spark
+{
+		geometry segment 0.021 7.237 -2.034
+	position 0 -5.694 -4.984
+	animation_start 16
+}
+ammodf_decorative_spark6 ammodf_decorative_spark
+{
+	//geometry segment 0.029 7.331 -13.526
+	//position 0.029 -2.517 7.837
+	geometry segment 0.021 7.237 -2.034
+	position 0 -5.694 -4.984
+	animation_start 4
+	color_start 0.6 0.55 0.04
+	color_end 0.6 0.55 0.04
+}
+ammodf_decorative_circle_01
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 2
+	max_emissions 0
+	lifetime 0.15 0.18
+	fade_in 0.01
+	fade_out 0.05
+	period 0.1
+color_start 8 4 0 1
+	color_end  4 2 0 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 20
+    rotation_start 0 360
+	position 5.67 -3.023 4.68
+ 
+}
+ammodf_decorative_circle_02 ammodf_decorative_circle_01
+{
+	position -5.734 -3.172 4.648
+ 
+}
+ammodf_decorative_circle_03 ammodf_decorative_circle_01
+{
+	position 0 -5.694 -4.984
+ 
+}
+
+ammodf_decorative
+{
+	subsystem ammodf_decorative_spark
+	subsystem ammodf_decorative_spark2
+	subsystem ammodf_decorative_spark3
+	subsystem ammodf_decorative_spark4
+	subsystem ammodf_decorative_spark5
+	subsystem ammodf_decorative_spark6
+	
+	
+	subsystem ammodf_decorative_circle_01
+	subsystem ammodf_decorative_circle_02
+	subsystem ammodf_decorative_circle_03
+
+}
+
+
+
+// ammodf_decorative_spark
+// {
+	// map lightning_stylized.png
+	// region lightning1
+	// blend add
+	// animation_start 0
+	// animation_speed 15
+	// max_particles 1
+	// max_emissions 0
+	// lifetime 1.35
+	// //fade_in 0
+	// //fade_out 0.10
+	// period 1.35
+	
+	// //color_start 10 5 1
+	// //color_end 10 5 1
+	// //color_start 1.2 0.9 0.3
+	// //color_end  1.2 0.9 0.3
+	// color_start 0.5 0.37 0.03
+	// color_end 0.5 0.37 0.03
+    // scale_start 10
+    // scale_end 10
+	// aspect_start 1
+	// aspect_end 1
+    // //rotation_start 90 90 90
+   	// hard_edges true
+	// geometry segment 0 8.308 -2.256
+	// //position 0.023 -12.371 3.349
+	// //(Add 1.162)
+	// position 5.694 1.297 5.007
+// }
+// ammodf_decorative_spark2 ammodf_decorative_spark
+// {
+	// position 5.694 1.297 5.007
+	// animation_start 20
+	// color_start 0.6 0.55 0.04
+	// color_end 0.6 0.55 0.04
+// }
+// ammodf_decorative_spark3 ammodf_decorative_spark
+// {
+	// geometry segment 0 8.263 -2.385
+    // position -5.726 1.278 4.941
+	// animation_start 8
+// }
+// ammodf_decorative_spark4 ammodf_decorative_spark
+// {
+	// geometry segment 0 8.263 -2.385
+	// position -5.726 1.278 4.941
+	// animation_start 12
+	// color_start 0.6 0.55 0.04
+	// color_end 0.6 0.55 0.04
+// }
+// ammodf_decorative_spark5 ammodf_decorative_spark
+// {
+		// geometry segment 0 8.299 -2.286
+	// position 0.0 -1.42 -4.633
+	// animation_start 16
+// }
+// ammodf_decorative_spark6 ammodf_decorative_spark
+// {
+	// //geometry segment 0.029 7.331 -13.526
+	// //position 0.029 -2.517 7.837
+	// geometry segment 0 8.299 -2.286
+	// position 0.0 -1.42 -4.633
+	// animation_start 4
+	// color_start 0.6 0.55 0.04
+	// color_end 0.6 0.55 0.04
+// }
+
+// ammodf_decorative
+// {
+	// subsystem ammodf_decorative_spark
+	// subsystem ammodf_decorative_spark2
+	// subsystem ammodf_decorative_spark3
+	// subsystem ammodf_decorative_spark4
+	// subsystem ammodf_decorative_spark5
+	// subsystem ammodf_decorative_spark6
+// }
+

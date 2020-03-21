@@ -1,0 +1,41 @@
+enemy valkyrie
+{
+  model eggbot
+  material valkyrie
+  flying true
+  weapon valkyrie_gun
+  camper_hate 3
+}
+
+enemy legionnaire
+{
+  model eggbot
+  material legionnaire
+  weapon legionnaire_gun
+  offense_duration 3
+  offense_timeout 3  
+}
+
+enemy torch
+{
+  model eggbot
+  material torch
+  weapon torch_gun
+  turn_rate 0.2
+}
+
+enemy kamikaze
+{
+  model eggbot
+  material kamikaze
+  agro_speedup 2
+  weapon kamikaze_gun
+}
+
+enemy leaper
+{
+  model eggbot
+  material leaper
+  weapon leaper_gun
+  jump_speed 1000
+}

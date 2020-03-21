@@ -1,0 +1,66 @@
+shaft_muzzle_static_particle
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.15 0.18
+	fade_in 0.01
+	fade_out 0.05
+	period 0.1
+	color_start 4 2 0 1
+	color_end  0 0 1 1
+	// position -1.85 3.1 0 
+	//position -1.65 1.9 0 
+    scale_start 0
+    scale_end 2
+    rotation_start 0 360
+ 
+}
+shaft_muzzle_sparks_decorative
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 3
+	max_emissions 0
+	lifetime .25 .30
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.1
+	color_start 4 2 0 1
+	color_end  0 0 1 1
+	//position -1 0 0   
+    scale_start 0.1
+    scale_end 0.05
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 1 1 0 359 359 0
+	speed_start 10
+	speed_end 1
+	auto_orient true
+	aspect_start 2 
+	aspect_end 10
+	acceleration 0 -5 0 0 -2 0
+}
+shaft_muzzle_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 5	
+	system_light_intensity 5
+	system_light_color 0.8 0.3 0
+	system_light_falloff 0.0
+	
+}
+shaft_filament
+{
+	subsystem shaft_muzzle_sparks_decorative 
+	subsystem shaft_muzzle_sparks_decorative_light 
+	subsystem shaft_muzzle_static_particle 
+	subsystem shaft_muzzle_light 
+}

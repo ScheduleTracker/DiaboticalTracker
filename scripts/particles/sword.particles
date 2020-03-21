@@ -1,0 +1,94 @@
+//flash_1
+{
+	map sword_sheet.png
+	region r_sword_ps1
+    animation_speed 30
+	animation start 
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.2
+	rotation_start 185
+	blend add
+	fade_out 0.5
+	position 2.4 -2.3 -1.15
+	color_start  0 8 10
+	color_end 0 8 10
+	// emitter line 0 0 1
+	scale_start 4.5
+	scale_end 4.5
+}
+
+//flash_2
+{
+	map sword_sheet.png
+	region r_sword_ps2
+    animation_speed 30
+	animation start 
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.3
+	rotation_start 180
+	blend add
+	fade_out 0.5
+	position 1.5 -2.8 -0.35
+	color_start  0 8 10
+	color_end 0 8 10
+	// emitter line 0 0 1
+	scale_start 2
+	scale_end 2
+}
+
+//flash_3
+{
+	map sword_sheet.png
+	region r_sword_ps3
+    animation_speed 30
+	animation start 
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.3
+	rotation_start 180
+	blend add
+	fade_out 0.5
+	position 0.70 -2.5 0.37
+	color_start  0 8 10
+	color_end 0 8 10
+	// emitter line 0 0 1
+	scale_start 1
+	scale_end 1
+}
+
+//flash_4
+{
+	map sword_sheet.png
+	region r_sword_ps4
+    animation_speed 30
+	animation start 
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.2
+	rotation_start 180
+	blend add
+	fade_out 0.5
+	position 0.2 -2.2 0.50
+	color_start  0 8 10
+	color_end 0 8 10
+	// emitter line 0 0 1
+	scale_start 1
+	scale_end 1
+}
+
+//sword_equip
+{
+	
+		subsystem flash_1 0.6
+		subsystem flash_2 0.62
+		subsystem flash_3 0.8
+		subsystem flash_4 1
+//		subsystem sg_muzzleflame2
+	
+}

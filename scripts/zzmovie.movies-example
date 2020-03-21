@@ -1,0 +1,26 @@
+pre_exec
+{
+   //editor_layer 1
+   //video_fov 70
+   sound_volume 0
+   echo Starting recording
+   devop movie_mode
+}
+post_exec
+{
+   editor_layer 1
+   video_fov 70
+   sound_volume 0.1
+   //stop
+   echo "Done!"
+}
+
+///// POSES
+
+movie endgame
+{
+	demo endgame
+	start 0
+	duration 80
+	framerate 23.976
+}

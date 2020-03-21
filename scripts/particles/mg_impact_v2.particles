@@ -1,0 +1,454 @@
+// mg2_impact_1
+// {
+	// map effects_additive.png
+	// region r_add_action
+	// max_particles 3
+	// max_emissions 3
+
+	// period 0.001
+	// lifetime 0.1 0.05
+	// rotation_start 0 360
+	// velocity 0 10 0
+	// position 0 0 
+	// color_start 2 1 0 1     1 1 0.6 1
+	// color_end 1 1 0 1       1 1 0.6 1
+	// //rotation_start 160 200
+	// rotation_start -20 20
+	// scale_start 40 90
+	// scale_end 40 90
+	// aspect_start 1.5
+	// aspect_end 0.4
+	
+	// hard_edges true
+	// auto_rotate true
+// }
+
+// mg2_impact_flash
+// {
+	// map effects_additive.png
+	// region r_add_flash
+    // //animation_speed 30
+	// max_particles 1
+	// max_emissions 1
+	// period 0
+	// lifetime 0.1
+	// rotation_start 0 0
+	// blend add
+	// //fade_out 5
+	// position 0 0 0
+	// color_start 1.2 1 0.2 1
+	// color_end  1.2 1 0.2 1
+	// scale_start 0 0
+	// scale_end 40 40
+// }
+
+// mg2_impact
+// {
+	// subsystem mg2_impact_1
+	// subsystem mg2_impact_flash
+// }
+minigun_impact_1
+{
+	map particle_sheet3.png
+	region s3_plasma_56
+	max_particles 1
+	max_emissions 1
+
+	period 0.001
+	lifetime 0.1 0.05
+	rotation_start 0 360
+	velocity 0 10 0
+	position 0 0 
+	color_start 3 2 0 1    
+	color_end 0.5 0.1 0 1      
+	//rotation_start 160 200
+	rotation_start -20 20
+	scale_start 20 40
+	scale_end 25 35
+	aspect_start 1.0
+	aspect_end 0.3 1
+	position 0 0 0.1
+	hard_edges true
+	auto_rotate true
+}
+
+minigun_impact_2 minigun_impact_1
+{
+	map particle_sheet3.png
+	region s3_plasma_55
+	max_particles 1
+	max_emissions 1
+
+
+	aspect_start 1.0
+	aspect_end 1
+	
+
+}
+minigun_impact_3 minigun_impact_1
+{
+	map particle_sheet3.png
+	region s3_plasma_56
+	max_particles 1
+	max_emissions 1
+
+	rotation_start -75 -20
+	aspect_start 1.0
+	aspect_end 1
+	
+
+
+}
+minigun_impact_4 minigun_impact_1
+{
+	map particle_sheet3.png
+	region s3_plasma_56
+	period 0.1
+	max_particles 1
+	max_emissions 1
+
+	rotation_start 75 20
+	aspect_start 1.0
+	aspect_end 1
+	
+
+}
+minigun_impact_flash
+{
+		map particle_sheet3.png
+	region s3_rl_muzzle_2
+    //animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.1
+	rotation_start 0 0
+	blend add
+	//fade_out 5
+	position 0 0 0
+	color_start 3 2 0.2 1
+	color_end  1.2 1 0.2 1
+	scale_start 0 0
+	scale_end 30 40
+}
+
+minigun_impact_embers
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 10
+	max_emissions 10
+	//delay 0.05
+	lifetime 0.1
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 2 1 0 1
+	color_end  1 0 0 1
+	position 0 0 0  
+    scale_start 0
+    scale_end 10 12
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles -45 -45 0 45 45 0
+	speed_start 200
+	speed_end 200
+	auto_orient_3d true
+	turbulence 2000
+	aspect_start 1.2 1.5
+	aspect_end 0.5 0.6
+	hard_edges true
+	drag 1000
+
+}
+minigun_impact_embers_2 minigun_impact_embers
+{
+
+
+    scale_start 1
+    scale_end 8 11
+
+
+}
+minigun_impact_sparks
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 5
+	max_emissions 2
+	//delay 0.05
+	lifetime 0.2
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 
+	color_start 2 1 0 1
+	color_end  1 0 0 1
+	position 0 0 0  
+    scale_start 10
+    scale_end 30
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360  180
+	speed_start 100
+	speed_end 5
+	auto_orient_3d true
+	turbulence 2000
+	aspect_start 1
+	aspect_end 1
+	hard_edges true
+	drag 1000
+
+}
+minigun_impact_sparks_2 minigun_impact_sparks
+{
+	velocity_angles 0 0 0 360 0 0	
+		speed_end 150
+		aspect_end 1
+}
+minigun_impact_debris
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 6
+	max_emissions 6
+	//delay 0.05
+	lifetime 0.2
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 1 1 1 1
+	color_end  0.2 0.2 0.2 0
+	position 0 0 0  
+    scale_start 0
+    scale_end 15 17
+    rotation_start 0 360
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360  180
+	speed_start 200
+	speed_end 100
+	auto_orient_3d true
+	turbulence 2000
+	aspect_start 1
+	aspect_end 1
+	hard_edges true
+	drag 1000
+
+}
+minigun_impact_smoke
+{
+	map particle_sheet3.png
+	region s3_explosion_03_anim
+	animation_speed 32
+	animation_start 0
+	max_particles 2
+	max_emissions 2
+	//delay 0.05
+	lifetime 0.25
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start  0.1 0.1 0.2 0.5
+	color_end  0.5 0.5 0.8  0.2
+	position 0 0 0  
+    scale_start 30
+    scale_end 80
+    rotation_start 20  -20
+    fade_out 0.02
+	speed_start 100
+	speed_end 2
+	velocity_angles -45 -45 0 45 45 0
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+		aspect_start 1
+	aspect_end 0.8
+	drag 1000
+
+}
+minigun_impact_smoke_left
+{
+	map particle_sheet3.png
+	region s3_explosion_03_anim
+	animation_speed 32
+	animation_start 0
+	max_particles 2
+	max_emissions 2
+	//delay 0.05
+	lifetime 0.25
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start  0.1 0.1 0.2 0.5
+	color_end  0.5 0.5 0.8  0.2
+	position 0 0 0  
+    scale_start 30
+    scale_end 80
+    rotation_start 20  -20
+    fade_out 0.02
+	speed_start 100
+	speed_end 2
+	velocity_angles 0 -90 0 0 -80 0
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+		aspect_start 1
+	aspect_end 0.8
+	drag 1000
+
+}
+minigun_impact_smoke_right
+{
+	map particle_sheet3.png
+	region s3_explosion_03_anim
+	animation_speed 32
+	animation_start 0
+	max_particles 2
+	max_emissions 2
+	//delay 0.05
+	lifetime 0.25
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start  0.1 0.1 0.2 0.5
+	color_end  0.5 0.5 0.8  0.2
+	position 0 0 0  
+    scale_start 30
+    scale_end 80
+    rotation_start 20  -20
+    fade_out 0.02
+	speed_start 100
+	speed_end 2
+	velocity_angles 0 90 0 80 0 0
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+		aspect_start 1
+	aspect_end 0.8
+	drag 1000
+
+}
+// minigun_impact_smoke_2
+// {
+	// map particle_sheet3.png
+	// region s3_explosion_03_anim
+	// animation_speed 32
+	// animation_start 0
+	// max_particles 1
+	// max_emissions 1
+	// //delay 0.05
+	// lifetime 0.25
+	// fade_in 0
+	// blend alpha
+	// fade_in 0.5
+	// period 0
+	// color_start  0.1 0.1 0.2 0.1
+	// color_end  0.5 0.5 0.8  0.2
+	// position 0 0 0  
+    // scale_start 30
+    // scale_end 80
+    // rotation_start 20  -20
+    // fade_out 0.02
+	// speed_start 3000
+	// speed_end 85
+	// velocity_angles -45 -45 0 45 45 0
+	// auto_orient_3d true
+	// turbulence 2000
+	// hard_edges true
+		// aspect_start 1
+	// aspect_end 0.8
+	// drag 1000
+
+// }
+minigun_impact_smoke_2
+{
+	map particle_sheet5.png
+	region  ricochet_smoke
+	animation_speed 32
+	animation_start 0
+	max_particles 2
+	max_emissions 2
+	//delay 0.05
+	lifetime 0.25
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start  0.1 0.1 0.2 0.2
+	color_end  0.5 0.5 0.8  0.1
+	position 0 0 0  
+    scale_start 30
+    scale_end 50
+    rotation_start 20  -20
+    fade_out 0.02
+	speed_start 100
+	speed_end 2
+	velocity_angles -45 -45 0 45 45 0
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+		aspect_start 1
+	aspect_end 0.8
+	drag 1000
+
+}
+minigun_impact_floor_line
+{
+	map ring.png
+
+	blend alpha
+
+    mesh models/plane2.fbx 20
+	geometry mesh
+
+	max_particles 1
+	max_emissions 1
+	lifetime .15
+	// period 0.05
+	fade_in 0.05
+	fade_out 0
+	scale_start 0
+	scale_end 50
+	//color_start 0.2 3 4 6
+	//color_end 0.2 3 4 6
+   color_start 0 1 0.5 1.0
+	color_end  0 0 0 0.5
+	position 0 0 0
+	rotation_start 90 0
+	rotation_end 90 0
+	turbulence 400 5
+	color_accent true
+	color_start 1 1 1 1
+	color_end 1 1 1 1
+	
+} 
+minigun_impact
+{
+	 subsystem machinegun_impact_1+empty+machinegun_impact_2+empty
+	 
+	  subsystem minigun_impact_1+empty+empty+empty+minigun_impact_2 0 1.5+empty+empty
+	  subsystem minigun_impact_3+empty+empty+empty+empty
+	  subsystem minigun_impact_4+empty+empty+empty+empty+empty+empty
+	  subsystem minigun_impact_flash 0 1.5+empty
+	 subsystem minigun_impact_embers+empty+empty
+	 subsystem minigun_impact_embers_2+empty+empty
+	 subsystem minigun_impact_sparks+empty
+	 subsystem minigun_impact_sparks_2+empty+empty
+	subsystem minigun_impact_smoke+empty
+	subsystem minigun_impact_smoke_left0+empty+empty+empty+empty
+		subsystem minigun_impact_smoke_right+empty+empty
+	subsystem minigun_impact_smoke_2+empty+empty+empty+empty+empty
+	subsystem minigun_impact_debris+empty+empty+empty
+	subsystem minigun_impact_floor_line+empty+empty+empty
+}

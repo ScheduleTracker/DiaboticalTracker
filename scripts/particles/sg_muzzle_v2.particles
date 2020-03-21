@@ -1,0 +1,1203 @@
+//SHOTGUN MUZZLE
+
+sg_muzzleflash_1
+{
+	map particle_sheet3.png
+	region s3_plasma_50
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.1
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+	color_start  4 2 0.25 1
+	color_end  4 2 0.25 1
+	scale_start 1.0
+	scale_end 8
+position 0.1 0 1.5
+}
+sg_muzzleflash_2
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.3
+	scale_start .5
+	scale_end 3
+	rotation_start 0 360
+	blend add
+	fade_out 0
+	color_start  4 2 0.25 1
+	color_end  4 2 0.25 1
+	scale_start 1.0
+	scale_end 4
+position 0.1 0 1.
+}
+sg_muzzlering
+{
+	map particle_sheet5.png
+	region  muzzle_flash 
+    animation_speed 20
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.2
+	scale_start 3
+	scale_end 3
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+	color_start  4 2 0.25 1
+	color_end  4 2 0.25 1
+
+position 0.1 0 1.
+}
+sg_muzzleflame_1
+{
+	map particle_sheet3.png
+	region s3_plasma_56
+    animation_speed 0
+	max_particles 1 
+	max_emissions 1 
+	period 0
+	lifetime  0.1
+	rotation_start 90
+	blend add
+	fade_out 0.025
+	//position -0.7 1.4 8.35
+	position 0 0 0.65
+	color_start  4 4 1 1
+	color_end  16 8 4 1
+	scale_start 0.5
+	scale_end 5
+	velocity_angles 55 -90 0 35 -90 0
+	speed_start 5
+	speed_end 1
+	auto_orient true
+	aspect_start 1
+	aspect_end 1
+
+}
+sg_muzzleflame_2 sg_muzzleflame_1
+{
+
+	velocity_angles 145 -90 0 125 -90 0
+
+}
+sg_muzzleflame_3 sg_muzzleflame_1
+{
+
+	velocity_angles 235 -90 0 215 -90 0
+	
+}
+sg_muzzleflame_4 sg_muzzleflame_1
+{
+	
+	velocity_angles 315 -90 0 305 -90 0
+
+}
+
+
+sg_muzzle_spark_1
+{
+	map particle_sheet5.png
+	region spark_line
+	animation_speed 22
+	animation_start 0
+	max_particles 3
+	max_emissions 3
+	lifetime 0.15 0.2
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 4 2 0.25 1
+	color_end  4 2 0.25 1  
+    scale_start .2
+    scale_end 1 0.5
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 90 90 0 0 90 0
+	speed_start 7 9
+	speed_end 2 1
+
+	auto_orient true
+	aspect_start 1 1.2
+	aspect_end 0.5 0.75
+	//acceleration  0 0 0
+}
+
+sg_muzzle_spark_2 sg_muzzle_spark_1
+{
+
+	velocity_angles 180 90 0 90 90 0
+	
+}
+sg_muzzle_spark_3 sg_muzzle_spark_1
+{
+
+	velocity_angles 270 90 0 180 90 0
+	
+}
+sg_muzzle_spark_4 sg_muzzle_spark_1
+{
+
+	velocity_angles 360 90 0 270 90 0
+	
+}
+
+
+
+sg_light base_light_impact
+{
+	lifetime 0.3
+	system_light_radius 70
+	system_light_intensity 5
+	system_light_color 1 0.6 0.1
+	system_light_falloff 0
+	velocity 0 0 0
+	position 2 0 0
+	
+}
+
+sg_shot_trail_1
+{
+	// geometry quad
+map particle_sheet3.png
+	region s3_rl_muzzle_23
+
+	blend add
+	max_particles 6
+	max_emissions 6
+	lifetime 0.15
+	period 0
+	fade_in 0.8
+	speed_start 150
+	velocity_angles 8 8 10 -8 -8 10
+	fade_out 0.1
+	//position 0 0 -0.9
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 2 0 1
+	emitter line 0 0 1
+	turbulence 200
+	scale_start 1.0 1.25
+	scale_end 0 0
+	drag 0.8
+	angular_speed_start -1000 1000
+	
+}
+sg_muzzle_v2
+{
+	 subsystem sg_muzzleflash_1 0 0.85
+	subsystem sg_muzzleflash_2 0 0.85
+	subsystem sg_muzzlering 0 0.85
+	 subsystem sg_muzzleflame_1 0 0.85
+	 subsystem sg_muzzleflame_2 0 0.85
+	 subsystem sg_muzzleflame_3 0 0.85
+	 subsystem sg_muzzleflame_4 0 0.85
+	 subsystem sg_muzzle_spark_1 0 1
+	subsystem sg_muzzle_spark_2 0 1
+	subsystem sg_muzzle_spark_3 0 1
+	subsystem sg_muzzle_spark_4 0 1
+	subsystem sg_muzzle_spark_5 0 1
+	subsystem sg_muzzle_smoke 0 0.8
+subsystem sg_shot_trail_1
+
+
+	// // subsystem  sg_light 
+	// subsystem shotgun_shot_trail_1
+	// subsystem shotgun_shot_trail_2
+	// subsystem shotgun_shot_trail_3
+	 // subsystem shotgun_shot_trail_4
+	// subsystem shotgun_shot_trail_5
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////-----------TIER2--------//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+sg_tier_2_muzzleflash_1
+{
+	map particle_sheet3.png
+	region   s3_rl_muzzle_29
+    animation_speed 30
+	max_particles 2
+	max_emissions 2
+	period 0
+	lifetime 0.15
+	scale_start .5
+	scale_end 3
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+color_start  16 8 4 1
+	color_end  8 4 0.25 1
+	scale_start 1
+	scale_end 5	
+	// aspect_start 1
+	// aspect_end 1
+}
+
+sg_tier_2_muzzleflash_2
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.2
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+color_start  16 8 4 1
+	color_end  3 1 0 0
+	scale_start 1
+	scale_end 2
+	
+}
+sg_tier_2_muzzleflash_3
+{
+	map particle_sheet5.png
+	region explosion_ring_3
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.12
+	rotation_start 0 360
+	blend add
+	fade_out 0.5
+color_start  16 8 4 1
+	color_end  8 4 0.25 1
+	scale_start 3
+	scale_end 3
+}
+
+sg_tier_2_muzzleflash_4
+{
+	map particle_sheet5.png
+	region  muzzle_flash 
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.12
+	rotation_start 0 360
+	blend add
+	fade_out 0.1
+	color_start  10 8 1 1
+	color_end  4 1 0 0.5
+	scale_start 1
+	scale_end 6
+}
+sg_tier_2_muzzle_ring
+{
+	map particle_sheet5.png
+	region explosion_ring_5
+    animation_speed 50
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	rotation_start 0 360
+	blend add
+	fade_out 0.1
+	color_start  10 8 1 1
+	color_end  4 1 0 0.5
+	scale_start 2
+	scale_end 8
+}
+
+
+
+
+sg_tier_2_muzzle_aim
+{
+	map particle_sheet3.png
+	region s3_flame03_30
+	max_particles 1
+	max_emissions 1
+	delay 0.05 0
+	lifetime 0.14 0.1  
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 10 5 3 1 
+	color_end  3 3 0.2 1 
+    scale_start 1
+    scale_end 3
+    rotation_start 180
+    fade_out 0.02
+	velocity_angles 140 90 0 130 90 0
+	speed_start 10
+	speed_end 10
+	position 0 0 0
+	auto_orient true
+	aspect_start 1
+	aspect_end 1.5
+		
+}
+sg_tier_2_muzzle_aim_2 sg_tier_2_muzzle_aim
+{
+
+	velocity_angles 230 90 0 220 90 0
+
+}
+
+sg_tier_2_dispersion
+{
+	//delay 0.1
+    //noise radius, noise strength
+	//geometry tape 0.8 0.15
+	animation_speed 20
+	map particle_sheet3.png
+	//region s3_rl_muzzle_7
+	region s3_explosion02_333
+	blend add
+	max_particles 2
+	max_emissions 2
+	lifetime 0.15
+	period 0.015
+	fade_in 0.5
+	fade_out 0.25
+	emitter array 0 0 3
+	rotation_start 0 360
+	//position 1 1 1 -1 -1 -1
+	//turbulence 2000 1
+	//scale_start 2
+	//scale_end 2
+	scale_start 3
+	scale_end 6
+	noise_time_seed 7
+	noise_seed_scale 1000
+	color_start 2 1.5 1.0 0.9 
+	color_end 0.9 0.95 1.0 0.0
+}
+
+
+sg_tier_2_muzzle_light base_light_impact
+{
+	lifetime 0.3
+	system_light_radius 50
+	system_light_intensity 10
+	system_light_color 1 0.6 0.1
+	system_light_falloff 0.1
+	
+}
+
+sg_tier_2_shot_trail_1
+{
+	// geometry quad
+map particle_sheet3.png
+	region s3_rl_muzzle_23
+
+	blend add
+	max_particles 6
+	max_emissions 6
+	lifetime 0.15
+	period 0
+	fade_in 0.8
+	speed_start 150
+	velocity_angles 8 8 10 -8 -8 10
+	fade_out 0.1
+	//position 0 0 -0.9
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 2 0 1
+	emitter line 0 0 1
+	turbulence 200
+	scale_start 1.0 1.25
+	scale_end 0 0
+	drag 0.8
+	angular_speed_start -1000 1000
+	
+}
+sg_tier_2_shot_trail_2
+{
+	// geometry quad
+map particle_sheet3.png
+	region s3_rl_muzzle_23
+
+	blend add
+	max_particles 6
+	max_emissions 6
+	lifetime 0.15
+	period 0
+	fade_in 0.8
+	speed_start 150
+	velocity_angles 3 3 20 -3 -3 20
+	fade_out 0.1
+	//position 0 0 -0.9
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 2 0 1
+	emitter line 0 0 1
+	turbulence 200
+	scale_start 1.0 1.25
+	scale_end 0 0
+	drag 0.8
+	angular_speed_start -1000 1000
+	
+}
+sg_tier_2_shot_spark
+{
+	map particle_sheet3.png
+	region s3_flame02_8
+	animation_speed 
+	animation_start 
+	max_particles 1
+	max_emissions 1
+	lifetime 0.12
+	fade_in 0
+	blend add
+	fade_out 0.15
+	color_start  16 8 4 1
+	color_end  4 4 1 1
+	//position    0.2 -0.2 -3
+    scale_start 1
+    scale_end 7
+    rotation_start -120
+    fade_out 0.2
+	speed_start 7
+	speed_end 2
+	aspect_start 2
+	aspect_end 1
+	 	period 0
+}
+sg_tier_2_muzzle_ember
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 16	
+	animation_start 0
+	max_particles 4
+	max_emissions 4
+	lifetime 0.25 0.2
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0	
+	color_start 4 2 0.25 1
+	color_end  4 2 0.25 1
+	position 0 0 0  
+    scale_start 1
+    scale_end 0
+    rotation_start 90 0
+    fade_out 0.2
+	velocity_angles 0 90 0 360 90 0
+	speed_start 6
+	speed_end 2
+	auto_orient true
+	aspect_end 1
+		angular_speed_start -5000 5000
+	
+
+}
+sg_tier_2_muzzle_ember_center sg_tier_2_muzzle_ember
+{
+
+	max_particles 6
+	max_emissions 6
+	lifetime 0.25 0.2
+	
+
+    scale_start 1
+    scale_end 0
+    rotation_start 90 0
+    fade_out 0.2
+	velocity_angles 0 90 0 360 90 0
+	speed_start 3 2
+	speed_end 0
+	
+	
+
+}
+sg_tier_2_muzzle_sparks
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 0
+	max_particles 8
+	max_emissions 8
+	lifetime .20 .25
+	fade_in 0
+	
+	blend add
+	fade_out 0.1
+	period 0	
+	color_start 4 2 0.25 1
+	color_end  4 0 0.25 1
+    scale_start 0.35 0.2
+    scale_end 0 0.05
+    rotation_start 90
+    fade_out 0.2
+	velocity_angles 0 90 0 120 90 0
+	speed_start 11 8
+	speed_end 7 3		
+	auto_orient true
+	aspect_start 0.3 0.4
+	aspect_end .025 0.05
+}
+sg_tier_2_muzzle_sparks2 sg_tier_2_muzzle_sparks
+{
+
+	velocity_angles 130 90 0 250 90 0
+
+}
+sg_tier_2_muzzle_sparks3 sg_tier_2_muzzle_sparks
+{
+
+	velocity_angles 260 90 0 350 90 0
+
+}
+sg_tier_2_muzzle_smoke
+{
+	map particle_sheet5.png
+	region ricochet_smoke 
+	animation_speed 26	
+	animation_start 0
+	max_particles 2
+	max_emissions 2
+	lifetime 0.25 0.2
+	fade_in 0.2
+	blend add
+	fade_out 0.0	
+	period 0	
+	color_start 1 1 1 0.5
+	color_end  0 0 0 0
+	position 0 0 0  
+    scale_start 2
+    scale_end 3
+    rotation_start 90
+    fade_out 0.2
+	velocity_angles 190 90 0 150 90 0
+	speed_start 6 5
+	speed_end 2 1
+	auto_orient true
+	aspect_end 1
+	
+
+}
+sg_tier_2_muzzle_smoke2 sg_tier_2_muzzle_smoke
+{
+
+	velocity_angles -30 90 0 30 90 0
+
+}
+sg_tier_2_muzzle_spark
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 0
+	max_particles 8
+	max_emissions 8
+	lifetime 0.15 0.2
+	fade_in 0
+	
+	blend add
+	fade_out 0.1
+	period 0	
+	color_start 4 2 0.25 1
+	color_end  4 2 0.25 1
+	position 0 0 -2  
+    scale_start 2
+    scale_end 0
+    rotation_start 90
+    fade_out 0.2
+	velocity_angles 0 90 0 360 90 0
+	speed_start 6
+	speed_end 1
+	auto_orient true
+	aspect_end 0.7
+	
+	position 0.2 -0.2 -2
+}
+sg_tier_2_muzzle_light base_light_impact
+{
+	lifetime 0.3
+	system_light_radius 20
+	system_light_intensity 50
+	system_light_color 1 0.6 0.1
+	system_light_falloff 0.0
+	
+}
+sg_tier_2_flame_left_top
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_7
+	animation_speed 
+	animation_start 
+	max_particles 1
+	max_emissions 1
+	lifetime 0.12
+	fade_in 0
+	blend add
+	fade_out 0.05
+	color_start  16 8 4 1
+	color_end  4 2 1 0.0
+	//position    0.2 -0.2 -3
+    scale_start 1
+    scale_end 3.5
+    rotation_start 90
+    fade_out 0.2
+	speed_start 10
+	speed_end 0
+	aspect_start 1
+	aspect_end 0.7
+	 	period 0
+		auto_orient true
+		velocity_angles 150 90 0 130 90 0
+}
+sg_tier_2_flame_right_top sg_tier_2_flame_left_top
+{
+
+    rotation_start -90
+
+		velocity_angles 50 90 0 30 90 0
+}
+
+sg_tier_2_muzzle
+{
+	
+	  subsystem sg_tier_2_muzzleflash_1 0 0.8
+    subsystem sg_tier_2_muzzleflash_2 0 1
+	subsystem sg_tier_2_muzzleflash_2 0 1.6
+	 subsystem sg_tier_2_muzzleflash_3 0 0.8 
+	  subsystem sg_tier_2_muzzleflash_4 0 0.8
+	  subsystem sg_tier_2_muzzle_ring 0 1
+	  subsystem sg_tier_2_muzzle_sparks
+	   subsystem sg_tier_2_muzzle_sparks2
+	    subsystem sg_tier_2_muzzle_sparks3
+ subsystem sg_tier_2_dispersion
+  subsystem sg_tier_2_muzzle_light
+    subsystem sg_tier_2_muzzle_ember 0 0.8
+	subsystem sg_tier_2_muzzle_ember_center 0 0.8
+   subsystem sg_tier_2_muzzle_smoke 
+     subsystem sg_tier_2_muzzle_smoke2
+  subsystem sg_tier_2_shot_trail_1
+  subsystem sg_tier_2_shot_trail_2
+   subsystem sg_tier_2_muzzle_spark 0 0.8
+    subsystem sg_aim_shot_1
+	subsystem sg_aim_shot_2
+	
+   // subsystem  sg_tier_2_muzzle_light 
+   // subsystem  sg_tier_2_flame_left_top
+  // subsystem sg_tier_2_flame_right_top
+ }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 3P //////////////////////////////////////////////////////////////////////////////
+
+sg_tier_2_muzzle_3p
+{
+	
+	 subsystem sg_tier_2_muzzleflash_1 0 10
+   subsystem sg_tier_2_muzzleflash_2 0 10
+	 subsystem sg_tier_2_muzzleflash_30 10
+	 subsystem sg_tier_2_muzzleflash_40 10
+	 subsystem sg_tier_2_muzzle_ring 0 10
+	 // subsystem sg_tier_2_muzzle_aim
+
+subsystem sg_tier_2_dispersion
+ subsystem sg_tier_2_muzzle_light
+   subsystem sg_tier_2_shot_spark 0 10
+   subsystem sg_tier_2_muzzle_ember 
+  subsystem sg_tier_2_muzzle_smoke
+ subsystem sg_shot_trail_1 0 3
+ subsystem sg_shot_trail_2 0 3
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+// t2_sg_muzzleflash_1
+// {
+	// map particle_sheet3.png
+	// region s3_plasma_50
+    // animation_speed 30
+	// max_particles 1
+	// max_emissions 1
+	// period 0
+	// lifetime 0.1
+	// scale_start .5
+	// scale_end 3
+	// rotation_start 0 360
+	// blend add
+	// fade_out 0.5
+	// color_start  4 2 0.25 1
+	// color_end  4 2 0.25 1
+	// scale_start 1.0
+	// scale_end 8
+// position 0.1 0 -1.5
+
+// }
+// t2_sg_muzzleflash_2
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_31
+    // animation_speed 30
+	// max_particles 1
+	// max_emissions 1
+	// period 0
+	// lifetime 0.2
+	// scale_start .5
+	// scale_end 3
+	// rotation_start 0 360
+	// blend add
+	// fade_out 0.5
+	// color_start  4 2 0.25 1
+	// color_end  4 2 0.25 1
+	// scale_start 1.0
+	// scale_end 4
+// position 0.1 0 -1.3
+// }
+
+// t2_sg_muzzleflame_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_7
+    // animation_speed 530
+	// max_particles 1 
+	// max_emissions 1 
+	// period 0
+	// lifetime  0.1
+	// rotation_start 90
+	// blend add
+	// fade_out 0.025
+	// //position -0.7 1.4 8.35
+	// position 0 0 0.65
+	// color_start  4 4 1 1
+	// color_end  16 8 4 1
+	// scale_start 0.5
+	// scale_end 3.5
+	// velocity_angles 55 -90 0 35 -90 0
+	// speed_start 30
+	// speed_end 5
+	// auto_orient true
+	// aspect_start 1
+	// aspect_end 1
+// position 0.4 -0.3 1
+// }
+// t2_sg_muzzleflame_2 t2_sg_muzzleflame_1
+// {
+
+	// velocity_angles 145 -90 0 125 -90 0
+
+// }
+// t2_sg_muzzleflame_3 t2_sg_muzzleflame_1
+// {
+
+	// velocity_angles 235 -90 0 215 -90 0
+	
+// }
+// t2_sg_muzzleflame_4 t2_sg_muzzleflame_1
+// {
+	
+	// velocity_angles 315 -90 0 305 -90 0
+
+// }
+// t2_sg_muzzle_spark_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_17
+	// animation_speed 40
+	// animation_start 0
+	// max_particles 3
+	// max_emissions 3
+	// lifetime 0.08 0.15  
+	// fade_in 0
+	// blend add
+	// fade_out 0.03
+	// period 0
+	// color_start 4 2 0.25 1
+	// color_end  4 2 0.25 1  
+    // scale_start .2
+    // scale_end 2 3
+    // rotation_start 90
+    // fade_out 0.02
+	// velocity_angles 90 90 0 0 90 0
+	// speed_start 10
+	// speed_end 2
+
+	// auto_orient true
+	// aspect_start 0.5
+	// aspect_end 0.5
+	// //acceleration  0 0 0
+// }
+
+// t2_sg_muzzle_spark_2 t2_sg_muzzle_spark_1
+// {
+
+	// velocity_angles 180 90 0 90 90 0
+	
+// }
+// t2_sg_muzzle_spark_3 t2_sg_muzzle_spark_1
+// {
+
+	// velocity_angles 270 90 0 180 90 0
+	
+// }
+// t2_sg_muzzle_spark_4 t2_sg_muzzle_spark_1
+// {
+
+	// velocity_angles 360 90 0 270 90 0
+	
+// }
+// t2_sg_shot_flame
+// {
+	// map particle_sheet3.png
+	// region s3_plasma_56	
+	// animation_speed 
+	// animation_start 
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.15
+	// fade_in 0.05
+	// blend add
+	// // color_start 10 5 0.8 1
+	// // color_end  6 2 0.2 1
+// color_start  4 4 1 1
+	// color_end  16 8 4 1
+	// position    0 0.1 -1.5
+    // scale_start 0
+    // scale_end 5
+    // rotation_start -220
+    // fade_out 0.2
+	// //velocity_angles 175 90 0 185 90 0
+	// speed_start 35
+	// speed_end 10
+	// //auto_orient true
+	 // aspect_start 1
+	// aspect_end 1.1
+	 	// period 0
+// }
+// sg_muzzle_smoke
+ // {
+	// map explosion.png
+	// region explosion_smoke
+	// animation_speed 92
+	// animation_start 0
+	// blend alpha
+	// period 
+	// delay 0
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.3
+	// fade_in 1
+	// fade_out 1
+	// rotation_start -30 30
+	// position 0 0 0
+	// // position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start 1 1 1 1
+	// color_end  0.2 0.2 0.2 0.2
+	// emitter line 0 0 1
+	// scale_start 1
+	// scale_end 4
+	// aspect_start 1
+	// aspect_end 0.9 1
+	// auto_orient_3d true
+	// perspective_radius 100
+	// scale_timeline 0=0,l;0.7=0.8,l;1=1,l
+	// angular_speed_start -500 500
+// }
+
+											// //////LEFT SIDE
+// sg_l_side_muzzle_smoke sg_muzzle_smoke
+ // {
+	// position -0.4 -0.6 -2
+	// scale_end 2.5
+	// aspect_end 1
+	// lifetime 0.5
+	// animation_speed 84
+// }
+
+// t2_sg_l_side_muzzleflash_1
+// {
+	// map particle_sheet3.png
+	// region s3_plasma_50
+    // animation_speed 30
+	// max_particles 1
+	// max_emissions 1
+	// period 0
+	// lifetime 0.12
+	// scale_start .5
+	// scale_end 3
+	// rotation_start 0 360
+	// blend add
+	// fade_out 0.5
+	// color_start  4 2 0.25 1
+	// color_end  4 2 0.25 1
+	// scale_start 1.0
+	// scale_end 3
+// position -0.4 -0.6 -1.75
+// }
+
+// t2_sg_l_side_muzzle_shot_spark
+// {
+	// map particle_sheet3.png
+	// region s3_plasma_56	
+	// animation_speed 
+	// animation_start 
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.15
+	// fade_in 0.05
+	// blend add
+	// // color_start 10 5 0.8 1
+	// // color_end  6 2 0.2 1
+// color_start  4 4 1 1
+	// color_end  16 8 4 1
+    // scale_start 0
+    // scale_end 5
+    // rotation_start -210
+    // fade_out 0.2
+	// //velocity_angles 175 90 0 185 90 0
+	// speed_start 35
+	// speed_end 10
+	// //auto_orient true
+	 // aspect_start 1
+	// aspect_end 0.95
+	 	// period 0
+		// position -0.3 -0.8 -1.75
+		// scale_timeline 0=0,l;0.8=1,l;1=0.8,l
+// }
+
+// t2_sg_l_side_muzzle_spark_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_17
+	// animation_speed 40
+	// animation_start 0
+	// max_particles 3
+	// max_emissions 3
+	// lifetime 0.08 0.15  
+	// fade_in 0
+	// blend add
+	// fade_out 0.03
+	// period 0
+	// color_start 4 2 0.25 1
+	// color_end  4 2 0.25 1  
+    // scale_start .2
+    // scale_end 1.0 1.5
+    // rotation_start 90
+    // fade_out 0.02
+	// velocity_angles 90 90 0 0 90 0
+	// speed_start 25
+	// speed_end 3
+		// position -0.4 -0.6 -1.5
+
+	// auto_orient true
+	// aspect_start 0.5
+	// aspect_end 0.5
+	// //acceleration  0 0 0
+// }
+
+// t2_sg_l_side_muzzle_spark_2 t2_sg_l_side_muzzle_spark_1
+// {
+
+	// velocity_angles 180 90 0 90 90 0
+	
+// }
+// t2_sg_muzzle_l_side_spark_3 t2_sg_l_side_muzzle_spark_1
+// {
+
+	// velocity_angles 270 90 0 180 90 0
+	
+// }
+// t2_sg_muzzle_l_side_spark_4 t2_sg_l_side_muzzle_spark_1
+// {
+
+	// velocity_angles 360 90 0 270 90 0
+	
+// }
+
+	// sg_l_side_shot_trail shotgun_shot_trail_1
+// {
+	// velocity -80 0 3000  
+	// position -0.35 -1 0
+	
+// }
+															// //////////RIGHT SIDE
+
+// sg_r_side_muzzle_smoke sg_muzzle_smoke
+ // {
+	// position 1 -0.6 -2
+	// scale_end 2
+	// aspect_end 1
+	// lifetime 0.8
+	// animation_speed 52
+// }
+// t2_sg_r_side_muzzleflash_1
+// {
+	// map particle_sheet3.png
+	// region s3_plasma_50
+    // animation_speed 30
+	// max_particles 1
+	// max_emissions 1
+	// period 0
+	// lifetime 0.12
+	// scale_start .5
+	// scale_end 3
+	// rotation_start 0 360
+	// blend add
+	// fade_out 0.5
+	// color_start  4 2 0.25 1
+	// color_end  4 2 0.25 1
+	// scale_start 1.0
+	// scale_end 3
+// position 1.1 -0.6 -1.5
+// }
+	// sg_r_side_shot_trail shotgun_shot_trail_1
+// {
+	// velocity 70 0 3000 
+	// position 1 -1 0	
+// }
+// sg_shell
+// {
+    // //This is duplicated into textures/, implement directories here:
+	// map ammo_boxes_d.png
+	// mesh models/entities/ammo_boxes/ss_shell.fbx
+	// mesh_rotation_offset 90 0 0
+	// geometry mesh
+	// blend alpha
+	// max_particles 1
+	// max_emissions 1
+	// period 0
+	// delay 0.05
+	// lifetime 1
+	// fade_in 0.05
+	// fade_out 999
+	// velocity 0 0 0
+	// color_start 1 1 1 1 1 1 1 1
+	// color_end 1 1 1 1 1 1 1 1
+	// angular_speed_start 10000
+	// //rotation_start 0 360
+	// //rotation_end 0 360
+	// scale_start 0.15
+// scale_end 0.15
+
+	// acceleration 0 -20 0 0 0 -20 0
+	// mesh_rotation 10 0 5 5 0 0
+// }
+// t2_sg_r_side_muzzle_spark_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_17
+	// animation_speed 40
+	// animation_start 0
+	// max_particles 3
+	// max_emissions 3
+	// lifetime 0.08 0.15  
+	// fade_in 0
+	// blend add
+	// fade_out 0.03
+	// period 0
+	// color_start 4 2 0.25 1
+	// color_end  4 2 0.25 1  
+    // scale_start .2
+    // scale_end 1.0 1.5
+    // rotation_start 90
+    // fade_out 0.02
+	// velocity_angles 90 90 0 0 90 0
+	// speed_start 25
+	// speed_end 3
+		// position 1.1 -0.6 -1.5
+
+	// auto_orient true
+	// aspect_start 0.5
+	// aspect_end 0.5
+	// //acceleration  0 0 0
+// }
+
+// t2_sg_r_side_muzzle_spark_2 t2_sg_r_side_muzzle_spark_1
+// {
+
+	// velocity_angles 180 90 0 90 90 0
+	
+// }
+// t2_sg_muzzle_r_side_spark_3 t2_sg_r_side_muzzle_spark_1
+// {
+
+	// velocity_angles 270 90 0 180 90 0
+	
+// }
+// t2_sg_muzzle_r_side_spark_4 t2_sg_r_side_muzzle_spark_1
+// {
+
+	// velocity_angles 360 90 0 270 90 0
+	
+// }
+
+// sg_muzzle_tier_2
+// {
+	// subsystem t2_sg_muzzleflash_1 0 0.9
+	// subsystem t2_sg_muzzleflash_2 0 0.9
+	
+	// subsystem t2_sg_muzzleflame_1 0 0.9
+	// subsystem t2_sg_muzzleflame_2 0 0.9
+	// subsystem t2_sg_muzzleflame_3 0 0.9
+	// subsystem t2_sg_muzzleflame_4 0 0.9
+	 // subsystem t2_sg_muzzle_spark_1 0 0.9
+	 // subsystem t2_sg_muzzle_spark_2 0 0.9
+	 // subsystem t2_sg_muzzle_spark_3 0 0.9
+	 // subsystem t2_sg_muzzle_spark_4 0 0.9
+	 // subsystem t2_sg_muzzle_spark_5 0 0.9
+	 // subsystem t2_sg_shot_flame 0 1.
+	// subsystem sg_muzzle_smoke
+	
+	
+	// ///left
+	 // subsystem t2_sg_l_side_muzzle_spark_1 0 0.9
+	 // subsystem t2_sg_l_side_muzzle_spark_2 0 0.9
+	 // subsystem t2_sg_l_side_muzzle_spark_3 0 0.9
+	 // subsystem t2_sg_l_side_muzzle_spark_4 0 0.9
+	 // subsystem t2_sg_l_side_muzzle_spark_5 0 0.9
+	 
+	 // subsystem t2_sg_l_side_muzzle_shot_spark
+	// subsystem  t2_sg_l_side_muzzleflash_1
+	// subsystem sg_l_side_muzzle_smoke
+	// subsystem sg_l_side_shot_trail
+	
+	// ///right
+	// subsystem sg_r_side_muzzle_smoke sg_muzzle_smoke
+	// subsystem sg_r_side_shot_trail
+	// subsystem t2_sg_r_side_muzzleflash_1
+	// subsystem t2_sg_r_side_muzzle_spark_1 0 0.9
+	 // subsystem t2_sg_r_side_muzzle_spark_2 0 0.9
+	 // subsystem t2_sg_r_side_muzzle_spark_3 0 0.9
+	 // subsystem t2_sg_r_side_muzzle_spark_4 0 0.9
+	 // subsystem t2_sg_r_side_muzzle_spark_5 0 0.9
+	 
+	// //subsystem sg_shell
+	
+	
+	// /////////////////////////////////////////
+	// subsystem shotgun_shot_trail_1
+	// subsystem shotgun_shot_trail_2
+	// subsystem shotgun_shot_trail_3
+	 // subsystem shotgun_shot_trail_4
+	// subsystem shotgun_shot_trail_5
+	// subsystem shotgun_shot_trail_6
+	// subsystem shotgun_shot_trail_7
+	// subsystem shotgun_shot_trail_8
+	// subsystem shotgun_shot_trail_9
+	// subsystem shotgun_shot_trail_10
+	// subsystem shotgun_shot_trail_11
+	// subsystem shotgun_shot_trail_12
+	// subsystem shotgun_shot_trail_13
+	
+	// subsystem shotgun_shot_trail_side_1
+// }		

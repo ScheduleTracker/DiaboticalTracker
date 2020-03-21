@@ -1,0 +1,402 @@
+//RAILGUN IMPACT
+
+
+rg_smokea
+{
+	map effects1.png
+	region r_smoke_new	
+	animation_speed 35
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 10
+	max_emissions 10
+	lifetime 0.6
+	fade_in 0.1
+	fade_out 0.999
+	rotation_start 0 360
+	position 0 0 0 0 0 0
+	// position 0 0 -1 0 0 -1s
+	period 0
+	velocity 10 10 -80 5 -25 0
+	color_start -0.2 -0.2 -2 1
+	color_end -0.1 -0.1 -0.1 0
+	emitter line 0 0 1
+	scale_start 100
+	scale_end 80
+}
+
+rg_smokeb
+{
+	map effects1.png
+	region r_smoke_new	
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 10
+	max_emissions 10
+	lifetime 1
+	fade_in 0.1
+	fade_out 0.999
+	rotation_start 0 360
+	position 0 0 0 0 0 0
+	// position 0 0 -1 0 0 -1s
+	period 0
+	velocity -50 -50 50 50 50 -50
+	color_start 0.6 0.6 0.6 1
+	color_end -0.1 -0.2 -0.2 0.2
+	emitter line 0 0 1
+	scale_start 200
+	scale_end 250
+}
+
+rg_ring_spark
+{
+	map particle_sheet1.png
+	region r_electric_ring
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.40
+	fade_in 0.1
+	fade_out 999
+	rotation_start 0 360
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1s
+	period 0
+	color_start  3 3 5 1
+	color_end  1 1 1 1
+	emitter line 0 0 6
+	scale_start 80 
+	scale_end 100
+}
+
+rg_spark 
+{
+	map particle_sheet1.png
+	region r_electric_spark
+	animation_speed 26
+	animation_start 
+	blend add
+	max_particles 3 5
+	max_emissions 2 4
+	lifetime 0.30
+	fade_in 0.1s
+	fade_out 999
+	rotation_start 0 360
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1s
+	period 0
+	color_start  3 3 4 1
+	color_end  1 1 1 1
+	emitter line 0 0 6
+	scale_start 50 100
+	scale_end 80 100
+}
+
+rg_spark_small
+{
+	map particle_sheet1.png
+	region r_electric_spark_s
+	animation_speed 26
+	animation_start 
+	blend add
+	max_particles 1 2
+	max_emissions 2 3
+	lifetime 0.30
+	fade_in 0.1s
+	fade_out 999
+	rotation_start 0 360
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1s
+	period 0
+	color_start  1 1 1 1
+	color_end  1 1 1 1
+	emitter line 0 0 6
+	scale_start 100
+	scale_end 200
+}
+
+rg_glow
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 26
+	animation_start 
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15
+	fade_in 0.1
+	fade_out 999
+	rotation_start 0
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1s
+	period 0
+	color_start  4 4 5 1
+	color_end  1 1 1 1
+	emitter line 0 0 6
+	scale_start 100
+	scale_end 200
+}
+
+rg_spark_big
+{
+	map effects1.png
+	region r_flare_1
+	animation_speed 26
+	animation_start 
+	blend add
+	max_particles 6
+	max_emissions 6
+	lifetime 0.15
+	fade_in 0.1
+	fade_out 999
+	rotation_start 0 360
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1s
+	period 0
+	color_start  4 4 5 1
+	color_end  1 1 1 1
+	emitter line 0 0 6
+	scale_start 10
+	scale_end 50
+}
+
+rg_spark_big2
+{
+	map effects1.png
+	region r_flare_2
+	animation_speed 26
+	animation_start 
+	blend add
+	max_particles 6
+	max_emissions 6
+	lifetime 0.15
+	fade_in 0.1
+	fade_out 999
+	rotation_start 0 360
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1s
+	period 0
+	color_start  4 4 5 1
+	color_end  1 1 1 1
+	emitter line 0 0 6
+	scale_start 10
+	scale_end 70
+}
+
+rg_spark_small2
+{
+	map particle_sheet1.png
+	region r_electric_spark_s
+	animation_speed 26
+	animation_start 0.08
+	blend add
+	max_particles 1 2
+	max_emissions 2 3
+	lifetime 0.30
+	fade_in 0.1s
+	fade_out 999
+	rotation_start 0 360
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1s
+	period 0
+	color_start  1 1 1 1
+	color_end  1 1 1 1
+	emitter line 0 0 6
+	scale_start 100
+	scale_end 200
+}
+
+rg_spark_drag
+{
+	map particle_sheet1.png
+	region r_electric_spark
+	animation_speed 26
+	animation_start 0.2
+	blend add
+	max_particles 3 5
+	max_emissions 2 4
+	lifetime 0.30
+	fade_in 0.1s
+	fade_out 999
+	rotation_start 0 360
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1s
+	period 0
+	color_start  3 3 4 1
+	color_end  1 1 1 1
+	emitter line 0 0 6
+	scale_start 20
+	scale_end 20 30
+}
+
+rg_light base_light_impact
+{
+	map effects1.png
+	region r_transparent
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3
+	fade_in 0.1
+	velocity 0 0 0
+	absolute_acceleration true
+	acceleration 0 0 0 0 0 0
+	fade_out 0.2
+	period 0
+	scale_start 0.5
+	scale_end 0.5
+	color_start 2 2 3 1
+	//color_end 1 0 0 0
+	light_radius 350
+	system_light_radius 0
+}
+
+rg_light2 base_light_impact
+{
+	map effects1.png
+	region r_transparent
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 2.5
+	fade_in 0.1
+	velocity 0 0 0
+	// absolute_acceleration true
+	acceleration 0 0 0 0 0 0
+	fade_out 0.7
+	period 0
+	// scale_start 1
+	// scale_end 1
+	color_start 2 2 3 1
+	//color_end 1 0 0 0
+	system_light_radius 0
+	light_radius 25
+}
+
+rg_ember
+{
+	// geometry quad
+	map particle_sheet1.png
+	region r_embers
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 40
+	max_emissions 40
+	lifetime 0.9
+	period 0
+	fade_in 0.1
+	velocity 80 80 80 -80 -80 -80
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 50 50 50 -50 -50 -50
+	rotation_start 0 360
+	color_start  2 2 4 1
+	color_end  2 2 2 1
+	emitter line 0 0 1
+	turbulence 1000
+	scale_start 4 6
+	scale_end 0 0
+	drag 0.8
+}
+
+rg_ember2
+{
+	// geometry quad
+	map particle_sheet1.png
+	region r_embers
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 10
+	max_emissions 10
+	lifetime 0.6
+	period 0
+	fade_in 0.1
+	velocity 25 25 25 -25 -25 -25
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 25 25 25 -25 -25 -25
+	rotation_start 0 360
+	color_start  2 2 4 1
+	color_end  2 2 2 1
+	emitter line 0 0 1
+	turbulence 1000
+	scale_start 8 6
+	scale_end 0 0
+	drag 0.8
+}
+
+rg_impact_4
+{
+	map effects1.png
+	region r_point_2
+	max_particles 200
+	max_emissions 50
+	blend blend
+	period 0
+	lifetime 0.1
+	rotation_start 0 360
+	velocity 400 400 0 -400 -400 800
+	blend alpha
+	position 0
+	fade_out 0.1 0.15
+	color_start  2 2 4 1
+	color_end  2 2 2 1
+	drag 1
+	turbulence 2000
+	emmiter line 0 0 200
+	scale_start 50 20
+	scale_end 8 12
+
+}
+
+rg_spark_3
+{
+	map particle_sheet1.png
+	region r_spark_6
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 3
+	max_emissions 3
+	lifetime 0.20
+	fade_in 0
+	fade_out 999
+	rotation_start 0 360
+	position 0 0 15 0 0 15
+	//position 0 0 -1 0 0 -1
+	period 0
+	color_start  2 2 4 1
+	color_end  2 2 2 1
+	emitter line 0 0 1
+	scale_start 10 30
+	scale_end 150 130
+}
+
+rail_impact
+{
+	subsystem rg_spark
+	subsystem rg_ring_spark
+	subsystem rg_spark_small
+	subsystem rg_glow
+	subsystem rg_smokea
+	subsystem rg_spark_big
+	subsystem rg_spark_big2
+	subsystem rg_spark_small2 0.08
+	subsystem rg_spark_drag 0.2
+	subsystem rg_light
+	subsystem rg_light2
+	subsystem rg_ember
+	subsystem rg_ember2
+	subsystem rg_impact_4
+	subsystem rg_spark_3
+}

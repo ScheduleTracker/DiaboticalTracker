@@ -1,0 +1,17 @@
+
+asset props/yellowarmor_vercol
+{
+  listed true
+  type prop
+  tags yellowarmor
+}
+asset props/production/camerabot_01
+{
+  listed true
+  type prop
+  tags camerabot_01
+  ambient_sound_loop ambience_camerabot_loop
+}
+
+
+

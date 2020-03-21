@@ -1,0 +1,130 @@
+
+asset props/temple/ink_brazier_01
+{
+  listed true
+  type prop
+  tags brazier_01
+  ambient_sound_loop ambience_torch1
+}
+asset props/temple/ink_brazier_01_w_podium
+{
+  listed true
+  type prop
+  tags brazier_02
+}
+
+asset props/temple/sand_dune
+{
+  listed true
+  type prop
+  tags sand
+}
+
+
+asset props/temple/temple_brazier
+{
+  listed true
+  type prop
+  tags brazier
+  ambient_sound_loop ambience_torch1
+}
+
+asset props/temple/temple_stones_scattered
+{
+  listed true
+  type prop
+  tags stones
+}
+
+asset props/temple/temple_big_stone
+{
+  listed true
+  type prop
+  tags stone
+}
+
+asset props/temple/temple_mid_stone
+{
+  listed true
+  type prop
+  tags stone
+}
+
+asset props/temple/temple_small_stone
+{
+  listed true
+  type prop
+  tags stone
+}
+asset props/temple/temple_face_cube
+{
+  listed true
+  type prop
+  tags facecube
+}
+asset props/temple/temple_wallhole
+{
+  listed true
+  type prop
+  tags wallhole
+}
+asset props/temple/temple_floorhole_centerpiece
+{
+  listed true
+  type prop
+  tags floorhole_centerpiece
+  ambient_sound_loop ambience_temple_pickuppad_loop
+}
+asset props/temple/candle_small
+{
+  listed true
+  type prop
+  tags candle_small
+}
+asset props/temple/candle_medium
+{
+  listed true
+  type prop
+  tags candle_medium
+}
+asset props/temple/candle_tall
+{
+  listed true
+  type prop
+  tags candle_tall
+}
+asset props/temple/candle_bundle01
+{
+  listed true
+  type prop
+  tags candle_bundle01
+}
+asset props/temple/candle_bundle02
+{
+  listed true
+  type prop
+  tags candle_bundle02
+}
+
+asset props/temple/throne
+{
+  listed true
+  type prop
+  tags throne
+}
+
+asset props/temple/speaker_1
+{
+  // ambient_sound_loop music_throneroom_left
+  listed true
+  type prop
+  tags throne,stereo,speaker
+}
+
+asset props/temple/speaker_2
+{
+  // ambient_sound_loop music_throneroom_right
+  listed true
+  type prop
+  tags throne,stereo,speaker
+}

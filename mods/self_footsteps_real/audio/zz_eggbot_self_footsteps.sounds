@@ -1,0 +1,173 @@
+//--------------------------------------	EGGBOT SELF SOUNDS
+sound eggbot_footstep_self_real1
+{
+	id 1500
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real1
+	enemy_sound 1702
+	group footstep_left
+	pitch 0.02
+	volume_2d 0.4
+	volume 0.5
+	distance_min 80
+	distance_max 1330
+	wetness_2d 0.6
+}
+sound eggbot_footstep_self_real2
+{
+	id 1501
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real2
+	enemy_sound 1703
+	group footstep_right
+    link 1500
+}
+sound eggbot_footstep_self_real3
+{
+	id 1502
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real3
+	enemy_sound 1704
+	group footstep_left
+    link 1500
+}
+sound eggbot_footstep_self_real4
+{
+	id 1503
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real4
+	enemy_sound 1705
+	group footstep_right
+    link 1500
+}
+sound eggbot_footstep_self_real5
+{
+	id 1504
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real5
+	enemy_sound 1706
+	group footstep_left
+    link 1500
+}
+sound eggbot_footstep_self_real6
+{
+	id 1505
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real6
+	enemy_sound 1707
+	group footstep_right
+    link 1500
+}
+sound eggbot_footstep_self_real7
+{
+	id 1506
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real7
+	enemy_sound 1708
+	group footstep_left
+    link 1500
+}
+sound eggbot_footstep_self_real8
+{
+	id 1507
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real8
+	enemy_sound 1709
+	group footstep_right
+    link 1500
+}
+sound eggbot_footstep_self_real9
+{
+	id 1508
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real9
+	enemy_sound 1710
+	group footstep_left
+    link 1500
+}
+sound eggbot_footstep_self_real10
+{
+	id 1509
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real10
+	enemy_sound 1711
+	group footstep_right
+    link 1500
+}
+
+
+sound eggbot_footstep_self_real_metal1
+{
+	id 1551
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal1
+	enemy_sound 1728
+	group footstep_metal_left
+	pitch 0.02
+	volume_2d 0.35
+	volume 0.5
+	distance_min 80
+	distance_max 1330
+	wetness_2d 0.6
+}
+sound eggbot_footstep_self_real_metal2
+{
+	id 1552
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal2
+	enemy_sound 1729
+	group footstep_metal_right
+    link 1551
+}
+sound eggbot_footstep_self_real_metal3
+{
+	id 1553
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal3
+	enemy_sound 1730
+	group footstep_metal_left
+    link 1551
+}
+sound eggbot_footstep_self_real_metal4
+{
+	id 1554
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal4
+	enemy_sound 1731
+	group footstep_metal_right
+    link 1551
+}
+sound eggbot_footstep_self_real_metal5
+{
+	id 1556
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal5
+	enemy_sound 1732
+	group footstep_metal_left
+    link 1551
+}
+sound eggbot_footstep_self_real_metal6
+{
+	id 1557
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal6
+	enemy_sound 1733
+	group footstep_metal_right
+    link 1551
+}
+sound eggbot_footstep_self_real_metal7
+{
+	id 1558
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal7
+	enemy_sound 1734
+	group footstep_metal_left
+    link 1551
+}
+sound eggbot_footstep_self_real_metal8
+{
+	id 1559
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal8
+	enemy_sound 1735
+	group footstep_metal_right
+    link 1551
+}
+sound eggbot_footstep_self_real_metal9
+{
+	id 1560
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal9
+	enemy_sound 1736
+	group footstep_metal_left
+    link 1551
+}
+sound eggbot_footstep_self_real_metal10
+{
+	id 1561
+	source eggbot/eggbot_self_footsteps/eggbot_footstep_self_real_metal10
+	enemy_sound 1737
+	group footstep_metal_right
+    link 1551
+}

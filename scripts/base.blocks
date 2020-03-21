@@ -1,0 +1,8 @@
+file r_modeltest1.fbx
+
+block blocks_wall
+tile 1 0 1
+sides 1 0 0 1 0 1
+material solid_colors/red
+material solid_colors/white		
+

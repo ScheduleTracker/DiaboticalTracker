@@ -1,0 +1,124 @@
+jump_orb_pickup
+{
+	map particle_sheet2.png
+	region r_orb_new	
+	animation_speed 30
+	animation_start 1
+	emitter point
+	// geometry directional
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0
+	//fade_in 0.1
+	//fade_out 0.999
+	rotation_start 0
+	position 0 0 0 0 0 0
+	period 0
+	color_start  0 0.8 0.9
+	// emitter line 0 0 1
+	scale_start 120
+	scale_end 120
+	range 0
+}
+
+jump_orb_pickup_2
+{
+	map particle_sheet1.png
+	region r_electric_spark_s
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.2
+	// fade_in 0.1
+	// fade_out 999
+	rotation_start 0 360
+	position 0
+	//position 0 0 -1 0 0 -1s
+	period 5
+	color_start  0 0.8 0.9
+	emitter line 0 0 6
+	scale_start  20
+	scale_end  30
+}
+
+jump_orb_pickup_2_alt orb_pickup_2
+{
+	period 3.1783
+	color_start  0 0.8 0.9
+}
+
+jump_orb_pickup_2_alt2 orb_pickup_2
+{
+	region r_electric_spark
+	period 4.21236
+	scale_start 20
+	scale_end  30
+	color_start  0 0.8 0.9
+}
+
+jump_orb_pickup_2_alt3 orb_pickup_2
+{
+	region r_electric_spark
+	period 5.3216
+	scale_start 20
+	scale_end  30
+	color_start  0 0.8 0.9
+}
+
+jump_orb_inside
+{
+	map particle_sheet1.png
+	region r_point_big2	
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0
+	// fade_in 0.1
+	// fade_out 999
+	rotation_start 0 360
+	position 0
+	//position 0 0 -1 0 0 -1s
+	period 1
+	color_start  0 0.8 0.9
+	// emitter line 0 0 6
+	scale_start 20
+	scale_end  20
+}
+
+jump_orb_above
+{
+	map particle_sheet1.png
+	region r_point_big2	
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 300
+	fade_out 0
+	rotation_start 0 360
+	position 	0 0 0
+	// velocity 0 0 20
+	period 0.07
+	color_start  0 0.2 0.33
+	// emitter line 0 0 6
+	scale_start 100
+	scale_end 100
+}
+
+powerjump_pfx
+{
+
+	subsystem jump_orb_pickup
+	subsystem jump_orb_pickup_2
+	subsystem jump_orb_pickup_2_alt
+	subsystem jump_orb_pickup_2_alt2
+	subsystem jump_orb_pickup_2_alt3
+	//subsystem jump_orb_inside
+	subsystem jump_orb_above
+}	

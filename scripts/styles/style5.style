@@ -1,0 +1,51 @@
+//CITY BORDERS
+
+
+//BOTTOM-FACING WALL-TO-FLOOR HORIZONTAL BORDER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right_top empty
+	if right solid
+	if top solid
+	place city_bottom_edge_mid back 1.0 1 1 0
+	style 7
+}
+
+//CONCAVE VERTICAL CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if right_bottom solid
+	if front empty
+	place city_bottom_edge_corner back 1.0 1 1 0
+	style 7
+}
+
+
+//BOTTOM-FACING CEILING HORIZONTAL BORDER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right_top solid
+	if right empty
+	if top solid
+	place city_convex_top_corner_mid back 1.0 1 1 0
+	style 7
+}
+
+//CONCAVE VERTICAL CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if right_top solid
+	if front empty
+	place city_convex_top_corner_corner back 1.0 1 1 0
+	style 7
+}

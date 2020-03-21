@@ -1,0 +1,49 @@
+heal_ring
+{	
+	map particle_sheet1.png
+	region r_explosion_ring
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20 0.20
+	fade_in 0
+	fade_out 999
+	rotation_start 0 360
+	position 0 0 1 0 0 1
+	//position 0 0 -1 0 0 -1
+	period 0
+	color_start 0 1 0 1.0
+	color_end  0 0 0 0
+	emitter line 0 0 1
+	scale_start 150
+	scale_end 250	blend max
+	animation_speed 20
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20
+	fade_in 0.1
+	fade_out 999
+	scale_start 150
+	scale_end 250
+	position 0 0 1 0 0 1
+}
+
+heal_ring2 heal_ring
+{
+	color_start 0 2 0 1.0
+	color_end  0 0 0 0
+	scale_start 150
+	scale_end 450
+}
+
+heal
+{
+	subsystem heal_ring
+}
+
+heal2
+{
+	subsystem heal_ring2
+}

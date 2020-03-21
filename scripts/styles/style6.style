@@ -1,0 +1,44 @@
+/// STYLE 3 (LAYER 3))
+
+//front = -Z
+//back = +Z
+
+//TOP BORDER
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if self solid
+	if right empty
+	if top empty
+	place top_border_industrial back 1.0 1 1 0
+	style 6
+}
+
+//THREE-WAY CONVEX CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if front empty
+	if right_front empty
+	if top empty
+	place top_corner_industrial back 1.0 1 1 0
+	style 6
+}
+
+
+//HORIZONTALLY-CONVEX, VERTICALLY-CONCAVE CORNER
+rule
+{
+	extrapolate + -
+	if self solid
+	if right solid
+	if front solid
+	if right_front empty
+	if top empty
+	place top_convex_corner_industrial back 1.0 1 1 0
+	style 6
+}

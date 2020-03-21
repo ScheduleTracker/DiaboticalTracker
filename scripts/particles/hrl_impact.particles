@@ -1,0 +1,281 @@
+//IMPACT
+
+
+hrl_explosion_ring_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_14
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime 0.17
+	fade_out 0.1
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 300
+	color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+}
+hrl_explosion_ring_2 hrl_explosion_ring_1
+{
+	
+	region s3_rl_muzzle	
+	lifetime 0.14
+	
+}
+hrl_explosion_center_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20
+	fade_out 0.10
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 150
+	color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	rotation_start 0 180
+	hard_edges true
+	//rotation_end 0 360
+
+}
+hrl_explosion_center_2 rl_explosion_centre_1
+{
+	region s3_rl_muzzle_2
+	lifetime 0.15
+	delay 0.05
+	scale_end 50
+	//subsystem hrl_explosion_center_2 is currently based on rl_explosion_centre_1 which doesn't exist, instead of hrl_explosion_center_1 or rl_explosion_center_1
+}
+
+hrl_impact_explosion_1
+{
+
+	map particle_sheet3.png
+	region s3_explosion01_9
+	animation_speed 20
+	animation_start 0	
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.25
+	fade_in 0 
+	fade_out 0.30
+	rotation_start 0
+	position 0 0 8 0 0 8
+	// position 0 0 -1 0 0 -1s
+	period 0
+		color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	velocity_angles 0 0 0 120 360 0
+	speed_start 600 300
+	speed_end 200 100
+	auto_orient_3d true
+	scale_start 0
+	scale_end 300 350
+	hard_edges true
+}
+hrl_impact_explosion_2 hrl_impact_explosion_1
+{
+velocity_angles 120 0 0 240 360 0
+}
+
+
+hrl_impact_explosion_3 hrl_impact_explosion_1
+{
+velocity_angles 240 0 0 360 360 0
+}
+
+hrl_impact_explosion_4 hrl_impact_explosion_1
+{
+velocity_angles 0 0 0 360 360 0
+	scale_start 25 30
+	scale_end 150 200
+	speed_start  400
+	speed_end 100
+}
+hrl_explode_spark
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 25
+	max_emissions 25
+	lifetime 0.28
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+		color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	position 0 0 0  
+    scale_start 0
+    scale_end 40 50
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 600
+	speed_end 300
+	auto_orient_3d true
+	aspect_start 1.4 1.5
+	aspect_end 0.9 0.7
+	hard_edges true
+}
+hrl_explode_ember
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 10
+	max_emissions 10
+	lifetime 0.6
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	position 0 0 0  
+    scale_start 10 20
+    scale_end 5
+    rotation_start 0 360
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 400
+	speed_end 150
+	drag 1000
+	auto_orient_3d true
+	hard_edges true
+}
+hrl_explode_flash01
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .2
+	fade_out 0.1
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 200
+	color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+}
+
+
+
+rocket_light base_light_impact
+{
+	map effects1.png
+	region r_transparent
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2
+	fade_in 0.1
+	velocity 0 0 0
+	absolute_acceleration true
+	acceleration 0 0 0 0 0 0
+	fade_out 0.2
+	period 0
+	scale_start 200
+	scale_end 200
+	color_start  1 1.5 4 1
+	color_end  0 1 1 1
+	light_radius 500
+}
+
+thegetaway
+{
+	geometry quad
+	map effects1.png
+	region r_smokep1_a
+	blend alpha
+	max_particles 200
+	max_emissions 200
+	lifetime 1
+	period 0.001
+	fade_in 0.2
+	rotation_start 0 360
+	// fade_out 0.25
+	emitter array 0 5 5
+	// position 0.2 0.1 -25
+	color_start 0.2 0.2 0.2 0.2
+	color_end 0.2 0.2 0.2 0.02
+	turbulence 0
+	scale_start 20 30
+	acceleration 0 -50 -20 0 0 20 
+	velocity 4 0 4 4 0 -4
+	scale_end 10
+	// drag 1
+	soft_destruction on
+}
+
+
+//IMPACT
+hrl_impact
+{
+
+	 subsystem explode_light 0.02 3.2
+	 //subsystem explode_light doesn't seem to currently exist in the files
+	subsystem hrl_explode_spark 0 3.5
+	subsystem hrl_explosion_ring_1 0 3.5
+	subsystem hrl_explosion_ring_2 0 3.5
+	subsystem hrl_explosion_center_1 0 3.5
+	subsystem hrl_explosion_center_2 0 3.5
+	//subsystem hrl_explosion_center_2 is currently based on rl_explosion_centre_1 which doesn't exist, instead of hrl_explosion_center_1 or rl_explosion_center_1
+	subsystem hrl_impact_explosion_1 0 3.5
+	subsystem hrl_impact_explosion_2 0 3.5
+	subsystem hrl_impact_explosion_3 0 3.5
+	subsystem hrl_impact_explosion_4 0 3.5
+	subsystem hrl_explode_ember01 0 3.5
+	subsystem hrl_explode_flash01 0 3.5
+	
+}
+
+
+
+target_indicator
+{
+	map effects1.png
+	region r_smoke_new	
+	animation_speed 30
+	animation_start 
+	geometry directional
+	blend alpha
+	max_particles 10
+	max_emissions 10
+	lifetime 0.9
+	fade_in 0.1
+	fade_out 0.999
+	rotation_start 0 360
+	position 0 0 1 0 0 1
+	position 0 0 -1 0 0 -1s
+	period 0
+	velocity 10 10 -80 5 -25 0
+	color_start 0.6 0.6 0.6 1
+	color_end 0.2 0.2 0.2 0.2
+	emitter line 0 0 1
+	scale_start 100
+	scale_end 80
+}

@@ -1,0 +1,309 @@
+rl_star
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_38
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0
+	advance 0.05
+	// period 0.05
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 30
+	scale_end 30
+	
+	// velocity 0 0 -2800
+	angular_speed_start 10000
+	rotation_start 0 
+	color_start 2 1 0 0
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+}
+rl_star2
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_26
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0
+	advance 0.05
+	// period 0.05
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 25
+	scale_end 25
+	
+	// velocity 0 0 -2800
+	angular_speed_start 10000
+	rotation_start 0 
+	color_start 2 1 0 0
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+	range 0
+}
+rl_star3
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_28
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.5
+	 period 0.15
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 10
+	scale_end 70
+	
+	// velocity 0 0 -2800
+	angular_speed_start 10000
+	rotation_start 0 360
+	color_start 2 1 0 0
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+	range 0
+}
+rl_circle
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_2
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 2
+	max_emissions 0
+	lifetime 0.3
+	advance 0.05
+	
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 30
+	scale_end 60
+	
+	// velocity 0 0 -2800
+	angular_speed_start 10000
+	rotation_start 0 
+	color_start 1. 0.5 0 0
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+	range 0
+}
+rl_circle_2
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_2
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0
+	advance 0.05
+	
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 70
+	scale_end 70
+	
+	// velocity 0 0 -2800
+	angular_speed_start 10000
+	rotation_start 0 
+	color_start 1.0 0.5 0 0
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+}
+rl_flames_1
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_23
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 4
+	max_emissions 0
+	lifetime 1.8
+	period 0.1
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 5 20
+	scale_end 0
+auto_orient true
+	 velocity -40 -40 0 30 30 0
+	angular_speed_start  1000
+	rotation_start 90 
+	aspect_start 1 0.75
+	color_start 2 1 0 0
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+}
+rl_flames_2
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_23
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 4
+	max_emissions 0
+	lifetime 1.8
+	period 0.05
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 5
+	scale_end 12
+auto_orient true
+	 velocity -50 -50 0 40 40 0
+	angular_speed_start  1000
+	rotation_start 0 90 
+	aspect_start 1 0.75
+	color_start 2 2.5 0 0
+	color_end 2 1 0 0
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+}
+rl_rocket
+{
+    //This is duplicated into textures/, implement directories here:
+	map ammo_boxes_d.png
+	mesh models/entities/ammo_boxes/rl_rocket.fbx
+	mesh_rotation_offset 90 0 0
+	geometry mesh
+	blend alpha
+	max_particles 1
+	max_emissions 1
+	period 0
+	delay 0
+	lifetime 0
+	fade_in 0
+	fade_out 0
+	velocity 0 0 0
+	color_start 1 1 1 1 1 1 1 1
+	color_end 1 1 1 1 1 1 1 1
+	angular_speed_start 10000
+	//rotation_start 0 360
+	//rotation_end 0 360
+	scale_start 1.3 1.3
+
+	acceleration 0 0 0 0 0 0
+	range 0
+}
+rl_light base_light_impact
+{
+	advance 0.05
+	lifetime 0
+	system_light_radius 500	
+	system_light_intensity 4.5
+	system_light_color 1 0.8 0.6
+	system_light_falloff 0
+	velocity 0 0 0
+	//position 0 50 0
+	color_start 0.8 0.65 0	
+}
+
+
+//SUBSYSTEM BULLET
+
+rl_bullet_test
+{
+	subsystem rl_rocket
+}
+
+rl_bullet
+{
+	subsystem rl_rocket 0 1.1
+	//subsystem rl_star 0 1.2
+	subsystem rl_star2 0 1.2
+		subsystem rl_star3 0 1.2
+	subsystem rl_circle
+		subsystem rl_circle_2
+	subsystem rl_flames_1
+	subsystem rl_flames_2
+	//subsystem rocket_smoketrail
+	//subsystem rocket_smoketrail_2
+	//subsystem rocket_smoketrail_3 0.1
+	//subsystem rocket_embers
+	subsystem rl_light
+	//subsystem rl_flame1 
+	//subsystem rocket_smoke
+}
+
+rocket_smoke_trail
+{
+	geometry quad
+	map particle_sheet3.png
+	region s3_smoke02
+	blend alpha
+	max_particles 1024
+	lifetime 1.9 1.6
+	period 0.002
+    fixed_timestep 0.002
+	fade_in 0
+	fade_out 0.2
+	position 0 0 0 0 0 0
+	color_start 0.25 0.25 0.25 0.5
+	color_end 0.35 0.35 0.35 0.1
+	color_end_point 0.07
+	rotation_start 180
+	velocity -1 -1 -1 1 1 1
+	acceleration 0 0 0 0 0 0
+	//turbulence 1 0.5
+	scale_start 10 15
+	scale_end 80 60
+	speed_start 1
+	//drag 1
+	soft_destruction on
+	emitter_movement on
+	perlin_speed 7
+	perlin_scale 72
+	range 0
+	scale_timeline 0=0,l;0.5=0.3,l;0.8=0.6,l;1=1,l
+}
+
+rl_bullet_trail
+{
+	subsystem rocket_smoke_trail
+}
+

@@ -1,0 +1,32 @@
+debris_trail_1
+{
+	map effects_additive.png
+	region r_add_flash2
+	//map uvtest.png
+	geometry oriented
+	trail true
+
+	blend max
+	max_particles 150
+	max_emissions 0
+	lifetime 1.25
+	period 0.025
+
+	rotation_start 0 0
+	rotation_end 0 0
+	fade_in 0 0
+	fade_out 0.001 0.001
+
+	color_start 1 1 1 1
+	color_end  0 0 0 0
+	color_accent true
+
+	scale_start 30
+	scale_end 10
+	position 0 0 0
+}
+
+debris_trail
+{
+	subsystem debris_trail_1
+}

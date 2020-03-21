@@ -1,0 +1,255 @@
+//VOIDCANNON BULLET
+
+vc_flame1
+{
+	advance 1
+	animation_start 5 8
+	geometry quad
+	map effects1.png
+	region r_flame3_a
+	blend alpha
+	max_particles 16
+	max_emissions 0
+	lifetime 0.7 0.6
+	period 0.05
+	fade_out 0.1 0.05
+	scale_start 25
+	//position 10 -20 50
+	scale_end 0
+	rotation_start 0 360
+	color_start 1 1 0 1 1 0.5 0 1
+	color_end 5 0 0 1
+	acceleration 0 0 -300 0 0 -300
+	// //position 1 1 -3 -1 -1 -3
+	turbulence 400 5
+}
+
+vc_flametest
+{
+	advance 1
+	geometry quad
+	map effects1.png
+	region r_flame3_a
+	animation_start 5 8
+	blend add
+	max_particles 10
+	max_emissions 0
+	lifetime 1
+	period 0.1
+	scale_start 25
+	//position 10 -20 50
+	scale_end 10
+	rotation_start 90 90
+	color_start 1 1 0.5 1 1 0.3 0.3 1
+	color_end 1 0.75 0 1
+	acceleration 0 0 -20 0 0 -20
+}
+
+vc_flame2
+{
+	advance 1
+	geometry quad
+	map effects1.png
+	region r_point_2
+	blend add
+	max_particles 10
+	max_emissions 0
+	lifetime 1
+	period 0.1
+	scale_start 25
+	scale_end 10
+	//position 10 -20 50
+	rotation_start 90 90
+	// velocity 0 0 -2900
+	color_start 1 1 0.5 1 1 0.3 0.3 1
+	color_end 1 0.75 0 1
+	acceleration 0 0 -20 0 0 -20
+}
+
+vc_flame3
+{
+	advance 5
+//	drag 0
+	geometry quad
+	map effects1.png
+	region r_part1_a
+	animation_speed 15
+	animation_start 0
+	blend alpha
+	max_particles 32
+	max_emissions 0
+	lifetime 0.5
+	period 0.05
+	fade_out 0.4 0.25
+	//position 10 -20 50
+	scale_start 15
+	// velocity 0 0 -2900
+	scale_end 100
+	rotation_start 0 360
+	color_start  0.05 0.05 0.05 0.5
+	color_end 0 0 0 0.2
+	acceleration 0 0 -1000 0 0 -1000
+
+}
+
+vc_flame4
+{
+	advance 1
+	geometry quad
+	map effects1.png
+	region r_flare_2
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 10
+	period 10
+	scale_start 25
+	//position 10 -20 50
+	// velocity 0 0 -2800
+	scale_end 25
+	color_start 1 0.2 0 1
+}
+
+vc_flame5
+{
+	advance 1
+	// animation_start 5 8
+	geometry quad
+	map effects1.png
+	region r_energy2
+	blend add
+	max_particles 16
+	max_emissions 0
+	lifetime 0.7 0.6
+	// period 0.05
+	fade_in 0.05
+	fade_out 0.1 0.05
+	scale_start 23
+	scale_end 40
+	color_start 1 0.1 0 1
+	color_end 1 0.1 0 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	color_start 0.2 0.7 0.8
+	color_end 0.2 0.7 0.8
+	// acceleration 0 0 -300 0 0 -300
+	position 0 -3 0
+	turbulence 400 5
+}
+
+vc_flame6
+{
+	advance 1
+	map effects1.png
+	region r_flare_2
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 10
+	period 0
+	scale_start 1
+	scale_end 1
+	//position 10 -20 50
+	color_start 1 0.2 0 1
+}
+
+
+vc_light base_light_impact
+{
+	lifetime 5
+	system_light_radius 1000	
+	velocity 0 0 0
+	//position 0 50 0
+	color_start 0.8 0.5 0	
+}
+
+vc_flame_delay
+{
+	advance 1
+	animation_start 5 8
+	animation_speed 15
+	geometry quad
+	map effects1.png
+	region r_flame3_a
+	blend blend
+	max_particles 256
+	max_emissions 0
+	lifetime 0.2
+	period 0.005
+	fade_in 0.1
+	fade_out 0.6 
+	scale_start 30
+	scale_end 10
+	rotation_start 0 360
+	color_start 0.5 0.3 0 0.6
+	color_end 5 0 0 0.1
+	acceleration 0 0 -300
+	// velocity 0 0 -2800
+	//position 10 -20 50
+	turbulence 400 5
+	drag 0.9
+	soft_destruction on
+}
+
+rocket_smoketrail base_smoke_trail
+{
+	velocity 5 10 5 -5 -10 -5
+}
+
+rocket_smoketrail_2 base_smoke_trail
+{
+	//position 15 -20 16
+	scale_start 20 25
+	scale_end 30 35
+	velocity 10 15 10 -12 -10 -20
+}
+
+rocket_embers base_smoke_trail
+{
+	advance 1
+	animation_start 5 8
+	animation_speed 15
+	geometry quad
+	map particle_sheet1.png
+	region r_embers2
+	blend blend
+	max_particles 256
+	max_emissions 256
+	lifetime 1.5
+	period 0.005
+	fade_in 0.1
+	fade_out 0.4
+	scale_start 0.5 1
+	scale_end 0
+	rotation_start 0 360
+	color_start 4 4 0 1
+	color_end 5 0 0 0.1
+	// acceleration 0 0 -300
+	velocity -20 21 50 -10 0 5
+	//position 10 -20 20
+	turbulence 400 0
+	drag 0.9
+    // soft_destruction on
+    // this line above was misspelled as soft_destructiyon, fixed spelling and commented it out in case it not working is being relied upon 
+}
+
+vc_light base_light_impact
+{
+	lifetime 5
+	system_light_radius 125
+	velocity 0 0 0
+	//position 0 50 0
+	color_start 0 0.3 0.5
+}
+
+//SUBSYSTEM BULLET
+
+vc_bullet
+{
+
+	subsystem vc_flame5 0 1.2
+	subsystem vc_light 0 1.2
+	// subsystem vc_flame6 
+	// subsystem rocket_embers
+	// subsystem vc_light
+}

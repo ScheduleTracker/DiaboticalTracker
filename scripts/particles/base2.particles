@@ -1,0 +1,298 @@
+
+sex1
+{
+	map effects1.png
+	region r_spark_4
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2 0.25
+	fade_in 0.05 0.07
+	fade_out 0.1 0.15
+	color_start 2 1.35 0 1 2.2 1.3 0 1
+	color_end 2 0.2 0 1 1.5 0 0 1
+	rotation_start 0 180
+	period 0
+	emitter line 0 0 1
+	scale_start 5
+	scale_end 10
+}
+
+sex2
+{
+	map effects1.png
+	region r_point_3
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2 0.25
+	fade_in 0.05 0.07
+	fade_out 0.1 0.15
+	color_start 2 1.35 0 1 2.2 1.3 0 1
+	color_end 2 0.2 0 1 1.5 0 0 1
+	rotation_start 0 180
+	period 0
+	emitter line 0 0 1
+	scale_start 0
+	scale_end 15
+}
+
+sex3
+{
+	map effects1.png
+	region r_point_2
+	blend add
+	max_particles 10
+	max_emissions 10
+	lifetime 0.4 0.7
+	fade_in 0.25
+	fade_out 0
+	period 0
+	emitter ellipsoid 0 1
+	velocity 45 65 40 -45 -30 -40
+	acceleration 0 -400 0 0 -500 0
+	turbulence 60 1
+	scale_start 4 3
+	scale_end 0
+	color_start 2 2 0 1 2 1 0 1
+	color_end 2 0 0 1 1.5 0 0 1
+	//aspect_start 5
+	//aspect_end 5
+	//rotation_start 15 15
+	//rotation_end 15 15
+}
+
+small_explosion
+{
+	subsystem sex1
+	subsystem sex2
+	subsystem sex3
+	//subsystem sex4
+	//subsystem sex5
+	//subsystem sex6
+	//subsystem sex7
+	//subsystem sex8
+}
+
+
+lgpuff
+{
+	geometry quad
+	map effects1.png
+	region r_crack
+	blend add
+	max_particles 128
+	max_emissions 128
+	lifetime 0.045 0.06
+	period 0
+	fade_out 0.25 0.5
+	fade_in 0.25 0.3
+	emitter line 0 0 768
+	position 2 2 2 -2 -2 -2
+	color_start 0.25 0.25 1 1 0 0.1 1 1
+	color_end 0 0.15 1 1
+	rotation_start 0 360
+	velocity 0.1 0.1 0.1 -0.1 -0.1 -0.1
+	turbulence 1000 1
+	scale_start 5 3
+	scale_end 6 9
+}
+
+lgrope1
+{
+	geometry tape 1 0 100
+	map effects1.png
+	region r_point_3
+	blend add
+	max_particles 220
+	max_emissions 220
+	lifetime 0.045 0.06
+	period 0
+	fade_in 0.005 0.007
+	fade_out 0.020 0.03
+	emitter array 0 0 10 768
+	position 1 1 1 -1 -1 -1
+	color_start 1 1 1 1
+	color_end 0.5 0 0 1
+	turbulence 20 40
+	scale_start 3 2
+}
+
+lgrope2
+{
+	geometry tape
+	map effects1.png
+	region r_point_4
+	blend add
+	max_particles 500
+	max_emissions 500
+	lifetime 0.05 0.075
+	period 0
+	fade_in 0.005 0.007
+	fade_out 0.020 0.03
+	emitter array 0 0 10 768
+	position 1 1 1 -1 -1 -1
+	color_start 2 2 5 2
+	color_end 1 1 5 2
+	turbulence 2000 1
+	scale_start 9 7
+	scale_end 0
+}
+
+lgrope3
+{
+	geometry tape
+	map effects1.png
+	region r_point_4
+	blend add
+	max_particles 1024
+	max_emissions 1024
+	lifetime 0.05 0.075
+	period 0
+	fade_in 0.005 0.007
+	fade_out 0.020 0.03
+	emitter array 0 0 10 768
+	position 1 1 1 -1 -1 -1
+	color_start 2 2 5 2
+	color_end 2 0 2 1
+	turbulence 2000 1
+	scale_start 5 3
+	scale_end 0
+}
+
+lgrope4
+{
+	geometry tape
+	map effects1.png
+	region r_rope_1
+	blend add
+	max_particles 80
+	max_emissions 80
+	lifetime 0.045 0.06
+	period 0
+	fade_in 0.25 0.3
+	fade_out 0.25 0.5
+	emitter array 0 0 10 768
+	position 0 0 0 0 0 0
+	color_start 0 0.4 1 1 1 0.35 0 1
+	color_end 1 0.1 0 1
+	scale_start 10 6
+	scale_end 1 0
+}
+
+lgspark
+{
+	geometry quad
+	map effects1.png
+	region r_point_2
+	blend add
+	max_particles 64
+	max_emissions 64
+	lifetime 0.2 0.15
+	period 0
+	fade_in 0.05 0.075
+	fade_out 0.1
+	emitter line 0 0 1000
+	acceleration 0 -450 0 0 -400 0
+	position 2 2 1 -2 -2 -1
+	velocity 75 75 10 -75 -75 -10
+	color_start 0 0 1 1 0 0.3 1 1
+	color_end 0 0 2 1
+	turbulence 100 1
+	scale_start 5 4
+	scale_end 0 0
+}
+
+lgsmoke
+{
+	animation_speed 15
+	animation_start 0 8
+	geometry quad
+	map effects1.png
+	region r_flame1_a
+	blend add
+	max_particles 120
+	max_emissions 120
+	lifetime 0.045 0.06
+	period 0
+	fade_out 0.25 0.5
+	fade_in 0.25 0.3
+	emitter line 0 0 768
+	//position 0 0.5 0.5 0 -0.5 -0.5
+	color_start 0 0.6 1 1 1 0.2 0.1 1
+	color_end 0.8 0 0 1
+	rotation_start 0 360
+	velocity 2 2 2 -2 -2 -2
+	acceleration 0 8 0 0 4 0
+	turbulence 1 0.5
+	scale_start 8 9
+	scale_end 0
+	//opacity_start 0.75 1
+}
+
+lgsmoke2
+{
+	animation_speed 45
+	animation_start 0 8
+	geometry quad
+	map effects1.png
+	region r_smokep1_a
+	blend add
+	max_particles 100
+	max_emissions 100
+	lifetime 0.045 0.06
+	period 0
+	fade_out 0.25 0.5
+	fade_in 0.25 0.3
+	emitter line 0 0 768
+	//position 0 0.5 0.5 0 -0.5 -0.5
+	color_start 0.5 1 1 1 1 1 0 1
+	color_end 1 0 0 1
+	rotation_start 0 360
+	velocity 2 2 2 -2 -2 -2
+	acceleration 0 4 0 0 0 0
+	turbulence 1 0.5
+	scale_start 4 5
+	scale_end 0
+	//opacity_start 0.75 1
+}
+
+lgfire
+{
+	animation_speed 30
+	animation_start 0 5
+	geometry quad
+	map effects1.png
+	region r_flame1_a
+	blend add
+	max_particles 120
+	max_emissions 120
+	lifetime 0.045 0.06
+	period 0
+	fade_out 0.25 0.5
+	fade_in 0.25 0.3
+	emitter line 0 0 768
+	position 0 0.5 0.5 0 -0.5 -0.5
+	color_start 0 0 1 1 1 0.35 0 1
+	color_end 0 0 1 1 0.8 0.1 0.1 1
+	rotation_start 0 360
+	velocity 2 10 2 -2 -2 -2
+	acceleration 0 4 0 0 0 0
+	turbulence 1 0.5
+	scale_start 8 9
+	scale_end 5
+	//opacity_start 0.6 1
+}
+
+lighting
+{
+	subsystem lgpuff
+//	subsystem lgrope1
+	subsystem lgrope2
+	subsystem lgrope3
+//	subsystem lgrope4
+	subsystem lgspark
+//	subsystem lgsmoke
+//	subsystem lgsmoke2
+//	subsystem lgfire
+}

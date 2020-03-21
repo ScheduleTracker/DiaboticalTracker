@@ -1,0 +1,321 @@
+//MUZZLE
+
+bfg_muzzle_flash_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_5
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15 0.18
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 7 2 10 1
+	color_end   2 0.5 3 1
+    scale_start 0
+    scale_end 12
+    rotation_start 0 360
+   	hard_edges true
+position 0 0.25 2
+}
+
+bfg_muzzle_flash_2 bfg_muzzle_flash_1
+{
+	scale_end 25
+	
+	region s3_rl_muzzle_2  
+}
+
+bfg_muzzle_flash_3 bfg_muzzle_flash_1
+{
+
+	region s3_rl_muzzle_2 
+	color_start 8 4.2 10.8 1
+	
+}
+
+bfg_muzzle_flash_4
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.1 0.1
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 1.8 1.2 1 1
+	color_end   2 0.5 1 1
+    scale_start 0
+    scale_end 20
+    rotation_start 0 360
+   	hard_edges true
+position 0 0.25 3
+}
+
+bfg_muzzle_flash_5 bfg_muzzle_flash_4
+{
+region s3_rl_muzzle_31
+    scale_end 5
+	lifetime 0.07
+  
+}
+bfg_muzzle_flash_6 bfg_muzzle_flash_4
+{
+	region s3_rl_muzzle_25
+	color_start  2 2 10 1
+	color_end   0.2 0.1 1 1
+    scale_end 12
+	lifetime 0.1
+  
+}
+bfg_muzzle_flash_7 bfg_muzzle_flash_4
+{
+
+	region s3_rl_muzzle_2
+	scale_start 10
+	color_start  2 2 10 1
+	color_end   0.2 0.1 1 1
+	scale_end 20
+    
+}
+bfg_muzzle_spark_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 3
+	max_emissions 3
+	lifetime 0.04 0.1  
+	fade_in 0
+	delay 0.02
+	blend add
+	fade_out 0.00
+	period 0
+color_start 7 2 10 1
+	color_end  4 1 2 1  
+    scale_start 0
+    scale_end 3
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 90 90 0 0 90 0
+	speed_start 10
+	speed_end 2
+	auto_orient true
+		aspect_start 1.4 1.5
+	aspect_end 0.3 0.35
+position 0 0.25 2
+}
+
+bfg_muzzle_spark_2 bfg_muzzle_spark_1
+{
+
+	velocity_angles 180 90 0 90 90 0
+	
+}
+bfg_muzzle_spark_3 bfg_muzzle_spark_1
+{
+	
+	velocity_angles 270 90 0 180 90 0
+
+}
+bfg_muzzle_spark_4 bfg_muzzle_spark_1
+{
+
+	velocity_angles 360 90 0 270 90 0
+	
+}
+bfg_muzzle_spark_5
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 10
+	max_emissions 10
+	lifetime 0.2 0.25  
+	fade_in 0
+	delay 0.02
+	blend add
+	fade_out 0.00
+	period 0
+color_start 7 2 10 1
+	color_end  4 1 2 1
+	  
+    scale_start 0
+    scale_end 2
+    rotation_start 90
+    fade_out 0.02
+	velocity_angles 0 90 0 360 90 0
+	speed_start 4
+	speed_end 3
+	auto_orient true
+		aspect_start 1.2 1.3
+	aspect_end 0.8 0.7
+
+position 0 0.25 2
+}
+
+bfg_muzzle_smoke_1
+{
+
+	map particle_sheet3.png
+	region s3_explosion01_9
+	animation_speed 20
+	animation_start 0	
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.25
+	fade_in 0.05 
+	fade_out 0.30
+	rotation_start 90
+	// position 0 0 -1 0 0 -1s
+	color_start  3 1 4 1
+	color_end  1 0 3 1
+	velocity_angles 0 0 0 120 360 0
+	speed_start 10
+	speed_end  5
+	auto_orient true
+	scale_start 0
+	scale_end 12
+	hard_edges true
+		position 0 0.5 2
+}
+
+bfg_muzzle_smoke_2 bfg_muzzle_smoke_1
+{
+velocity_angles 120 0 0 240 360 0
+}
+
+bfg_muzzle_smoke_3 bfg_muzzle_smoke_1
+{
+velocity_angles 240 0 0 360 360 0
+}
+bfg_light base_light_impact
+{
+	lifetime 0.3
+	system_light_radius 50
+	system_light_intensity 10
+	system_light_color 1 0.1 2
+	system_light_falloff 0
+	velocity 0 0 0
+	position 2 0 0
+	
+}
+bfg_muzzle_center_flash
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15 0.2
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 18 12 10 1
+	color_end   20 5 10 1
+    scale_start 0
+    scale_end 5
+    rotation_start 0 360
+   	hard_edges true
+position 0 0.25 1
+}
+bfg_muzzle_center_flash_2
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15 0.2
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 18 12 10 1
+	color_end   20 5 10 1
+    scale_start 0
+    scale_end 10
+    rotation_start 0 360
+   	hard_edges true
+position 0 0.25 1
+}
+bfg_muzzle_center_flash_3
+{
+	map particle_sheet3.png
+	region s3_plasma_54
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15 0.2
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 18 12 10 1
+	color_end   20 5 10 1
+    scale_start 0
+    scale_end 5
+    rotation_start 0 360
+   	hard_edges true
+position 0 0.25 0
+}
+bfg_muzzle
+{	
+	subsystem bfg_muzzle_flash_1 0 0.5
+		subsystem bfg_muzzle_flash_2 0 0.5
+			subsystem bfg_muzzle_flash_3 0 0.5
+	 subsystem bfg_muzzle_flash_4 0 1
+	 subsystem bfg_muzzle_flash_5 0 0.5
+	  subsystem bfg_muzzle_flash_6 0 0.5
+	  	  subsystem bfg_muzzle_flash_7 0 0.5
+	subsystem bfg_muzzle_center_spark_1 0 0.5
+	subsystem bfg_muzzle_spark_1 0 
+	subsystem bfg_muzzle_spark_2 0 
+	subsystem bfg_muzzle_spark_3 0 
+	subsystem bfg_muzzle_spark_4 0 
+	subsystem bfg_muzzle_spark_5 0 
+	subsystem  bfg_muzzle_smoke_1 0 0.5
+	subsystem  bfg_muzzle_smoke_2 0 0.5
+	subsystem  bfg_muzzle_smoke_3 0 0.5
+	subsystem bfg_muzzle_center_flash
+	subsystem bfg_muzzle_center_flash_2
+	subsystem bfg_muzzle_center_flash_3
+subsystem  bfg_light
+}
+bfg_muzzle_3p
+{	
+	subsystem bfg_muzzle_flash_1 0 5
+		subsystem bfg_muzzle_flash_2 0 5
+			subsystem bfg_muzzle_flash_3 0 5
+	 subsystem bfg_muzzle_flash_4 0 10
+	 subsystem bfg_muzzle_flash_5 0 5
+	  subsystem bfg_muzzle_flash_6 0 5
+	  	  subsystem bfg_muzzle_flash_7 0 55
+	subsystem bfg_muzzle_center_spark_1 0 5
+	subsystem bfg_muzzle_spark_1 0 5
+	subsystem bfg_muzzle_spark_2 0 5
+	subsystem bfg_muzzle_spark_3 0 5
+	subsystem bfg_muzzle_spark_4 0 5
+	subsystem bfg_muzzle_spark_5 0 5
+	subsystem  bfg_muzzle_smoke_1 0 5
+	subsystem  bfg_muzzle_smoke_2 0 5
+	subsystem  bfg_muzzle_smoke_3 0 5
+	subsystem bfg_muzzle_center_flash 0 5
+	subsystem bfg_muzzle_center_flash_2 0 5
+	subsystem bfg_muzzle_center_flash_3 0 5
+subsystem  bfg_light
+}

@@ -1,0 +1,152 @@
+uex1
+{
+	map effects1.png
+	region r_flame4_a
+	animation_speed 60
+	animation_start 0
+	blend alpha
+	max_particles 1
+	max_emissions 1
+	lifetime 0.5 0.5
+	fade_in 0.25
+	rotation_start 180 180
+	position 0 0 -1 0 0 -1
+	period 0
+	color_start 2 2 2 1
+	emitter line 0 0 1
+	scale_start 120
+	scale_end 200
+}
+
+uex2
+{
+	map effects1.png
+	region r_point_2
+	blend add
+	max_particles 64
+	max_emissions 64
+	lifetime 0.4 0.7
+	fade_in 0.25
+	fade_out 0
+	period 0
+	emitter ellipsoid 10 20
+	velocity 100 150 100 -100 -100 -100
+	acceleration 0 -300 0 0 -300 0
+	turbulence 60 1
+	position 0 0 -1 0 0 -1
+	scale_start 16 12
+	scale_end 0
+	color_start 1 1 0 1 1 0.5 0 1
+	color_end 1 0 0 1 0.8 0 0 1
+}
+
+uex3
+{
+	map effects1.png
+	region r_point_3
+	blend add	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.6 
+	fade_in 0.25
+	fade_out 0.7 0.75
+	period 0
+	emitter line 0 0 1
+	//turbulence 60 1
+	position 0 0 -1 0 0 -1
+	scale_start 40
+	scale_end 400
+	color_start 2 0.5 0 1 2 1 0 1
+	color_end 1 0 0 1 0.5 0 0 1
+}
+
+
+uex4
+{
+	map effects1.png
+	region r_flare_1
+	blend add	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.6
+	fade_in 0.25
+	fade_out 0.7 0.75
+	period 0
+	emitter line 0 0 1
+	//turbulence 60 1
+	position 0 0 -1 0 0 -1
+	scale_start 320
+	scale_end 160
+	color_start 1 1 0 1 1 0.75 0 1
+	color_end 1 0 0 1 0.8 0 0 1
+}
+
+uex5
+{
+	map effects1.png
+	region r_flare_2
+	blend add	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.6
+	fade_in 0.25
+	fade_out 0.7 0.75
+	period 0
+	emitter line 0 0 1
+	//turbulence 60 1
+	position 0 0 -1 0 0 -1
+	scale_start 320
+	scale_end 120
+	color_start 2 2 1 1 2 1.5 0.5 1
+	color_end 2 0 0 1 1.5 0 0 1
+}
+
+uex8
+{
+	map effects1.png
+	region r_flame1_a
+	animation_speed 30
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.6 0.6
+	fade_in 0.25
+	rotation_start 180 180
+	period 0
+	position 0 0 -1 0 0 -1
+	emitter line 0 0 1
+	scale_start 200
+	scale_end 200
+	acceleration 0 100 0 0 10 0
+	color_start 1 1 0 1 1 0.6 0 1
+	color_end 1 0 0 1 1 0.2 0 1
+}
+
+uex9
+{
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.6 0.6
+	fade_in 0.25
+	period 0
+	scale_start 4
+	scale_end 4
+	color_start 1 1 0 0 1 0.6 0 0
+	color_end 1 0 0 0 1 0.2 0 0
+	//system_light_radius 500
+}
+
+explode_old
+{
+	subsystem uex1
+	subsystem uex2
+	subsystem uex3
+	subsystem uex4
+	subsystem uex5
+	subsystem uex8
+	subsystem uex9
+}

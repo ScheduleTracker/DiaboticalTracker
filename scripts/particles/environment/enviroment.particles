@@ -1,0 +1,896 @@
+///////////////////////////////////////////////////////////////////////---------------------CANDLE-----------------------------///////////////////////////////////////////////////////////////////
+
+env_candlelight
+{
+	map particle_sheet3.png
+	region region s3_candle
+
+	max_particles 3
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.2
+	color_start 4 2 .8 1
+	color_start 4 2 .8 1
+	//position -1 0 0   
+    scale_start 15
+    scale_end 25
+    rotation_start -3 3
+    fade_out 1
+	aspect_start 1 
+	aspect_end 0.8 0.7
+
+}
+
+candlelight_01_vfx
+{	 
+subsystem env_candlelight
+
+}
+
+///////////////////////////////////////////////////////////////////////---------------------TORCH-----------------------------///////////////////////////////////////////////////////////////////
+
+env_torchlight
+{
+	map particle_sheet3.png
+	region region s3_candle
+
+	max_particles 3
+	max_emissions 0
+	lifetime .5 0.4
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.2 0.3
+	color_start 4 2 .8 1
+	color_end 2 0.5 .2 0.1
+	//position -1 0 0   
+    scale_start 15
+    scale_end 25
+    rotation_start -3 3
+    fade_out 1
+	aspect_start 1.7 
+	aspect_end 0.8 0.7
+
+}
+env_torchlight_2
+{
+	map particle_sheet3.png
+	region region s3_candle
+
+	max_particles 2
+	max_emissions 0
+	lifetime .57 0.7
+	fade_in 0
+	blend add
+	delay 0.5 2
+	color_start 4 2 .8 1
+	color_end 2 0.5 .2 0.1
+	position 0 0 0   
+    scale_start 15 11
+    scale_end 25 30
+    rotation_start -3 3
+    fade_out 0
+	aspect_start 1.7 
+	aspect_end 1
+
+}
+torch_embers
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_23
+	animation_speed 50
+	animation_start 10
+	max_particles 3
+	max_emissions 0
+	lifetime 0.6 0.7
+	fade_in 1
+	blend add
+	fade_out 0.0
+	period 0.2
+	color_start 4 2 0 1
+	color_end  0 0 1 1
+	//position -1 0 0   
+    scale_start 2 2.5
+    scale_end 5 4.5
+    rotation_start 3 -3
+    fade_out 0.2
+	velocity_angles 85 0 0 95 0 0 
+	speed_start 200
+	speed_end 30
+
+
+}
+
+torch_embers_2 torch_embers
+{
+	period 0.3
+position 0.5 0 -0.5
+speed_end 35
+
+}
+torch_embers_3 torch_embers
+{
+	period 0.25
+position -0.5 0 0.5
+speed_end 40
+
+}
+ torch_01_vfx
+{	 
+subsystem torch_embers
+subsystem torch_embers_2
+subsystem torch_embers_3
+subsystem env_torchlight 0 3
+subsystem env_torchlight_2 0 6
+
+
+}
+/////////////////////////////////////////////////////////////////////////////////////////---------------FIREPLACE------------------------///////////////////////////////////////////////////////////////////
+ fireplace_01_vfx
+{	 
+subsystem torch_embers  0 2
+subsystem torch_embers_2 0 2
+subsystem torch_embers_3 0 2
+subsystem env_torchlight 0 4
+subsystem env_torchlight_2 0 6
+}
+/////////////////////////////////////////////////////////////////////////////////////////---------------STATUE------------------------///////////////////////////////////////////////////////////////////
+env_statuefire
+{
+	map particle_sheet3.png
+	region region s3_candle
+
+	max_particles 3
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.2
+	color_start 4 2 .8 1
+	color_start 4 2 .8 1
+
+    scale_start 30 25
+    scale_end 30 25
+    rotation_start -3 3
+    fade_out 1
+	aspect_start 1.7 
+	aspect_end 0.5 0.7
+		position 0 8 0   
+
+}
+env_statuefire_2
+{
+	map particle_sheet3.png
+	region region s3_rl_muzzle_40
+
+	max_particles 3
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.2
+	color_start 4 2 .8 1
+	color_start 4 2 .8 1
+	//position -1 0 0   
+    scale_start 20
+    scale_end 30 35
+    rotation_start -3 3
+    fade_out 1
+	aspect_start 1
+	aspect_end 1
+	position 0 6 0   
+}
+env_statuefire_3
+{
+	map particle_sheet3.png
+	region region s3_plasma_50
+
+	max_particles 3
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.2
+	color_start 4 2 .8 1
+	color_start 4 2 .8 1
+	//position -1 0 0   
+    scale_start 20
+    scale_end 35 40
+    rotation_start -3 3
+    fade_out 1
+	aspect_start 1
+	aspect_end 1
+	position 0 6 0   
+}
+statue_embers
+{
+	map particle_sheet3.png
+ region s3_rl_muzzle_23
+	animation_speed 50
+	animation_start 10
+	max_particles 3
+	max_emissions 0
+	lifetime 0.6 0.7
+	fade_in 1
+	blend add
+	fade_out 0.0
+	period 0.2
+	color_start 4 2 0 1
+	color_end  0 0 1 1
+	//position -1 0 0   
+    scale_start 2 2.5
+    scale_end 5 4.5
+    rotation_start 0
+    fade_out 0.2
+	velocity_angles 85 0 0 95 0 0 
+	speed_start 200
+	speed_end 30
+		position 0 6 0 
+
+
+}
+
+statue_embers_2 statue_embers
+{
+	period 0.3
+position 0.5 0 -0.5
+speed_end 35
+
+}
+statue_embers_3 statue_embers
+{
+	period 0.25
+position -0.5 0 0.5
+speed_end 40
+
+}
+statue_embers_4 statue_embers
+{
+	region s3_rl_muzzle_23
+	period 0.25
+rotation_start 0 90
+	 scale_start 2 2.5
+    scale_end 20
+	  
+speed_end 40
+
+}
+statue_fire_01_vfx
+{	 
+	 subsystem statue_embers 
+	 subsystem statue_embers_2 
+	 subsystem statue_embers_3  
+	  subsystem statue_embers_4
+	subsystem env_statuefire 
+	subsystem env_statuefire_2
+	subsystem env_statuefire_3
+
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////Portal/////////////////////////////////////////////////////////////
+portal_vfx_01
+{
+	map particle_sheet3.png
+	region 	s3_plasma_52
+
+	max_particles 3
+	max_emissions 0
+	lifetime 1
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.3
+	color_start 2 5 8 1
+	color_end 0.3 .8 1 1
+
+    scale_start 200
+    scale_end 0
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 8 0  
+angular_speed_start 5000	
+
+}
+portal_vfx_02
+{
+	map particle_sheet3.png
+	region 	s3_plasma_51
+
+	max_particles 3
+	max_emissions 0
+	lifetime 1
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.3
+	color_start 2 5 8 1
+	color_end 0.3 .8 1 1
+
+    scale_start 150
+    scale_end 0
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 8 0   
+	angular_speed_start 5000
+
+}
+portal_vfx_03
+{
+	geometry quad
+	magnet -0.125 -0.125 -0.125 -0.125 -0.125 -0.125 
+	drag 0.45
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 20
+	max_emissions 0
+	lifetime 0.35
+	period 0.02
+	emitter ellipsoid 50 50 50 50 50 50
+    color_start 1 4 6  1
+	color_end  1 2 3
+	turbulence 200 200 200
+	scale_start 8
+	scale_end 0
+	
+	range 0
+	rotation_start 0
+}
+
+portal_vfx
+{	 
+	 subsystem portal_vfx_01 0 1.5
+	subsystem portal_vfx_02 0 1.5
+	subsystem portal_vfx_03 0 1.0
+}
+//////////////////////////////////////////////////////////////////////////////////////Portal Exit/////////////////////////////////////////////////////////////
+portal_exit_vfx_01
+{
+	map particle_sheet3.png
+	region 	s3_plasma_52
+
+	max_particles 3
+	max_emissions 3
+	lifetime 0.3
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.05
+	color_start 1 3 8 1  1 5 10 1
+	color_end 0.3 .8 1 1 0.5 .4 1 1
+
+    scale_start 125
+    scale_end 0
+    rotation_start 0 360
+    fade_out 0.1
+	fade_in 1
+	position 0 8 0  
+angular_speed_start 7500	
+scale_timeline 0=1,l;0.5=0,l;0.6=0,l;1=0,l
+}
+portal_exit_vfx_02
+{
+	map particle_sheet3.png
+	region 	s3_plasma_51
+
+	max_particles 3
+	max_emissions 3
+	lifetime 0.2
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.05
+	color_start 1 3 8 1  1 5 10 1
+	color_end 0.3 .8 1 1 0.5 .4 1 1
+
+    scale_start 75
+    scale_end 0
+    rotation_start 0 360
+    fade_out 0.2
+	fade_in 1
+	position 0 8 0   
+	angular_speed_start 7500
+scale_timeline 0=1,l;0.5=0,l;0.6=0,l;1=0,l
+}
+portal_exit_ring_vfx
+{
+	map particle_sheet5.png
+	region 	explosion_ring_2
+animation_speed 18
+	max_particles 1
+	max_emissions 1
+	lifetime 0.4
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.05
+	color_start 2 5 8 1
+	color_end 0.3 .8 1 1
+aspect_start 0.5
+    scale_start 100
+    scale_end 250
+    rotation_start 0 0
+    fade_out 0.2
+	fade_in 1
+	position 0 8 0   
+displacement true 1 0.008 10 0.1
+
+}
+portal_exit_vfx_03
+{
+	geometry quad
+	magnet 0.25 0.25 0.25 0.25 0.25 0.25 
+	drag 0.45
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 50
+	max_emissions 50
+	lifetime 0.5
+	period 0.005
+	emitter ellipsoid 35 35 35 35 35 35
+    color_start 1 4 6  1
+	color_end  1 2 3
+	turbulence 200 200 200
+	scale_start 8 1
+	scale_end 0
+	
+	range 0
+	rotation_start 0
+}
+portal_exit_bolts_vfx
+{
+	map lightning_ring.png
+	region lightning_ring 
+
+animation_speed 24
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.05
+	color_start 1 3 8 1  1 5 10 1
+	color_end 0.3 .8 1 1 0.5 .4 1 1
+
+    scale_start 200
+    scale_end 0
+    rotation_start 0
+    fade_out 0.1
+	fade_in 1
+	position 0 8 0  
+aspect_start 0.5
+scale_timeline 0=1,l;0.5=0,l;0.6=0,l;1=0,l
+
+}
+portal_exit_portal_vfx
+{
+map particle_sheet5.png
+	region 	plasma_circle
+
+	max_particles 1
+	max_emissions 1
+	lifetime 0.4
+	fade_in 0
+	blend alpha
+	fade_out 1
+	period 0.0
+	color_start 2 5 8 1
+	color_end 0.3 .8 1 1
+aspect_start 0.5
+    scale_start 100
+    scale_end 350
+    rotation_start 0 0
+    fade_out 0.2
+	fade_in 1
+	position 0 8 0   
+}
+portal_exit_vfx_04
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 40
+	animation_start 0
+	max_particles 50
+	max_emissions 50
+	lifetime 0.4 0.6
+	fade_in 1
+	delay 0.05
+	blend add
+	fade_out 0.00
+	period 0
+	 color_start 1 4 6  1
+	color_end  1 2 3
+	position 0 0 0  
+    scale_start 10 5
+    scale_end 8 2
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 150
+	speed_end 100
+	auto_orient_3d true
+	aspect_start 1.4 1.5
+	aspect_end 0.7 0.5
+	hard_edges true
+	perspective_radius 110
+	range 0
+}
+portal_exit_vfx
+{	 
+	 subsystem portal_exit_vfx_01 0 0.7
+	subsystem portal_exit_vfx_02 0 0.7
+	//subsystem portal_exit_vfx_03 0 1.0
+	subsystem portal_exit_vfx_04 0 1.0
+	//subsystem portal_exit_ring_vfx
+	// subsystem portal_exit_bolts_vfx
+subsystem  portal_exit_portal_vfx 0 0.7
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////SMOKESTACK/////////////////////////////////////////////
+
+env_smokestack
+{
+	map particle_sheet3.png
+	region 	s3_smoke02
+
+	max_particles 200
+	max_emissions 0
+	lifetime 4 5
+	fade_in 1
+	blend alpha
+
+
+	color_start 0.1 0.1 0.1 1
+	color_end 0.8 0.8 0.8 0.2
+	//position -1 0 0   
+    scale_start 100 150
+    scale_end 400 450
+    rotation_start -3 3
+    fade_out 0.5
+velocity_angles 82 7 82 97 -7 97  
+	speed_start 100
+	speed_end 60
+turbulence 1 1 1
+}
+env_smokestack_2
+{
+	map particle_sheet3.png
+	region 	s3_smoke02
+
+	max_particles 100
+	max_emissions 0
+	lifetime 1
+	fade_in 1
+	blend alpha
+
+
+	color_start 0.1 0.1 0.1 1
+	color_end 0.8 0.8 0.8 0.2
+	//position -1 0 0   
+    scale_start 100 130
+    scale_end 200
+    rotation_start 0 360
+    fade_out 0.5
+velocity_angles 82 7 82 97 -7 97 
+	speed_start 100
+	speed_end 60
+
+}
+env_smokestack_3
+{
+	map particle_sheet3.png
+	region 	s3_explosion_03_anim
+animation_speed 2
+	max_particles 50
+	max_emissions 0
+	lifetime 5
+	fade_in 1
+	blend add
+
+
+	color_start 0.0 0.0 0.0 1
+	color_end 0.2 0.2 0.2 0.25
+	//position -1 0 0   
+    scale_start 100 130
+    scale_end 250 300
+    rotation_start 0 360
+    fade_out 0.5
+velocity_angles 82 7 82 97 -7 97   
+	speed_start 100
+	speed_end 60
+position 0 -5 0
+}
+smokestack_01_vfx
+{	 
+subsystem env_smokestack
+subsystem env_smokestack_2
+subsystem env_smokestack_3
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////SMOKESTACK_large/////////////////////////////////////////////
+
+env_smokestack_large
+{
+	map particle_sheet3.png
+	region 	s3_smoke02
+
+	max_particles 200
+	max_emissions 0
+	lifetime 4 5
+	fade_in 1
+	blend alpha
+
+period 0.1
+	color_start 0.1 0.1 0.1 1
+	color_end 0.8 0.8 0.8 0.2
+	//position -1 0 0   
+    scale_start 400 450
+    scale_end 900 1000
+    rotation_start -3 3
+    fade_out 0.5
+velocity_angles 75 15 75 105 -15 105   
+	speed_start 150
+	speed_end 150
+turbulence 1 1 1
+}
+env_smokestack_large_2
+{
+	map particle_sheet3.png
+	region 	s3_smoke02
+period 0.1
+	max_particles 100
+	max_emissions 0
+	lifetime 1
+	fade_in 1
+	blend alpha
+
+
+	color_start 0.1 0.1 0.1 1
+	color_end 0.8 0.8 0.8 0.2
+	//position -1 0 0   
+    scale_start 300
+    scale_end 700 800
+    rotation_start 0 360
+    fade_out 0.5
+velocity_angles 75 15 75 105 -15 105    
+	speed_start 150
+speed_end 140
+
+}
+env_smokestack_large_3
+{
+	map particle_sheet3.png
+	region 	s3_explosion_03_anim
+animation_speed 1
+	max_particles 50
+	max_emissions 0
+	lifetime 10
+	fade_in 1
+	blend add
+	period 0.1
+
+
+	color_start 0.0 0.0 0.0 1
+	color_end 0.2 0.2 0.2 0.25
+	//position -1 0 0   
+    scale_start 400 350
+    scale_end 800 900
+    rotation_start 0 360
+    fade_out 0.5
+velocity_angles 75 15 75 105 -15 105    
+	speed_start 150
+	speed_end 150
+position 0 -5 0
+}
+smokestack_large_01_vfx
+{	 
+subsystem env_smokestack_large
+subsystem env_smokestack_large_2
+subsystem env_smokestack_large_3
+}
+////////////////////////////////////////////////////////////////////////////////////////////////SMOKE/////////////////////////////////////////////
+
+env_smokestack_tapered
+{
+	map particle_sheet3.png
+	region 	s3_smoke02
+
+	max_particles 200
+	max_emissions 0
+	lifetime 3 3.5
+	fade_in 1
+	blend alpha
+
+
+	color_start 0.1 0.1 0.1 1
+	color_end 0.8 0.8 0.8 0.2
+	//position -1 0 0   
+    scale_start 150 200
+    scale_end 50 30
+    rotation_start -3 3
+    fade_out 0.5
+velocity_angles 80 0 80 90 0 90 
+	speed_start 100
+	speed_end 60
+
+}
+env_smokestack_2_tapered
+{
+	map particle_sheet3.png
+	region 	s3_smoke02
+
+	max_particles 100
+	max_emissions 0
+	lifetime 1
+	fade_in 1
+	blend alpha
+
+
+	color_start 0.1 0.1 0.1 1
+	color_end 0.8 0.8 0.8 0.2
+	//position -1 0 0   
+    scale_start 400
+    scale_end 50 30
+    rotation_start 0 360
+    fade_out 0.5
+velocity_angles 85 2 85 95 -2 95 
+	speed_start 100
+	speed_end 60
+
+}
+smokestack_01_vfx_tapered
+{	 
+subsystem env_smokestack_tapered
+subsystem env_smokestack_2_tapered
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////DROPLETS/////////////////////////////////////////////
+
+env_droplets
+{
+	map particle_sheet3.png
+	region 	s3_candle
+
+	max_particles 100
+	max_emissions 0
+	lifetime 1.2 2
+	fade_in 1
+	blend add
+period 0.4
+
+	color_start 0 0.1 0.1 0.4
+	color_end 0 0.1 0.1 0.0
+	//position -1 0 0   
+    scale_start 20 24
+    scale_end 12 15
+    rotation_start -3 3
+    fade_out 0.5
+velocity_angles -88 0 0 -92 0 0 
+	speed_start 90
+	speed_end 50
+aspect_start 1.5
+aspect_end 0.5 0.3
+}
+droplets_01_vfx
+{	 
+subsystem env_droplets
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////SPLASH////////////////////////////////////////////////////////////////
+
+
+splash_01
+{
+map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 30
+	max_emissions 0
+	lifetime .075 .1
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.0125
+	color_start 1 1 1 1
+	color_end  1 1 1 0
+	//position -1 0 0   
+    scale_start 2 7
+    scale_end 1 5
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 1 0 0 359 359 0
+	speed_start 60
+	speed_end 80
+	auto_orient true
+	aspect_start 1 
+	aspect_end 2
+	acceleration 0 -5 0 0 -2 0
+	position -10 0 -10 10 0 10
+
+}
+splash_02
+{
+	map particle_sheet3.png
+	region 	s3_smoke02
+period 0.1
+	max_particles 15
+	max_emissions 0
+	lifetime 1
+	fade_in 1
+	blend add
+
+
+	color_start 1 1 1 1
+	color_end 0.1 0.1 0.1 0
+	//position -1 0 0   
+    scale_start 150
+    scale_end 10
+    rotation_start 0 360
+    fade_out 0.1
+velocity_angles 75 15 75 105 -15 105    
+	speed_start 30
+speed_end 30
+position -5 0 -5 5 0 5
+
+}
+splash_vfx
+{	 
+subsystem splash_01
+//subsystem splash_02
+}
+
+///////////////////////////////////////////////////////////////////////---------------------FLOATING DUST-----------------------------///////////////////////////////////////////////////////////////////
+floating_dust
+{
+	geometry quad
+	magnet -0.001 -0.001 -0.001 0.001 0.001 0.001
+	drag 0.45
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	blend add
+	max_particles 250
+	max_emissions 0
+	fade_in 1
+	fade_out 0
+	lifetime 10
+	period 0.2
+	emitter ellipsoid 200 50 50 200 50 50
+	color_accent true
+    color_start 0.6 0.6 0.3 1
+	color_end  0.6 0.6 0.3 0.5
+	turbulence 200 200 200
+	scale_start  5 10
+	scale_end 5 10
+	rotation_start 0 360
+	rotation_end 0 5
+	//perspective_radius 260
+		angular_speed_start -1000 1000
+	range 0
+}
+floating_dust_2 floating_dust
+{
+	scale_start  3 7
+	scale_end 3 7
+	region s3_smoke02
+
+}
+floating_dust_field
+{
+subsystem floating_dust 
+subsystem floating_dust_2
+}

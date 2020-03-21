@@ -1,0 +1,29 @@
+base_explosion_v2
+{
+	//map particle_sheet1.png
+	//region r_explosion_test2
+	map particle_sheet3.png
+	region s3_rl_muzzle_9
+	animation_speed 20
+	animation_start 0	
+	sync_group 1
+	blend add
+	max_particles 1 
+	max_emissions 1 
+	lifetime 0.25
+	fade_in 0 
+	fade_out 0.30
+	rotation_start 0
+	position 0 0 0 0 0 0
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start  5 5 1 1
+	color_end  16 1 1 1
+	velocity_angles 0 0 0 360 360 0
+	speed_start 400
+	speed_end 200
+	auto_orient_3d true
+	scale_start 50
+	scale_end 175
+	hard_edges true
+}

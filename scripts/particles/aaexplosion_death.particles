@@ -1,0 +1,24 @@
+base_explosion_death
+{
+	map particle_sheet1.png
+	region r_electric_explosion
+	animation_speed 35
+	animation_start 0.1
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20
+	fade_in 0.1
+	fade_out
+	rotation_start 0 80
+	position 0 0 15 0 0 15
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start 4 0 0 1
+	color_end  4 0 0 1
+	// color_start  0 0.6 1 1
+	// color_end  0 0.6 1 1
+	emitter line 0 0 1
+	scale_start 80
+	scale_end 250
+}

@@ -1,0 +1,122 @@
+//SPARK
+
+env_spark
+{
+	delay 0.05
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+
+	animation_speed 40
+	animation_start 0
+	max_particles  4
+	max_emissions  4
+	lifetime 0.7
+	fade_in 0.01
+	blend add
+	fade_out 0.5
+	period 0
+	color_start 6 3 .5 1 
+	color_end  2 0 0.25 1
+	position 0 0 0  
+    scale_start 0 4
+    scale_end 18 25
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 150 0 1 200 360 -1
+	speed_start 0
+	speed_end 50 
+	auto_orient_3d true
+	aspect_start 1 0.8
+	aspect_end 0.3 0.5
+	hard_edges true
+	acceleration 0 -10 0 0 -15 0
+}
+
+
+env_flash01
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_26
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .2
+	fade_out 0.1
+	period 0
+	position 0 0 0 
+	scale_start 0
+	scale_end 18 15
+	color_start 6 3 .5 1 
+	color_end  1.2 1 0.25 1
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+}
+
+env_flash02 env_flash01
+{
+	lifetime .28
+	scale_end 9
+}
+env_flash03 env_flash01
+{
+	region s3_rl_muzzle_2
+	color_start 3 1 1 1 
+	color_end 1 0 0.25 1
+	scale_end 18
+}
+env_flash04 env_flash01
+{
+
+	region s3_rl_muzzle_2
+	scale_end 35
+}
+
+
+env_spark_light01 base_light_impact
+{
+	map effects1.png
+	region r_transparent
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.25
+	fade_in 0.1
+	velocity 0 0 0
+	absolute_acceleration true
+	acceleration 0 0 0 0 0 0
+	fade_out 0.2
+	period 0
+	position 0 0.1 -0.1
+	scale_start 0.1
+	scale_end 0.1
+	color_start 0.1 0.1 0.0 .5
+	color_end 0.1 0 0 .5
+	system_light_radius 25
+}
+
+env_spark_grp01
+{
+
+	delay 0.4
+}
+
+
+
+
+//ENVIRONMENT SPARK
+environment_spark
+{	 
+	  subsystem env_spark 
+	  subsystem env_flash01 
+	  subsystem env_flash02 
+	   subsystem env_flash03 
+	    subsystem env_flash04 
+	//	 subsystem env_spark_grp01 0 1.75
+	 subsystem env_spark_light01 0 0.001
+	
+	 
+	
+}

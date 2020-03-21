@@ -1,0 +1,5 @@
+asset material_test_1
+{
+  type surface_material
+  material material_test_1
+}

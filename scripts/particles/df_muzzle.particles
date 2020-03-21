@@ -1,0 +1,79 @@
+//DEFACER MUZZLE
+
+df_muzzle_flash_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_15
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.10 0.12
+	fade_in 0
+	fade_out 0.10
+	period 0.01
+	color_start 20 10 1.2 1
+	color_end  20 10 1.	2 1
+	position 0 0 6
+    scale_start 2
+    scale_end 50
+    rotation_start 0 360
+   
+}
+df_muzzle_flash_2
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_15
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.10 0.12
+	fade_in 0
+	fade_out 0.10
+	period 0.01
+	color_start 20 10 1.2 1
+	color_end  20 10 1.	2 1
+	position 0 0 6
+    scale_start 2
+    scale_end 70
+    rotation_start 0 360
+   
+}
+df_muzzle_spark_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 8
+	max_emissions 8
+	lifetime 0.25
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start 20 10 1.2 1
+	color_end  0 0 0 1
+	position 0 0 6
+    scale_start 2 4
+    scale_end 10 14
+    rotation_start 90
+	velocity_angles 0 -90 0 360 -90 0
+	speed_start 60
+	speed_end 30
+	auto_orient true
+	aspect_start 1
+	aspect_end .2
+	drag 10
+   
+}
+
+df_muzzle
+{
+	subsystem df_muzzle_flash_1 0
+    subsystem df_muzzle_flash_2 0
+	subsystem df_muzzle_spark_1 0
+}

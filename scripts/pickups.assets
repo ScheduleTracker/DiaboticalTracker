@@ -1,0 +1,35 @@
+ //asset doubledamage
+ //{
+ //pfx double_damage_pfx
+//}
+asset bigarmor
+{
+  pfx pickup_rg
+}
+
+asset powerjump
+{
+	listed true
+	type entity
+	add powerjump
+}
+
+// asset ammosg
+// {
+  // pfx pickup_sg
+// }
+
+// asset ammolg
+// {
+  // pfx pickup_mg
+// }
+
+// asset ammorl
+// {
+  // pfx pickup_rl
+// }
+
+// asset ammorg
+// {
+  // pfx pickup_rg
+// }

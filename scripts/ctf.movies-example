@@ -1,0 +1,16 @@
+
+//MAP: ctf56
+
+movie broll_ctf
+{
+	demo ctf77
+	start 377
+	duration 14
+}
+
+movie broll_ctf2
+{
+	demo ctf77
+	start 512
+	duration 14
+}

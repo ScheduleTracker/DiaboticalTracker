@@ -1,0 +1,942 @@
+/// GAME MODES
+
+game default
+{
+	setting game_enable_items 1
+	setting game_enable_drop 0
+	setting game_initial_item_time 0
+	setting game_truce_time 0
+	setting game_team_mode 0
+	setting game_draft_time 0
+    setting game_rounds 1
+	setting game_tide_bonus 0
+	setting game_confirmation_frag 0
+	setting game_time_limit 0
+	setting game_frag_limit 0
+
+	setting game_hp 125
+	setting game_stable_hp 100
+    setting game_ghost_limit_hp 100
+	setting game_max_hp 200
+
+	setting game_armor 0
+	setting game_stable_armor 100
+	setting game_max_armor 150
+	
+	setting game_self_damage 1
+	setting game_wipe_out_mode 0
+	setting game_friendly_fire 1
+	setting game_weapon_respawn_time 0
+
+    //CRITICAL: game_full_charge and game_warmup_time need to be set even if no mode changes them.	
+	setting game_full_charge 0
+	setting game_warmup_time 90
+
+	setting game_countdown 5
+
+	setting game_double_damage_invulnerability 0
+
+	setting game_freeze_time 0
+	setting game_freeze_save_time 0
+	
+	setting game_classes 0
+	
+	setting game_camera_offset 0
+	setting game_camera_hor_offset 0
+	setting game_player_view_height 22
+	setting game_player_col_radius_hor 14
+	setting game_player_col_radius_ver_bottom 24
+	setting game_lifesteal 0
+
+	setting game_inventory_slots 0		
+
+
+
+
+
+    // lock out misc vestigial mechanics so it's not user cheatable, some of these should be removed from engine
+    setting phy_kinetic_accel 0
+    setting phy_wall_jumping 0
+    setting phy_jump_speedup 0
+    setting phy_sprint_max 30
+    setting phy_sprint_rate 0
+
+    // stuff that shouldn't be touched
+    setting phy_vertical_smoothing_factor 0.965
+    setting phy_strafe_cycles 1
+    setting phy_scale 1
+    setting phy_ramp_impulse_up 150
+
+    // physics cvars actually tweaked in presets
+    setting phy_target_tickrate 125
+    setting phy_gravity 800
+    setting phy_jump_impulse 270
+    setting phy_lateral_speed_multiplier 1.0
+    setting phy_back_speed_multiplier 1.0
+    setting phy_max_ground_speed 0
+    setting phy_max_hor_speed 0
+
+    setting phy_crouch_speed 210
+    setting phy_speed 320
+    setting phy_accel_ground 10
+    setting phy_deceleration_ground 100
+    setting phy_surface_friction 6
+
+    setting phy_air_speed 320
+    setting phy_accel_air 1
+    setting phy_air_speed_anisotropy 1
+    setting phy_accel_air_anisotropy 1
+
+    setting phy_auto_jump 1
+    setting phy_strafe_jumping 1
+    setting phy_double_jump 0
+    setting phy_double_jump_impulse 400
+    setting phy_decel 0.3
+    setting phy_air_steering_torque 0
+    setting phy_air_steering_torque_anisotropy 0
+    setting phy_air_steering_dottenuation 1
+    setting phy_air_steering_bonus 0
+    setting phy_bolt_type 1
+    setting phy_bolt_cooldown 2.6
+    setting phy_bolt_cooldown_recovery 0
+    setting phy_bolt_minimum_ground_time 0.0697941
+    setting phy_bolt_base_speed 500
+    setting phy_bolt_extra_speed 0.1
+    setting phy_bolt_extra_accel 0
+    setting phy_bolt_extra_accel_time 0
+    setting phy_bolt_pitch 22.5
+    setting phy_bolt_kinetic_energy 51200
+    setting phy_bolt_ascent_impulse 200
+    setting phy_slide 0
+    setting phy_slide_accel 10
+    setting phy_slide_friction 0.5
+    setting phy_slide_duration_eigenvalue 2
+    setting phy_slide_duration_max 2
+    setting phy_slide_duration_gamma 1
+
+}
+
+game edit
+{
+	setting game_enable_items 1
+	setting game_enable_drop 1
+	setting game_self_damage 0
+	setting game_friendly_fire 0
+	setting game_warmup_time 0
+	setting game_draft_time 0
+	setting game_countdown 0
+	setting game_time_limit 0
+	setting game_frag_limit 0
+	
+	weapon blasta 999 true
+	weapon shelly_spreader 999
+	weapon rocket_launcher 999
+	weapon pncr 999
+	weapon defacer 999
+	weapon grenade_launcher 999
+	weapon weapon9 999
+	weapon minigun 999
+	weapon gl 999
+	weapon implosive_weeble 999
+   	weapon slowfield_weeble 999
+	weapon explosive_weeble 999
+	weapon healing_weeble 999
+	weapon smoke_weeble 999
+	weapon showtime 999
+	weapon machinegun 999
+    weapon sword 999
+	weapon plasma_cannon 999
+	weapon crossbow 999
+}
+
+game practice
+{
+	setting game_warmup_time 0
+	setting game_draft_time 0
+	setting game_countdown 0
+	setting game_time_limit 0
+	setting game_weapon_respawn_time 2
+	setting game_hp 125
+    setting game_stable_hp 100	
+	
+	map practice
+	
+	weapon blasta 999 true
+	weapon shelly_spreader 999
+	weapon rocket_launcher 999
+	weapon pncr 999
+	weapon defacer 999
+	weapon grenade_launcher 999
+	weapon weapon9 999
+	weapon minigun 999
+	weapon gl 999
+	weapon implosive_weeble 999
+   	weapon slowfield_weeble 999
+	weapon explosive_weeble 999
+	weapon healing_weeble 999
+	weapon smoke_weeble 999
+	weapon showtime 999
+	weapon machinegun 999
+    weapon sword 999
+	weapon plasma_cannon 999
+	weapon crossbow 999
+}
+
+game duel
+{
+	setting game_initial_item_time 0
+	setting game_truce_time 0
+	setting game_tide_bonus 20
+	setting game_confirmation_frag 1
+	setting game_time_limit 720
+	
+	map duel_outpost_dunia
+	map duel_bioplant
+	map duel_kasbah
+	map duel_frontier
+	map duel_fisks_house
+	map duel_depot_wip_002
+	map duel_pr_07
+	map duel_gx_01
+	map duel_p0_01
+	map duel_gz_02
+	map duel_mindflayer
+	
+
+	weapon blasta 75
+	//weapon minigun 100
+	weapon sword 999
+}
+
+//game ad
+//{
+//	setting game_team_mode 1
+	
+//	map ad_pr_01
+//	map ad_pr_03
+	
+//	weapon blasta 75
+//	weapon shelly 20
+
+//}
+
+game ca
+{
+	map a_junktion
+	//map a_bazaar
+	map a_heikam
+	map a_barrows_gate
+	//map a_enclosure_wip_006
+		
+	setting game_truce_time 7
+	setting game_enable_items 0
+	setting game_team_mode 1
+    setting game_rounds 10
+	
+	setting game_hp 200
+	setting game_stable_hp 200
+    setting game_ghost_limit_hp 200
+	setting game_max_hp 200
+
+	setting game_armor 100
+	setting game_stable_armor 100
+	setting game_max_armor 100
+	
+	setting game_self_damage 0
+	setting game_wipe_out_mode 1
+	
+	setting game_friendly_fire 0
+	
+	weapon blasta 250 true
+	weapon shelly_spreader 50
+	weapon rocket_launcher 50
+	weapon defacer 250
+	weapon pncr 50
+	weapon grenade_launcher 5
+	weapon machinegun 100
+	weapon sword 999
+}
+
+game rocket_arena
+{
+	map a_junktion
+	map a_heikam
+	map a_barrows_gate
+		
+	setting game_truce_time 7
+	setting game_enable_items 0
+	setting game_team_mode 1
+    setting game_rounds 10
+	
+	setting game_hp 200
+	setting game_stable_hp 200
+    setting game_ghost_limit_hp 200
+	setting game_max_hp 200
+
+	setting game_armor 100
+	setting game_stable_armor 100
+	setting game_max_armor 100
+	
+	setting game_self_damage 0
+	setting game_wipe_out_mode 1
+	setting game_lifesteal 0.5
+	
+	setting game_friendly_fire 0
+	
+	weapon rocket_launcher 999
+	weapon sword 999
+}
+
+game shaft_arena
+{
+	map a_junktion
+	map a_heikam
+	map a_barrows_gate
+		
+	setting game_truce_time 7
+	setting game_enable_items 0
+	setting game_team_mode 1
+    setting game_rounds 10
+	
+	setting game_hp 200
+	setting game_stable_hp 200
+    setting game_ghost_limit_hp 200
+	setting game_max_hp 200
+
+	setting game_armor 100
+	setting game_stable_armor 100
+	setting game_max_armor 100
+	
+	setting game_self_damage 0
+	setting game_wipe_out_mode 1
+	setting game_lifesteal 0.5
+	
+	setting game_friendly_fire 0
+	
+	weapon defacer 999
+	weapon sword 999
+}
+
+game wipeout
+{
+	map wo_furnace
+	map wo_wellspring
+	map wo_refinery
+	//map wo_crystal_cove_wip_col
+		
+	setting game_truce_time 7
+	setting game_enable_items 0
+	setting game_team_mode 1
+   	setting game_rounds 10
+	setting game_frag_limit 4
+	
+	setting game_hp 200
+	setting game_stable_hp 200
+    setting game_ghost_limit_hp 200
+	setting game_max_hp 200
+
+	setting game_armor 100
+	setting game_stable_armor 100
+	setting game_max_armor 100
+	
+	setting game_self_damage 0
+	setting game_wipe_out_mode 2
+	
+	setting game_friendly_fire 0
+	
+	weapon blasta 150 true
+	weapon shelly_spreader 50
+	weapon rocket_launcher 50
+	weapon defacer 200
+	weapon pncr 50
+	weapon grenade_launcher 5
+	weapon machinegun 100
+	weapon healing_weeble 1
+	weapon sword 999
+}
+
+
+
+game ctf
+{
+	setting game_team_mode 1
+	setting game_enable_drop 1
+	setting game_friendly_fire 0
+	setting game_weapon_respawn_time 3
+	setting game_frag_limit 5
+	setting game_time_limit 960
+
+	
+	map ctf_cathedral
+	map ctf_dojo
+	map ctf_waterworks_wip_col
+	map ctf_quarry_wip_col
+	map ctf_qunai_peaks
+	map ctf_titans_crossing
+	map ctf_cliffside_canyons
+
+	
+	weapon blasta 75
+	weapon sword 999
+
+}
+
+game brawl
+{
+	setting game_team_mode 1
+	setting game_friendly_fire 0
+	setting game_weapon_respawn_time 2
+	setting game_hp 125
+    setting game_stable_hp 100
+    setting game_ghost_limit_hp 125
+	setting game_time_limit 600
+	setting game_frag_limit 0
+
+	map b_temple_quarry
+	map tdm_alchemy
+	map b_chateau
+	map b_underbelly
+	map b_furnace
+	map b_refinery
+	map b_wellspring
+	map b_prb_04_wip_col
+		
+	weapon blasta 75
+	weapon sword 999
+	
+//	weapon blasta 999 true
+//	weapon shelly 999 true
+//	weapon rocket_launcher 999
+//	weapon pncr 999
+//	weapon defacer 999
+//	weapon grenade_launcher 999
+//	weapon weapon9 999
+//	weapon minigun 999
+//	weapon gl 999
+//	weapon implosive_weeble 999
+//  weapon slowfield_weeble 999
+//  weapon flak_gun 999
+//	weapon showtime 999
+//	weapon portal_gun 999
+
+}
+
+game macguffin
+{
+	setting game_team_mode 1
+	setting game_weapon_respawn_time 5
+	setting game_enable_drop 1
+	
+	map mg_cathedral
+	map mg_dojo
+	map mg_mrh_06_hedit
+	map mg_refinery
+	map mg_hangar
+	map mg_baxo
+	map mg_mindflayer
+	map mg_cathedral_01
+	map mg_cathedral_02
+	map mg_mrh_01
+	map mg_mrh_02
+	map mg_mrh_03
+	map mg_mrh_04
+	map mg_mrh_05
+	map mg_mrh_06
+	map mg_test_02
+	map mg_test_04
+	map mg_test_05
+	
+
+	weapon blasta 75
+	weapon sword 999
+}
+
+//This game mode isn't used directly normally, it's used as a metatemplate when another
+//game mode has the instagib flag
+game instagib
+{	
+    //These two settings are only here for using the mode locally during testing, the dedicated
+	//server component currently sets this in response to the instagib flag being active.
+	setting game_full_charge 1
+	setting game_enable_items 1
+	setting game_self_damage 0
+
+	map ig_egg-plant
+	map ig_stronghold
+	map wo_furnace
+	map wo_refinery
+	map wo_wellspring
+	map b_temple_quarry
+
+	weapon crossbow 999
+	weapon sword 999
+}
+
+game ghosthunt
+{	
+	setting game_team_mode 1
+	setting game_friendly_fire 0
+	setting game_hp 100
+    setting game_stable_hp 100
+	setting game_full_charge 1
+	setting game_enable_items 1
+	setting game_self_damage 0
+	setting game_time_limit 420
+	setting game_frag_limit 0
+
+	map ig_coastline
+	map ig_egg-plant
+	map ig_stronghold
+
+
+	weapon crossbow 999
+	weapon sword 999
+}
+
+game race
+{
+    setting game_hp 100
+	setting game_friendly_fire 0
+	setting game_warmup_time 0
+	setting game_countdown 0
+	setting game_time_limit 0
+	setting game_frag_limit 0
+	
+	map df_p0_01
+	map df_p0_02
+	map df_p0_03
+	map df_p0_04
+	map tt_cathedral_wip
+	map tt_dojo_wip
+	map tt_waterworks_wip_col
+	map tt_qunai_crossing
+	map tt_titan
+	map tt_ctf_pr_09
+	map tt_from_dust_till_dawn
+	
+	weapon sword 999
+}
+
+game tdm
+{
+	setting game_team_mode 1
+	setting game_friendly_fire 1
+	setting game_weapon_respawn_time 30
+	setting game_hp 125
+	setting game_time_limit 960
+	setting game_enable_drop 1
+
+	map b_temple_quarry
+	map tdm_alchemy
+	map tdm_chateau_wip_001
+	map tdm_underbelly
+	map b_chateau
+	map b_underbelly
+	map b_furnace
+	map b_refinery
+	map b_wellspring
+	map duel_outpost_dunia
+	map duel_bioplant
+	map duel_kasbah
+	map duel_frontier
+	map duel_fisks_house
+	map duel_pr_07 
+		
+	weapon blasta 75
+	weapon sword 999
+}
+
+
+game tw
+{
+	setting game_team_mode 1
+	setting game_friendly_fire 0
+	setting game_classes 1
+	setting game_self_damage 0
+	
+	map ad_pr_01bases
+	map ad_pr_02
+	map ad_pr_03
+	
+	class sapper
+	class doctor
+	class sniper
+	class scout
+	
+	weapon rocket_launcher 999
+}
+
+/// PICKUPS
+//pickup ammorl
+//{
+//    respawn_time 15   
+//}
+
+//game tdm
+//{
+//	setting game_team_mode 1
+	
+//	map dt_gd_01
+//	map dt_gz_01
+//	map dt_ma_01
+//	map dt_pr_01
+//	map dt_pr_02
+//	map dt_prb_01
+//	map dt_prb_02
+
+//	weapon blasta 75
+//	weapon shelly 20
+//}
+
+//game ffa
+//{
+//	map dt_gd_01
+//	map dt_gz_01
+//	map dt_ma_01
+//	map dt_pr_01
+//	map dt_pr_02
+//	map dt_prb_01
+//	map dt_prb_02
+
+//	weapon blasta 75
+//	weapon shelly 10
+
+//	weapon blasta 999 true
+//	weapon shelly 999 true
+//	weapon rocket_launcher 999
+//	weapon pncr 999
+//	weapon defacer 999
+//	weapon grenade_launcher 999
+//	weapon weapon9 999
+//	weapon minigun 999
+//	weapon gl 999
+//	weapon implosive_weeble 999
+//  	weapon slowfield_weeble 999
+//  	weapon flak_gun 999
+//	weapon showtime 999
+//	weapon portal_gun 999
+
+//game rt
+//{
+//	setting game_freeze_time 6
+//	setting game_freeze_save_time 3
+//	setting game_team_mode 1
+//	setting game_enable_items 0
+	
+//	setting game_hp 200
+//	setting game_stable_hp 200
+//	setting game_max_hp 200
+
+//	setting game_armor 0
+//	setting game_stable_armor 0
+//	setting game_max_armor 0
+	
+//	setting game_self_damage 0
+	
+//	setting game_friendly_fire 0
+
+//	setting phy_gravity 300
+	
+//	map dt_ma_01
+
+//	weapon bsf7 999
+//}
+
+//game br
+//{
+
+//    weapon br_sniper_rifle 999 true
+//	weapon br_assault_rifle 999 true
+//	weapon br_shotgun 999 true
+
+//	setting game_camera_offset 69
+//	setting game_camera_hor_offset 20
+//	setting game_player_view_height 37
+//	setting game_player_col_radius_hor 27
+	
+//	setting phy_jump_impulse 300
+//	setting phy_double_jump 1
+//	setting phy_double_jump_impulse 575
+//	setting phy_speed 200
+//	setting phy_bolt_base_speed 500
+//	setting phy_bolt_pitch 27
+//	setting phy_vertical_smoothing_factor 0
+	
+//   setting phy_sprint_max 50
+//	setting phy_sprint_rate 275
+//	setting phy_accel_air 1.3
+//	//setting phy_strafe_jumping 1
+//	setting phy_max_hor_speed 275
+//	setting phy_lateral_speed_multiplier 1
+//	setting phy_back_speed_multiplier 0.85
+
+//	setting game_inventory_slots 6
+	
+//	map br_01
+//}
+
+//game teamwar
+//{
+//	setting game_team_mode 1
+//	setting phy_accel_air 63
+//	setting phy_air_speed_multiplier 0.09375
+//	setting game_self_damage 0
+//	setting phy_max_ground_speed 300
+//	setting phy_speed 300
+//	setting phy_back_speed_multiplier 0.9
+
+//	map ad_pr_01
+//	map test_testbox
+
+//	weapon blasta 75
+//	weapon shelly 20
+//	weapon rocket_launcher 20
+//	weapon grenade_launcher 20
+//	weapon minigun 20
+//}
+
+// DONT CHANGE ID NUMBERS ASSIGNED TO  SKILLS!
+
+skill 0
+{
+    name Vampire
+    description Temporarily grants lifesteal.
+    icon skill_vampire.png
+    hud_icon skill_hud_vampire.png
+    tag vampire
+    //TODO: Hardcoded at some places in the engine
+    duration 4.0
+    cooldown 12
+    small_cooldown 0
+    cost 30
+    category 2
+    charges 10
+}
+
+skill 1
+{
+    name Bolt
+    description Allows you to thrust yourself in any direction.
+    icon skill_haste.png
+    hud_icon skill_hud_haste.png
+    tag bolt
+    //4, 12, 0.4
+    duration 0
+    cooldown 0
+    small_cooldown 0
+    cost 30
+    category 2
+    charges 10
+}
+
+skill 2
+{
+    name Heal
+    description Regenerates yourself and your allies around you.
+    icon skill_heal.png
+    hud_icon skill_hud_heal.png
+    tag heal
+    duration 5
+    cooldown 60
+    small_cooldown 0
+    cost 30
+    category 0
+    charges 10
+}
+
+skill 3
+{
+    name Hook
+    description Hookitty hooky hook.
+    icon skill_hook.png
+    hud_icon skill_hud_hook.png
+    tag hook
+    duration 0
+    cooldown 14
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 10
+}
+
+skill 4
+{
+    name Powerjump
+    description Allows you to thrust yourself upwards.
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag powerjump
+    //4, 12, 0.4
+    duration 0
+    cooldown 0
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 10
+}
+
+skill 5
+{
+    name Throw MacGuffin
+    description Throws the MacGuffin
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag throw_macguffin
+    //4, 12, 0.4
+    duration 0
+    cooldown 0
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+
+skill 6
+{
+    name Drop Flag
+    description Drops the flag
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag drop_flag
+    //4, 12, 0.4
+    duration 0
+    cooldown 0
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+
+
+skill 7
+{
+    name Claim Weeble
+    description Claims your weeble
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag claim_weeble
+    duration 0
+    cooldown 0
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+
+skill 8
+{
+    name Slow
+    description Slow
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag claim_weeble
+    duration 3
+    cooldown 10
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+
+skill 9
+{
+    name Scan
+    description Scan
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag claim_weeble
+    duration 3
+    cooldown 10
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+
+skill 10
+{
+    name Knock Weeble
+    description Knock Weeble
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag knock_weeble
+    duration 0
+    cooldown 45
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+skill 11
+{
+    name Slow Weeble
+    description Slow Weeble
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag slow_weeble
+    duration 0
+    cooldown 60
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+
+skill 12
+{
+    name Smoke Weeble
+    description Smoke Weeble
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag smoke_weeble
+    duration 0
+    cooldown 30
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+
+skill 13
+{
+    name Implosive Weeble
+    description Implosive Weeble
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag implosive_weeble
+    duration 0
+    cooldown 45
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+
+skill 14
+{
+    name Explosive Weeble
+    description Explosive Weeble
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag explosive_weeble
+    duration 0
+    cooldown 45
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+skill 15
+{
+    name Knock Weeble
+    description Knock Weeble
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag instagib_knock_weeble
+    duration 0
+    cooldown 1
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}

@@ -1,0 +1,214 @@
+//style 1
+
+//BOTTOM-FACING WALL-TO-FLOOR HORIZONTAL BORDER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right_top empty
+	if right solid
+	if top solid
+	place temple_facetowall_tile,temple_facetowall_tile2 back 1.0 1 1 0
+	style 1
+}
+
+//CONCAVE VERTICAL CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	//if right empty
+	//if right_bottom solid
+	//if front empty
+	if right_top empty
+	if front_top empty
+	if right solid
+	if top solid
+	place temple_facetowall_corner back 1.0 1 1 0
+	style 1
+}
+
+//TOPDOWN BORDER
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if bottom empty
+	if front solid
+	place temple_topdown_convex_tile,temple_topdown_convex_tile2 back 1 1 -1 0
+	style 1
+}
+
+rule
+{
+    extrapolate + -
+	if self solid
+	if right solid
+	if right_front empty
+	if bottom empty
+	if front solid
+	place temple_topdown_convex_corner back 1 1 -1 0
+	style 1
+}
+
+
+//TOP BORDER
+
+rule
+{
+    extrapolate + -
+
+	if self solid
+	if right empty
+	if top empty
+	place temple_top_convex_tile,temple_top_convex_tile2 back 1.0 1 1 0
+	style 1
+}
+
+//THREE-WAY CONVEX CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if front empty
+	if right_front empty
+	if top empty
+	place temple_top_convex_corner back 1.0 1 1 0
+	style 1
+}
+
+
+
+//BOTTOM-FACING CEILING HORIZONTAL BORDER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right_top solid
+	if right empty
+	if top solid
+	place city_convex_top_corner_mid back 1.0 1 1 0
+	style 1
+}
+
+//CONCAVE VERTICAL CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if right_top solid
+	if front empty
+	place city_convex_top_corner_corner back 1.0 1 1 0
+	style 1
+}
+
+
+//Style 2
+
+
+rule
+{
+	extrapolate + -
+	if self solid
+	if right empty
+	place temple_middlewall_tile,temple_middlewall_tile2 back 1.0 1 1 0
+	style 2
+}
+
+
+//style 3
+
+//BOTTOM-FACING WALL-TO-FLOOR HORIZONTAL BORDER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right_top empty
+	if right solid
+	if top solid
+	if right_front_top empty
+	if right_back_top empty
+	place temple_facetowall_2_tile1,temple_facetowall_2_tile2,temple_facetowall_2_tile3 back 1.0 1 1 0
+	style 3
+}
+
+//BOTTOM-FACING WALL-TO-FLOOR HORIZONTAL BORDER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right_top empty
+	if right solid
+	if top solid
+	if right_front_top solid
+	place temple_facetowall_2_corner_concave back 1.0 1 1 0
+	style 3
+}
+
+
+
+//CONCAVE VERTICAL CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	//if right empty
+	//if right_bottom solid
+	//if front empty
+	if right_top empty
+	if front_top empty
+	if right solid
+	if top solid
+	place temple_facetowall_2_corner back 1.0 1 1 0
+	style 3
+}
+
+//BOTTOM-FACING CEILING HORIZONTAL BORDER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right_top solid
+	if right empty
+	if top solid
+	place test_temple_convex_top_corner_tile3 back 1.0 1 1 0
+	style 3
+}
+
+//CONCAVE VERTICAL CORNER
+rule
+{
+    extrapolate + -
+	if self solid
+	if right empty
+	if right_top solid
+	if front empty
+	place temple_convex_top_corner back 1.0 1 1 0
+	style 3
+}
+
+rule
+{
+	extrapolate + -
+	if self solid
+	if right empty
+	place temple_middlewall_rough_tile back 1.0 1 1 0
+	style 4
+}
+
+//TOP BORDER
+
+rule
+{
+    extrapolate + -
+
+	if self solid
+	if right empty
+	if top empty
+	place temple_style3_top_convex_tile,temple_style3_top_convex_tile2,temple_style3_top_convex_tile3 back 1.0 1 1 0
+	style 3
+}

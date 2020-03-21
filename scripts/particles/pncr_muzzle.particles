@@ -1,0 +1,84 @@
+
+// pncr_muzzle_flash_1
+// {
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_14
+	// animation_speed 13
+	// animation_start 3
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime .15
+	// fade_in 0
+	// fade_out 0
+	// period 0
+	// color_start 1.6 3.6 4 1
+	// color_end  1.6 3.6 4 1
+	// //position -0.7 1.4 9
+    // scale_start 0
+    // scale_end 13
+    // rotation_start 0 360
+    // fade_out 0.2
+	// turbulence 200
+// }
+
+// pncr_muzzle_flash_2 pncr_muzzle_flash_1
+// {
+	// position 0 0 8
+	// delay 0.02
+// }
+
+// pncr_muzzle_flash_3 pncr_muzzle_flash_1
+// {
+	// position 0 0 16
+	// delay 0.04
+// }
+
+// pncr_muzzle_flash_4 pncr_muzzle_flash_1
+// {
+	// position 0 0 24
+	// delay 0.06
+// }
+
+
+// pncr_muzzle_spikes_1 pncr_muzzle_flash_1
+// {
+	// region s3_rl_muzzle_6
+	// delay 0.02
+	// scale_end 20
+// }
+// pncr_muzzle_spikes_2 pncr_muzzle_flash_1
+// {
+	// region s3_rl_muzzle_6
+	// position 0 0 8
+	// delay 0.02
+	// scale_end 20
+// }
+
+// pncr_muzzle_spikes_3 pncr_muzzle_flash_1
+// {
+	// region s3_rl_muzzle_6
+	// position 0 0 16
+	// delay 0.02
+	// scale_end 20
+// }
+
+// pncr_muzzle_spikes_4 pncr_muzzle_flash_1
+// {
+	// region s3_rl_muzzle_6
+	// position 0 0 24
+	// delay 0.02
+	// scale_end 20
+// }
+// // pncr_muzzle
+// // {	
+	// // subsystem pncr_muzzle_flash_1
+	// // subsystem pncr_muzzle_flash_2
+	// // subsystem pncr_muzzle_flash_3
+	// // subsystem pncr_muzzle_flash_4
+	// // subsystem pncr_muzzle_spikes_1
+	// // subsystem pncr_muzzle_spikes_2
+	// // subsystem pncr_muzzle_spikes_3
+	// // subsystem pncr_muzzle_spikes_4
+	
+// // }

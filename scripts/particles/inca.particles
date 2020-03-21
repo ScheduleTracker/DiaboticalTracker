@@ -1,0 +1,588 @@
+//BRAZIER_FLAMES_BIG
+
+b_flames_1
+{
+	// map effects1.png
+	// region r_point_2
+	map effects2.png
+	region tele_flow
+	animation_speed 40
+	animation_start 
+	// geometry directional
+	blend add
+	max_particles 2
+	max_emissions 
+	lifetime 1.2
+	fade_in 0.2
+	fade_out 0.3
+	rotation_start 0 360
+	position 25 0 25 -25 0 -25
+	// position 0 0 -1 0 0 -1
+	period 0.6
+	velocity 0 10 0 0 15 0
+	color_start  0 0.8 0.9
+	color_end  0 0.8 0.90
+	// emitter line 0 0 1
+	scale_start 120
+	scale_end 120
+	turbulence 3000
+}
+
+b_fire_embers
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 50
+	max_emissions 0
+	lifetime 20
+	fade_in 0.1
+	fade_out 0.3
+	rotation_start 0
+	position 50 20 80 -50 80 -50
+	// position 0 0 -1 0 0 -1
+	period 0.03
+	velocity 5 20 5 -5 10 -5
+	color_start  0 0.8 0.9
+	color_end  0 0.8 0.90
+	// emitter line 0 0 1
+	scale_start 1 3
+	scale_end 0 
+	turbulence 3000
+}
+
+b_flames_ember
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 400
+	max_emissions 
+	lifetime 1.5 1.8
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 20 0 20 -20 0 -20
+	// position 0 0 -1 0 0 -1
+	period 0.01
+	velocity 0 150 0 0 80 0
+	color_start  0.9 0.5 0 0.5
+	color_end  1 0.9 0.5
+	// emitter line 0 0 1
+	scale_start 10
+	scale_end 0 
+	turbulence 5000
+}
+
+b_jump_orb_pickup
+{
+	map particle_sheet2.png
+	region r_orb_new	
+	animation_speed 30
+	animation_start 1
+	emitter point
+	// geometry directional
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0
+	//fade_in 0.1
+	//fade_out 0.999
+	rotation_start 0
+	position 0 0 0 0 0 0
+	period 0
+	color_start  0 0.8 0.9
+	// emitter line 0 0 1
+	scale_start 120
+	scale_end 120
+}
+
+b_fire_cirkel
+{
+	map particle_sheet1.png
+	region r_point_big2	
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 300
+	fade_out 0
+	rotation_start 0 360
+	position 	0 0 0
+	// velocity 0 0 20
+	period 0.07
+	color_start  0 0.2 0.33
+	// emitter line 0 0 6
+	scale_start 100
+	scale_end 100
+}
+
+brazier_flames
+{
+	subsystem b_flames_1
+	subsystem b_fire_embers
+	subsystem b_fire_cirkel
+	subsystem b_jump_orb_pickup
+}
+
+
+//BRAZIER_FLAMES_SMALL
+
+s_flames_1
+{
+	// map effects1.png
+	// region r_point_2
+	map effects2.png
+	region tele_flow
+	animation_speed 40
+	animation_start 
+	// geometry directional
+	blend add
+	max_particles 2
+	max_emissions 
+	lifetime 1.2
+	fade_in 0.2
+	fade_out 0.3
+	rotation_start 0 360
+	position 25 0 25 -25 0 -25
+	// position 0 0 -1 0 0 -1
+	period 0.6
+	velocity 0 10 0 0 15 0
+	color_start  0 0.8 0.9
+	color_end  0 0.8 0.90
+	// emitter line 0 0 1
+	scale_start 70
+	scale_end 70
+	turbulence 3000
+}
+
+s_fire_embers
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 50
+	max_emissions 0
+	lifetime 20
+	fade_in 0.1
+	fade_out 0.3
+	rotation_start 0
+	position 50 20 80 -50 80 -50
+	// position 0 0 -1 0 0 -1
+	period 0.03
+	velocity 5 20 5 -5 10 -5
+	color_start  0 0.8 0.9
+	color_end  0 0.8 0.90
+	// emitter line 0 0 1
+	scale_start 1 3
+	scale_end 0 
+	turbulence 3000
+}
+
+s_flames_ember
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 400
+	max_emissions 
+	lifetime 1.5 1.8
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 20 0 20 -20 0 -20
+	// position 0 0 -1 0 0 -1
+	period 0.01
+	velocity 0 150 0 0 80 0
+	color_start  0.9 0.5 0 0.5
+	color_end  1 0.9 0.5
+	// emitter line 0 0 1
+	scale_start 10
+	scale_end 0 
+	turbulence 5000
+}
+
+s_jump_orb_pickup
+{
+	map particle_sheet2.png
+	region r_orb_new	
+	animation_speed 30
+	animation_start 1
+	emitter point
+	// geometry directional
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0
+	//fade_in 0.1
+	//fade_out 0.999
+	rotation_start 0
+	position 0 0 0 0 0 0
+	period 0
+	color_start  0 0.8 0.9
+	// emitter line 0 0 1
+	scale_start 70
+	scale_end 70
+}
+
+s_fire_cirkel
+{
+	map particle_sheet1.png
+	region r_point_big2	
+	animation_speed 26
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 300
+	fade_out 0
+	rotation_start 0 360
+	position 	0 0 0
+	// velocity 0 0 20
+	period 0.07
+	color_start  0 0.2 0.33
+	// emitter line 0 0 6
+	scale_start 60
+	scale_end 60
+}
+
+brazier_flames2
+{
+	subsystem s_flames_1
+	subsystem s_fire_embers
+	subsystem s_fire_cirkel
+	subsystem s_jump_orb_pickup
+}
+
+
+//---------------- Light sandfall
+
+l_sandfall_1
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend add
+	max_particles 500
+	max_emissions 
+	lifetime 2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 0 0 10 -10 0 -10
+	// position 0 0 -1 0 0 -1
+	period 0.01
+	velocity 0 -200 0
+	color_start  1 0.999 0.6 1 1 1
+	color_end   1 0.999 0.6
+	// emitter line 0 0 1
+	scale_start 3 5
+	scale_end 3 5
+	// turbulence 3000
+}
+
+l_sandfall_1a
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend add
+	max_particles 500
+	max_emissions 
+	lifetime 2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 0 0 25 -25 0 -25
+	// position 0 0 -1 0 0 -1
+	period 0.02
+	velocity 0 -200 0
+	color_start  1 1 1
+	color_end   1 0.999 0.6
+	// emitter line 0 0 1
+	scale_start 3 5
+	scale_end 3 5
+	// turbulence 3000
+}
+
+l_sandfall_2
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 500
+	max_emissions 
+	lifetime 2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position -15 0 0 -15 0 0
+	// position 0 0 -1 0 0 -1
+	period 0.01
+	velocity 0 -200 0
+	color_start  0.95 0.90 0.63
+	color_end   0.95 0.90 0.63
+	// emitter line 0 0 1
+	scale_start 50
+	scale_end 20
+	// turbulence 3000
+}
+
+l_sandfall
+{
+	subsystem l_sandfall_1
+	subsystem l_sandfall_1a
+	subsystem l_sandfall_2
+
+}
+
+//------------------dark sandfall
+
+d_sandfall_1
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 500
+	max_emissions 
+	lifetime 2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 25 0 25 -25 0 -25
+	// position 0 0 -1 0 0 -1
+	period 0.01
+	velocity 0 -200 0
+	color_start  0.46 0.35 0.23
+	color_end  0.81 0.69 0.57
+	// emitter line 0 0 1
+	scale_start 3 5
+	scale_end 3 5
+	// turbulence 3000
+}
+
+d_sandfall_1a
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend add
+	max_particles 500
+	max_emissions 
+	lifetime 2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 25 0 25 -25 0 -25
+	// position 0 0 -1 0 0 -1
+	period 0.02
+	velocity 0 -200 0
+	color_start  0.46 0.35 0.23
+	color_end  0.81 0.69 0.57
+	// emitter line 0 0 1
+	scale_start 3 5
+	scale_end 3 5
+	// turbulence 3000
+}
+
+d_sandfall_2
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 500
+	max_emissions 
+	lifetime 2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position -15 0 0 -15 0 0
+	// position 0 0 -1 0 0 -1
+	period 0.01
+	velocity 0 -200 0
+	color_start  0.51 0.37 0.25
+	color_end  0.51 0.37 0.25
+	// emitter line 0 0 1
+	scale_start 50
+	scale_end 25
+	// turbulence 3000
+}
+
+d_sandfall
+{
+	subsystem d_sandfall_1
+	subsystem d_sandfall_1a
+	subsystem d_sandfall_2
+
+}
+
+//------------------dark sand dust
+
+d_sand_dust1
+{
+	map effects1.png
+	region r_smoke_new
+	animation_speed 20
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 20
+	max_emissions 0
+	lifetime 1.2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 180 360
+	// rotation_end 0 360
+	position 0
+	// position 0 0 -1 0 0 -1
+	period 0.1
+	velocity 10 10 10 -10 20 -10
+	color_start  0.51 0.37 0.25
+	color_end  0.51 0.37 0.25
+	// emitter line 0 0 1
+	scale_start 80
+	scale_end 90
+}
+
+d_sand_glimmer
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 20
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 20
+	max_emissions 0
+	lifetime 1.2
+	fade_in 0.1
+	fade_out 0.8 0.7
+	rotation_start 180 360
+	position 40 0 40 -40 20 -40
+	period 0.05
+	turbulence 500
+	velocity 20 20 20 -20 -20 -20
+	color_start  0.51 0.37 0.25
+	color_end  0.81 0.69 0.57
+	scale_start 4 6
+	scale_end 0
+}
+
+d_sand_dust
+{
+		subsystem d_sand_dust1
+		subsystem d_sand_glimmer
+}
+
+//------------------light sand dust
+
+l_sand_dust1
+{
+	map effects1.png
+	region r_smoke_new
+	animation_speed 20
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 20
+	max_emissions 0
+	lifetime 1.2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 180 360
+	// rotation_end 0 360
+	position 0
+	// position 0 0 -1 0 0 -1
+	period 0.1
+	velocity 10 10 10 -10 20 -10
+	color_start  0.95 0.90 0.63 0.5
+	color_end   0.95 0.90 0.63 0
+	// emitter line 0 0 1
+	scale_start 400
+	scale_end 500
+}
+
+l_sand_glimmer
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 20
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 20
+	max_emissions 0
+	lifetime 1.2
+	fade_in 0.1
+	fade_out 0.8 0.7
+	rotation_start 180 360
+	position 40 0 40 -40 20 -40
+	period 0.05
+	turbulence 500
+	velocity 20 20 20 -20 -20 -20
+	color_start  0.95 0.90 0.63 0.3
+	color_end   0.95 0.90 0.63 0 1 1 1 0
+	scale_start 4 6
+	scale_end 0
+}
+
+l_sand_dust
+{
+		subsystem l_sand_dust1
+		subsystem l_sand_glimmer
+}
+
+
+dust_square
+{
+	map effects1.png
+	region r_point_2
+	animation_speed 30
+	animation_start 
+	// geometry directional
+	blend alpha
+	max_particles 800
+	max_emissions 0
+	lifetime 20
+	fade_in 0.1
+	fade_out 0.8
+	rotation_start 0
+	position 1300 1300 1300 -1300 -1300 -1300
+	// position 0 0 -1 0 0 -1
+	period 0.03
+	velocity 5 -5 5 -5 5 -5
+	color_start  1 0.98 0.8 1 1 1 1 0.8
+	color_end   1 0.98 0.8 0.2 1 1 1 0.2
+	// emitter line 0 0 1
+	scale_start 5 6
+	scale_end 0 
+	turbulence 200
+}

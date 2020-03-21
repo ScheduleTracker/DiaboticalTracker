@@ -1,0 +1,218 @@
+delay_hack
+{
+    //This is necessary to make the delay feature work or it gets stuck in the first frame
+	fade_in 0.1
+}
+
+sg_impact_1 delay_hack
+{
+map particle_sheet5.png
+	region ricochet_1
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_20
+	max_particles 1
+	max_emissions 1
+animation_start 0
+animation_speed 60
+	blend add
+	period 0.002	
+	lifetime 0.15 0.10
+	fade_out 0.1
+	rotation_start 0 360
+	velocity 0 10 0
+	position 0 0 	
+	color_start  5 5 4 1 
+	color_end  3 1 0.5 1 
+	rotation_start -20 20
+	scale_start 10
+	scale_end 50 55 
+	aspect_start 1.5 1.7
+	aspect_end 0.7 0.8
+	
+	hard_edges true
+	auto_rotate true
+}
+
+sg_impact_2 sg_impact_1
+{
+	scale_start 10
+	scale_end 30 40 
+	fade_in 0.1
+	region ricochet_2
+	color_start  10 8 4 1
+	color_end  1 .5 0.0625 1
+}
+
+sg_impact_3 delay_hack
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+    animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.15
+	rotation_start 0 
+	blend add
+	fade_out 0.5
+	position 0 0 0
+	color_start  16 8 4 1
+	color_end  1 .5 0.0625 1
+	emitter line 0 0 1
+	scale_start 5
+	scale_end 20
+
+}
+sg_spark_1 delay_hack
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	max_particles 1 2
+	max_emissions 2
+	blend add
+	period 0.005
+	lifetime 0.30 0.20
+	fade_out 0.15 0.1
+	velocity -10 15 0 10 15 0
+	position 0 0 0
+	color_start  5 3 1 1
+	color_end  0 0 0 0
+	//rotation_start 160 200
+	rotation_start 200 160
+	scale_start 0
+	scale_end 18 25
+	speed_start 15
+	speed_end 10 15
+	auto_orient true
+	aspect_start 1.0 1.2
+	aspect_end 0.7 0.6
+	
+	hard_edges true
+	auto_rotate true
+}
+sg_impact_flash delay_hack
+{
+	map effects_additive.png
+	region r_add_flash
+    //animation_speed 30
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 0.1
+	rotation_start 0 0
+	blend add
+	//fade_out 5
+	position 0 0 0
+	color_start 1.2 1 0.2 1
+	color_end  1.2 1 0.2 1
+	scale_start 0 0
+	scale_end 40 40
+}
+shotgun_impact_smoke delay_hack
+{
+	map particle_sheet5.png
+	region ricochet_smoke
+	animation_speed 20
+	animation_start 0
+	max_particles 2
+	max_emissions 2
+	delay 0.07
+	lifetime 0.4
+
+	blend add
+	fade_out 0.03
+	period 0
+	color_start  0.1 0.1 0.2 0.5
+	color_end  0.5 0.5 0.8  0.1
+	position 0 0 0  
+    scale_start 20 25
+    scale_end 50 80
+    rotation_start 0 0
+    fade_out 0.02
+	speed_start 20
+	speed_end 1
+	velocity_angles -45 -45 0 45 45 0
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+		aspect_start 1
+	aspect_end 1
+	drag 1000
+
+}
+shotgun_impact_smoke_2 delay_hack
+{
+	map particle_sheet3.png
+	region s3_explosion_03_anim
+	animation_speed 20
+	animation_start 0
+	max_particles 2
+	max_emissions 2
+	delay 0.07
+	lifetime 0.4
+
+	blend add
+	fade_out 0.03
+	period 0
+	color_start  0.1 0.1 0.2 0.5
+	color_end  0.5 0.5 0.8  0.1
+	position 0 0 0  
+    scale_start 20 25
+    scale_end 60 70
+    rotation_start 0 360 
+    fade_out 0.02
+	speed_start 20
+	speed_end 1
+	velocity_angles -45 -45 0 45 45 0
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+		aspect_start 1
+	aspect_end 0.5
+	drag 1000
+
+}
+shotgun_impact_debris delay_hack
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 3
+	max_emissions 3
+	//delay 0.05
+	lifetime 0.2
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 1 1 1 1
+	color_end  0.2 0.2 0.2 1
+	position 0 0 0  
+    scale_start 2 3
+    scale_end 5 8
+    rotation_start 0 360
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360  180
+	speed_start 20
+	speed_end 20
+	auto_orient_3d true
+	turbulence 2000
+	aspect_start 1
+	aspect_end 1
+	hard_edges true
+	drag 1000
+
+}
+sg_impact_v2
+{
+	subsystem sg_impact_1+sg_impact_2
+	subsystem sg_impact_3
+	subsystem sg_spark_1
+	//subsystem sg_impact_flash
+	subsystem shotgun_impact_smoke+empty+empty+empty 0 0.75
+		subsystem shotgun_impact_smoke_2 0 0.75
+		subsystem shotgun_impact_debris
+	
+}
+

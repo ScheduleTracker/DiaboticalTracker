@@ -1,0 +1,718 @@
+//IMPACT
+
+
+explosion_scale
+{
+scale_timeline 0=0,l;0.75=1.2,l;1=1,l
+range 0
+}
+gl_smoke_impact_1 
+{
+	map particle_sheet3.png
+	region s3_smoke01_41
+	animation_speed 4
+	animation_start 0
+	blend alpha
+	max_particles 1
+	max_emissions 1
+	lifetime 1
+	fade_in 1
+	fade_out 0.4
+	rotation_start 0
+	position 0 0 15 0 0 15
+	// position 0 0 -1 0 0 -1s
+	period 0
+	scale_start 600
+	scale_end 600 650
+	color_start 0.5 0.5 0.5 0.2
+	color_end  0.5 0.5 0.5 0.2
+	velocity_angles 0 0 0 360 360 0
+	speed_start 100
+	speed_end 70
+	auto_orient_3d true
+	aspect_start 1.4 1.5
+	aspect_end 0.9 0.7
+	perspective_radius 110
+	scale_timeline 0=0,l;0.75=1.2,l;1=0,l
+	range 0
+}
+
+gl_smoke_impact_2 gl_smoke_impact_1 
+{
+	lifetime 0.55 0.60
+	scale_end 575 625
+	velocity_angles 0 0 0 355 360 0
+	speed_end  0
+	range 0
+}
+
+gl_smoke_explosion 
+{
+	map particle_sheet3.png
+	region s3_explosion_03_anim
+	animation_speed 10
+	animation_start 0
+	blend alpha
+	max_particles 8
+	max_emissions 8
+	lifetime 0.6 0.8
+	fade_in 1
+	fade_out 0.4
+	rotation_start 0
+	position 0 0 15 0 0 15
+	// position 0 0 -1 0 0 -1s
+	period 0
+	scale_start 0
+	scale_end 600 650
+	color_start 0.1 0.1 0.1 0.1
+	color_end  0.1 0.1 0.1 0.1
+	velocity_angles 0 0 0 360 360 0
+	speed_start 300
+	speed_end 40
+	auto_orient_3d true
+	aspect_start 1.4 1.5
+	aspect_end 0.9 0.7
+	perspective_radius 110
+	scale_timeline 0=0,l;0.75=1.2,l;1=0,l
+	range 0
+}
+
+gl_smoke_explosion_2 
+{
+	map particle_sheet3.png
+	region s3_explosion_03_anim
+    animation_speed 2
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .2
+	fade_out 0.1
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 250
+	color_start 12 12 2 1 
+	color_end  20 1 0.25 1
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	fade_in 1
+	perspective_radius 110
+	scale_timeline 0=0,l;0.75=1.2,l;1=0,l
+	range 0
+}
+
+gl_explosion_ring_1 
+{
+	
+	map particle_sheet3.png
+	region s3_explosion02_333
+	animation_speed 13
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .3
+	fade_out 0.1
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 100
+	scale_end 400
+	color_start 12 12 2 1 
+	color_end  20 1 0.25 0.5
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	fade_in 1
+	perspective_radius 110
+	scale_timeline 0=0,l;0.6=0.8,l;1=1,l
+	displacement true 0.5 0.004 50 0.25
+	range 0
+}
+
+gl_explosion_ring_2 gl_explosion_ring_1
+{
+	animation_speed 15
+	scale_start 0
+	scale_end 280
+		lifetime .26
+	rotation_start 0 360
+	range 0
+}
+
+gl_explosion_ring_3 gl_explosion_ring_1
+{
+	animation_speed 14
+	scale_start 0
+	scale_end 160
+	animation_speed 12
+		lifetime .30
+	rotation_start 0 360
+	range 0
+}
+
+
+gl_explosion_center_1
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20
+	fade_out 0.10
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 150
+	scale_end 300
+	color_start  10 10 10 1
+	color_end  20 8 0.25 1
+	rotation_start 0 180
+	hard_edges true
+	//rotation_end 0 360
+	fade_in 1
+    perspective_radius 110
+	scale_timeline 0=0,l;0.75=0.5,l;1=0,l
+	range 0
+}
+
+gl_explosion_center_2 gl_explosion_center_1
+{
+	region s3_rl_muzzle_2
+	lifetime 0.15
+	delay 0.05
+	scale_end 80
+	range 0
+}
+
+gl_explosion_center_3 gl_explosion_center_1
+{
+	region s3_rl_muzzle_2
+	color_end  20 1 0.25 1
+	scale_end 200
+	range 0
+}
+
+gl_impact_explosion_1
+{
+	map particle_sheet3.png
+	region s3_explosion01_9
+	animation_speed 20
+	animation_start 0	
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.25
+	fade_in 1
+	fade_out 0.05
+	rotation_start 0
+	position 0 0 8 0 0 8
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start  4 4 1 1
+	color_end  16 .8 .1 1
+	velocity_angles 10 0 0 110 360 0
+	speed_start 200 300
+	speed_end 300 350
+	auto_orient_3d true
+	scale_start 150
+	scale_end 350 280
+	hard_edges true
+	perspective_radius 110
+	scale_timeline 0=0,l;0.75=0.5,l;1=0,l
+	range 0
+}
+
+gl_impact_explosion_2 gl_impact_explosion_1
+{
+    velocity_angles 130 0 0 230 360 0
+	range 0
+}
+
+
+gl_impact_explosion_3 gl_impact_explosion_1
+{
+    velocity_angles 250 0 0 350 360 0
+	range 0
+}
+
+gl_impact_explosion_inner_01 gl_impact_explosion_1
+{
+    velocity_angles 10 0 0 110 360 0
+	scale_start 20 24
+	scale_end 120 160
+	speed_start  400
+	speed_end 100
+	range 0
+}
+
+gl_impact_explosion_inner_02 gl_impact_explosion_1
+{
+    velocity_angles 130 0 230 360 0
+	scale_start 20 24
+	scale_end 120 160
+	speed_start  400
+	speed_end 100
+	range 0
+}
+
+gl_impact_explosion_inner_03 gl_impact_explosion_1
+{
+    velocity_angles 250 0 350 360 0
+	scale_start 20 24
+	scale_end 120 160
+	speed_start  400
+	speed_end 100
+	range 0
+}
+
+gl_explode_spark
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 25
+	max_emissions 25
+	lifetime 0.2
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 15 15 0.25 1
+	color_end  8 2 0.25 1
+	position 0 0 0  
+    scale_start 0
+    scale_end 40 50
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 600
+	speed_end 300
+	auto_orient_3d true
+	aspect_start 1.4 1.5
+	aspect_end 0.9 0.7
+	hard_edges true
+	perspective_radius 110
+	range 0
+}
+
+gl_explode_ember
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 50
+	max_emissions 50
+	lifetime 0.65
+	fade_in 1
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 4 2 0.25 1
+	color_end  4 2 0.25 1
+	position 0 0 0  
+    scale_start 10 20
+    scale_end 5
+    rotation_start 0 360
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 600
+	speed_end 250
+	drag 1000
+	auto_orient_3d true
+	hard_edges true
+	perspective_radius 110
+	range 0
+}
+
+gl_explode_flash01
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime .2
+	fade_out 0.1
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 0
+	scale_end 250
+	color_start 12 12 2 1 
+	color_end  20 1 0.25 1
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 110
+	range 0
+}
+
+gl_impact_light base_light_impact
+{
+	lifetime 0.085
+	system_light_radius 300
+	system_light_intensity 10
+	system_light_color 0.8 0.5 0.25 
+	system_light_falloff 0
+	velocity 0 0 0
+	perspective_radius 110
+	range 0
+}
+gl_explode_light base_light_impact
+{
+	
+	lifetime 0.085
+	system_light_radius 350
+	system_light_intensity 15
+	system_light_color 0.8 0.5 0.25 
+	system_light_falloff 0
+	velocity 0 0 0
+	perspective_radius 110
+	range 0
+}
+
+gl_distortion
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20
+	fade_out 0.10
+	period 0
+	turbulence 60 1
+	scale_start 0
+	scale_end 1
+	color_start  10 10 10 1
+	color_end  20 8 0.25 1
+	rotation_start 0 180
+	hard_edges true
+	//rotation_end 0 360
+    displacement true 1 0.004 10 0.2
+	perspective_radius 110
+	range 0
+}
+
+gl_smoke_center_1
+ {
+	 	
+	map particle_sheet3.png
+	region s3_smoke01_41
+	animation_speed 5
+	animation_start 0
+	blend alpha
+	max_particles 1
+	max_emissions 1
+	lifetime 1
+	fade_in 2
+	fade_out 0.0
+	rotation_start 00
+	
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start 0.8 0.5 0 1
+	color_end  0.1 0.1 0.1 0.1
+
+	scale_start 300
+	scale_end 1200
+	velocity_angles 0 0 0 360 360 0
+	auto_orient_3d true
+	speed_start 100
+	speed_end  20
+	perspective_radius 110
+	range 0
+}
+gl_smoke_center_2 gl_smoke_center_1
+{
+
+	scale_end 525
+	range 0
+	
+}
+gl_floor_smoke_impact_center
+ {
+	map explosion.png
+	region explosion_smoke
+	animation_speed 13
+	animation_start 0
+	blend alpha
+	period 
+	
+	max_particles 4
+	max_emissions 4
+	lifetime 0.6
+	fade_in 1
+	fade_out 0.0
+	rotation_start 0
+	position 0 0 1
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start 0.8 0.8 0.8 0.5
+	color_end  0.1 0.1 0.1 0.0
+	emitter line 0 0 1
+	scale_start 300
+	scale_end 800
+	aspect_start 1
+	aspect_end 0.8
+	auto_orient_3d true
+	perspective_radius 110
+	range 0
+}
+gl_explode_flash02
+{
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_6
+	 map particle_sheet5.png
+	region  explosion_ring_1
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 2 
+	max_emissions 2
+	lifetime .32
+	fade_out 0.0
+	fade_in 1
+	period 0
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 40
+	scale_end 250
+	color_start 12 4 2 1 
+	color_end  4 1 0.1 0
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 110
+	scale_timeline 0=0,l;0.5=0.8,l;1=1,l
+	range 0
+}
+gl_explode_flash03 gl_explode_flash02
+{
+	map particle_sheet3.png
+	region s3_plasma_47
+	max_particles 1 
+	max_emissions 1
+	lifetime .27
+	turbulence 60 1
+	scale_start 50
+	scale_end 300
+	scale_timeline 0=0,l;0.5=0.8,l;0.6=1.0,l;1=1,l
+	range 0
+}
+gl_explode_flash04 gl_explode_flash02
+{
+	map particle_sheet3.png
+	region s3_plasma_53
+	max_particles 1 
+	max_emissions 1
+	lifetime .3
+	delay 0.05
+	scale_start 100
+	scale_end 700
+	color_start 3 2 0.5 1 
+	color_end  1 0.5 0.25 0
+	hard_edges true
+	//rotation_end 0 360
+
+	scale_timeline 0=0.5,l;0.5=0.85,l;1=1,l
+	range 0
+}
+gl_explode_ember_01
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 20
+	max_emissions 20
+	lifetime 0.5 0.8
+	blend add
+	period 0
+		delay 0.0
+	color_start 15 5 0.25 1
+	color_end  8 2 0 0
+	position 0 0 0  
+    scale_start 5 7
+    scale_end 7 20
+    rotation_start 0 360
+    fade_out 0.00
+	fade_in 1
+	velocity_angles 0 0 0 360 360 0
+	speed_start 300
+	speed_end 10 20
+	auto_orient_3d true
+	aspect_start 1.4 1.5
+	aspect_end 0.9 0.7
+	hard_edges true
+	perspective_radius 110
+		scale_timeline 0=0,l;0.8=1,l;1=0.8,l
+		angular_speed_start 10000
+	range 0
+}
+gl_explode_ember_02 gl_explode_ember_01
+{
+	lifetime 0.5 0.7	
+	color_start 10 5 0.25 1
+	color_end  6 2 0 0
+	speed_start 300
+	speed_end 50 75	
+}
+	gl_explode_ember_03
+{
+	// map particle_sheet3.png
+	// region s3_rl_muzzle_40
+		map particle_sheet5.png
+	region flame
+	animation_speed 10
+	animation_start 10
+	max_particles 6
+	max_emissions 6
+	lifetime .6
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.01	
+	color_start 4 2 0 1
+	color_end  4 0 0 0  2 0 0 0
+	//position -1 0 0   
+    scale_start 60
+    scale_end 5 10
+    rotation_start 0
+    fade_out 0.2
+	velocity_angles 1 1 0 359 359 0
+	speed_start 300	
+	speed_end 40
+	auto_orient true
+	aspect_start 2 
+	aspect_end 1
+	//acceleration 0 -10 0 0 -2 0
+}
+gl_explode_spark
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_4
+	animation_speed 40
+	animation_start 0
+	max_particles 30
+	max_emissions 30
+	lifetime 0.3 0.6
+	fade_in 1
+	delay 0.05
+	blend add
+	fade_out 0.00
+	period 0
+	color_start 15 15 0.25 1
+	color_end  8 2 0.25 0.0
+	position 0 0 0  
+    scale_start 0
+    scale_end 25 30
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 300 150
+	speed_end 50
+	auto_orient_3d true
+	aspect_start 1.4 1.5
+	aspect_end 0.5 0.3
+	hard_edges true
+	perspective_radius 110
+	range 0
+}
+
+gl_explode_spark_2 gl_explode_spark
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	max_particles 20
+	max_emissions 20
+	lifetime 0.2 0.6
+    scale_end 5 10
+	speed_end 50 100
+	aspect_start 0.5 0.7
+	aspect_end 0.1 0.05
+
+}
+gl_explosion_smoke
+ {
+	map explosion.png
+	region explosion_smoke
+	animation_speed 16
+	animation_start 0
+	blend alpha
+	period 
+	delay 0
+	max_particles 1
+	max_emissions 1
+	lifetime 2 
+	fade_in 0.5
+	fade_out 1
+	rotation_start -45 45
+	position 0 0 1
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start 0.6 0.3 0 0.8
+	color_end  0.2 0.2 0.2 0.1
+	emitter line 0 0 1
+	scale_start 100
+	scale_end 600
+	aspect_start 1
+	aspect_end 0.8
+	auto_orient_3d true
+	perspective_radius 100
+	scale_timeline 0=0,l;0.1=1,l;1=1,l
+	range 0
+}
+//IMPACT
+gl_impact_v2
+{
+	  subsystem gl_smoke_impact_1 0 1.25
+	 	
+		   subsystem gl_smoke_explosion0 0 1.25
+		 
+	  subsystem explode_light 0.02 2.2
+	  //subsystem explode_light doesn't seem to currently exist in the files
+	 subsystem gl_explode_spark 0 1.25
+	 subsystem gl_explosion_ring_1 0 1.25
+	
+	 subsystem gl_explosion_center_1 0 1.25
+	  subsystem gl_explosion_center_2  0 1.25
+	 	  subsystem gl_explosion_center_3 0 1.25
+	  subsystem gl_impact_explosion_1  0 1.25
+	  subsystem gl_impact_explosion_2  0 1.25
+	  subsystem gl_impact_explosion_3  0 1.25
+ subsystem gl_impact_explosion_inner_01  0 1.25
+  subsystem gl_impact_explosion_inner_02 0 1.25
+   subsystem gl_impact_explosion_inner_03 0 1.25
+   
+	  
+	 subsystem gl_explode_flash01 0 1.25
+	  // subsystem gl_light
+	   subsystem gl_impact_light
+	   subsystem gl_explode_light
+	////subsystem gl_distortion
+	 subsystem gl_smoke_center_1
+	 subsystem gl_smoke_center_2
+	subsystem gl_explosion_smoke
+subsystem gl_explode_spark
+	 subsystem gl_explode_spark_2
+	 subsystem gl_explode_ember_01 0 0.95
+	 subsystem gl_explode_ember_02 0 0.95
+	 subsystem gl_explode_ember_03
+	
+	
+		subsystem gl_explode_flash02 0 1.1
+	subsystem gl_explode_flash03 0 1.1
+subsystem gl_explode_flash04 0 1.1
+}
+
+

@@ -1,0 +1,828 @@
+
+position
+ {
+	 	position 0 -5 0		
+
+}
+death_skull 
+ {
+	 	
+	map particle_sheet5.png
+	region skull
+	animation_speed 10
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime .75
+	fade_in 0
+	fade_out 0.0
+	rotation_start 90 
+	
+	
+	period 0
+	color_start 6 1 0.5 1
+	color_end 6	 1 0.5 0.1
+
+	scale_start 0	
+	scale_end 130
+	aspect_start 1
+	aspect_end 1
+	auto_orient_3d true
+scale_timeline 0=0,l;0.2=0,l;0.3=1,l;0.5=1,l;1=1,l
+	range 0
+}
+death_skull_2
+ {
+	 	
+	map particle_sheet5.png
+	region skull_8
+	blend add
+	max_particles 1
+	max_emissions 1
+	delay 0.5
+	lifetime .75
+	fade_in 0.2
+	fade_out 0.0
+	rotation_start 90 
+	period 0
+	color_start 6 1 0.5 0.1
+	color_end 6	 1 0.5 0
+
+	scale_start 130	
+	scale_end 110
+	aspect_start 1
+	aspect_end 1
+	auto_orient_3d true
+
+	range 0
+}
+
+
+
+death_ring_1 
+{
+	 map particle_sheet5.png
+	animation_speed 16
+	 region explosion_ring_5
+
+	blend add
+	//animation_speed 24
+	max_particles 2 
+	max_emissions 2
+	lifetime 0.5
+	fade_out 0.0
+	fade_in 1
+	period 0
+	delay 0.075
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 200
+	scale_end 300
+	color_start 3 3 1 1
+	color_end 6 0 0 0
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	//scale_timeline 0=0,l;0.5=0.7,l;0.8=1,l;1=1,l
+	range 0
+}
+
+death_oil_splash
+{
+	 map oil_splash.png
+	animation_speed 22
+	 region oil_splash
+
+	blend add
+	//animation_speed 24
+	max_particles 1 
+	max_emissions 1
+	lifetime 0.75
+	fade_out .5
+	fade_in 0
+	period 0
+	delay 0.
+	turbulence 60 1
+	position 0 0 -10 
+	scale_start 125
+	scale_end 250
+	
+	 color_start 7 0 0 1 
+	 color_end 2 1 0 0
+	rotation_start 180
+	hard_edges true
+	aspect_start 1
+	aspect_end 1.
+	//rotation_end 0 360
+	//scale_timeline 0=0,l;0.5=0.3,l;0.8=1,l;1=1,l
+	range 0
+	
+}
+death_oil_splash_2 death_oil_splash
+{
+	blend alpha
+	color_start 5 2 1 1
+	color_end 1 0 0 0.0	
+}
+
+death_sparks
+{
+	 map particle_sheet5.png
+	animation_speed 10
+	 region explosion_lines
+
+	blend add
+	//animation_speed 24
+	max_particles 1 
+	max_emissions 1
+	lifetime 0.5
+	fade_out 0.0
+	fade_in 1
+	period 0
+	delay 0.075
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 200
+	scale_end 250		
+		color_start 4 1 0 1
+	color_end  4 0 0 1
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	//scale_timeline 0=0,l;0.5=0.7,l;0.8=1,l;1=1,l
+	range 0
+}
+death_sparks2
+{
+	 map particle_sheet5.png
+	animation_speed 10
+	 region explosion_ring_6
+
+	blend add
+	//animation_speed 24
+	max_particles 1 
+	max_emissions 1
+	lifetime 0.5
+	fade_out 0.0
+	fade_in 1
+	period 0
+	delay 0.1
+	turbulence 60 1
+	position 0 0 1 0 0 1
+	scale_start 250
+	scale_end 250		
+		color_start 10 2 0 1
+	color_end  10 0 0 1
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	//scale_timeline 0=0,l;0.5=0.7,l;0.8=1,l;1=1,l
+	range 0
+	  displacement true 1 0.004 3.75 0.1
+}
+	death_sparks3
+{
+	delay 0.05
+	map particle_sheet5.png
+	region  spark_line
+	animation_speed 10
+	animation_start 0
+	max_particles 25
+	max_emissions 25
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 10 1 0 1
+color_end 8 0 0 0
+	position 0 0 0  
+    scale_start 20
+    scale_end 40
+    rotation_start 0
+    fade_out 0.1
+	velocity_angles 0 0 0 360 360 0
+	speed_start 300
+	speed_end 10
+	auto_orient_3d true
+	aspect_start 0.5 0.7
+	aspect_end 0.3 0.2
+	hard_edges true
+}
+death
+{
+subsystem death_skull
+subsystem death_skull_2
+subsystem death_ring_1
+subsystem death_oil_splash
+//subsystem death_oil_splash_2
+subsystem death_sparks
+subsystem death_sparks2
+subsystem death_sparks3
+
+}
+
+
+// death_smokeb
+// {
+	// map effects1.png
+	// region r_smoke_new	
+	// animation_speed 30
+	// animation_start 
+	// // geometry directional
+	// blend alpha
+	// max_particles 10
+	// max_emissions 10
+	// lifetime 1
+	// fade_in 0.1
+	// fade_out 0.999
+	// rotation_start 0 360
+	// position 0 0 0 0 0 0
+	// // position 0 0 -1 0 0 -1s
+	// period 0
+	// velocity -50 -50 50 50 50 -50
+	// color_start 0.6 0.6 0.6 1
+	// color_end -0.1 -0.2 -0.2 0.2
+	// emitter line 0 0 1
+	// scale_start 200
+	// scale_end 250
+// }
+
+// death_spark_3 base_spark_drag
+// {
+	// animation_speed 30
+	// lifetime 0.15
+	// color_start  0 0.85 0.93 1
+	// color_end  0 0.85 0.93 1
+	// scale_start 50
+	// scale_end 150
+// }
+// death_sparks
+// {
+	// map particle_sheet1.png
+	
+	// region r_spark_ruzzle_2
+	// animation_speed 25
+	// animation_start 0
+	// blend add
+	// max_particles 32
+	// max_emissions 32
+	// lifetime 0.4 0.7
+	// fade_in 0.25
+	// period 0
+	// emitter ellipsoid 10 20
+	// velocity 250 250 200 -250 -250 200
+	// absolute_acceleration true
+	// acceleration 0 -1700 0 0 -1700 0
+	// turbulence 60 1
+	// position 0 0 -1 0 0 -1
+	// scale_start 4 3
+	// scale_end 20
+	// color_start  0 0.85 0.93 1
+	// color_end  0 0.85 0.93 1
+	// rotation_start 0
+	// rotation_end 180
+	// auto_rotate true
+	// auto_stretch true
+	// aspect_start 0.05
+	// rotation_start 90
+	// aspect_end 1
+// }
+
+// death_smoke6 base_smoke_explosion
+// {
+	// sync_group 1
+	// rotation_start 0 80
+	// scale_start 200 210
+	// scale_end 325 300
+// }
+
+
+// death_smoke7 base_smoke_explosion
+// {
+	// sync_group 2
+	// rotation_start 120 180
+	// scale_start 190 200
+	// scale_end 300 310
+// }
+
+// death_smoke8 base_smoke_explosion
+// {
+	// sync_group 3
+	// lifetime 0.40
+	// fade_in 0.50
+	// fade_out 0.60
+	// rotation_start 90 180
+	// scale_start 100
+	// scale_end 150
+// }
+
+// death_smoke9 base_smoke_explosion
+// {
+	// sync_group 4
+	// lifetime 0.60
+	// fade_in 0.50
+	// fade_out 0.60
+	// rotation_start 180 360
+	// scale_start 80
+	// scale_end 250
+// }
+
+// death_smoke10 base_smoke_explosion
+// {
+	// sync_group 5
+	// rotation_start 200 300
+	// scale_start 130 180
+	// scale_end 260 270 
+// }
+
+// death_smoke_big base_smoke_explosion
+// {
+	// animation_start 0.002
+	// lifetime 0.90
+	// fade_in 0.30
+	// fade_out 0.9
+	// rotation_start 0 360
+	// scale_start 100
+	// scale_end 325
+
+// }
+
+// explosion_6 base_explosion
+// {
+	// region r_electric_explosion
+	// sync_group 1
+	// rotation_start 0 80
+	// scale_start 50 
+	// scale_end 350 400
+	// blend add
+	// color_start  1 1.4 1.86 1
+	// color_end  1 1.6 1.8 0.1
+	// //NOTE displacement, don't remove!
+	// displacement true
+// }
+
+// explosion_7 base_explosion
+// {
+	// region r_electric_explosion
+	// sync_group 2
+	// rotation_start 120 170
+	// scale_start 60
+	// scale_end 360 410
+	// color_start  1 1.4 1.86 1
+	// color_end  1 1.6 1.8 0.1
+// }
+
+// explosion_8 base_explosion
+// {
+	// region r_electric_explosion
+	// animation_speed 20
+	// sync_group 3
+	// lifetime 0.30
+	// blend add
+	// rotation_start 90 180
+	// scale_start 40 
+	// scale_end 200
+	// color_start  1 1.4 1.86 1
+	// color_end  1 1.6 1.8 0.1
+// }
+
+// explosion_9 base_explosion
+// {
+	// region r_electric_explosion
+	// sync_group 4
+	// fade_out 0.30
+	// blend add
+	// rotation_start 170 360
+	// scale_start 35
+	// scale_end 350
+	// color_start  1 1.4 1.86 1
+	// color_end  1 1.6 1.8 0.1
+// }
+
+// explosion_10 base_explosion
+// {
+	// region r_electric_explosion
+	// sync_group 5
+	// rotation_start 200 300
+	// blend add
+	// scale_start 65
+	// scale_end 380 410
+	// color_start  1 1.4 1.86 1
+	// color_end  1 1.6 1.8 0.1
+// }
+
+// explosion_inner base_explosion
+// {
+	// region r_electric_explosion
+	// lifetime 0.10
+	// fade_in 0 
+	// fade_out 0.30
+	// rotation_start 0 80
+	// scale_start 50
+	// scale_end 50
+	// color_start  0 0.85 0.93 1
+	// color_end  1 0.5 0 1
+// }
+// explosion_fire base_explosion
+// {
+	// map particle_sheet1.png
+	// region r_electric_explosion
+	// animation_speed 16
+	// animation_start 0
+	// blend max
+	// max_particles 2 3
+	// max_emissions 3
+	// lifetime 0.45
+	// fade_in 0.1
+	// fade_out 999
+	// rotation_start 90 170
+	// position 0 0 15 0 0 15
+	// period 0
+	// color_start  0 0.85 0.93 1
+	// color_end  1 0.5 0 1
+	// emitter line 0 0 6
+	// scale_start 30 50 
+	// scale_end 200 300
+// }
+
+// explosion_fire2 base_explosions
+// {
+	// map particle_sheet1.png
+	// region r_explosion_part4
+	// animation_speed 18
+	// animation_start 
+	// blend max
+	// max_particles 1 2
+	// max_emissions 2 2
+	// lifetime 0.40
+	// fade_in 0.1
+	// fade_out 999
+	// rotation_start 0 1
+	// position 0 0 15 0 0 15
+	// period 0
+	// color_start  0 0.85 0.93 1
+	// color_end  1 0.5 0 1
+	// emitter line 0 0 1
+	// scale_start 70 80
+	// scale_end 300 350
+// }
+
+// explosion_inner_death base_explosion
+// {
+	// map particle_sheet1.png
+	// region r_explosion_part2
+	// animation_speed 15
+	// animation_start 0.999
+	// blend add
+	// max_particles 2
+	// max_emissions 2
+	// lifetime 0.30
+	// fade_in 0 
+	// fade_out 0.30
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start  0 0.85 0.93 1
+	// color_end  1 0.5 0 1
+	// emitter line 0 0 1
+	// scale_start 50
+	// scale_end 100
+// }
+
+// death_barrel
+// {
+	// map particle_sheet1.png
+	// region r_explosion_ring
+	// animation_speed 13
+	// animation_start 0
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.20 0.20
+	// fade_in 0
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1
+	// period 0
+	// color_start  0 0.85 0.93 1
+	// color_end  1 0.5 0 1
+	// emitter line 0 0 1
+	// scale_start 150
+	// scale_end 250
+// }
+
+// death_spark
+// {
+	// map particle_sheet1.png
+	// region r_spark_ruzzle_1
+	// animation_speed 20
+	// animation_start 0
+	// blend add
+	// max_particles 2
+	// max_emissions 3
+	// lifetime 0.15 0.15
+	// fade_in 0
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1
+	// period 0
+	// color_start  0 0.85 0.93 1
+	// color_end  1 0.5 0 1
+	// emitter line 0 0 1
+	// scale_start 150
+	// scale_end 250
+// }
+
+// embers_death
+// {
+	// // geometry quad
+	// map particle_sheet1.png
+	// region r_embers2
+	// animation_start 
+	// animation_speed 10
+	// blend add
+	// max_particles 60
+	// max_emissions 60
+	// lifetime 1.9
+	// period 0
+	// fade_in 0.1
+	// velocity 120 132 120 -150 -122 -130
+	// fade_out 0.15 0.12
+	// // emitter array 0 0 10 768
+	// // emitter line 0 0 768
+	// position 80 80 80 -80 -80 -80
+	// rotation_start 0 360
+	// color_start  0 0.85 0.93 1
+	// color_end  1 0.5 0 1
+	// emitter line 0 0 1
+	// turbulence 1000
+	// scale_start 2 3
+	// scale_end 0 0
+	// drag 0.8
+// }
+
+// embers2_death
+// {
+	// // geometry quad
+	// map particle_sheet1.png
+	// region r_embers
+	// animation_start 
+	// animation_speed 10
+	// blend add
+	// max_particles 20
+	// max_emissions 20
+	// lifetime 1.9
+	// period 0
+	// fade_in 0.1
+	// velocity 120 132 120 -150 -122 -130
+	// fade_out 0.15 0.12
+	// // emitter array 0 0 10 768
+	// // emitter line 0 0 768
+	// position 80 80 80 -80 -80 -80
+	// rotation_start 0 360
+	// color_start  0 0.85 0.93 1
+	// color_end  1 0.5 0 1
+	// emitter line 0 0 1
+	// turbulence 1000
+	// scale_start 5
+	// scale_end 0 0
+	// drag 0.8
+// }
+
+// death_light base_light_impact
+// {
+	// map effects1.png
+	// region r_transparent
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.7
+	// fade_in 0.1
+	// velocity 0 0 0
+	// absolute_acceleration true
+	// acceleration 0 0 0 0 0 0
+	// fade_out 0.2
+	// period 0
+	// scale_start 325
+	// scale_end 325
+	// color_start  0 0.85 0.93 1
+	// color_end  1 0.5 0 1
+	// light_radius 325
+// }
+
+
+// death_ring_spark
+// {
+	// map particle_sheet1.png
+	// region r_electric_ring
+	// animation_speed 26
+	// animation_start 0
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.40
+	// fade_in 0.1
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start  3 3 5 1
+	// color_end  1 1 1 1
+	// emitter line 0 0 6
+	// scale_start 80 
+	// scale_end 100
+// }
+
+// daeth_spark 
+// {
+	// map particle_sheet1.png
+	// region r_electric_spark
+	// animation_speed 26
+	// animation_start 0.1
+	// blend add
+	// max_particles 3 5
+	// max_emissions 2 4
+	// lifetime 0.30
+	// fade_in 0.1s
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start  3 3 4 1
+	// color_end  1 1 1 1
+	// emitter line 0 0 6
+	// scale_start 50 100
+	// scale_end 200
+// }
+
+// death_spark_small
+// {
+	// map particle_sheet1.png
+	// region r_electric_spark_s
+	// animation_speed 26
+	// animation_start 0.1
+	// blend add
+	// max_particles 1 2
+	// max_emissions 2 3
+	// lifetime 0.30
+	// fade_in 0.1s
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start  1 1 1 1
+	// color_end  1 1 1 1
+	// emitter line 0 0 6
+	// scale_start 100
+	// scale_end 400
+// }
+
+// death_spark_big
+// {
+	// map effects1.png
+	// region r_flare_1
+	// animation_speed 26
+	// animation_start 0.1
+	// blend add
+	// max_particles 6
+	// max_emissions 6
+	// lifetime 0.15
+	// fade_in 0.1
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start  4 4 5 1
+	// color_end  1 1 1 1
+	// emitter line 0 0 6
+	// scale_start 10
+	// scale_end 50
+// }
+
+// death_spark_big2
+// {
+	// map effects1.png
+	// region r_flame4_a
+	// animation_speed 30
+	// animation_start 0.1
+	// blend add
+	// max_particles 6
+	// max_emissions 6
+	// lifetime 0.7
+	// fade_in 0.1
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start  0 0.7 0.9 0.9
+	// color_end  0 0 0  0
+	// emitter line 0 0 6
+	// scale_start 200
+	// scale_end 200
+// }
+
+// death_spark_small2
+// {
+	// map particle_sheet1.png
+	// region r_electric_spark_s
+	// animation_speed 26
+	// animation_start 0.1
+	// blend add
+	// max_particles 1 2
+	// max_emissions 2 3
+	// lifetime 0.30
+	// fade_in 0.1s
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start  1 1 1 1
+	// color_end  1 1 1 1
+	// emitter line 0 0 6
+	// scale_start 100
+	// scale_end 150
+// }
+
+// death_ring_spark
+// {
+	// map particle_sheet1.png
+	// region r_electric_ring
+	// animation_speed 26
+	// animation_start 0.1
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.40
+	// fade_in 0.1
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start  3 3 5 1
+	// color_end  1 1 1 1
+	// emitter line 0 0 6
+	// scale_start 100 
+	// scale_end 200
+// }
+
+// death_bigspark
+// {
+	// map particle_sheet1.png
+	// region r_spark_6
+	// animation_speed 26
+	// animation_start 0.1
+	// blend add
+	// max_particles 1
+	// max_emissions 1
+	// lifetime 0.1
+	// fade_in 0.1
+	// fade_out 999
+	// rotation_start 0 360
+	// position 0 0 15 0 0 15
+	// //position 0 0 -1 0 0 -1s
+	// period 0
+	// color_start  3 3 5 1
+	// color_end  1 1 1 1
+	// emitter line 0 0 6
+	// scale_start 300 
+	// scale_end 600
+
+// }
+
+// //IMPACT
+// death
+// {
+	// subsystem death_smoke6 0.02
+	// subsystem death_smoke7 0.02
+	// subsystem death_smoke8 0.02
+	// subsystem death_smoke9 0.02
+	// subsystem death_smoke10 0.02
+	// subsystem death_spark_3 0.02
+	// subsystem explosion_6 0.02
+	// subsystem explosion_7 0.02
+	// subsystem explosion_8 0.02
+	// subsystem explosion_9 0.02
+	// subsystem explosion_10 0.02
+	// subsystem explosion_inner_dead 0.02
+	// subsystem embers_death
+	// subsystem embers2_death
+	// subsystem death_spark 0.1
+	// subsystem death_spark_small 0.1
+	// // subsystem death_spark_big 0.1
+	// // subsystem death_spark_big2 0.1
+	// // subsystem death_spark_small2 0.1
+	// subsystem death_ring_spark 0.1
+	// subsystem death_bigspark 0.1
+// }

@@ -1,0 +1,254 @@
+//MUZZLE
+gl_muzzle_ring
+{
+	map particle_sheet3.png
+	region s3_explosion02_333
+	animation_speed 9
+	animation_start 5
+	max_particles 1
+	max_emissions 1
+	lifetime .35 0.25
+	fade_in 0
+	blend add
+	fade_out 999
+	period 0
+	color_start 1 1 0 1
+	color_end  2 0 0 1
+    scale_start 0
+    scale_end 5
+    
+    fade_out 0.2
+		//position 0.2 -0.2 -2
+}
+gl_muzzle_flash
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 13
+	animation_start 5
+	max_particles 1
+	max_emissions 1
+	lifetime .30 0.2
+	fade_in 0
+	blend add
+	fade_out 999
+	period 0
+	color_start 1 1 0 1
+	color_end  1 0 0 1 
+    scale_start 2
+    scale_end 7
+   rotation_start 0 360
+    fade_out 0.2
+		//position 0.2 -0.2 -2
+}
+gl_muzzle_flash_2 gl_muzzle_flash
+{
+	
+	lifetime 0.10 0.10
+	
+	color_start 20 10 1.2 1
+	color_end  20 2 1.2 1
+    scale_end 5
+	
+}
+gl_muzzle_flash_3 gl_muzzle_flash
+{
+	region s3_plasma_52
+	lifetime 0.1 0.12
+	
+	color_start 20 10 1.2 1
+	color_end  20 2 1.2 1
+    scale_end 3
+	
+}
+gl_muzzle_flash_4 gl_muzzle_flash
+{
+	region s3_plasma_53
+	lifetime 0.1 0.12
+	
+	color_start 20 10 1.2 1
+	color_end  20 2 1.2 1
+    scale_end 3
+	scale_start 2
+}
+gl_muzzle_spark
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_17
+	animation_speed 50
+	animation_start 0
+	max_particles 8
+	max_emissions 8
+	lifetime .20 .15
+	fade_in 0
+	
+	blend add
+	fade_out 0.1
+	period 0	
+	color_start 4 2 0.25 1
+	color_end  4 0 0.25 1
+    scale_start .1
+    scale_end 0.5
+    rotation_start 90
+    fade_out 0.2
+	velocity_angles 0 90 0 360 90 0
+	speed_start 4
+	speed_end 1
+	auto_orient true
+	aspect_start 1
+	aspect_end .5
+		//position 0.2 -0.2 -2
+}
+gl_muzzle_spark_2 gl_muzzle_spark
+{
+	region s3_rl_muzzle_4
+	
+    scale_end 0.5
+	aspect_end 0.5
+		speed_end 2
+}
+gl_muzzle_spark_3 gl_muzzle_spark
+{
+	region s3_rl_muzzle_4
+	
+    scale_end 0.5
+	aspect_end 0.2
+		speed_end 3
+}
+ gl_muzzle_smoke
+{
+	map particle_sheet3.png
+	region s3_smoke01_41
+	animation_speed 10
+	animation_start 0
+	blend alpha
+	max_particles 8
+	max_emissions 8
+	lifetime 0.5 0.4
+	fade_in 0.2
+	fade_out 0.4
+	rotation_start 90
+	// position 0 0 -1 0 0 -1s
+	period 0
+	scale_start 2
+	scale_end 8
+	color_start 1 1 1 0.5
+	color_end  1 1 1 0.1
+	velocity_angles 0 0 0 360 360 0
+	speed_start 3
+	speed_end 1
+	auto_orient true
+	aspect_start 1.4 1.5
+	aspect_end 0.9 0.7
+		//position 0.2 -0.2 -2
+}
+
+
+
+gl_muzzle_embers
+{
+	// geometry quad
+map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 10
+	max_emissions 10
+	lifetime 0.2
+	period 0
+	fade_in 0.1
+	speed_start 50
+	velocity_angles 8 8 15  -8 -8 15
+	fade_out 0.15 0.12
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	rotation_start 0 360
+	color_start  4 2 0 1
+	color_end  4 0 0 1
+	emitter line 0 0 1
+	turbulence 200
+	scale_start .5 0.25
+	scale_end 0 0
+	drag 0.8
+	//position 0.2 -0.2 -2
+}
+gl_muzzle_explosion_1
+{
+	map particle_sheet5.png
+	region ricochet_smoke 
+	animation_speed 32	
+	animation_start 0
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2 0.15
+	fade_in 0.1
+	blend add
+	fade_out 0.1
+	period 0	
+	color_start 1.5 1.5 0 0.5
+	color_end  1 0 0 0
+	position 0 0 0  
+    scale_start 3
+    scale_end 3 3.5
+    rotation_start 90
+    fade_out 0.2
+	velocity_angles 20 90 0 100 90 0
+	speed_start 2
+	speed_end 0
+	auto_orient true
+	aspect_start 1
+	aspect_end 1.2 1
+	
+
+}
+gl_muzzle_explosion_2 gl_muzzle_explosion_1
+{
+
+	velocity_angles 0 140 0 220 90 0
+
+}
+gl_muzzle_explosion_3 gl_muzzle_explosion_1
+{
+
+	velocity_angles 0 240 0 340 90 0
+
+}
+gl_muzzle
+{	
+	subsystem gl_muzzle_ring
+	 subsystem gl_muzzle_flash 
+	 subsystem gl_muzzle_flash_2 
+	  subsystem gl_muzzle_flash_3 
+	  subsystem gl_muzzle_flash_4
+	 subsystem gl_muzzle_spark 
+	 subsystem gl_muzzle_spark_2 
+	 subsystem gl_muzzle_spark_3
+	 subsystem gl_muzzle_smoke
+	subsystem gl_muzzle_explosion_1
+		subsystem gl_muzzle_explosion_2
+			subsystem gl_muzzle_explosion_3
+
+	 subsystem gl_muzzle_embers 
+}
+
+gl_muzzle_3p
+{	
+	subsystem gl_muzzle_ring	 0 6
+	 subsystem gl_muzzle_flash 0 5
+	 subsystem gl_muzzle_flash_2 0 4
+	  subsystem gl_muzzle_flash_3 0 3 
+	  subsystem gl_muzzle_flash_4 0 5
+	 subsystem gl_muzzle_spark 0 7 
+	 subsystem gl_muzzle_spark_2 0 7 
+	 subsystem gl_muzzle_spark_3 0 7
+	 subsystem gl_muzzle_smoke 0 7
+
+
+
+
+	 subsystem gl_muzzle_embers 
+}
+
+
+	

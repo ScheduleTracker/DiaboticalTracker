@@ -1,0 +1,109 @@
+//VOIDCANNON BULLET
+bl_bullet_center_1
+{
+	advance 1
+	map particle_sheet3.png
+	geometry quad
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 16
+	max_emissions 0
+	lifetime 0.7 0.6
+	// period 0.05
+	fade_in 0.05
+	fade_out 0.1 0.05
+	scale_start 75
+	scale_end 30
+	color_start 0.19 2 .75 1
+	color_end  0.380 1.2 1 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 10 -8 16
+	turbulence 400 5
+} 
+
+bl_bullet_center_2 bl_bullet_center_1
+{
+	scale_start 25
+} 
+bl_bullet_ring_1
+{
+	advance 1
+	map particle_sheet3.png
+	geometry quad
+	region s3_rl_muzzle_39
+	blend add
+
+	max_particles 16
+	max_emissions 0
+	lifetime 0.7 0.6
+	// period 0.05
+	fade_in 0.05
+	fade_out 0.1 0.05
+	scale_start 25
+	scale_end 50
+		color_start 0.19 2 .75 1
+	color_end  0.380 1.2 1 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 10 -8 16
+	turbulence 400 5
+} 
+bl_bullet_ring_2
+{
+	advance 1
+	map particle_sheet3.png
+	geometry quad
+	region s3_rl_muzzle_29
+	blend add
+
+	max_particles 16
+	max_emissions 0
+	lifetime 0.7 0.6
+	// period 0.05
+	fade_in 0.05
+	fade_out 0.1 0.05
+	scale_start 25
+	scale_end 80
+		color_start 0.19 2 .75 1
+	color_end  0.380 1.2 1 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 10 -8 16
+	turbulence 400 5
+} 
+
+ 
+
+vc_light base_light_impact
+{
+	lifetime 5
+	system_light_radius 50
+	velocity 0 0 0
+	//position 0 50 0
+	color_start 0.8 0.5 0	
+}
+
+//SUBSYSTEM BULLET
+
+bl_bullet
+{
+
+		subsystem bl_bullet_center_1
+	subsystem bl_bullet_center_2
+	subsystem bl_bullet_ring_1
+		subsystem bl_bullet_ring_2
+		subsystem bl_bullet_ring_3
+		subsystem bl_bullet_ring_4
+		subsystem bl_bullet_ring_5
+		subsystem bl_bullet_ring_6
+		subsystem bl_bullet_ring_7
+		subsystem bl_bullet_ring_8
+
+	
+	subsystem vc_light 
+	
+}

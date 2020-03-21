@@ -1,0 +1,239 @@
+pre_exec
+{
+   //editor_layer 1
+   //video_fov 70
+   sound_volume 0
+   echo Starting recording
+   devop movie_mode
+}
+post_exec
+{
+   editor_layer 1
+   video_fov 70
+   sound_volume 0.1
+   //stop
+   echo "Done!"
+}
+
+///// POSES
+
+movie pose1
+{
+    dolly dolly_pose1
+	dolly dolly_pose1b
+	sync_animation prop_pose1
+	layer 2
+	duration 3
+}
+movie pose2
+{
+    dolly dolly_pose2
+	dolly dolly_pose2b
+	sync_animation prop_pose2
+	layer 2
+	duration 3
+}
+movie pose3
+{
+    dolly dolly_pose3
+	dolly dolly_pose3b
+	sync_animation prop_pose3
+	layer 2
+	duration 3
+}
+movie pose4
+{
+    dolly dolly_pose4
+	dolly dolly_pose4b
+	sync_animation prop_pose4
+	layer 2
+	duration 3
+}
+
+/// INTRO
+movie intro
+{
+    dolly dolly_intro1
+	dolly dolly_intro2
+	dolly dolly_intro3
+    dolly dolly_intro4
+	dolly dolly_intro5
+	dolly dolly_intro6
+    dolly dolly_intro7
+	dolly dolly_intro8
+	//dolly dolly_intro9
+	easing s
+	duration 5
+}
+movie band
+{
+    dolly dolly_band_0
+	dolly dolly_band_4
+	easing l
+	duration 6
+}
+movie pickup
+{
+    demo movie5server
+	start 599
+	dolly dolly_pickup_m
+	dolly dolly_pickup_0
+    dolly dolly_pickup_1
+    dolly dolly_pickup_2
+    dolly dolly_pickup_3
+    dolly dolly_pickup_4
+	easing s
+	duration 9
+}
+movie aerial
+{
+    dolly dolly_air_1
+	dolly dolly_air_2
+	//dolly dolly_intro9
+	easing l
+	duration 2
+}
+movie band_intro
+{
+    dolly dolly_intro4
+    dolly dolly_intro3
+	dolly dolly_intro2
+	//dolly dolly_intro9
+	easing s
+	duration 3
+}
+
+/// MARKETING
+movie marketing_oldschool
+{
+    dolly dolly_oldschool_1
+	dolly dolly_oldschool_2
+	dolly dolly_oldschool_3
+    dolly dolly_oldschool_4
+	dolly dolly_oldschool_5
+	dolly dolly_oldschool_6
+    dolly dolly_oldschool_7
+	layer 3
+	easing s
+	duration 5
+}
+
+///3RD PERSON FRAGS
+
+movie frag1_server
+{
+	demo movie6server
+	dolly dolly_frag1
+	dolly dolly_frag2
+	dolly dolly_frag3
+	start 854.5
+	duration 7
+	skip true
+}
+
+movie frag5_server
+{
+	demo movie6server
+	start 1080
+	duration 3.4
+	dolly dolly_ar_1d
+	dolly dolly_ar_2a
+	dolly dolly_ar_2b
+	easing s
+	
+}
+
+/// FRAGS
+
+movie frag1_chase_to_airrocket_bandcorridor
+{
+	demo movie6
+	start 796
+	duration 8
+	skip true
+}
+
+//855
+movie frag2_rocket_bounce_to_airrocket_to_jumppad_to_air_rail_LARGEJUMPPAD
+{
+	demo movie5
+	start 212
+	duration 10
+	skip true
+}
+
+movie frag3_LG_to_TRIPLEKILL_TOPLEDGE_TO_SMALLJUMPPAD
+{
+	demo movie5
+	start 442
+	duration 17
+	skip true
+}
+
+movie frag4_AIRROCKET_SMALLJUMPPAD
+{
+	demo movie6
+	start 198
+	duration 7
+	skip true
+	
+}
+
+movie frag5_AIRROCKET_SMALLJUMPPAD_to_TOPLEDGE
+{
+	demo movie6
+	start 1020
+	duration 10
+	
+}
+
+movie frag6_DOUBLEDAMAGE_PICKUP_TO_SHOTGUN_KILL_LARGEJUMPPAD
+{
+	demo movie5
+	start 540
+	duration 6
+	
+}
+
+movie frag7_DOUBLEDAMAGE_SHOTGUN_RUN_LARGEJUMPPAD
+{
+	demo movie5
+	start 550
+	duration 10
+	
+}
+
+movie frag8_AIRORKCET_INTO_RAILGUN_SMALLJUMPPAD
+{
+	demo movie4
+	start 528
+	duration 6
+	
+}
+
+movie frag9_SWORDATTACK_ROBOTSHIP
+{
+	demo meleeattack
+	start 240
+	duration 6
+	
+}
+movie frag10_air_rocket
+{
+	demo movie5
+	start 40
+	duration 10
+	
+}
+
+//notes
+//movie6 started recording 55 seconds after movie6server
+
+
+movie endgame
+{
+	demo endgame
+	start 0
+	duration 80
+	framerate 23.976
+}

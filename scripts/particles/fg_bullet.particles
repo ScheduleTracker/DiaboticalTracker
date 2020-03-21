@@ -1,0 +1,33 @@
+fg_flame5
+{
+	advance 1
+	// animation_start 5 8
+	geometry quad
+	map effects1.png
+	region r_energy2
+	blend add
+	max_particles 10
+	max_emissions 0
+	lifetime 0.7 0.6
+	// period 0.05
+	fade_in 0.05
+	fade_out 0.1 0.05
+	scale_start 10
+	scale_end 20
+	color_start 1 0.1 0 1
+	color_end 1 0.1 0 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	color_start 2 0.5 0.15
+	color_end 2 0.5 0.15
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 400 5
+	range 0
+}
+
+
+fg_bullet
+{
+	subsystem fg_flame5 0 1.2
+}

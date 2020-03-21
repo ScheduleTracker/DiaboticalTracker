@@ -1,0 +1,506 @@
+implode_delay
+{
+    delay 1.0
+	range 0
+}
+implode_ball
+{
+    map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 1 
+	max_emissions 80
+	lifetime 0.045
+	fade_out 0.05
+	period 0.021
+	turbulence 60 1
+		position 0 0 0 
+	scale_start 0
+	scale_end 550 650
+	color_start 4 1 6  1
+	color_end  8 2 7
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 260
+	range 0
+}
+
+implode_ball_small
+{
+    map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 1 
+	max_emissions 80
+	lifetime 0.045
+	fade_out 0.05
+	period 0.021
+	turbulence 60 1
+		position 0 0 0 
+	scale_start 0
+	scale_end 400 450
+	color_start 4 1 6  1
+	color_end  8 2 7
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 260
+	range 0
+}
+
+implode_explosion_ring_1
+{
+    map particle_sheet3.png
+	region s3_rl_muzzle_5
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime 0.315
+	fade_out 0.05
+	period 0.0
+	turbulence 60 1
+		position 0 0 0 
+	scale_start 1800
+	scale_end 0
+	color_start 3 1 6 
+	color_end  2 0 1 1
+	rotation_start 0 360
+	hard_edges true
+	rotation_end 0 360
+	perspective_radius 260
+	range 0
+}
+implode_explosion_ring_1_delay implode_delay
+{
+    map particle_sheet3.png
+	region s3_rl_muzzle_5
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime 0.315
+	fade_out 0.05
+	period 0.0
+	turbulence 60 1
+		position 0 0 0 
+	scale_start 1800
+	scale_end 0
+	color_start 3 1 6 
+	color_end  2 0 1 1
+	rotation_start 0 360
+	hard_edges true
+	rotation_end 0 360
+	perspective_radius 260
+    range 0
+}
+implode_lines
+{
+	geometry quad
+	magnet -5.4 -5.2 -5 0 0 0 0
+	drag 0.5
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 100
+	max_emissions 100
+	lifetime 0.25
+	period 0.003
+	emitter ellipsoid 100 100 100 100 100 100
+	//position 1 1 1 -1 -1 -1
+    color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 5 10
+	scale_start 10
+	scale_end 1
+	perspective_radius 260
+	range 0
+}
+implode_lines_delay implode_delay
+{
+	geometry quad
+	magnet -5.4 -5.2 -5 0 0 0 0
+	drag 0.5
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 100
+	max_emissions 100
+	lifetime 0.25
+	period 0.003
+	emitter ellipsoid 100 100 100 100 100 100
+	//position 1 1 1 -1 -1 -1
+    color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 5 10
+	scale_start 10
+	scale_end 1
+	perspective_radius 260
+	range 0
+}
+	
+implode_lines_2
+{
+	geometry quad
+	magnet -12.5 -13 -12 0 0 0 0
+	drag 0.45
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 100
+	max_emissions 100
+	lifetime 0.25
+	period 0.0027
+	emitter ellipsoid 200 200 200 200 200 200
+	//position 1 1 1 -1 -1 -1
+	color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 200 10
+	scale_start 10
+	scale_end 1
+	perspective_radius 260
+	range 0
+}
+implode_lines_2_delay implode_delay
+{
+	geometry quad
+	magnet -12.5 -13 -12 0 0 0 0
+	drag 0.45
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 100
+	max_emissions 100
+	lifetime 0.25
+	period 0.0027
+	emitter ellipsoid 200 200 200 200 200 200
+	//position 1 1 1 -1 -1 -1
+	color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 200 10
+	scale_start 10
+	scale_end 1
+	perspective_radius 260
+	range 0
+}	
+implode_lines_3
+{
+	geometry quad
+	magnet -18 -19 -19.5 0 0 0 0
+	drag 0.5
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 100
+	max_emissions 100
+	lifetime 0.26
+	period 0.0027
+	emitter ellipsoid 265 265 265 265 265 265
+	//position 1 1 1 -1 -1 -1
+    color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 200 10
+	scale_start 10
+	scale_end 1
+	perspective_radius 260
+	range 0
+}
+implode_lines_3_delay implode_delay
+{
+	geometry quad
+	magnet -18 -19 -19.5 0 0 0 0
+	drag 0.5
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 100
+	max_emissions 100
+	lifetime 0.26
+	period 0.0027
+	emitter ellipsoid 265 265 265 265 265 265
+	//position 1 1 1 -1 -1 -1
+    color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 200 10
+	scale_start 10
+	scale_end 1
+	perspective_radius 260
+	range 0
+}
+
+implode_lines_edge
+{
+	geometry quad
+	magnet -1 -1 -1 0 0 0
+	drag 0.45
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 300
+	max_emissions 300
+	lifetime 0.35
+	period 0.00022
+	emitter ellipsoid 265 265 265 265 265 265
+	//position 1 1 1 -1 -1 -1
+    color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 200 200 200
+	scale_start 10
+	scale_end 0
+	perspective_radius 260
+	range 0
+}
+implode_lines_edge_delay implode_delay
+{
+	geometry quad
+	magnet -1 -1 -1 0 0 0
+	drag 0.45
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 300
+	max_emissions 300
+	lifetime 0.35
+	period 0.00022
+	emitter ellipsoid 265 265 265 265 265 265
+	//position 1 1 1 -1 -1 -1
+    color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 200 200 200
+	scale_start 10
+	scale_end 0
+	perspective_radius 260
+	range 0
+}
+implode_lines_constant
+{
+	geometry quad
+	magnet -1 -1 -1 0 0 0 0
+	drag 0.5
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 100
+	max_emissions 100
+	lifetime 1
+	period 0.003
+	emitter ellipsoid 200 200 200 200 200 200
+	//position 1 1 1 -1 -1 -1
+    color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 5 10
+	scale_start 5
+	scale_end 1
+	perspective_radius 260
+	range 0
+}
+implode_lines_constant2
+{
+	geometry quad
+	magnet -1 -1 -1 0 0 0 0
+	drag 0.5
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 100
+	max_emissions 100
+	delay 0.7
+	lifetime 1
+	period 0.003
+	emitter ellipsoid 200 200 200 200 200 200
+	//position 1 1 1 -1 -1 -1
+    color_start 4 1 6  1
+	color_end  8 2 7
+	turbulence 5 10
+	scale_start 5
+	scale_end 1
+	perspective_radius 260
+	range 0
+}
+implode_end_explosion
+{
+    map particle_sheet3.png
+	region s3_plasma_46
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime 0.17
+	fade_out 0.05
+	period 0.23
+	turbulence 60 1
+		position 0 0 0 
+	scale_start 0
+	scale_end 300
+    color_start 4 1 6  1
+	color_end  8 2 7
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 260
+	range 0
+}
+implode_end_explosion_delay implode_delay
+{
+    map particle_sheet3.png
+	region s3_plasma_46
+	blend add
+	max_particles 1 
+	max_emissions 1
+	lifetime 0.17
+	fade_out 0.05
+	period 0.23
+	turbulence 60 1
+		position 0 0 0 
+	scale_start 0
+	scale_end 300
+    color_start 4 1 6  1
+	color_end  8 2 7
+	rotation_start 0 360
+	hard_edges true
+	//rotation_end 0 360
+	perspective_radius 260
+	range 0
+}
+
+implosion_impact_light base_light_impact
+{
+	lifetime 1.7
+	system_light_radius 300
+	system_light_intensity 7
+	system_light_color 1 0.4 0.7
+	system_light_falloff 0
+	velocity 0 0 0
+	//position 0 50 0
+	color_start 0.8 0.65 0	
+	perspective_radius 260
+	range 0
+}
+
+implode_floor_lines
+{
+	map ring.png
+	//region s3_rl_muzzle_39
+	blend alpha
+
+    mesh models/plane2.fbx 20
+	geometry mesh
+
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3
+	// period 0.05
+	fade_in 0.05
+	fade_out 999
+	scale_start 1250
+	scale_end 0
+	//color_start 0.2 3 4 6
+	//color_end 0.2 3 4 6
+color_start 0.8 0.6 0.8
+	color_end  8 2 7 1
+	position 0 0 0
+	rotation_start 90 0
+	rotation_end 90 0
+	turbulence 400 5
+	color_accent true
+	range 0
+} 
+implode_floor_lines_delay 
+{
+	map ring.png
+	//region s3_rl_muzzle_39
+	blend alpha
+
+    mesh models/plane2.fbx 20
+	geometry mesh
+
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3	
+	period 1.1
+	fade_in 0.05
+	fade_out 999
+	scale_start 1250
+	scale_end 0
+	//color_start 0.2 3 4 6
+	//color_end 0.2 3 4 6
+color_start 0.8 0.6 0.8
+	color_end  8 2 7 1
+	position 0 0 0
+	rotation_start 90 0
+	rotation_end 90 0
+	turbulence 400 5
+	color_accent true
+	range 0
+	displacement true 0.5 -0.004 50 0.25	
+} 
+
+
+implode_distortion
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_31
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.20
+	fade_out 0.10
+	period 0
+	turbulence 60 1
+	scale_start 0
+	scale_end 1
+	color_start  10 10 10 1
+	color_end  20 8 0.25 1
+	rotation_start 0 180
+	hard_edges true
+	//rotation_end 0 360
+    displacement true 0.5 -0.004 50 0.25
+	perspective_radius 260
+	range 0
+}
+
+implode_distortion_2 implode_distortion
+{
+    displacement true 0.5 -0.004 30 0.25
+	range 0
+}
+
+implode_distortion_3 implode_distortion
+{
+    displacement true 0.5 -0.004 12 0.25
+	range 0
+}
+
+implode_distortion_end implode_distortion
+{
+    displacement true 0.5 0.004 5 0.25
+	range 0
+}
+ 
+    delay 0.25
+    //loose delay here probably for above
+
+implode_impact
+{
+	subsystem implode_lines
+	subsystem implode_lines_2
+	subsystem implode_explosion_ring_1
+	subsystem implode_lines_3
+	subsystem implode_lines_edge
+		subsystem implode_lines_delay
+	subsystem implode_lines_2_delay
+	subsystem implode_explosion_ring_1_delay
+	subsystem implode_lines_3_delay
+	subsystem implode_lines_edge_delay
+	subsystem implode_ball
+		subsystem implode_ball_small
+		subsystem implode_distortion
+		subsystem implode_distortion_2
+		subsystem implode_distortion_3
+		subsystem implode_distortion_end
+	subsystem implode_end_explosion
+		subsystem implode_end_explosion_delay
+		subsystem implode_floor_lines
+		subsystem implode_floor_lines_delay
+	subsystem implosion_impact_light
+	subsystem implode_lines_constant
+		subsystem implode_lines_constant2
+}

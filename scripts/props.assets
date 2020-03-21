@@ -1,0 +1,587 @@
+///
+
+asset tower
+{
+ material props_atlas
+}
+asset powerbox
+{
+ material props_atlas
+}
+asset box_1a
+{
+ material props_atlas
+}
+asset box_1b
+{
+ material props_atlas
+}
+asset box_2a
+{
+ material props_atlas
+}
+asset box_2b
+{
+ material props_atlas
+}
+asset box_3a
+{
+ material props_atlas
+}
+asset box_3b
+{
+ material props_atlas
+}
+asset box_3c
+{
+ material props_atlas
+}
+asset 
+{
+ material props_atlas
+}
+asset box_4a
+{
+ material props_atlas
+}
+asset box_4b
+{
+ material props_atlas
+}
+asset box_4c
+{
+ material props_atlas
+}
+asset 
+{
+ material props_atlas
+}
+asset box_5
+{
+ material props_atlas
+}
+asset 
+{
+ material props_atlas
+}
+asset tank
+{
+ material props_atlas
+}
+asset camera
+{
+ material props_atlas
+}
+asset fusebox
+{
+ material props_atlas
+}
+asset test_shaders
+{
+ material props_atlas
+}
+asset 
+{
+ material props_atlas
+}
+asset 
+{
+ material props_atlas
+}
+asset pipe_01
+{
+ material props_atlas
+}
+asset pipe_02
+{
+ material props_atlas
+}
+asset tile_plane
+{
+ material props_atlas
+}
+asset pipe_straight
+{
+ material props_atlas
+}
+asset monitor_1
+{
+ material props_atlas
+}
+asset tile_hero
+{
+ material props_atlas
+}
+asset roof
+{
+ material props_atlas
+}
+asset road_01 //this used the atlas001 textures
+{
+ material props_atlas
+}
+asset road_02
+{
+ material props_atlas
+}
+asset road_03
+{
+ material props_atlas
+}
+asset road_end
+{
+ material props_atlas
+}
+asset road_curve
+{
+ material props_atlas
+}
+asset box_4d
+{
+ material props_atlas
+}
+asset test
+{
+ material props_atlas
+}
+asset light1
+{
+ material props_atlas
+}
+asset light2
+{
+ material props_atlas
+}
+asset bar
+{
+ material props_atlas
+}
+asset monitor_5
+{
+ material props_atlas
+}
+asset monitor_6
+{
+ material props_atlas
+}
+asset monitor_7
+{
+ material props_atlas
+}
+asset monitor_2
+{
+ material props_atlas
+}
+asset spawn2
+{
+ material props_atlas
+}
+asset roof_monitor
+{
+ material props_atlas
+}
+asset light_wall
+{
+ material props_atlas
+}
+asset convex_cirkel_arc_prop
+{
+ material props_atlas
+}
+asset corner_arc_prop
+{
+ material props_atlas
+}
+asset corner_cirkel_arc_prop
+{
+ material props_atlas
+}
+asset cords
+{
+ material props_atlas
+}
+asset prop_stereo
+{
+ material props_atlas
+}
+asset prop_sign_mat
+{
+ material props_atlas
+}
+asset prop_concrete_beam
+{
+ material props_atlas
+}
+asset prop_roof_fence
+{
+ material props_atlas
+}
+asset light_roof
+{
+ material props_atlas
+}
+asset cords_big
+{
+ material props_atlas
+}
+asset sand_pile1
+{
+ material props_atlas
+}
+asset prop_poster1
+{
+ material props_atlas
+}
+asset prop_poster3
+{
+ material props_atlas
+}
+asset prop_poster2
+{
+ material props_atlas
+}
+asset monument_mat_cable
+{
+ material props_atlas
+}
+asset monitor_8
+{
+ material props_atlas
+}
+asset prop_bigpipe
+{
+ material props_atlas
+}
+asset bridge_middle
+{
+ material props_atlas
+}
+asset prop_arc_pillarbase
+{
+ material props_atlas
+}
+asset prop_arc_pillarmid
+{
+ material props_atlas
+}
+asset prop_arc_pillarend
+{
+ material props_atlas
+}
+asset prop_arc_panel2
+{
+ material props_atlas
+}
+asset prop_arc_panel3
+{
+ material props_atlas
+}
+asset prop_arc_wall
+{
+ material props_atlas
+}
+asset wall_section_mat_jacob
+{
+ material props_atlas
+}
+asset arc_pillar_beam
+{
+ material props_atlas
+}
+asset wall_section_pipes_mat_jacob1
+{
+ material props_atlas
+}
+asset wall_section_pipes2_mat_jacob1
+{
+ material props_atlas
+}
+asset prop_arc_combine1
+{
+ material props_atlas
+}
+asset scaffold_1
+{
+ material props_atlas
+}
+asset scaffold_2
+{
+ material props_atlas
+}
+asset scaffold_3
+{
+ material props_atlas
+}
+asset prop_arc_wall2
+{
+ material props_atlas
+}
+asset circular_platform_mat_light
+{
+ material props_atlas
+}
+asset prop_arc_panel_corner
+{
+ material props_atlas
+}
+asset prop_arc_pillarcorner
+{
+ material props_atlas
+}
+asset prop_temp1
+{
+ material props_atlas
+}
+asset prop_poster4
+{
+ material props_atlas
+}
+asset cords_1
+{
+ material props_atlas
+}
+asset cords_2
+{
+ material props_atlas
+}
+asset cords_3
+{
+ material props_atlas
+}
+asset prop_poster5
+{
+ material props_atlas
+}
+asset prop_poster6
+{
+ material props_atlas
+}
+asset prop_poster7
+{
+ material props_atlas
+}
+asset loading_bay
+{
+ material props_atlas
+}
+asset cords_4
+{
+ material props_atlas
+}
+asset cords_5
+{
+ material props_atlas
+}
+asset cords_6
+{
+ material props_atlas
+}
+asset cords_7
+{
+ material props_atlas
+}
+asset cords_8
+{
+ material props_atlas
+}
+
+///
+
+asset box_1b_gray
+{
+ material props_atlas_2
+}
+asset box_3a_gray
+{
+ material props_atlas_2
+}
+asset jump_pad
+{
+ material props_atlas
+}
+asset monitor_roof
+{
+ material props_atlas_2
+}
+
+//////// props_atlas_metal
+
+asset prop_arc_base_1
+{
+ material props_atlas_metal
+}
+asset prop_arc_base_2t
+{
+ material props_atlas_metal
+}
+asset prop_arc_box1
+{
+ material props_atlas_metal
+}
+asset prop_arc_box1b
+{
+ material props_atlas_metal
+}
+asset prop_arc_box1c
+{
+ material props_atlas_metal
+}
+asset prop_arc_box2a
+{
+ material props_atlas_metal
+}
+asset prop_arc_pipestraight
+{
+ material props_atlas_metal
+}
+asset prop_arc_pipebend
+{
+ material props_atlas_metal
+}
+asset prop_arc_pipe1a
+{
+ material props_atlas_metal
+}
+asset prop_arc_pipe1b
+{
+ material props_atlas_metal
+}
+asset prop_arc_plate
+{
+ material props_atlas_metal
+}
+asset prop_arc_small_pipes
+{
+ material props_atlas_metal
+}
+asset prop_arc_box_end
+{
+ material props_atlas_metal
+}
+asset prop_arc_box_tile
+{
+ material props_atlas_metal
+}
+asset prop_fanbox
+{
+ material props_atlas_metal
+}
+asset arc_pillar
+{
+ material props_atlas_metal
+}
+asset prop_arc_stretched
+{
+ material props_atlas_metal
+}
+asset prop_arc_light
+{
+ material props_atlas_metal
+}
+asset prop_arc_pipe_combine_mat_jacob
+{
+ material props_atlas_metal
+}
+asset prop_arc_box4_mat_jacob
+{
+ material props_atlas_metal
+}
+
+/////////////// props_atlas_3_metal
+asset prop_arc_box3_mat_oscar
+{
+ material props_atlas_3_metal
+}
+asset prop_arc_panel_mat_oscar
+{
+ material props_atlas_3_metal
+}
+asset prop_arc_box_big_02_mat_oscar
+{
+ material props_atlas_3_metal
+}
+asset prop_arc_box_big_01_mat_oscar
+{
+ material props_atlas_3_metal
+}
+asset prop_arc_vent_mat_oscar
+{
+ material props_atlas_3_metal
+}
+
+/////////////// props_atlas_3
+
+asset blast_door
+{
+ material props_atlas_3
+}
+asset shield_flap_right
+{
+ material props_atlas_3
+}
+asset shield_flap_left
+{
+ material props_atlas_3
+}
+asset shield_door_middle
+{
+ material props_atlas_3
+}
+asset shield_door_full
+{
+ material props_atlas_3
+}
+asset wall_section_mat_oscar
+{
+ material props_atlas_3
+}
+asset shield_curved
+{
+ material props_atlas_3
+}
+asset shield_curved_mirrored
+{
+ material props_atlas_3
+}
+asset circular_platform_mat_props
+{
+ material props_atlas_3
+}
+asset jump_pad_frame
+{
+ material props_atlas_3
+}
+asset health_pickup
+{
+ material props_atlas_3
+}
+
+/////////// server_room_material
+asset server_flat
+{
+ material server_room_material
+}
+asset server_corner
+{
+ material server_room_material
+}
+asset server_center
+{
+ material server_room_material
+}
+asset server_center_frame
+{
+ material server_room_material
+}
+asset server_hatch_01
+{
+ material server_room_material
+}
+asset server_hatch_02
+{
+ material server_room_material
+}
+asset server_room
+{
+ material server_room_material
+}

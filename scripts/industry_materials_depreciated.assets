@@ -1,0 +1,202 @@
+///FLOOR
+
+asset grass_floor
+{
+  type surface_material
+  material grass_floor
+}
+
+asset plates_grass
+{
+  type surface_material
+  material plates_grass
+}
+
+
+asset floor_plates_heat_big
+{
+  type surface_material
+  material floor_plates_heat
+}
+
+asset floor_plates_heat_small
+{
+  type surface_material
+  material floor_plates_heat02
+}
+
+asset industry_concrete_floor
+{
+  type surface_material
+  material industry_concrete_floor
+}
+
+
+//WALL
+
+asset ind_crossbar_red
+{
+  type surface_material
+  material ind_crossbar_red
+}
+
+asset ind_crossbar_yellow
+{
+  type surface_material
+  material ind_crossbar_yellow
+}
+asset ind_crossbar_blue
+{
+  type surface_material
+  material ind_crossbar_blue
+}
+asset ind_crossbar_green
+{
+  type surface_material
+  material ind_crossbar_green
+}
+asset ind_crossbar_gray
+{
+  type surface_material
+  material ind_crossbar_gray
+}
+
+
+asset industry_concrete_torn
+{
+  type surface_material
+  material industry_concrete_torn
+}
+
+asset industry_concrete
+{
+  type surface_material
+  material industry_concrete
+}
+
+asset metalwall_heat_blue
+{
+  type surface_material
+  material metalwall_heat_blue
+}
+asset metalwall_heat_red
+{
+  type surface_material
+  material metalwall_heat_red
+}
+
+asset metalwall_heat_yellow
+{
+  type surface_material
+  material metalwall_heat_yellow
+}
+
+asset metalwall_heat01
+{
+  type surface_material
+  material metalwall_heat01
+}
+
+asset metalwall_heat02
+{
+  type surface_material
+  material metalwall_heat02
+}
+
+asset metalwall_heat02_color
+{
+  type surface_material
+  material metalwall_heat02_color
+}
+
+asset metalwall_heat03
+{
+  type surface_material
+  material metalwall_heat03
+}
+
+asset metalwall_heat03_big
+{
+  type surface_material
+  material metalwall_heat03_big
+}
+
+asset plates_inbeveled
+{
+  type surface_material
+  material plates_inbeveled
+}
+
+
+asset ind_plates_straight_blue
+{
+  type surface_material
+  material ind_plates_straight_blue
+}
+
+asset ind_plates_straight_red
+{
+  type surface_material
+  material ind_plates_straight_red
+}
+
+asset ind_plates_straight_green
+{
+  type surface_material
+  material ind_plates_straight_green
+}
+
+asset ind_plates_straight_yellow
+{
+  type surface_material
+  material ind_plates_straight_yellow
+}
+
+asset ind_plates_straight_uncolored
+{
+  type surface_material
+  material ind_plates_straight_uncolored
+}
+
+asset ind_plates_02_green
+
+{
+  type surface_material
+  material ind_plates_02_green
+}
+
+asset ind_plates_02_red
+
+{
+  type surface_material
+  material ind_plates_02_red
+}
+
+asset ind_plates_02_yellow
+
+{
+  type surface_material
+  material ind_plates_02_yellow
+}
+
+asset ind_plates_02_blue
+
+{
+  type surface_material
+  material ind_plates_02_blue
+}
+
+asset ind_trim_01
+
+{
+  type surface_material
+  material ind_trim_01
+}
+
+asset rubber_floor_01
+
+
+{
+  type surface_material
+  material rubber_floor_01
+}

@@ -1,0 +1,49 @@
+
+character_trail_1
+{
+	geometry quad
+	//magnet -3 -1 0 0 0 -100 0
+	drag 1.0
+	animation_speed 29
+	animation_start 0
+	map particle_sheet1.png
+	region r_point_big
+	blend add
+	max_particles 1000
+	//max_emissions 250
+	max_emissions 0
+	lifetime 1.0
+	period 0.001
+	rotation_start 0 360
+	fade_in 0 0
+	fade_out 0 0
+	//0.01 0.01
+	//emitter ellipsoid 34 34 
+	//position 1 1 1 -1 -1 -1
+	color_start 0.2 0.2 0.2 0.3
+	color_end  0.2 0.2 0.2 0
+	color_accent true
+	turbulence 200 10
+	scale_start 10
+	scale_end 0
+	//velocity 10 15 10 -12 -10 -20
+	position 0 -11 0
+}
+character_trail_2 character_trail_1
+{
+    position 0 -31 0
+}
+character_trail_m character_trail_1
+{
+    position 0 -21 0
+	scale_start 30
+	scale_end 0
+	color_start 0.04 0.04 0.04 0.1
+	color_end 0.04 0.04 0.04 0
+}
+character_trail
+{
+    subsystem character_trail_1
+	subsystem character_trail_2
+	subsystem character_trail_m
+}

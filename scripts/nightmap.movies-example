@@ -1,0 +1,39 @@
+
+//MAP: oscar_mapz2
+
+movie broll_nightmap1
+{
+	demo nightmap
+	start 406
+	duration 10
+}
+
+movie broll_nightmap2
+{
+	demo nightmap
+	start 670
+	duration 10
+}
+
+movie broll_nightmap3
+{
+	demo nightmap
+	start 721
+	duration 10
+}
+
+movie broll_nightmap4
+{
+	demo nightmap
+	start 822
+	duration 10
+}
+
+//LAST AND MAYBE BEST FRAG
+
+movie broll_nightmap5
+{
+	demo nightmap
+	start 878
+	duration 10
+}

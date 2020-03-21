@@ -1,0 +1,143 @@
+pad_glow
+{
+	map effects1.png
+	region r_smoke_new
+	animation_speed 50
+	animation_start 
+	// geometry directional
+	blend add
+	fade_out 0
+	max_particles 200
+	max_emissions 1
+	lifetime 0.5
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 0 0 0
+	// position 0 0 -1 0 0 -1s
+	period 0.5
+	velocity 0 800 500
+	color_start 0 0.9 1
+	// emitter line 0 0 1
+	scale_start 300
+	scale_end 150
+	drag 1
+}
+
+pad_glow2
+{
+	map effects2.png
+	region tele_auora	
+	animation_speed 1
+	animation_start 
+	// geometry directional
+	blend add
+	fade_out 0
+	max_particles 2
+	max_emissions 5
+	lifetime 0.1
+	fade_in 0.05
+	fade_out 0.1
+	rotation_start 0
+	position 0 30 0
+	// position 0 0 -1 0 0 -1s
+	period 0.009
+	velocity 0 0 5000
+	color_start 0 0.5 0.6
+	color_end 0 0 0
+	// emitter line 0 0 1
+	scale_start 135
+	scale_end 180
+	drag 1
+}
+
+
+pad_aura
+{
+	map effects2.png
+	region tele_auora	
+	animation_speed 80
+	animation_start 
+	// geometry directional
+	blend add
+	fade_out 0
+	max_particles 3
+	max_emissions 1
+	lifetime 0.6
+	fade_in 0.05
+	fade_out 0.1
+	rotation_start 0 360
+	position 0 0 20
+	// position 0 0 -1 0 0 -1s
+	period 0.009
+	velocity 0 0 0
+	color_start 0 1.8 2
+	color_end 0 0.9 1
+	// emitter line 0 0 1
+	scale_start 150
+	scale_end 300
+	// drag 1
+}
+
+pad_glow2_lines
+{
+	map effects1.png
+	region r_point_1	
+	animation_speed 50
+	animation_start 
+	// geometry directional
+	blend add
+	fade_out 0
+	max_particles 500
+	max_emissions 100
+	lifetime 0.1
+	fade_in 0.1
+	fade_out 0.3
+	rotation_start 0
+	position -80 -80 -80 80 80 80
+	// position 0 0 -1 0 0 -1s
+	period 0.001
+	velocity -50 -50 40 50 50 40
+	color_start 0 0.02 0.03
+	color_end 0 0 0
+	// emitter line 0 0 1
+	scale_start 6 8
+	scale_end 0
+	drag 1
+}
+
+pad_glow3
+{
+	map effects1.png
+	region r_smoke_new
+	animation_speed 50
+	animation_start 
+	// geometry directional
+	blend add
+	fade_out 0
+	max_particles 5
+	max_emissions 5
+	lifetime 0.2
+	// fade_in 0.1
+	// fade_out 0.999
+	rotation_start 0
+	position 40 0 40 -40 0 -40
+	// position 0 0 -1 0 0 -1s
+	period 0.06
+	velocity 400 -200 800 -400 200 500 
+	color_start 0 0.9 1
+	// emitter line 0 0 1
+	scale_start 150
+	scale_end 150
+	drag 1
+}
+
+jumppadfx
+{
+		// subsystem pad_glow
+		subsystem pad_glow2
+		subsystem pad_aura
+		// subsystem pad_glow3
+		// subsystem pad_glow2_lines
+}
+	

@@ -1,0 +1,331 @@
+//--------------------------------------	PINCER (pncr)
+sound weaponpncr
+{
+	id 500
+	distance_max 1330
+	distance_min 80
+	source weapons/pincer/weaponpncr
+	volume 0.8
+	wetness 0
+	wetness_2d 0
+}
+sound ammopncr
+{
+	id 501
+	distance_max 1330
+	distance_min 80
+	source weapons/pincer/ammopncr
+	wetness 0
+	wetness_2d 0
+	volume 1.2
+}
+sound pncr_ooa
+{
+	id 502
+	distance_max 1330
+	distance_min 80
+	source weapons/pincer/pncr_ooa
+	wetness 0
+	wetness_2d 0
+}
+sound pncr_equip
+{
+	id 503
+	source weapons/pincer/pncr_equip
+	pitch 0.01
+	volume 0.5
+	wetness 0
+	distance_min 80
+	distance_max 1330
+	wetness_2d 0
+}
+sound pncr_idle_loop
+{
+	id 505
+	source weapons/pincer/pncr_idle_loop
+	volume 2.5
+	volume_2d 2.21
+	distance_max 1330
+	wetness 0.4
+	wetness_2d 0
+	lopass_gain 1
+	distance_min 80
+}
+sound pncr_impact_stone1
+{
+	id 511
+	distance_max 1330
+	distance_min 80
+	source weapons/pincer/pncr_impact_stone1
+	pitch 0.02
+	volume 1.2
+	wetness 0.855
+	wetness_2d 0
+}
+sound pncr_impact_stone2
+{
+	id 512
+	source weapons/pincer/pncr_impact_stone2
+    link 511
+}
+sound pncr_impact_stone3
+{
+	id 513
+	source weapons/pincer/pncr_impact_stone3
+    link 511
+}
+sound pncr_impact_stone4
+{
+	id 514
+	source weapons/pincer/pncr_impact_stone4
+    link 511
+}
+
+sound pncr_impact_default1
+{
+	id 520
+	distance_max 1330
+	distance_min 80
+	source weapons/pincer/pncr_impact_default1
+	pitch 0.02
+	volume 1.2
+	wetness 0.855
+	wetness_2d 0
+}
+sound pncr_impact_default2
+{
+	id 521
+	source weapons/pincer/pncr_impact_default2
+    link 520
+}
+sound pncr_impact_default3
+{
+	id 522
+	source weapons/pincer/pncr_impact_default3
+    link 520
+}
+sound pncr_impact_default4
+{
+	id 523
+	source weapons/pincer/pncr_impact_default4
+    link 520
+}
+sound pncr_fire1_default_t1
+{
+	id 524
+	distance_max 1330
+	source weapons/pincer/pncr_fire1_default_t1
+	pitch 0.02
+	volume 0.95
+	wetness 0.565
+	wetness_2d 0
+	lopass_gain 1
+	distance_min 80
+	volume_2d 0.85
+}
+sound pncr_fire2_default_t1
+{
+	id 525
+	source weapons/pincer/pncr_fire2_default_t1
+    link 524
+}
+sound pncr_fire3_default_t1
+{
+	id 526
+	source weapons/pincer/pncr_fire3_default_t1
+    link 524
+}
+sound pncr_fire4_default_t1
+{
+	id 527
+	source weapons/pincer/pncr_fire4_default_t1
+    link 524
+}
+sound pncr_fire5_default_t1
+{
+	id 528
+	source weapons/pincer/pncr_fire5_default_t1
+    link 524
+}
+sound pncr_fire1_default_t2
+{
+	id 529
+	distance_max 1330
+	source weapons/pincer/pncr_fire1_default_t2
+	pitch 0.02
+	volume 0.95
+	wetness 0.565
+	wetness_2d 0
+	lopass_gain 1
+	distance_min 80
+	volume_2d 0.85
+}
+sound pncr_fire2_default_t2
+{
+	id 530
+	source weapons/pincer/pncr_fire2_default_t2
+    link 529
+}
+sound pncr_fire3_default_t2
+{
+	id 531
+	source weapons/pincer/pncr_fire3_default_t2
+    link 529
+}
+sound pncr_fire4_default_t2
+{
+	id 532
+	source weapons/pincer/pncr_fire4_default_t2
+    link 529
+}
+sound pncr_fire5_default_t2
+{
+	id 533
+	source weapons/pincer/pncr_fire5_default_t2
+    link 529
+}
+sound pncr_fire1_default_t3
+{
+	id 534
+	distance_max 1330
+	source weapons/pincer/pncr_fire1_default_t3
+	pitch 0.02
+	volume 0.95
+	wetness 0.565
+	wetness_2d 0
+	lopass_gain 1
+	distance_min 80
+	volume_2d 0.85
+}
+sound pncr_fire2_default_t3
+{
+	id 535
+	source weapons/pincer/pncr_fire2_default_t3
+    link 534
+}
+sound pncr_fire3_default_t3
+{
+	id 536
+	source weapons/pincer/pncr_fire3_default_t3
+    link 534
+}
+sound pncr_fire4_default_t3
+{
+	id 537
+	source weapons/pincer/pncr_fire4_default_t3
+    link 534
+}
+sound pncr_fire5_default_t3
+{
+	id 538
+	source weapons/pincer/pncr_fire5_default_t3
+    link 534
+}
+sound pncr_fire_low1_default_t1
+{
+	id 539
+	distance_max 1330
+	source weapons/pincer/pncr_fire_low1_default_t1
+	volume 0.95
+	wetness 0.565
+	wetness_2d 0
+	lopass_gain 1
+	volume_2d 0.85
+	distance_min 80
+}
+sound pncr_fire_low2_default_t1
+{
+	id 540
+	source weapons/pincer/pncr_fire_low2_default_t1
+    link 539
+}
+sound pncr_fire_low3_default_t1
+{
+	id 541
+	source weapons/pincer/pncr_fire_low3_default_t1
+    link 539
+}
+sound pncr_fire_low4_default_t1
+{
+	id 542
+	source weapons/pincer/pncr_fire_low4_default_t1
+    link 539
+}
+sound pncr_fire_low5_default_t1
+{
+	id 543
+	source weapons/pincer/pncr_fire_low5_default_t1
+    link 539
+}
+sound pncr_fire_low1_default_t2
+{
+	id 544
+	distance_max 1330
+	source weapons/pincer/pncr_fire_low1_default_t2
+	volume 0.95
+	wetness 0.565
+	wetness_2d 0
+	lopass_gain 1
+	volume_2d 0.85
+	distance_min 80
+}
+sound pncr_fire_low2_default_t2
+{
+	id 545
+	source weapons/pincer/pncr_fire_low2_default_t2
+    link 544
+}
+sound pncr_fire_low3_default_t2
+{
+	id 546
+	source weapons/pincer/pncr_fire_low3_default_t2
+    link 544
+}
+sound pncr_fire_low4_default_t2
+{
+	id 547
+	source weapons/pincer/pncr_fire_low4_default_t2
+	link 544
+}
+sound pncr_fire_low5_default_t2
+{
+	id 548
+	source weapons/pincer/pncr_fire_low5_default_t2
+    link 544
+}
+sound pncr_fire_low1_default_t3
+{
+	id 549
+	distance_max 1330
+	source weapons/pincer/pncr_fire_low1_default_t3
+	volume 0.95
+	wetness 0.565
+	wetness_2d 0
+	lopass_gain 1
+	volume_2d 0.85
+	distance_min 80
+}
+sound pncr_fire_low2_default_t3
+{
+	id 550
+	source weapons/pincer/pncr_fire_low2_default_t3
+    link 549
+}
+sound pncr_fire_low3_default_t3
+{
+	id 551
+	source weapons/pincer/pncr_fire_low3_default_t3
+    link 549
+}
+sound pncr_fire_low4_default_t3
+{
+	id 552
+	source weapons/pincer/pncr_fire_low4_default_t3
+    link 549
+}
+sound pncr_fire_low5_default_t3
+{
+	id 553
+	source weapons/pincer/pncr_fire_low5_default_t3
+    link 549
+}

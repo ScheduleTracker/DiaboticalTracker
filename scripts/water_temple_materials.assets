@@ -1,0 +1,59 @@
+///FLOOR
+
+asset water_temple_floor
+{
+  type surface_material
+  material water_temple_floor
+}
+
+asset water_temple_floor_big
+{
+  type surface_material
+  material water_temple_floor_big
+}
+
+asset water_temple_floor_small
+{
+  type surface_material
+  material water_temple_floor_small
+}
+
+asset water_temple_floor2
+{
+  type surface_material
+  material water_temple_floor2
+}
+
+asset water_temple_floor_big2
+{
+  type surface_material
+  material water_temple_floor_big2
+}
+
+asset water_temple_floor_small2
+{
+  type surface_material
+  material water_temple_floor_small2
+}
+
+
+
+//WALL
+
+asset water_temple_wall
+{
+  type surface_material
+  material water_temple_wall
+}
+
+asset water_temple_wall2
+{
+  type surface_material
+  material water_temple_wall2
+}
+
+asset water_temple_decor
+{
+  type surface_material
+  material water_temple_decor
+}

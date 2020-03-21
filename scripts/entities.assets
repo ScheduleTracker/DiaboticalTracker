@@ -1,0 +1,373 @@
+asset armor/5
+{
+  listed true
+  type entity
+  command multi /add armort1; /set !last time 25
+}
+
+asset armor/50
+{
+  listed true
+  type entity
+  command multi /add armort2; /set !last time 25
+}
+
+asset armor/75
+{
+  listed true
+  type entity
+  command multi /add armort3; /set !last time 25
+}
+
+asset armor/100
+{
+  listed true
+  type entity
+  command multi /add armort4; /set !last time 25
+}
+
+asset liquid
+{
+  listed true
+  type entity
+  command multi /add liquid; /resize !last 160 40 160
+}
+
+asset hp/5
+{
+  listed true
+  type entity
+  command multi /add hpt0; /set !last time 30
+}
+
+asset hp/25
+{
+  listed true
+  type entity
+  command multi /add hpt1; /set !last time 30
+}
+
+asset hp/50
+{
+  listed true
+  type entity
+  command multi /add hpt2; /set !last time 30
+}
+
+asset hp/100
+{
+  listed true
+  type entity
+  command multi /add hpt3; /set !last time 35
+}
+
+asset powerup/doubledamage
+{
+  listed true
+  type entity
+  command multi /add doubledamage
+
+}
+
+
+asset energy/5
+{
+  listed true
+  type entity
+  command add energyt1
+}
+
+asset energy/10
+{
+  listed true
+  type entity
+  command add energyt2
+}
+
+asset energy/25
+{
+  listed true
+  type entity
+  command add energyt3
+}
+
+
+//AMMO
+
+asset ammo/machinegun
+{
+  listed true
+  type entity
+  command add ammomac
+}
+
+asset ammo/shotgun
+{
+  listed true
+  type entity
+  command add ammoss
+}
+
+asset ammo/shaft
+{
+  listed true
+  type entity
+  command add ammodf
+}
+
+asset ammo/rocket_launcher
+{
+  listed true
+  type entity
+  command add ammorl
+}
+
+asset ammo/pncr
+{
+  listed true
+  type entity
+  command add ammopncr
+}
+
+asset ammo/blaster
+{
+  listed true
+  type entity
+  command add ammovc
+}
+
+asset ammo/grenade_launcher
+{
+  listed true
+  type entity
+  command add ammogl
+}
+
+//WEAPONS
+
+
+asset weapon/minigun
+{
+  listed true
+  type entity
+  command add weaponmg
+}
+
+asset weapon/shotgun
+{
+  listed true
+  type entity
+  command add weaponsg
+}
+
+asset weapon/super_shotgun
+{
+  listed true
+  type entity
+  command add weaponss
+}
+
+asset weapon/shaft
+{
+  listed true
+  type entity
+  command add weapondf  
+}
+
+asset weapon/rocket_launcher
+{
+  listed true
+  type entity
+  command add weaponrl
+}
+
+//asset weapon/hyper_launcher
+//{
+//  listed true
+//  type entity
+//  command add weaponhl
+//}
+
+asset weapon/pncr
+{
+  listed true
+  type entity
+  command add weaponpncr
+}
+
+asset weapon/crossbow
+{
+  listed true
+  type entity
+  command add weaponcb
+}
+
+//asset weapon/ion_rifle
+//{
+//  listed true
+//  type entity
+//  command add weaponir
+//}
+
+asset weapon/super_blaster
+{
+  listed true
+  type entity
+  command add weaponsb
+}
+
+asset weapon/grenade_launcher
+{
+  listed true
+  type entity
+  command add weapongl
+}
+
+asset weapon/bfg
+{
+  listed true
+  type entity
+  command add weaponbfg
+}
+asset weapon/machinegun
+{
+  listed true
+  type entity
+  command add weaponmac
+}
+
+asset weapon/healing_weeball
+{
+  listed true
+  type entity
+  command add weaponhw
+}
+
+asset weapon/implosion_weeball
+{
+  listed true
+  type entity
+  command add weaponiw
+}
+
+asset weapon/slow_field_weeball
+{
+  listed true
+  type entity
+  command add weaponsw
+}
+
+asset weapon/explosive_weeball
+{
+  listed true
+  type entity
+  command add weaponbw
+}
+
+asset weapon/smoke_weeball
+{
+  listed true
+  type entity
+  command add weaponsmw
+}
+
+//MISC
+asset trigger_volume
+{
+  listed true
+  type entity
+  command multi /add trigger; /resize !last 40 40 40
+}
+
+///////////////////////////////////////WEAPON_PICKUP_LIGHTS///////////////////////////////////////////////////
+
+asset weapondf
+{
+	pfx weapon_pickup_pfx_df
+}
+asset weaponpncr
+{
+	pfx weapon_pickup_pfx_pncr
+}
+asset weaponcb
+{
+	pfx weapon_pickup_pfx_cb
+}
+asset weaponss
+{
+	pfx weapon_pickup_pfx_ss
+}
+asset weaponrl
+{
+	pfx weapon_pickup_pfx_rl
+}
+asset weaponbfg
+{
+	pfx weapon_pickup_pfx_bfg
+}
+asset weapongl
+{
+	pfx weapon_pickup_pfx_gl
+}
+asset weaponmg
+{
+}
+asset weaponbl
+{
+	pfx weapon_pickup_pfx_vc
+}
+asset weaponsb
+{
+	pfx weapon_pickup_pfx_vc
+	model weaponbl
+}
+asset weaponmac
+{
+	pfx weapon_pickup_pfx_mac
+}
+asset weaponfg
+{
+	pfx weapon_pickup_pfx_fg
+}
+asset weaponiw
+{
+    pivot 0 0 0
+	scale 1.25
+	pfx weapon_pickup_pfx_iw
+}
+asset weaponsw
+{
+    pivot 0 0 0
+	scale 1.25
+	pfx weapon_pickup_pfx_sw
+}
+asset weaponbw
+{
+    pivot 0 0 0
+	scale 1.25
+	pfx weapon_pickup_pfx_bw
+}
+asset weaponhw
+{
+    pivot 0 0 0
+	scale 1.25
+	pfx weapon_pickup_pfx_hw
+}
+asset weaponsmw
+{
+    pivot 0 0 0
+	scale 1.25
+	pfx weapon_pickup_pfx_smw
+}
+asset weaponkw
+{
+    pivot 0 0 0
+	scale 1.25
+	pfx weapon_pickup_pfx_kw
+}
+asset macguffin
+{
+    pivot 0 0 0
+	scale 1.25
+	pfx macguffin_pfx
+}

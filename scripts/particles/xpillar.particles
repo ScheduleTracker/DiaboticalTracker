@@ -1,0 +1,285 @@
+pillar_sunstrike
+{
+	subsystem pill_chair1
+	subsystem pill_chair2
+	subsystem pill_chair3
+	subsystem pill_chair4
+	subsystem pill_beam1 1
+	subsystem pill_beam2 1
+	subsystem pill_beam1 1.25
+	subsystem pill_beam1 1.5
+	subsystem pill_beam1 1.75
+	subsystem pill_beam1 2
+	subsystem pill_beam1 2.25
+	subsystem pill_beam3 1.25
+	subsystem pill_beam3 1.5
+	subsystem pill_beam3 1.75
+	subsystem pill_beam3 2
+	subsystem pill_beam3 2.25
+	subsystem pill_beam4 1
+	subsystem pill_beam5 1
+	subsystem pill_beam6 1
+	subsystem pill_beam7 1
+	subsystem pill_beam8 1
+	subsystem pill_beam9 1
+	subsystem pill_beam 10 1
+	subsystem pill_beam6 1.25
+	subsystem pill_beam6 1.5
+	subsystem pill_beam6 1.75
+	subsystem pill_beam6 2
+	subsystem pill_beam6 2.25
+	subsystem pill_beam6 2.5
+	subsystem pill_beam11 1
+	subsystem pill_beam12 1
+}
+
+pillar
+{
+	subsystem pill_beam5 
+	subsystem pill_beam6 
+	subsystem pill_beam7 
+	subsystem pill_beam8 
+	subsystem pill_beam9 
+	subsystem pill_beam10 
+	subsystem pill_beam6 0.25
+	subsystem pill_beam6 0.5
+	subsystem pill_beam6 0.75
+	subsystem pill_beam6 1
+	subsystem pill_beam6 1.25
+	subsystem pill_beam6 1.5
+	subsystem pill_beam11 
+	subsystem pill_beam12 
+	subsystem pill_light
+}
+
+pill_chair1
+{
+	map effects1.png
+	emitter point
+	region r_crosshair1
+	max_particles 1
+	max_emissions 1
+	lifetime 1
+	scale_start 100
+	scale_end 30
+	blend_alhpa
+	rotation_start 1
+	rotation_end 90
+	color_start 0 0.1 1 0.5
+}
+
+pill_chair2 pill_chair1
+{
+	region r_ring_1
+	scale_start 80
+	scale_end 10
+}
+
+pill_chair3 pill_chair1
+{
+	region r_crosshair2
+	scale_start 90
+	scale_end 0
+	lifetime 0.9
+	color_start 0.1 0.5 1 1
+}
+
+pill_chair4 pill_chair1
+{
+	blend add
+	color_start 0.1 0.5 1 1
+}
+
+pill_beam1
+{
+
+	map effects2.png
+	region tele_flow
+	animation_speed 48
+	blend add
+	max_particles 20
+	max_emissions 20
+	lifetime 1
+	period 0
+	fade_in 0.25 0.3
+	fade_out 0.25 0.5
+	emitter array 0 0 25 1000
+	position 1 1 1 -1 -1 -1
+	color_start 0 0.2 1 1 0 0.1 1 1
+	color_end 0.2 0 1.2 1
+	turbulence 2 4
+	scale_start 20 30
+	scale_end 75 80
+	rotation_start 0 360
+}
+
+
+pill_beam2
+{
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 64
+	max_emissions 64
+	lifetime 2
+	period 0
+	fade_in 0.02
+	fade_out 0.8
+	emitter array 0 0 8 1000
+	position 1 1 1 -1 -1 -1
+	color_start 0 0.4 1 1 0 0.3 1 1
+	color_end 0.1 0 1 1
+	turbulence 20 4
+	scale_start 30 35
+	scale_end 45 50
+}
+
+pill_beam3 pill_beam1
+{
+	region tele_auora
+	max_particles 18
+	max_emissions 18
+	emitter array 0 0 32 1000
+}
+
+pill_beam12 pill_beam2
+{
+	scale_start 65 77
+	scale_end 30 35
+	lifetime 0.15
+}
+
+pill_beam4 pill_beam2
+{
+	lifetime 2
+	region r_point_1
+	max_particles 128
+	max_emissions 128
+	scale_start 15 22
+	scale_end 25 30
+	rotation_start 90 90
+	emitter_array 0 0 25 1000
+	geometry tape
+	fade_in 0.1
+}
+
+pill_beam5
+{	
+	geometry quad
+	map effects2.png
+	region tele_auora
+	animation_speed 80
+	fade_in 0.1 0.1
+	fade_out 0.5 0.5
+	blend alpha
+	max_particles 3
+	max_emissions 3
+	rotation_start 0 360
+	color_start 0.05 0.1 1.5 1 
+	color_end 0.2 0 1 1
+	lifetime 0.45
+	period 0
+	scale_start 80
+	scale_end 165
+//	position 0 0 0 0 -25 0
+}
+
+pill_beam6 pill_beam5
+{
+	region tele_flow
+	max_particles 3
+	max_emissions 3
+	blend add
+	scale_start 60
+	scale_end 120
+	color_start 0 0.1 2 1
+	color_end 0.1 0 1.2 1
+}
+
+pill_beam7
+{
+	geometry quad
+	map effects1.png
+	region r_flare_5
+	fade_in 0.25 0.3
+	fade_out 0.1 0.1
+	blend add
+	max_particles 4
+	max_emissions 4
+	lifetime 0.4
+	period 0.1
+	scale_start 180
+	scale_end 50
+	color_start 0 0 1 1
+	color_end	0.1 0 1 1
+	rotation_start 0 360
+	period 0
+}
+
+pill_beam8
+{
+	geometry quad
+	map effects1.png
+	region r_flare_2
+	fade_in 0.05 0.08
+	fade_out 0.2 0.23
+	blend add
+	max_particles 3
+	max_emissions 3
+	color_start 0 1 3 1
+	color_end	0.2 0.5 2 1
+	lifetime 0.65
+	period 0
+	rotation_start 90
+	scale_start 200
+	scale_end 15
+}
+
+pill_beam9 pill_beam3
+{
+	scale_start 30
+	scale_end 120 150
+	animation_rate 96
+	lifetime 0.5
+}
+
+pill_beam10 pill_beam5
+{
+	max_particles 8
+	max_emissions 8
+	period 0.05
+	scale_end 180
+	color_start 0 2 2 2
+}
+
+pill_beam11
+{
+	map effects1.png
+	region r_point_1
+	blend add
+	color_start 0 2 5 1
+	color_end 1 1 5 1
+	scale_start 100
+	scale_end 100
+	fade_in 0.1
+	fade_out 0.1
+	max_particles 1
+	max_emissions 1
+	period 0
+	lifetime 2
+}
+
+pill_light
+{
+	map effects1.png
+	emitter point
+	region r_crosshair1
+	max_particles 1
+	max_emissions 1
+	lifetime 1
+	scale_start 1
+	scale_end 1
+	blend_alhpa
+	color_start 0 0.1 1 0
+	system_light_radius 110
+}
