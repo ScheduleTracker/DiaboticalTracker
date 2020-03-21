@@ -503,10 +503,10 @@ rocket_launcher
 	
 	charge_animation 6
 	
-  	splash_radius 118
+  	splash_radius 117
 	knockback 95
 	knockback_self 120
-	ground_knockback 90
+	ground_knockback 89
 	ground_knockback_self 120
 	center_of_mass_offset 4
 	center_of_mass_offset_self 0

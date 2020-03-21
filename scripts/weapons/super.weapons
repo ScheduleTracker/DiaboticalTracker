@@ -37,9 +37,13 @@ minigun
 	impact_particles minigun_impact
 	
 // IMPACT DECALS
-	decal decal 10 3 3.561 false 1
-	decal decal_glow_red 16 3 3.561 false 30
-	decal decal_glow 10 3 3.561 false 20
+	//decal decal 10 3 3.561 false 1
+	//decal decal_glow_red 16 3 3.561 false 30
+	//decal decal_glow 10 3 3.561 false 20
+	decal decal 10 3 3.561 false false
+	decal decal_glow_red 16 3 3.561 false false
+	decal decal_glow 10 3 3.561 false false
+
 	
 //	model weaponmg
 //	model_position 3.05 -3.2 5.046
@@ -134,14 +138,14 @@ weapon9
 	model_position_third_person -4.4 3.5 4.2
 	
 	//IMPACT DECAL
-	decal decal_plasma 400 3 3.561 false 7
-	decal decal_plasma 225 3 3.561 false 6
-	decal decal_plasma 100 3 3.561 false 5
+	//decal decal_plasma 400 3 3.561 false 7
+	//decal decal_plasma 225 3 3.561 false 6
+	//decal decal_plasma 100 3 3.561 false 5
 	
-	decal decal_glow_red 350 3 3.561 false 20
-	decal decal_glow_red 150 3 3.561 false 15
-	decal decal_glow_red 100 3 3.561 false 10
-	decal decal_glow 100 3 3.561 false 10
+	//decal decal_glow_red 350 3 3.561 false 20
+	//decal decal_glow_red 150 3 3.561 false 15
+	//decal decal_glow_red 100 3 3.561 false 10
+	//decal decal_glow 100 3 3.561 false 10
 	
 	shot_sound bfg_fire1 bfg_fire2 bfg_fire3 bfg_fire4
 	shot_sound_low_ammo bfg_fire_low1 bfg_fire_low2 bfg_fire_low3 bfg_fire_low4
