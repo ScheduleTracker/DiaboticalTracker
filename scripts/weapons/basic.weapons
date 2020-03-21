@@ -126,7 +126,7 @@ blasta
 
 supa_blasta
 {
-	respawn_time 14
+	respawn_time 9
 	weapon_tag sb
 	parent_tag bl
 	color 7c62d1
