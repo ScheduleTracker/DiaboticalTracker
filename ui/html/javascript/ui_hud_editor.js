@@ -398,12 +398,14 @@ function editorCreateToggle(element, id, key, name, idx) {
 }
 
 function editorCreateInput(element, id, key, title, idx) {
+ /* Unnecessary if val = element.dataset[key] works, needed if we revert to val = elem[key]
     if (element.dataset.type == "group") {
         var elem = editing_hud_data.groups[idx];
     } else {
         var elem = editing_hud_data.elements[idx];
     }
-    var val = elem[key];
+*/    
+    var val = element.dataset[key];
 
     var data = {
         value: _clean_float(val),

@@ -935,8 +935,8 @@ var global_ranks = {
     "38": { "anim": "38_crystal.webm" },
     "39": { "anim": "39_crystal.webm" },
     "40": { "anim": "40_crystal.webm" },
-    //"top_1": { "anim": ".webm" },  // TBA top1000
-    //"top_2": { "anim": ".webm" },  // TBA top100
+    "top_1": { "anim": "41_special04.webm" },
+    "top_2": { "anim": "42_special03.webm" },
     "top_3": { "anim": "43_special02.webm" },
     "top_4": { "anim": "44_legend.webm" },
 };

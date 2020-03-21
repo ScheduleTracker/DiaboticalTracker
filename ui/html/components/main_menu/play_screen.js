@@ -1099,7 +1099,7 @@ function mm_match_found_overlay(data) {
     else type.textContent = localize("match_found");
 
 
-    mode.textContent = localize(global_game_mode_map[global_queue_modes[data.mm_mode].mode].i18n)+" "+global_queue_modes[data.mm_mode].vs;
+    mode.textContent = localize(global_queue_modes[data.mm_mode].i18n+" "+global_queue_modes[data.mm_mode].vs);
 
     splash.style.display = "flex";
     
