@@ -378,7 +378,7 @@ function renderQuickPlayCards() {
             "type": "quickplay",
             "title": "game_modes_arcade",
             "card_style": "ARCADE",
-            "queue_modes": ["qp_ffa", "qp_coinrun_5", "qp_instagib_5"],
+            "queue_modes": ["qp_ffa", "qp_instagib_ffa", "qp_coinrun_5", "qp_instagib_5"],
             "locked": false,
         },
         {
@@ -555,7 +555,7 @@ function renderPlayCard(data) {
         }
         card_checkbox.appendChild(checkbox_box);
 
-        let label = localize(global_game_mode_map[global_queue_modes[queue].mode].i18n);
+        let label = localize(global_queue_modes[queue].i18n);
         let checkbox_label = _createElement("div", "checkbox_label");
         checkbox_label.appendChild(_createElement("span", "", label));
         checkbox_label.appendChild(_createElement("span", "", global_queue_modes[queue].vs));

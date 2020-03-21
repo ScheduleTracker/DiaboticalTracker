@@ -540,6 +540,7 @@ window.addEventListener("load", function(){
                     #define ERROR_BANNED 6
                     #define ERROR_SERVER_FULL 7
                     #define ERROR_BAD_AUTH 8
+                    #define ERROR_INACTIVITY_KICK 9
                     #define REASON_SERVER_SHUTTING_DOWN 10
                     #define ERROR_BAD_MAP 12
                     #define ERROR_BANNED_WHILE_IN_GAME 13
@@ -1388,8 +1389,8 @@ function setupVariousListeners() {
 
     // Keybinding hover to show the delete button
     _for_each_with_class_in_parent(_id("settings_screen_controls"), "controls_value", function(el) {
-        el.addEventListener("mouseenter", function() { el.firstElementChild.classList.add("hover"); });
-        el.addEventListener("mouseleave", function() { el.firstElementChild.classList.remove("hover"); });
+        el.addEventListener("mouseenter", function() { if (el.firstElementChild) el.firstElementChild.classList.add("hover"); });
+        el.addEventListener("mouseleave", function() { if (el.firstElementChild) el.firstElementChild.classList.remove("hover"); });
     });
 
     _id("custom_game_button_inviterem").addEventListener("click", function(e) {

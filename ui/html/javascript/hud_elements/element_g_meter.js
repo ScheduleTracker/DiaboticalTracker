@@ -94,6 +94,9 @@ function init_element_g_meter() {
             obj = obj[1].split("}");
             obj = '{' + obj[0] + '}';
             obj = JSON.parse(obj);
+            if (global_hud_need_strafe_calculations) {
+                refresh_strafe_hud(mask, obj, yaw, speed_x, speed_y, speed_z);
+            }
             var fov_changed   = global_hud_last_fov_cache == obj.fov ? false : true;
             var pitch_changed = global_hud_last_pitch_cache == pitch ? false : true;
             if (fov_changed) {
@@ -104,10 +107,10 @@ function init_element_g_meter() {
                  global_hud_3d_focal_length = 50*global_hud_fov_cos_cache/global_hud_fov_sin_cache;
                  real_hud_element.style.perspective = global_hud_3d_focal_length + "vh";
             }
-            if (pitch_changed||fov_changed) {
-                global_hud_last_pitch_cache = pitch;
-	            strafe_data.pitch_deg = pitch*180/Math.PI;
-	            if (global_hud_need_pitch_calculations) {
+            if (global_hud_need_pitch_calculations) {
+	            if (pitch_changed||fov_changed) {
+	                global_hud_last_pitch_cache = pitch;
+		            strafe_data.pitch_deg = pitch*180/Math.PI;
 	                var trans_deg = 90 - strafe_data.pitch_deg;
                     for (i = 0; i < global_hud_3d_counts; i++) {
                          global_hud_3d_instance[i].style.transform = "translate(-50%,-50%) rotateX(" + trans_deg + "deg)";
@@ -122,14 +125,6 @@ function init_element_g_meter() {
 					strafe_data.pitch_clip = Math.min(clip,diam)*onevh_float + "px";
 					strafe_data.pitch_crop = Math.min(crop*onevw_float,diam*onevh_float) + 'px';
 	            }
-//	            if (Math.abs(strafe_data.pitch_deg)>45.1) {
-//	                var ecce = Math.tan(Math.PI/2-pitch);
-//	                strafe_data.semi_major = Math.round(global_hud_3d_focal_length * Math.abs(Math.tan(2*pitch)) * onevh_float) + "px";
-//	                strafe_data.semi_minor = Math.round(global_hud_3d_focal_length * Math.abs(Math.tan(2*pitch)) * Math.sqrt(1-ecce*ecce) * onevh_float) + "px";
-//                }
-            }
-            if (global_hud_need_strafe_calculations) {
-                refresh_strafe_hud(mask, obj, yaw, speed_x, speed_y, speed_z);
             }
         }
     });

@@ -1019,7 +1019,7 @@ function runHudUITest(str) {
 			"ranked": true
         };
 
-        hudUITestRankScreen(mmr_updates, 10000);
+        hudUITestRankScreen(mmr_updates, 13000);
     }
     if (tmp[1] == "8") {
 		let mmr_updates = {

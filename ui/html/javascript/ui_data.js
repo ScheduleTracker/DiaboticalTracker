@@ -167,7 +167,7 @@ var global_game_mode_map = {
     "ca": {
         "mode": "ca",
         "name": "Arena",
-        "i18n": "game_mode_clan_arena",
+        "i18n": "game_mode_arena",
         "desc_i18n": "game_mode_desc_arena",
         "announce": "announcer_common_gamemode_arena",
         "enabled": true,
@@ -264,6 +264,7 @@ var global_game_mode_map = {
 
 let global_queue_modes = {
     "qp_instagib_5": {
+        "i18n": "game_mode_instagib",
         "variable": "lobby_search_qp_instagib_5",
         "vs": "5v5",
         "team_size": 5,
@@ -271,6 +272,7 @@ let global_queue_modes = {
         "locked": false,
     },
     "qp_flagrun_5": {
+        "i18n": "game_mode_flagrun",
         "variable": "lobby_search_qp_flagrun_5",
         "vs": "5v5",
         "team_size": 5,
@@ -278,6 +280,7 @@ let global_queue_modes = {
         "locked": false,
     },
     "qp_coinrun_5": {
+        "i18n": "game_mode_coinrun",
         "variable": "lobby_search_qp_coinrun_5",
         "vs": "5v5",
         "team_size": 5,
@@ -285,6 +288,7 @@ let global_queue_modes = {
         "locked": false,
     },
     "qp_rocket_arena_1": {
+        "i18n": "game_mode_rocket_arena",
         "variable": "lobby_search_qp_rocket_arena_1",
         "vs": "1v1",
         "team_size": 1,
@@ -293,6 +297,7 @@ let global_queue_modes = {
         "leaderboard": true,
     },
     "qp_brawl_3": {
+        "i18n": "game_mode_brawl",
         "variable": "lobby_search_qp_brawl_3",
         "vs": "3v3v3",
         "team_size": 3,
@@ -300,6 +305,7 @@ let global_queue_modes = {
         "locked": true,
     },
     "qp_wo_4": {
+        "i18n": "game_mode_wipeout",
         "variable": "lobby_search_qp_wo_4",
         "vs": "4v4",
         "team_size": 4,
@@ -307,6 +313,7 @@ let global_queue_modes = {
         "locked": false,
     },
     "qp_wo_5": {
+        "i18n": "game_mode_wipeout",
         "variable": "lobby_search_qp_wo_5",
         "vs": "5v5",
         "team_size": 5,
@@ -314,6 +321,7 @@ let global_queue_modes = {
         "locked": false,
     },
     "qp_ca_1": {
+        "i18n": "game_mode_arena",
         "variable": "lobby_search_qp_ca_1",
         "vs": "1v1",
         "team_size": 1,
@@ -322,6 +330,7 @@ let global_queue_modes = {
         "leaderboard": true,
     },
     "qp_ca_2": {
+        "i18n": "game_mode_arena",
         "variable": "lobby_search_qp_ca_2",
         "vs": "2v2",
         "team_size": 2,
@@ -330,13 +339,23 @@ let global_queue_modes = {
         "leaderboard": true,
     },
     "qp_ffa": {
+        "i18n": "game_mode_brawl",
         "variable": "lobby_search_qp_ffa",
         "vs": "FFA",
         "team_size": 1,
         "mode": "brawl",
         "locked": false,
     },
+    "qp_instagib_ffa": {
+        "i18n": "game_mode_brawl_instagib",
+        "variable": "lobby_search_qp_instagib_ffa",
+        "vs": "FFA",
+        "team_size": 1,
+        "mode": "brawl",
+        "locked": false,
+    },
     "r_ctf_5": {
+        "i18n": "game_mode_capture_the_flag",
         "variable": "lobby_search_r_ctf_5",
         "vs": "5v5",
         "team_size": 5,
@@ -348,6 +367,7 @@ let global_queue_modes = {
         "locked": false,
     },
     "r_wo_5": {
+        "i18n": "game_mode_wipeout",
         "variable": "lobby_search_r_wo_5",
         "vs": "5v5",
         "team_size": 5,
@@ -355,6 +375,7 @@ let global_queue_modes = {
         "locked": false,
     },
     "r_ca_1": {
+        "i18n": "game_mode_arena",
         "variable": "lobby_search_r_ca_1",
         "vs": "1v1",
         "team_size": 1,
@@ -362,6 +383,7 @@ let global_queue_modes = {
         "locked": false,
     },
     "r_tdm_3": {
+        "i18n": "game_mode_tdm",
         "variable": "lobby_search_r_tdm_3",
         "vs": "3v3",
         "team_size": 3,
@@ -369,6 +391,7 @@ let global_queue_modes = {
         "locked": false,
     },
     "r_macguffin_3": {
+        "i18n": "game_mode_macguffin",
         "variable": "lobby_search_r_macguffin_3",
         "vs": "3v3",
         "team_size": 3,
@@ -376,6 +399,7 @@ let global_queue_modes = {
         "locked": false, 
     },
     "r_duel": {
+        "i18n": "game_mode_duel",
         "variable": "lobby_search_r_duel",
         "vs": "1v1",
         "team_size": 1,
@@ -913,6 +937,6 @@ var global_ranks = {
     "40": { "anim": "40_crystal.webm" },
     //"top_1": { "anim": ".webm" },  // TBA top1000
     //"top_2": { "anim": ".webm" },  // TBA top100
-    //"top_3": { "anim": ".webm" },  // TBA top50
+    "top_3": { "anim": "43_special02.webm" },
     "top_4": { "anim": "44_legend.webm" },
 };
