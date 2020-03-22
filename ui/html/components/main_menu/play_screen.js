@@ -558,7 +558,7 @@ function renderPlayCard(data) {
         let label = localize(global_queue_modes[queue].i18n);
         let checkbox_label = _createElement("div", "checkbox_label");
         checkbox_label.appendChild(_createElement("span", "", label));
-        checkbox_label.appendChild(_createElement("span", "", global_queue_modes[queue].vs));
+        checkbox_label.appendChild(_createElement("span", "", localize(global_queue_modes[queue].vs)));
         card_checkbox.appendChild(checkbox_label);
 
         let checkbox_rank = _createElement("div", "checkbox_rank");
@@ -1062,7 +1062,7 @@ function handle_mm_match_event(data) {
         let text_cont = _id("draft_screen_mode_text");
 
         icon_cont.style.backgroundImage = "url(/html/images/gamemodes/"+data.mode+".jpg)";
-        title_cont.textContent = localize(global_game_mode_map[data.mode].i18n)+" "+global_queue_modes[data.mm_mode].vs;
+        title_cont.textContent = localize(global_game_mode_map[data.mode].i18n)+" "+localize(global_queue_modes[data.mm_mode].vs);
         text_cont.textContent = localize(global_game_mode_map[data.mode].desc_i18n);
     }
 
@@ -1099,7 +1099,7 @@ function mm_match_found_overlay(data) {
     else type.textContent = localize("match_found");
 
 
-    mode.textContent = localize(global_queue_modes[data.mm_mode].i18n+" "+global_queue_modes[data.mm_mode].vs);
+    mode.textContent = localize(global_queue_modes[data.mm_mode].i18n)+" "+localize(global_queue_modes[data.mm_mode].vs);
 
     splash.style.display = "flex";
     

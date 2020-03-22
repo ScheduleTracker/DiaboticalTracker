@@ -832,14 +832,15 @@ function convert_group_coord_to_hud_coord(gid,element,hud_to_group) {
     if (group.pivot.includes('top'))    offset_y += group_rad_y;
     if (group.pivot.includes('bottom')) offset_y -= group_rad_y;
     if (hud_to_group) {
-    	element.x = (Number(element.x)-offset_x)/scale_x;
-    	element.y = (Number(element.y)-offset_y)/scale_y;
-    	element.gid = group.gid;
+    	var coord_x = (Number(element.x)-offset_x)/scale_x;
+    	var coord_y = (Number(element.y)-offset_y)/scale_y;
     } else {
-	    element.x = Number(element.x)*scale_x + offset_x;
-	    element.y = Number(element.y)*scale_y + offset_y;
-	    element.gid = -1;
+	    var coord_x = Number(element.x)*scale_x + offset_x;
+	    var coord_y = Number(element.y)*scale_y + offset_y;
     }
+	element.x = _clamp(coord_x, 0, 100);
+	element.y = _clamp(coord_y, 0, 100);
+	element.gid = hud_to_group ? group.gid : -1;
 }
 
 function hud_editor_set_aspect(aspect_str) {

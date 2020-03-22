@@ -757,9 +757,9 @@ window.addEventListener("load", function(){
         });
     });
 
-    bind_event('set_html', function (element_id, text) {
-        //console.log("add_customization_weapon" + selected);
-        _html(_id(element_id), text);
+    bind_event('set_screen_aspect_ratio', function (numerator, denominator) {
+        let html = '<span class="info"></span> '+localize_ext("settings_video_screen_aspect_ratio", { "ratio": numerator+":"+denominator});
+        _html(_id("aspect_ratio_info"), html);
     });
 
     bind_event('add_customization_weapon', function (weapon_name, selected) {
@@ -1037,7 +1037,7 @@ window.addEventListener("load", function(){
 
         //Must do this after the engine has had an opportunity to send setting values like hit sounds.
         settings_combat_update(0);
-        
+
         updateMenuBottomBattlepass();
 
         // Temporary solution to get list all the stickers available, see customize_screen.js -> set_asset_browser_content

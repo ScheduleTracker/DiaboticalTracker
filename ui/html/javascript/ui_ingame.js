@@ -252,7 +252,7 @@ window.addEventListener("load", function(){
 
     // game_manifest is sent after connecting / loading the map
     bind_event("game_manifest", function(manifest) {
-        //console.log("game_manifest", manifest);
+        console.log("game_manifest");
 
         if (manifest) {
             var mani = JSON.parse(manifest);
@@ -275,7 +275,9 @@ window.addEventListener("load", function(){
             }
             _id("game_intro_server").textContent = server;
   
-            anim_show(_id("game_intro_screen"));
+            if (!global_hud_is_visible) {
+                anim_show(_id("game_intro_screen"));
+            }
         }
 
         //_id("game_loading_message").style.display = "block";

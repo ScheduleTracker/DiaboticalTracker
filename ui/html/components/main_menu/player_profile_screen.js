@@ -467,7 +467,9 @@ function player_profile_render_main(data) {
             if (t.team_idx == match.user_team_idx) {
                 placement = t.placement;
                 if (placement == 0) {
-                    result = "Win";
+                    result = localize("match_win");
+                } else if (placement == 254) {
+                    result = localize("match_forfeit");
                 } else {
                     result = (t.placement + 1) +".";
                 }
@@ -480,7 +482,9 @@ function player_profile_render_main(data) {
         head.appendChild(label);
 
         let time = _createElement("div", "time");
-        time.innerHTML = _seconds_to_string(seconds_since)+" ago";
+        time.textContent = localize_ext("time_ago", {
+            "time": _seconds_to_string(seconds_since)
+        })
         head.appendChild(time);
 
         last_match.appendChild(head);
@@ -581,7 +585,11 @@ function player_profile_render_matches(data) {
         match_row.appendChild(th_kda);
 
         let th_result = _createElement("div", ["td", "td_result"]);
-        th_result.textContent = (m.team_placement + 1) + ".";
+        if (m.team_placement == 254) {
+            th_result.textContent = localize("match_forfeit");
+        } else {
+            th_result.textContent = (m.team_placement + 1) + ".";
+        }
         match_row.appendChild(th_result);
 
         cont.appendChild(match_row);

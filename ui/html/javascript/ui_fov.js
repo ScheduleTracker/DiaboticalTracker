@@ -35,11 +35,11 @@ function process_formated_film_string(str) {
 }
 
 function load_field_of_view_conversion() {
-//    preload_fov_preview_images();
     window.film_fov_focal_length = FOV_To_Focal_Length(_id('setting_fov').dataset.value,'vML',1,1,1,1);
     window.film_fov_zoom_focal_length = FOV_To_Focal_Length(_id('setting_zoom_fov').dataset.value,'vML',1,1,1,1);
     update_fov_conversion_options('film_fov_measurement');
     open_modal_screen("field_of_view_conversion_screen");
+    preload_fov_preview_images(fov_preview_background_series);
 }
 
 function preload_fov_preview_images(series) {
@@ -68,8 +68,8 @@ window.refFocalScale = 50;
 window.film_fov_focal_length = "";
 window.film_fov_zoom_focal_length = "";
 window.film_fov_preview_zoom = false;
-window.last_vert_hipfov = "";
-window.last_vert_adsfov = "";
+window.last_converted_hipfov = 90;
+window.last_converted_adsfov = 90;
 
 function FOV_To_Focal_Length(fov,type,prefix,suffix,res_hor,res_vert){
     var nom_width  = prefix;
@@ -117,10 +117,10 @@ function Focal_Length_To_FOV(focal_length,type,prefix,suffix,res_hor,res_vert){
     } else if (type=='FM') {
         aspect_factor = (res_hor/res_vert)<(nom_width/nom_height) ? 1 : res_vert*nom_width/nom_height/res_hor;
     }
-    var  fov  = Number((360*Math.atan(window.refFocalScale/(aspect_factor*focal_length))/Math.PI).toPrecision(6));
-    var vfov  = Number((360*Math.atan(window.refFocalScale/(focal_length))/Math.PI).toPrecision(6));
-    var check = Number((360*Math.atan(Math.tan(Math.round(fov)*Math.PI/360)*aspect_factor)/Math.PI).toPrecision(6));
-    if (vfov == check) {
+    var  fov  = 360*Math.atan(window.refFocalScale/(aspect_factor*focal_length))/Math.PI;
+    var vfov  = Number((360*Math.atan(window.refFocalScale/(focal_length))/Math.PI).toPrecision(6)); // what the engine will round to
+    var check = Number((360*Math.atan(Math.tan(Math.round(fov)*Math.PI/360)*aspect_factor)/Math.PI).toPrecision(6)); // what engine will give if rounded version of fov is inputted
+    if (vfov == check) { // if result matches what would happen if engine rounded an integer fov in this measurement, then assume that it came from this integer fov
         fov =  Math.round(fov);
     }
     return fov;
@@ -172,7 +172,7 @@ function update_fov_conversion_options(id_str){
                 suffix_element_locked.dataset.value = 1;
                 notype_element.dataset.value = measure_string.includes("vML") ? 'vML' : 'hML';
             } else {
-                var val = measure_string.split("|");
+                let val = measure_string.split("|");
                 _html(prefix_element_locked, val[0]);
                 _html(suffix_element_locked, val[2]);
                 prefix_element_locked.dataset.value = val[0];
@@ -191,29 +191,37 @@ function update_fov_conversion_options(id_str){
             suffix_element_locked.style.display='none';
         }
     } else {
-        var weap_index = window.current_selected_setting_weapon_number;
-        if (id_str == "film_fov_converted" && _id('film_fov_converted').dataset.value) {
-            window.film_fov_focal_length = FOV_To_Focal_Length(_id('film_fov_converted').dataset.value, t_p, p_f, s_f, r_h, r_v);
-            window.last_vert_hipfov      = Focal_Length_To_FOV(window.film_fov_focal_length,'vML',1,1,1,1);
-            engine.call("set_real_variable", "game_fov:"+weap_index, window.last_vert_hipfov);
-            update_fov_converter_preview(t_p, p_f, s_f, r_h, r_v);
-            return;
-        } else if (id_str == "film_fov_zoom_converted" && _id('film_fov_zoom_converted').dataset.value) {
-            window.film_fov_zoom_focal_length = FOV_To_Focal_Length(_id('film_fov_zoom_converted').dataset.value, t_p, p_f, s_f, r_h, r_v);
-            window.last_vert_adsfov           = Focal_Length_To_FOV(window.film_fov_zoom_focal_length,'vML',1,1,1,1);
-            engine.call("set_real_variable", "game_zoom_fov:"+weap_index, window.last_vert_adsfov);
-            update_fov_converter_preview(t_p, p_f, s_f, r_h, r_v);
-            return;
+        let weap_index = window.current_selected_setting_weapon_number;
+        if (id_str == "film_fov_converted") {
+            let nominal_fov = Number(_id('film_fov_converted').dataset.value);
+            if (nominal_fov!= window.last_converted_hipfov && nominal_fov>0 && nominal_fov<180) {
+                window.last_converted_hipfov = nominal_fov;
+	            window.film_fov_focal_length = FOV_To_Focal_Length(nominal_fov, t_p, p_f, s_f, r_h, r_v);
+	            engine.call("set_real_variable", "game_fov:"+weap_index, Focal_Length_To_FOV(window.film_fov_focal_length,'vML',1,1,1,1));
+	            update_fov_converter_preview(t_p, p_f, s_f, r_h, r_v);
+            } return;
+        } else if (id_str == "film_fov_zoom_converted") {
+            let nominal_fov = Number(_id('film_fov_zoom_converted').dataset.value);
+            if (nominal_fov!= window.last_converted_adsfov && nominal_fov>0 && nominal_fov<180) {
+                window.last_converted_adsfov = nominal_fov;
+	            window.film_fov_zoom_focal_length = FOV_To_Focal_Length(nominal_fov, t_p, p_f, s_f, r_h, r_v);
+	            engine.call("set_real_variable", "game_zoom_fov:"+weap_index, Focal_Length_To_FOV(window.film_fov_zoom_focal_length,'vML',1,1,1,1));
+	            update_fov_converter_preview(t_p, p_f, s_f, r_h, r_v);
+            } return;
         }        
     }
     t_p = notype_element.dataset.value;
 
-    global_range_slider_map["film_fov_converted"].setValue(Focal_Length_To_FOV(window.film_fov_focal_length, t_p, p_f, s_f, r_h, r_v));
-    global_range_slider_map["film_fov_zoom_converted"].setValue(Focal_Length_To_FOV(window.film_fov_zoom_focal_length, t_p, p_f, s_f, r_h, r_v));
+    let verthipfov = Focal_Length_To_FOV(window.film_fov_focal_length, t_p, p_f, s_f, r_h, r_v);
+    let vertadsfov = Focal_Length_To_FOV(window.film_fov_zoom_focal_length, t_p, p_f, s_f, r_h, r_v);
+    global_range_slider_map["film_fov_converted"].setValue(verthipfov);
+    global_range_slider_map["film_fov_zoom_converted"].setValue(vertadsfov);
     global_range_slider_map["film_fov_notation_prefix"].setValue(p_f);
     global_range_slider_map["film_fov_notation_suffix"].setValue(s_f);
     update_fov_converter_preview(t_p, p_f, s_f, r_h, r_v);
     write_misc_hud_preference('film', measure_string + '?' + p_f + '?' + t_p + '?' + s_f, true);
+    window.last_converted_hipfov = Number(verthipfov.toPrecision(6));
+    window.last_converted_adsfov = Number(vertadsfov.toPrecision(6));
 }
 
 

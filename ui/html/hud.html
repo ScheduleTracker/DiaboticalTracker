@@ -1150,8 +1150,7 @@
         </div>
 
 
-
-        <div class="teamscore_team" data-bind-if="!{{game_data.solo_mode}}">
+        <div class="teamscore_team" data-bind-if="{{game_data.team_size}} > 1">
             <div class="teamscore_score_players">
                 <div class="player_icon" data-bind-for="player_iter:{{game_data.own_team.players}}">
                     <div class="avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-class-toggle="player_self:{{player_iter.is_self}};player_dead:!{{player_iter.alive}}">
@@ -1244,7 +1243,7 @@
             [[/if]]
         </div>
 
-        <div class="teamscore_team" data-bind-if="!{{game_data.solo_mode}}">
+        <div class="teamscore_team" data-bind-if="{{game_data.team_size}} > 1">
             <div class="teamscore_score_players">
                 <div class="player_icon" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
                     <div class="avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-class-toggle="player_dead:!{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">

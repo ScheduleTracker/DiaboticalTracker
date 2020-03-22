@@ -62,6 +62,9 @@ function update_selectmenu(element, from_engine){
     if (id_str == "setting_mouse_accel_type") {
         update_accel_options(element);
     }
+    if (id_str == "setting_kovaak_yaw_pitch_preset") {
+        on_yaw_pitch_preset_select();
+    }
 }
 
 function settings_combat_update(weapon) {
@@ -188,13 +191,15 @@ function settings_combat_update(weapon) {
     _id("setting_imperial").dataset.variable = ("mouse_imperial");
     engine.call("initialize_select_value", "mouse_imperial");
 
-    //unbound physical sens
+    //physical sens
     global_range_slider_map["incre_field"] = new rangeSlider(_id("incre_field"), false, function(value) { update_physical_sens('incre_field',false) });
     global_range_slider_map["curvat_field"] = new rangeSlider(_id("curvat_field"), false, function(value) { update_physical_sens('curvat_field',false) });
     global_range_slider_map["circum_field"] = new rangeSlider(_id("circum_field"), false, function(value) { update_physical_sens('circum_field',false) });
     global_range_slider_map["incre_zoom_field"] = new rangeSlider(_id("incre_zoom_field"), false, function(value) { update_physical_sens('incre_zoom_field',false) });
     global_range_slider_map["curvat_zoom_field"] = new rangeSlider(_id("curvat_zoom_field"), false, function(value) { update_physical_sens('curvat_zoom_field',false) });
     global_range_slider_map["circum_zoom_field"] = new rangeSlider(_id("circum_zoom_field"), false, function(value) { update_physical_sens('circum_zoom_field',false) });
+    global_range_slider_map["setting_kovaak_yaw_num"] = new rangeSlider(_id("setting_kovaak_yaw_num"), false);
+    global_range_slider_map["setting_kovaak_pitch_num"] = new rangeSlider(_id("setting_kovaak_pitch_num"), false);
 
 
     //fov

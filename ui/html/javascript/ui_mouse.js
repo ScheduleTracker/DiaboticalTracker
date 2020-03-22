@@ -47,20 +47,29 @@ function convert_to_arcmin(value, unit) {
     return preset_arcmin;
 }
 
-function apply_preset_yaw_and_pitch(){
-    var preset_str = _id('setting_yaw_pitch_preset').dataset.value;
-    var preset_obj = window.yaw_pitch_preset_index[preset_str];
-    if (!preset_obj) return;
-    var value = preset_obj.value;
-    var unit  = preset_obj.unit;
-    
-    var preset_arcmin = convert_to_arcmin(value, unit);
-    if (!preset_arcmin) return;
-    
-    var weap_index = window.current_selected_setting_weapon_number;
-    engine.call("set_real_variable", "mouse_accel_post_scale_x:"+weap_index, preset_arcmin);
-    engine.call("set_real_variable", "mouse_accel_post_scale_y:"+weap_index, preset_arcmin);
-    update_physical_sens('initialize',false);
+function apply_preset_yaw_and_pitch(axis){
+	var weap_index = window.current_selected_setting_weapon_number;
+    if (axis == 'yaw') {
+        var yaw = convert_to_arcmin(_id('setting_kovaak_yaw_num').dataset.value, _id('setting_kovaak_yaw_unit').dataset.value);
+        if (!isFinite(yaw)) return;
+        
+	    engine.call("set_real_variable", "mouse_accel_post_scale_x:"+weap_index, yaw);
+    } else if (axis == 'pitch') {
+        var pitch = convert_to_arcmin(_id('setting_kovaak_pitch_num').dataset.value, _id('setting_kovaak_pitch_unit').dataset.value);
+        if (!isFinite(pitch)) return;
+        
+	    engine.call("set_real_variable", "mouse_accel_post_scale_y:"+weap_index, pitch);
+    } else {
+	    var preset_str = _id('setting_kovaak_yaw_pitch_preset').dataset.value;
+	    var preset_obj = window.yaw_pitch_preset_index[preset_str];
+	    if (!preset_obj) return;
+	    var preset_arcmin = convert_to_arcmin(preset_obj.value, preset_obj.unit);
+	    if (!preset_arcmin) return;
+	    
+	    engine.call("set_real_variable", "mouse_accel_post_scale_x:"+weap_index, preset_arcmin);
+	    engine.call("set_real_variable", "mouse_accel_post_scale_y:"+weap_index, preset_arcmin);
+    }
+	update_physical_sens('initialize',false);
 }
 
 function detect_preset_yaw_pitch() {
@@ -75,9 +84,30 @@ function detect_preset_yaw_pitch() {
             break;
         }
     }
-    _id('setting_yaw_pitch_preset').dataset.value = preset;
-    update_select(_id('setting_yaw_pitch_preset'));
-    
+    _id('setting_kovaak_yaw_pitch_preset').dataset.value = preset;
+    update_select(_id('setting_kovaak_yaw_pitch_preset'));
+    on_yaw_pitch_preset_select();
+}
+
+function on_yaw_pitch_preset_select() {
+    var preset = _id('setting_kovaak_yaw_pitch_preset').dataset.value;
+    var yaw   = Number(_id('setting_mouse_accel_post_scale_x').dataset.value);
+    var pitch = Number(_id('setting_mouse_accel_post_scale_y').dataset.value);
+    if (preset=='custom') {
+       _id('setting_kovaak_custom_yaw').style.display = "flex";
+       _id('setting_kovaak_custom_pitch').style.display = "flex";
+       _id('setting_kovaak_apply_preset_button').style.display = "none";
+        global_range_slider_map["setting_kovaak_yaw_num"].setValue(yaw);
+        global_range_slider_map["setting_kovaak_pitch_num"].setValue(pitch);
+	   _id('setting_kovaak_yaw_unit').dataset.value = 'arcmin';
+	   _id('setting_kovaak_pitch_unit').dataset.value = 'arcmin';
+	    update_select(_id('setting_kovaak_yaw_unit'));
+	    update_select(_id('setting_kovaak_pitch_unit'));
+    } else {
+       _id('setting_kovaak_custom_yaw').style.display = "none";
+       _id('setting_kovaak_custom_pitch').style.display = "none";
+       _id('setting_kovaak_apply_preset_button').style.display = "flex";
+    }
 }
 
 window.yaw_pitch_preset_index = {
@@ -240,7 +270,7 @@ function update_accel_chart() {
 	                    position: "bottom",
 	                    scaleLabel: {
 	                        display: true,
-	                        labelString: "Counts per milisecond (cpms)"
+	                        labelString: "Counts per millisecond (cpms)"
 	                    },
 	                    gridLines: {
 	                   		drawTicks: false,

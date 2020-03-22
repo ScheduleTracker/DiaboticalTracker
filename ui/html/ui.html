@@ -1269,7 +1269,7 @@
 
                     <div class="subheader_row" id="setting_combat_use_defaults_container">
                         <div id="combat_subheader_row_default">
-                            <div>Default Settings</div>
+                            <div class="i18n" data-i18n="settings_default">Default Settings</div>
                         </div>
                         <div id="combat_subheader_row_weapon">
                             <span>
@@ -1287,7 +1287,7 @@
                                 <div class="settings_block_double">
                                     <div class="settings_block_header">
                                         <div class="checkbox_component checkbox" id="setting_weapon_use_sensitivity" data-variable="game_custom_weapon_sensitivity"><div></div></div>
-                                        <div class="settings_header" class="i18n" data-i18n="settings_sensitivity">Sensitivity (arcmin)</div>
+                                        <div class="settings_header i18n" data-i18n="settings_sensitivity">Sensitivity (arcmin)</div>
                                     </div>
                                     <div id="settings_block_sensitivity" class="lockable">
                                         <div class="header i18n" data-i18n="settings_sensitivity_normal">Normal sensitivity</div>
@@ -1323,7 +1323,7 @@
                                 <div class="settings_block_double">
                                     <div class="settings_block_header">
                                         <div class="checkbox_component checkbox" id="setting_weapon_use_fov" data-variable="game_custom_weapon_fov"><div></div></div>
-                                        <div class="settings_header" class="i18n" data-i18n="settings_fov">Field of View (vertical)</div>
+                                        <div class="settings_header i18n" data-i18n="settings_field_of_view">Field of View (vertical)</div>
                                     </div>
                                     <div id="settings_block_fov" class="lockable">
                                         <div class="header i18n" data-i18n="settings_field_of_view_normal">Normal Field of View</div>
@@ -1361,7 +1361,7 @@
                                 <div class="settings_block_double">
                                     <div class="settings_block_header">
                                         <div class="checkbox_component checkbox" id="setting_weapon_use_accel" data-variable="game_custom_weapon_accel"><div></div></div>
-                                        <div class="settings_header" class="i18n" data-i18n="settings_mouse_accel">Mouse Acceleration</div>
+                                        <div class="settings_header i18n" data-i18n="settings_mouse_accel">Mouse Acceleration</div>
                                     </div>
                                     <div id="settings_block_accel" class="lockable">
                                         <div class="accel_main_selection">
@@ -1470,7 +1470,7 @@
                                     <div class="first">
                                         <div class="settings_block_header">
                                             <div class="checkbox_component checkbox" id="setting_weapon_use_crosshair" data-variable="game_custom_weapon_crosshair"><div></div></div>
-                                            <div class="settings_header" class="i18n" data-i18n="settings_crosshair">Crosshair</div>
+                                            <div class="settings_header i18n" data-i18n="settings_crosshair">Crosshair</div>
                                         </div>
                                         <div id="settings_block_crosshair" class="lockable">
                                             <div class="crosshair_previews_container">
@@ -1488,14 +1488,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="button " onclick="load_crosshair_editor()" data-i18n="settings_crosshair">Edit</div>
+                                            <div class="button i18n" onclick="load_crosshair_editor()" data-i18n="edit">Edit</div>
                                         </div>
                                     </div>
 
                                     <div class="second">
                                         <div class="settings_block_header">
                                             <div class="checkbox_component checkbox" id="setting_weapon_use_zoom_crosshair" data-variable="game_custom_weapon_zoom_crosshair"><div></div></div>
-                                            <div class="settings_header" class="i18n" data-i18n="settings_zoom_crosshair">Zoom Crosshair</div>
+                                            <div class="settings_header i18n" data-i18n="settings_zoom_crosshair">Zoom Crosshair</div>
                                         </div>
                                         <div id="settings_block_zoom_crosshair" class="lockable">
                                             <div class="crosshair_previews_container">
@@ -1513,7 +1513,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="button " onclick="load_zoom_crosshair_editor()" data-i18n="settings_zoom_crosshair">Edit</div>
+                                            <div class="button i18n" onclick="load_zoom_crosshair_editor()" data-i18n="edit">Edit</div>
                                         </div>
                                     </div>
 
@@ -1584,8 +1584,8 @@
                         <div class="setting_row">                       
                             <div class="setting_select" style="width: 15vh;">                           
                                 <div class="select-field" data-variable="game_auto_switch_ooa" data-theme="settings">
-                                    <div data-value=0 class="i18n">Disabled</div>
-                                    <div data-value=1 class="i18n">Enabled</div>
+                                    <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
+                                    <div data-value=1 class="i18n" data-i18n="enabled">Enabled</div>
                                 </div>
                             </div>
                             <div class="label_right i18n" data-i18n="settings_auto_switch_weapon">Auto switch weapon on empty</div>
@@ -1750,7 +1750,7 @@
 
                 <div class="settings_two_parted">
                     <div>
-                        <div class="setting_title_big">PERFORMANCE</div>
+                        <div class="setting_title_big i18n" data-i18n="settings_video_title_performance">Performance</div>
                         <div class="setting_row_stacked">
                             <div class="setting_header i18n" data-i18n="settings_video_display_mode">Display mode</div>
                             <div class="setting_select">
@@ -1796,7 +1796,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="setting_title_big">QUALITY</div>
+                        <div class="setting_title_big i18n" data-i18n="settings_video_title_quality">Quality</div>
                         
                         <div class="setting_row_checkbox">
                             <div class="label i18n" data-i18n="settings_video_v_sync">V-Sync</div>
@@ -2446,7 +2446,7 @@
                     </div>
                 </div>
                 <div id="custom_lobby_join_link">
-                    <div class="setting_title">Join Key</div>
+                    <div class="setting_title i18n" data-i18n="custom_game_settings_join_key">Join Key</div>
                     <div id="custom_lobby_join_link_input" class="key" style="display:none;"></div>
                     <div id="custom_lobby_join_link_hidden" class="key">*****************</div>
                     <div class="button_medium show mouseover-sound4 click-sound tooltip2" data-msg-id="lobby_key_show" onclick="lobby_join_key_show()"></div>
@@ -2688,7 +2688,7 @@
 
         <div class="tr tr_latency">
             <!--<div class="sort"></div>-->
-            <div class="title" data-i18n="customlist_table_head_latency">Latency</div>
+            <div class="title i18n" data-i18n="customlist_table_head_latency">Latency</div>
         </div>
     </div>
 
@@ -3158,10 +3158,10 @@
 
     <div class="friends_list_tabs">
         <div class="tab tab_friends active mouseover-sound4 click-sound" data-id="friends">
-            <div class="label">Friends</div>
+            <div class="label i18n" data-i18n="friends">Friends</div>
         </div>
         <div class="tab tab_invites mouseover-sound4 click-sound" data-id="invites">
-            <div class="label">Invites</div>
+            <div class="label i18n" data-i18n="invites">Invites</div>
             <div class="count">0</div>
         </div>
     </div>
@@ -3316,7 +3316,7 @@
         <div id="quit_dialog_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div class="generic_modal_dialog_container">
-                    <div class="generic_modal_dialog_header">Confirm Quit</div>
+                    <div class="generic_modal_dialog_header i18n" data-i18n="quit_title">Confirm Quit</div>
                     <div class="generic_modal_dialog_text i18n" data-i18n="quit_are_you_sure">Are you sure you want to quit?</div>
                     <div class="generic_modal_dialog_action">
                         <div class="dialog_button clickable positive i18n" data-i18n="yes"
@@ -3346,7 +3346,7 @@
         <div id="reset_hud_modal" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div class="generic_modal_dialog_container">
-                    <div class="generic_modal_dialog_header">Confirm HUD Reset</div>
+                    <div class="generic_modal_dialog_header i18n" data-i18n="hud_reset_title">Confirm HUD Reset</div>
                     <div class="generic_modal_dialog_text i18n" data-i18n="hud_are_you_sure_reset">Are you sure you want to reset your hud?</div>
                     <div class="generic_modal_dialog_action">
                         <div class="dialog_button clickable positive i18n" data-i18n="yes"
@@ -3367,7 +3367,7 @@
         <div id="hud_editor_delete_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div class="generic_modal_dialog_container">
-                    <div class="generic_modal_dialog_header">Delete Element</div>
+                    <div class="generic_modal_dialog_header i18n" data-i18n="hud_delete_element_title">Delete Element</div>
                     <div class="generic_modal_dialog_text i18n" data-i18n="settings_hud_do_you_delete_element">Are you sure you want to delete this element?</div>
                     <div class="generic_modal_dialog_action">
                         <div class="dialog_button clickable positive i18n" data-i18n="yes"
@@ -3540,7 +3540,7 @@
 
         <div id="rank_overview_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
-                <div class="title">Seasonal Ranks</div>
+                <div class="title" data-i18n="ranks_overview_title">Seasonal Ranks</div>
                 <div class="rank_list">
                     <div class="rank">
                         <div class="rank_icon rank_5"></div>
@@ -3752,14 +3752,33 @@
                             <div class="settings_block_double">
                                 <div class="settings_block_double_header">Yaw/Pitch Presets</div>
                                 <div class="accel_main_selection">
-                                    <div id="setting_yaw_pitch_preset" class="select-field select_setting" data-theme="settings">
+                                    <div id="setting_kovaak_yaw_pitch_preset" class="select-field select_setting" data-theme="settings">
                                         <div data-value='cs'>Quake/Source</div>
                                         <div data-value='db'>Diabotical</div>
                                         <div data-value='ow'>Overwatch</div>
                                         <div data-value='reflex'>Reflex</div>
                                         <div data-value='fn'>Fortnite</div>
+                                        <div data-value='custom'>Custom...</div>
                                     </div>
-                                    <div class="button" onclick="apply_preset_yaw_and_pitch()">Apply</div>
+                                    <div id="setting_kovaak_apply_preset_button" class="button" onclick="apply_preset_yaw_and_pitch()">Apply</div>
+                                </div>
+                                <div id="setting_kovaak_custom_yaw" class="accel_main_selection" style="display:none">
+                                    <div id="setting_kovaak_yaw_num" class="range-slider" data-fig="6" data-hide-slider="true"></div>
+                                    <div id="setting_kovaak_yaw_unit" class="select-field select_setting" data-theme="settings">
+                                        <div data-value='arcmin'>arcmin</div>
+                                        <div data-value='mrad'>mrad</div>
+                                        <div data-value='deg'>deg</div>
+                                    </div>
+                                    <div class="button" onclick="apply_preset_yaw_and_pitch('yaw')">Apply Yaw</div>
+                                </div>
+                                <div id="setting_kovaak_custom_pitch" class="accel_main_selection" style="display:none">
+                                    <div id="setting_kovaak_pitch_num" class="range-slider" data-fig="6" data-hide-slider="true"></div>
+                                    <div id="setting_kovaak_pitch_unit" class="select-field select_setting" data-theme="settings">
+                                        <div data-value='arcmin'>arcmin</div>
+                                        <div data-value='mrad'>mrad</div>
+                                        <div data-value='deg'>deg</div>
+                                    </div>
+                                    <div class="button" onclick="apply_preset_yaw_and_pitch('pitch')">Apply Pitch</div>
                                 </div>
                             </div>
                             <div class="settings_block_double" style="display:none;align-items:center;justify-content:center;perspective-origin:center;perspective:50vh">
@@ -4924,8 +4943,7 @@
         </div>
 
 
-
-        <div class="teamscore_team" data-bind-if="!{{game_data.solo_mode}}">
+        <div class="teamscore_team" data-bind-if="{{game_data.team_size}} > 1">
             <div class="teamscore_score_players">
                 <div class="player_icon" data-bind-for="player_iter:{{game_data.own_team.players}}">
                     <div class="avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-class-toggle="player_self:{{player_iter.is_self}};player_dead:!{{player_iter.alive}}">
@@ -5018,7 +5036,7 @@
             [[/if]]
         </div>
 
-        <div class="teamscore_team" data-bind-if="!{{game_data.solo_mode}}">
+        <div class="teamscore_team" data-bind-if="{{game_data.team_size}} > 1">
             <div class="teamscore_score_players">
                 <div class="player_icon" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
                     <div class="avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-class-toggle="player_dead:!{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">

@@ -52,7 +52,7 @@ function set_chat(visible) {
         global_chat_double_key_fix_active = true;
         global_chat_double_key_fix_timeout = setTimeout(function() {
             global_chat_double_key_fix_active = false;
-        },10);
+        },1);
     }
     let game_report_input = _id("game_report_cont").querySelector(".chat_input");
     if (global_game_report_active) {

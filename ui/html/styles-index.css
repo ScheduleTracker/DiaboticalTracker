@@ -2043,6 +2043,7 @@ body, html {
     font-size: 1vh;
     line-height: 1vh;
     margin-right:0.4vh;
+    text-transform:uppercase;
 }
 .slot_name {
     font-size: 1.5vh;
@@ -11254,6 +11255,7 @@ h2 {
     font-family: var(--noto-font);
     font-weight: bold;
     letter-spacing: 0.052em;
+    text-transform:uppercase;
 
     margin-top: 4vh;
     margin-bottom: 4vh;
@@ -11714,6 +11716,14 @@ h2 {
     background-color:rgba(255,255,255,0.1);
     margin-top:1vh;
     margin-bottom:1vh;
+}
+#setting_kovaak_yaw_unit , 
+#setting_kovaak_pitch_unit {
+	width:10vh;
+}
+#setting_kovaak_yaw_num , 
+#setting_kovaak_pitch_num {
+	margin-right:0;
 }
 #field_of_view_conversion_screen .range-slider,
 #advanced_mouse_settings_screen .range-slider  {

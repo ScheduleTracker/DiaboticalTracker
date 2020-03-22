@@ -1319,7 +1319,7 @@ function set_lobby_slot_player(user_id, team, slot, name, avatar, host, is_it_me
         _for_first_with_class_in_parent(slot_elem, 'slot_content', function(sc) {
             let html = "<div class=slot_avatar style='background-image:url(\""+_avatarUrl(avatar)+"\")'></div>";
             html +=  "<div class=slot_name>"+name+"</div>";
-            if (host) { html += "<span class=slot_avatar_host>HOST</span>"; }
+            if (host) { html += "<span class=slot_avatar_host>"+localize("lobby_host")+"</span>"; }
 
             _html(sc, html);
         });
