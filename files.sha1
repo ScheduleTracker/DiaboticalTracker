@@ -2825,12 +2825,14 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-44658f7bc2b1ba03e658294b6f7897750828f2c7	diabotical.exe
+c9ff3db445d733554e21d1e332236dcbae1ffb85	diabotical.exe
 cbeea3eeb54e6dbecf60558b444999cf269c59f1	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
 1ecbe1bd741c7101c72361d1d3dab5ad9056c2a1	icudtl.dat
-a04292d275d644d5df8f7a83ef86dfaacd0bfd0b	libcurl.dll
+de0feed659f783a8555efd579685d5b16eee3bd7	libcrypto-1_1-x64.dll
+dae5eb35d59cdd8ad2059dc8e7c80b0bce793b86	libcurl.dll
+314c9c1360af748820290eef7ce1eb9670c36a1d	libssl-1_1-x64.dll
 b51420f5acd33b7b0625fe9a1bd0c619a7791b08	manifest.rbd
 f0cd95801fa03e4c41c4d429ef74b85b1c00dda5	maps/a_barrows_gate-b.png
 21f4d396e7694d12ae6723d95f2b44fd6259e6c7	maps/a_barrows_gate-h.png
@@ -17301,10 +17303,10 @@ d2c9ac20c3eaab719bb4455bc51563c6bae8b153	models/eggbot/eggbot_body (Nicolai Marc
 6d118559b9ecd020b30926608c4133a3ab7ffa80	models/eggbot/eggbot_body (Vegard Fjogstad's conflicted copy 2020-02-12).dbm
 3970dfa9925ee1ff37104335bf656938984dca34	models/eggbot/eggbot_body (Vegard Fjogstad's conflicted copy 2020-02-12).fbx
 7664969f912ee4e907ae808410a837101199e0c6	models/eggbot/eggbot_body.ani
-74c4b9c40bfdebd23d9f6d638fbf064f77654d6f	models/eggbot/eggbot_body.dbm
+d1f804ba4480edd0d9c2ea6c1237d2723b3ba6ef	models/eggbot/eggbot_body.dbm
 344401aa4e3dc35a1275c49df3448498bc8eeb9a	models/eggbot/eggbot_body.fbm/eggbot_d.png
 a6ae6dc6718f3aa64af3db38ad04f81a601daa06	models/eggbot/eggbot_body.fbm/eggbot_n.png
-6a3427a3973b6b7b646b53f4a846308fbcf4700f	models/eggbot/eggbot_body.fbx
+bad9148bb820cfa10ab724b51415f600f13764c3	models/eggbot/eggbot_body.fbx
 e388da4bfe0636ba986ff35e799a86cd597c92ac	models/eggbot/eggbot_body_hollowed_out.dbm
 bed415e6ec294f51361838f94d08d530fa8b2553	models/eggbot/eggbot_body_hollowed_out.fbx
 7b3cbc41bd62af221c6977652212e178ac52f020	models/eggbot/eggbot_c.png
@@ -28212,7 +28214,7 @@ ae1794dbe4ffefd2d092eeb9dae232d021af4ed5	shaders/statictranstex.ps.cso
 fbb3806ba47d7346ce45b21ef506a0e8ca448bfa	shaders/statictranstexfog.ps.cso
 5a7c12d218c3622a1ee0caf611e725c7090f2e6b	shaders/statictranstexfogg.ps.cso
 d961c67cecd11ad5327b51c671884397a74b467b	shaders/textured.ps.cso
-c748c584f6b9128f0c73c9dc1ffb74c90a820f78	shaders/tile.cs.cso
+29e37827aaaa2b8e6f2aefe9c3fd5b58aca400cb	shaders/tile.cs.cso
 8fcd2b0c214765c9c4b891341163117489c7f280	shaders/tile.ps.cso
 ca25b92f192102904288b4f9a6acf8b1582c3204	shaders/tile.vs.cso
 d7289348f352bc633fae63549ae90b7df592294b	shaders/tile_col.ps.cso
@@ -28226,7 +28228,7 @@ c9691e2ebf513de741658de01c136d6153808a26	shaders/tilebutterfly.vs.cso
 89cebbd3b295b312ca939d66a4972c8d6d24558a	shaders/tiledecal.ps.cso
 fa9a36813bacaceea538b4a927f3b23e3b07c193	shaders/tiledecalp.ps.cso
 0464531b681bc93be2079cb4c856e2fd54669d02	shaders/tiledecalssr.ps.cso
-31b6b48c8b9f59d4e503121ca5a10e9c39dc4868	shaders/tilediag.cs.cso
+21dbe9bb4cfa51227537266436562b4e675a9f5c	shaders/tilediag.cs.cso
 66a2e8a438c87f15f870aac95f5dfc8dd877dc36	shaders/tiledirt.ps.cso
 7e014f676c75f6b6fe474c93e88575773ef38545	shaders/tileflower.vs.cso
 1ce9925f4398c50e70753d51844a706817986ad9	shaders/tilegrass.vs.cso
@@ -34114,9 +34116,9 @@ fcd2a149a2164f791ac2fbf26e917e2f704c730e	ui/html/components/main_menu/ingame_men
 f222e13ca8d718cef377af1755b072928113561d	ui/html/components/main_menu/leaderboards_screen.js
 ddc177c99a3a0cd185cd6fb4b7f2720916bc6b42	ui/html/components/main_menu/main_chat.js
 c52512a8729d4e7cd38368eee879030d371e465b	ui/html/components/main_menu/party_box.js
-93fe218325c648e961a4966c6acb27801428b399	ui/html/components/main_menu/play_screen.js
+0ee1f747073add74fd9348b50a0b2b37dcdfe378	ui/html/components/main_menu/play_screen.js
 d978c6c2db1ce12cf65dbe5a9de84e4d46df6220	ui/html/components/main_menu/play_screen_customlist.js
-0c52c8da7197819a0f53369155f10602b9d7da72	ui/html/components/main_menu/player_profile_screen.js
+219ef575334f5c4bf68b2199f62601fc514afd69	ui/html/components/main_menu/player_profile_screen.js
 fe53d49801a68dc0cb4a9f0657898376286b412e	ui/html/components/main_menu/practice_screen.js
 dd825676b437449562ca4dd9341789ac01a5ad0e	ui/html/components/main_menu/shop_item_screen.js
 e96b619a080a2d45556496027de2b008ff843df5	ui/html/components/main_menu/shop_screen.js
@@ -34444,7 +34446,7 @@ d5558a3f6dbc6fad73e63ed68bf6a17a33411278	ui/html/fonts/veneer.otf
 8a565b6639a2c641b73ee59562c03c32d8fb3071	ui/html/fonts/veneer_italic.otf
 5fc5bc24de0991a2ff0d27ba57a9a40e7402f89f	ui/html/fonts/veneer_italic.ttf
 78d78c4080aee05bae473ef1c832c08a7280b88e	ui/html/hud.bundle.js
-70af2f4d980073c6db14646e08ccb78c3a230a5b	ui/html/hud.html
+de198522911e663ddc26ac4f4ab89b793d94845e	ui/html/hud.html
 19e2adc1899d26fac9898d7882958342feb78509	ui/html/images/Spark.svg
 542165899a9d5da612fbb8e7912d1eb17cd3f37c	ui/html/images/armor.svg
 a88ca6f1937d73ca626c24b97f0ebd47286bc7f7	ui/html/images/arrow.png
@@ -34792,7 +34794,7 @@ bb26082d5038b5ce9f202924772e11be1fa5fb25	ui/html/javascript/coherent.mock.style.
 0dcf86d74f45bdd8f2471c9c524c89ceca1a24dc	ui/html/javascript/cohtml.js
 92e404420f881987462474e303e490e342e2d7f0	ui/html/javascript/hud_elements/element_armor.js
 c6188419a092d163c19239d16a2cada31c5c1b6c	ui/html/javascript/hud_elements/element_armor_bar.js
-840ed63edcd97402cb50b8c5f49c1f0b947c15d0	ui/html/javascript/hud_elements/element_chat.js
+b8f52a7177e05c62d03c2919a32e1cce6015fdd3	ui/html/javascript/hud_elements/element_chat.js
 0baf159b2188abe1690ded8466d8e1be236d408b	ui/html/javascript/hud_elements/element_coins.js
 8f2a861af6741165d6c0b91c8fb4f97c21db62b8	ui/html/javascript/hud_elements/element_current_ammo.js
 18325c409f15b354ca6141dde565a01d6e54e7df	ui/html/javascript/hud_elements/element_current_weapon_icon.js
@@ -34843,20 +34845,20 @@ a639fa10ac0eb53da7d6c95cba74c9d63466f4d2	ui/html/javascript/jstree/themes/defaul
 90c1d234f480f543533f124a8079e5e0d03c3bcf	ui/html/javascript/moment.min.js
 8c8e0bc0b7ea99fedd7ae667834be60101867408	ui/html/javascript/spectrum.js
 a84138605e1dba56c8b44d59317d6a3af716f794	ui/html/javascript/spectrum_custom.js
-7da8fb940c4c3d8ff212f4ea67c17ec0617ab673	ui/html/javascript/ui.js
+65eca802c985c607482285ff78e622f73bbdb8b0	ui/html/javascript/ui.js
 65af777adc23b66a34f76bfa65e239317f319c30	ui/html/javascript/ui_anim.js
 aaa6b0c3cf1486d4b388b8557c05b1582be520ac	ui/html/javascript/ui_br.js
 9100c32beb38557d418a516ef5ad8dbfee8445c3	ui/html/javascript/ui_contextmenu.js
-129059c5423071b77d345a29bc6adec85ac0e832	ui/html/javascript/ui_customgame.js
+5f759b8b2ce482b3eb7832db7ae77f0b770d8d3a	ui/html/javascript/ui_customgame.js
 a0868148442048569b79bcd636c0936fa5aa3fd4	ui/html/javascript/ui_data.js
 b47b7f5730b0fc5806b8c5ab083bdfb8e43eb435	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
-ea7553cd495d8b9e6b06cf728fb85d9bd2fcd601	ui/html/javascript/ui_fov.js
+757d889e1906acb4439e95085026cc8bf59acb2e	ui/html/javascript/ui_fov.js
 294b5a84cb583a980b008a806795de0038fe103a	ui/html/javascript/ui_helpers.js
 c8b6072e36324f75ceba75f0452dcfadb3eae17a	ui/html/javascript/ui_hud_creator.js
-6edaa7c444b89ef629d799b8e6553f1dbde00e94	ui/html/javascript/ui_hud_editor.js
-fd6ab3fa78d2f9a9d88fc3e3468b0de0e262875f	ui/html/javascript/ui_ingame.js
-439af0cb72c44dce9b51ec83061dbfbd6118d02f	ui/html/javascript/ui_mouse.js
+601360de819de51f7812c47a16736a92b47564d3	ui/html/javascript/ui_hud_editor.js
+4ae67b9f7d08f3280f4d09a84f82e19d0c266d07	ui/html/javascript/ui_ingame.js
+0df170b62bb1f9d20e5f3ba24f9723e8932f23a7	ui/html/javascript/ui_mouse.js
 888be6f8df6b06fe4aae0f0a956bd07e39b15378	ui/html/javascript/ui_ms.js
 8ef7fe4cd529480bdf328d5e03b8eb25d545d4bc	ui/html/javascript/ui_play.js
 c64f034c3584fd1d005d3d92f2af068e238ea41c	ui/html/javascript/ui_scrollbar.js
@@ -34866,7 +34868,7 @@ e9e9d234dfbef04a30018b5790f714f779e92977	ui/html/javascript/ui_slider_component.
 fac90f42e6031e48cfdada451b812c767506650e	ui/html/javascript/ui_strafe.js
 7099fe027f72bb60bb06e437e91deff05be39e58	ui/html/javascript/ui_strafe_experiment.js
 696df968ba51010c2b370b9b378306e03a5fe9e8	ui/html/javascript/ui_variable.js
-091a46106326b1b889529b0991d44a851db5d99e	ui/html/javascript/ui_views.js
+63c7f7d463b188a0f9213881f60d74b4b870e691	ui/html/javascript/ui_views.js
 c594e9473953bffbebc8513dd0f9f6c18e0cc1f2	ui/html/jquery/jquery-ui.css
 ae5f184d49ea20775c6d44f72fe167ff5bbc3504	ui/html/jquery/jquery-ui.js
 567273b96aa7ceabd9afe987a78d05d6045b00f9	ui/html/jquery/jquery.js
@@ -35139,8 +35141,8 @@ cbd49ac565361b40760479be0675da9c3ff9fdf8	ui/html/ranks/animated/43_special02.web
 1f23bbeaeacff4ee7ccdfb4f7770c575414f4217	ui/html/ranks/animated/44_legend.webm
 b541dadfc60b72a7a4cab17f080ff67692aedd16	ui/html/ranks/weeball_loser.png
 faf695fba4347262911ad847c658f1aab9adb401	ui/html/ranks/weeball_winner.png
-420428970ef1c39624cc6fbffb7ac96c8d5a157d	ui/html/styles-hud.css
-7bed3b3be44e4af4cc8b977429e321ba204c0424	ui/html/styles-index.css
+75f0d222a69d15eb8bb957e3d5c377b56e1337b9	ui/html/styles-hud.css
+4a2cb981cf4b365f7ddd99c06d539da95746345d	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
@@ -35159,7 +35161,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 7173a2a3f70725c2605bfb8bf52654b157c87796	ui/html/translations/strings_play.json
 59cf196741ef482d97e40ccd8ab0dd89f359ca48	ui/html/translations/translation-de.js
-70d02f7e6b2c484e1de45f7e1c2fc05611c2512c	ui/html/translations/translation-en.js
+d344a4ff52143664ccce86603ef649f9c3630087	ui/html/translations/translation-en.js
 fc3aa1e50e51654400bd3e2121b70d1853c342a4	ui/html/translations/translation-es-ES.js
 395899d6fb21f528b81d0423e6636d64f31db6ea	ui/html/translations/translation-es-MX.js
 523842169c36fdfe5ad523d135e4156f5eb1a1cd	ui/html/translations/translation-fr.js
@@ -35169,7 +35171,7 @@ b294d4d778d168c3040bf232a6a3c78a308be370	ui/html/translations/translation-it.js
 7fbf1fd7523715d4f7ae9cdcd449c812459d41a4	ui/html/translations/translation-ru.js
 6546ae04c22046831f1a557ca6b59a649014853a	ui/html/translations/translation-zh-CN.js
 31c838cb0c66a2b20b936892527670a73155ce2f	ui/html/translations/translation-zh-TW.js
-8ed964529b0993e56827a8818c0cb845a64b0512	ui/html/ui.html
+a55b0aaa5b981b1ddc8d13dac9aafee744843e87	ui/html/ui.html
 18c61eaa43f0b2d2d56cabd10bfb4191336debf7	ui/html/vendors/anime/anime.min.js
 104a6b83cc91c7e87b2581bcbffe225d4262219e	ui/html/vendors/chartjs/_Chart.bundle.js
 388ec557ec1e260c59ce61d819077cb52949bd02	ui/html/vendors/fetch.umd.js
@@ -37664,4 +37666,4 @@ bbbb05fff5d98e783ef80445b20c551601fd658d	ui/resources/ye.png
 5efbe63b82e1c8ef15d868e55ce6c91130d39af7	v8_libbase.dll
 62d85ae64771d0c85c0e0484774771b3ca233246	vcruntime140.dll
 676105c373bf128a5b5700ff1f52486fd01e72b7	vcruntime140_1.dll
-d58d59e8db69d1baa4bc79a384fa447214509cb2	zlib1.dll
+9a47400f859ac81d2f16e2ec8a58b2a96ea6257d	zlib1.dll
