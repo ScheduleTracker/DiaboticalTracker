@@ -17314,6 +17314,7 @@ db92177df4c53f4eef56c77b12cb61366fb2cdb7	models/eggbot/cyclo_shell/cyclo_shell02
 4053b5b4447c3d95821076088ad0ca8f08c3a0cf	models/eggbot/cyclo_shell/cyclo_shell02_glass.fbx
 9c80fdae8fe8469968c520c82215e159f245186d	models/eggbot/eggbot_bod_old.dbm
 31127758089892fd7966053fb62ad1ffdc25decc	models/eggbot/eggbot_bod_old.fbx
+801da906ed8fa67eb3bcf16c9dccdc5b9645263a	models/eggbot/eggbot_body (Juan Fernandez's conflicted copy 2020-03-23).fbx
 e91fce8202af276a066d65055d496154497ff7fd	models/eggbot/eggbot_body (Nicolai Marcher's conflicted copy 2019-12-08).dbm
 06b185fbafd4164cd3c0db22a4e42a293fbf4860	models/eggbot/eggbot_body (Nicolai Marcher's conflicted copy 2019-12-08).fbx
 d2c9ac20c3eaab719bb4455bc51563c6bae8b153	models/eggbot/eggbot_body (Nicolai Marcher's conflicted copy 2020-02-29).dbm
@@ -34465,7 +34466,7 @@ d5558a3f6dbc6fad73e63ed68bf6a17a33411278	ui/html/fonts/veneer.otf
 8a565b6639a2c641b73ee59562c03c32d8fb3071	ui/html/fonts/veneer_italic.otf
 5fc5bc24de0991a2ff0d27ba57a9a40e7402f89f	ui/html/fonts/veneer_italic.ttf
 78d78c4080aee05bae473ef1c832c08a7280b88e	ui/html/hud.bundle.js
-de198522911e663ddc26ac4f4ab89b793d94845e	ui/html/hud.html
+883044759e4033912166f9754981d69f2c75d9dc	ui/html/hud.html
 19e2adc1899d26fac9898d7882958342feb78509	ui/html/images/Spark.svg
 542165899a9d5da612fbb8e7912d1eb17cd3f37c	ui/html/images/armor.svg
 a88ca6f1937d73ca626c24b97f0ebd47286bc7f7	ui/html/images/arrow.png
@@ -34831,7 +34832,7 @@ bba0afe6f1a8eb775c4ae160f4f301edc60d2100	ui/html/javascript/hud_elements/element
 486cd5bf7bacbc13a56352076f7137a7db0a54f8	ui/html/javascript/hud_elements/element_kill_feed.js
 027f5b8aff6f0f1126ec0768ff24d34bbfc9ff26	ui/html/javascript/hud_elements/element_low_ammo_warning.js
 ea215fc53c11f7c82eb465cdf3cc7906c4827dc6	ui/html/javascript/hud_elements/element_misc_settings.js
-1f455c9f76ed211de0ee22975337bd868363b07e	ui/html/javascript/hud_elements/element_player_name.js
+efd4246e08562fb62be69a3d9ae1fbbb743d9c61	ui/html/javascript/hud_elements/element_player_name.js
 6e742f152627be9b8d9e5447150f1f2540c89c1f	ui/html/javascript/hud_elements/element_powerup.js
 c7fc4558eb28782983a3ef188eff1cd8ec8d452f	ui/html/javascript/hud_elements/element_rect.js
 7feeb2112e15369985dd03da766c0c9893a27ab1	ui/html/javascript/hud_elements/element_round_mvp.js
@@ -34875,8 +34876,8 @@ c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
 757d889e1906acb4439e95085026cc8bf59acb2e	ui/html/javascript/ui_fov.js
 294b5a84cb583a980b008a806795de0038fe103a	ui/html/javascript/ui_helpers.js
 c8b6072e36324f75ceba75f0452dcfadb3eae17a	ui/html/javascript/ui_hud_creator.js
-601360de819de51f7812c47a16736a92b47564d3	ui/html/javascript/ui_hud_editor.js
-4ae67b9f7d08f3280f4d09a84f82e19d0c266d07	ui/html/javascript/ui_ingame.js
+e9f15e882ad786b22e32c17f15ef86e083997278	ui/html/javascript/ui_hud_editor.js
+4d0f1a10c5b2da402447ae6c5cb49435fb9d475f	ui/html/javascript/ui_ingame.js
 0df170b62bb1f9d20e5f3ba24f9723e8932f23a7	ui/html/javascript/ui_mouse.js
 888be6f8df6b06fe4aae0f0a956bd07e39b15378	ui/html/javascript/ui_ms.js
 8ef7fe4cd529480bdf328d5e03b8eb25d545d4bc	ui/html/javascript/ui_play.js
@@ -35160,8 +35161,8 @@ cbd49ac565361b40760479be0675da9c3ff9fdf8	ui/html/ranks/animated/43_special02.web
 1f23bbeaeacff4ee7ccdfb4f7770c575414f4217	ui/html/ranks/animated/44_legend.webm
 b541dadfc60b72a7a4cab17f080ff67692aedd16	ui/html/ranks/weeball_loser.png
 faf695fba4347262911ad847c658f1aab9adb401	ui/html/ranks/weeball_winner.png
-75f0d222a69d15eb8bb957e3d5c377b56e1337b9	ui/html/styles-hud.css
-4a2cb981cf4b365f7ddd99c06d539da95746345d	ui/html/styles-index.css
+caf3573a328ab8b30d2be01660bc17105c409f2f	ui/html/styles-hud.css
+ef389e0ee6d6bddc015021de5ef033900d90a07d	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
@@ -35180,7 +35181,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 7173a2a3f70725c2605bfb8bf52654b157c87796	ui/html/translations/strings_play.json
 59cf196741ef482d97e40ccd8ab0dd89f359ca48	ui/html/translations/translation-de.js
-d344a4ff52143664ccce86603ef649f9c3630087	ui/html/translations/translation-en.js
+371d51d4de3a2f7f290e7560929898ce21b24e91	ui/html/translations/translation-en.js
 fc3aa1e50e51654400bd3e2121b70d1853c342a4	ui/html/translations/translation-es-ES.js
 395899d6fb21f528b81d0423e6636d64f31db6ea	ui/html/translations/translation-es-MX.js
 523842169c36fdfe5ad523d135e4156f5eb1a1cd	ui/html/translations/translation-fr.js
@@ -35190,7 +35191,7 @@ b294d4d778d168c3040bf232a6a3c78a308be370	ui/html/translations/translation-it.js
 7fbf1fd7523715d4f7ae9cdcd449c812459d41a4	ui/html/translations/translation-ru.js
 6546ae04c22046831f1a557ca6b59a649014853a	ui/html/translations/translation-zh-CN.js
 31c838cb0c66a2b20b936892527670a73155ce2f	ui/html/translations/translation-zh-TW.js
-a55b0aaa5b981b1ddc8d13dac9aafee744843e87	ui/html/ui.html
+8df943395033b41a3e053535301d0dca62533a7a	ui/html/ui.html
 18c61eaa43f0b2d2d56cabd10bfb4191336debf7	ui/html/vendors/anime/anime.min.js
 104a6b83cc91c7e87b2581bcbffe225d4262219e	ui/html/vendors/chartjs/_Chart.bundle.js
 388ec557ec1e260c59ce61d819077cb52949bd02	ui/html/vendors/fetch.umd.js
