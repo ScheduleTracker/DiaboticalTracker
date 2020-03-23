@@ -5855,6 +5855,23 @@ h2 {
 .elem_round_mvp .round_mvp_container .row .value {}
 .elem_round_mvp .round_mvp_container .mvp_row .unit { font-size: calc(1.2vh* var(--ratio)); }
 .elem_round_mvp .round_mvp_container .avg_row .unit { font-size: calc(1.1vh* var(--ratio)); }
+
+
+/*
+ *  ELEMENT: Player Name / Following
+ */
+.elem_player_name {
+}
+.elem_player_name .player_name {
+    display:flex;
+    flex-direction:row;
+}
+.elem_player_name .player_name.upper {
+    text-transform: uppercase;
+}
+.elem_player_name .player_name .following {
+    margin-right:calc(1vh* var(--ratio) )
+}
 .g_meter_container {
     justify-content: center;
     align-items: center;

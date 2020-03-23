@@ -1062,23 +1062,6 @@ h2 {
 }
 
 
-/*
- *  Spectating follow name
- */
-#following_label {
-    position: absolute;
-    top: 22%;
-    font-size: 3vh;
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-    left:50%;
-    padding:1vh 2vh;
-    transform:translateX(-50%);
-    justify-content:center;
-    display: none;
-}
-
 
 /*
  *  Respawn countdown timer
@@ -3096,6 +3079,23 @@ h2 {
 .elem_round_mvp .round_mvp_container .row .value {}
 .elem_round_mvp .round_mvp_container .mvp_row .unit { font-size: calc(1.2vh* var(--ratio)); }
 .elem_round_mvp .round_mvp_container .avg_row .unit { font-size: calc(1.1vh* var(--ratio)); }
+
+
+/*
+ *  ELEMENT: Player Name / Following
+ */
+.elem_player_name {
+}
+.elem_player_name .player_name {
+    display:flex;
+    flex-direction:row;
+}
+.elem_player_name .player_name.upper {
+    text-transform: uppercase;
+}
+.elem_player_name .player_name .following {
+    margin-right:calc(1vh* var(--ratio) )
+}
 #game_report {
     position: absolute;
     width: 100%;

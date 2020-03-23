@@ -4490,7 +4490,10 @@
 <script id="hud_group" type="text/jsrender"></script>
 
 <script id="hud_player_name" type="text/jsrender">
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]] data-bind-value="{{battle_data.self.name}}" [[if teamColor==1]]data-bind-style-color="{{game_data.own_team.color}}[[/if]]">Mr. Eggbot</div>
+    <div class="player_name [[if uc==1]]upper[[/if]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} [[if vis=='p']]&& !{{game_data.spectating}}[[/if]] [[if vis=='s']]&& {{game_data.spectating}}[[/if]]"[[/if]]>
+        [[if pre==1]]<div class="following" data-bind-i18n="'following:'+{{battle_data.self.name}}">Following</div>[[/if]]
+        <div [[if teamColor==1]]data-bind-style-color="{{game_data.own_team.color}}[[/if]]" data-bind-value="{{battle_data.self.name}}">Mr. Eggbot</div>
+    </div>
 </script>
 
 <script id="hud_weapons_list" type="text/x-jsrender">

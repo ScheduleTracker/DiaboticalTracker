@@ -352,6 +352,7 @@ window.addEventListener("load", function(){
         }
     });
 
+    /* replaced by player_name hud element
     bind_event('following_state_changed', function (name, target_id, color) { // color currently not a thing yet, need frog
         var el = _id("following_label");
         if (name.length) {
@@ -362,6 +363,7 @@ window.addEventListener("load", function(){
             el.style.display = "none";
         }
     });
+    */
 
     bind_event('reset_shop', function () {
         console.log("reset_shop");

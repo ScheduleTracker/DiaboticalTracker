@@ -253,6 +253,7 @@ function post_load_setup_hud_editor() {
     engine.call('get_hud_json').then(function (str) {
         try {
             editing_hud_data = JSON.parse(str);
+            hud_version_check(editing_hud_data);
             refresh_preview_hud();
             // if misc setting not present => HUD is default. Sync default definition to HUD_override.js, in case engine definition is out of date.
             /*
@@ -266,6 +267,50 @@ function post_load_setup_hud_editor() {
             echo("Error parsing HUD definition (Maybe it was too long so it got clamped.)");
         }        
     });
+}
+
+let global_hud_version = 1;
+function hud_version_check(hud) {
+    if (!("version" in hud)) hud.version = 0;
+    let add_elements = [];
+
+    let version = Number(hud.version);
+    if (version < global_hud_version) {
+        if (version < 1) add_elements.push("player_name");
+    }
+    
+
+    // Add potentially missing elements due to outdated hud version
+    for (let add_el of add_elements) {
+        let found = false;
+        for (let el of hud.elements) {
+            if (el.t == add_el) {
+                found = true
+                break;
+            }
+        }
+
+        if (!found) {
+            if (add_el == "player_name") {
+                hud.elements.push({
+                    "t":"player_name",
+                    "gid":-1,
+                    "x":50,
+                    "y":30,
+                    "fontSize":"4",
+                    "pivot":"center",
+                    "color":"#FFFFFF",
+                    "shadow":1,
+                    "teamColor":1,
+                    "font":"montserrat-bold",
+                    "vis":"s",
+                    "pre":1
+                });
+            }
+        }
+    }
+
+    hud.version = global_hud_version;
 }
 
 function preview_to_screen_coord_x(v) {
