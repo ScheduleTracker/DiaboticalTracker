@@ -5,12 +5,12 @@ let global_shop_ts_updated = undefined;
 let global_shop_id = 0;
 function load_shop() {
     if (!global_shop_is_rendered) {
-        send_string("get-current-shop", "get-current-shop", prepare_shop);
+        send_string(CLIENT_COMMAND_GET_CURRENT_SHOP, "", "get-current-shop", prepare_shop);
     } else {
         let now = new Date();
         let assumed_shop_id = now.getUTCFullYear()+""+now.getUTCMonth()+""+now.getUTCDate();
         if (now.getUTCHours() < global_shop_ts_updated.getUTCHours() && assumed_shop_id != global_shop_id) {
-            send_string("get-current-shop", "get-current-shop", prepare_shop);
+            send_string(CLIENT_COMMAND_GET_CURRENT_SHOP, "", "get-current-shop", prepare_shop);
         }
     }
 }

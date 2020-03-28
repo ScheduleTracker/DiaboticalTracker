@@ -427,7 +427,7 @@ function lobby_password_keydown(e) {
 }
 
 function set_lobby_password(password) {
-    send_string("lobby-update-password "+password);
+    send_string(CLIENT_COMMAND_LOBBY_UPDATE_PASSWORD, password);
 
     if (bool_am_i_host) {
         _id("custom_game_setting_password").style.display = "none";

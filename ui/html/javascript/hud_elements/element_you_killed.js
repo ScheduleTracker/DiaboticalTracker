@@ -22,7 +22,7 @@ function init_element_you_fragged() {
     
     bind_event('you_fragged', function (username, color) {
 
-        _for_each_with_class_in_parent(real_hud_element, "elem_you_fragged", function(el) {
+        _for_each_with_class_in_parent(real_hud_container, "elem_you_fragged", function(el) {
             let line = document.createElement("div");
             line.innerHTML = '<span data-i18n="ingame_you_fragged">Fragged</span><span style="color:'+color+'"> ' + username + '</span>';
             

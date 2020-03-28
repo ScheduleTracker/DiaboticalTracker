@@ -118,7 +118,7 @@ function init_hud_screen_game_report() {
             //anim_hide(_id("game_hud"), 100); //Just in case, seems like show_ingame_hud gets called sometimes when it shouldn't :S
 
             // Hide the chat elements since game_report has integrated chat
-            anim_hide(_id("hud_load_during_loading"), 100);
+            anim_hide(game_hud_special, 100);
             
 
             //_id("game_report_xp_bar_prefill").style.width = "50%";
@@ -500,7 +500,7 @@ function renderMapVote() {
 
             map_div.classList.add("selected");
 
-            engine.call("draft_select_map", map_div.dataset.map);
+            send_string(CLIENT_COMMAND_SELECT_MAP, map_div.dataset.map);
         });
 
         map_list.appendChild(map_div);

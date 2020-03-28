@@ -68,7 +68,9 @@ body, html {
  *  HUD stuff shared between both views
  */
 .hud {
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
     height: 100%;
     width: 100%;
 }
@@ -2393,7 +2395,9 @@ h2 {
     align-items: flex-start;
     justify-content: flex-end;
     --chat_show_timestamp_while_ingame: none;
+    opacity:0;
 }
+.elem_chat .chat_container.active { opacity:1; }
 .elem_chat .chat_container .chat_temp_cont {
     position:absolute;
     top:0;

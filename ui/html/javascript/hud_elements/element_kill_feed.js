@@ -41,7 +41,7 @@ function init_element_frag_feed() {
     bind_event('fraglog_add', function (str) {
         str = str.slice(5, str.length-6);
 
-        _for_each_with_class_in_parent(real_hud_element, "fraglog", el => {
+        _for_each_with_class_in_parent(real_hud_container, "fraglog", el => {
             var new_line = document.createElement("div");
             new_line.innerHTML = str.trim();
 

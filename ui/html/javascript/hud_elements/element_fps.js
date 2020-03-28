@@ -23,7 +23,7 @@ function init_element_fps() {
     hud_elements.push(element);
     // would it be beneficial to replace this with data-binding, or is it not worth the extra clutter of adding another template?
     bind_event('set_hud_fps', function (value) {
-        _for_each_with_class_in_parent(real_hud_element, "elem_fps", function (element) {
+        _for_each_with_class_in_parent(real_hud_container, "elem_fps", function (element) {
             element.textContent = value;
         })
     });

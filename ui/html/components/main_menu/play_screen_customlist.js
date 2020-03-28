@@ -61,7 +61,7 @@ function init_screen_play_customlist() {
         if (!bool_am_i_leader) return;
         if (!session_id || session_id == -1) return;
         
-        send_string("party-join-session "+session_id+" "+password);
+        send_string(CLIENT_COMMAND_PARTY_JOIN_SESSION, session_id+" "+password);
     }
 
     // Add gamemodes checkboxes to filter list
@@ -116,13 +116,13 @@ function lobby_join_with_key() {
         if (!bool_am_i_leader) return;
         if (key.trim().length == 0) return;
         
-        send_string("party-join-lobby-key "+key);
+        send_string(CLIENT_COMMAND_PARTY_JOIN_LOBBY_KEY, key);
     }
 }
 
 function updateCustomMatchList() {
     if (!global_custom_list_data_ts || (Date.now() - global_custom_list_data_ts) > 3000) {
-        send_string("get-custom-list", "get-custom-list", function(data) {
+        send_string(CLIENT_COMMAND_GET_CUSTOM_MATCH_LIST, "", "get-custom-list", function(data) {
             global_custom_list_data_ts = Date.now();
             global_custom_list_data = data.data.matches;
             renderMatchList();

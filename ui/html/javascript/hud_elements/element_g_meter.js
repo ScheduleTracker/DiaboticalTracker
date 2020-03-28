@@ -106,6 +106,7 @@ function init_element_g_meter() {
                  global_hud_fov_cos_cache = Math.cos(global_hud_half_fov_cache);
                  global_hud_3d_focal_length = 50*global_hud_fov_cos_cache/global_hud_fov_sin_cache;
                  real_hud_element.style.perspective = global_hud_3d_focal_length + "vh";
+                 spec_hud_element.style.perspective = global_hud_3d_focal_length + "vh";
             }
             if (global_hud_need_pitch_calculations) {
 	            if (pitch_changed||fov_changed) {

@@ -601,6 +601,7 @@ function player_profile_render_matches(data) {
 function player_profile_on_match_select(e) {
     // TODO open match page
     // e.currentTarget.dataset.matchId
+    open_match(e.currentTarget.dataset.matchId);
 }
 
 function player_profile_render_stats(data) {

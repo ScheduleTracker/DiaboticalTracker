@@ -580,6 +580,7 @@ body, html {
     padding:0.6vh 1vh;
     display:none;
     border-radius:0.4vh;
+    z-index:1;
 }
 
 #tooltip2 .challenge_list {
@@ -1104,7 +1105,7 @@ body, html {
     align-items: center;
     text-transform: uppercase;
     font-family: var(--noto-font);
-    background: linear-gradient(#283136, #53616A);
+    background-image: linear-gradient(#283136, #53616A);
     font-size: 1.25vh;
     height: 3.2vh;
     font-weight: bold;
@@ -1116,7 +1117,7 @@ body, html {
     position: relative;
 }
 .dialog_button:hover {
-    background: linear-gradient(#303c42, #5b6b75);
+    background-image: linear-gradient(#303c42, #5b6b75);
 }
 .dialog_button.positive {
     background-image: linear-gradient(#687780,#495358);
@@ -1132,13 +1133,26 @@ body, html {
 }
 .dialog_button.negative:hover {
     /*box-shadow: rgba(203, 52, 54, 0.5) 0 1px 10px;*/
-    background: linear-gradient(#c92f2b, #8e302a);
+    background-image: linear-gradient(#c92f2b, #8e302a);
     border: 1px solid rgb(105, 32, 33);
     border-top-color: rgba(190, 56, 57, 0.39);
     border-left-color: rgba(190, 56, 57, 0.45);
 }
 .dialog_button:active {
-    box-shadow: rgba(53, 150, 203, 0.5) 0 1px 10px;
+    box-shadow: rgba(209, 209, 209, 0.2) 0 1px 10px;
+}
+.dialog_button.locked {
+    opacity:0.2;
+}
+.dialog_button.locked:hover {
+    background-image: linear-gradient(#283136, #53616A);
+}
+.dialog_button.locked.positive {
+    background-image: linear-gradient(#283136, #53616A);
+    border:none;
+}
+.dialog_button.locked:active {
+    box-shadow: rgba(0,0,0,.4) 0 2px 12px;
 }
 
 
@@ -2715,7 +2729,9 @@ body, html {
  *  HUD stuff shared between both views
  */
 .hud {
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
     height: 100%;
     width: 100%;
 }
@@ -3651,7 +3667,7 @@ h2 {
 }
 #hud_preview {
 	width: calc(var(--hud_preview_aspect_vw)*var(--ratio));
-    height: calc(100vh*var(--ratio));
+    /*height: calc(100vh*var(--ratio));*/
 /*    background-image: url("../images/hud_preview_background.png");
     background-size: cover;
     background-position: center;*/
@@ -3678,12 +3694,16 @@ h2 {
  */
 .hud_editor_side_panel_menu{
     display: flex;
-    padding-left: 1vh;
+    flex-direction:row;
+    padding-left:1vh;
+    padding-right: calc(1px* var(--onevh) +5px* var(--zero-onevh-rounded) );
     height: 3vh;
 }
 .hud_editor_side_panel_menu .button {
+    flex:1;
     font-family: var(--main-font-medium);
     height: 3vh;
+    margin:0;
 }
 .hud_editor_side_panel_menu .button.selected {
     background-color: var(--accent-dialog-element-active);
@@ -3972,6 +3992,24 @@ h2 {
 #hud_properties_container {
     flex:1;
 }
+
+#hud_properties_container .hud_editor_control {
+    display:flex;
+    flex-direction:row;
+    padding-left:1vh;
+    padding-right: calc(1px* var(--onevh) +5px* var(--zero-onevh-rounded) );
+    margin-bottom:0.4vh;
+}
+#hud_properties_container .hud_editor_control .select-field {
+    flex:1;
+}
+#hud_properties_container .hud_editor_control .button {
+    margin-left: 0.4vh;
+    margin-right:0;
+    padding:0 1vh;
+    font-family: var(--main-font-medium);
+}
+
 #hud_properties {
     display: flex;
     padding-left: 1vh;
@@ -4139,6 +4177,117 @@ h2 {
     margin-top:1vh;
 }
 
+
+
+
+
+
+#basic_modal .hud_dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#basic_modal .hud_dialog .hud_list {
+    width:50vh;
+    margin-bottom:1vh;
+}
+
+#basic_modal .hud_dialog .hud_list .title {
+    font-size:1.3vh;
+    margin-bottom:0.4vh;
+}
+#basic_modal .hud_dialog .hud_list .hud_slot {
+    display:flex;
+    flex-direction:row;
+    background-color:rgba(31, 31, 31, 0.5);
+    box-shadow:1px 1px 4px 0 rgba(0,0,0,0.4);
+    width:100%;
+    margin-bottom:0.4vh;
+}
+#basic_modal .hud_dialog .hud_list .hud_slot:hover {
+    background-color:rgba(71, 71, 71, 0.5);
+}
+
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_index {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:3vh;
+    height:3vh;
+    background-color:rgba(255,255,255,0.1);
+    font-weight:bold;
+}
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_index.selected {
+    background-color:#fff;
+    color:#333;
+}
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_title {
+    font-family: var(--main-font);
+    font-size: 1.25vh;
+    color: white;
+    background-color:transparent;
+    border:none;
+    height: 3vh;
+    line-height: 2.2vh;
+    padding:0.5vh 1vh;
+    flex:1;
+}
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_title_input {
+    display:none;
+}
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_type {
+    width:3vh;
+    height:3vh;
+    background-size:60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_type.type_0 { background-image: url(/html/images/input_mouse.svg); }
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_type.type_1 { background-image: url(/html/images/icons/fa/eye.svg?fill-opacity=0.25); }
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_id {
+    width:3vh;
+    height:3vh;
+    margin-left:1vh;
+}
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_id.has_id {
+    background-image: url(/html/images/icons/fa/clipboard.svg);
+    background-size:50%;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_id.has_id:hover {
+    background-color:rgba(255,255,255,0.1);
+}
+#basic_modal .hud_dialog .hud_list .hud_slot .hud_id.has_id:active {
+    background-color:rgba(255,255,255,0.2);
+}
+
+#basic_modal .hud_dialog .load_key_cont {
+    margin-bottom:1vh;
+}
+#basic_modal .hud_dialog .load_key_cont .load_key_title {
+    font-size:1.3vh;
+    margin-bottom:0.4vh;
+}
+#basic_modal .hud_dialog .load_key_cont .load_key_input {
+    display:flex;
+    flex-direction:row;
+    background-color:rgba(31, 31, 31, 0.5);
+    box-shadow:1px 1px 4px 0 rgba(0,0,0,0.4);
+    width:100%;
+    margin-bottom:0.4vh;
+
+    font-family: var(--main-font);
+    font-size: 1.25vh;
+    color: white;
+    border:none;
+    height: 3vh;
+    line-height: 2.2vh;
+    padding:0.5vh 1vh;
+    width:30vh;
+}
 
 
 /*
@@ -5169,7 +5318,9 @@ h2 {
     align-items: flex-start;
     justify-content: flex-end;
     --chat_show_timestamp_while_ingame: none;
+    opacity:0;
 }
+.elem_chat .chat_container.active { opacity:1; }
 .elem_chat .chat_container .chat_temp_cont {
     position:absolute;
     top:0;
@@ -10871,6 +11022,7 @@ h2 {
     text-transform: uppercase;
     color: rgba(255,255,255,0.75) !important;
     font-fit-mode:shrink;
+    white-space:nowrap;
 }
 #settings_screen_menu .subsection:hover {
     background-color: rgba(255,255,255,0.2);
@@ -13151,6 +13303,7 @@ h2 {
 #player_profile_screen .matches .row .td_length   {  }
 #player_profile_screen .matches .row .td_kda      {  }
 #player_profile_screen .matches .row .td_result   {  }
+
 
 
 /*

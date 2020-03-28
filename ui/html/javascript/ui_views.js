@@ -831,13 +831,26 @@ function open_player_profile(id) {
     }
 }
 
+function open_match(match_id) {
+    if (match_id == undefined) return;
+
+    let origin = global_menu_page;
+
+    change_screen("match_screen");
+    set_blur(true);
+    hl_button("mm_stats");
+    switch_screens(_id("match_screen"));
+
+    load_match(origin, match_id);
+}
+
 function open_battlepass() {
     if (_id("battlepass_screen").style.display == "none" || _id("battlepass_screen").style.display == undefined) {
         // unset any previous button highlights
         hl_button();
 
         if (!global_user_battlepass.battlepass_id) {
-            send_string("get-battlepass-data", "battlepass-data", function(data) {
+            send_string(CLIENT_COMMAND_GET_BATTLEPASS_DATA, "", "battlepass-data", function(data) {
                 global_user_battlepass = data.data;
 
                 if (!global_user_battlepass.battlepass_id) {
@@ -867,7 +880,7 @@ function open_battlepass_list() {
     switch_screens(_id("battlepass_list_screen"));
 
     if (!global_battlepass_list.length) {
-        send_string("get-battlepass-list", "battlepass-list", function(data) {
+        send_string(CLIENT_COMMAND_GET_BATTLEPASS_LIST, "", "battlepass-list", function(data) {
             global_battlepass_list = data.data;
             load_battlepass_list();
         });
@@ -1173,13 +1186,14 @@ function send_json_data(data, returnaction, cb) {
     if (returnaction != undefined && cb != undefined) {
         global_ms.addResponseHandler(returnaction, cb);
     }
-    engine.call("send_json", "j "+JSON.stringify(data));
+    engine.call("send_json", CLIENT_COMMAND_JSON_DATA, JSON.stringify(data));
 }
-function send_string(string, returnaction, cb) {
+function send_string(command, string, returnaction, cb) {
     if (returnaction != undefined && cb != undefined) {
         global_ms.addResponseHandler(returnaction, cb);
     }
-    engine.call("send_json", "s "+string);
+    if (string === undefined) string = "";
+    engine.call("send_json", command, string);
 }
 
 function party_context_select(cmd, user_id) {

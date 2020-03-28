@@ -2,7 +2,7 @@ function init_element_weapon_list() {
 
     class newArray extends HUD_element{
 
-        getRenderCode(element, isPreview){
+        getRenderCode(element, isPreview, isSpectating){
         
             var mode =  element.dataset.mode;
 //            var reverse = element.dataset.reverse;
@@ -53,6 +53,7 @@ function init_element_weapon_list() {
             }
 
             if (isPreview)         data['hudPreview'] = true;
+            if (isSpectating)      data['hudSpectating'] = true;
             if (mode == "all")     data["render_separator"] = true;
             if (do_normal_weapons) data["render_normal"] = true;
             if (do_super_weapons)  data["render_super"] = true;

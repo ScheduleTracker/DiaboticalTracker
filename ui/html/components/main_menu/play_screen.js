@@ -70,7 +70,7 @@ function quick_play_queue(btn) {
         cancel_search("quickplay");
     } else {
         if (btn.classList.contains("disabled")) return;
-        send_string("party-queue-qp");
+        send_string(CLIENT_COMMAND_PARTY, "party-queue-qp");
     }
 }
 
@@ -79,7 +79,7 @@ function comp_play_queue(btn) {
         cancel_search("ranked");
     } else {
         if (btn.classList.contains("disabled")) return;
-        send_string("party-queue-ranked");
+        send_string(CLIENT_COMMAND_PARTY, "party-queue-ranked");
     }
 }
 
@@ -264,7 +264,7 @@ function update_region_selection() {
 
     if (bool_am_i_leader) {
         // send region info to MS
-        send_string("party-locations "+datacenters.join(':'));
+        send_string(CLIENT_COMMAND_SET_PARTY_LOCATIONS, datacenters.join(':'));
     }
 }
 
@@ -298,7 +298,7 @@ function set_region_selection(from_engine, regions) {
                         if (!(b in global_server_locations)) return -1;
                         return global_server_locations[a].ping - global_server_locations[b].ping;
                     });
-                    send_string("party-locations "+datacenters.join(":"));
+                    send_string(CLIENT_COMMAND_SET_PARTY_LOCATIONS, datacenters.join(":"));
                 }
 
                 // Abort if nothing happened within 5 seconds
@@ -314,7 +314,7 @@ function set_region_selection(from_engine, regions) {
                 if (!(b in global_server_locations)) return -1;
                 return global_server_locations[a].ping - global_server_locations[b].ping;
             });
-            send_string("party-locations "+datacenters.join(":"));
+            send_string(CLIENT_COMMAND_SET_PARTY_LOCATIONS, datacenters.join(":"));
         }
 
         if (global_initial_region_selection) global_initial_region_selection = false;
@@ -1044,7 +1044,7 @@ function handle_mm_match_event(data) {
                 map_thumbnail.classList.add("active");
                 map_thumbnail_name.classList.add("active");
 
-                engine.call("draft_select_map", map);
+                send_string(CLIENT_COMMAND_SELECT_MAP, map);
             });
             map_thumbnail.addEventListener("mouseenter", function() {
                 _play_mouseover4();
@@ -1115,10 +1115,10 @@ function mm_match_found_overlay(data) {
 
 function mm_cancel_found_match(ev) {
     if (ev.currentTarget.dataset.type == "new-match") {
-        send_string("party-cancel-match");
+        send_string(CLIENT_COMMAND_PARTY, "party-cancel-match");
     }
     if (ev.currentTarget.dataset.type == "join-match") {
-        send_string("party-cancel-join-match");
+        send_string(CLIENT_COMMAND_PARTY, "party-cancel-join-match");
     }    
 }
 

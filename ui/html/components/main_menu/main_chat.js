@@ -90,9 +90,9 @@ function main_chat_keydown(e) {
 
         global_main_chat_last_msg_sent = Date.now();
         if (global_main_chat_active_channel == "party") {
-            send_string("chat-msg-party "+msg);
+            send_string(CLIENT_COMMAND_MESSAGE_PARTY, msg);
         } else if (global_main_chat_active_channel == "lobby") {
-            send_string("chat-msg-lobby "+msg);
+            send_string(CLIENT_COMMAND_MESSAGE_LOBBY, msg);
         }
     }
 }

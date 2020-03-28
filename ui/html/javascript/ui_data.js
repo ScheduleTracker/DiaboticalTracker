@@ -5,6 +5,37 @@ var global_item_pickup_ignore = {
     "dropped_health": 1,
 };
 
+const HUD_PLAYING = 0;
+const HUD_SPECTATING = 1;
+
+const CLIENT_COMMAND_JSON_DATA = 60;
+const CLIENT_COMMAND_GET_INVITE_LIST = 61;
+const CLIENT_COMMAND_PARTY = 62;
+const CLIENT_COMMAND_LOBBY_UPDATE_PASSWORD = 63;
+const CLIENT_COMMAND_JOIN_USERID_PARTY = 64;
+const CLIENT_COMMAND_GET_USERID_FROM_NAME = 65;
+const CLIENT_COMMAND_GET_ONLINE_FRIENDS_DATA = 66;
+const CLIENT_COMMAND_SET_PARTY_LOCATIONS = 67;
+const CLIENT_COMMAND_SET_PARTY_PRIVACY = 68;
+const CLIENT_COMMAND_SET_PARTY_EXPAND_SEARCH = 69;
+const CLIENT_COMMAND_PARTY_JOIN_SESSION = 70;
+const CLIENT_COMMAND_PARTY_JOIN_LOBBY_KEY = 71;
+const CLIENT_COMMAND_GET_API_TOKEN = 72;
+const CLIENT_COMMAND_GET_BATTLEPASS_DATA = 73;
+const CLIENT_COMMAND_GET_BATTLEPASS_REWARDS = 74;
+const CLIENT_COMMAND_GET_BATTLEPASS_LIST = 75;
+const CLIENT_COMMAND_SET_ACTIVE_BATTLEPASS = 76;
+const CLIENT_COMMAND_GET_COMP_SEASON = 77;
+const CLIENT_COMMAND_SET_CUSTOMIZATION = 78;
+const CLIENT_COMMAND_MESSAGE_PARTY = 79;
+const CLIENT_COMMAND_MESSAGE_LOBBY = 80;
+const CLIENT_COMMAND_GET_CURRENT_SHOP = 81;
+const CLIENT_COMMAND_GET_CUSTOM_MATCH_LIST = 82;
+const CLIENT_COMMAND_GET_PERSONAL_DATA = 83;
+const CLIENT_COMMAND_SELECT_MAP = 84;
+const CLIENT_COMMAND_GET_RANKED_MMRS = 85;
+const CLIENT_COMMAND_GET_SINGLE_RANKED_MMR = 86;
+
 // key => [color, i18n_key, image_path]
 var global_item_name_map = {
     "coin":         ["#ffffff", "item_coin",                    "images/item_coin.svg",          ],
@@ -202,7 +233,7 @@ var global_game_mode_map = {
         "i18n": "game_mode_capture_the_flag",
         "desc_i18n": "game_mode_desc_ctf",
         "announce": "announcer_common_gamemode_ctf",
-        "enabled": false,
+        "enabled": true,
     },
     "flagrun": {
         "mode": "flagrun",
@@ -226,7 +257,7 @@ var global_game_mode_map = {
         "i18n": "game_mode_macguffin",
         "desc_i18n": "game_mode_desc_macguffin",
         "announce": "announcer_common_gamemode_macguffin",
-        "enabled": false,
+        "enabled": true,
     },
     "ghosthunt": {
         "mode": "ghosthunt",
@@ -242,7 +273,7 @@ var global_game_mode_map = {
         "i18n": "game_mode_race",
         "desc_i18n": "game_mode_desc_race",
         "announce": "announcer_common_gamemode_time_trials",
-        "enabled": false,
+        "enabled": true,
     },
     "tdm": {
         "mode": "tdm",
@@ -250,7 +281,7 @@ var global_game_mode_map = {
         "i18n": "game_mode_tdm",
         "desc_i18n": "game_mode_desc_tdm",
         "announce": "",
-        "enabled": false,
+        "enabled": true,
     },
     "tw": {
         "mode": "tw",

@@ -200,12 +200,12 @@ function strafe_state_check(intent_mask, yaw, speed_x, speed_y, speed_z){
 }
  
 function gameface_strafe_prefetch_check(){
-      global_hud_need_strafe_calculations = real_hud_element.getElementsByClassName("need_strafe_calc")[0] ? true : false;
-      global_hud_need_pitch_calculations  = real_hud_element.getElementsByClassName("need_pitch_calc")[0]  ? true : false;
+      global_hud_need_strafe_calculations = real_hud_container.getElementsByClassName("need_strafe_calc")[0] ? true : false;
+      global_hud_need_pitch_calculations  = real_hud_container.getElementsByClassName("need_pitch_calc")[0]  ? true : false;
   if (global_hud_need_pitch_calculations) {
       global_hud_3d_instance = [];
-     _for_each_with_class_in_parent(real_hud_element, "elem_yaw_ruler", function (element) { if (element.getElementsByClassName("need_pitch_calc")[0]) global_hud_3d_instance.push(element); });
-     _for_each_with_class_in_parent(real_hud_element, "elem_g_meter"  , function (element) { if (element.getElementsByClassName("need_pitch_calc")[0]) global_hud_3d_instance.push(element); }); 
+     _for_each_with_class_in_parent(real_hud_container, "elem_yaw_ruler", function (element) { if (element.getElementsByClassName("need_pitch_calc")[0]) global_hud_3d_instance.push(element); });
+     _for_each_with_class_in_parent(real_hud_container, "elem_g_meter"  , function (element) { if (element.getElementsByClassName("need_pitch_calc")[0]) global_hud_3d_instance.push(element); }); 
       global_hud_3d_counts = global_hud_3d_instance.length;
   }
 }

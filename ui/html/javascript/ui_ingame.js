@@ -76,7 +76,10 @@ var zoom_crosshair_containers = [];
 var crosshair_containers = [];
 function initialize_references() {
     hud_containers = [_id("real_hud"), _id("hud_preview")];
+    game_hud_special = _id("game_hud_special");
+    real_hud_container = _id("real_hud_container");
     real_hud_element = _id("real_hud");
+    spec_hud_element = _id("spec_hud");
     real_3D_hud_element = _id("real_3D_hud");
     preview_hud_element = _id("hud_preview");
 
@@ -186,7 +189,7 @@ window.addEventListener("load", function(){
         //engine.call("echo", "Received JSON Data, action=" + json_data.action);
     });
     
-    bind_event('hud_changed', function (jsonStr) {
+    bind_event('hud_changed', function (type, jsonStr) {
         //console.log("post_load_setup_hud_editor 3");
         try {
             editing_hud_data = JSON.parse(jsonStr);
@@ -194,13 +197,18 @@ window.addEventListener("load", function(){
             console.log("Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
             engine.call("echo", "Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
         }
-        make_hud_in_element("real_hud", false);
+        if (type == HUD_PLAYING) {
+            make_hud_in_element("real_hud", false, false);
+            setTimeout(function() { element_chat_setup(_id("hud_load_during_loading")); });
+        }
+        if (type == HUD_SPECTATING) {
+            make_hud_in_element("spec_hud", false, true);
+            setTimeout(function() { element_chat_setup(_id("spec_hud_load_during_loading")); });
+        }
         gameface_strafe_prefetch_check();
-        element_chat_setup();
     });
 
-
-    engine.call('get_hud_json').then(function (jsonStr) {
+    engine.call('get_hud_json', HUD_PLAYING).then(function (jsonStr) {
         //console.log("post_load_setup_hud_editor 3");
         try {
             editing_hud_data = JSON.parse(jsonStr);
@@ -208,10 +216,22 @@ window.addEventListener("load", function(){
             console.log("Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
             engine.call("echo", "Unable to parse hud definition, definition string may have been too long  when it was saved and got cut off");
         }
-        make_hud_in_element("real_hud", false);
-        element_chat_setup();
+        make_hud_in_element("real_hud", false, false);
+        setTimeout(function() { element_chat_setup(_id("hud_load_during_loading")); });
     });
-    
+
+    engine.call('get_hud_json', HUD_SPECTATING).then(function (jsonStr) {
+        //console.log("post_load_setup_hud_editor 3");
+        try {
+            editing_hud_data = JSON.parse(jsonStr);
+        } catch (err) {
+            console.log("Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
+            engine.call("echo", "Unable to parse hud definition, definition string may have been too long  when it was saved and got cut off");
+        }
+        make_hud_in_element("spec_hud", false, true);
+        setTimeout(function() { element_chat_setup(_id("spec_hud_load_during_loading")); });
+    });
+
     bind_event('set_checkbox', function (variable, value) {
 
     });
@@ -235,10 +255,10 @@ window.addEventListener("load", function(){
         _id("game_report").style.display = "none";
         _id("rank_screen").style.display = "none";
 
-        anim_show(_id("hud_load_during_loading"), 0);
+        anim_show(game_hud_special, 0);
 
         // Clear the chat history
-        _for_each_with_class_in_parent(_id("hud_load_during_loading"), "chat_messages", el => { _empty(el); });
+        _for_each_with_class_in_parent(game_hud_special, "chat_messages", el => { _empty(el); });
         _for_each_with_class_in_parent(_id("game_report_cont"), "chat_messages", el => { _empty(el); });
 
         current_match = new Match([]);
@@ -451,17 +471,7 @@ window.addEventListener("load", function(){
 
 
     bind_event('self_respawn', function() {
-        /*_for_each_with_class_in_parent(real_hud_element, "ability_skill2", function (element) {
-            var chargeBar = _get_first_with_class_in_parent(element, "powerup_charge_bar");
 
-            anim_start({
-                element: chargeBar,
-                height: [0, 100],
-                duration: 60 * 1000,
-                easing: easing_functions.linear,
-            });
-   
-        });*/
     });
 
 
@@ -543,7 +553,7 @@ window.addEventListener("load", function(){
         }
 
         if (warmup) {
-            _for_each_with_class_in_parent(real_hud_element, 'elem_time_limit', function(el){
+            _for_each_with_class_in_parent(real_hud_container, 'elem_time_limit', function(el){
                 _html(el, localize("ingame_message_warmup"));
             });
         } else {
@@ -552,10 +562,10 @@ window.addEventListener("load", function(){
                 var limit_overtime = time_limit + overtime_seconds + tide_time_offset;
 
                 if (current_match.confirmation_frag_time) {
-                    _for_each_with_class_in_parent(real_hud_element, 'elem_time_limit', function(el){
+                    _for_each_with_class_in_parent(real_hud_container, 'elem_time_limit', function(el){
                         _html(el, localize("ingame_message_golden_frag"));
                     });
-                    _for_each_with_class_in_parent(real_hud_element, 'protected', function(el){
+                    _for_each_with_class_in_parent(real_hud_container, 'protected', function(el){
                         el.classList.remove("protected");
                     });
                 } else {
@@ -565,12 +575,12 @@ window.addEventListener("load", function(){
                     var formatted_time_limit_minutes = ("0" + time_limit_minutes).slice(-2);
                     var formatted_time_limit_seconds = ("0" + time_limit_seconds).slice(-2);
         
-                    _for_each_with_class_in_parent(real_hud_element, 'elem_time_limit', function(el){
+                    _for_each_with_class_in_parent(real_hud_container, 'elem_time_limit', function(el){
                         _html(el, formatted_time_limit_minutes + ":" + formatted_time_limit_seconds);
                     }); 
                 }    
             } else {
-                _for_each_with_class_in_parent(real_hud_element, 'elem_time_limit', function(el){
+                _for_each_with_class_in_parent(real_hud_container, 'elem_time_limit', function(el){
                     _empty(el);
                 });  
             }
@@ -598,7 +608,7 @@ window.addEventListener("load", function(){
         var formatted_time_left_seconds = ("0" + time_left_seconds).slice(-2);
 
 
-        _for_each_with_class_in_parent(real_hud_element, 'elem_game_timer', function(el){
+        _for_each_with_class_in_parent(real_hud_container, 'elem_game_timer', function(el){
             if (el.dataset.analog == 1) {
                 if(el.dataset.countdown == 1){
                     el.children[0].children[0].style.transform = "rotate("+(time_left_seconds*6)+"deg)";
@@ -625,7 +635,7 @@ window.addEventListener("load", function(){
         var piggyback_local_min  = piggyback_today.getMinutes();
         var piggyback_local_sec  = piggyback_today.getSeconds();
         var piggyback_local_time = piggyback_local_hour + ":" + (piggyback_local_min<10?"0"+piggyback_local_min:piggyback_local_min) + ":" + (piggyback_local_sec<10?"0"+piggyback_local_sec:piggyback_local_sec);
-        _for_each_with_class_in_parent(real_hud_element, 'elem_system_clock', function(el){
+        _for_each_with_class_in_parent(real_hud_container, 'elem_system_clock', function(el){
             if (el.dataset.analog == 1) {
                 el.children[0].children[0].style.transform = "rotate("+(piggyback_local_min*6 + piggyback_local_sec/10)+"deg)";
                 el.children[0].children[1].style.transform = "rotate("+(piggyback_local_hour*30 + piggyback_local_min/2 + piggyback_local_sec/120)+"deg)";      
@@ -648,7 +658,7 @@ window.addEventListener("load", function(){
         current_match.game_mode = mode;
 
         
-        _for_each_with_class_in_parent(real_hud_element, "scoreboard_gamemode_name", el => {
+        _for_each_with_class_in_parent(real_hud_container, "scoreboard_gamemode_name", el => {
             el.textContent = mode.toUpperCase();
         });
         
@@ -715,72 +725,6 @@ window.addEventListener("load", function(){
         currently_active_crosshair_index = settings_weapon_index;
         currently_active_crosshair_zoom_index = settings_zoom_weapon_index;
     });
-
-
-    /*
-    bind_event('set_own_team', function (team) {
-        my_team_id = team;
-        if(team !== -1){
-            if (team == my_team_id) {
-                _for_each_with_class_in_parent(real_hud_element, "teamscore_team_1", el => {
-                    el.classList.add("highlight_score_self_team");
-                });
-                _for_each_with_class_in_parent(real_hud_element, "teamscore_team_2", el => {
-                    el.classList.remove("highlight_score_self_team");
-                });
-            } else  {
-                _for_each_with_class_in_parent(real_hud_element, "teamscore_team_1", el => {
-                    el.classList.remove("highlight_score_self_team");
-                });
-                _for_each_with_class_in_parent(real_hud_element, "teamscore_team_2", el => {
-                    el.classList.add("highlight_score_self_team");
-                });
-            }
-        }
-    });
-
-    
-    bind_event("claim_reward", function (weapon_id, weapon_tag, weapon_name){
-        console.log("claim", weapon_id);
-        _for_each_with_class_in_parent(real_hud_element, '.ammo_slot_' + weapon_id, function(el){
-            anim_start({
-                element: el,
-                scale: [1, 1.2],
-                duration: 200,
-                easing: easing_functions.easeOutQuad,
-                alternate: true
-            });            
-        });
-    });
-    
-    bind_event('set_skills', function (code) {
-       // $('#available_skills').html(code); TODO GAMEFACE
-    });
-
-    bind_event('set_shop_skills', function (code) {
-        //$('#available_shop_skills').html(code); TODO GAMEFACE
-    });
-
-    bind_event('set_shop_revenge_items', function (code) {
-        //$('#available_revenge_shop_items').html(code); TODO GAMEFACE
-    });
-
-    bind_event('show_shop', function (enabled) {
-        if (enabled) {
-            //_id("crosshairs").style.opacity = "0";  TODO GAMEFACE
-           //$("#game_shop_container").css("display", "flex").fadeIn(50); TODO GAMEFACE
-        } else {
-            //_id("crosshairs").style.opacity = "1";  TODO GAMEFACE
-            
-           // $("#game_shop_container").fadeOut(50);    TODO GAMEFACE
-        }
-    });
-
-    bind_event('set_shop_class', function (class_id) {
-        anim_show(_id("shop_category_" + class_id));
-    });
-    */
-
 
     bind_event("show_play_of_the_game", function (show, player_name) {
         if (show) {
@@ -863,7 +807,7 @@ function runHudUITest(str) {
 			"to": {
 				"rating": 1573.6258831622672,
 				"rank_tier": 40,
-				"rank_position": 1,
+				"rank_position": 7,
 				"cur_tier_req": 1610,
 				"next_tier_req": 1650
 			},

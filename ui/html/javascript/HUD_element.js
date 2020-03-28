@@ -34,6 +34,8 @@ class HUD_element {
                 returnString += editorCreateColor(element, item.id, item.type, item.text);
             } else if (item.inputType == "float") {
                 returnString += editorCreateInput(element, item.id, item.type, item.text, captured_id);
+            } else if (item.inputType === "text") {
+                returnString += editorCreateInputText(element, item.id, item.type, item.text, item.maxLength, captured_id);
             } else if (item.inputType === "list") {
                 returnString += editorCreateList(element, item.id, item.type, item.text, item.listValues, captured_id);
             } else if (item.inputType === "advanced") {
@@ -51,7 +53,7 @@ class HUD_element {
 
                 if (item.inputType == "toggle") {
                     editorToggleButton(this.type, item.id);
-                } else if (item.inputType == "float") {
+                } else if (item.inputType == "float" || item.inputType == "text") {
                     valueOnChange(this.type, item.id);
                 } else if (item.inputType == "list") {
                     listOnChange(this.type, captured_id, item.id, item.type);
@@ -61,12 +63,11 @@ class HUD_element {
     }
 
 
-    getRenderCode(element, isPreview){
+    getRenderCode(element, isPreview, isSpectating){
 
         var data = {};
-        if (isPreview) {
-            data['hudPreview'] = true;
-        }
+        if (isPreview) data['hudPreview'] = true;
+        if (isSpectating) data['hudSpectating'] = true;
 
         data["elemIdx"] = element.dataset.elemIdx;
 
@@ -78,6 +79,9 @@ class HUD_element {
                     data[item.type] = element.dataset[item.type];
                 }
                 else if(item.inputType == "float"){
+                    data[item.type] = element.dataset[item.type]
+                }
+                else if(item.inputType == "text"){
                     data[item.type] = element.dataset[item.type]
                 }
                 else if(item.inputType == "list"){

@@ -94,7 +94,7 @@ function init_screen_customize() {
 
 // Gather all of the users customization items
 function load_user_customizations() {
-    api_request(global_stats_api, "/user/customization", {}, function(data) {
+    api_request(global_stats_api, "GET", "/user/customization", {}, function(data) {
         // Add user customizations
         if (data) global_customization_data = data["customization"];
 
@@ -413,14 +413,14 @@ function customization_on_select(e) {
     if (global_customization_active_sub_category[0] == "flag") {
         if (prev) prev.classList.remove("selected");
         e.currentTarget.classList.add("selected");
-        send_string("set-customization:"+global_customization_type_id_map["flag"]+"::"+e.currentTarget.dataset.id);
+        send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["flag"]+"::"+e.currentTarget.dataset.id);
         clear_profile_data_cache_id(global_self.data.user_id);
     }
     // Avatars
     if (global_customization_active_sub_category[0] == "avatar") {
         if (prev) prev.classList.remove("selected");
         e.currentTarget.classList.add("selected");
-        send_string("set-customization:"+global_customization_type_id_map["avatar"]+"::"+e.currentTarget.dataset.id);
+        send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["avatar"]+"::"+e.currentTarget.dataset.id);
         clear_profile_data_cache_id(global_self.data.user_id);
     }
     // Stickers

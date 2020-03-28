@@ -33,7 +33,7 @@ function init_element_hp() {
 
 bind_event('flash_hp', function (value) {
     
-    _for_each_with_class_in_parent(real_hud_element, "elem_hp", el => {
+    _for_each_with_class_in_parent(real_hud_container, "elem_hp", el => {
 
          if(el.dataset.scaleOnPickup == 1){
 

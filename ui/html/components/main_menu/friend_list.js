@@ -127,7 +127,7 @@ function send_friend_request() {
     input.value = '';
     if (name.trim().length == 0) return;
 
-    send_string("get-userid-from-name "+name, "userid-from-name", function(data) {
+    send_string(CLIENT_COMMAND_GET_USERID_FROM_NAME, name, "userid-from-name", function(data) {
         if (data.user_id === false || data.user_id === "false") {
             queue_dialog_msg({
                 "title": localize("title_error"),
@@ -310,7 +310,7 @@ function get_friends_in_diabotical_data(friends) {
 
     if (user_ids.length) {
         global_friends_online_data_requested = true;
-        send_string("get-online-friends-data "+user_ids.join(":"));
+        send_string(CLIENT_COMMAND_GET_ONLINE_FRIENDS_DATA, user_ids.join(":"));
     }
 
 }
@@ -636,7 +636,7 @@ function create_action_menu(el, top) {
             option_join.appendChild(_createElement("div", ["accent", "positive"]));
             option_join.appendChild(_createElement("div", "label", "Join Party"));
             option_join.addEventListener("click", function() {
-                send_string("party-join-userid "+el.dataset.user_id);
+                send_string(CLIENT_COMMAND_JOIN_USERID_PARTY, el.dataset.user_id);
                 close_friends_list_action_menu();
             });
             menu.appendChild(option_join);
@@ -903,7 +903,7 @@ function create_friends_settings_menu() {
 
                 if (setting == "privacy") {
                     let bool = (o == "private") ? true : false;
-                    send_string("party-privacy "+bool);
+                    send_string(CLIENT_COMMAND_SET_PARTY_PRIVACY, ""+bool);
                     global_party.privacy = bool;
                 }
             });

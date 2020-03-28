@@ -55,14 +55,14 @@ function init_element_item_picked() {
 
         // Hide again after 3 seconds
         global_last_item_pickup_timeout = setTimeout(function() {
-            _for_each_with_class_in_parent(real_hud_element, "elem_item_picked", function(el) {
+            _for_each_with_class_in_parent(real_hud_container, "elem_item_picked", function(el) {
                 anim_hide(el,100);
             });
             global_last_item_pickup_timeout = null;
         },3000);
 
         
-        _for_each_with_class_in_parent(real_hud_element, "elem_item_picked", function(el) {
+        _for_each_with_class_in_parent(real_hud_container, "elem_item_picked", function(el) {
             
             if (el.children.length == 0) return;
 

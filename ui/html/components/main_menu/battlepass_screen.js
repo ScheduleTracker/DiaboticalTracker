@@ -61,7 +61,7 @@ function load_battlepass() {
             el.style.display = "none";
         });
 
-        send_string("get-battlepass-rewards "+global_user_battlepass.battlepass_id, "battlepass-rewards", function(data) {
+        send_string(CLIENT_COMMAND_GET_BATTLEPASS_REWARDS, global_user_battlepass.battlepass_id, "battlepass-rewards", function(data) {
             global_battlepass_rewards_cache[global_user_battlepass.battlepass_id] = data.data;
             render_battlepass_rewards(screen, global_user_battlepass, data.data, showRewardPreview);
             battlepass_rewards_drag_scroll = new Dragscroll(bp_rewards);

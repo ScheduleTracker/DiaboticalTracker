@@ -76,7 +76,11 @@ function ingame_menu_join_team(team_id) {
     if (team_id != -1 && team_id != 255) {
         for (let i=0; i<menu_game_data.teams.length; i++) {
             if (menu_game_data.teams[i].team_id == team_id) {
-                player_count = menu_game_data.teams[i].players.length;
+                if ("players" in menu_game_data.teams[i]) {
+                    player_count = menu_game_data.teams[i].players.length;
+                } else {
+                    player_count = 0;
+                }
                 break;
             }
         }

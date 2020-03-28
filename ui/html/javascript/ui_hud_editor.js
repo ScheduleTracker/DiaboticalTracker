@@ -1,6 +1,9 @@
 window.hud_editor_preview_downscale_factor = 0.5; 
 window.hud_editor_preview_fullscreen = false;
 
+let global_user_huds = [];
+let global_user_hud_slots = 6; // max hud slots the server allows (hud_index 0-5)
+let global_active_hud_type = HUD_PLAYING;
 
 const MAX_HUD_DEFINITION_LENGTH = 16384;
 
@@ -15,8 +18,8 @@ const d = {"width": 10,
 
 
 function reset_hud(){
-    engine.call('reset_hud');
-    engine.call('get_hud_json').then(function (str) {
+    engine.call('reset_hud', global_active_hud_type);
+    engine.call('get_hud_json', global_active_hud_type).then(function (str) {
         try {
             editing_hud_data = JSON.parse(str);
             write_misc_hud_preference('hudaspect', 'default');
@@ -250,7 +253,16 @@ function pre_load_setup_hud_editor_new() {
 var editing_hud_data = {};
 
 function post_load_setup_hud_editor() {
-    engine.call('get_hud_json').then(function (str) {
+    ui_setup_select(_id("hud_editor_type_select"), function(field, opt) {
+        global_active_hud_type = Number(field.dataset.value);
+        load_hud();
+    });
+
+    load_hud();
+}
+
+function load_hud() {
+    engine.call('get_hud_json', global_active_hud_type).then(function (str) {
         try {
             editing_hud_data = JSON.parse(str);
             hud_version_check(editing_hud_data);
@@ -443,14 +455,17 @@ function editorCreateToggle(element, id, key, name, idx) {
 }
 
 function editorCreateInput(element, id, key, title, idx) {
- /* Unnecessary if val = element.dataset[key] works, needed if we revert to val = elem[key]
-    if (element.dataset.type == "group") {
-        var elem = editing_hud_data.groups[idx];
+    //moving elements with arrow keys only updates editing_hud_data and changes element style left/top directly (moveElement), so read from editing_hud_data for x/y
+    if (key == "x" || key == "y"){
+        if (element.dataset.type == "group") {
+            var elem = editing_hud_data.groups[idx];
+        } else {
+            var elem = editing_hud_data.elements[idx];
+        }
+        var val = elem[key];
     } else {
-        var elem = editing_hud_data.elements[idx];
+        var val = element.dataset[key];
     }
-*/    
-    var val = element.dataset[key];
 
     var data = {
         value: _clean_float(val),
@@ -465,6 +480,24 @@ function editorCreateInput(element, id, key, title, idx) {
     if(output === ""){
         console.warn(element, "This shold not be empty");
     }
+
+    return output;
+}
+
+function editorCreateInputText(element, id, key, title, maxLength, idx) {   
+    var charLim = parseFloat(maxLength);
+    var val = element.dataset[key].substring(0,charLim); //keeps input box working if hud_definition value is longer than max length, (only clamps value for input box, not general use)
+    var valHTML = _escape_html(val);
+    var data = {
+        value: valHTML, 
+        id: id,
+        key: key,
+        title: title,
+        maxLength: charLim,
+        idx: idx,
+    };
+
+    var output = getTemplateRender("hud_editor_input_text", data);
 
     return output;
 }
@@ -660,6 +693,13 @@ function editorOpenAdvancedModal() {
                         continue;
                     }
                 }
+                if (current_rule == "filter") {
+                    if (split[1].includes("blur")) {
+                        console.log(split[1], "contains blur filter");
+                        // Don't allow blur filter due to performance and crash concerns when sharing huds
+                        continue;
+                    }
+                }
                 if (split[1].includes("var(")) {
                     console.log(split[1], "contains var()");
                     // using var() causes game to crash
@@ -825,7 +865,7 @@ function refresh_preview_hud() {
     send_sanitized_hud_definition_to_engine();
     _id("hud_preview_container").style.setProperty('--ratio',window.hud_editor_preview_downscale_factor);
     update_preview_aspect_state(global_misc_hud_preference["hudaspect"]);
-    make_hud_in_element("hud_preview", true);
+    make_hud_in_element("hud_preview", true, false);
     reset_hud_properties();
 }
 
@@ -834,10 +874,12 @@ function send_sanitized_hud_definition_to_engine() {
     let json = JSON.stringify(editing_hud_data);
     if (json.length <= MAX_HUD_DEFINITION_LENGTH) {
         // Save the hud
-        engine.call("set_hud_json", json);
+        engine.call("set_hud_json", global_active_hud_type, json);
+    } else {
+        // TODO, inform the user about the issue
     }
     // Let the engine know that the hud changed so it can call a hud refresh in the hud view as well
-    engine.call("on_hud_edited");
+    engine.call("on_hud_edited", global_active_hud_type);
 }
 
 function convert_group_coord_to_hud_coord(gid,element,hud_to_group) {
@@ -1262,7 +1304,7 @@ function hud_editor_fullscreen(new_state) {
     if (new_state) {
         toggle.classList.add("toggle_enabled");
         toggle.dataset.enabled = "true";
-        window.hud_editor_preview_downscale_factor = 0.75; 
+        window.hud_editor_preview_downscale_factor = 0.70;
         window.hud_editor_preview_fullscreen = true;
         _id("hud_editor").style.setProperty('--ratio',window.hud_editor_preview_downscale_factor);
         _id("settings_screen_window").classList.add("fullscreen");
@@ -1361,4 +1403,249 @@ function hud_editor_change_tab(id){
     });
 }
 
+function hud_editor_save_dialog() {
+    let selected_index = null;
+    let slots = [];
 
+    let cont = _createElement("div", "hud_dialog");
+    cont.appendChild(_createElement("div", "generic_modal_dialog_header", (global_active_hud_type == HUD_PLAYING) ? localize("hud_type_play_save") : localize("hud_type_spec_save")));
+
+    let hud_list = _createElement("div", "hud_list");
+    hud_list.appendChild(_createElement("div", "title", localize("hud_select_slot")));
+
+    let action_cont = _createElement("div", "generic_modal_dialog_action");
+    let save_btn = _createElement("div", ["dialog_button", "positive", "locked"], localize("menu_button_save"));
+    let close_btn = _createElement("div", ["dialog_button", "negative"], localize("menu_button_cancel"));
+    action_cont.appendChild(save_btn);
+    action_cont.appendChild(close_btn);
+
+    close_btn.addEventListener("click", function() {
+        closeBasicModal();
+    });
+    save_btn.addEventListener("click", function() {
+        if (selected_index == null) return;
+
+        let params = {
+            "title": slots[selected_index].input.value,
+            "type": global_active_hud_type,
+            "hud": editing_hud_data,
+        };
+        api_request(global_stats_api, "POST", "/user/hud/"+selected_index, params, function(data) {
+            load_user_hud_list();
+            closeBasicModal();
+        });
+    });
+    
+    for (let i=0; i<global_user_hud_slots; i++) {
+        let title = localize("hud_slot_empty");
+        let type = localize("play");
+        let unused = true;
+        if (i in global_user_huds) {
+            title = global_user_huds[i].hud_title;
+            unused = false;
+        }
+        if (title == null) title = "";
+        let hud_slot = _createElement("div", "hud_slot");
+        let hud_index = _createElement("div", "hud_index", i + 1);
+        let hud_title = _createElement("div", "hud_title", title);
+        let hud_title_input =_createElement("input", ["hud_title", "hud_title_input"]);
+        hud_title_input.maxLength = 255;
+        hud_title_input.type = "text";
+        hud_title_input.value = title;
+        let hud_id = _createElement("div", "hud_id");
+        if (i in global_user_huds) {
+            hud_id.classList.add("has_id");
+            hud_id.dataset.id = global_user_huds[i].hud_id;
+            hud_id.dataset.msgId="hud_copy_key";
+            add_tooltip2_listeners(hud_id);
+        }
+        
+
+        hud_slot.appendChild(hud_index);
+        hud_slot.appendChild(hud_title);
+        hud_slot.appendChild(hud_title_input);
+        if (!unused) hud_slot.appendChild(_createElement("div", ["hud_type", "type_"+global_user_huds[i].hud_type]));
+        hud_slot.appendChild(hud_id);
+        hud_list.appendChild(hud_slot);
+
+        hud_slot.addEventListener("click", function() {
+            if (hud_index.classList.contains("selected")) return;
+
+            for (let slot of slots) {
+                if (slot.index.classList.contains("selected")) slot.index.classList.remove("selected");
+                slot.title.style.display = "block";
+                slot.input.style.display = "none";
+            }
+
+            hud_title.style.display = "none";
+            hud_index.classList.add("selected");
+            if (unused) hud_title_input.value = '';
+            else hud_title_input.value = title;
+            hud_title_input.style.display = "block";
+            hud_title_input.focus();
+            hud_title_input.selectionStart = hud_title_input.selectionEnd = hud_title_input.value.length;
+            selected_index = i;
+
+            save_btn.classList.remove("locked");
+        });
+
+        hud_id.addEventListener("click", function(e) {
+            e.stopPropagation();
+            _play_click1();
+            engine.call("copy_text", hud_id.dataset.id);
+        });
+
+        slots.push({
+            "slot": hud_slot,
+            "index": hud_index,
+            "title": hud_title,
+            "input": hud_title_input,
+        });
+    }
+    cont.appendChild(hud_list);
+    cont.appendChild(action_cont);
+
+    openBasicModal(cont);
+}
+
+function hud_editor_load_dialog() {
+    let selected_hud_id = null;
+    let slots = [];
+
+    let cont = _createElement("div", "hud_dialog");
+    cont.appendChild(_createElement("div", "generic_modal_dialog_header", (global_active_hud_type == HUD_PLAYING) ? localize("hud_type_play_load") : localize("hud_type_spec_load")));
+
+    let hud_list = _createElement("div", "hud_list");
+    hud_list.appendChild(_createElement("div", "title", localize("hud_select")));
+
+    let action_cont = _createElement("div", "generic_modal_dialog_action");
+    let load_btn = _createElement("div", ["dialog_button", "positive", "locked"], localize("menu_button_load"));
+    let close_btn = _createElement("div", ["dialog_button", "negative"], localize("menu_button_cancel"));
+    action_cont.appendChild(load_btn);
+    action_cont.appendChild(close_btn);
+
+    let load_key_cont = _createElement("div", "load_key_cont");
+    load_key_cont.appendChild(_createElement("div", "load_key_title", localize("hud_load_key_title")));
+    let load_key_input = _createElement("input", "load_key_input");
+    load_key_input.addEventListener("focus", function() {
+        for (let slot of slots) {
+            if (slot.index.classList.contains("selected")) slot.index.classList.remove("selected");
+        }
+        selected_hud_id = null;
+
+        load_btn.classList.add("locked");
+    });
+    load_key_input.addEventListener("keyup", function() {
+        let val = load_key_input.value.trim();
+        if (val.length) {
+            load_btn.classList.remove("locked");
+            selected_hud_id = val;
+        } else {
+            load_btn.classList.add("locked");
+            selected_hud_id = null;
+        }
+    });
+    load_key_cont.appendChild(load_key_input);
+
+    close_btn.addEventListener("click", function() {
+        closeBasicModal();
+    });
+    load_btn.addEventListener("click", function() {
+        if (selected_hud_id == null) return;
+        
+        api_request(global_stats_api, "GET", "/user/hud/"+selected_hud_id, {}, function(data) {
+            if (data != null && "hud" in data && "hud" in data.hud) {
+                try {
+                    let hud = JSON.parse(data.hud.hud);
+                    editing_hud_data = hud;
+                    send_sanitized_hud_definition_to_engine();
+                    refresh_preview_hud();
+                } catch(e) {
+                    console.log("error parsing saved hud", e.message);
+                    queue_dialog_msg({
+                        "title": localize("title_error"),
+                        "msg": localize("hud_parsing_error"),
+                    });
+                }
+            } else {
+                queue_dialog_msg({
+                    "title": localize("title_error"),
+                    "msg": localize("hud_not_found"),
+                });
+            }
+            closeBasicModal();
+        });
+    });
+
+    let hud_count = 0;
+    for (let i=0; i<global_user_hud_slots; i++) {
+        let title = localize("hud_slot_empty");
+        let unused = true;
+        if (i in global_user_huds) {
+            title = global_user_huds[i].hud_title;
+            unused = false;
+        } else {
+            continue;
+        }
+        hud_count++;
+        if (title == null) title = "";
+        let hud_slot = _createElement("div", "hud_slot");
+        let hud_index = _createElement("div", "hud_index", i + 1);
+        let hud_title = _createElement("div", "hud_title", title);
+        hud_slot.appendChild(hud_index);
+        hud_slot.appendChild(hud_title);
+        if (!unused) hud_slot.appendChild(_createElement("div", ["hud_type", "type_"+global_user_huds[i].hud_type]));
+        let hud_id = _createElement("div", "hud_id");
+        if (i in global_user_huds) {
+            hud_id.classList.add("has_id");
+            hud_id.dataset.id = global_user_huds[i].hud_id;
+            hud_id.dataset.msgId="hud_copy_key";
+            add_tooltip2_listeners(hud_id);
+        }
+        hud_slot.appendChild(hud_id);
+        hud_list.appendChild(hud_slot);
+
+        hud_slot.addEventListener("click", function() {
+            if (hud_index.classList.contains("selected")) return;
+
+            for (let slot of slots) {
+                if (slot.index.classList.contains("selected")) slot.index.classList.remove("selected");
+            }
+            hud_index.classList.add("selected");
+            selected_hud_id = global_user_huds[i].hud_id;
+            load_key_input.value = "";
+
+            load_btn.classList.remove("locked");
+        });
+
+        hud_id.addEventListener("click", function(e) {
+            e.stopPropagation();
+            _play_click1();
+            engine.call("copy_text", hud_id.dataset.id);
+        });
+
+        slots.push({
+            "index": hud_index,
+        });
+    }
+    if (hud_count == 0) {
+        hud_list.appendChild(_createElement("div", "no_huds", localize("hud_no_huds_found")));
+    }
+
+    cont.appendChild(hud_list);
+    cont.appendChild(load_key_cont);
+    cont.appendChild(action_cont);
+
+    openBasicModal(cont);
+}
+
+function load_user_hud_list() {
+    api_request(global_stats_api, "GET", "/user/huds", {}, function(data) {
+        global_user_huds = {};
+        if ("huds" in data) {
+            for (let hud of data.huds) {
+                global_user_huds[hud.hud_index] = hud;
+            }
+        }
+    });
+}

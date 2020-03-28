@@ -64,9 +64,9 @@ function set_chat(visible) {
     }
     if (!visible) game_report_input.blur();
 
-    var container = document.querySelector("#game_hud_special");
     if (!global_game_report_active && visible) {
-        _for_first_with_class_in_parent(_id("game_hud_special"), "ingame_chat_input", function(chatPrompt) {
+        let chatPrompt = game_hud_special.querySelector(".chat_container.active .ingame_chat_input");
+        if (chatPrompt) {
             let chat_temp = chatPrompt.closest(".chat_container").querySelector(".chat_temp_cont");
 
             engine.call('set_chat_enabled', true);
@@ -76,14 +76,14 @@ function set_chat(visible) {
             chatPrompt.parentElement.style.visibility='visible';
             chatPrompt.focus();
 
-            _for_each_with_class_in_parent(container, "chat_messages", el => {
+            _for_each_with_class_in_parent(game_hud_special, "chat_messages", el => {
                 // Remove any previously attached hide animations
                 anim_remove(el);
                 el.style.opacity = 1;
             });
-        });
+        }
     } else {
-        _for_each_with_class_in_parent(_id("game_hud_special"), "ingame_chat_input", function(chatPrompt) {
+        _for_each_with_class_in_parent(game_hud_special, "ingame_chat_input", function(chatPrompt) {
             let chat_temp = chatPrompt.closest(".chat_container").querySelector(".chat_temp_cont");
             chat_temp.style.visibility="visible";
             chatPrompt.value='';
@@ -99,7 +99,7 @@ const CHAT_MESSAGE_FADE_DURATION = 500;
 function chatMessage(msg) {
 
     // Add the message to every chat hud element
-    _for_each_with_class_in_parent(_id("hud_load_during_loading"), "chat_messages", el => {
+    _for_each_with_class_in_parent(game_hud_special, "chat_messages", el => {
 
         if (el.children.length >= 20) {
             el.removeChild(el.children[0]);
@@ -157,13 +157,12 @@ function addChatMessage(playerName, msg) {
     chatMessage(fragment);    
 }
 
-function element_chat_setup() {
+let global_game_report_chat_setup = false;
+function element_chat_setup(container) {
 
     if (IS_MENU_VIEW) return;
     
-    var chatinput = _get_first_with_class_in_parent(_id("hud_load_during_loading"), "ingame_chat_input");
-    
-    if (chatinput) {
+    _for_each_with_class_in_parent(container, "ingame_chat_input", function(chatinput) {
         chatinput.addEventListener("keypress", function(event) {
             if (global_chat_double_key_fix_active) {
                 event.preventDefault();
@@ -175,7 +174,7 @@ function element_chat_setup() {
                 event.preventDefault();
                 return false;
             }
-            _for_each_with_class_in_parent(_id("hud_load_during_loading"), "ingame_chat_input", chatPrompt => {
+            _for_each_with_class_in_parent(container, "ingame_chat_input", chatPrompt => {
                 let chat_temp = chatPrompt.closest(".chat_container").querySelector(".chat_temp_cont");
                 if (event.keyCode == 27) { //Escape
                     event.preventDefault();
@@ -208,11 +207,11 @@ function element_chat_setup() {
                 }
             });
         });
-    }
+    });
 
-    _for_each_with_class_in_parent(_id("hud_load_during_loading"), "ingame_chat_input", el => {
+    _for_each_with_class_in_parent(container, "ingame_chat_input", el => {
         el.addEventListener('blur', (event) => {
-            _for_each_with_class_in_parent(_id("hud_load_during_loading"), "chat_messages", child => {
+            _for_each_with_class_in_parent(container, "chat_messages", child => {
                 
                 anim_start({
                     element: child,
@@ -228,7 +227,7 @@ function element_chat_setup() {
     });
 
     var report_chatinput = _get_first_with_class_in_parent(_id("game_report_cont"), "chat_input");
-    if (report_chatinput) {
+    if (report_chatinput && !global_game_report_chat_setup) {
         report_chatinput.addEventListener("keydown", function (event) {
             if (event.keyCode == 27) { //Escape
                 report_chatinput.value = "";
@@ -243,6 +242,8 @@ function element_chat_setup() {
                 report_chatinput.value = "";
             }
         });
+
+        global_game_report_chat_setup = true;
     }
 
 };

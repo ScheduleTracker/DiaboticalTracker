@@ -39,14 +39,13 @@ function init_hud_elements() {
     init_element_item_picked();
 }
 
-function make_hud_in_element(container_id, editing_mode) {
+function make_hud_in_element(container_id, editing_mode, spectating_hud) {
     var container_element = _id(container_id);
    
     //Clear the current hud
     _empty(container_element);
-    if (container_id === "real_hud") {
-        _empty(_id("hud_load_during_loading"));
-    }
+    if (container_id === "real_hud") _empty(_id("hud_load_during_loading"));
+    if (container_id === "spec_hud") _empty(_id("spec_hud_load_during_loading"));
     
     var hud = editing_hud_data;
 
@@ -178,7 +177,7 @@ function make_hud_in_element(container_id, editing_mode) {
                 para_cont.classList.add("group");
 
                 var para = document.createElement("div");
-                var node = document.createTextNode("Element Group");
+                var node = document.createTextNode("Element Group " + new_group.dataset.groupName);  
                 para.appendChild(node);
                 para.classList.add("hud_editor_list_element");
                 para.id = "hud_list_item_" + i;
@@ -231,27 +230,31 @@ function make_hud_in_element(container_id, editing_mode) {
     if (hud.elements) {
         // Create all non group elements
         for (var i = 0; i < hud.elements.length; i++) {
-            if (hud.elements[i].t == "misc_settings" && hud.elements[i].hudaspect && container_id === "real_hud") {
+            if (hud.elements[i].t == "misc_settings" && hud.elements[i].hudaspect && (container_id === "real_hud" || container_id === "spec_hud")) {
 			    var aspect_ratio = hud.elements[i].hudaspect
 			    var res = aspect_ratio.split(":",2);
 			    var res_hor      = parseInt(res[0],10);
 			    var res_vert     = parseInt(res[1],10);
 			    if (res_hor && res_vert) {
                     _id(container_id).style.width = (100 * (res_hor / res_vert)) + "vh";
-                    _id("hud_load_during_loading").style.width = (100 * (res_hor / res_vert)) + "vh";
+                    if (container_id == "real_hud") _id("hud_load_during_loading").style.width = (100 * (res_hor / res_vert)) + "vh";
+                    if (container_id == "spec_hud") _id("spec_hud_load_during_loading").style.width = (100 * (res_hor / res_vert)) + "vh";
 			    } else {
                     _id(container_id).style.width = (100 + "vw");
-                    _id("hud_load_during_loading").style.width = (100 + "vw");
+                    if (container_id == "real_hud") _id("hud_load_during_loading").style.width = (100 + "vw");
+                    if (container_id == "spec_hud") _id("spec_hud_load_during_loading").style.width = (100 + "vw");
 			    }
                 continue;
             }
             hud.elements[i] = element_property_override_filter(hud.elements[i]);
-            var new_element = renderElement(container_id, container_element, editing_mode, hud, i);
+            var new_element = renderElement(container_id, container_element, editing_mode, spectating_hud, hud, i);
             if (!new_element) continue;
 
             // Show the chat during the loading screen
-            if (container_id === "real_hud" && hud.elements[i].t === "chat") {
+            if (hud.elements[i].t === "chat" && container_id === "real_hud") {
                 _id("hud_load_during_loading").appendChild(new_element);
+            } else if (hud.elements[i].t === "chat" && container_id === "spec_hud") {
+                _id("spec_hud_load_during_loading").appendChild(new_element);
             } else {
                 if (hud.elements[i].gid > -1 && hud.elements[i].gid in hud_editor_group_map) {
                     hud_editor_group_map[hud.elements[i].gid].appendChild(new_element);
@@ -368,11 +371,11 @@ function getFirstMatchingElement(elements, type) {
 }
 
 
-function _process_hud_element_text(container_element, type, element, isPreview) {
+function _process_hud_element_text(container_element, type, element, isPreview, isSpectating) {
     //console.log("_process_hud_element_text " + type + ":" + jquery_element.get(0).outerHTML);
 
     if (type == "group") {
-        return hud_group.getRenderCode(element, isPreview);
+        return hud_group.getRenderCode(element, isPreview, isSpectating);
     }
 
     var result = hud_elements.filter(obj => {   
@@ -380,7 +383,7 @@ function _process_hud_element_text(container_element, type, element, isPreview) 
     });
     if (result.length > 0 && element_property_override_filter(result)) {
         if (result[0].previewCode.isEmpty()) {
-            return result[0].getRenderCode(element, isPreview);
+            return result[0].getRenderCode(element, isPreview, isSpectating);
         } else {
             return result[0].previewCode;
         }
@@ -442,7 +445,7 @@ function refresh_hud_element_preview(idx) {
     var hud = editing_hud_data;
     if (hud.elements && idx in hud.elements) {
 
-        var new_element = renderElement(container_id, container_element, true, hud, idx, false);
+        var new_element = renderElement(container_id, container_element, true, false, hud, idx, false);
         if (!new_element) return;
 
         parent.insertBefore(new_element, next_el);
@@ -476,7 +479,7 @@ function refresh_hud_element_preview(idx) {
     }
 }
 
-function renderElement(container_id, container_element, editing_mode, hud, idx) {
+function renderElement(container_id, container_element, editing_mode, spectating_hud, hud, idx) {
 
     var new_element = document.createElement("div");
     new_element.dataset.groupable = 1;
@@ -525,7 +528,8 @@ function renderElement(container_id, container_element, editing_mode, hud, idx) 
             container_element,
             hud.elements[idx].t,
             new_element,                    
-            editing_mode
+            editing_mode,
+            spectating_hud
         );
 
     new_element.style.setProperty("--ratio", downscale);

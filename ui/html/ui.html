@@ -1981,6 +1981,15 @@
                         </div>
 
                         <div id="hud_properties_container">
+                            <div class="hud_editor_control">
+                                <div id="hud_editor_type_select" class="select-field select_setting" data-theme="settings">
+                                    <div data-value="0" class="i18n" data-i18n="hud_type_play" data-selected=1>Play HUD</div>
+                                    <div data-value="1" class="i18n" data-i18n="hud_type_spec">Spectating HUD</div>
+                                </div>
+                                <div class="button i18n mouseover-sound4" data-i18n="save" onclick="hud_editor_save_dialog()">Save</div>
+                                <div class="button i18n mouseover-sound4" data-i18n="load" onclick="hud_editor_load_dialog()">Load</div>
+                            </div>
+
                             <div class="hud_editor_side_panel_menu">
                                 <div id="hud_panel_button_properties" class="button mouseover-sound4 selected" onclick="hud_editor_change_tab('hud_properties')">Properties</div>
                                 <div id="hud_panel_button_list" class="button mouseover-sound4" onclick="hud_editor_change_tab('hud_editor_list_view')">Element List</div>
@@ -2217,6 +2226,8 @@
 </div>
 
             <div id="player_profile_screen"></div>
+
+            <div id="match_screen"></div>
 
             <div id="play_panel">
                 <div class="bar_panel">
@@ -3686,6 +3697,12 @@
             </div>
         </div>
 
+        <div id="basic_modal" class="generic_modal" onclick="close_modal_screen(event);">
+            <div class="generic_modal_dialog" onclick="event.stopPropagation();">
+                <div class="generic_modal_dialog_container"></div>
+            </div>
+        </div>
+
         <div id="advanced_mouse_settings_screen" class="settings_modal" onclick="close_modal_screen(event);">
             <div class="settings_modal_dialog" onclick="event.stopPropagation()">
                 <div>
@@ -4490,14 +4507,14 @@
 <script id="hud_group" type="text/jsrender"></script>
 
 <script id="hud_player_name" type="text/jsrender">
-    <div class="player_name [[if uc==1]]upper[[/if]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} [[if vis=='p']]&& !{{game_data.spectating}}[[/if]] [[if vis=='s']]&& {{game_data.spectating}}[[/if]]"[[/if]]>
+    <div class="player_name [[if uc==1]]upper[[/if]]" data-bind-if="{{battle_data.self.alive}} [[if vis=='p']]&& !{{game_data.spectating}}[[/if]] [[if vis=='s']]&& {{game_data.spectating}}[[/if]]">
         [[if pre==1]]<div class="following" data-bind-i18n="'following:'+{{battle_data.self.name}}">Following</div>[[/if]]
         <div [[if teamColor==1]]data-bind-style-color="{{game_data.own_team.color}}[[/if]]" data-bind-value="{{battle_data.self.name}}">Mr. Eggbot</div>
     </div>
 </script>
 
 <script id="hud_weapons_list" type="text/x-jsrender">
-    <div class="ammo_container [[:direction]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
+    <div class="ammo_container [[:direction]]" data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
 
         [[if render_normal]]
             <div class="ammo_row [[:wDirection]]" data-bind-for="weapon_iter:{{weapons_group.weapons}}" data-bind-property="'--weapon_color:'+{{weapon_iter.color}}">
@@ -4663,17 +4680,17 @@
 </script>
 
 <script id="hud_hp" type="text/x-jsrender">
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:threshold]]"[[/if]] data-bind-value="{{battle_data.self.hp}}">200</div>
+    <div data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:threshold]]" data-bind-value="{{battle_data.self.hp}}">200</div>
 </script>
 
 <script id="hud_armor" type="text/x-jsrender">
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && !([[:hideIf0]] && {{battle_data.self.armor}} <= 0)" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:threshold]]"[[/if]] data-bind-value="{{battle_data.self.armor}}">100</div>
+    <div data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}} && !([[:hideIf0]] && {{battle_data.self.armor}} <= 0)" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:threshold]]" data-bind-value="{{battle_data.self.armor}}">100</div>
 </script>
 
 <script id="hud_stack" type="text/x-jsrender">
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}" [[if gradientColor==1]]data-bind-style-color="hslToRgbString(Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})/400, 1, 0.5)"[[/if]] data-bind-value="Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})"[[/if]] [[if hudPreview && gradientColor==1]]style="color:cyan"[[/if]]>300</div>
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}" [[if gradientColor==1]]data-bind-style-color="hslToRgbString(Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})/400, 1, 0.5)"[[/if]] data-bind-value="Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})"[[/if]] [[if hudPreview && gradientColor==1]]style="color:cyan"[[/if]]>300</div>
     [[if showDormant==1]]
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}" [[if gradientColor==1]]data-bind-style-color="hslToRgbString(Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})/400, 1, 0.5)"[[/if]] data-bind-value="'+'+Math.max(0, {{battle_data.self.hp}}+{{battle_data.self.armor}}-{{battle_data.self.hp}}*3)"[[/if]] style="font-size:0.5em;[[if hudPreview && gradientColor==1]]color:cyan[[/if]]">+0</div>
+    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}" [[if gradientColor==1]]data-bind-style-color="hslToRgbString(Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})/400, 1, 0.5)"[[/if]] data-bind-value="'+'+Math.max(0, {{battle_data.self.hp}}+{{battle_data.self.armor}}-{{battle_data.self.hp}}*3)"[[/if]] style="font-size:0.5em;[[if hudPreview && gradientColor==1]]color:cyan[[/if]]">+0</div>
     [[/if]]
 </script>
 <!--
@@ -4685,7 +4702,7 @@
         */
 -->
 <script id="hud_current_ammo" type="text/x-jsrender">
-    <span data-bind-if="{{battle_data.self.alive}}">
+    <span data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
         <div class="[[:aC]]_color [[:lowAC]]_color_low" data-bind-class-toggle="threshold:{{current_weapon_data.ammo}} <= ({{current_weapon_data.max_ammo}} * [[:threshold]])" data-bind-property="'--weaponColor:'+{{current_weapon_data.color}}">
             <div data-bind-if="!{{current_weapon_data.unlimited_ammo}}" data-bind-value="{{current_weapon_data.ammo}}"></div>
             <div data-bind-if="{{current_weapon_data.unlimited_ammo}}">&infin;</div>
@@ -4694,7 +4711,7 @@
 </script>
 
 <script id="hud_speed" type="text/x-jsrender">
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]><span data-bind-value="{{frame_data.speed}}">0</span>[[if !(hideUnit==1)]]<span>ups</span>[[/if]]</div>
+    <div data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}"><span data-bind-value="{{frame_data.speed}}">0</span>[[if !(hideUnit==1)]]<span>ups</span>[[/if]]</div>
 </script>
 
 <script id="hud_itempickup" type="text/x-jsrender">    
@@ -4766,7 +4783,7 @@
 </script>
 
 <script id="hud_hp_bar" type="text/x-jsrender">
-    <div class="ha_bar_container [[if rightToLeft==1]]reverse[[/if]] [[if boxShadow == 1]]shadow[[/if]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
+    <div class="ha_bar_container [[if rightToLeft==1]]reverse[[/if]] [[if boxShadow == 1]]shadow[[/if]]" data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
         <div class="bg_container">
             [[for start=0 end=(+segments)]]
                 <div class="bar_segment_bg"></div>
@@ -4787,7 +4804,7 @@
     </div>
 </script>
 <script id="hud_armor_bar" type="text/x-jsrender">
-    <div class="ha_bar_container [[if rightToLeft==1]]reverse[[/if]] [[if boxShadow == 1]]shadow[[/if]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
+    <div class="ha_bar_container [[if rightToLeft==1]]reverse[[/if]] [[if boxShadow == 1]]shadow[[/if]]" data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
         <div class="bg_container">
             [[for start=0 end=(+segments)]]
                 <div class="bar_segment_bg"></div>
@@ -4831,7 +4848,7 @@
 
 <script id="hud_chat" type="text/x-jsrender">
 
-    <div class="chat_container" [[if showTimestamp==1]]style="--chat_show_timestamp_while_ingame:flex;"[[/if]]>
+    <div class="chat_container" [[if showTimestamp==1]]style="--chat_show_timestamp_while_ingame:flex;"[[/if]]  data-bind-class-toggle="active:[[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
         <div class="chat_temp_cont">
             <div class="chat_temp"></div>
         </div>
@@ -4846,13 +4863,13 @@
 </script>
 
 <script id="hud_icon" type="text/x-jsrender">
-    <div class="icon_cont" [[if hide_dead==1 && !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
+    <div class="icon_cont" [[if hide_dead==1]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
         <img [[if iconShadow==1]]class="shadow"[[/if]] src="/html/images/hud_icon_[[:icon]].svg?fill=[[:fill]]&stroke=[[:stroke]]&stroke-width=[[:stroke_width]]">
     </div>
 </script>
 
 <script id="hud_current_weapon_icon" type="text/x-jsrender">
-    <div class="icon_cont [[if iconShadow==1]]shadow[[/if]]" [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]
+    <div class="icon_cont [[if iconShadow==1]]shadow[[/if]]" data-bind-if="{{battle_data.self.alive}}"
         [[if weapon_fill == 1]]
             data-bind-style-background-image-url="'images/weapon_' + {{current_weapon_data.tag}} + '.svg?fill=' + {{current_weapon_data.color}}"
         [[else]]
@@ -4895,7 +4912,7 @@
 </script>
 
 <script id="hud_my_team_score" type="text/x-jsrender">
-    <div class="teamscore_team_container [[if reverse == 1]]reverse[[/if]]">
+    <div class="teamscore_team_container [[if reverse == 1]]reverse[[/if]]" data-bind-if="[[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
         <div class="teamscore_score [[if sS == 1]]shadow[[/if]]" data-bind-style-background-color="{{game_data.own_team.color}}" data-bind-value="{{game_data.own_team.team_score}}">X</div>
         <div class="teamscore_subscore" data-bind-if="{{game_data.round_mode}}" data-bind-value="{{game_data.own_team.game_score}}">0</div>
         <div class="teamscore_macguffin" data-bind-if="{{game_data.own_team.team_has_macguffin}}"><div></div></div>
@@ -4989,7 +5006,7 @@
 </script>
 
 <script id="hud_enemy_team_score" type="text/x-jsrender">
-    <div class="teamscore_team_container [[if reverse == 1]]reverse[[/if]]">
+    <div class="teamscore_team_container [[if reverse == 1]]reverse[[/if]]" data-bind-if="[[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
         <div class="teamscore_score [[if sS == 1]]shadow[[/if]]" data-bind-style-background-color="{{game_data.enemy_team.color}}" data-bind-value="{{game_data.enemy_team.team_score}}">X</div>
         <div class="teamscore_subscore" data-bind-if="{{game_data.round_mode}}" data-bind-value="{{game_data.enemy_team.game_score}}">0</div>
         <div class="teamscore_macguffin" data-bind-if="{{game_data.enemy_team.team_has_macguffin}}"><div></div></div>
@@ -5086,7 +5103,7 @@
 </script>
 
 <script id="hud_dodge" type="text/x-jsrender">
-    <div class="indicator_cont [[if flip==1]]reverse[[/if]]" [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]>
+    <div class="indicator_cont [[if flip==1]]reverse[[/if]]" data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
         [[if aT == 0]]
         <div class="indicator_icon ability_dodge [[if hudPreview]]active[[/if]]" data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} == 0">
             <div class="indicator_icon_bg">
@@ -5132,7 +5149,7 @@
 </script>
 
 <script id="hud_item" type="text/x-jsrender">
-    <div class="indicator_cont [[if flip==1]]reverse[[/if]] [[:style]]" [[if !hudPreview]]data-bind-if="{{battle_data.have_item}}" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]>
+    <div class="indicator_cont [[if flip==1]]reverse[[/if]] [[:style]]" data-bind-if="{{battle_data.have_item}} && {{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
         <div class="indicator_icon">
             <div class="indicator_icon_bg">
                 <div class="icon" data-bind-class-toggle="active:{{frame_data.item_cooldown}} <= 0" [[if style=="default"]]data-bind-border-color="{{battle_data.item_color}}"[[/if]]>
@@ -5159,7 +5176,7 @@
 </script>
 
 <script id="hud_powerup" type="text/x-jsrender">
-    <div class="indicator_cont [[if flip==1]]reverse[[/if]] [[:style]]" [[if !hudPreview]]data-bind-if="{{battle_data.have_powerup}}" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]>
+    <div class="indicator_cont [[if flip==1]]reverse[[/if]] [[:style]]" data-bind-if="{{battle_data.have_powerup}} && {{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
         <div class="indicator_icon active">
             <div class="indicator_icon_bg">
                 <div class="icon active" [[if style=="default"]]data-bind-border-color="{{battle_data.powerup_color}}"[[/if]]>
@@ -5334,6 +5351,15 @@
     </div>
 </script>
 
+<script id="hud_editor_input_text" type="text/x-jsrender">
+    <div class="hud_editor_option_row row_input">
+        <div class="label">[[:title]]</div>
+        <div class="option">
+            <input type=text maxlength=[[:maxLength]] id='[[:id]]' data-idx="[[:idx]]" data-key="[[:key]]" value="[[:value]]" ondblclick="this.setSelectionRange(0, this.value.length);">
+        </div>
+    </div>
+</script>
+
 <script id="hud_editor_toggle" type="text/x-jsrender">
     <div class="hud_editor_option_row row_toggle">
         <div class="label">[[:name]]</div>
@@ -5469,6 +5495,7 @@
     <script src="components/main_menu/create_screen.js"></script>
     <script src="components/main_menu/leaderboards_screen.js"></script>
     <script src="components/main_menu/player_profile_screen.js"></script>
+    <script src="components/main_menu/match_screen.js"></script>
     <script src="components/main_menu/play_screen_customlist.js"></script>
     <script src="components/main_menu/play_screen.js"></script>
     <script src="components/main_menu/practice_screen.js"></script>

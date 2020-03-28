@@ -34,7 +34,7 @@ function init_element_armor() {
 
 
 bind_event('flash_armor', function (value) {
-    _for_each_with_class_in_parent(real_hud_element, "elem_armor", el => {
+    _for_each_with_class_in_parent(real_hud_container, "elem_armor", el => {
         if(el.dataset.scaleOnPickup == 1){
             anim_start({
                 element: el.children[0],

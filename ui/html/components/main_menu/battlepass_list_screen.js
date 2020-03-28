@@ -121,7 +121,7 @@ function createBattlepassBox(data, user_active) {
 
         button_activate.addEventListener("click", function() {
             
-            send_string("set-battlepass-active "+data.battlepass_id, "battlepass-data", function(data) {
+            send_string(CLIENT_COMMAND_SET_ACTIVE_BATTLEPASS, data.battlepass_id, "battlepass-data", function(data) {
                 global_user_battlepass = data.data;
                 open_battlepass();
             });
@@ -191,7 +191,7 @@ function battlepass_list_show_rewards(bp) {
                 el.style.display = "none";
             });
 
-            send_string("get-battlepass-rewards "+bp.battlepass_id, "battlepass-rewards", function(data) {
+            send_string(CLIENT_COMMAND_GET_BATTLEPASS_REWARDS, bp.battlepass_id, "battlepass-rewards", function(data) {
                 global_battlepass_rewards_cache[bp.battlepass_id] = data.data;
                 render_battlepass_rewards(screen, bp, global_battlepass_rewards_cache[bp.battlepass_id], showRewardPreview);
                 battlepass_modal_rewards_drag_scroll = new Dragscroll(bp_rewards);

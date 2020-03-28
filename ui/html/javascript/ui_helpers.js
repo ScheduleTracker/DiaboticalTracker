@@ -127,6 +127,24 @@ function _clean_float(value, decimal) {
     return Math.round(Math.pow(10,decimal) * parseFloat(value)) / Math.pow(10,decimal);
 }
 
+function _escape_html(str) {
+    return str.replace(/[&<>"']/g, function(c) {
+      switch (c) {
+        case '&':
+            return '&amp;';
+        case '<':
+            return '&lt;';
+        case '>':
+            return '&gt;';
+        case '"':
+            return '&quot;';
+        default:
+            return '&#039;';
+      }
+    });
+};
+
+
 String.prototype.isEmpty = function() {
     return (this.length === 0 || !this.trim());
 };

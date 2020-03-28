@@ -17,7 +17,7 @@ class APIHandler {
         this.token_time = performance.now();
     }
     
-    request(target, params, callback) {
+    get(target, params, callback) {
 
         if (target.startsWith('/')) {
             target = target.substr(1);
@@ -76,25 +76,73 @@ class APIHandler {
             }
         };
     }
+
+    post(target, params, callback) {
+
+        if (target.startsWith('/')) {
+            target = target.substr(1);
+        }
+
+        let path = this.api_url + target;
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.open("POST", path);
+        if (this.auth_required) {
+            xhr.setRequestHeader('Authorization', 'Bearer ' + this.token);
+        }
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        //console.log("ajax request: ",path);
+        //console.log("ajax req token:", this.token);
+
+        xhr.onload = function() {
+            /*
+            console.log("path: ",path);
+            console.log("response: ",xhr.response, xhr.responseText);
+            console.log("status: ",xhr.status);
+            */
+            if (xhr.status != 200) { 
+                callback(xhr.status, {});
+            } else {
+                
+                try {
+                    let data = JSON.parse(xhr.response);
+                    if ("statusCode" in data && data["statusCode"] !== 200) {
+                        callback(data["statusCode"], {});
+                    } else {
+                        callback(200, data);
+                    }
+                } catch(err) {
+                    callback(500, {});
+                }
+            }
+        };
+
+        xhr.send(JSON.stringify(params));
+    }
 }
 
-function api_request(api, target, params, callback) {
+function api_request(api, type, target, params, callback) {
     let now = performance.now();
     let token_age = (now - api.token_time) / 1000;
 
     // If the token is older than 23h.. request a new one
     if (api.auth_required && token_age > 82800000) {
-        send_string("request-api-token", "apitoken", function(token) {
+        send_string(CLIENT_COMMAND_GET_API_TOKEN, "", "apitoken", function(token) {
             api.updateToken(token);
-            send_api_request(api, target, params, callback);
+            send_api_request(api, type, target, params, callback);
         });
     } else {
-        send_api_request(api, target, params, callback);
+        send_api_request(api, type, target, params, callback);
     }
 }
 
-function send_api_request(api, target, params, callback, secondtry) {
-    api.request(target, params, function(status, data) {
+function send_api_request(api, type, target, params, callback, secondtry) {
+    if (type == "GET") api.get(target, params, api_request_callback);
+    if (type == "POST") api.post(target, params, api_request_callback);
+
+    function api_request_callback(status, data) {
 
         if (status == 200) {
             /*
@@ -119,9 +167,9 @@ function send_api_request(api, target, params, callback, secondtry) {
                 callback(null);
             } else {
                 // Token seems to be invalid, request new one and try again
-                send_string("request-api-token", "apitoken", function(token) {
+                send_string(CLIENT_COMMAND_GET_API_TOKEN, "", "apitoken", function(token) {
                     api.updateToken(token);
-                    send_api_request(api, target, params, callback, true);
+                    send_api_request(api, "GET", target, params, callback, true);
                 });
             }
 
@@ -147,9 +195,9 @@ function send_api_request(api, target, params, callback, secondtry) {
             callback(null);
 
         }
-
-    });
+    }
 }
+
 
 
 
@@ -173,7 +221,7 @@ function multi_req_handler(page, requests, on_success, on_delay, on_timeout, on_
 
     for (let r of requests) {
         req_count++;
-        api_request(r.api, r.path, r.params, function(data) {
+        api_request(r.api, "GET", r.path, r.params, function(data) {
             if (data === null) {
                 recv_count++;
                 res[r.data_key_to] = null;
@@ -201,7 +249,7 @@ function multi_req_handler(page, requests, on_success, on_delay, on_timeout, on_
                 return;
             }
 
-            // If the request is taking more than 1 second, show a loading spinner
+            // If the request is taking more than 1 second, call on_delay once
             if (!delay && ((Date.now() - req_started) / 1000) > 0.5) {
                 delay = true;
                 on_delay();

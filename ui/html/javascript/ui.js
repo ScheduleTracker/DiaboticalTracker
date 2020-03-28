@@ -2,7 +2,7 @@ const GAMEFACE = true;
 const IS_MENU_VIEW = true;
 
 var global_stats_api = new APIHandler("https://www.diabotical.com/api/v0/", true);
-//var global_stats_api = new APIHandler("http://localhost:32200/api/v0/", true);
+//var global_stats_api = new APIHandler("http://localhost:5000/api/v0/", true);
 //var global_prismic_api = new APIHandler("http://www.diabotical.com/smth/smth", false);
 var global_ms = new MS();
 var global_variable = new VariableHandler();
@@ -652,7 +652,7 @@ window.addEventListener("load", function(){
         }
 
         if (variable == "lobby_region_search_nearby") {
-            send_string("party-expand-search "+value);
+            send_string(CLIENT_COMMAND_SET_PARTY_EXPAND_SEARCH, ""+value);
         }
 
         if (variable == "input_mouse_filtering") {
@@ -769,7 +769,7 @@ window.addEventListener("load", function(){
 
     bind_event('set_select', function (variable, value) {
         if (variable.startsWith("game_decals")) {
-            send_string("set-customization:"+global_customization_type_id_map["sticker"]+"::"+value);
+            send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["sticker"]+"::"+value);
             return;
         }
 
@@ -1051,6 +1051,8 @@ window.addEventListener("load", function(){
 
         engine.call("post_load_finished");
         console.log("POSLOAD100");
+
+        //on_masterserver_auth_success();
     });
 
     window.requestAnimationFrame(anim_update);
@@ -1151,32 +1153,35 @@ function on_masterserver_auth_success() {
     console.log("POSTMSAUTH000");
 
     // Request initial invite and party infos
-    send_string("invite-list");
-    send_string("party-status");
-    send_string("get-ranked-mmrs");
+    send_string(CLIENT_COMMAND_GET_INVITE_LIST);
+    send_string(CLIENT_COMMAND_PARTY, "party-status");
+    send_string(CLIENT_COMMAND_GET_RANKED_MMRS);
 
     // Request API token:
-    send_string("request-api-token", "apitoken", function(token) {
+    send_string(CLIENT_COMMAND_GET_API_TOKEN, "", "apitoken", function(token) {
         global_stats_api.updateToken(token);
+
+        // Request the users customization item list
+        load_user_customizations();
+
+        // Get the list of saved huds
+        load_user_hud_list();
     });
 
     // Request competitive season info
-    send_string("get-competitive-season", "competitive-season", function(data) {
+    send_string(CLIENT_COMMAND_GET_COMP_SEASON, "", "competitive-season", function(data) {
         global_competitive_season = data.data;
     });
 
     // Request Battlepass data:
-    send_string("get-battlepass-data", "battlepass-data", function(data) {
+    send_string(CLIENT_COMMAND_GET_BATTLEPASS_DATA, "", "battlepass-data", function(data) {
         global_user_battlepass = data.data;
     });
 
     // Request personal data
-    send_string("get-personal-data", "get-personal-data", function(data) {
+    send_string(CLIENT_COMMAND_GET_PERSONAL_DATA, "", "get-personal-data", function(data) {
         global_self.private = data.data;
     });
-
-    // Request the users customization item list
-    load_user_customizations();
 
     console.log("POSTMSAUTH100");
 }
@@ -1305,6 +1310,8 @@ function initialize_references(){
     //it's easier to migrate to Closusre/Advanced in the future. (See closure compiler documentation)
     //for limitations regarding global variables).
     hud_containers = [_id("real_hud"), _id("hud_preview")];
+    game_hud_special = _id("game_hud_special");
+    real_hud_container = _id("real_hud_container");
     real_hud_element = _id("real_hud");
     preview_hud_element = _id("hud_preview");
     mask_containers = [_id("game_masks_container"), _id("game_masks_container_zoom")];
@@ -1454,7 +1461,7 @@ function genericModal(title, text, btn_negative, cb_negative, btn_positive, cb_p
         if (text.nodeType == undefined) {
             // Text
             _html(el, text);
-        } else if (text.nodeType == 1) {
+        } else if (text.nodeType == 1 || text.nodeType == 11) {
             // Element Node
             _empty(el);
             el.appendChild(text);
@@ -1494,4 +1501,24 @@ function genericModal(title, text, btn_negative, cb_negative, btn_positive, cb_p
     });
 
     open_modal_screen("generic_modal");
+}
+
+function openBasicModal(content) {
+    let modal = _id("basic_modal");
+
+    _for_first_with_class_in_parent(modal, "generic_modal_dialog_container", function(el) {
+        if (content.nodeType == undefined) {
+            // Text
+            el.textContent = content;
+        } else if (content.nodeType == 1 || content.nodeType == 11) {
+            // Element Node
+            _empty(el);
+            el.appendChild(content);
+        }
+    });
+    open_modal_screen("basic_modal");
+}
+
+function closeBasicModal() {
+    close_modal_screen_by_selector('basic_modal');   
 }

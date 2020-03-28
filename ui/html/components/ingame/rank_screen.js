@@ -21,9 +21,19 @@ function renderRankScreen(data) {
         if (data.to.placement_matches.length == Number(data.placement_matches)) {
             renderPlacementRank(data);
 
+            let sound = 'ui_ranked_rank_up';
+            if (data.to.rank_position !== null && data.to.rank_position !== undefined) {
+                if (data.to.rank_position == 1) sound = 'ui_ranked_rank_up_legend';
+                else if (data.to.rank_position <= 50) sound = 'ui_ranked_rank_up_high_warlord';
+                else if (data.to.rank_position <= 100) sound = 'ui_ranked_rank_up_grandmaster';
+                else sound = 'ui_ranked_rank_up_elite';
+            }
+
             global_rank_screen_queue.push({
                 "type": "placement-rank",
-                "time": 6.3
+                "time": 6.3,
+                "match_type": data.match_type,
+                "sound": sound
             });
         }
     } else {
@@ -31,42 +41,58 @@ function renderRankScreen(data) {
 
         let type = "rank";
         let time = 5.5;
+        let sound = '';
         if (data.from.rank_tier != null) {
             if (data.from.rank_tier < data.to.rank_tier) {
                 type = "rank-up";
                 time = 10;
+                sound = 'ui_ranked_rank_up';
             }
             if (data.from.rank_tier > data.to.rank_tier) {
                 type = "rank-down";
                 time = 5;
                 if (data.match_type == 2) time = 7;
+                sound = 'ui_ranked_rank_down';
             }
             if (data.from.rank_position != null && data.to.rank_position != null) {
                 if (data.from.rank_position > data.to.rank_position) {
                     type = "rank-up";
                     time = 10;
+                    sound = 'ui_ranked_rank_up';
                 }
                 if (data.from.rank_position < data.to.rank_position) {
                     type = "rank-down";
                     time = 5;
                     if (data.match_type == 2) time = 7;
+                    sound = 'ui_ranked_rank_down';
+
                 }
             }
             if (data.from.rank_position == null && data.to.rank_position != null) {
                 type = "rank-up";
                 time = 10;
+                sound = 'ui_ranked_rank_up';
             }
             if (data.from.rank_position != null && data.to.rank_position == null) {
                 type = "rank-down";
                 time = 5;
                 if (data.match_type == 2) time = 7;
+                sound = 'ui_ranked_rank_down';
+            }
+
+            if (type == "rank-up" && data.to.rank_position !== null && data.to.rank_position !== undefined) {
+                if (data.to.rank_position == 1) sound = 'ui_ranked_rank_up_legend';
+                else if (data.to.rank_position <= 50) sound = 'ui_ranked_rank_up_high_warlord';
+                else if (data.to.rank_position <= 100) sound = 'ui_ranked_rank_up_grandmaster';
+                else sound = 'ui_ranked_rank_up_elite';
             }
         }
 
         global_rank_screen_queue.push({
             "type": type,
             "time": time,
-            "match_type": data.match_type
+            "match_type": data.match_type,
+            "sound": sound
         });
     }
 }
@@ -444,7 +470,7 @@ function showRankScreen(cb, initial) {
                         }
                         anim_show(next_name, 900);
 
-                        engine.call('ui_sound', "ui_ranked_rank_up");
+                        engine.call('ui_sound', first.sound);
                     },200);
                 },3500);
             }, 700);
@@ -494,7 +520,7 @@ function showRankScreen(cb, initial) {
                 let prev_name = rank_screen.querySelector(".rank_name.prev");
                 let next_name = rank_screen.querySelector(".rank_name.next");
                 setTimeout(function() {
-                    engine.call('ui_sound', 'ui_ranked_rank_down');
+                    engine.call('ui_sound', first.sound);
                     anim_hide(prev, 900);
                     anim_hide(prev_name, 900);
                     setTimeout(function() {
@@ -523,7 +549,7 @@ function showRankScreen(cb, initial) {
                 _for_each_with_class_in_parent(placement_rank_screen, 'rank_name', function(el) { el.classList.add("visible"); });
                 progress.classList.add("visible");
 
-                engine.call('ui_sound', "ui_ranked_rank_up");
+                engine.call('ui_sound', first.sound);
             },700);
         });
     }
