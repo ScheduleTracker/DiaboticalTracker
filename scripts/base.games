@@ -114,7 +114,7 @@ game default
     setting phy_bolt_cooldown 4
     setting phy_bolt_cooldown_recovery 0
     setting phy_bolt_minimum_ground_time 0.0697941
-    setting phy_bolt_base_speed 433
+    setting phy_bolt_base_speed 450
     setting phy_bolt_extra_speed 0
     setting phy_bolt_extra_accel 0
     setting phy_bolt_extra_accel_time 0
