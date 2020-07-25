@@ -1,0 +1,48 @@
+BEGIN TEMPLATE hint
+    SETTING align pivot
+
+    DOUBLE icon_size
+    icon_size = fontSize * 1.5
+
+    COL_OUTPUT 0 font font
+    COL_OUTPUT 0 align pivot
+    COL_OUTPUT 0 shadow 1
+    COL_OUTPUT 0 color "#ffffff"
+    COL_OUTPUT 0 indent 1
+    COL_OUTPUT 0 height icon_size
+
+    COL_OUTPUT 1 width icon_size
+    COL_OUTPUT 1 height icon_size
+    COL_OUTPUT 1 image_width icon_size
+    COL_OUTPUT 1 image_height icon_size
+
+    STRING hint_key
+
+ON_UPDATE
+
+    IF IN_EDITOR
+        OUTPUT 0 0 LVALUE "hint_mg_pickup"
+    ELSE
+        IF game_data.game_mode != "macguffin"
+            discard
+        END IF
+
+        INT hint_length
+        hint_length = LENGTH game_data.hint
+
+        IF hint_length == 0
+            discard
+        END IF
+
+        hint_key = "hint_" & game_data.hint
+        OUTPUT 0 0 LVALUE hint_key
+
+        OUTPUT 0 1 image game_data.hint_image 
+        IF game_data.hint_image == "images/item_macguffin.svg"
+            OUTPUT 0 1 image_color game_data.hint_team_color
+        ELSE
+            OUTPUT 0 1 hue game_data.hint_team_color
+        END IF
+    END IF
+
+END TEMPLATE

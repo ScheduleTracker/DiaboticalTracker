@@ -322,7 +322,8 @@ async function update_fov_converter_preview(t_p, p_f, s_f, r_h, r_v){
     var frame_height = Math.max(aperture_span_ver,boundary_span_ver);
     var frame_aspect = frame_width/frame_height;
     var container_width  = _id('fov_converter_preview_container').getBoundingClientRect().width;
-    var container_height = _id('fov_converter_preview_container').getBoundingClientRect().height;
+    //var container_height = _id('fov_converter_preview_container').getBoundingClientRect().height; // The modal animation screws with the initial dimensions making the image too big
+    var container_height = (window.outerHeight / 100 * 25);
     var container_aspect  = container_width / container_height;
     var preview_focal_scale = frame_aspect < container_aspect ? frame_height : frame_width;
     var preview_pixel_scale = frame_aspect < container_aspect ? container_height : container_width;

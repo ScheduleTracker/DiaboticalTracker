@@ -84,6 +84,20 @@ function bind_event(event_name, callback){
     }
 }
 
+// A sort of setTimeout but with rendered frames count as the wait time param (default 1 frame if param is ommited)
+function req_anim_frame(cb, wait_frames) {
+    if (wait_frames && wait_frames > 1) {
+        wait_frames--;
+        requestAnimationFrame(function() {
+            req_anim_frame(cb, wait_frames);
+        });
+    } else {
+        requestAnimationFrame(function() {
+            cb();
+        });
+    }
+}
+
 function play_anim(element_id, anim_class) {
     //Hack documented here, https://css-tricks.com/restart-css-animation/
     //Note that this requires non-strict mode according to the article.
@@ -176,11 +190,24 @@ function _round(num, decimal_count) {
 }
 
 // Using numeraljs
-function _format_number(number, type) {
-    let tmp = numeral(number);
-    if (type == "currency") return tmp.format('$0,0.00');
-
-    return tmp.format();
+function _format_number(number, type, options) {
+    if (type == "currency") {
+        const amount = number * (options && options.areCents ? 0.01 : 1);
+        const formatted = numeral(amount).format('0.00');
+        /* Currency code handled manually because numeraljs */
+        /* does not support mixed locales */
+        switch (options.currency_code) {
+            case 'EUR':
+                return `€${formatted}`;
+            case 'GBP':
+                return `£${formatted}`;
+            default:
+                return `${formatted}$`
+        }
+    } else {
+        let tmp = numeral(number);
+        return tmp.format();
+    }
 }
 
 //Returns a stack trace to where it is called.
@@ -193,13 +220,14 @@ function _empty_node(node){
   while (node.hasChildNodes()) {
     _empty_node(node.firstChild);
   }
-  node.parentNode.removeChild(node);
+  if (node.parentNode) node.parentNode.removeChild(node);
 }
 
 function _empty(node) {
     //while (node.firstChild) {
     //    node.removeChild(node.firstChild);
     //}
+    if (node === undefined) return;
     while (node.hasChildNodes()) {
        _empty_node(node.firstChild);
     }
@@ -220,6 +248,16 @@ function _dump(obj) {
     return JSON.stringify(obj, null, '\t');
 }
 
+// Preload image "trick"
+function _loadImage(cont, url) {
+    var img = document.createElement('img');
+    img.onload = function() {
+        if (img.parentElement == cont) cont.removeChild(img);
+    }
+    img.src = url;
+    cont.appendChild(img);
+}
+
 function _addButtonSounds(el, sound_idx) {
     if (sound_idx == 1) {
         el.addEventListener("mouseenter", _play_mouseover4);
@@ -230,10 +268,19 @@ function _addButtonSounds(el, sound_idx) {
         el.addEventListener("click", _play_click_back);
     }
 }
-function _play_mouseover1() { engine.call('ui_sound', "ui_mouseover1"); }
-function _play_mouseover2() { engine.call('ui_sound', "ui_mouseover2"); }
-function _play_mouseover3() { engine.call('ui_sound', "ui_mouseover3"); }
-function _play_mouseover4() { engine.call('ui_sound', "ui_mouseover4"); }
+
+let ui_sound_buffer = performance.now();
+function _play_buffered_ui_sound(type) {
+    if (performance.now() - ui_sound_buffer < 50) return;
+    ui_sound_buffer = performance.now();
+
+    engine.call('ui_sound', type);
+}
+
+function _play_mouseover1() { _play_buffered_ui_sound("ui_mouseover1"); }
+function _play_mouseover2() { _play_buffered_ui_sound("ui_mouseover2"); }
+function _play_mouseover3() { _play_buffered_ui_sound("ui_mouseover3"); }
+function _play_mouseover4() { _play_buffered_ui_sound("ui_mouseover4"); }
 function _play_click1()     { engine.call('ui_sound', "ui_click1"); }
 function _play_click_back() { engine.call('ui_sound', "ui_back1"); }
 function _play_cb_check()   { engine.call('ui_sound', "ui_check_box"); }
@@ -263,38 +310,30 @@ function _createSpinner() {
     let outer_cont = _createElement("div", "spinner");
     let cont = _createElement("div", "spinner-cont");
     outer_cont.appendChild(cont);
-    let spinner = _createElement("div", "spinner-icon");
+    let spinner = _createElement("div", ["spinner-icon", "running"]);
     cont.appendChild(spinner);
 
     return outer_cont;
 }
 
-function _customizationUrl(type, id) {
-    if (id) return "/html/"+type+"/"+id+".png";
-    // TODO change this to a more generic fallback
-    return "/html/avatar/no_avatar.png";
-}
-
 function _avatarUrl(avatar) {
-    if (avatar) return "/html/avatar/"+avatar+".png";
-    return "/html/avatar/no_avatar.png";
+    if (avatar) return global_customization_type_map[global_customization_type_id_map["avatar"]].img_path + avatar + ".png.dds";
+    return "/html/customization/avatar/av_no_avatar.png.dds";
 }
-
 function _flagUrl(country) {
-    if (country) return "/html/flags/"+country+".png";
-    return "/html/flags/no_flag.png";
+    if (country) return global_customization_type_map[global_customization_type_id_map["country"]].img_path + country + ".png.dds";
+    return "/html/customization/flag/no_flag.png.dds";
 }
-
 function _mapUrl(map) {
     if (map) return "/html/map_thumbnails/"+map+".png";
     return "";
 }
-
 function _stickerUrl(sticker) {
-    
-    if (sticker && sticker in global_customization_asset_store) {
-        return global_customization_asset_store[sticker];
-    }
+    if (sticker) return "/resources/asset_thumbnails/textures_customization_" + sticker + ".png.dds";
+    return "";
+}
+function _musicImageUrl(id) {
+    if (id) return "/html/customization/music/"+id+".png.dds";
     return "";
 }
 
@@ -328,6 +367,7 @@ function _format_color_for_url(color) {
 }
 
 function _format_map_name(name) {
+    if (name.trim().length == 0) return localize("unknown");
     let parts = name.split("_");
     parts.splice(0,1);
     for (let i=0; i<parts.length; i++) parts[i] = capitalize(parts[i]);
@@ -367,6 +407,11 @@ function _format_continuous(val) {
 function _format_datacenter(loc) {
     if (loc in global_region_map) return localize(global_region_map[loc].i18n);
     return localize("unknown");
+}
+function _format_ping(ping) {
+    if (ping == -1) return 999;
+    if (ping > 1) return 999;
+    return Math.floor(Number(ping) * 1000);
 }
 
 const capitalize = (s) => {
@@ -446,6 +491,67 @@ function hslToRgbString(h, s, l){
     return "rgb(" + Math.round(r * 255) + "," + Math.round(g * 255) + "," + Math.round(b * 255) + ")";
 }
 
+/**
+ * Parses a hexcolor and returns the light or dark font color that should be used
+ * @param {string} hexcolor
+ */
+// src: https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/
+function _backgroundFontColor(hexcolor){
+
+	// If a leading # is provided, remove it
+	if (hexcolor.slice(0, 1) === '#') {
+		hexcolor = hexcolor.slice(1);
+	}
+
+	// If a three-character hexcode, make six-character
+	if (hexcolor.length === 3) {
+		hexcolor = hexcolor.split('').map(function (hex) {
+			return hex + hex;
+		}).join('');
+	}
+
+	// Convert to RGB value
+	var r = parseInt(hexcolor.substr(0,2),16);
+	var g = parseInt(hexcolor.substr(2,2),16);
+	var b = parseInt(hexcolor.substr(4,2),16);
+
+	// Get YIQ ratio
+	var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+
+	// Check contrast
+    //return (yiq >= 128) ? '#1c1c1c' : '#fff';
+    return (yiq >= 140) ? '#1c1c1c' : '#fff';
+};
+
+/*
+* Converts a given hexcolor and alpha value to rgba
+*/
+function hexToRGBA(hexcolor, alpha) {
+
+    // If a leading # is provided, remove it
+	if (hexcolor.slice(0, 1) === '#') {
+		hexcolor = hexcolor.slice(1);
+	}
+
+    // If a three-character hexcode, make six-character
+	if (hexcolor.length === 3) {
+		hexcolor = hexcolor.split('').map(function (hex) {
+			return hex + hex;
+		}).join('');
+    }
+    
+    let r = parseInt(hexcolor.slice(0, 2), 16);
+    let g = parseInt(hexcolor.slice(2, 4), 16);
+    let b = parseInt(hexcolor.slice(4, 6), 16);
+
+    if (alpha) {
+        return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+    } else {
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+}
+
+
 
 /* 
  *  Performance functions
@@ -499,6 +605,7 @@ function _disableInput(input) {
     input.addEventListener("keypress", _preventInputFunction);
     input.addEventListener("focus",_preventInputFocus);
     input.dataset.disabled = true;
+    input.classList.add("input_disabled");
 }
 function _enableInput(input) {
     input.removeEventListener("input", _preventInputFunction);
@@ -507,6 +614,17 @@ function _enableInput(input) {
     input.removeEventListener("keypress", _preventInputFunction);
     input.removeEventListener("focus",_preventInputFocus);
     input.dataset.disabled = false;
+    input.classList.remove("input_disabled");
+}
+function _numberInput(input) {
+    input.addEventListener("keypress",function(e) {
+        // only allow numbers , . - backspace, tab, enter ("keypress" doesn't register arrow keys, so no need to include them)
+        // TODO consider ctrl+c/v
+        if (![8,9,13,44,45,46,48,49,50,51,52,53,54,55,56,57].includes(e.keyCode)) {
+            e.preventDefault();
+            return false;
+        }
+    });
 }
 
 function _seconds_to_string(seconds) {
@@ -519,19 +637,24 @@ function _seconds_to_string(seconds) {
 }
 
 function _time_until(seconds) {
-    if (seconds < 43200) return _seconds_to_digital(seconds);
+    if (seconds < 3600) return _seconds_to_minutes(seconds);
     if (seconds < 172800) return _seconds_to_hours(seconds);
     return _seconds_to_days(seconds);
 }
 
+function _seconds_to_minutes(seconds) {
+    let numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
+    return localize_ext("count_minute", {"count": numminutes});
+}
+
 function _seconds_to_hours(seconds) {
     let numhours = Math.floor(((seconds % 31536000) % 86400) / 3600);
-    return numhours+" "+localize_plural("hour", numhours);
+    return localize_ext("count_hour", {"count": numhours});
 }
 
 function _seconds_to_days(seconds) {
-    let numhours = Math.floor(seconds / (3600*24));
-    return numhours+" "+localize_ext("day", {"count": numhours}); 
+    let numdays = Math.floor(seconds / (3600*24));
+    return localize_ext("count_day", {"count": numdays}); 
 }
 
 function _seconds_to_digital(seconds) {
@@ -546,8 +669,8 @@ function _seconds_to_digital(seconds) {
     if (numseconds < 10) {strseconds = "0"+numseconds;}
 
     if (numhours > 0) return numhours+":"+strminutes+":"+strseconds;
-    if (numminutes > 0) return numminutes+":"+strseconds;
-    return numseconds;
+    if (numminutes > 0) return strminutes+":"+strseconds;
+    return "00:"+strseconds;
 }
 
 function _to_readable_timestamp(string, show_sec) {
@@ -591,15 +714,15 @@ function _sort_objects_by_key(array, key, direction) {
     });
 }
 
+/*
 function _set_battle_pass_colors(el, colors) {
     el.style.setProperty("--bp_color", colors["color"]);
+    el.style.setProperty("--bp_color_hover", colors["color_hover"]);
+    el.style.setProperty("--bp_color_active", colors["color_active"]);
     el.style.setProperty("--bp_gradient_1", colors["gradient_1"]);
     el.style.setProperty("--bp_gradient_2", colors["gradient_2"]);
-    el.style.setProperty("--bp_gradient_hover_1", colors["gradient_hover_1"]);
-    el.style.setProperty("--bp_gradient_hover_2", colors["gradient_hover_2"]);
-    el.style.setProperty("--bp_gradient_active_1", colors["gradient_active_1"]);
-    el.style.setProperty("--bp_gradient_active_2", colors["gradient_active_2"]);
 }
+*/
 
 // Sort an array of customization items by the predefined order in "customization_item_order" and by descending rarity
 function _sort_customization_items(items) {
@@ -736,6 +859,119 @@ function getRankName(rank, position) {
     return fragment;
 }
 
+// Views: "menu", "hud"
 function send_view_data(view, string) {
     engine.call("send_view_data", view, string)
+}
+
+function sortPlayersByStats(a, b) {
+    if (a.stats[GLOBAL_ABBR.STATS_KEY_SCORE] == b.stats[GLOBAL_ABBR.STATS_KEY_SCORE]) {
+        if (a.stats[GLOBAL_ABBR.STATS_KEY_FRAGS] == b.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]) {
+            if (a.stats[GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED] == b.stats[GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED]) {
+                return 0;
+            } else {
+                return b.stats[GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED] - a.stats[GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED];
+            }
+        } else {
+            return b.stats[GLOBAL_ABBR.STATS_KEY_FRAGS] - a.stats[GLOBAL_ABBR.STATS_KEY_FRAGS];
+        }
+    } else {
+        return b.stats[GLOBAL_ABBR.STATS_KEY_SCORE] - a.stats[GLOBAL_ABBR.STATS_KEY_SCORE];
+    }
+}
+
+function createCustomizationName(item) {
+    let name = _createElement("div", "name");
+    if (global_customization_type_map[item.customization_type].name == "currency") {
+        name.textContent = localize_ext("count_coin", {"count": item.amount});
+    } else if (item.customization_id.trim().length == 0) {
+        name.textContent = localize("customization_default");
+    } else {
+        name.textContent = localize("customization_"+item.customization_id);
+    }
+
+    return name;
+}
+function createCustomizationInfo(item, show_name) {
+    let customization_info = _createElement("div", "customization_info");
+    let div_type = _createElement("div", ["type","rarity_bg_"+item.rarity]);
+    customization_info.appendChild(div_type);
+    div_type.appendChild(_createElement("div", "rarity", localize(global_rarity_map[item.rarity].i18n)));
+    div_type.appendChild(_createElement("div", "separator", "/"));
+    div_type.appendChild(_createElement("div", "item_type", localize(global_customization_type_map[item.customization_type].i18n)));
+    customization_info.appendChild(div_type);
+    if (show_name === undefined || show_name === true) {
+        customization_info.appendChild(createCustomizationName(item));
+    }
+
+    return customization_info;
+}
+
+function createCustomizationPreview(item) {
+    let fragment = new DocumentFragment();
+    if (global_customization_type_map[item.customization_type].name == "avatar") {
+        if (item.customization_id == "default") return fragment;
+        let preview_image = _createElement("div", ["customization_preview_image", global_customization_type_map[item.customization_type].name]);
+        preview_image.style.backgroundImage = "url("+_avatarUrl(item.customization_id)+")";
+        fragment.appendChild(preview_image);
+    } else if (global_customization_type_map[item.customization_type].name == "currency") {
+        let preview_image = _createElement("div", ["customization_preview_image", global_customization_type_map[item.customization_type].name]);
+        preview_image.style.backgroundImage = "url(/html/images/icons/reborn_coin.png.dds)";
+        fragment.appendChild(preview_image);
+    } else if (global_customization_type_map[item.customization_type].name == "music") {
+        let preview_image = _createElement("div", ["customization_preview_image", global_customization_type_map[item.customization_type].name]);
+        //preview_image.style.backgroundImage = "url(/html/customization/music/mu_pu_placeholder.png.dds)"; // TEMP until we have proper images for each song?
+        preview_image.style.backgroundImage = "url("+_musicImageUrl(item.customization_id)+")";
+        fragment.appendChild(preview_image);
+    }
+    return fragment;
+}
+
+function _load_lazy_all(parent) {
+    _for_each_with_class_in_parent(parent, "lazy_load", function(el) {
+        _load_lazy(el);
+    });
+}
+function _load_lazy(el) {
+    if (!el.classList.contains("lazy_load")) return;
+    if (!("lazyUrl" in el.dataset)) return;
+
+    // Show the spinner
+    el.appendChild(_createElement("div", "lazy_spinner"));
+
+    var img = new Image();
+    img.onload = function() {
+        for (let i=0; i<el.children.length; i++) {
+            if (el.children[i] && el.children[i].classList.contains("lazy_spinner")) el.removeChild(el.children[i]);
+        }
+        
+        el.classList.remove("lazy_load");
+    
+        if (el.dataset.lazyType == "bg") {
+            el.style.backgroundImage = "url("+img.src+")";
+        }
+        if (el.dataset.lazyType == "src") {
+            el.src = img.src;
+        }
+
+        delete el.dataset.lazyType;
+        delete el.dataset.lazyUrl;
+
+        img = null;
+    };
+    img.onerror = function() {
+        for (let i=0; i<el.children.length; i++) {
+            if (el.children[i] && el.children[i].classList.contains("lazy_spinner")) el.removeChild(el.children[i]);
+        }
+
+        el.classList.remove("lazy_load");
+        delete el.dataset.lazyType;
+        delete el.dataset.lazyUrl;
+    };
+    img.src = el.dataset.lazyUrl;
+}
+function _add_lazy_load(el, type, url) {
+    el.classList.add("lazy_load");
+    el.dataset.lazyType = type;
+    el.dataset.lazyUrl = url;
 }

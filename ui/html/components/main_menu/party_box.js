@@ -1,5 +1,4 @@
 function set_party_box_visible(bool) {
-    console.log("set_party_box_visible", bool);
     let party_box = _id("party_box");
     anim_remove(party_box);
     if (bool) {
@@ -30,10 +29,14 @@ function update_party(data) {
         count++;
         global_party['members'][m['user_id']] = m;
 
+        // Update own info
         if (m.user_id == data['user-id']) {
+            let set_initial_customizations = false;
+            if (global_self.data == undefined) set_initial_customizations = true;
+
             global_self.data = m;
             set_friend_list_avatar_self(m);
-            set_customize_data(m);
+            set_customize_data(m, set_initial_customizations);
         }
 
         _for_each_with_class_in_parent(friends_list_in_diabotical_cont, "friend", function(friend) {
@@ -48,7 +51,7 @@ function update_party(data) {
         let member_div = _createElement("div", "party_member");
         if (count == 1) member_div.classList.add("first");
         if (m.user_id == data['user-id']) member_div.classList.add("self");
-        member_div.style.backgroundImage = "url("+_avatarUrl(m.data.avatar)+")";
+        member_div.style.backgroundImage = "url("+_avatarUrl(m.customizations.avatar)+")";
         member_div.classList.add("tooltip");
         _addButtonSounds(member_div, 1);
 
@@ -57,7 +60,7 @@ function update_party(data) {
         name.classList.add("tip_inner");
         name.classList.add("top");
         name.textContent = m.name;
-        if (m.match_connected > 0) {
+        if (m.match_connected == true) {
             name.textContent = m.name +": in game";
 
             let ingame = document.createElement("div");
@@ -69,6 +72,9 @@ function update_party(data) {
 
         if (m.user_id == data.data['leader-id']) {
             member_div.classList.add("leader");
+
+            let leader_arrow = _createElement("div", "leader_arrow");
+            member_div.appendChild(leader_arrow);
         }
 
         member_div.appendChild(name);

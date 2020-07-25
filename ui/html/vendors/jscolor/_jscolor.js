@@ -1148,7 +1148,7 @@ var jsc = {
 			if (!(flags & jsc.leaveStyle)) {
 				if (this.styleElement) {
 					var bgColor = '#' + this.toString();
-					var fgColor = this.isLight() ? '#000' : '#FFF';
+					var fgColor = this.isLight() ? '#000000CC' : '#FFF';
 
 					this.styleElement.style.backgroundImage = 'none';
 					this.styleElement.style.backgroundColor = bgColor;

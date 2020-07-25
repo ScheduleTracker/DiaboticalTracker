@@ -1,7 +1,6 @@
 function init_element_g_meter() {
 
-    const element = new HUD_element('g_meter', //Editor name
-    "", //Default content
+    const element = new HUD_element('g_meter', false,
     {
         "pivot": "center",
         "fontSize": "4.5",
@@ -38,8 +37,7 @@ function init_element_g_meter() {
     , "#hud_g_meter");
     hud_elements.push(element);
 
-    const element2 = new HUD_element('throttle', //Editor name
-    "", //Default content
+    const element2 = new HUD_element('throttle', false,
     {
         "barHeight": "1",
         "barWidth": "14",
@@ -65,8 +63,7 @@ function init_element_g_meter() {
     , "#hud_throttle");
     hud_elements.push(element2);
     
-    const element3 = new HUD_element('yaw_ruler', //Editor name
-    "", //Default content
+    const element3 = new HUD_element('yaw_ruler', false,
     {
         "pivot": "center",
         "x": "50",

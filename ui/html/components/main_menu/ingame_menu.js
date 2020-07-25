@@ -145,3 +145,82 @@ function ingame_menu_join_match() {
     engine.call("join_team", team_id);
     engine.call("set_menu_view", false);
 }
+
+function ingame_menu_aim_restart() {
+    // Restart aim map call
+    //engine.call("");
+}
+
+function ingame_report_user(user_id, name) {
+    // Don't send open modal for yourself
+    if (global_self.user_id == user_id) return;
+
+    let report_cont = _createElement("div", "report_cont");
+
+    let select = _createElement("div", "select-field");
+    select.dataset.theme = "modal";
+
+    for (let reason of global_report_reasons) {
+        let opt = _createElement("div");
+        opt.dataset.value = reason.id;
+        opt.textContent = localize(reason.i18n);
+
+        if (reason.id == 0) opt.dataset.selected = 1;
+        select.appendChild(opt);
+    }
+    setup_select(select);
+
+    let title = _createElement("div", "", localize("report_title"));
+
+    let table = _createElement("div", "table");
+    let left_column = _createElement("div", ["column", "left"]);
+    left_column.appendChild(_createElement("div", ["row", "label", "odd"], localize("report_label_player_name")));
+    left_column.appendChild(_createElement("div", ["row", "label"], localize("report_label_reason")));
+    left_column.appendChild(_createElement("div", ["row", "label", "odd"], localize("report_label_additional_info")));
+
+    let right_column = _createElement("div", ["column", "right"]);
+    right_column.appendChild(_createElement("div", ["row", "data", "odd"], name));
+    let select_row = _createElement("div", ["row", "data"]);
+    select_row.appendChild(select);
+    right_column.appendChild(select_row);
+    right_column.appendChild(_createElement("div", ["row", "data", "odd"]));
+
+    table.appendChild(left_column);
+    table.appendChild(right_column);
+
+    report_cont.appendChild(table);
+
+    let info_text = _createElement("textarea", "info_text");
+    info_text.maxLength = 160;
+    report_cont.appendChild(info_text);
+
+
+    let btn_cont = _createElement("div", "generic_modal_dialog_action");
+    let btn_send = _createElement("div", "dialog_button", localize("menu_button_send"));
+    let btn_cancel = _createElement("div", "dialog_button", localize("menu_button_cancel"));
+    _addButtonSounds(btn_send, 1);
+    _addButtonSounds(btn_cancel, 1);
+    btn_send.addEventListener("click", function() {
+        _empty(report_cont);
+        _empty(btn_cont);
+
+        title.textContent = localize("report_thank_you");
+
+        btn_close = _createElement("div", "dialog_button", localize("modal_close"));
+        btn_close.addEventListener("click", closeBasicModal);
+        _addButtonSounds(btn_close, 1);
+        btn_cont.appendChild(btn_close);
+        
+        send_json_data({
+            "action": "report-user",
+            "reported_user_id": user_id,
+            "reason_id": select.dataset.value,
+            "reason_text": info_text.value,
+        });
+    });
+    btn_cancel.addEventListener("click", closeBasicModal);
+    btn_cont.appendChild(btn_send);
+    btn_cont.appendChild(btn_cancel);
+
+    openBasicModal(basicGenericModal(title, report_cont, btn_cont));
+}

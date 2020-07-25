@@ -2,7 +2,7 @@
 let global_rank_screen_queue = [];
 
 function renderRankScreen(data) {
-    console.log("renderRankScreen", _dump(data));
+    //console.log("==== renderRankScreen", _dump(data));
 
     _id("rank_screen").querySelector(".placement_progression").style.display = "none";
     _id("rank_screen").querySelector(".rank_progression").style.display = "none";
@@ -98,9 +98,7 @@ function renderRankScreen(data) {
 }
 
 function renderPlacementMatches(data) {
-    // title
-    // placement matches list
-    // some desc text maybe
+    //console.log("==== renderPlacementMatches", _dump(data));
 
     let match_count = 10;
     if ("placement_matches" in data) match_count = Number(data.placement_matches);
@@ -131,7 +129,7 @@ function renderPlacementMatches(data) {
             line.appendChild(line_overlay);
             
             line_overlay.addEventListener("animationend", function() {
-                engine.call('ui_sound', "ui_match_found_tick");
+                play_tracked_sound("ui_match_found_tick");
             });
         }
 
@@ -176,6 +174,7 @@ function renderPlacementMatches(data) {
 
 
 function renderPlacementRank(data) {
+    //console.log("==== renderPlacementRank");
     let fragment = new DocumentFragment();
 
     let title = _createElement("div", "title", localize("placement_matches_completed"));
@@ -184,7 +183,7 @@ function renderPlacementRank(data) {
     let rank_icon_cont = _createElement("div", "rank_icon_cont");
 
     let team_size = 1;
-    if (data.mode in global_queue_modes) team_size = global_queue_modes[data.mode].team_size;
+    if (data.mode in global_queues) team_size = global_queues[data.mode].team_size;
 
     let type = 'image';
     let rank = renderRankIcon(data.to.rank_tier, data.to.rank_position, team_size, "big");
@@ -239,7 +238,7 @@ function renderRankUpdate(data) {
     let rank_icon_cont = _createElement("div", "rank_icon_cont");
 
     let team_size = 1;
-    if (data.mode in global_queue_modes) team_size = global_queue_modes[data.mode].team_size;
+    if (data.mode in global_queues) team_size = global_queues[data.mode].team_size;
 
     let prev_rank = renderRankIcon(data.from.rank_tier, data.from.rank_position, team_size, "big");
     prev_rank.classList.add("prev");
@@ -285,12 +284,12 @@ function renderRankUpdate(data) {
         win = 0;
         type = 'image';
         prefix.textContent = "-";
-        change_icon.style.backgroundImage = "url(/html/ranks/200x200/weeball_loser.png)";
+        change_icon.style.backgroundImage = "url(/html/ranks/weeball_loser.png.dds)";
     } else {
         win = 1;
         if (video_url.length) type = 'video';
         prefix.textContent = "+";
-        change_icon.style.backgroundImage = "url(/html/ranks/200x200/weeball_winner.png)";
+        change_icon.style.backgroundImage = "url(/html/ranks/weeball_winner.png.dds)";
     }
 
     let value = _createElement("div", "value");
@@ -344,6 +343,12 @@ function renderRankUpdate(data) {
 }
 
 function showRankScreen(cb, initial) {
+    //console.log("===== showRankScreen", initial, global_hud_view_active, global_rank_screen_queue.length);
+    if (!global_hud_view_active) {
+        if (typeof cb == "function") cb();
+        return;
+    }
+
     let cont = _id("rank_screen");
 
     let placement_screen = cont.querySelector('.placement_progression');
@@ -390,7 +395,7 @@ function showRankScreen(cb, initial) {
                     let to = value.dataset.to;
                     let prev = 0;
                     let play_sound = true;
-                    engine.call('ui_sound', "ui_ranked_xp_gain");
+                    play_tracked_sound("ui_ranked_xp_gain");
                     anim_start({
                         "element": value,
                         "duration": 3000,
@@ -399,7 +404,7 @@ function showRankScreen(cb, initial) {
 
                             if (prev != val) {
                                 if (play_sound == true) {
-                                    engine.call('ui_sound', "ui_ranked_xp_gain_tick");
+                                    play_tracked_sound("ui_ranked_xp_gain_tick");
                                     play_sound = false;
                                     setTimeout(function() { play_sound = true; }, 5);
                                 }
@@ -427,7 +432,7 @@ function showRankScreen(cb, initial) {
                     let to = value.dataset.to;
                     let prev = 0;
                     let play_sound = true;
-                    engine.call('ui_sound', "ui_ranked_xp_gain");
+                    play_tracked_sound("ui_ranked_xp_gain");
                     anim_start({
                         "element": value,
                         "duration": 3000,
@@ -436,7 +441,7 @@ function showRankScreen(cb, initial) {
 
                             if (prev != val) {
                                 if (play_sound == true) {
-                                    engine.call('ui_sound', "ui_ranked_xp_gain_tick");
+                                    play_tracked_sound("ui_ranked_xp_gain_tick");
                                     play_sound = false;
                                     setTimeout(function() { play_sound = true; }, 5);
                                 }
@@ -470,7 +475,7 @@ function showRankScreen(cb, initial) {
                         }
                         anim_show(next_name, 900);
 
-                        engine.call('ui_sound', first.sound);
+                        play_tracked_sound(first.sound);
                     },200);
                 },3500);
             }, 700);
@@ -502,7 +507,7 @@ function showRankScreen(cb, initial) {
 
                             if (prev != val) {
                                 if (play_sound == true) {
-                                    engine.call('ui_sound', "ui_ranked_xp_gain_tick");
+                                    play_tracked_sound("ui_ranked_xp_gain_tick");
                                     play_sound = false;
                                     setTimeout(function() { play_sound = true; }, 5);
                                 }
@@ -520,7 +525,7 @@ function showRankScreen(cb, initial) {
                 let prev_name = rank_screen.querySelector(".rank_name.prev");
                 let next_name = rank_screen.querySelector(".rank_name.next");
                 setTimeout(function() {
-                    engine.call('ui_sound', first.sound);
+                    play_tracked_sound(first.sound);
                     anim_hide(prev, 900);
                     anim_hide(prev_name, 900);
                     setTimeout(function() {
@@ -549,7 +554,7 @@ function showRankScreen(cb, initial) {
                 _for_each_with_class_in_parent(placement_rank_screen, 'rank_name', function(el) { el.classList.add("visible"); });
                 progress.classList.add("visible");
 
-                engine.call('ui_sound', first.sound);
+                play_tracked_sound(first.sound);
             },700);
         });
     }

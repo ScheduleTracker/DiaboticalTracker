@@ -23,7 +23,6 @@ class Scrollbar {
         this.updateThumbSize();
         
         let bar_style = window.getComputedStyle(this.bar);
-        this.bar_width = bar_style.getPropertyValue("width");
 
         let inner_style = window.getComputedStyle(this.inner);
         this.inner_padding = inner_style.getPropertyValue("padding-right");
@@ -54,7 +53,7 @@ class Scrollbar {
         document.addEventListener("mouseup", () => {
             if (this.scrollIsActive) {
                 this.scrollIsActive = false;
-                if (this.has_scrolled) setTimeout(() => { this.has_scrolled = false; });
+                if (this.has_scrolled) req_anim_frame(() => { this.has_scrolled = false; });
             }
         });
         document.addEventListener("mousemove", (e) => {
@@ -116,10 +115,10 @@ class Scrollbar {
     }
 
     resetScrollPosition(e) {
-        setTimeout(() => {
+        req_anim_frame(() => {
             this.inner.scrollTop = 0;
             this.thumb.style.top = 0+'px';
-        },1);
+        }, 2);
     }
 
     bottomScrollPosition(e) {
@@ -131,28 +130,30 @@ class Scrollbar {
     }
 
     updateThumbSize(cb) {
-        setTimeout(() => {
+        req_anim_frame(() => {
             this.rect_inner = this.inner.getBoundingClientRect();
             if (Math.ceil(this.rect_inner.height) >= this.inner.scrollHeight) {
                 //console.log("no scrollbar required");
                 this.thumb.style.height = 0;
                 if (this.hide_empty) {
-                    this.bar.style.width = 0;
+                    this.bar.classList.add("scroll-bar-hidden");
                     this.inner.style.paddingRight = 0;
                     this.resetScrollPosition();
                 }
             } else {
                 if (this.hide_empty) {
-                    this.bar.style.width = this.bar_width;
+                    this.bar.classList.remove("scroll-bar-hidden");
                     this.inner.style.paddingRight = this.inner_padding;
                 }
-                this.thumb_height = (Math.floor(this.rect_inner.height)/this.inner.scrollHeight) * this.rect_inner.height;
+                let perc = (Math.floor(this.rect_inner.height)/this.inner.scrollHeight);
+                if (perc < 0.15) perc = 0.15;
+                this.thumb_height = perc * this.rect_inner.height;
                 this.thumb.style.height = this.thumb_height+'px';
                 
                 this.updateThumbPositionFromScroll();
             }
             if (cb) cb();
-        });
+        }, 2);
     }
 }
 
@@ -167,6 +168,14 @@ function initialize_scrollbars() {
 
         global_scrollbarTracker[global_scrollbarTrackerId] = new Scrollbar(scrollbars[global_scrollbarTrackerId],global_scrollbarTrackerId, hide_empty);
     }
+}
+function initialize_scrollbar(el) {
+    let sb_id = global_scrollbarTrackerId++;
+
+    let hide_empty = false;
+    if ("sbHideEmpty" in el.dataset && el.dataset.sbHideEmpty == "true") hide_empty = true;
+
+    global_scrollbarTracker[sb_id] = new Scrollbar(el, sb_id, hide_empty);
 }
 
 function refreshScrollbar(el) {
@@ -205,6 +214,105 @@ function scrollbarScrollBottom(el) {
 }
 
 
+// Lookup map for scrollbooster instances
+var global_scrollboosters = {};
+var global_scrollbooster_bars = {};
+
+
+
+/* "Extension" to ScrollBooster to also have a scrollbar */
+class ScrollBoosterBar {
+
+    constructor(element) {
+        this.cont = element;
+        this.viewport = {
+            "width":0,
+            "height":0,
+        };
+        this.content = {
+            "width":0,
+            "height":0,
+        };
+        this.thumb_width_perc = 0;
+
+        this.initBar();
+
+        this.onScroll = undefined;
+    }
+
+    initBar() {
+        this.bar = _createElement("div", "scrollboost-bar");
+        this.thumb = _createElement("div", "thumb");
+        this.bar.appendChild(this.thumb);
+        this.cont.appendChild(this.bar);
+
+        this.bar.addEventListener("mousedown", (e) => {
+            let rect_thumb = this.thumb.getBoundingClientRect();
+            this.scrollDistance = e.clientX - rect_thumb.x;
+
+            this.updateThumbPosition(e);
+
+            this.scrollIsActive = true;
+
+            e.stopPropagation();
+        });
+
+        document.addEventListener("mouseup", () => {
+            if (this.scrollIsActive) {
+                this.scrollIsActive = false;
+            }
+        });
+        document.addEventListener("mousemove", (e) => {
+            if (!this.scrollIsActive) return;
+
+            this.updateThumbPosition(e);
+        });
+
+    }
+
+    updateThumbPosition(e) {
+        let rect_thumb = this.thumb.getBoundingClientRect();
+        let rect_bar = this.bar.getBoundingClientRect();
+
+        let pos = e.clientX - rect_bar.x - this.scrollDistance;
+        let max_pos = rect_bar.width - rect_thumb.width;
+        let perc = pos / max_pos;
+
+        let scroll_perc = 0;
+        if (perc <= 0) {
+            scroll_perc = 0;
+        } else if (perc >= 1) {
+            scroll_perc = 1;
+        } else {
+            scroll_perc = perc;
+        }
+
+        this.thumb.style.left = ((100 - this.thumb_width_perc) * scroll_perc) + '%';
+
+        let position = ((this.content.width - this.viewport.width) * scroll_perc);
+        if (typeof this.onScroll === "function") this.onScroll(position, 0);
+    }
+
+    updateThumb(perc_x, perc_y, viewport, content) {
+        this.viewport = viewport;
+        this.content = content;
+        this.thumb_width_perc = (viewport.width / content.width * 100);
+        if (this.thumb_width_perc > 100) this.thumb_width_perc = 100;
+        if (this.thumb_width_perc < 0) this.thumb_width_perc = 0;
+        this.thumb.style.width = this.thumb_width_perc + "%";
+        this.thumb.style.left = ((100 - this.thumb_width_perc) * perc_x) + '%';
+
+        if (this.viewport.width >= this.content.width) {
+            this.bar.style.display = "none";
+        } else {
+            this.bar.style.display = "block";
+        }
+    }
+
+    destroy() {
+        this.onScroll = undefined;
+    }
+}
 
 
 /* 
@@ -212,6 +320,8 @@ function scrollbarScrollBottom(el) {
  * requires ui_anim.js for scrollTo() support
  */
 
+// REPLACED WITH ScrollBooster.js
+/*
 class Dragscroll {
 
     constructor(element) {
@@ -350,3 +460,4 @@ class Dragscroll {
         
 
 }
+*/

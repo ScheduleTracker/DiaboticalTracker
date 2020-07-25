@@ -1,16 +1,15 @@
 function init_element_armor() {
-    const hud_armor = new HUD_element('armor', 
-    "", 
+    const hud_armor = new HUD_element('armor', true, 
     {     
         "fontSize": "5",
+        "font": "roboto-bold",
         "align": "center",
         "scaleOnPickup": "1",
-        "color": "white",
+        "color": "#ffffff",
         "threshold": "100",
-        "thresholdColor": "white",
+        "thresholdColor": "#ffffff",
         "hideIf0": "1",
         "shadow": "1",
-        "advanced": "",
     }, 
     [
         defaultPivot,
@@ -24,7 +23,6 @@ function init_element_armor() {
         {"inputType": "toggle", "type": "scaleOnPickup", "text": "Scale on Pickup"},
         {"inputType": "toggle", "type": "hideIf0", "text": "Hide if zero"},
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
-        {"inputType": "advanced", "type": "advanced"},
     ]
     , "#hud_armor");
 

@@ -1,11 +1,10 @@
 function init_element_teammates_alive() {
 
 
-    const hud_elem = new HUD_element('teammates_alive', //Name
-    "", //Edior Text
+    const hud_elem = new HUD_element('teammates_alive', true,
     {
         "fontSize": "3",
-        "color": "rgb(44, 216, 107)",
+        "color": "#2cd86b",
         "align": "center",
         "shadow": "1",
         "aliveText": "1",
@@ -27,11 +26,10 @@ function init_element_teammates_alive() {
     , "#hud_teammates_alive");  //Template Name
     hud_elements.push(hud_elem);
 
-    const hud_elem2 = new HUD_element('enemies_alive', //Name
-    "", //Edior Text
+    const hud_elem2 = new HUD_element('enemies_alive', true,
     {
         "fontSize": "3",
-        "color": "rgb(200, 15, 15)",
+        "color": "#c80f0f",
         "align": "center",
         "shadow": "1",
         "aliveText": "1",

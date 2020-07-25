@@ -3,6 +3,11 @@ var global_current_player_profile_page = undefined;
 var global_profile_data_cache = {};
 var global_profile_data_cache_time = 300;
 
+var global_profile_stats_main_avg_time_frame = 'alltime';
+var global_profile_stats_main_details_avg = 'match';
+var global_profile_stats_weapon_details_avg = 'match';
+var global_profile_stats_weapon_details_gun = 'gun:3';
+
 function add_to_profile_data_cache(id, type, data) {
     if (!(id in global_profile_data_cache)) global_profile_data_cache[id] = {};
     global_profile_data_cache[id][type] = {
@@ -11,9 +16,10 @@ function add_to_profile_data_cache(id, type, data) {
     };
 }
 function clear_profile_data_cache() {
+    let now = Date.now();
     for (let id in global_profile_data_cache) {
         for (let type in global_profile_data_cache[id]) {
-            if (((Date.now() - global_profile_data_cache[id][type]["ts"]) / 1000) > global_profile_data_cache_time) {
+            if (((now - global_profile_data_cache[id][type]["ts"]) / 1000) > global_profile_data_cache_time) {
                 delete global_profile_data_cache[id][type];
             }
         }
@@ -44,105 +50,27 @@ function clear_player_profile() {
 
 let global_profile_nav = undefined;
 function load_player_profile(origin, page, id) {
-    echo(origin+" "+page+" "+id);
+    // Render & show empty page
+    // Send API request / Check cache
+    // On Success render API data
+    // On Error render Error
+
     clear_profile_data_cache();
+
+    historyPushState({
+        "page": "player_profile_screen",
+        "subpage": page,
+        "id": id
+    });
 
     if (!id.length || id.trim().length == 0) {
         console.log("WARNING - tried loading user profile without user_id");
         return;
     }
 
-    if (global_current_player_profile_user_id == id && global_current_player_profile_page == page && id in global_profile_data_cache) return;
-
-    if (origin != "player_profile_screen") {
-        clear_player_profile();
-    }
-    
-
-    let requests = [];
-    
-    if (!_check_nested(global_profile_data_cache, id, "main")) {
-        requests.push({
-            "api": global_stats_api,
-            "path": "/users/"+id,
-            "data_key_to": "main",
-            "params": {}
-        });
-    }
-
-    if (page == "profile") {
-        if (!_check_nested(global_profile_data_cache, id, "alltime_stats")) {
-            requests.push({
-                    "api": global_stats_api,
-                    "path": "/users/"+id+"/stats",
-                    "data_key_to": "alltime_stats",
-                    "params": { "for": "alltime" }
-            });
-        }
-        if (!_check_nested(global_profile_data_cache, id, "mmr")) {
-            requests.push({
-                    "api": global_stats_api,
-                    "path": "/users/"+id+"/rating",
-                    "data_key_from": "ratings",
-                    "data_key_to": "mmr",
-                    "params": {},
-            });
-        }
-        if (!_check_nested(global_profile_data_cache, id, "last_match")) {
-            requests.push({
-                    "api": global_stats_api,
-                    "path": "/users/"+id+"/match",
-                    "data_key_to": "last_match",
-                    "params": { "for": "last" }
-            });
-        }
-    }
-
-    if (page == "matches") {
-        if (!_check_nested(global_profile_data_cache, id, "matches")) {
-            requests.push({
-                    "api": global_stats_api,
-                    "path": "/users/"+id+"/matches",
-                    "data_key_from": "matches",
-                    "data_key_to": "matches",
-                    "params": { "limit": 15 }
-            });
-        }
-    }
-
-    if (page == "stats") {
-        // Get stats data
-    }
-
-    function on_success(data) {
-        for (let key of Object.keys(data)) {
-            add_to_profile_data_cache(id, key, data[key]);
-        }
-        setFullscreenSpinner(false);
-        render_player_profile_page(id, page);
-    }
-
-    function on_timeout() {
-        setFullscreenSpinner(false);
-        // TODO show error (on the page, not a popup)
-    }
-
-    function on_delay() {
-        setFullscreenSpinner(true);
-    }
-
-    function on_pagechange() {
-        setFullscreenSpinner(false);
-    }
-
-    multi_req_handler("player_profile_screen", requests, on_success, on_delay, on_timeout, on_pagechange);
-}
-
-
-function render_player_profile_page(id, page) {
-    //console.log(_dump(global_profile_data_cache[id]));
-
     let cont = _id("player_profile_screen");
+
+    if (global_current_player_profile_user_id == id && global_current_player_profile_page == page && id in global_profile_data_cache) return;
 
     if (global_current_player_profile_user_id != id) {
         global_current_player_profile_user_id = id;
@@ -166,22 +94,6 @@ function render_player_profile_page(id, page) {
         }
     }
 
-    let fragment = new DocumentFragment();
-
-    if (!global_profile_nav) {
-        global_profile_nav = player_profile_render_nav(page);
-        fragment.appendChild(global_profile_nav);
-    }
-
-    if (global_profile_data_cache[id].main.data === null) {
-        _for_each_with_selector_in_parent(cont, ".page", function(page_content) {
-            page_content.parentNode.removeChild(page_content);
-        });
-        fragment.appendChild(_createElement("div", ["page", "no_data"], localize("player_profile_no_profile")));
-        cont.appendChild(fragment);
-        return;
-    }
-
     _for_each_with_selector_in_parent(cont, ".page", function(page_content) {
         page_content.classList.add("anim_out");
         page_content.addEventListener("animationend", function(e) {
@@ -190,23 +102,180 @@ function render_player_profile_page(id, page) {
         });
     });
 
-    if (page == "profile") {
-        fragment.appendChild(player_profile_render_main(global_profile_data_cache[id]));
+
+    if (origin != "player_profile_screen") {
+        clear_player_profile();
     }
-    if (page == "matches") {
-        fragment.appendChild(player_profile_render_matches(global_profile_data_cache[id]));
+
+    let fragment = new DocumentFragment();
+
+    if (!global_profile_nav) {
+        global_profile_nav = player_profile_render_nav(page);
+        fragment.appendChild(global_profile_nav);
     }
-    if (page == "stats") {
-        fragment.appendChild(player_profile_render_stats(global_profile_data_cache[id]));
+
+    let header_data = { "name": "" };
+    if (_check_nested(global_profile_data_cache, id, "main")) {
+        header_data = global_profile_data_cache[id].main.data;
     }
+
+    // Render page specific placeholder content so we can immediately switch to the page
+    let page_cont = _createElement("div", [page, "page", "anim_in"]);
+    let head = player_profile_render_head(header_data, true);
+    page_cont.appendChild(head);
+    page_cont.appendChild(player_profile_render_placeholder(page));
+
+    fragment.appendChild(page_cont);
     cont.appendChild(fragment);
+
+
+    // Fetch the requested data from the API
+    let requests = [];
+    
+    if (!_check_nested(global_profile_data_cache, id, "main")) {
+        requests.push({
+            "path": "/users/"+id,
+            "data_key_to": "main",
+            "params": {}
+        });
+    }
+
+    if (page == "profile") {
+        if (!_check_nested(global_profile_data_cache, id, "mainstats")) {
+            requests.push({
+                    "path": "/users/"+id+"/mainstats",
+                    "data_key_to": "mainstats",
+                    "params": { "for": "alltime" }
+            });
+        }
+        if (!_check_nested(global_profile_data_cache, id, "mmr")) {
+            requests.push({
+                    "path": "/users/"+id+"/rating",
+                    "data_key_from": "ratings",
+                    "data_key_to": "mmr",
+                    "params": {},
+            });
+        }
+        if (!_check_nested(global_profile_data_cache, id, "last_match")) {
+            requests.push({
+                    "path": "/users/"+id+"/match",
+                    "data_key_to": "last_match",
+                    "params": { "for": "last" }
+            });
+        }
+    }
+
+    if (page == "matches") {
+        if (!_check_nested(global_profile_data_cache, id, "matches")) {
+            requests.push({
+                    "path": "/users/"+id+"/matches",
+                    "data_key_from": "matches",
+                    "data_key_to": "matches",
+                    "params": { "limit": 15 }
+            });
+        }
+    }
+
+    if (page == "stats") {
+        if (!_check_nested(global_profile_data_cache, id, "stats")) {
+            requests.push({
+                    "path": "/users/"+id+"/stats",
+                    "data_key_to": "stats",
+                    "params": { }
+            });
+        }
+    }
+
+    if (page == "achievements") {
+        if (!_check_nested(global_profile_data_cache, id, "achievements")) {
+            requests.push({
+                    "path": "/users/"+id+"/achievements",
+                    "data_key_from": "achievements",
+                    "data_key_to": "achievements",
+                    "params": { }
+            });
+        }
+    }
+
+    function on_success(data) {
+        for (let key of Object.keys(data)) {
+            add_to_profile_data_cache(id, key, data[key]);
+        }
+
+        render_player_profile_page(id, page, page_cont);
+
+    }
+
+    function on_timeout() {
+        // Show error instead of the spinner
+        let placeholder = page_cont.querySelector(".placeholder_cont");
+        if (placeholder) {
+            _empty(placeholder);
+            placeholder.appendChild(_createElement("div", ["page", "no_data"], localize("error_retrieving_data")));
+        }
+    }
+    function on_delay() {}
+    function on_pagechange() {}
+
+    multi_req_handler("player_profile_screen", requests, on_success, on_delay, on_timeout, on_pagechange);
+}
+
+
+
+function player_profile_render_placeholder(page) {
+    let fragment = new DocumentFragment();
+    if (page == "profile") {
+        fragment.appendChild(_createElement("div", "summary_top"));
+        let profile_spinner = _createElement("div", ["placeholder_cont", "profile_spinner"]);
+        profile_spinner.appendChild(_createSpinner());
+        fragment.appendChild(profile_spinner);
+    }
+
+    if (page == "matches") {
+        let matches_spinner = _createElement("div", ["placeholder_cont", "matches_spinner"]);
+        matches_spinner.appendChild(_createSpinner());
+        fragment.appendChild(matches_spinner);
+    }
+
+    if (page == "stats") {
+        fragment.appendChild(_createElement("div", "control_bar"));
+        let stats_spinner = _createElement("div", ["placeholder_cont", "stats_spinner"]);
+        stats_spinner.appendChild(_createSpinner());
+        fragment.appendChild(stats_spinner);
+    }
+
+    if (page == "achievements") {
+        let stats_spinner = _createElement("div", ["placeholder_cont", "achievements_spinner"]);
+        stats_spinner.appendChild(_createSpinner());
+        fragment.appendChild(stats_spinner);
+    }
+
+    return fragment;
+}
+
+function render_player_profile_page(id, page, page_cont) {
+    // API returned no data for the user, show "User does not yet have a Diabotical profile" message
+    if (global_profile_data_cache[id].main.data.user_id === undefined) {
+        let placeholder = page_cont.querySelector(".placeholder_cont");
+        if (placeholder) {
+            _empty(placeholder);
+            placeholder.appendChild(_createElement("div", ["page", "no_data"], localize("player_profile_no_profile")));
+        }
+        return;
+    }
+
+    // Render the actual page data
+    _empty(page_cont);
+    if (page == "profile")      page_cont.appendChild(player_profile_render_main(global_profile_data_cache[id]));
+    if (page == "matches")      page_cont.appendChild(player_profile_render_matches(global_profile_data_cache[id]));
+    if (page == "stats")        page_cont.appendChild(player_profile_render_stats(global_profile_data_cache[id])); 
+    if (page == "achievements") page_cont.appendChild(player_profile_render_achievements(global_profile_data_cache[id])); 
 }
 
 function player_profile_render_nav(page) {
     let nav = _createElement("div", "nav");
 
-    //let targets = ["profile", "matches", "stats"];
-    let targets = ["profile", "matches"];
+    let targets = ["profile", "matches", "stats", "achievements"];
 
     let count = 0;
     for (let target of targets) {
@@ -220,7 +289,7 @@ function player_profile_render_nav(page) {
             if (link.classList.contains("active")) return;
             link.closest(".nav").querySelector(".navlink.active").classList.remove("active");
             link.classList.add("active");
-            load_player_profile("player_profile_screen",target, user_id);
+            load_player_profile("player_profile_screen", target, user_id);
         });
 
         _addButtonSounds(link, 1);
@@ -245,9 +314,11 @@ function player_profile_render_head(data, simple) {
     avatar.style.backgroundImage = "url("+_avatarUrl(data.avatar)+")";
     head.appendChild(avatar);
 
-    let name = _createElement("div", "name");
-    name.innerHTML = data.name;
-    head.appendChild(name);
+    if (data.name) {
+        let name = _createElement("div", "name");
+        name.innerHTML = data.name;
+        head.appendChild(name);
+    }
 
     if (data.country) {
         let flag = _createElement("img", "flag");
@@ -266,31 +337,33 @@ function player_profile_render_head(data, simple) {
             head.appendChild(msg_friend);
         }
         */
-
+        /*
         if (data.user_id != global_self.user_id && !global_friends_user_ids.includes(data.user_id)) {
             let add_friend = _createElement("div", ["btn","add_friend","tooltip2"]);
             add_friend.dataset.msgId = "friends_list_label_add_friend";
             add_tooltip2_listeners(add_friend);
             head.appendChild(add_friend);
         }
+        */
     }
 
     return head;
 }
 
+// ====================================================
+// MAIN PROFILE
 function player_profile_render_main(data) {
-
-    console.log(_dump(data));
 
     let alltime_combined = {
         "match_count": 0,
         "match_won": 0,
         "time_played": 0,
+        "commends": 0,
     };
     let most_played = false;
     let most_played_count = 0;
-    if (_check_nested(data, "alltime_stats", "data") && Array.isArray(data.alltime_stats.data)) {
-        for (let stats of data.alltime_stats.data) {
+    if (_check_nested(data, "mainstats", "data") && Array.isArray(data.mainstats.data)) {
+        for (let stats of data.mainstats.data) {
             if (stats.match_mode == "") {
                 alltime_combined = stats;
                 continue;
@@ -311,10 +384,10 @@ function player_profile_render_main(data) {
         }
     }
 
-    let cont = _createElement("div", ["profile", "page", "anim_in"]);
+    let cont = new DocumentFragment();
     cont.appendChild(player_profile_render_head(data.main.data, false));
 
-    let stats = ["games", "wins", "time_played", "level"];
+    let stats = ["games", "commends", "time_played", "level"];
     let summary_top = _createElement("div", "summary_top");
 
     // For css width of each stat div:
@@ -332,6 +405,7 @@ function player_profile_render_main(data) {
         if (stats[i] == "wins")        summary_stat_label.innerHTML = localize("player_profile_label_wins");
         if (stats[i] == "time_played") summary_stat_label.innerHTML = localize("player_profile_label_time_played");
         if (stats[i] == "level")       summary_stat_label.innerHTML = localize("player_profile_label_account_level");
+        if (stats[i] == "commends")    summary_stat_label.innerHTML = localize("player_profile_label_commends");
         summary_stat.appendChild(summary_stat_label);
 
         let summary_stat_value = _createElement("div", "value");
@@ -339,6 +413,7 @@ function player_profile_render_main(data) {
         if (stats[i] == "wins")        summary_stat_value.innerHTML = alltime_combined.match_won;
         if (stats[i] == "time_played") summary_stat_value.innerHTML = _seconds_to_string(alltime_combined.time_played);
         if (stats[i] == "level")       summary_stat_value.innerHTML = data.main.data.level;
+        if (stats[i] == "commends")    summary_stat_value.innerHTML = alltime_combined.commends;
         summary_stat.appendChild(summary_stat_value);
 
         summary_top.appendChild(summary_stat);
@@ -373,28 +448,28 @@ function player_profile_render_main(data) {
         let content = _createElement("div", "content");
         if (featured_topics[i] == "rank") {
             if (highest_rank) {
-                // TODO render rank with mode name and games played
+                // render rank with mode name and games played
                 content.appendChild(renderRankIcon(highest_rank_data.rank_tier, highest_rank_data.rank_position));
                 let rank_name = _createElement("div", "rank_name");
                 rank_name.appendChild(getRankName(highest_rank_data.rank_tier, highest_rank_data.rank_position));
                 content.appendChild(rank_name);
 
-                if (highest_rank_data.mode_name in global_queue_modes) {
-                    content.appendChild(_createElement("div", "rank_mode_name", localize(global_game_mode_map[global_queue_modes[highest_rank_data.mode_name].mode].i18n)+" "+global_queue_modes[highest_rank_data.mode_name].vs));
+                if (highest_rank_data.mode_name in global_queues) {
+                    content.appendChild(_createElement("div", "rank_mode_name", global_queues[highest_rank_data.mode_name].queue_name));
                 }
             } else {
-                // TODO render weeball in a cardboard box without extra info
+                // render weeball in a cardboard box without extra info
                 content.appendChild(renderRankIcon(0, null));
                 content.appendChild(_createElement("div", "rank_name", localize("rank_unranked")));
             }
         }
         if (featured_topics[i] == "battlepass") {
             if (data.main.data.active_battlepass_id) {
-                // TODO render battlepass
+                // render battlepass
                 let level_icon = _createElement("div", "bp_level_icon");
                 level_icon.innerHTML = data.main.data.battlepass_level;
                 if (data.main.data.battlepass_owned) {
-                    level_icon.style.backgroundImage = "url("+global_battlepass_data[data.main.data.active_battlepass_id]['level-image']+")";
+                    level_icon.classList.add("paid");
                 }
                 content.appendChild(level_icon);
                 content.appendChild(_createElement("div", "bp_title", localize(global_battlepass_data[data.main.data.active_battlepass_id].title)));
@@ -412,7 +487,7 @@ function player_profile_render_main(data) {
         let most_played_mode = _createElement("div", "most_played_mode");
     
         let icon = _createElement("div", "icon");
-        icon.style.backgroundImage = "url(/html/images/gamemodes/"+most_played.match_mode+".jpg)";
+        icon.style.backgroundImage = "url("+global_game_mode_map[most_played.match_mode].icon+")";
         most_played_mode.appendChild(icon);
         
         let desc = _createElement("div", "desc");
@@ -457,6 +532,9 @@ function player_profile_render_main(data) {
 
     if ("match" in data.last_match.data) {
         let last_match = _createElement("div", "last_match");
+        last_match.dataset.matchId = data.last_match.data.match.match_id;
+        last_match.addEventListener("mouseenter", _play_mouseover4);
+        last_match.addEventListener("click", player_profile_on_match_select);
 
         let match = data.last_match.data.match;
         let seconds_since = (new Date - new Date(match.finish_ts)) / 1000;
@@ -484,7 +562,7 @@ function player_profile_render_main(data) {
         let time = _createElement("div", "time");
         time.textContent = localize_ext("time_ago", {
             "time": _seconds_to_string(seconds_since)
-        })
+        });
         head.appendChild(time);
 
         last_match.appendChild(head);
@@ -492,7 +570,7 @@ function player_profile_render_main(data) {
         let last_match_cont = _createElement("div", "cont");
 
         let mode_icon = _createElement("div", "mode_icon");
-        mode_icon.style.backgroundImage = "url(/html/images/gamemodes/"+match.match_mode+".jpg)";
+        mode_icon.style.backgroundImage = "url("+global_game_mode_map[match.match_mode].icon+")";
         last_match_cont.appendChild(mode_icon);
 
         let match_summary = _createElement("div", "match_summary");
@@ -517,7 +595,7 @@ function player_profile_render_main(data) {
 
         let kda_values = _createElement("div", "kda_values");
         if (match.stats) {
-            kda_values.innerHTML = match.stats.f+" / "+match.stats.d+" / 0";
+            kda_values.innerHTML = match.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]+" / "+match.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]+" / "+match.stats[GLOBAL_ABBR.STATS_KEY_ASSISTS];
         }
         row2.appendChild(kda_values);
 
@@ -533,33 +611,67 @@ function player_profile_render_main(data) {
 
     return cont;
 }
+
+// ====================================================
+// MATCHES
 function player_profile_render_matches(data) {
 
-    let cont = _createElement("div", ["matches", "page", "anim_in"]);
+    let cont = new DocumentFragment();
     cont.appendChild(player_profile_render_head(data.main.data, true));
 
     let matches_head = _createElement("div", "matches_head");
+    matches_head.appendChild(_createElement("div", ["td", "td_map"],      localize("player_profile_label_map")));
     matches_head.appendChild(_createElement("div", ["td", "td_datetime"], localize("player_profile_label_date")));
     matches_head.appendChild(_createElement("div", ["td", "td_mode"],     localize("player_profile_label_game_mode")));
-    matches_head.appendChild(_createElement("div", ["td", "td_map"],      localize("player_profile_label_map")));
     matches_head.appendChild(_createElement("div", ["td", "td_length"],   localize("player_profile_label_length")));
     matches_head.appendChild(_createElement("div", ["td", "td_kda"],      localize("player_profile_label_kda")));
     matches_head.appendChild(_createElement("div", ["td", "td_result"],   localize("player_profile_label_result")));
     cont.appendChild(matches_head);
 
+    // Render content scroll container   
+    let scroll_outer = _createElement("div", "scroll-outer");
+    let scroll_bar = _createElement("div", "scroll-bar");
+    scroll_bar.appendChild(_createElement("div", "scroll-thumb"));
+    scroll_outer.appendChild(scroll_bar);
+    let scroll_inner = _createElement("div", "scroll-inner");
+    scroll_outer.appendChild(scroll_inner);
+
+    new Scrollbar(scroll_outer, global_scrollbarTrackerId++, true);
+
+    cont.appendChild(scroll_outer);
+
     for (let i=0; i<data.matches.data.length; i++) {
         let m = data.matches.data[i];
+
+        let result_text = '';
+        if (m.team_placement == 254) {
+            result_text = localize("match_forfeit");
+        } else {
+            if (m.team_placement == 0) {
+                result_text = localize("match_win");
+            } else {
+                result_text = (m.team_placement + 1) + ".";
+            }
+        }
+
+
         let match_row = _createElement("div", "row");
         match_row.dataset.matchId = m.match_id;
         if (i % 2 == 0) {
             match_row.classList.add("odd");
         }
-        _addButtonSounds(match_row, 1);
-
+        match_row.addEventListener("mouseenter", _play_mouseover4);
         match_row.addEventListener("click", player_profile_on_match_select);
+        if (m.team_placement == 0) match_row.classList.add("win");
 
-        let th_datetime = _createElement("div", ["td", "td_datetime"]);
-        th_datetime.textContent = _to_readable_timestamp(m.finish_ts);
+        let th_map = _createElement("div", ["td", "td_map"]);
+        let map_gradient = _createElement("div", "map_gradient");
+        map_gradient.style.backgroundImage = 'url(map_thumbnails/'+m.match_map+'.png)';
+        th_map.appendChild(map_gradient);
+        th_map.appendChild(_createElement("div", "map_name", _format_map_name(m.match_map)));
+        match_row.appendChild(th_map);
+
+        let th_datetime = _createElement("div", ["td", "td_datetime"], _to_readable_timestamp(m.finish_ts));
         match_row.appendChild(th_datetime);
 
         let th_mode = _createElement("div", ["td", "td_mode"]);
@@ -570,42 +682,1042 @@ function player_profile_render_matches(data) {
         }
         match_row.appendChild(th_mode);
 
-        let th_map = _createElement("div", ["td", "td_map"]);
-        th_map.textContent = _format_map_name(m.match_map);
-        match_row.appendChild(th_map);
-
-        let th_length = _createElement("div", ["td", "td_length"]);
-        th_length.textContent = _seconds_to_digital(m.match_time);
+        let th_length = _createElement("div", ["td", "td_length"], _seconds_to_digital(m.match_time));
         match_row.appendChild(th_length);
 
         let th_kda = _createElement("div", ["td", "td_kda"]);
-        if (m.stats && "f" in m.stats && "d" in m.stats) {
-            th_kda.textContent = m.stats.f+" / "+m.stats.d+" / 0";
+        if (m.stats && GLOBAL_ABBR.STATS_KEY_FRAGS in m.stats && GLOBAL_ABBR.STATS_KEY_FRAGS in m.stats && GLOBAL_ABBR.STATS_KEY_ASSISTS in m.stats) {
+            th_kda.textContent = m.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]+" / "+m.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]+" / "+m.stats[GLOBAL_ABBR.STATS_KEY_ASSISTS];
         }
         match_row.appendChild(th_kda);
 
-        let th_result = _createElement("div", ["td", "td_result"]);
-        if (m.team_placement == 254) {
-            th_result.textContent = localize("match_forfeit");
-        } else {
-            th_result.textContent = (m.team_placement + 1) + ".";
-        }
+        let th_result = _createElement("div", ["td", "td_result"], result_text);
+        if (m.team_placement == 0) th_result.classList.add("win");
         match_row.appendChild(th_result);
 
-        cont.appendChild(match_row);
+        scroll_inner.appendChild(match_row);
     }
 
     return cont;
 }
 
+let global_profile_match_clicked = false;
 function player_profile_on_match_select(e) {
-    // TODO open match page
-    // e.currentTarget.dataset.matchId
-    open_match(e.currentTarget.dataset.matchId);
+    if (!global_profile_match_clicked) {
+        _play_click1();
+        open_match(e.currentTarget.dataset.matchId);
+        global_profile_match_clicked = true;
+
+        setTimeout(function() {
+            global_profile_match_clicked = false;
+        },300);
+    }
 }
 
+// ====================================================
+// STATS
 function player_profile_render_stats(data) {
-    let cont = _createElement("div", ["stats", "page", "anim_in"]);
+    let stats_main = prepareUserStats(data.main.data.name, data.stats.data);
+    let stats_compare = null;
+
+    let stats_type = "profile"; // "profile" or "compare"
+    let selected_mode = "total";
+    let selected_map = "total";
+
+    let cont = new DocumentFragment();
     cont.appendChild(player_profile_render_head(data.main.data, true));
+
+    let ctrl = _createElement("div", "control_bar");
+    cont.appendChild(ctrl);
+
+    // ================
+    // Mode Select
+    // ================
+
+    let ctrl_cont_mode = _createElement("div", "select_cont");
+    ctrl.appendChild(ctrl_cont_mode);
+    ctrl_cont_mode.appendChild(_createElement("div", "label", localize("mode")));
+    let ctrl_mode_select = _createElement("div", "select-field");
+    ctrl_mode_select.dataset.theme = "gray2";
+    ctrl_cont_mode.appendChild(ctrl_mode_select);
+
+    let opt_all = _createElement("div");
+    opt_all.dataset.value = "total";
+    opt_all.textContent = localize("all_modes");
+    opt_all.dataset.selected = 1;
+    ctrl_mode_select.appendChild(opt_all);
+
+    //ctrl_mode_select.appendChild(_createElement("div", "select-category", localize("modes")));
+    /*
+    for (let mode of Object.keys(global_game_mode_map)) {
+        if (!global_game_mode_map[mode].enabled) continue;
+        let opt = _createElement("div");
+        opt.dataset.value = mode;
+        opt.textContent = localize(global_game_mode_map[mode].i18n);
+        ctrl_mode_select.appendChild(opt);
+    }
+    */
+
+    let qp_queues = Object.keys(global_queues).filter(m => global_queues[m].match_type == MATCH_TYPE_QUICKPLAY);
+    let r_queues = Object.keys(global_queues).filter(m => global_queues[m].match_type == MATCH_TYPE_RANKED);
+    
+    for (let match_type of ["quickplay", "ranked"]) {
+        let queue_list = [];
+        if (match_type == "quickplay") {
+            ctrl_mode_select.appendChild(_createElement("div", "select-category", localize("quickplay_queues")));
+            queue_list = qp_queues;
+        }
+        if (match_type == "ranked") {
+            ctrl_mode_select.appendChild(_createElement("div", "select-category", localize("ranked_queues")));
+            queue_list = r_queues;
+        }
+        for (let queue of queue_list) {
+            if (global_queues[queue].locked) continue;
+
+            if (global_queues[queue].modes.length > 1) {
+                for (let mode of global_queues[queue].modes) {
+                    let opt = _createElement("div");
+                    opt.dataset.value = mode.queue_name+"-"+mode.mode_name;
+                    opt.textContent = global_queues[queue].queue_name + " - " + localize(global_game_mode_map[mode.mode_name].i18n);
+                    ctrl_mode_select.appendChild(opt);
+                }
+            } else if (global_queues[queue].modes.length == 1) {
+                let opt = _createElement("div");
+                opt.dataset.value = global_queues[queue].modes[0].queue_name+"-"+global_queues[queue].modes[0].mode_name;
+                opt.textContent = global_queues[queue].queue_name;
+                ctrl_mode_select.appendChild(opt);
+            }
+        }
+    }
+
+    // ================
+    // Map Select
+    // ================
+
+    /*
+    let ctrl_cont_map = _createElement("div", "select_cont");
+    ctrl.appendChild(ctrl_cont_map);
+    ctrl_cont_map.appendChild(_createElement("div", "label", localize("map")));
+    let ctrl_map_select = _createElement("div", "select-field");
+    ctrl_map_select.dataset.theme = "gray2";
+    ctrl_cont_map.appendChild(ctrl_map_select);
+
+    ctrl_cont_map.style.display = "none";
+    */
+
+    // ==============================
+    // Setup selection list listeners
+    // ==============================
+    setup_select(ctrl_mode_select, function(field_element, el) {
+        selected_mode = field_element.dataset.value;
+        player_profile_render_stats_content(scroll_inner, stats_type, selected_mode, selected_map, stats_main, stats_compare);
+
+        /*
+        if (selected_mode == "all") {
+            // Hide map selection list options
+            ctrl_cont_map.style.display = "none";
+            selected_map = "all";
+        } else {
+            // Show and update map selection list options
+            let map_list = player_profile_stats_extract_map_list("alltime", selected_mode, stats);
+
+            _empty(ctrl_map_select);
+
+            let opt_all_maps = _createElement("div");
+            opt_all_maps.dataset.value = "total";
+            opt_all_maps.textContent = localize("all_maps");
+            opt_all_maps.dataset.selected = 1;
+            ctrl_map_select.appendChild(opt_all_maps);
+
+            for (let map of map_list) {
+                let opt_map = _createElement("div");
+                opt_map.dataset.value = map;
+                opt_map.textContent = _format_map_name(map.substring(4));
+                ctrl_map_select.appendChild(opt_map);
+            }
+
+            setup_select(ctrl_map_select, map_select_cb);
+            ctrl_cont_map.style.display = "flex";
+        }
+        */
+    });
+    /*
+    setup_select(ctrl_map_select, map_select_cb);
+
+    function map_select_cb(field_element, el) {
+        selected_map = field_element.dataset.value;
+        player_profile_render_stats_content(scroll_inner, stats_type, selected_mode, selected_map, stats_main, stats_compare);
+    }
+    */
+
+    // =========================
+    // Compare button / input
+    // =========================
+
+    
+    ctrl.appendChild(_createElement("div", "separator"));
+    let compare_input_cont = _createElement("div", "compare_input");
+    let compare_input = _createElement("input");
+    compare_input_cont.appendChild(compare_input);
+
+    let compare_btn = _createElement("div", ["db-btn", "plain"], localize("compare"));
+    _addButtonSounds(compare_btn, 1);
+    ctrl.appendChild(compare_input_cont);
+    ctrl.appendChild(compare_btn);
+
+    if (global_current_player_profile_user_id != global_self.user_id) {
+        let compare_self_btn = _createElement("div", ["db-btn", "plain", "compare_self"]);
+        compare_self_btn.appendChild(_createElement("div", "self_icon"));
+        compare_self_btn.dataset.msg = localize("stats_compare_self");
+        add_tooltip2_listeners(compare_self_btn);
+        ctrl.appendChild(compare_self_btn);
+
+        compare_self_btn.addEventListener("click", function() {
+            render_compare_with_userid(global_self.user_id, global_self.data.name);
+        });
+    }
+
+    compare_input_cont.addEventListener("click", function() { compare_input.focus(); });
+    compare_input.addEventListener("keydown", function(event){
+        if (event.keyCode == 13) player_profile_stats_compare_fetch_compare(compare_input.value);
+    });
+    compare_btn.addEventListener("click", function() {
+        player_profile_stats_compare_fetch_compare(compare_input.value);
+    });
+
+    function player_profile_stats_compare_fetch_compare(name) {
+        clear_profile_data_cache();
+
+        let stats_spinner = _createElement("div", ["placeholder_cont", "stats_spinner"]);
+        stats_spinner.appendChild(_createSpinner());
+        _empty(scroll_inner);
+        scroll_inner.appendChild(stats_spinner);
+
+        stats_type = "compare";
+        stats_compare = null;
+
+        if (name.trim().length == 0) {
+            stats_type = "profile";
+            stats_compare = null;
+            player_profile_render_stats_content(scroll_inner, stats_type, selected_mode, selected_map, stats_main, stats_compare);
+            return;
+        }
+
+        api_request("GET", "/userlist/"+name, {}, function(userlist) {
+            if (userlist.length == 0) {
+                queue_dialog_msg({
+                    "title": localize("title_info"),
+                    "msg": localize("error_username_or_stats_not_found"),
+                });
+                
+                stats_type = "profile";
+                player_profile_render_stats_content(scroll_inner, stats_type, selected_mode, selected_map, stats_main, stats_compare);
+            } else if (userlist.length >= 1) {
+                let user = userlist[0];
+                render_compare_with_userid(user.user_id, user.name);
+            //} else if (userlist.length > 1) {
+                // TODO show modal with a selection list or something
+            }
+        });
+    }
+
+    function render_compare_with_userid(user_id, name) {
+        stats_type = "compare";
+        stats_compare = null;
+
+        if (!_check_nested(global_profile_data_cache, user_id, "stats")) {
+            api_request("GET", "/users/"+user_id+"/stats", {}, function(data) {
+                add_to_profile_data_cache(user_id, "stats", data);
+                player_profile_stats_compare_to_user(name, global_profile_data_cache[user_id]["stats"].data);
+            });
+        } else {
+            player_profile_stats_compare_to_user(name, global_profile_data_cache[user_id]["stats"].data);
+        }
+    }
+    
+    function player_profile_stats_compare_to_user(name, data) {
+        stats_compare = prepareUserStats(name, data);
+        player_profile_render_stats_content(scroll_inner, stats_type, selected_mode, selected_map, stats_main, stats_compare);
+    }
+
+    // ===============
+    // Stats
+    // ===============
+
+    // Render content scroll container   
+    let scroll_outer = _createElement("div", "scroll-outer");
+    let scroll_bar = _createElement("div", "scroll-bar");
+    scroll_bar.appendChild(_createElement("div", "scroll-thumb"));
+    scroll_outer.appendChild(scroll_bar);
+    let scroll_inner = _createElement("div", "scroll-inner");
+    scroll_outer.appendChild(scroll_inner);
+
+    new Scrollbar(scroll_outer, global_scrollbarTrackerId++, true);
+
+    cont.appendChild(scroll_outer);
+
+    player_profile_render_stats_content(scroll_inner, stats_type, selected_mode, selected_map, stats_main, null);
+    return cont;
+}
+
+
+
+function player_profile_stats_extract_map_list(time_frame, mode, stats) {
+    // outdated code, stats format has changed since then
+    /* 
+    if (!(time_frame in stats)) return [];
+    if (!(mode in stats[time_frame]["mode_stats"])) return [];
+
+    let maps = [];
+    for (let map in stats[time_frame]["mode_stats"][mode]) {
+        if (map.startsWith("map:")) maps.push(map);
+    }
+    return maps;
+    */
+}
+
+function player_profile_render_stats_content(cont, type, mode, map, stats_1, stats_2) {
+    _empty(cont);
+
+    cont.appendChild(player_profile_render_stats_content_match_avg_summary(mode, map, stats_1));
+    cont.appendChild(player_profile_render_stats_content_main_details(type, mode, map, stats_1, stats_2));
+    cont.appendChild(player_profile_render_stats_content_weapon_details(type, mode, map, stats_1, stats_2));
+}
+
+// =======================================
+// MATCH AVG SUMMARY TABLE 
+// =======================================
+function player_profile_render_stats_content_match_avg_summary(mode, map, stats) {
+
+    let cont = _createElement("div", ["stats_block", "match_avg"]);
+    let block_head = _createElement("div", "block_head");
+    cont.appendChild(block_head);
+
+    block_head.appendChild(_createElement("div", "block_title", localize("stats_main_title_match_avg_summary")));
+    block_head.appendChild(_createElement("div", "line"));
+
+    let table = _createElement("div", "table");
+
+    let time_frame_menu = _createElement("div", "block_menu");
+    for (let tf of ["alltime", "season", "week"]) {
+        let opt = _createElement("div", "option", localize("stats_title_"+tf));
+        time_frame_menu.appendChild(opt);
+        _addButtonSounds(opt, 1);
+        if (tf == global_profile_stats_main_avg_time_frame) opt.classList.add("selected");
+
+        opt.addEventListener("click", function() {
+            time_frame_menu.querySelector(".selected").classList.remove("selected");
+            opt.classList.add("selected");
+
+            global_profile_stats_main_avg_time_frame = tf;
+
+            _empty(table);
+            if (mode in stats && global_profile_stats_main_avg_time_frame in stats[mode]) player_profile_render_stats_content_match_avg_summary_table(table, stats[mode][global_profile_stats_main_avg_time_frame]);
+            else table.appendChild(_createElement("div", "no_stats", localize("no_stats_found")));
+        });
+    }
+    block_head.appendChild(time_frame_menu);
+
+    cont.appendChild(table);
+
+    if (mode in stats && global_profile_stats_main_avg_time_frame in stats[mode]) player_profile_render_stats_content_match_avg_summary_table(table, stats[mode][global_profile_stats_main_avg_time_frame]);
+    else table.appendChild(_createElement("div", "no_stats", localize("no_stats_found")));
+
+    return cont;
+}
+
+// Stats where lower values are better
+const INVERTED_STATS = {
+    "match_lost": true,
+    "deaths": true,
+    "damage_taken": true,
+    "damage_self": true,
+    "capturetime": true,
+};
+const MATCH_AVG_SUMMARY_STATS = [
+    "frags",
+    "deaths",
+    "net",
+    "damage_done",
+    "damage_taken",
+    "usage",
+    "acc"
+];
+function player_profile_render_stats_content_match_avg_summary_table(table, data) {
+    table.style.setProperty("--col_count", global_weapons_in_scoreboard.length + 1);
+
+    // Header
+    let row = _createElement("div", ["row", "header"]);
+    table.appendChild(row);
+    row.appendChild(_createElement("div", ["cell", "label"]));
+    row.appendChild(_createElement("div", ["cell", "stat"], localize("stat_label_total")));
+    for (let idx of global_weapons_in_scoreboard) {
+        let wlabel = _createElement("div", ["cell", "stat"]);
+        let wicon = _createElement("div", "wicon");
+        wicon.style.backgroundImage = "url(/html/"+global_item_name_map[global_weapon_idx_name_map2[idx]][2]+"?fill="+global_item_name_map[global_weapon_idx_name_map2[idx]][0]+")";
+
+        wlabel.dataset.msg = localize(global_item_name_map[global_weapon_idx_name_map2[idx]][1]);
+        add_tooltip2_listeners(wlabel);
+
+        wlabel.appendChild(wicon);
+        row.appendChild(wlabel);
+    }
+
+    let mc = data.main["match_count"];
+    if (mc == 0) mc = 1;
+
+    let rows = 0;
+
+    // Rows
+    for (let stat of MATCH_AVG_SUMMARY_STATS) {
+        let row = _createElement("div", "row");
+        table.appendChild(row);
+
+        if (rows % 2 == 0) row.classList.add("odd");
+        rows++;
+
+        // Label
+        row.appendChild(_createElement("div", ["cell", "label"], localize("stat_label_"+stat)));
+
+        let value = 0;
+        if (stat == "net") {
+            value = _round((data.main["frags"] / mc) - (data.main["deaths"] / mc), 2);
+        } else if (stat == "acc") {
+            if (data.main["shots_fired"] > 0) value = _round(data.main["shots_hit"] / data.main["shots_fired"] * 100, 2) + "%";
+            else value = 0;
+        } else if (stat == "usage") {
+            value = "-";
+        } else if (stat.startsWith("damage_")) {
+            value = _format_number(Math.floor(data.main[stat] / mc));
+        } else {
+            value = _round(data.main[stat] / mc, 2);
+        }
+        row.appendChild(_createElement("div", ["cell", "stat", "odd"], value));
+
+        let counter = 0;
+        for (let idx of global_weapons_in_scoreboard) {
+            let value = 0;
+            let wkey = "gun:"+idx;
+            if ("weapons" in data && wkey in data.weapons) {
+                if (stat == "net") {
+                    value = _round((data.weapons[wkey]["frags"] / mc) - (data.weapons[wkey]["deaths"] / mc), 2);
+                } else if (stat == "acc") {
+                    if (data.weapons[wkey]["shots_fired"] > 0) value = _round(data.weapons[wkey]["shots_hit"] / data.weapons[wkey]["shots_fired"] * 100, 2) + "%";
+                    else value = 0;
+                } else if (stat == "usage") {
+                    value = data.weapons[wkey][stat] + "%";
+                } else if (stat.startsWith("damage_")) {
+                    value = _format_number(Math.floor(data.weapons[wkey][stat] / mc));
+                } else {
+                    value = _round(data.weapons[wkey][stat] / mc, 2);
+                }
+            }
+            let cell = _createElement("div", ["cell", "stat"], value)
+            row.appendChild(cell);
+
+            if (counter % 2 != 0) cell.classList.add("odd");
+            counter++;
+        }
+    }
+}
+
+// =======================================
+// MAIN DETAILS TABLE 
+// =======================================
+function player_profile_render_stats_content_main_details(type, mode, map, stats_1, stats_2) {
+
+    let cont = _createElement("div", ["stats_block", "main_details"]);
+    let block_head = _createElement("div", "block_head");
+    cont.appendChild(block_head);
+
+    block_head.appendChild(_createElement("div", "block_title", localize("stats_main_title_main_details")));
+    block_head.appendChild(_createElement("div", "line"));
+
+    let table = _createElement("div", "table");
+
+    let avg_menu = _createElement("div", "block_menu");
+    for (let avg of ["total", "match", "minute"]) {
+        let opt = _createElement("div", "option", localize("stats_avg_title_"+avg));
+        avg_menu.appendChild(opt);
+        _addButtonSounds(opt, 1);
+        if (avg == global_profile_stats_main_details_avg) opt.classList.add("selected");
+
+        opt.addEventListener("click", function() {
+            avg_menu.querySelector(".selected").classList.remove("selected");
+            opt.classList.add("selected");
+
+            global_profile_stats_main_details_avg = avg;
+
+            _empty(table);
+            render_table();
+        });
+    }
+    block_head.appendChild(avg_menu);
+
+    cont.appendChild(table);
+
+    function render_table() {
+        if (type == "profile") {
+            if (stats_1 && mode in stats_1) player_profile_render_stats_content_main_details_table(table, type, global_profile_stats_main_details_avg, stats_1[mode]);
+            else table.appendChild(_createElement("div", "no_stats", localize("no_stats_found")));
+        } else if (type == "compare") {
+            let mode_stats_1 = null;
+            let mode_stats_2 = null;
+            let name_2 = "";
+            if (stats_1 && mode in stats_1) mode_stats_1 = stats_1[mode];
+            if (stats_2 && mode in stats_2) mode_stats_2 = stats_2[mode];
+            if (stats_2) name_2 = stats_2.name;
+
+            player_profile_render_stats_content_main_details_table(table, type, global_profile_stats_main_details_avg, mode_stats_1, mode_stats_2, name_2);
+        }
+    }
+
+    render_table();
+
+    return cont;
+}
+
+const MAIN_DETAILS_STATS_TOTAL = [
+    "time_played",
+    "match_count",
+    "match_won",
+    "match_lost"
+];
+const MAIN_DETAILS_STATS = [
+    "frags",
+    "assists",
+    "deaths",
+    "net",
+    "damage_done",
+    "damage_taken",
+    //"damage_per_life",
+    //"health",
+    //"armor",
+    //"movement_speed",
+    "commends",
+];
+function player_profile_render_stats_content_main_details_table(table, type, avg_mode, data_1, data_2, name_2) {
+    // Header
+    let row = _createElement("div", ["row", "header"]);
+    table.appendChild(row);
+    if (type == "profile") {
+        row.appendChild(_createElement("div", ["cell", "label"]));
+        row.appendChild(_createElement("div", ["cell", "stat"], localize("stats_title_alltime")));
+        row.appendChild(_createElement("div", ["cell", "stat"], localize("stats_title_season")));
+        row.appendChild(_createElement("div", ["cell", "stat"], localize("stats_title_week")));
+    } else if (type == "compare") {
+        row.appendChild(_createElement("div", ["cell", "label", "double"]));
+
+        row.appendChild(_createElement("div", ["cell", "stat_double", "left"], localize("stats_title_alltime")));
+        row.appendChild(_createElement("div", ["cell", "stat_double", "right", "name"], name_2));
+
+        row.appendChild(_createElement("div", ["cell", "stat_double", "left"], localize("stats_title_season")));
+        row.appendChild(_createElement("div", ["cell", "stat_double", "right", "name"], name_2));
+
+        row.appendChild(_createElement("div", ["cell", "stat_double", "left"], localize("stats_title_week")));
+        row.appendChild(_createElement("div", ["cell", "stat_double", "right", "name"], name_2));
+    }
+    row.appendChild(_createElement("div", ["cell", "spacer"]));
+
+    let time_frames = ["alltime", "season", "week"];
+
+    let stat_list = MAIN_DETAILS_STATS;
+    if (avg_mode == "total") stat_list = MAIN_DETAILS_STATS_TOTAL.concat(MAIN_DETAILS_STATS);
+
+    let rows = 0;
+
+    // Rows
+    for (let stat of stat_list) {
+        let row = _createElement("div", "row");
+        table.appendChild(row);
+
+        if (rows % 2 == 0) row.classList.add("odd");
+        rows++;
+
+        if (stat == "match_lost") row.style.marginBottom = "1.4vh";
+
+        // Label
+        if (type == "profile") row.appendChild(_createElement("div", ["cell", "label"], localize("stat_label_"+stat)));
+        else if (type == "compare") row.appendChild(_createElement("div", ["cell", "label", "double"], localize("stat_label_"+stat)));
+
+        for (let time_frame of time_frames) {
+            if (type == "profile") {
+                let cell = _createElement("div", ["cell", "stat"]);
+                let cell_data = player_profile_render_stats_content_main_details_table_cell(data_1, stat, time_frame, avg_mode);
+                cell.textContent = cell_data.display;
+                row.appendChild(cell);
+            } else if (type == "compare") {
+                let cell_left = _createElement("div", ["cell", "stat_double", "left"]);
+                let data_left = player_profile_render_stats_content_main_details_table_cell(data_1, stat, time_frame, avg_mode);
+                cell_left.textContent = data_left.display;
+            
+                let cell_right = _createElement("div", ["cell", "stat_double", "right"]);
+                let data_right = player_profile_render_stats_content_main_details_table_cell(data_2, stat, time_frame, avg_mode);
+                console.log("compare_data", _dump(data_right));
+                cell_right.textContent = data_right.display;
+
+                if (stat in INVERTED_STATS) {
+                    if (data_left.value > data_right.value) { 
+                        cell_left.classList.add("dim");
+                        cell_right.classList.add("hl");  
+                    } else if (data_left.value < data_right.value) {
+                        cell_left.classList.add("hl");
+                        cell_right.classList.add("dim");                    
+                    }
+                } else {
+                    if (data_left.value < data_right.value) {
+                        cell_left.classList.add("dim");
+                        cell_right.classList.add("hl");
+                    } else if (data_left.value > data_right.value) {
+                        cell_left.classList.add("hl");
+                        cell_right.classList.add("dim");
+                    }
+                }
+
+                row.appendChild(cell_left);
+                row.appendChild(cell_right);
+            }
+        }
+        row.appendChild(_createElement("div", ["cell", "spacer"]));
+    }
+}
+function player_profile_render_stats_content_main_details_table_cell(data, stat, time_frame, avg_mode) {    
+    if (data == null || data == undefined || !(time_frame in data)) {
+        return {
+            "value": 0,
+            "display": "-",
+        };
+    }
+
+    let value = 0;
+    let display = "";
+
+    // Value used to get the average
+    let avgc = 1;
+    if (avg_mode == "match") {
+        avgc = data[time_frame].main["match_count"];
+    } else if (avg_mode == "minute") {
+        avgc = data[time_frame].main["time_played"] / 60;
+    }
+    if (avgc == 0) avgc = 1;
+
+    if (stat == "net") {
+        value = _round((data[time_frame].main["frags"] / avgc) - (data[time_frame].main["deaths"] / avgc), 2);
+        display = value;
+    } else if (stat == "damage_per_life") {
+        if (data[time_frame].main["spawn_count"] > 0) value = Math.floor(data[time_frame].main["damage_done"] / data[time_frame].main["spawn_count"]);
+        display = value;
+    } else if (stat == "movement_speed") {
+        if (data[time_frame].main["time_alive"] > 0) value = Math.floor(data[time_frame].main["distance_moved"] / data[time_frame].main["time_alive"]);
+        else value = 0;
+        display = value+" ups";
+    } else if (stat == "time_played") {
+        value = _seconds_to_string(data[time_frame].main["time_played"]);
+        display = value;
+    } else if (stat.startsWith("damage_")) {
+        value = Math.floor(data[time_frame].main[stat] / avgc);
+        display = _format_number(value);
+    } else {
+        value = _round(data[time_frame].main[stat] / avgc, 2);
+        display = value;
+    }
+
+    return {
+        "value": value,
+        "display": display,
+    }
+}
+
+// =======================================
+// WEAPON DETAILS TABLE 
+// =======================================
+function player_profile_render_stats_content_weapon_details(type, mode, map, stats_1, stats_2) {
+
+    let cont = _createElement("div", ["stats_block", "weapon_details"]);
+    let block_head = _createElement("div", "block_head");
+    cont.appendChild(block_head);
+
+    block_head.appendChild(_createElement("div", "block_title", localize("stats_main_title_weapon_details")));
+    block_head.appendChild(_createElement("div", "line"));
+    
+    let table = _createElement("div", "table");
+
+    let avg_menu = _createElement("div", "block_menu");
+    for (let avg of ["total", "match", "minute"]) {
+        let opt = _createElement("div", "option", localize("stats_avg_title_"+avg));
+        avg_menu.appendChild(opt);
+        _addButtonSounds(opt, 1);
+        if (avg == global_profile_stats_weapon_details_avg) opt.classList.add("selected");
+
+        opt.addEventListener("click", function() {
+            avg_menu.querySelector(".selected").classList.remove("selected");
+            opt.classList.add("selected");
+
+            global_profile_stats_weapon_details_avg = avg;
+
+            _empty(table);
+            render_table();
+        });
+    }
+    block_head.appendChild(avg_menu);
+
+    let weapon_menu = _createElement("div", ["block_menu", "weapons"]);
+    for (let idx of global_weapons_in_scoreboard) {
+        let opt = _createElement("div", "option");
+        let wicon = _createElement("div", "wicon");
+        opt.appendChild(wicon);
+
+        wicon.style.backgroundImage = "url(/html/"+global_item_name_map[global_weapon_idx_name_map2[idx]][2]+"?fill="+global_item_name_map[global_weapon_idx_name_map2[idx]][0]+")";
+
+        opt.dataset.msg = localize(global_item_name_map[global_weapon_idx_name_map2[idx]][1]);
+        add_tooltip2_listeners(opt);
+
+        weapon_menu.appendChild(opt);
+        _addButtonSounds(opt, 1);
+
+
+        if (global_profile_stats_weapon_details_gun == "gun:"+idx) opt.classList.add("selected");
+
+        opt.addEventListener("click", function() {
+            weapon_menu.querySelector(".selected").classList.remove("selected");
+            opt.classList.add("selected");
+
+            global_profile_stats_weapon_details_gun = "gun:"+idx;
+
+            _empty(table);
+            render_table();
+        });
+    }
+    cont.appendChild(weapon_menu);
+
+    cont.appendChild(table);
+
+    function render_table() {
+        if (type == "profile") {
+            if (stats_1 && mode in stats_1) player_profile_render_stats_content_weapon_details_table(table, type, global_profile_stats_weapon_details_avg, global_profile_stats_weapon_details_gun, stats_1[mode]);
+            else table.appendChild(_createElement("div", "no_stats", localize("no_stats_found")));
+        } else if (type == "compare") {
+            let mode_stats_1 = null;
+            let mode_stats_2 = null;
+            let name_2 = "";
+            if (stats_1 && mode in stats_1) mode_stats_1 = stats_1[mode];
+            if (stats_2 && mode in stats_2) mode_stats_2 = stats_2[mode];
+            if (stats_2) name_2 = stats_2.name;
+
+            player_profile_render_stats_content_weapon_details_table(table, type, global_profile_stats_weapon_details_avg, global_profile_stats_weapon_details_gun, mode_stats_1, mode_stats_2, name_2);
+        }
+    }
+    render_table();
+
+    return cont;
+}
+
+const WEAPON_DETAILS_STATS = [
+    "frags",
+    "deaths",
+    "damage_done",
+    "damage_taken",
+    "usage",
+    "acc",
+];
+function player_profile_render_stats_content_weapon_details_table(table, type, avg_mode, weapon, data_1, data_2, name_2) {
+    // Header
+    let row = _createElement("div", ["row", "header"]);
+    table.appendChild(row);
+    if (type == "profile") {
+        row.appendChild(_createElement("div", ["cell", "label"]));
+        row.appendChild(_createElement("div", ["cell", "stat"], localize("stats_title_alltime")));
+        row.appendChild(_createElement("div", ["cell", "stat"], localize("stats_title_season")));
+        row.appendChild(_createElement("div", ["cell", "stat"], localize("stats_title_week")));
+    } else if (type == "compare") {
+        row.appendChild(_createElement("div", ["cell", "label", "double"]));
+
+        row.appendChild(_createElement("div", ["cell", "stat_double", "left"], localize("stats_title_alltime")));
+        row.appendChild(_createElement("div", ["cell", "stat_double", "right", "name"], name_2));
+
+        row.appendChild(_createElement("div", ["cell", "stat_double", "left"], localize("stats_title_season")));
+        row.appendChild(_createElement("div", ["cell", "stat_double", "right", "name"], name_2));
+
+        row.appendChild(_createElement("div", ["cell", "stat_double", "left"], localize("stats_title_week")));
+        row.appendChild(_createElement("div", ["cell", "stat_double", "right", "name"], name_2));
+    }
+    row.appendChild(_createElement("div", ["cell", "spacer"]));
+
+    let time_frames = ["alltime", "season", "week"];
+
+    let rows = 0;
+
+    // Rows
+    for (let stat of WEAPON_DETAILS_STATS) {
+        let row = _createElement("div", "row");
+        table.appendChild(row);
+
+        if (rows % 2 == 0) row.classList.add("odd");
+        rows++;
+
+        // Label
+        if (type == "profile") row.appendChild(_createElement("div", ["cell", "label"], localize("stat_label_"+stat)));
+        else if (type == "compare") row.appendChild(_createElement("div", ["cell", "label", "double"], localize("stat_label_"+stat)));
+
+        for (let time_frame of time_frames) {
+            if (type == "profile") {
+                let cell = _createElement("div", ["cell", "stat"]);
+                let cell_data = player_profile_render_stats_content_weapon_details_table_cell(data_1, stat, time_frame, avg_mode, weapon);
+                cell.textContent = cell_data.display;
+                row.appendChild(cell);
+            } else if (type == "compare") {
+                let cell_left = _createElement("div", ["cell", "stat_double", "left"]);
+                let data_left = player_profile_render_stats_content_weapon_details_table_cell(data_1, stat, time_frame, avg_mode, weapon);
+                cell_left.textContent = data_left.display;
+            
+                let cell_right = _createElement("div", ["cell", "stat_double", "right"]);
+                let data_right = player_profile_render_stats_content_weapon_details_table_cell(data_2, stat, time_frame, avg_mode, weapon);
+                cell_right.textContent = data_right.display;
+
+                if (stat in INVERTED_STATS) {
+                    if (data_left.value > data_right.value) {
+                        cell_left.classList.add("dim");
+                        cell_right.classList.add("hl");
+                    } else if (data_left.value < data_right.value) {
+                        cell_left.classList.add("hl");
+                        cell_right.classList.add("dim");                    
+                    }
+                } else {
+                    if (data_left.value < data_right.value) {
+                        cell_left.classList.add("dim");
+                        cell_right.classList.add("hl");
+                    } else if (data_left.value > data_right.value) {
+                        cell_left.classList.add("hl");
+                        cell_right.classList.add("dim");
+                    }
+                }
+
+                row.appendChild(cell_left);
+                row.appendChild(cell_right);
+            }
+        }
+        row.appendChild(_createElement("div", ["cell", "spacer"]));
+    }
+}
+function player_profile_render_stats_content_weapon_details_table_cell(data, stat, time_frame, avg_mode, weapon) {    
+    if (data == null || data == undefined || !(time_frame in data) || !("weapons" in data[time_frame]) || !(weapon in data[time_frame].weapons)) {
+        return {
+            "value": 0,
+            "display": "-",
+        };
+    }
+
+    let value = 0;
+    let display = "";
+
+    // Value used to get the average
+    let avgc = 1;
+    if (avg_mode == "match") {
+        avgc = data[time_frame].main["match_count"];
+    } else if (avg_mode == "minute") {
+        avgc = data[time_frame].main["time_played"] / 60;
+    }
+    if (avgc == 0) avgc = 1;
+
+    if (stat == "net") {
+        value = _round((data[time_frame].weapons[weapon]["frags"] / avgc) - (data[time_frame].weapons[weapon]["deaths"] / avgc), 2);
+        display = value;
+    } else if (stat == "usage") {
+        value = data[time_frame].weapons[weapon][stat];
+        display = value+"%";
+    } else if (stat == "acc") {
+        if (data[time_frame].weapons[weapon]["shots_fired"] > 0) value = _round(data[time_frame].weapons[weapon]["shots_hit"] / data[time_frame].weapons[weapon]["shots_fired"] * 100, 2);
+        else value = 0;
+        display = value+"%";
+    } else if (stat.startsWith("damage_")) {
+        value = Math.floor(data[time_frame].weapons[weapon][stat] / avgc);
+        display = _format_number(value);
+    } else {
+        value = _round(data[time_frame].weapons[weapon][stat] / avgc, 2);
+        display = value;
+    }
+
+    return {
+        "value": value,
+        "display": display,
+    }
+}
+
+// Format the flat array coming from the API into something more easily useable
+function prepareUserStats(name, data) {
+    let stats = {};
+
+    stats.name = name;
+
+    for (let d of data) {
+        let mode_key = d.match_mm_mode+"-"+d.match_mode;
+        if (d.match_mode == "" && d.match_mm_mode == "") mode_key = "total";
+
+        if (!(mode_key in stats)) stats[mode_key] = {};
+        if (!(d.time_frame in stats[mode_key])) stats[mode_key][d.time_frame] = {};
+
+        if (d.filter == "") {
+            stats[mode_key][d.time_frame]["main"] = d;
+        } else if (d.filter.startsWith("gun:")) {
+            if (!("weapons" in stats[mode_key][d.time_frame])) stats[mode_key][d.time_frame]["weapons"] = {};
+            stats[mode_key][d.time_frame]["weapons"][d.filter] = {
+                "frags": d.frags,
+                "deaths": d.deaths,
+                "damage_done": d.damage_done,
+                "damage_taken": d.damage_taken,
+                "damage_self": d.damage_self,
+                "shots_fired": d.shots_fired,
+                "shots_hit": d.shots_hit,
+            };
+
+            
+            if (!("usage_total" in stats[mode_key][d.time_frame])) stats[mode_key][d.time_frame]["usage_total"] = 0;
+            let idx = d.filter.substring(4);
+            if (idx in global_weapon_reload_times) stats[mode_key][d.time_frame]["usage_total"] += d.shots_fired * global_weapon_reload_times[idx];
+        }
+    }
+
+    for (let mode_key in stats) {
+        if (typeof stats[mode_key] != "object") continue;
+        
+        for (let time_frame in stats[mode_key]) {
+            if (!("usage_total" in stats[mode_key][time_frame])) continue;
+
+            for (let filter in stats[mode_key][time_frame]["weapons"]) {
+                let idx = filter.substring(4);
+                let perc = _round(((stats[mode_key][time_frame]["weapons"][filter].shots_fired * global_weapon_reload_times[idx]) / stats[mode_key][time_frame]["usage_total"]) * 100, 2);
+                stats[mode_key][time_frame]["weapons"][filter]["usage"] = perc;
+            }
+        }
+    }
+
+    return stats;
+}
+
+// ====================================================
+// ACHIEVEMENTS
+function player_profile_render_achievements(data) {
+    //console.log("render achievements", _dump(data));
+
+    // prepare the data
+    let achievements = {};
+    for (let i=0; i<data.achievements.data.length; i++) {
+        let ach = data.achievements.data[i];
+        if (!(ach.achievement_id in achievements)) achievements[ach.achievement_id] = [];
+        achievements[ach.achievement_id].push(ach);
+    }
+
+    let cont = new DocumentFragment();
+    cont.appendChild(player_profile_render_head(data.main.data, true));
+
+    cont.appendChild(_createElement("div", "achievement_head", localize("achievement_msg")));
+
+    if (Object.keys(achievements).length == 0) {
+        cont.appendChild(_createElement("div", "coming_soon", localize("coming_soon")));
+        return cont;
+    }
+
+    let scroll_outer = _createElement("div", "scroll-outer");
+    let scroll_bar = _createElement("div", "scroll-bar");
+    scroll_bar.appendChild(_createElement("div", "scroll-thumb"));
+    scroll_outer.appendChild(scroll_bar);
+    let scroll_inner = _createElement("div", "scroll-inner");
+    scroll_outer.appendChild(scroll_inner);
+
+    new Scrollbar(scroll_outer, global_scrollbarTrackerId++, true);
+
+    cont.appendChild(scroll_outer);
+
+    for (let achievement_id in achievements) {
+        console.log("ach", _dump(achievements[achievement_id]));
+
+        // Get the progress / next goal
+        let goal_val = 0;
+        let progress_val = 0;
+        let progress_perc = 0;
+        let next_reward = {};
+        for (let ach of achievements[achievement_id]) {
+            if (ach.achieved_ts == null) {
+                goal_val = ach.goal;
+                next_reward = ach;
+                if (ach.progress != null) progress_val = ach.progress;
+                if (goal_val > 0) progress_perc = (progress_val / goal_val) * 100;
+                break;
+            }
+        }
+        progress_perc = _clamp(progress_perc, 0, 100);
+
+        let achievement = _createElement("div", "achievement");
+
+        let next_reward_unlock = _createElement("div", ["next_reward", "customization_item"]);
+        if (next_reward.customization_id) {
+            next_reward_unlock.dataset.msgHtmlId = "customization_item";
+            next_reward_unlock.dataset.id = next_reward.customization_id;
+            next_reward_unlock.dataset.type = next_reward.customization_type;
+            next_reward_unlock.dataset.rarity = next_reward.rarity;
+            add_tooltip2_listeners(next_reward_unlock);
+
+            next_reward_unlock.classList.add("rarity_bg_"+next_reward.rarity);
+
+            next_reward_unlock.appendChild(renderCustomizationInner(next_reward.customization_type, next_reward.customization_id, false));
+        }
+        achievement.appendChild(next_reward_unlock);
+
+        let body = _createElement("div", "body");
+        achievement.appendChild(body);
+
+        let rewards = _createElement("div", "rewards");
+        achievement.appendChild(rewards);
+
+
+        body.appendChild(_createElement("div", "name", localize("achievement_"+achievement_id)));
+        body.appendChild(_createElement("div", "progress_title", localize("progress")));
+        let progress = _createElement("div", "progress");
+        let progress_bar = _createElement("div", "progress_bar");
+        let progress_bar_inner = _createElement("div", "progress_bar_inner");
+        progress_bar_inner.style.width = progress_perc+"%";
+        progress_bar.appendChild(progress_bar_inner);
+        progress.appendChild(progress_bar);
+        let progress_text = _createElement("div", "progress_text", _format_number(progress_val)+" / "+_format_number(goal_val));
+        progress.appendChild(progress_text);
+
+        body.appendChild(progress);
+
+
+        for (let ach of achievements[achievement_id]) {
+            if (!ach.goal) continue;
+            let reward = _createElement("div", "reward");
+
+            let item = _createElement("div", "customization_item");
+            if (ach.customization_id) {
+                item.dataset.msgHtmlId = "customization_item";
+                item.dataset.id = ach.customization_id;
+                item.dataset.type = ach.customization_type;
+                item.dataset.rarity = ach.rarity;
+                add_tooltip2_listeners(item);
+
+                item.classList.add("rarity_bg_"+ach.rarity);
+
+                item.appendChild(renderCustomizationInner(ach.customization_type, ach.customization_id, false));
+            }
+            reward.appendChild(item);
+
+            reward.appendChild(_createElement("div", "goal", _format_number(ach.goal)));
+
+            if (ach.achieved_ts != null) {
+                reward.classList.add("achieved");
+
+                let icon = _createElement("div", "achieved_icon");
+                reward.appendChild(icon);
+            }
+
+            rewards.appendChild(reward);
+        }
+        
+        
+        scroll_inner.appendChild(achievement);
+
+    }
+
     return cont;
 }

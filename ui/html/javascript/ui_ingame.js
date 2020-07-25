@@ -1,4 +1,6 @@
-const IS_MENU_VIEW = false;
+const GAMEFACE_VIEW = 'hud';
+
+let global_hud_view_active = false;
 
 //This forces the browser to load in and cache the images
 /*
@@ -6,12 +8,12 @@ var weapon_svgs = [
     'images/weapon_bl.svg#Layer_1',
     'images/weapon_sh.svg#Layer_1',
     'images/weapon_rl.svg#Layer_1',
-    'images/weapon_df.svg#Layer_1',
+    'images/weapon_shaft.svg#Layer_1',
     'images/weapon_pncr.svg#Layer_1',
     'images/weapon_mac.svg#Layer_1',
     'images/weapon_gl.svg#Layer_1',
     'images/weapon_cb.svg#Layer_1',
-    'images/weapon_bfg.svg#Layer_1',
+    'images/weapon_w9.svg#Layer_1',
     'images/weapon_mg.svg#Layer_1',
     'images/weapon_fg.svg#Layer_1',
     'images/weapon_st.svg#Layer_1',
@@ -40,40 +42,68 @@ for( var i=0; i < total; i++){
 // This preloads and renders the images of items
 let global_preload_trick_container = _id("preload_trick_container");
 for (let item of Object.keys(global_item_name_map)) {
-    var div = document.createElement('div');
-    div.style.backgroundImage = "url('"+global_item_name_map[item][2]+"?color="+global_item_name_map[item][0]+"')";
-    global_preload_trick_container.appendChild(div);
+    _loadImage(global_preload_trick_container, global_item_name_map[item][2]+"?color="+global_item_name_map[item][0]);
 }
 
 
 class Match {
-    constructor(players, game_mode, time_elapsed) {
-        this.players = players;
-        this.game_mode = game_mode;
-        this.time_elapsed = time_elapsed;
+    constructor() {
+        this.match_id = -1;
+        this.map = '';
+        this.mode = '';
+        this.mm_mode = '';
+        this.clients = {};
+        this.confirmation_frag_time = false;
+        this.game_time_for_chat = "00:00";
+
+        this.create_ts = Date.now();
+    }
+
+    // Currently only gets the initial manifest clients
+    setManifest(m) {
+        this.match_id = m.match_id;
+
+        for (let c of m.clients) {
+            this.clients[c.user_id] = {
+                "party": c.party,
+                "admin": c.admin
+            };
+        }
+    }
+
+    updateClients(clients) {
+        for (let c of clients) {
+            this.clients[c.user_id] = {
+                "party": c.party,
+                "admin": c.admin
+            };
+        }
     }
 }
 
-
-
 var current_match = new Match([]);
-var my_player_object;
 
-var currentGameState = -1;
+let match_data = {};
+function cleanup_match_data() {
+    for (let match_id in match_data) {
+        if (match_id == current_match.match_id) continue;
 
-var GameStatesEnum = Object.freeze({
-    "WaitingForPlayers": 0, 
-    "Warmup": 1, 
-    "Playing": 2, 
-    "BetweenRounds": 3, 
-    "Finished": 4
-});
-var my_player_id;
-var my_team_id;
+        if ((Date.now() - match_data[match_id].create_ts) > (1800 * 1000)) {
+            delete match_data[match_id];
+        }
+    }
+}
 
 var mask_containers = [];
 var zoom_crosshair_containers = [];
 var crosshair_containers = [];
+let hud_containers = [];
+let game_hud_special = undefined;
+let real_hud_container = undefined;
+let real_hud_element = undefined;
+let spec_hud_element = undefined;
+let real_3D_hud_element = undefined;
+let preview_hud_element = undefined;
 function initialize_references() {
     hud_containers = [_id("real_hud"), _id("hud_preview")];
     game_hud_special = _id("game_hud_special");
@@ -88,12 +118,82 @@ function initialize_references() {
     mask_containers = [_id("game_masks_container"), _id("game_masks_container_zoom")];
     _for_each_in_class("game_crosshairs_container", function(el) { crosshair_containers.push(el); });
     _for_each_in_class("game_zoom_crosshairs_container", function(el) { zoom_crosshair_containers.push(el); });
-    _for_each_in_class("crosshair_preview_container", function(el) { crosshair_containers.push(el); });
+    //_for_each_in_class("crosshair_preview_container", function(el) { crosshair_containers.push(el); });
 }
 
 
 var global_hud_is_visible = false;
 var global_show_rank_change = false;
+
+let global_hud_references = {
+    "time_limit": [],
+    "game_timer": [],
+    "system_clock": [],
+    "chat_messages": [],
+    "chat_container": [],
+    "fraglog": [],
+    "you_fragged": [],
+    "game_report_chat_messages": undefined,
+    "game_report_chat_input": undefined,
+};
+
+var current_weapon_custom_crosshair_index = undefined; //currently held weapons custom crosshair index
+
+let currently_active_crosshair_index = undefined;
+
+function set_hud_weapon_crosshair(settings_weapon_crosshair_index) {
+
+    if (currently_active_crosshair_index == undefined){
+        for (let idx in global_crosshair_map) global_crosshair_map[idx].style.display = "none";
+
+        for (let idx in global_crosshair_hitmarker_map) global_crosshair_hitmarker_map[idx].style.display = "none";
+
+        for (let idx in global_mask_map) global_mask_map[idx].style.display = "none";
+    }
+    if (currently_active_crosshair_index == settings_weapon_crosshair_index) return;
+    
+    // Set the normal crosshair/hitstyle/mask for this weapon:
+    if (currently_active_crosshair_index != settings_weapon_crosshair_index) {
+        if (currently_active_crosshair_index != undefined && currently_active_crosshair_index in global_crosshair_map) global_crosshair_map[currently_active_crosshair_index].style.display = "none";
+        if (settings_weapon_crosshair_index in global_crosshair_map) global_crosshair_map[settings_weapon_crosshair_index].style.display = "flex";
+
+        if (currently_active_crosshair_index != undefined && currently_active_crosshair_index in global_crosshair_hitmarker_map) global_crosshair_hitmarker_map[currently_active_crosshair_index].style.display = "none";
+        if (settings_weapon_crosshair_index in global_crosshair_hitmarker_map) global_crosshair_hitmarker_map[settings_weapon_crosshair_index].style.display = "flex";
+
+        if (currently_active_crosshair_index != undefined && currently_active_crosshair_index in global_mask_map) global_mask_map[currently_active_crosshair_index].style.display = "none";
+        if (settings_weapon_crosshair_index in global_mask_map) global_mask_map[settings_weapon_crosshair_index].style.display = "flex";
+    }
+
+    currently_active_crosshair_index = settings_weapon_crosshair_index;
+}
+
+let currently_active_crosshair_zoom_index = undefined;
+
+function set_hud_zoom_weapon_crosshair(settings_zoom_weapon_crosshair_index) {
+
+    if (currently_active_crosshair_zoom_index == undefined) {
+        for (let idx in global_crosshair_zoom_map) global_crosshair_zoom_map[idx].style.display = "none";
+
+        for (let idx in global_crosshair_hitmarker_zoom_map) global_crosshair_hitmarker_zoom_map[idx].style.display = "none";
+
+        for (let idx in global_mask_zoom_map) global_mask_zoom_map[idx].style.display = "none";
+    }
+    if (currently_active_crosshair_zoom_index == settings_zoom_weapon_crosshair_index) return;
+    
+    // Set the zoom crosshair/hitstyle/mask for this weapon:
+    if (currently_active_crosshair_zoom_index != settings_zoom_weapon_crosshair_index) {
+        if (currently_active_crosshair_zoom_index != undefined && currently_active_crosshair_zoom_index in global_crosshair_zoom_map) global_crosshair_zoom_map[currently_active_crosshair_zoom_index].style.display = "none";
+        if (settings_zoom_weapon_crosshair_index in global_crosshair_zoom_map) global_crosshair_zoom_map[settings_zoom_weapon_crosshair_index].style.display = "flex";
+
+        if (currently_active_crosshair_zoom_index != undefined && currently_active_crosshair_zoom_index in global_crosshair_hitmarker_zoom_map) global_crosshair_hitmarker_zoom_map[currently_active_crosshair_zoom_index].style.display = "none";
+        if (settings_zoom_weapon_crosshair_index in global_crosshair_hitmarker_zoom_map) global_crosshair_hitmarker_zoom_map[settings_zoom_weapon_crosshair_index].style.display = "flex";
+
+        if (currently_active_crosshair_zoom_index != undefined && currently_active_crosshair_zoom_index in global_mask_map) global_mask_zoom_map[currently_active_crosshair_zoom_index].style.display = "none";
+        if (settings_zoom_weapon_crosshair_index in global_mask_zoom_map) global_mask_zoom_map[settings_zoom_weapon_crosshair_index].style.display = "flex";
+    }
+
+    currently_active_crosshair_zoom_index = settings_zoom_weapon_crosshair_index;
+}
 
 window.addEventListener("load", function(){
 
@@ -126,6 +226,22 @@ window.addEventListener("load", function(){
     // Load all the hud element definitions
     init_hud_elements();
 
+    element_chat_setup();
+
+    //Generate crosshair canvases
+    initializeCanvasCrosshairMaps();
+
+    // NOTE: map_unloaded is also fired after "on_connected" but before "on_map_loaded"
+    bind_event('map_unloaded', function() {
+        global_hud_view_active = false;
+
+        // Stop all tracked (ui_sound_tracked) sounds
+        engine.call("ui_stop_sounds");
+
+        // Reset the match id 
+        current_match.match_id = -1;
+    });
+
     bind_event('view_data_received', function(string) {
         // data from another view received
         console.log('view_data_received', string);
@@ -144,34 +260,86 @@ window.addEventListener("load", function(){
             }
             if (!json_data.action) return;
 
-            if (json_data.action && json_data.action == "post-match-updates") {
-                console.log("post-match-updates", _dump(json_data));
-                console.log("ranked:",json_data.data.mmr_updates.ranked);
-                if ("mmr_updates" in json_data.data && json_data.data.mmr_updates.ranked) {
-                    global_show_rank_change = true;
-                    renderRankScreen(json_data.data.mmr_updates);
+            
+            if (json_data.action == "vote-counts") {
+                game_report_update_vote_counts(json_data);
+            }
 
-                    let mmr_data = json_data.data.mmr_updates;
-                    if (mmr_data.mode in global_self.mmr) {
-                        global_self.mmr[mmr_data.mode].rank_tier = mmr_data.to.rank_tier;
-                        global_self.mmr[mmr_data.mode].rank_position = mmr_data.to.rank_position;
-                    } else {
-                        global_self.mmr[mmr_data.mode] = {
-                            "rating": null,
-                            "rank_tier": mmr_data.to.rank_tier,
-                            "rank_position": mmr_data.to.rank_position,
+            if (json_data.action == "post-match-updates") {
+                //console.log("post-match-updates", _dump(json_data));
+
+                if (current_match.match_id == json_data.data.match_id) {
+                    if ("mmr_updates" in json_data.data && json_data.data.mmr_updates.ranked) {
+                        global_show_rank_change = true;
+                        renderRankScreen(json_data.data.mmr_updates);
+
+                        let mmr_data = json_data.data.mmr_updates;
+                        if (mmr_data.mode in global_self.mmr) {
+                            global_self.mmr[mmr_data.mode].rank_tier = mmr_data.to.rank_tier;
+                            global_self.mmr[mmr_data.mode].rank_position = mmr_data.to.rank_position;
+                        } else {
+                            global_self.mmr[mmr_data.mode] = {
+                                "rating": null,
+                                "rank_tier": mmr_data.to.rank_tier,
+                                "rank_position": mmr_data.to.rank_position,
+                            }
                         }
+
+                        updateGameReportRank(mmr_data.mode);
                     }
 
-                    updateGameReportRank(mmr_data.mode);
+                    // clear the previous progression update
+                    clear_battle_pass_progression();
+
+                    // Update game report with battle pass and achievement progression
+                    if ("progression_updates" in json_data.data) {
+                        
+                        if ("achievement_rewards" in json_data.data.progression_updates) {
+                            set_achievement_rewards(json_data.data.progression_updates.achievement_rewards);
+                        } else {
+                            set_achievement_rewards();
+                        }
+
+                        if ("battlepass_update" in json_data.data.progression_updates) {
+                            set_battle_pass_rewards(json_data.data.progression_updates.battlepass_rewards);
+                            set_battle_pass_progression(json_data.data.progression_updates.battlepass_update);
+                        } else {
+                            set_battle_pass_rewards();
+                        }
+
+                        // Add rewards to the progression update
+                        set_progression_reward_unlocks();
+                    }
+
+                    if ("rematch_enabled" in json_data.data) {
+                        global_game_report_rematch_enabled = json_data.data.rematch_enabled;
+                    } else {
+                        global_game_report_rematch_enabled = false;
+                    }
+                    game_report_reset_rematch_option();
                 }
             }
+
+            if (json_data.action == "rematch-status") {
+                game_report_handle_rematch_update(json_data);
+            }
+
+
             if (json_data.action == "party-status") {
                 global_self.user_id = json_data['user-id'];
             }
 
             if (json_data.action == "get-ranked-mmrs") {
                 global_self.mmr = json_data.data;
+            }
+
+            if (json_data.action == "update-match-client-data") {
+                if (current_match.match_id == json_data.match_id) {
+                    current_match.updateClients(json_data.clients);
+                } else {
+                    match_data[json_data.match_id] = new Match();
+                    match_data[json_data.match_id].updateClients(json_data.clients);
+                }
             }
 
         }
@@ -190,7 +358,7 @@ window.addEventListener("load", function(){
     });
     
     bind_event('hud_changed', function (type, jsonStr) {
-        //console.log("post_load_setup_hud_editor 3");
+        //console.log("hud_changed", type);
         try {
             editing_hud_data = JSON.parse(jsonStr);
         } catch (err) {
@@ -199,12 +367,11 @@ window.addEventListener("load", function(){
         }
         if (type == HUD_PLAYING) {
             make_hud_in_element("real_hud", false, false);
-            setTimeout(function() { element_chat_setup(_id("hud_load_during_loading")); });
         }
         if (type == HUD_SPECTATING) {
             make_hud_in_element("spec_hud", false, true);
-            setTimeout(function() { element_chat_setup(_id("spec_hud_load_during_loading")); });
         }
+        setup_hud_references();
         gameface_strafe_prefetch_check();
     });
 
@@ -216,8 +383,12 @@ window.addEventListener("load", function(){
             console.log("Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
             engine.call("echo", "Unable to parse hud definition, definition string may have been too long  when it was saved and got cut off");
         }
+
+        // Check hud version
+        hud_version_check(editing_hud_data, HUD_PLAYING);
+
         make_hud_in_element("real_hud", false, false);
-        setTimeout(function() { element_chat_setup(_id("hud_load_during_loading")); });
+        setup_hud_references();
     });
 
     engine.call('get_hud_json', HUD_SPECTATING).then(function (jsonStr) {
@@ -228,9 +399,27 @@ window.addEventListener("load", function(){
             console.log("Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
             engine.call("echo", "Unable to parse hud definition, definition string may have been too long  when it was saved and got cut off");
         }
+
+        // Check hud version
+        hud_version_check(editing_hud_data, HUD_SPECTATING);
+
         make_hud_in_element("spec_hud", false, true);
-        setTimeout(function() { element_chat_setup(_id("spec_hud_load_during_loading")); });
+        setup_hud_references();
     });
+
+    function setup_hud_references() {
+        // Reset previous references
+        global_hud_references.chat_messages.length = 0;
+        global_hud_references.chat_container.length = 0;
+        global_hud_references.game_report_chat_messages = _id("game_report_cont").querySelector(".chat_messages");
+        global_hud_references.game_report_chat_input = _id("game_report_cont").querySelector(".chat_input");
+        _for_each_with_class_in_parent(game_hud_special, "chat_messages", el => global_hud_references.chat_messages.push(el));
+        _for_each_with_class_in_parent(game_hud_special, "chat_container", el => global_hud_references.chat_container.push(el));
+        global_hud_references.fraglog.length = 0;
+        global_hud_references.you_fragged.length = 0;
+        _for_each_with_class_in_parent(real_hud_container, "fraglog", el => global_hud_references.fraglog.push(el));
+        _for_each_with_class_in_parent(real_hud_container, "elem_you_fragged", el => global_hud_references.you_fragged.push(el));
+    }
 
     bind_event('set_checkbox', function (variable, value) {
 
@@ -240,6 +429,8 @@ window.addEventListener("load", function(){
     let global_on_after_connected = false;
     bind_event('on_connected', function() {
         console.log("on_connected");
+
+        global_hud_view_active = true;
 
         engine.call("hud_mouse_control", false);
         console.log("hud_mouse_control false #1");
@@ -253,6 +444,7 @@ window.addEventListener("load", function(){
         _id("game_over_screen").style.display = "none";
         _id("game_report_cont").style.display = "none";
         _id("game_report").style.display = "none";
+        _id("aim_report").style.display = "none";
         _id("rank_screen").style.display = "none";
 
         anim_show(game_hud_special, 0);
@@ -268,22 +460,33 @@ window.addEventListener("load", function(){
 
     bind_event('on_map_loaded', function () {
         console.log("on_map_loaded");
+        global_hud_view_active = true;
     });
 
     // game_manifest is sent after connecting / loading the map
     bind_event("game_manifest", function(manifest) {
-        console.log("game_manifest");
+        //console.log("game_manifest");
+
+        global_show_rank_change = false;
 
         if (manifest) {
             var mani = JSON.parse(manifest);
             //console.log("manifest",_dump(mani));
 
+            if (mani.match_id in match_data) {
+                current_match = match_data[mani.match_id];
+            }
             current_match.map = mani.map;
+            current_match.match_type = mani.match_type;
             current_match.mode = mani.mode;
             current_match.mm_mode = mani.mm_mode;
+            current_match.setManifest(mani);
+            cleanup_match_data();
 
-            if ("lingering_time" in mani) global_game_report_countdown = Number(mani.lingering_time);        
-            if (Number(mani.continuous) == 0) global_game_report_countdown = global_game_report_countdown + 5;
+            // Reset any previous intervals, otherwise the countdown time would continue to be lowered again after being set here
+            if (global_game_report_countdown_interval) clearInterval(global_game_report_countdown_interval);
+
+            if ("lingering_time" in mani) global_game_report_countdown = Number(mani.lingering_time);
 
             _id("game_intro_mode").textContent = localize(global_game_mode_map[mani.mode].i18n);
             _id("game_intro_map").textContent = _format_map_name(mani.map);
@@ -303,36 +506,61 @@ window.addEventListener("load", function(){
         //_id("game_loading_message").style.display = "block";
     });
 
-    bind_event("change_pause_state", function(paused, player_id){
+    bind_event("change_pause_state", function(paused, player_id) {
+        let name = false;
+        for (let i=0; i<game_data.teams.length; i++) {
+            for (let y=0; y<game_data.teams[i].players.length; y++) {
+                if (parseInt(game_data.teams[i].players[y].player_id) == player_id) {
+                    name = game_data.teams[i].players[y].name;
+                    break;
+                }
+            }
+            if (name) break;
+        }
+
+        if (!name) {
+            for (let y=0; y<game_data.spectators[i].length; y++) {
+                if (game_data.spectators[i].player_id == player_id) {
+                    name = game_data.spectators[i].name;
+                    break;
+                }
+            }
+        }
 
         if (paused) {
             _id("paused_message").style.display = "flex";
-            const player = current_match.players.find(p => p.id === player_id);
 
-            if (player) {
-                addServerChatMessage(player.player + " paused the game.");
-            } else {
-                addServerChatMessage("Spectator paused the game.");
-            }
+            if (name) addServerChatMessage(localize_ext("ingame_chat_msg_client_match_paused", {"name": name}));
+            else addServerChatMessage(localize("ingame_chat_msg_match_paused"));
+
         } else {
             _id("paused_message").style.display = "none";
-            const player = current_match.players.find(p => p.id === player_id);
 
-            if (player) {
-                addServerChatMessage(player.player + " unpaused the game.");
-            } else {
-                addServerChatMessage("Spectator unpaused the game.");
-            }
+            if (name) addServerChatMessage(localize_ext("ingame_chat_msg_client_match_unpaused", {"name": name}));
+            else addServerChatMessage(localize("ingame_chat_msg_match_unpaused"));
+        }
+    });
+
+    bind_event("server_log_message", function(key, value1, value2) {
+        if (key == "connected") {
+            addServerChatMessage(localize_ext("ingame_chat_msg_client_connected", {"name": value1}));
+        } else if (key == "disconnected") {
+            addServerChatMessage(localize_ext("ingame_chat_msg_client_disconnected", {"name": value1}));
+        } else if (key == "join_team") {
+            addServerChatMessage(localize_ext("ingame_chat_msg_client_joined_team", {"name": value1, "team": value2}));
+        } else if (key == "join_spec") {
+            addServerChatMessage(localize_ext("ingame_chat_msg_client_joined_spec", {"name": value1}));
         }
     });
 
     bind_event('show_score', function (visible) {
-        console.log("show_score", visible);
+        /* replaced with native scoreboard
         if (visible){
-            _id("teams_scoreboard").style.display = "";            
+            _id("scoreboard").style.display = "flex";            
         } else {
-            _id("teams_scoreboard").style.display = "none";
+            _id("scoreboard").style.display = "none";
         }
+        */
     });
 
    bind_event("show_game_over", function (show, victory) {
@@ -360,7 +588,8 @@ window.addEventListener("load", function(){
 
 
     bind_event('set_respawn_timer', function (time_ms) {
-        //engine.call("echo","time_seconds " + time_seconds);
+        //console.log("respawning in time_seconds " + time_ms);
+        /*
         var el = _id("respawn_timer");
         if (el) {
             if (time_ms == -1) {
@@ -370,6 +599,17 @@ window.addEventListener("load", function(){
                 el.style.display = "flex";
             }
         }
+        */
+
+        if (!game_data.show_respawn_timers) return;
+
+        let seconds = Math.round(time_ms/1000);
+        if (seconds == 0) return;
+
+        let cont = new DocumentFragment();
+        cont.appendChild(_createElement("div", "text", localize("ingame_message_respawning_in")));
+        cont.appendChild(_createElement("div", ["countdown", "medium"], seconds));
+        showAnnounce(cont, 1, 1000, 1000);
     });
 
     /* replaced by player_name hud element
@@ -445,6 +685,7 @@ window.addEventListener("load", function(){
     });
 
     bind_event("set_player_respawn_timer", function (player_id, time_ms){
+        /*
         var player_icon = _id("player_icon_" + player_id);
         if (player_icon){
             var player_icon_respawn_timer = player_icon.getElementsByClassName("player_respawn_timer")[0];
@@ -453,6 +694,7 @@ window.addEventListener("load", function(){
                 _html(player_icon_respawn_timer, Math.round(time_ms / 1000));
             }
         }
+        */
     });
 
 
@@ -466,7 +708,7 @@ window.addEventListener("load", function(){
 
     bind_event('announce', function(text, large, fade_out_ms, duration_ms, clear_before) {
         console.log("================== announce", text);
-        showAnnounce(text, large, fade_out_ms, duration_ms, clear_before);
+        showAnnounce(text, (large ? 1 : 0), fade_out_ms, duration_ms);
     });
 
 
@@ -477,17 +719,22 @@ window.addEventListener("load", function(){
 
     
 
-    function showAnnounce(text, large, fade_out_ms, duration_ms, clear_before){
+    function showAnnounce(text, large, fade_out_ms, duration_ms){
         var container = _id("announcements");
-        if (clear_before) {
-            _empty(container);
-        }
+        _empty(container);
         
-        var new_line = document.createElement("DIV");
-        if (large) {
-            new_line.classList.add("large_announcement");
+        var new_line = _createElement("div", "inner");
+        if (large == 1) new_line.classList.add("large");
+        if (large == 2) new_line.classList.add("larger");
+
+        if (text.nodeType == undefined) {
+            // Text
+            _html(new_line, text);
+        } else if (text.nodeType == 1 || text.nodeType == 11) {
+            // Element Node
+            new_line.appendChild(text);
         }
-        _html(new_line, text);
+
         container.insertBefore(new_line, container.firstChild);
         anim_start({
             element: new_line,
@@ -496,119 +743,111 @@ window.addEventListener("load", function(){
             duration: fade_out_ms,
             remove: true
         });
-        return new_line;
     };
 
     bind_event('announce_message', function(key, value) {
-        if(key == "countdown"){
-            showAnnounce(value, true, 1000, 0, true);
-        }
-        else if(key == "round_countdown"){
-            showAnnounce(localize_ext("ingame_message_round_begins_in", {"seconds": value }), true, 1000, 0, true);
-        }
-        else if(key == "pre_countdown"){
-            showAnnounce(localize_ext("ingame_message_start_countdown", {"seconds": value }), false, value == 0?300:0, 1100, true);
-        }
-        else if(key == "overtime"){
-            showAnnounce(localize_ext("ingame_message_overtime_seconds", {"seconds": value }), false, 1000, 1000, true);
-        }
-        else if(key == "fight"){
-            showAnnounce(localize("ingame_message_fight"), true, 1000, 1000, true);
+        if (key == "countdown") {
+            showAnnounce(value, 2, 1000, 0);
+        } else if (key == "round_countdown") {
+            let cont = new DocumentFragment();
+            cont.appendChild(_createElement("div", "text", localize("ingame_message_round_begins_in")));
+            cont.appendChild(_createElement("div", "countdown", value));
+            showAnnounce(cont, 1, 1000, 1000);
+        } else if (key == "respawn_countdown") {
+            let cont = new DocumentFragment();
+            cont.appendChild(_createElement("div", "text", localize("ingame_message_respawning_in")));
+            cont.appendChild(_createElement("div", ["countdown", "medium"], Math.round(value/1000)));
+            showAnnounce(cont, 1, 1000, 1000);
+        } else if (key == "pre_countdown") {
+            let cont = new DocumentFragment();
+            cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_get_ready")));
+            cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_start_countdown", {"seconds": value })));
+            showAnnounce(cont, 0, value == 0?300:0, 1100);
+        } else if (key == "overtime") {
+            let cont = new DocumentFragment();
+            cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_overtime")));
+            cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_overtime_seconds", {"seconds": value })));
+            showAnnounce(cont, 1, 1000, 1000);
+        } else if (key == "score_overtime") {
+            let cont = new DocumentFragment();
+            cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_overtime")));
+            cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_overtime_fraglimit", {"score": value })));
+            showAnnounce(cont, 1, 1000, 1000);
+        } else if (key == "fight") {
+            showAnnounce(localize("ingame_message_fight"), 2, 500, 900);
+        } else if (key == "saved_map") {
+            showAnnounce(localize_ext("editor_saved_map", {"name": value }), 0, 300, 2000);
+        } else if (key == "baked_map") {
+            showAnnounce(localize_ext("editor_baked_map", {"seconds": value/1000 }), 0, 300, 2000);
+        } else if (key == "bake_map_failed") {
+            showAnnounce(localize("editor_map_bake_failed"), 0, 300, 2000);
         }
     });
 
     bind_event('set_time', function (time, warmup, game_mode, round, extraDataJSON) {
 
+        /* 
+        // REPLACED WITH SNAFU ELEMENTS
 
         var extraData = JSON.parse(extraDataJSON);
         //console.log("==============");
-        //console.log(time,warmup,game_mode,round);
+        //console.log("set_time", time,warmup,game_mode,round);
         //console.log(_dump(extraData));
        
-
         var time_limit = parseInt(extraData[0]);
         var overtime_seconds = parseInt(extraData[1]);
         var tide_time_offset = parseInt(extraData[2]);
+        var in_overtime_frag_mode = extraData[3];
+        var dynamic_overtime_frag_limit = parseInt(extraData[4]);
 
+        current_match.game_time_for_chat = _seconds_to_digital(time);  // hacky shoehorning timestamp for chat msg
+
+        var game_state = '';
+        if (warmup) {
+            // Warmup
+            game_state = localize("ingame_message_warmup");
+        } else {
+            if (CUSTOM_ROUND_BASED_MODES.includes(game_mode)) {
+                // Round X
+                game_state = localize_ext("ingame_message_round", {"round": (round + 1) });
+            } else {
+                var limit_overtime = time_limit + overtime_seconds + tide_time_offset;
+
+                if (overtime_seconds) {
+                    // XX:XX Overtime
+                    game_state = _seconds_to_digital(limit_overtime)+" "+localize("ingame_message_overtime");
+                } else {
+
+                    if (time_limit !== 0) {
+                        if (current_match.confirmation_frag_time) {
+                            // Golden Frag
+                            game_state = localize("ingame_message_golden_frag");
+                        } else if (in_overtime_frag_mode === true) {
+                            game_state = localize_ext("ingame_message_overtime_fraglimit", {"score": dynamic_overtime_frag_limit });
+                        } else {
+                            // XX:XX
+                            game_state = _seconds_to_digital(limit_overtime);
+                        }    
+                    }
+
+                }
+            }
+        }
+
+        for (let el of global_hud_references.time_limit) {
+            el.textContent = game_state;
+        }
+
+        var timeLeft = (time_limit + overtime_seconds + tide_time_offset) - time;
+        if (timeLeft < 0) timeLeft = 0;
 
         var minutes = Math.floor(time / 60);
         var seconds = time % 60;
 
-        var formattedMinutes = ("0" + minutes).slice(-2);
-        var formattedSeconds = ("0" + seconds).slice(-2);
-
-        var outputString = formattedMinutes + ":" + formattedSeconds;
-        current_match.game_time_for_chat = outputString;  // hacky shoehorning timestamp for chat msg
-        var gameStateString = "";
-
-        if (game_mode == "ca") {
-            gameStateString += "<p class=label>"+localize_ext("ingame_message_round",{"round": (round + 1) })+"</p>";
-        } else if (overtime_seconds) {
-            gameStateString += "<p class=label>"+localize("ingame_message_overtime")+"</p>";
-        }
-
-        {
-            let el = _id("current_gamestate");
-            if (el) _html(el, gameStateString);
-        }
-
-        if (warmup) {
-            _for_each_with_class_in_parent(real_hud_container, 'elem_time_limit', function(el){
-                _html(el, localize("ingame_message_warmup"));
-            });
-        } else {
-
-            if (time_limit !== 0) {
-                var limit_overtime = time_limit + overtime_seconds + tide_time_offset;
-
-                if (current_match.confirmation_frag_time) {
-                    _for_each_with_class_in_parent(real_hud_container, 'elem_time_limit', function(el){
-                        _html(el, localize("ingame_message_golden_frag"));
-                    });
-                    _for_each_with_class_in_parent(real_hud_container, 'protected', function(el){
-                        el.classList.remove("protected");
-                    });
-                } else {
-                    var time_limit_minutes = Math.floor(limit_overtime / 60);
-                    var time_limit_seconds = limit_overtime % 60;
-    
-                    var formatted_time_limit_minutes = ("0" + time_limit_minutes).slice(-2);
-                    var formatted_time_limit_seconds = ("0" + time_limit_seconds).slice(-2);
-        
-                    _for_each_with_class_in_parent(real_hud_container, 'elem_time_limit', function(el){
-                        _html(el, formatted_time_limit_minutes + ":" + formatted_time_limit_seconds);
-                    }); 
-                }    
-            } else {
-                _for_each_with_class_in_parent(real_hud_container, 'elem_time_limit', function(el){
-                    _empty(el);
-                });  
-            }
-
-        }
-
-        var timeLeft = (time_limit + overtime_seconds + tide_time_offset) - time;
-
-        if (game_mode == "duel" && timeLeft <= 60 && timeLeft > -5 && !warmup && !current_match.confirmation_frag_time) {
-            // Show time left bar
-            _id("time_left_holder_bar").style.display = "flex";
-            _id("time_left_bar").style.width = ((timeLeft / 60) * 100)+ "%";
-            _id("tide_bar").style.width = "0%";
-        } else {
-            // Hide time left bar
-            _id("time_left_holder_bar").style.display = "none";
-        }
-
-        if (timeLeft < 0) timeLeft = 0;
-
         var time_left_minutes = Math.floor(timeLeft / 60);
         var time_left_seconds = timeLeft % 60;
 
-        var formatted_time_left_minutes = ("0" + time_left_minutes).slice(-2);
-        var formatted_time_left_seconds = ("0" + time_left_seconds).slice(-2);
-
-
-        _for_each_with_class_in_parent(real_hud_container, 'elem_game_timer', function(el){
+        for (let el of global_hud_references.game_timer) {
             if (el.dataset.analog == 1) {
                 if(el.dataset.countdown == 1){
                     el.children[0].children[0].style.transform = "rotate("+(time_left_seconds*6)+"deg)";
@@ -618,16 +857,13 @@ window.addEventListener("load", function(){
                     el.children[0].children[1].style.transform = "rotate("+(minutes*30+seconds/2)+"deg)";   
                 }
             } else {
-                //el.innerHTML = formatted_time_limit_minutes + ":" + formatted_time_limit_seconds;
-                if(el.dataset.countdown == 1){
-                    _html(el, formatted_time_left_minutes + ":" + formatted_time_left_seconds);
-                    //el.innerHTML = formatted_time_left_minutes + ":" + formatted_time_left_seconds;
+                if (el.dataset.countdown == 1){
+                    el.textContent = _seconds_to_digital(timeLeft);
                 } else {
-                    _html(el, outputString);
-                    //el.innerHTML = outputString;                  
+                    el.textContent = _seconds_to_digital(time);
                 }
             }
-        }); 
+        }
         
         // hacky experimental piggybacking for a system clock element, should be moved elsewhere when finalized so that seconds update aren't synced to game time
         var piggyback_today = new Date();
@@ -635,28 +871,27 @@ window.addEventListener("load", function(){
         var piggyback_local_min  = piggyback_today.getMinutes();
         var piggyback_local_sec  = piggyback_today.getSeconds();
         var piggyback_local_time = piggyback_local_hour + ":" + (piggyback_local_min<10?"0"+piggyback_local_min:piggyback_local_min) + ":" + (piggyback_local_sec<10?"0"+piggyback_local_sec:piggyback_local_sec);
-        _for_each_with_class_in_parent(real_hud_container, 'elem_system_clock', function(el){
+        for (let el of global_hud_references.system_clock) {
             if (el.dataset.analog == 1) {
                 el.children[0].children[0].style.transform = "rotate("+(piggyback_local_min*6 + piggyback_local_sec/10)+"deg)";
                 el.children[0].children[1].style.transform = "rotate("+(piggyback_local_hour*30 + piggyback_local_min/2 + piggyback_local_sec/120)+"deg)";      
             } else {
-                _html(el, piggyback_local_time);
+                el.textContent = piggyback_local_time;
             }
-        }); 
-
+        }
+        */
     });
 
 
+
+
     bind_event("player_needs_confirmation_frag", function (player_id) {
-//        if (!current_match.confirmation_frag_time) showAnnounce(localize("ingame_message_knockout_phase"), false, 2000, 0, false);
         current_match.confirmation_frag_time = true;
     });
 
     bind_event('set_hud_game_mode', function (mode) {
         //engine.call("echo", 'set_hud_game_mode ' + mode.toUpperCase());
 /*
-        current_match.game_mode = mode;
-
         
         _for_each_with_class_in_parent(real_hud_container, "scoreboard_gamemode_name", el => {
             el.textContent = mode.toUpperCase();
@@ -673,57 +908,20 @@ window.addEventListener("load", function(){
     });
     
     bind_event('set_zoom', function (enabled) {
-        crosshair_containers[0].style.display      = enabled ? "none" : "flex";
-        zoom_crosshair_containers[0].style.display = enabled ? "none" : "flex";
-        mask_containers[0].style.display           = enabled ? "none" : "flex";
-        crosshair_containers[1].style.display      = enabled ? "flex" : "none";
-        zoom_crosshair_containers[1].style.display = enabled ? "flex" : "none";
-        mask_containers[1].style.display           = enabled ? "flex" : "none";
+        crosshair_containers[0].style.display      = enabled ? "none" : "flex"; // crosshair
+        crosshair_containers[1].style.display      = enabled ? "none" : "flex"; // hitmarker
+
+        zoom_crosshair_containers[0].style.display = enabled ? "flex" : "none"; // crosshair
+        zoom_crosshair_containers[1].style.display = enabled ? "flex" : "none"; // hitmarker
+
+        mask_containers[0].style.display           = enabled ? "none" : "flex"; // normal mask
+        mask_containers[1].style.display           = enabled ? "flex" : "none"; // zoomed mask
     });
 
-    let currently_active_crosshair_index = undefined;
-    let currently_active_crosshair_zoom_index = undefined;
-    bind_event('set_hud_weapon', function (settings_weapon_index, settings_zoom_weapon_index) {
-        //console.log("set_hud_weapon", currently_active_crosshair_index+" -> "+settings_weapon_index, currently_active_crosshair_zoom_index+" -> "+settings_zoom_weapon_index);
-
-        if (currently_active_crosshair_index == undefined || currently_active_crosshair_zoom_index == undefined) {
-            for (let idx in global_crosshair_map) global_crosshair_map[idx].style.display = "none";
-            for (let idx in global_crosshair_zoom_map) global_crosshair_zoom_map[idx].style.display = "none";
-
-            for (let idx in global_crosshair_hitmarker_map) global_crosshair_hitmarker_map[idx].style.display = "none";
-            for (let idx in global_crosshair_hitmarker_zoom_map) global_crosshair_hitmarker_zoom_map[idx].style.display = "none";
-
-            for (let idx in global_mask_map) global_mask_map[idx].style.display = "none";
-            for (let idx in global_mask_zoom_map) global_mask_zoom_map[idx].style.display = "none";
-        }
-        if (currently_active_crosshair_index == settings_weapon_index && currently_active_crosshair_zoom_index == settings_zoom_weapon_index) return;
-        
-        // Set the normal crosshair/hitstyle/mask for this weapon:
-        if (currently_active_crosshair_index != settings_weapon_index) {
-            if (currently_active_crosshair_index != undefined && currently_active_crosshair_index in global_crosshair_map) global_crosshair_map[currently_active_crosshair_index].style.display = "none";
-            if (settings_weapon_index in global_crosshair_map) global_crosshair_map[settings_weapon_index].style.display = "flex";
-
-            if (currently_active_crosshair_index != undefined && currently_active_crosshair_index in global_crosshair_hitmarker_map) global_crosshair_hitmarker_map[currently_active_crosshair_index].style.display = "none";
-            if (settings_weapon_index in global_crosshair_hitmarker_map) global_crosshair_hitmarker_map[settings_weapon_index].style.display = "flex";
-
-            if (currently_active_crosshair_index != undefined && currently_active_crosshair_index in global_mask_map) global_mask_map[currently_active_crosshair_index].style.display = "none";
-            if (settings_weapon_index in global_mask_map) global_mask_map[settings_weapon_index].style.display = "flex";
-        }
-
-        // Set the zoom crosshair/hitstyle/mask for this weapon:
-        if (currently_active_crosshair_zoom_index != settings_zoom_weapon_index) {
-            if (currently_active_crosshair_zoom_index != undefined && currently_active_crosshair_zoom_index in global_crosshair_zoom_map) global_crosshair_zoom_map[currently_active_crosshair_zoom_index].style.display = "none";
-            if (settings_zoom_weapon_index in global_crosshair_zoom_map) global_crosshair_zoom_map[settings_zoom_weapon_index].style.display = "flex";
-
-            if (currently_active_crosshair_zoom_index != undefined && currently_active_crosshair_zoom_index in global_crosshair_hitmarker_zoom_map) global_crosshair_hitmarker_zoom_map[currently_active_crosshair_zoom_index].style.display = "none";
-            if (settings_zoom_weapon_index in global_crosshair_hitmarker_zoom_map) global_crosshair_hitmarker_zoom_map[settings_zoom_weapon_index].style.display = "flex";
-
-            if (currently_active_crosshair_zoom_index != undefined && currently_active_crosshair_zoom_index in global_mask_map) global_mask_zoom_map[currently_active_crosshair_zoom_index].style.display = "none";
-            if (settings_zoom_weapon_index in global_mask_zoom_map) global_mask_zoom_map[settings_zoom_weapon_index].style.display = "flex";
-        }
-
-        currently_active_crosshair_index = settings_weapon_index;
-        currently_active_crosshair_zoom_index = settings_zoom_weapon_index;
+    bind_event('set_hud_weapon', function (settings_weapon_crosshair_index, settings_zoom_weapon_crosshair_index, weapon_index) {
+        current_weapon_custom_crosshair_index = weapon_index;
+        set_hud_weapon_crosshair(settings_weapon_crosshair_index);
+        set_hud_zoom_weapon_crosshair(settings_zoom_weapon_crosshair_index);
     });
 
     bind_event("show_play_of_the_game", function (show, player_name) {
@@ -746,11 +944,14 @@ window.addEventListener("load", function(){
 
     // load callbacks from other files
     init_hud_screen_game_report();
+    init_hud_screen_aim_report();
 
     // load shared code between menu and hud views
     init_shared();
 
     setupMenuSoundListeners();
+
+    init_debug_listeners();
 
     window.requestAnimationFrame(anim_update);
 
@@ -759,244 +960,233 @@ window.addEventListener("load", function(){
 });
 
 
-
-
-
-
-
-
-
 ////////////////////
 // TEST FUNCTIONS //
 ////////////////////
-function runHudUITest(str) {
-    let tmp = str.split(":");
-    if (tmp[1] == "0") {
-		let mmr_updates = {
-			"from": {
-				"rating": 1500,
-				"rank_tier": 25,
-				"rank_position": 1,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"to": {
-				"rating": 1520,
-				"rank_tier": 25,
-				"rank_position": 1,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"mode": "r_duel",
-			"match_type": 2,
-			"placement_match": 0,
-			"ranked": true
-        };
+function init_debug_listeners() {
 
-        hudUITestRankScreen(mmr_updates, 10000);
-    }
-    if (tmp[1] == "1") {
-		let mmr_updates = {
-			"from": {
-				"rating": 1547.7387406072,
-				"rank_tier": 25,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"to": {
-				"rating": 1573.6258831622672,
-				"rank_tier": 40,
-				"rank_position": 7,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"mode": "r_duel",
-			"match_type": 2,
-			"placement_match": 0,
-			"ranked": true
-        };
+    // /devop ui_call test_rank <id>
+    bind_event("test_rank", function(id) {
+        let mmr_updates = null;
+        let timeout = 0;
+        if (id == "0") {
+            mmr_updates = {
+                "from": {
+                    "rating": 1500,
+                    "rank_tier": 25,
+                    "rank_position": 1,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "to": {
+                    "rating": 1520,
+                    "rank_tier": 25,
+                    "rank_position": 1,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "mode": "r_duel",
+                "match_type": 2,
+                "placement_match": 0,
+                "ranked": true
+            };
+            timeout = 10000;
+        }
+        if (id == "1") {
+            mmr_updates = {
+                "from": {
+                    "rating": 1547.7387406072,
+                    "rank_tier": 25,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "to": {
+                    "rating": 1573.6258831622672,
+                    "rank_tier": 40,
+                    "rank_position": 7,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "mode": "r_duel",
+                "match_type": 2,
+                "placement_match": 0,
+                "ranked": true
+            };
+            timeout = 12000;
+        }
+        if (id == "2") {
+            mmr_updates = {
+                "from": {
+                    "rating": 1547.7387406072,
+                    "rank_tier": 34,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "to": {
+                    "rating": 1500.6258831622672,
+                    "rank_tier": 33,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "mode": "r_duel",
+                "match_type": 2,
+                "placement_match": 0,
+                "ranked": true
+            };
+            timeout = 10000;
+        }
+        if (id == "3") {
+            mmr_updates = {
+                "from": {
+                    "rank_tier": null,
+                    "rank_position": null,
+                    "cur_tier_req": 0,
+                    "next_tier_req": 0,
+                    "placement_matches": "1010111"
+                },
+                "to": {
+                    "rank_tier": null,
+                    "rank_position": null,
+                    "cur_tier_req": 0,
+                    "next_tier_req": 0,
+                    "placement_matches": "10101110"
+                },
+                "mode": "r_solo",
+                "match_type": 2,
+                "placement_matches": 10,
+                "placement_match": 1,
+                "ranked": true
+            };
+            timeout = 10000;
+        }
+        if (id == "4") {
+            mmr_updates = {
+                "from": {
+                    "rank_tier": null,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650,
+                    "placement_matches": "101011101"
+                },
+                "to": {
+                    "rating": 1693,
+                    "rank_tier": 34,
+                    "rank_position": 1,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650,
+                    "placement_matches": "1010111011"
+                },
+                "mode": "r_duel",
+                "match_type": 2,
+                "placement_matches": 10,
+                "placement_match": 1,
+                "ranked": true
+            };
+            timeout = 18000;
+        }
+        if (id == "5") {
+            mmr_updates = {
+                "from": {
+                    "rating": 1500,
+                    "rank_tier": 25,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "to": {
+                    "rating": 1520,
+                    "rank_tier": 25,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "mode": "r_duel",
+                "match_type": 3,
+                "placement_match": 0,
+                "ranked": true
+            };
+            timeout = 10000;
+        }
+        if (id == "6") {
+            mmr_updates = {
+                "from": {
+                    "rating": 1547.7387406072,
+                    "rank_tier": 25,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "to": {
+                    "rating": 1573.6258831622672,
+                    "rank_tier": 26,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "mode": "r_duel",
+                "match_type": 3,
+                "placement_match": 0,
+                "ranked": true
+            };
+            timeout = 10000;
+        }
+        if (id == "7") {
+            mmr_updates = {
+                "from": {
+                    "rating": 1547.7387406072,
+                    "rank_tier": 34,
+                    "rank_position": 115,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "to": {
+                    "rating": 1600.6258831622672,
+                    "rank_tier": 33,
+                    "rank_position": 50,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "mode": "r_duel",
+                "match_type": 3,
+                "placement_match": 0,
+                "ranked": true
+            };
+            timeout = 13000;
+        }
+        if (id == "8") {
+            mmr_updates = {
+                "from": {
+                    "rating": null,
+                    "rank_tier": 0,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "to": {
+                    "rating": 370,
+                    "rank_tier": 2,
+                    "rank_position": null,
+                    "cur_tier_req": 1610,
+                    "next_tier_req": 1650
+                },
+                "mode": "r_duel",
+                "match_type": 3,
+                "placement_match": 0,
+                "ranked": true
+            };
+            timeout = 10000;
+        }
 
-        hudUITestRankScreen(mmr_updates, 12000);
-    }
-    if (tmp[1] == "2") {
-		let mmr_updates = {
-			"from": {
-				"rating": 1547.7387406072,
-				"rank_tier": 34,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"to": {
-				"rating": 1500.6258831622672,
-				"rank_tier": 33,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"mode": "r_duel",
-			"match_type": 2,
-			"placement_match": 0,
-			"ranked": true
-        };
-
-        hudUITestRankScreen(mmr_updates, 10000);
-    }
-    if (tmp[1] == "3") {
-		let mmr_updates = {
-			"from": {
-				"rank_tier": null,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-                "next_tier_req": 1650,
-                "placement_matches": "1010111"
-			},
-			"to": {
-				"rank_tier": null,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-                "next_tier_req": 1650,
-                "placement_matches": "10101110"
-			},
-			"mode": "r_duel",
-            "match_type": 2,
-            "placement_matches": 10,
-			"placement_match": 1,
-			"ranked": true
-        };
-
-        hudUITestRankScreen(mmr_updates, 10000);
-    }
-    if (tmp[1] == "4") {
-		let mmr_updates = {
-			"from": {
-				"rank_tier": null,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-                "next_tier_req": 1650,
-                "placement_matches": "101011101"
-			},
-			"to": {
-                "rating": 1693,
-				"rank_tier": 34,
-				"rank_position": 1,
-				"cur_tier_req": 1610,
-                "next_tier_req": 1650,
-                "placement_matches": "1010111011"
-			},
-			"mode": "r_duel",
-            "match_type": 2,
-            "placement_matches": 10,
-			"placement_match": 1,
-			"ranked": true
-        };
-
-        hudUITestRankScreen(mmr_updates, 18000);
-    }
-
-
-
-    if (tmp[1] == "5") {
-		let mmr_updates = {
-			"from": {
-				"rating": 1500,
-				"rank_tier": 25,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"to": {
-				"rating": 1520,
-				"rank_tier": 25,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"mode": "r_duel",
-			"match_type": 3,
-			"placement_match": 0,
-			"ranked": true
-        };
-
-        hudUITestRankScreen(mmr_updates, 10000);
-    }
-    if (tmp[1] == "6") {
-		let mmr_updates = {
-			"from": {
-				"rating": 1547.7387406072,
-				"rank_tier": 25,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"to": {
-				"rating": 1573.6258831622672,
-				"rank_tier": 26,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"mode": "r_duel",
-			"match_type": 3,
-			"placement_match": 0,
-			"ranked": true
-        };
-
-        hudUITestRankScreen(mmr_updates, 10000);
-    }
-    if (tmp[1] == "7") {
-		let mmr_updates = {
-			"from": {
-				"rating": 1547.7387406072,
-				"rank_tier": 34,
-				"rank_position": 115,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"to": {
-				"rating": 1600.6258831622672,
-				"rank_tier": 33,
-				"rank_position": 50,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"mode": "r_duel",
-			"match_type": 3,
-			"placement_match": 0,
-			"ranked": true
-        };
-
-        hudUITestRankScreen(mmr_updates, 13000);
-    }
-    if (tmp[1] == "8") {
-		let mmr_updates = {
-			"from": {
-				"rating": null,
-				"rank_tier": 0,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"to": {
-				"rating": 370,
-				"rank_tier": 2,
-				"rank_position": null,
-				"cur_tier_req": 1610,
-				"next_tier_req": 1650
-			},
-			"mode": "r_duel",
-			"match_type": 3,
-			"placement_match": 0,
-			"ranked": true
-        };
-
-        hudUITestRankScreen(mmr_updates, 10000);
-    }
+        if (mmr_updates) hudUITestRankScreen(mmr_updates, timeout);
+    });
 }
 
 function hudUITestRankScreen(mmr_updates, delay) {
     global_show_rank_change = true;
+    global_hud_view_active = true;
     renderRankScreen(mmr_updates);
     
     anim_show(_id("game_report"), 500, "flex");
@@ -1012,4 +1202,9 @@ function hudUITestRankScreen(mmr_updates, delay) {
             anim_hide(_id("game_report_cont"));
         }, delay)
     }
+}
+
+function play_tracked_sound(sound_key) {
+    if (!global_hud_view_active) return;
+    engine.call('ui_sound_tracked', sound_key);
 }

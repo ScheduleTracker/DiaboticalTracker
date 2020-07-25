@@ -1,7 +1,6 @@
 function init_element_round_mvp() {
 
-    const hud_elem = new HUD_element('round_mvp',
-    "",
+    const hud_elem = new HUD_element('round_mvp', false,
     {
         "accs": "1",
         "ar":"1",

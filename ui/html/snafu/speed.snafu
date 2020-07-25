@@ -1,0 +1,26 @@
+BEGIN TEMPLATE speed
+    SETTING align pivot
+    INT hideUnit
+    INT shadow
+
+    COL_OUTPUT 0 align pivot
+    COL_OUTPUT 0 color color
+    COL_OUTPUT 0 font font
+    IF shadow 
+        COL_OUTPUT 0 shadow 1
+    END IF
+
+ON_UPDATE    
+    IF !common_game_data.self_alive 
+        discard
+    END IF
+
+    STRING print_value
+    print_value = frame_data.speed
+    IF !hideUnit 
+        print_value = frame_data.speed & "ups"
+    END IF
+
+    OUTPUT 0 0 value print_value
+
+END TEMPLATE

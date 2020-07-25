@@ -1,8 +1,9 @@
 function init_element_item_picked() {
 
-    const element = new HUD_element('item_picked', "", 
+    const element = new HUD_element('item_picked', true, 
     {
         "fontSize": "2.7",
+        "font": "montserrat",
         "shadow": "1",
         "owner": "1",
         "icon": "1",

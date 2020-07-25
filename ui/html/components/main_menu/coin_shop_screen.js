@@ -1,59 +1,44 @@
+let global_coin_shop_offers = [];
+
 function init_screen_coin_shop() {
-
-    coin_shop_render_options();
-
+    bind_event("set_coins_offers", function(data) {
+        try {
+            const dataOffers = JSON.parse(data);
+            handle_coin_offers_update(dataOffers.offers);
+        } catch (e) {
+            console.log("set_coin_offers: Error parsing JSON. err=" + e);
+        }
+    });   
 }
 
-
-function coin_shop_render_options() {
+function handle_coin_offers_update(offers) {   
+    let fragment = new DocumentFragment();
     let cont = _id("coin_shop_options");
 
-    let options = [
-        {
-            "category": 0,
-            "price": "9.99",
-            "amount": 1000,
-            "bonus": "",
-        },
-        {
-            "category": 1,
-            "price": "24.99",
-            "amount": 2800,
-            "bonus": "12% Bonus",
-        },
-        {
-            "category": 2,
-            "price": "39.99",
-            "amount": 5000,
-            "bonus": "25% Bonus",
-        },
-        {
-            "category": 3,
-            "price": "99.99",
-            "amount": 13500,
-            "bonus": "35% Bonus",
-        },
-    ];
-
-    
-    let fragment = new DocumentFragment();
-
-    for (let o of options) {
+    const sortedKeyOffers = Object.keys(offers).sort(
+        (i, j) => offers[i].current_price - offers[j].current_price
+    );
+    for (let offerKey of sortedKeyOffers) {
+        const offer = offers[offerKey];
         
-
         let option = _createElement("div", "option");
         option.appendChild(_createElement("div", "bg"));
 
-        let top = _createElement("div", ["top", "category_"+o.category]);
+        let top = _createElement("div", ["top", "category_" + offer.tite]);
         
         let amount_cont = _createElement("div", "amount_cont");
-        amount_cont.appendChild(_createElement("div", "amount", _format_number(o.amount)));
-        amount_cont.appendChild(_createElement("div", "label", "Coins"));
+        //amount_cont.appendChild(_createElement("div", "amount", _format_number(offer)));
+        amount_cont.appendChild(_createElement("div", "label", offer.title));
         top.appendChild(amount_cont);
         option.appendChild(top);
 
         let bottom = _createElement("div", "bottom");
-        bottom.appendChild(_createElement("div", "price", _format_number(o.price,"currency")));
+        bottom.appendChild(
+            _createElement("div", "price", _format_number(offer.current_price, "currency", {
+                currency_code: offer.currency_code,
+                areCents: true
+            }))
+        );
         option.appendChild(bottom);
 
         option.addEventListener("mouseenter", function() {
@@ -61,6 +46,9 @@ function coin_shop_render_options() {
         });
         option.addEventListener("mouseleave", function() {
             bottom.classList.remove("hover");
+        });
+        option.addEventListener("click", function() {
+            engine.call("shop_checkout", offerKey);
         });
 
         fragment.appendChild(option);

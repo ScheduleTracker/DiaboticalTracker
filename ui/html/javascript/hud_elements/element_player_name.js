@@ -1,6 +1,6 @@
 function init_element_player_name() {
 
-    const element = new HUD_element('player_name', "",
+    const element = new HUD_element('player_name', true,
     {
         "fontSize": "2",
         "pivot": "center",
@@ -24,9 +24,9 @@ function init_element_player_name() {
         {"inputType": "toggle", "type": "uc", "text": "Force Uppercase"},
         {"inputType": "list", "type": "vis", "text": "Visibility", "listValues":
             [
-                {"name": "All", "value": "a"},
+                {"name": "Aways visible", "value": "a"},
                 {"name": "Playing", "value": "p"},
-                {"name": "Spectating", "value": "s"},
+                {"name": "Following", "value": "s"},
             ]
         },
     ]

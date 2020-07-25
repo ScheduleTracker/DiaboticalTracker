@@ -11,7 +11,7 @@ let global_presentedStrafeEfficiency = 0;
 let global_hud_3d_counts=0;
 let global_hud_3d_instance=[];
 
-let strafe_data = IS_MENU_VIEW == true ? {"efficiency":"80","wallheight":"44.4444%","wallwidth":"45.8%","lineheight":"100%","abovebase":true,"veldir":"0","arrowopa":1,"haskey":true,"keydir":315,"dot_trans":"-40%","color":"rgb(92,255,204)","shadowcolor":"rgb(0,0,0)"} : {"efficiency":"0","shadowcolor":"rgb(0,0,0)"};
+let strafe_data = GAMEFACE_VIEW === 'menu' ? {"efficiency":"80","wallheight":"44.4444%","wallwidth":"45.8%","lineheight":"100%","abovebase":true,"veldir":"0","arrowopa":1,"haskey":true,"keydir":315,"dot_trans":"-40%","color":"rgb(92,255,204)","shadowcolor":"rgb(0,0,0)"} : {"efficiency":"0","shadowcolor":"rgb(0,0,0)"};
 
 function refresh_strafe_hud(intent_mask, obj, yaw, speed_x, speed_y, speed_z){
 
@@ -214,7 +214,7 @@ function strafe_cj_opacity(speed, thresh) {
     return (thresh>strafe_data.cjbase) ? _clamp((speed - strafe_data.cjbase)/(thresh - strafe_data.cjbase),0,1) : 1;
 }
 
-function duel_stocks(my_score,opponent_score,me_alive){
+function duel_stocks(my_score,opponent_score){
 //    return Math.max((me_alive?0:1), my_score-opponent_score+(me_alive?0:1));
     if (my_score>opponent_score) {
         return my_score-opponent_score;
@@ -223,30 +223,28 @@ function duel_stocks(my_score,opponent_score,me_alive){
     }
 }
 
-function is_stock_protected(my_score,opponent_score,me_alive){
+function is_stock_protected(){
     if (current_match.confirmation_frag_time==true) return false;
     return true;
 }
 
-function dummy_stock_array_maker(my_score,opponent_score,me_alive){
-    var stocks = duel_stocks(my_score,opponent_score,me_alive);
+function dummy_stock_array_maker(my_score,opponent_score){
+    var stocks = duel_stocks(my_score,opponent_score);
     var array = [];
     for(i=0;i<stocks;i++){
         array.push('o');
     }
+    if (array.length > 5) return ['o'];
     return array;
 }
 
-function operating_eggbot_image(me_alive, icon_index){
-    if (me_alive) {
-        return '/html/images/diabotical_o.svg?fill=';
+function operating_eggbot_image(goldenfrag, color, color_dark){
+    if (goldenfrag == true) {
+        return '/html/images/diabotical_o.svg?fill='+color;
     } else {
-        if (Number(icon_index)==1) {
-            return '/html/images/icons/fa/wrench.svg?fill=';
-        } else {
-            return '/html/images/icons/fa/heart.svg?fill=';
-        }
+        return '/html/images/diabotical_o_shield.svg?fill='+color_dark;
     }
+
 }
 //function is_my_respawn_closest(timer, players_list) {
 //echo(JSON.stringify(players_list));

@@ -69,8 +69,14 @@ function anim_update(timestamp){
 
         if (anim.height){
             let val = lerp(anim.height[0], anim.height[1], t);
-            //Note that the 3rd parameter is the unit, like "px" or "vh".
+            //Note that the 3rd parameter is the unit, like "px", "vh" or "%".
             anim.element.style.height = val + "%";
+        }
+
+        if (anim.width){
+            let val = lerp(anim.width[0], anim.width[1], t);
+            //Note that the 3rd parameter is the unit, like "px", "vh" or "%".
+            anim.element.style.width = val + anim.width[2];
         }
         
         if (anim.age >= anim.duration + anim.delay) {

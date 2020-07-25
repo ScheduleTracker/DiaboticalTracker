@@ -1,0 +1,16 @@
+BEGIN TEMPLATE fps
+    SETTING align pivot
+    INT shadow
+
+    COL_OUTPUT 0 font font
+    COL_OUTPUT 0 align pivot
+    COL_OUTPUT 0 color color
+    IF shadow 
+        COL_OUTPUT 0 shadow 1
+    END IF
+
+ON_UPDATE    
+
+    OUTPUT 0 0 value misc_data.fps
+
+END TEMPLATE

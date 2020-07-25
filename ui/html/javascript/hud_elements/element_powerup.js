@@ -1,19 +1,20 @@
 function init_element_powerup() {
 
-    var hud_elem = new HUD_element('powerup', //Name
-    "",     //Editor Text
+    var hud_elem = new HUD_element('powerup', true,
     {//Default values
-        "fontSize": "1.5",
-        "iSize": "3",
-        "mC": "white",
-        "bRadius": "0.8",
-        "cCode": "15",
+        "fontSize": "2",
+        "font": "montserrat-bold",
+        "iSize": "6",
+        "mC": "#ffffff",
+        "bRadius": "50",
+        //"cCode": "15",
         "bWidth": 0.2,
         "iShadow": "0",
-        "iC": "powerup",
-        "iCCustom": "white",
+        "iC": "custom",
+        "iCCustom": "#ffffff",
         "bgC": "#24232188",
-        "style": "none",
+        "style": "default",
+        "cP": "3",
     },      
         
     [       //Editor settings
@@ -25,7 +26,7 @@ function init_element_powerup() {
         {"inputType": "float", "type": "iSize", "text": "Icon Size"},
         {"inputType": "color", "type": "mC", "text": "Main Color"},
         {"inputType": "float", "type": "bRadius", "text": "Icon Corner Radius"},
-        {"inputType": "float", "type": "cCode", "text": "Icon Corner Bitmask"},
+        //{"inputType": "float", "type": "cCode", "text": "Icon Corner Bitmask"},
         {"inputType": "float", "type": "bWidth", "text": "Border Width" },
         {"inputType": "toggle","type": "iShadow", "text": "Icon Shadow"},
         {"inputType": "list",  "type": "iC", "text": "Icon Color", "listValues":
@@ -41,7 +42,16 @@ function init_element_powerup() {
                 {"name": "None", "value": "none"},
                 {"name": "Default", "value": "default"},
             ]
-        },  
+        },
+        {"inputType": "list",  "type": "cP", "text": "Countdown Position", "listValues":
+            [
+                {"name": "Center", "value": "0"},
+                {"name": "Top", "value": "1"},
+                {"name": "Right", "value": "2"},
+                {"name": "Bottom", "value": "3"},
+                {"name": "Left", "value": "4"}
+            ]
+        }, 
     ]
     , "#hud_powerup");  //Template Name
 

@@ -16,21 +16,21 @@ function renderPracticeCards() {
         {
             "type": "practice",
             "title": "game_mode_practice_range",
-            "card_style": "PRACTICE",
+            "background": "practice",
             "on_click": function() { practice_start_match('practice_range'); },
             "hover_button": "play",
             //"tooltip": "practice",
-            "locked": false,
+            "state": 2,
         },
         /* Commented because it it was hidden before
         {
             "type": "licensecenter",
             "title": "game_mode_license_center",
-            "card_style": "BRAWL",
+            "background": "BRAWL",
             "on_click": function() { open_license_center(); },
             //"hover_button": "play",
             //"tooltip": "licensecenter",
-            "locked": true,
+            "state": 1,
         },
         */
     ];
@@ -53,4 +53,9 @@ function practice_screen_reset_cards() {
             if (is_playing) video.play();
         }
     });
+}
+
+function practice_load_aim_trainer(scenario) {
+    console.log("load scenario", scenario);
+    //engine.call("", scenario);
 }

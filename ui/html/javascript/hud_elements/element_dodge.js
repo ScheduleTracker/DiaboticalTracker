@@ -1,14 +1,13 @@
 function init_element_dodge() {
 
-    var hud_elem = new HUD_element('dodge', //Name
-    "",     //Editor Text
+    var hud_elem = new HUD_element('dodge', true,
     {//Default values
         "fontSize": "1.5",
         "iSize": "5",
-        "mC": "white",
+        "mC": "#ffffff",
         "icon_inactive_opacity": 0.15,
         "bRadius": "0.8",
-        "cCode": "15",
+        //"cCode": "15",
         "bWidth": 0,
         "bgC": "#00000000",
         "aT": "2",
@@ -32,7 +31,7 @@ function init_element_dodge() {
         {"inputType": "float", "type": "icon_inactive_opacity", "text": "Icon Inactive Opacity"},
         {"inputType": "color", "type": "bgC", "text": "Background Color"},
         {"inputType": "float", "type": "bRadius", "text": "Icon Corner Radius"},
-        {"inputType": "float", "type": "cCode", "text": "Icon Corner Bitmask"},
+        //{"inputType": "float", "type": "cCode", "text": "Icon Corner Bitmask"},
         {"inputType": "float", "type": "bWidth", "text": "Border Width" },
     ]
     , "#hud_dodge");  //Template Name

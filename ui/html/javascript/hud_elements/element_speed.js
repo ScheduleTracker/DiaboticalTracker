@@ -1,7 +1,8 @@
 function init_element_speed() {
 
-    const element = new HUD_element('speed', "",
+    const element = new HUD_element('speed', true,
     {
+        "font": "roboto-bold",
         "fontSize": "2",
         "pivot": "right-edge",
         "color": "#ffffff",

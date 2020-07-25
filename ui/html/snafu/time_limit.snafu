@@ -1,0 +1,66 @@
+BEGIN TEMPLATE time_limit
+    SETTING align pivot
+    INT shadow
+
+    COL_OUTPUT 0 font font
+    COL_OUTPUT 0 align pivot
+    COL_OUTPUT 0 color color
+    IF shadow
+        COL_OUTPUT 0 shadow 1
+    END IF
+
+    STRING game_state
+    STRING state_value
+    INT game_state_length
+    INT limit_overtime
+
+ON_UPDATE
+
+    game_state = ""
+    state_value = ""
+
+    IF game_data.warmup
+        game_state = "ingame_message_warmup"
+    ELSE
+        IF game_data.round_mode
+            game_state = "ingame_message_round"
+            state_value = game_data.round + 1
+        ELSE
+            limit_overtime = game_data.time_limit + game_data.overtime_seconds
+            limit_overtime = limit_overtime + game_data.tide_time_offset
+
+            IF game_data.overtime_seconds
+                game_state = "ingame_message_overtime"
+                state_value = TIMESTAMP limit_overtime
+            ELSE
+
+                IF game_data.time_limit > 0
+
+                    IF game_data.is_golden_frag
+                        game_state = "ingame_message_golden_frag"
+                    END IF
+
+                    IF game_data.in_overtime_frag_mode 
+                        game_state = "ingame_message_overtime_fraglimit"
+                        state_value = game_data.dynamic_overtime_frag_limit 
+                    END IF
+
+                    game_state_length = LENGTH game_state
+                    IF game_state_length == 0
+                        state_value = TIMESTAMP limit_overtime
+                    END IF
+
+                END IF
+
+            END IF
+
+        END IF
+    END IF
+
+    game_state_length = LENGTH game_state
+    IF game_state_length > 0
+        OUTPUT 0 0 LVALUE game_state
+    END IF
+    OUTPUT 0 0 value state_value
+
+END TEMPLATE

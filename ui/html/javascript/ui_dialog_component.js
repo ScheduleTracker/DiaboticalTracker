@@ -22,7 +22,11 @@ function queue_dialog_msg(data) {
     }
     */
 
-    show_dialog(data);
+    if ("dialog_type" in data && data.dialog_type == "sticky") {
+        show_sticky_dialog(data);
+    } else {
+        show_dialog(data);
+    }
 }
 
 function show_dialog(data) {
@@ -30,8 +34,17 @@ function show_dialog(data) {
     dialog.appendChild(_createElement("div", "info"));
 
     let desc = _createElement("div", "desc");
-    desc.appendChild(_createElement("div", "title", data.title));
-    desc.appendChild(_createElement("div", "message", data.msg));
+    if (data.title) desc.appendChild(_createElement("div", "title", data.title));
+    let message = _createElement("div", "message");
+    if (data.msg.nodeType == undefined) {
+        // Text
+        message.textContent = data.msg;
+    } else if (data.msg.nodeType == 1 || data.msg.nodeType == 11) {
+        // Element Node
+        message.appendChild(data.msg);
+    }
+    desc.appendChild(message);
+
     dialog.appendChild(desc);
 
     if (!data.hasOwnProperty("options")) { data.options = []; }
@@ -52,7 +65,7 @@ function show_dialog(data) {
             easing: easing_functions.easeInOutQuad,
             remove: true,
         });
-    },timeout_time);
+    }, timeout_time);
     
     if ("options" in data && data.options.length) {
         let options = _createElement("div", "options");
@@ -83,15 +96,38 @@ function show_dialog(data) {
     anim_show(global_dialog_list_ref, 100);
 }
 
-function show_sticky_dialog(msg) {
+function show_sticky_dialog(data) {
     let cont = _id("dialog_sticky");
 
     let fragment = new DocumentFragment();
     fragment.appendChild(_createElement("div", "info"));
 
     let desc = _createElement("div", "desc");
-    desc.appendChild(_createElement("div", "message", msg));
+    if (data.title) desc.appendChild(_createElement("div", "title", data.title));
+    let message = _createElement("div", "message");
+    if (data.msg.nodeType == undefined) {
+        // Text
+        message.textContent = data.msg;
+    } else if (data.msg.nodeType == 1 || data.msg.nodeType == 11) {
+        // Element Node
+        message.appendChild(data.msg);
+    }
+    desc.appendChild(message);
     fragment.appendChild(desc);
+
+    if ("options" in data && data.options.length) {
+        let options = _createElement("div", "options");
+        for (let o of data.options) {
+            let option = _createElement("div", "option", o.label);
+            option.addEventListener("click", function() {
+                if (typeof o.callback == "function") o.callback();
+                hide_sticky_dialog();
+            });
+            if (o.hasOwnProperty("style")) option.classList.add(o.style);
+            options.appendChild(option);
+        }
+        fragment.appendChild(options);
+    }
 
     _empty(cont);
     cont.appendChild(fragment);

@@ -1,5 +1,6 @@
 function init_element_weapon_list() {
 
+    /*
     class newArray extends HUD_element{
 
         getRenderCode(element, isPreview, isSpectating){
@@ -11,8 +12,11 @@ function init_element_weapon_list() {
             var wDirection = element.dataset.wDirection;
             var color = element.dataset.color;
 
-            var do_normal_weapons = !mode || mode == "all" || mode == "only_normal";
-            var do_super_weapons = !mode || mode == "all_special" || mode == "all" || mode == "only_super";
+            //var do_normal_weapons = !mode || mode == "all" || mode == "only_normal";
+            //var do_super_weapons = !mode || mode == "all_special" || mode == "all" || mode == "only_super";
+            var do_normal_weapons = true;
+            var do_super_weapons = true;
+
 
 //            if (reverse == 1) {
 //                direction += " reverse";
@@ -65,19 +69,20 @@ function init_element_weapon_list() {
            return htmlOutput;
         }
     }
+    */
 
-    const element = new newArray('weapons_list', "",
+    const element = new HUD_element('weapons_list', true,
     { // Default values
         "pivot": "bottom-right",
-        "mode": "all",
+        //"mode": "all",
         "direction": "vertical reverse",
 //        "direction": "vertical",
 //        "reverse": "1",
         "wDirection": "horizontal",
         "font": "furore",
         "fontSize": "1.6",
-        "aWidth": "4",
-        "aPadding": "1",
+        "aWidth": "6",
+        "aPadding": "1.5",
         "aAlign": "flex-start",
         "accShow": "0",
         "accFontSize": "1",
@@ -110,13 +115,13 @@ function init_element_weapon_list() {
         "aBGCCustom": "#0000002C",
         "aBGCActive": "weapon",
         "aBGCActiveCustom": "#000000",
-        "advanced": ""
     },
     [
         defaultPivot,
         defaultX,
         defaultY,
         {"inputType": "toggle", "type": "keybindShow", "text": "Keybind Icons"},
+        /*
         {"inputType": "list",   "type": "mode", "text": "Show Subset", "listValues":
             [
                 {"name": "All weapons", "value": "all"},
@@ -124,6 +129,7 @@ function init_element_weapon_list() {
                 {"name": "Super weapons", "value": "only_super"},
             ]
         },
+        */
         {"inputType": "list",   "type": "direction", "text": "Slot Direction", "listValues":
             [
                 {"name": "Horizontal", "value": "horizontal"},
@@ -241,7 +247,6 @@ function init_element_weapon_list() {
             ]
         },
         {"inputType": "color",  "type": "aBGCActiveCustom", "text": "Ammo Background Selected Custom"},
-        {"inputType": "advanced", "type": "advanced"},
 
     ]
     , "#hud_weapons_list");

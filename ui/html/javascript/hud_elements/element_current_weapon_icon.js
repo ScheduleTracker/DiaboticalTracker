@@ -1,20 +1,17 @@
 function init_element_current_weapon_icon() {
 
-    const hud_elem = new HUD_element('current_weapon_icon', //Name
-    "", //Edior Text
+    const hud_elem = new HUD_element('current_weapon_icon', true,
     {
-        "width": "10",
-        "height": "10",
+        "size": "10",
         "weapon_fill": "1",
-        "fill": "white",
+        "fill": "#ffffff",
         "shadow": "1",
     },      //Dfault values
     [       //Editor settings
         defaultPivot,
         defaultX,
         defaultY,
-        defaultWidth,
-        defaultHeight,
+        {"inputType": "float", "type": "size", "text": "Size"},
         {"inputType": "color", "type": "fill", "text": "Default Color"},
         {"inputType": "toggle", "type": "weapon_fill", "text": "Weapon Color"},
         {"inputType": "toggle", "type": "iconShadow", "text": "Shadow"},

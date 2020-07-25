@@ -1,18 +1,17 @@
 function init_element_rect() {
-     const element = new HUD_element('rect', "", 
+     const element = new HUD_element('rect', true, 
     {
         "width": "30",
         "height": "20",
         "bRadius": "3",
-        "cCode": "15",
-        "skewX": "0",
-        "skewY": "0",
+        //"cCode": "15",
+        //"skewX": "0",
+        //"skewY": "0",
         "bWidth": "0",
         "bCCustom": "#ffffff",
         "bgC": "custom",
-        "bgCCustom": "rgba(0,0,0,0.5)",
+        "bgCCustom": "#00000080",
         "hide_dead": "1",
-        "advanced": "",
     },
     [
         defaultPivot,
@@ -23,9 +22,9 @@ function init_element_rect() {
         {"inputType": "float", "type": "bWidth", "text": "Border Width"},
         {"inputType": "color", "type": "bCCustom", "text": "Border Color"},
         {"inputType": "float", "type": "bRadius", "text": "Corner Radius"},
-        {"inputType": "float", "type": "cCode", "text": "Corner Bitmask"},
-        {"inputType": "float", "type": "skewX", "text": "SkewX"},
-        {"inputType": "float", "type": "skewY", "text": "SkewY"},
+        //{"inputType": "float", "type": "cCode", "text": "Corner Bitmask"},
+        //{"inputType": "float", "type": "skewX", "text": "SkewX"},
+        //{"inputType": "float", "type": "skewY", "text": "SkewY"},
         {"inputType": "list",  "type": "bgC", "text": "Background Color", "listValues":
             [
                 {"name": "Custom", "value": "custom"},
@@ -37,7 +36,6 @@ function init_element_rect() {
         },
         {"inputType": "color", "type": "bgCCustom", "text": "Background Color Custom"},
         {"inputType": "toggle", "type": "hide_dead", "text": "Hide on death"},
-        {"inputType": "advanced", "type": "advanced"},
     ]
     , "#hud_rect");
     hud_elements.push(element);

@@ -1,4 +1,7 @@
-window.hud_editor_preview_downscale_factor = 0.5; 
+window.hud_editor_preview_downscale_factor = 0.5;
+
+window.hud_editor_preview_default_downscale_factor = 0.5;
+window.hud_editor_preview_fullscreen_downscale_factor = 0.75;
 window.hud_editor_preview_fullscreen = false;
 
 let global_user_huds = [];
@@ -8,27 +11,39 @@ let global_active_hud_type = HUD_PLAYING;
 const MAX_HUD_DEFINITION_LENGTH = 16384;
 
 
-const d = {"width": 10,
-            "height": 6,
-            "fontSize": 3}
+const d = {
+    "width": 10,
+    "height": 6,
+    "fontSize": 3
+};
 
 
 
-
-
+function hud_editor_visible(bool, wait) {
+    if (bool) {
+        let wait_frames = 2;
+        if (wait) wait_frames = wait;
+        req_anim_frame(function(){ 
+            let rect = preview_hud_element.getBoundingClientRect();
+            engine.call("set_hud_editor", true, rect.x, rect.y, rect.width, rect.height);
+            req_anim_frame(() => {
+                if (global_scrollboosters['hud_element_list']) global_scrollboosters['hud_element_list'].updateMetrics();
+            },5);
+        }, 2);
+    } else {
+        engine.call("set_hud_editor", false, 0, 0, 0, 0);
+    }
+}
 
 function reset_hud(){
     engine.call('reset_hud', global_active_hud_type);
     engine.call('get_hud_json', global_active_hud_type).then(function (str) {
         try {
             editing_hud_data = JSON.parse(str);
+            //hud_version_check(editing_hud_data, global_active_hud_type);
             write_misc_hud_preference('hudaspect', 'default');
             write_misc_hud_preference('fl', '1');
-    		if (global_misc_hud_preference["dirhint"]=='1') {
-    		    place_direction_hints_element(false); // include or exclude element in default hud according to explicit user intent
-    		} else {
-                refresh_preview_hud();
-            }
+            refresh_preview_hud();
         } catch (err) {
             echo("Error parsing HUD definition (Maybe it was too long so it got clamped.)");
         }
@@ -79,8 +94,8 @@ function moveElement(x, y) {
             var xValue = parseFloat(editing_hud_data.groups[id].x);
             var yValue = parseFloat(editing_hud_data.groups[id].y);
 
-            editing_hud_data.groups[id].x = xValue + x;
-            editing_hud_data.groups[id].y = yValue + y;
+            editing_hud_data.groups[id].x = _clamp(xValue + x, 0, 100);
+            editing_hud_data.groups[id].y = _clamp(yValue + y, 0, 100);
     
             window.hud_editor_selected_element.style.left = (editing_hud_data.groups[id].x) + "%";
             window.hud_editor_selected_element.style.top  = (editing_hud_data.groups[id].y) + "%";
@@ -88,8 +103,8 @@ function moveElement(x, y) {
             var xValue = parseFloat(editing_hud_data.elements[id].x);
             var yValue = parseFloat(editing_hud_data.elements[id].y);
 
-            editing_hud_data.elements[id].x = xValue + x;
-            editing_hud_data.elements[id].y = yValue + y;
+            editing_hud_data.elements[id].x = _clamp(xValue + x, 0, 100);
+            editing_hud_data.elements[id].y = _clamp(yValue + y, 0, 100);
     
             window.hud_editor_selected_element.style.left = (editing_hud_data.elements[id].x) + "%";
             window.hud_editor_selected_element.style.top  = (editing_hud_data.elements[id].y) + "%";
@@ -168,12 +183,14 @@ function pre_load_setup_hud_editor_new() {
     });
 
     dropElement(_id("hud_preview"), function(ev, clone){
-        console.log("Good drop", clone);
+        //console.log("Good drop", clone);
 
         let hud_preview = _id("hud_preview");
 
-        //console.log("dropped element with id " + id + " and name " + clone.dataset.name + " data= " + JSON.stringify(clone.dataset));
+        //console.log("dropped element with id " + clone.id + " and name " + clone.dataset.name + " data= " + JSON.stringify(clone.dataset));
         var hud_rect = hud_preview.getBoundingClientRect();
+
+        // cursor drop point in px relative to the hud preview container
         var pos_x = ev.clientX - hud_rect.left;
         var pos_y = ev.clientY - hud_rect.top;
 
@@ -185,55 +202,87 @@ function pre_load_setup_hud_editor_new() {
             //Moving existing item
             //PITFALL: We used to use clean_float here but it caused an annoying 1 pixel offset when moving things
 
+            let native = false;
+
             if (clone.dataset.type != "group") {
-                if (Number(clone.dataset.id) in editing_hud_data.elements && editing_hud_data.elements[Number(clone.dataset.id)].gid > -1) {
-                    hud_preview = _id("group_"+editing_hud_data.elements[Number(clone.dataset.id)].gid+"_preview");
-                    hud_rect = hud_preview.getBoundingClientRect();
-                    pos_x = ev.clientX - hud_rect.left;
-                    pos_y = ev.clientY - hud_rect.top;
+                if (Number(clone.dataset.id) in editing_hud_data.elements) {
+                    if (clone.dataset.native == 1) {
+                        native = true;
+                    }
+
+                    if (editing_hud_data.elements[Number(clone.dataset.id)].gid > -1) {
+                        hud_group_preview = _id("group_"+editing_hud_data.elements[Number(clone.dataset.id)].gid+"_preview");
+                        hud_rect = hud_group_preview.getBoundingClientRect();
+
+                        let evX = _clamp(ev.clientX, hud_rect.x, hud_rect.x + hud_rect.width);
+                        let evY = _clamp(ev.clientY, hud_rect.y, hud_rect.y + hud_rect.height);
+
+                        // cursor drop point in px relative to the group
+                        pos_x = evX - hud_rect.left;
+                        pos_y = evY - hud_rect.top;
+                    }
                 }
             }
 
+            // Top left position in px of the dropped element relative to the hud preview container
             var left = pos_x + draggableStartOffset.x;
             var top = pos_y + draggableStartOffset.y;
-            
-            var halfWidth  = clone.getBoundingClientRect().width  / 2;
-            var halfHeight = clone.getBoundingClientRect().height / 2;
 
-            // pivot: Center
-            var xPos = (left + halfWidth) / hud_rect.width;
-            var yPos = (top + halfHeight) / hud_rect.height;
-  
-            if(clone.dataset.pivot == "top-left"){
-                xPos = (left)  / hud_rect.width;
-                yPos = (top )  / hud_rect.height;
-            } else if(clone.dataset.pivot == "top-right"){
-                xPos = (left+ halfWidth  * 2)  / hud_rect.width;
-                yPos = (top )  / hud_rect.height;
-            } else if(clone.dataset.pivot == "top-edge"){
-                xPos = (left + halfWidth ) / hud_rect.width;
-                yPos = (top )  / hud_rect.height;
-            } else if(clone.dataset.pivot == "bottom-left"){
-                xPos = (left)  / hud_rect.width;
-                yPos = (top + halfHeight * 2)  / hud_rect.height;
-            } else if(clone.dataset.pivot == "bottom-right"){
-                xPos = (left+ halfWidth  * 2)  / hud_rect.width;
-                yPos = (top + halfHeight * 2)  / hud_rect.height;
-            } else if(clone.dataset.pivot == "bottom-edge"){
-                xPos = (left + halfWidth ) / hud_rect.width;
-                yPos = (top + halfHeight * 2)  / hud_rect.height;
-            } else if(clone.dataset.pivot == "left-edge"){
-                xPos = (left)  / hud_rect.width;
-                yPos = (top  + halfHeight) / hud_rect.height;
-            } else if(clone.dataset.pivot == "right-edge"){
-                xPos = (left+ halfWidth  * 2)  / hud_rect.width;
-                yPos = (top  + halfHeight) / hud_rect.height;
+            var xPosPercent = 0;
+            var yPosPercent = 0;
+
+            if (native) {
+                
+                let one_vh = window.outerHeight / 100;
+
+                // get pixel values
+                let offset_x = Number(clone.dataset.nativeX) * one_vh;
+                let offset_y = Number(clone.dataset.nativeY) * one_vh;
+
+                xPosPercent = ((left - offset_x) / hud_rect.width) * 100;
+                yPosPercent = ((top - offset_y) / hud_rect.height) * 100;
+
+            } else {
+            
+                var halfWidth  = clone.getBoundingClientRect().width  / 2;
+                var halfHeight = clone.getBoundingClientRect().height / 2;
+
+                // pivot: Center
+                var xPos = (left + halfWidth) / hud_rect.width;
+                var yPos = (top + halfHeight) / hud_rect.height;
+    
+                if(clone.dataset.pivot == "top-left"){
+                    xPos = (left)  / hud_rect.width;
+                    yPos = (top )  / hud_rect.height;
+                } else if(clone.dataset.pivot == "top-right"){
+                    xPos = (left+ halfWidth  * 2)  / hud_rect.width;
+                    yPos = (top )  / hud_rect.height;
+                } else if(clone.dataset.pivot == "top-edge"){
+                    xPos = (left + halfWidth ) / hud_rect.width;
+                    yPos = (top )  / hud_rect.height;
+                } else if(clone.dataset.pivot == "bottom-left"){
+                    xPos = (left)  / hud_rect.width;
+                    yPos = (top + halfHeight * 2)  / hud_rect.height;
+                } else if(clone.dataset.pivot == "bottom-right"){
+                    xPos = (left+ halfWidth  * 2)  / hud_rect.width;
+                    yPos = (top + halfHeight * 2)  / hud_rect.height;
+                } else if(clone.dataset.pivot == "bottom-edge"){
+                    xPos = (left + halfWidth ) / hud_rect.width;
+                    yPos = (top + halfHeight * 2)  / hud_rect.height;
+                } else if(clone.dataset.pivot == "left-edge"){
+                    xPos = (left)  / hud_rect.width;
+                    yPos = (top  + halfHeight) / hud_rect.height;
+                } else if(clone.dataset.pivot == "right-edge"){
+                    xPos = (left+ halfWidth  * 2)  / hud_rect.width;
+                    yPos = (top  + halfHeight) / hud_rect.height;
+                }
+
+                xPosPercent = 100 * xPos;
+                yPosPercent = 100 * yPos;
+
             }
 
-            var xPosPercent = 100 * xPos;
-            var yPosPercent = 100 * yPos;
-
-            if(window.hud_editor_snap_to_grid_enabled){
+            if (window.hud_editor_snap_to_grid_enabled) {
                 xPosPercent = Math.round(xPosPercent);
                 yPosPercent = Math.round(yPosPercent);
             }
@@ -243,7 +292,6 @@ function pre_load_setup_hud_editor_new() {
             
             refresh_preview_element(clone.dataset.type, clone.dataset.id);
             preview_hud_select(clone.dataset.sourceId);
-            //refresh_preview_hud();
         }
     });
 
@@ -258,71 +306,57 @@ function post_load_setup_hud_editor() {
         load_hud();
     });
 
+    bind_event("set_hud_element_size", set_hud_element_size);
+
     load_hud();
+}
+
+/**
+ * Set and store the position and size of an element in the hud editor
+ * @param {*} index Element index
+ * @param {*} x X Offset from the pivot point in vh
+ * @param {*} y Y Offset from the pivot point in vh
+ * @param {*} w Element width in vh
+ * @param {*} h Element height in vh
+ */
+function set_hud_element_size(index, x, y, w, h) {
+    //console.log("=== set_hud_element_size", index, x, y, w, h);
+
+    x = x * hud_editor_preview_downscale_factor;
+    y = y * hud_editor_preview_downscale_factor;
+    w = w * hud_editor_preview_downscale_factor;
+    h = h * hud_editor_preview_downscale_factor;
+
+    let el = _id("elem_"+index+"_preview");
+    if (el) {
+        x = x.toFixed(8);
+        y = y.toFixed(8);
+        w = w.toFixed(8);
+        h = h.toFixed(8);
+
+        if (w < 0.5) w = 0.5;
+        if (h < 0.5) h = 0.5;
+        el.style.width = w+"vh";
+        el.style.height = h+"vh";
+        el.style.transform = "translateX("+x+"vh) translateY("+y+"vh)";
+        
+        el.dataset.nativeX = x;
+        el.dataset.nativeY = y;
+        el.dataset.nativeW = w;
+        el.dataset.nativeH = h;
+    }
 }
 
 function load_hud() {
     engine.call('get_hud_json', global_active_hud_type).then(function (str) {
         try {
             editing_hud_data = JSON.parse(str);
-            hud_version_check(editing_hud_data);
+            hud_version_check(editing_hud_data, global_active_hud_type);
             refresh_preview_hud();
-            // if misc setting not present => HUD is default. Sync default definition to HUD_override.js, in case engine definition is out of date.
-            /*
-            if (!read_misc_hud_preference(editing_hud_data)) {
-                reset_hud();
-            } else {
-                refresh_preview_hud();
-            }
-            */
         } catch (err) {
             echo("Error parsing HUD definition (Maybe it was too long so it got clamped.)");
         }        
     });
-}
-
-let global_hud_version = 1;
-function hud_version_check(hud) {
-    if (!("version" in hud)) hud.version = 0;
-    let add_elements = [];
-
-    let version = Number(hud.version);
-    if (version < global_hud_version) {
-        if (version < 1) add_elements.push("player_name");
-    }
-    
-
-    // Add potentially missing elements due to outdated hud version
-    for (let add_el of add_elements) {
-        let found = false;
-        for (let el of hud.elements) {
-            if (el.t == add_el) {
-                found = true
-                break;
-            }
-        }
-
-        if (!found) {
-            if (add_el == "player_name") {
-                hud.elements.push({
-                    "t":"player_name",
-                    "gid":-1,
-                    "x":50,
-                    "y":30,
-                    "fontSize":"4",
-                    "pivot":"center",
-                    "color":"#FFFFFF",
-                    "shadow":1,
-                    "teamColor":1,
-                    "font":"montserrat-bold",
-                    "vis":"s",
-                    "pre":1
-                });
-            }
-        }
-    }
-
-    hud.version = global_hud_version;
 }
 
 function preview_to_screen_coord_x(v) {
@@ -426,6 +460,7 @@ window.hud_editor_selected_item = -1;
 window.hud_editor_selected_type = undefined;
 window.hud_editor_selected_element = undefined;
 
+/*
 function editorCreateAdvanced(element, id, type, idx) {
     let html = '';
     html += '<div class="hud_editor_option_row row_advanced">';
@@ -436,6 +471,7 @@ function editorCreateAdvanced(element, id, type, idx) {
 
     return html;
 }
+*/
 function editorCreateToggle(element, id, key, name, idx) {
     var data = {
         isOn: (element.dataset[key] == 1 || element.dataset[key] == "true") ? true: false,
@@ -546,9 +582,6 @@ function preview_hud_select(element_id) {
     }
 
     element = _id(element_id);
-
-    // Element selected in the preview window
-    console.log("element select", element.dataset.type);
     
     _for_each_with_class_in_parent(_id("hud_preview"), "selected_hud_editor_element", function(el) {
         el.classList.remove("selected_hud_editor_element");
@@ -616,10 +649,12 @@ function preview_hud_select(element_id) {
     }
 
     // Init advanced modal
+    /*
     var advanced = _id("hud_properties_list").querySelector(".hud_editor_option_row.row_advanced .option .button");
     if (advanced) {
         advanced.addEventListener("click", editorOpenAdvancedModal);
     }
+    */
 
     if (type == "group") {
         hud_group.afterCreatedCode(id);
@@ -632,6 +667,7 @@ function preview_hud_select(element_id) {
     hud_editor_change_tab("hud_properties");
 }
 
+/*
 function editorOpenAdvancedModal() {
     let idx = this.dataset.idx;
     let type = this.dataset.type;
@@ -717,6 +753,7 @@ function editorOpenAdvancedModal() {
         refresh_preview_element(type, idx);
     });
 }
+*/
 
 function colorChanged(type, id, elem) {
     hud_editor_set_value(type, id, elem.dataset.key, "#" + elem.value);
@@ -762,9 +799,11 @@ function listOnChange(type, captured_id, target, key) {
         refresh_preview_element(type, field.dataset.idx);
     });
 
-    var val = editing_hud_data.elements[captured_id][key];
+    var val = "";
     if (type == "group") {
         val = editing_hud_data.groups[captured_id][key];
+    } else {
+        val = editing_hud_data.elements[captured_id][key];
     }
 
     _id(target).dataset.value = val;
@@ -819,9 +858,13 @@ function reset_hud_properties() {
                     refresh_preview_hud();
                     i--;
                 }
-            } element_property_override_filter(elements[i]);
+            }
+            
+            element_property_override_filter(elements[i]);
         }
     }
+
+    /*
     var checkbox = _id('enable_direction_hints');
     if (global_hud_direction_hints_enabled){
         checkbox.dataset.enabled = true;
@@ -832,6 +875,7 @@ function reset_hud_properties() {
         checkbox.classList.remove("checkbox_enabled");
         checkbox.firstElementChild.classList.remove("inner_checkbox_enabled");
     }
+    */
 }
 
 function refresh_preview_element(type, idx) {
@@ -856,11 +900,13 @@ function refresh_preview_hud() {
     // clean the hud from invalid elements before saving
     if (editing_hud_data.elements) {
         for (let i=editing_hud_data.elements.length-1; i>=0; i--) {
-            if (!getFirstMatchingElement(hud_elements, editing_hud_data.elements[i].t)) {
-                console.log("remove invalid element from elements", _dump(editing_hud_data.elements[i]));
+            let el = getFirstMatchingElement(hud_elements, editing_hud_data.elements[i].t)
+            if (!el) {
+                //console.log("remove invalid element from elements", _dump(editing_hud_data.elements[i]));
                 editing_hud_data.elements.splice(i,1);
             }
-        } read_misc_hud_preference();
+        }
+        read_misc_hud_preference();
     }
     send_sanitized_hud_definition_to_engine();
     _id("hud_preview_container").style.setProperty('--ratio',window.hud_editor_preview_downscale_factor);
@@ -937,6 +983,9 @@ function hud_editor_set_aspect(aspect_str) {
 }
 
 function update_preview_aspect_state(aspect_str){
+    // SNAFU currently does not support this feature
+    return;
+
     // update the visibility of the aspect buttons
     var scr = onevw_float/onevh_float;
     _id('aspect_button_16_9').style.display  = ( scr >= (16/9)  ) ? 'flex':'none';
@@ -982,6 +1031,7 @@ function fetchFriendlyElementName(type_string, debug){
     return friendlyname;
 }
 
+/*
 function place_direction_hints_element(value, data, noupdate){ 
     if (!data) data = editing_hud_data;
     if (!(value||global_hud_direction_hints_enabled)||noupdate) {        
@@ -1022,6 +1072,7 @@ function place_direction_hints_element(value, data, noupdate){
     if (noupdate) return;
     refresh_preview_hud();
 }
+*/
 
 let global_misc_hud_preference = {
     "hudaspect":'default',
@@ -1044,50 +1095,27 @@ function callback_on_misc_hud_preference_read(misc){
     if (misc["fovbkg"]&&global_fov_preview_images[misc["fovbkg"]]) fov_preview_background_series = misc["fovbkg"];
 }
 
-function read_misc_hud_preference(def) {
-    var haveMisc = false;
-    var misc = def ? {} : global_misc_hud_preference;
-    var ref = editing_hud_data;
-    if (!def) def = ref;
-    var elements = def.elements;
-    if (elements) {
-        for (var i = 0; i < elements.length; i++) {
-            if (elements[i].t == "misc_settings") {
-                // Copy each individual "misc_setting" key over instead of overwriting the whole object and thus removing any pre-set default values
-                for (let key of Object.keys(elements[i])) {
-                    misc[key] = elements[i][key];
-                }
-                if (misc['fl']) haveMisc = true;
-                break;
-            }
+function read_misc_hud_preference() {
+    // Copy saved values into the local cache
+    if ("misc" in editing_hud_data) {
+        for (let key of Object.keys(editing_hud_data["misc"])) {
+            global_misc_hud_preference[key] = editing_hud_data["misc"][key];
         }
+    } else {
+        editing_hud_data["misc"] = global_misc_hud_preference;
     }
-    callback_on_misc_hud_preference_read(misc);
-    return haveMisc;
+    callback_on_misc_hud_preference_read(editing_hud_data["misc"]);
 }
 
 
-function write_misc_hud_preference(key, value, forceupdate){
+function write_misc_hud_preference(key, value, forceupdate) {
+    // Update in local working cache
     global_misc_hud_preference[key] = value;
-    var found = false;
-    if (!("elements" in editing_hud_data)) {
-        editing_hud_data.elements = [];
-    }
-    var elements = editing_hud_data.elements;
-    for (var i = 0; i < elements.length; i++) {
-        if (elements[i].t == "misc_settings") {
-            found = true;
-            break;
-        }
-    }
-    if (!found) {
-        hud_editor_unshift_element("misc_settings", 0, 0);
-    }
-    for (var i = 0; i < elements.length; i++) {
-        if (elements[i].t == "misc_settings") {
-            hud_editor_set_value("misc", i, key, value);
-        }
-    }
+
+    // Update in the editing data
+    editing_hud_data.misc = global_misc_hud_preference;
+
+    // Send to engine if needed
     if (forceupdate) send_sanitized_hud_definition_to_engine();
 }
 
@@ -1304,23 +1332,35 @@ function hud_editor_fullscreen(new_state) {
     if (new_state) {
         toggle.classList.add("toggle_enabled");
         toggle.dataset.enabled = "true";
-        window.hud_editor_preview_downscale_factor = 0.70;
+        window.hud_editor_preview_downscale_factor = window.hud_editor_preview_fullscreen_downscale_factor;
         window.hud_editor_preview_fullscreen = true;
         _id("hud_editor").style.setProperty('--ratio',window.hud_editor_preview_downscale_factor);
+        _id("hud_editor").classList.add("fullscreen");
         _id("settings_screen_window").classList.add("fullscreen");
         _id("hud_editor_elements_holder").classList.add("fullscreen");
         _id("settings_screen_menu").style.display = "none";
+
+        hud_editor_visible(true);
+
         update_preview_aspect_state(global_misc_hud_preference["hudaspect"]);
         refresh_preview_hud();
     } else {
         toggle.classList.remove("toggle_enabled");
         toggle.dataset.enabled = "false";
-        window.hud_editor_preview_downscale_factor = 0.5; 
+        window.hud_editor_preview_downscale_factor = window.hud_editor_preview_default_downscale_factor; 
         window.hud_editor_preview_fullscreen = false;
         _id("hud_editor").style.setProperty('--ratio',window.hud_editor_preview_downscale_factor);
+        _id("hud_editor").classList.remove("fullscreen");
         _id("settings_screen_window").classList.remove("fullscreen");
         _id("hud_editor_elements_holder").classList.remove("fullscreen");
-        _id("settings_screen_menu").style.display = "block";
+        _id("settings_screen_menu").style.display = "flex";
+
+        if (global_menu_page == "settings_screen" && global_current_settings_section == "hud") {
+            hud_editor_visible(true);
+        } else {
+            hud_editor_visible(false);
+        }
+
         update_preview_aspect_state(global_misc_hud_preference["hudaspect"]);
         refresh_preview_hud();
     }
@@ -1360,25 +1400,29 @@ function hud_editor_toggle_snap_to_grid(toggle) {
     }
 }
 
-let hud_editor_elements_drag_scroll = undefined;
 window.addEventListener("load", function() {
     let cont = _id('hud_editor_elements');
-    hud_editor_elements_drag_scroll = new Dragscroll(cont);
 
-    cont.addEventListener("wheel", function(e) {        
-        if (e.deltaY < 0) {
-            hud_editor_elements_drag_scroll.scrollTo(false, 0.2);
-        } else {
-            hud_editor_elements_drag_scroll.scrollTo(true, 0.2);
-        }
-        e.preventDefault();
+    global_scrollboosters['hud_element_list'] = new ScrollBooster({
+        viewport: cont.parentElement,
+        content: cont,
+        pointerMode: "mouse",
+        friction: 0.05,
+        bounceForce: 0.2,
+        direction: "horizontal",
+        scrollMode: "transform",
+        emulateScroll: true,
     });
 
     document.getElementById('hud_editor_elements_left_arrow').addEventListener("click", function () {
-        hud_editor_elements_drag_scroll.scrollTo(false, 0.3);
+        if (global_scrollboosters['hud_element_list']) {
+            global_scrollboosters['hud_element_list'].scrollToArrow(-1, 70);
+        }
     });
     document.getElementById('hud_editor_elements_right_arrow').addEventListener("click", function() {
-        hud_editor_elements_drag_scroll.scrollTo(true, 0.3);
+        if (global_scrollboosters['hud_element_list']) {
+            global_scrollboosters['hud_element_list'].scrollToArrow(1, 70);
+        }
     });
 });
 
@@ -1430,7 +1474,7 @@ function hud_editor_save_dialog() {
             "type": global_active_hud_type,
             "hud": editing_hud_data,
         };
-        api_request(global_stats_api, "POST", "/user/hud/"+selected_index, params, function(data) {
+        api_request("POST", "/user/hud/"+selected_index, params, function(data) {
             load_user_hud_list();
             closeBasicModal();
         });
@@ -1553,11 +1597,12 @@ function hud_editor_load_dialog() {
     load_btn.addEventListener("click", function() {
         if (selected_hud_id == null) return;
         
-        api_request(global_stats_api, "GET", "/user/hud/"+selected_hud_id, {}, function(data) {
+        api_request("GET", "/user/hud/"+selected_hud_id, {}, function(data) {
             if (data != null && "hud" in data && "hud" in data.hud) {
                 try {
                     let hud = JSON.parse(data.hud.hud);
                     editing_hud_data = hud;
+                    update_hud_version(editing_hud_data);
                     send_sanitized_hud_definition_to_engine();
                     refresh_preview_hud();
                 } catch(e) {
@@ -1640,7 +1685,7 @@ function hud_editor_load_dialog() {
 }
 
 function load_user_hud_list() {
-    api_request(global_stats_api, "GET", "/user/huds", {}, function(data) {
+    api_request("GET", "/user/huds", {}, function(data) {
         global_user_huds = {};
         if ("huds" in data) {
             for (let hud of data.huds) {

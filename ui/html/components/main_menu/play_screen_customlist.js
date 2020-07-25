@@ -121,10 +121,13 @@ function lobby_join_with_key() {
 }
 
 function updateCustomMatchList() {
+    global_custom_list_selected_match = -1;
+    customListSelectServer(-1);
+
     if (!global_custom_list_data_ts || (Date.now() - global_custom_list_data_ts) > 3000) {
         send_string(CLIENT_COMMAND_GET_CUSTOM_MATCH_LIST, "", "get-custom-list", function(data) {
             global_custom_list_data_ts = Date.now();
-            global_custom_list_data = data.data.matches;
+            global_custom_list_data = data.data;
             renderMatchList();
         });
     } else {
@@ -158,6 +161,11 @@ function renderMatchList() {
 
         count_visible++;
 
+        let settings_default = true;
+        if (match.modifier_instagib == true) settings_default = false;
+        if (match.modifier_physics != 0) settings_default = false;
+        if (match.commands.length > 0) settings_default = false;
+
         let row = _createElement("div", "row");
         row.dataset.sessionId = match.session_id;
         if (global_custom_list_selected_match == match.session_id) row.classList.add("selected");
@@ -190,13 +198,14 @@ function renderMatchList() {
         let tr_mode = _createElement("div", ["tr", "tr_mode"]);
         tr_mode.innerHTML = localize(global_game_mode_map[match.mode].i18n);
         row.appendChild(tr_mode);
-            
-        // TODO... add hover box info for the match settings
+        
+        // Hover settings icon for info
         let tr_settings = _createElement("div", ["tr", "tr_settings"]);        
         let settings_icon = _createElement("div", "settings_icon");
         tr_settings.appendChild(settings_icon);
         tr_settings.dataset.sessionId = match.session_id;
         tr_settings.dataset.msgHtmlId = "custom_match_info";
+        if (!settings_default) settings_icon.classList.add("non_default");
         add_tooltip2_listeners(tr_settings);
         row.appendChild(tr_settings);
 

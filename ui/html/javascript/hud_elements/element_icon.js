@@ -1,17 +1,15 @@
 function init_element_icon() {
 
-    const hud_elem = new HUD_element('icon', //Name
-    "", //Edior Text
+    const hud_elem = new HUD_element('icon', true,
     {
         "width": "10",
         "height": "10",
-        "stroke": "white",
+        "stroke": "#ffffff",
         "stroke_width": "6",
-        "fill": "rgba(255,255,255,0)",
-        "icon": "wrench",
+        "fill": "#ffffff",
+        "icon": "hp",
         "shadow": "1",
         "hide_dead": "1",
-        "advanced": "",
     },      //Dfault values
     [       //Editor settings
     	defaultPivot,
@@ -32,7 +30,6 @@ function init_element_icon() {
         {"inputType": "color", "type": "fill", "text": "Fill"},
         {"inputType": "toggle", "type": "iconShadow", "text": "Shadow"},
         {"inputType": "toggle", "type": "hide_dead", "text": "Hide on death"},
-        {"inputType": "advanced", "type": "advanced"},
     ]
     , "#hud_icon");  //Template Name
 

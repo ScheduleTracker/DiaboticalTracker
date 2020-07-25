@@ -1,0 +1,53 @@
+
+BEGIN TEMPLATE enemies_alive
+    SETTING align pivot
+    INT aliveText
+    INT teamColor
+    INT shadow
+
+    COL_OUTPUT 0 font font
+    COL_OUTPUT 0 align pivot
+    COL_OUTPUT 0 uppercase 1
+
+    IF shadow
+        COL_OUTPUT 0 shadow 1
+    END IF
+
+ON_UPDATE
+
+    IF game_data.game_mode != "ca" && game_data.game_mode != "wipeout"
+        IF !IN_EDITOR
+            discard
+        END IF
+    END IF 
+
+    INT val
+    IF IN_EDITOR
+        val = 1
+    ELSE
+        val = game_data.enemy_team.alive_count
+    END IF
+
+    STRING text_color
+    text_color = color
+    IF teamColor
+        text_color = game_data.enemy_team.color
+    END IF
+    OUTPUT 0 0 color text_color
+
+    #IF aliveText
+    #    OUTPUT 0 0 lvalue "alive"
+    #    OUTPUT 0 0 value val
+    #ELSE 
+    #    OUTPUT 0 0 value val
+    #END IF
+
+    # temporarily hardcode "Alive" text until localization parsing for plural strings has been implemented in snafu
+    STRING text_string
+    text_string = val
+    IF aliveText
+        text_string = text_string & " Alive"
+    END IF
+    OUTPUT 0 0 value text_string
+
+END TEMPLATE

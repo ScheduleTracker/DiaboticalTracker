@@ -1,7 +1,6 @@
 function init_element_coins() {
 
-    const hud_elem = new HUD_element('coins', //Name
-    "", //Edior Text
+    const hud_elem = new HUD_element('coins', true, 
     {
         "font": "montserrat-bold",
         "fontSize": "4",

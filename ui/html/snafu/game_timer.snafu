@@ -1,0 +1,36 @@
+BEGIN TEMPLATE game_timer
+    SETTING align pivot
+
+    INT countdown
+    INT shadow
+
+    COL_OUTPUT 0 color color
+    COL_OUTPUT 0 font font
+    COL_OUTPUT 0 align pivot
+    IF shadow
+        COL_OUTPUT 0 shadow 1
+    END IF
+
+ON_UPDATE
+
+    INT time_left
+    time_left = game_data.time_limit + game_data.overtime_seconds
+    time_left = time_left + game_data.tide_time_offset
+    time_left = time_left - game_data.time
+    time_left = MAX 0 time_left
+
+    # Switch to count up if no time_limit is set, otherwise it would stay at 0
+    IF game_data.time_limit == 0
+        countdown = 0
+    END IF
+
+    STRING game_time
+    IF countdown
+        game_time = TIMESTAMP time_left
+    ELSE
+        game_time = TIMESTAMP game_data.time
+    END IF
+
+    OUTPUT 0 0 value game_time
+
+END TEMPLATE

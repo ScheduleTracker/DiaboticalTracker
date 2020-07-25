@@ -1,17 +1,13 @@
 function init_element_flag() {
 
-    const hud_elem = new HUD_element('flag', //Name
-    "", //Edior Text
+    const hud_elem = new HUD_element('flag', true,
     { //Dfault values
         "fontSize": "3",
         "team": "own",
         "size": "5",
-        "bRadius": "0",
-        "cCode": "15",
-        "iC": "default",
-        "iCCustom": "#ffffff",
-        "bgC": "custom",
-        "bgCCustom": "#0000004d",
+        "bRadius": "0.6",
+        //"cCode": "15",
+        "bgC": "#00000086",
         "hide_dead": "1",
     },      
     [       //Editor settings
@@ -26,21 +22,8 @@ function init_element_flag() {
         defaultY,
         {"inputType": "float", "type": "size", "text": "Size"},
         {"inputType": "float", "type": "bRadius", "text": "Icon Corner Radius"},
-        {"inputType": "float", "type": "cCode", "text": "Icon Corner Bitmask"},
-        {"inputType": "list",  "type": "iC", "text": "Icon Color", "listValues":
-            [
-                {"name": "Default", "value": "default"},
-                {"name": "Custom", "value": "custom"},
-            ]
-        },
-        {"inputType": "color", "type": "iCCustom", "text": "Icon Color Custom"},
-        {"inputType": "list",  "type": "bgC", "text": "Background Color", "listValues":
-            [
-                {"name": "Team Color", "value": "team"},
-                {"name": "Custom", "value": "custom"},
-            ]
-        },
-        {"inputType": "color", "type": "bgCCustom", "text": "Background Color Custom"},
+        //{"inputType": "float", "type": "cCode", "text": "Icon Corner Bitmask"},
+        {"inputType": "color", "type": "bgC", "text": "Background Color"},
         {"inputType": "toggle", "type": "hide_dead", "text": "Hide on death"},
     ]
     , "#hud_flag");  //Template Name

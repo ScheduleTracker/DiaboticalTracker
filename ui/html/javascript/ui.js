@@ -1,9 +1,8 @@
 const GAMEFACE = true;
-const IS_MENU_VIEW = true;
+const GAMEFACE_VIEW = 'menu';
 
-var global_stats_api = new APIHandler("https://www.diabotical.com/api/v0/", true);
-//var global_stats_api = new APIHandler("http://localhost:5000/api/v0/", true);
-//var global_prismic_api = new APIHandler("http://www.diabotical.com/smth/smth", false);
+var global_ms_connected = false;
+
 var global_ms = new MS();
 var global_variable = new VariableHandler();
 
@@ -27,7 +26,7 @@ var global_mm_start_quickplay = false;
 
 // currently open menu page
 var global_menu_page = "home";
-var global_play_menu_page = "quickplay";
+var global_play_menu_page = "play_screen_quickplay";
 
 // server region / datacenter info
 var global_server_regions_init = true;
@@ -38,9 +37,6 @@ var global_server_selected_locations = [];
 var global_user_battlepass = {};
 var global_battlepass_list = [];
 var global_competitive_season = {};
-
-var global_menu_view_loaded = false;
-var global_masterserver_connected = false;
 
 window.self_egs_id = "";
 
@@ -285,28 +281,16 @@ window.addEventListener("load", function(){
 
     console.log("LOAD013")
 
-    bind_event('set_masterserver_state', function (connected, code) {
-        // int code:
-        // 0 = normal message
-        // 1 = epic online service issue
-
-
-        // for reference:
-        //<div id="masterserver_warning">
-        // <img src="/html/images/icons/fa/exclamation-triangle.svg"> &nbsp; <span data-i18n="not_connected_to_master" class="i18n">Not connected to masterserver (Reconnecting...)</span>
-        //</div>
-        if(connected) {
-            _id("masterserver_warning").style.display = "none";
-        } else {
-            _id("masterserver_warning").style.display = "flex";
-        }
-    });
+    bind_event('set_masterserver_connection_state', set_masterserver_connection_state);
 
     bind_event('request_creator_tool', function (tool) {
+        console.log("?? What is this: request_creator_tool", tool);
         set_tool(tool);
     });
 
+    /*
     bind_event("set_participant_slot_data", function (egs_id, user_name, avatar_id) {
+        console.log("?? What is this: set_participant_slot_data", egs_id, user_name);
         _for_each_in_class("egs_id_" + egs_id, function(el) {  
             _html(el, 
                 "<div class=avatar style=\"background-image:url('//app-data/avatar-by-egs-id/"+egs_id+".png');\"></div>"+
@@ -314,16 +298,22 @@ window.addEventListener("load", function(){
             );
         });
     });
+    */
 
     bind_event('view_data_received', function(string) {
         // data from another view received
-        console.log('view_data_received', string);
+        //console.log('view_data_received', string);
+
+        if (string == "reset_own_profile_cache") {
+            clear_profile_data_cache_id(global_self.user_id);
+        }
     });
 
     bind_event('process_server_json_data', function (string) {
         let type = string.charAt(0);
         let data = string.trim().substring(2);
 
+        // JSON message
         if (type == "j") {
             var json_data = '';
             try {
@@ -333,102 +323,163 @@ window.addEventListener("load", function(){
             }
             if (!json_data.action) return;
 
-            if (json_data.action.startsWith("mm-")) {
-                handle_mm_match_event(json_data);
-            }
-            if (json_data.action.startsWith("lobby-")) {
-                handle_lobby_event(json_data);
-            }
-            if (json_data.action.startsWith("party-")) {
-                handle_party_event(json_data);
-            }
-            if (json_data.action.startsWith("invite-")) {
-                handle_invite_event(json_data);
-            }
+            let action = json_data.action;
+            if (json_data.action.startsWith("mm-")) action = "mm-";
+            if (json_data.action.startsWith("lobby-")) action = "lobby-";
+            if (json_data.action.startsWith("party-")) action = "party-";
+            if (json_data.action.startsWith("invite-")) action = "invite-";
 
-            if (json_data.action == "online-friends-data") {
-                handle_friends_in_diabotical_data(json_data.data);
-            }
-
-            if (json_data.action == "battlepass-data") {
-                updateMenuBottomBattlepass(json_data.data);
-            }
-
-            if (json_data.action == "chat-msg") {
-                main_chat_add_incoming_msg(json_data);
-            }
-
-            if (json_data.action == "get-ranked-mmrs") {
-                console.log(_dump(json_data));
-                global_self.mmr = json_data.data;
-                updateQueueRanks();
-            }
-
-            if (json_data.action && json_data.action == "post-match-updates") {
-                console.log("post-match-updates", _dump(json_data));
-                if ("mmr_updates" in json_data.data) {
-                    if ("mode" in json_data.data.mmr_updates && "to" in json_data.data.mmr_updates) {
-                        global_self.mmr[json_data.data.mmr_updates.mode] = json_data.data.mmr_updates.to;
-                        updateQueueRanks();
+            switch(action) {
+                case "mm-":
+                    handle_mm_match_event(json_data);
+                    break;
+                case "lobby-":
+                    handle_lobby_event(json_data);
+                    break;
+                case "party-":
+                    handle_party_event(json_data);
+                    break;
+                case "invite-":
+                    handle_invite_event(json_data);
+                    break;
+                case "vote-counts":
+                    draft_update_vote_counts(json_data);
+                    break;
+                case "match-reconnect":
+                    handle_match_reconnect(json_data);
+                    break;
+                case "match-disconnect":
+                    button_game_over_quit();
+                    break;
+                case "queues":
+                    global_queue_groups = json_data.queue_groups;
+                    parse_modes(json_data.queues);
+                    init_queues();
+                    init_screen_leaderboards();
+                    updateQueueRanks();
+                    break;
+                case "online-friends-data":
+                    handle_friends_in_diabotical_data(json_data.data);
+                    break;
+                case "competitive-season":
+                    global_competitive_season = json_data.data;
+                    break;
+                case "chat-msg":
+                    main_chat_add_incoming_msg(json_data);
+                    break;
+                case "get-ranked-mmrs":
+                    global_self.mmr = json_data.data;
+                    updateQueueRanks();
+                    break;
+                case "warmup-join-error":
+                    queue_dialog_msg({
+                        "title": localize("title_info"),
+                        "msg": localize(json_data.msg),
+                    });
+                    break;
+                case "post-match-updates":
+                    if ("mmr_updates" in json_data.data) {
+                        if ("mode" in json_data.data.mmr_updates && "to" in json_data.data.mmr_updates) {
+                            global_self.mmr[json_data.data.mmr_updates.mode] = json_data.data.mmr_updates.to;
+                            updateQueueRanks();
+                        }
                     }
-                }
-                if ("xp_updates" in json_data.data) {
-                    // ...
-                }
+                    if ("progression_updates" in json_data.data) {
+                        if ("challenges" in json_data.data.progression_updates) {
+                            global_user_battlepass.challenges = json_data.data.progression_updates.challenges;
+                            updateChallenges();
+                        }
+                        if ("battlepass_update" in json_data.data.progression_updates) {
+                            updateBattlePassProgress(json_data.data.progression_updates.battlepass_update);
+                            updateMenuBottomBattlepassLevel();
+                        }
+                        if ("battlepass_rewards" in json_data.data.progression_updates) {
+                            add_user_customizations(json_data.data.progression_updates.battlepass_rewards);
+                        }
+                        if ("achievement_rewards" in json_data.data.progression_updates) {
+                            let rewards = [];
+                            for (let r of json_data.data.progression_updates.achievement_rewards) rewards.push(r.reward);
+                            add_user_customizations(rewards);
+                        }
+                    }
+                    break;
+                case "rerolled-challenge":
+                    replaceChallenge(json_data.replaced_challenge_id, json_data.challenge);
+                    updateChallenges();
+                    break;
+                case "set-customization":
+                    customization_set_validated(json_data.customization);
+                    break;
             }
 
+            // Send to single use registered response handlers
             global_ms.handleResponse(json_data.action, json_data);
         }
+
+        // String message
         if (type == "s") {
-            let action = data.substr(0,data.indexOf(' '));
-            let action_data = data.substr(data.indexOf(' ')+1);
+            let msg_action = data.substr(0,data.indexOf(' '));
+            let msg_data = data.substr(data.indexOf(' ')+1);
             if (data.indexOf(' ') == -1) {
-                action = data;
-                action_data = ""; 
+                msg_action = data;
+                msg_data = ""; 
             }
 
-            if (action.startsWith("mm_match_cancelled")) {
-                handle_mm_match_cancelled();
+            let action = msg_action;
+            if (action.startsWith("lobby-")) action = "lobby-";
+
+            switch(action) {
+                case "lobby-":
+                    handle_lobby_event({ "action": msg_action });
+                    break;
+                case "mm-match-cancelled":
+                    handle_mm_match_cancelled();
+                    break;
+                case "no-servers-available":
+                    queue_dialog_msg({
+                        "title": localize("title_info"),
+                        "msg": localize("message_no_servers_avail"),
+                    });
+                    
+                    lobby_hide_loading_overlay();
+                    set_draft_visible(false);
+                    break;
+                case "info-msg":
+                    queue_dialog_msg({
+                        "title": localize("title_info"),
+                        "msg": localize(msg_data),
+                    });
+                    break;
+                case "error-msg":
+                    queue_dialog_msg({
+                        "title": localize("title_error"),
+                        "msg": localize(msg_data),
+                    });
+                    break;
+                case "party-locations":
+                    set_region_selection(false, msg_data);
+                    break;
+                case "party-queue-penalty-self":
+                    let now = Date.now() / 1000;
+                    let seconds_until_penalty_free = Number(msg_data) - now;
+                    queue_dialog_msg({
+                        "title": localize("title_info"),
+                        "msg": localize_ext("party_penalty_msg_self", {
+                            "time_left": _seconds_to_string(seconds_until_penalty_free)
+                        }),
+                    });
+                    break;
+                case "party-queue-penalty":
+                    queue_dialog_msg({
+                        "title": localize("title_info"),
+                        "msg": localize("party_penalty_msg"),
+                    });
+                    break;
             }
 
-            if (action.startsWith("no-servers-available")) {
-                queue_dialog_msg({
-                    "title": localize("title_info"),
-                    "msg": localize("message_no_servers_avail"),
-                });
-                
-                lobby_hide_loading_overlay();
-                set_draft_visible(false);
-            }
-
-            if (action.startsWith("lobby-")) {
-                handle_lobby_event({
-                    "action": action
-                });
-            }
-
-            if (action == "info-msg") {
-                queue_dialog_msg({
-                    "title": localize("title_info"),
-                    "msg": localize(action_data),
-                });
-            }
-            if (action == "error-msg") {
-                queue_dialog_msg({
-                    "title": localize("title_error"),
-                    "msg": localize(action_data),
-                });
-            }
-
-            if (action == "party-locations") {
-                set_region_selection(false, action_data);
-            }
-
-
-            global_ms.handleResponse(action, action_data)
+            // Send to single use registered response handlers
+            global_ms.handleResponse(msg_action, msg_data);
         }
-
-        //engine.call("echo", "Received JSON Data, action=" + json_data.action);
     });
 
     pre_load_setup_hud_editor_new();
@@ -512,7 +563,14 @@ window.addEventListener("load", function(){
     });
 
     bind_event('cancellable_messagebox', function (msg_key) {
-        show_sticky_dialog(localize(msg_key));
+        if (msg_key == "egs_auth_error") {
+            show_sticky_dialog({
+                "title": localize("egs_auth_error_title"),
+                "msg": localize("egs_auth_error_msg"),
+            });
+        } else {
+            show_sticky_dialog({"msg": localize(msg_key)});
+        }
     });
 
     bind_event('close_messagebox', function () {
@@ -576,6 +634,9 @@ window.addEventListener("load", function(){
 
             } else {
             //if ([5,6,7,8].includes(value)) {
+                if ([7,12,30,31,32,34,35].includes(value)) {
+                    send_string(CLIENT_COMMAND_DISCONNECTED);
+                }
                 queue_dialog_msg({
                     "title": localize("title_error"),
                     "msg": localize("disconnected_error_"+value),
@@ -655,27 +716,41 @@ window.addEventListener("load", function(){
             send_string(CLIENT_COMMAND_SET_PARTY_EXPAND_SEARCH, ""+value);
         }
 
-        if (variable == "input_mouse_filtering") {
-            if (value == 1) {
-                _id("mouse_filter_sad").style.display = "flex";
-            } else {
-                _id("mouse_filter_sad").style.display = "none";
+        if (variable.startsWith("lobby_custom_")) {
+
+            // Only update the custom lobby checkbox if you are the host or you are not in a lobby
+            if (bool_am_i_host || global_lobby_id == -1) {
+                _for_each_in_class("checkbox_component", function(element) {
+                    if (element.dataset.variable == variable) {
+                        element.dataset.enabled = value ? "true": "false";
+                        update_checkbox(element);
+                    }
+                });
             }
+
+        } else {
+            _for_each_in_class("checkbox_component", function(element) {
+                if (element.dataset.variable == variable) {
+                    element.dataset.enabled = value ? "true": "false";
+                    update_checkbox(element);
+                }
+            });
         }
 
-        //engine.call("echo","JS: set_checkbox " + variable + "=" + value);
-        _for_each_in_class("checkbox_component", function(element) {
-            if (element.dataset.variable == variable) {
-                element.dataset.enabled = value ? "true": "false";
-                update_checkbox(element);
+        // Update the lobby settings on the MS if you are in a lobby and are the host
+        if (variable.startsWith("lobby_custom_")) {
+            if (bool_am_i_host && global_lobby_id != -1) {
+                custom_game_settings_changed(true);
             }
-        });
+        }
 
         // Call the response handler for any queued callbacks
         global_variable.handleResponse("checkbox", variable, value);
     });
 
     bind_event('add_video_mode', function (video_mode, video_mode_caption, selected) {
+        add_auto_detect_video_mode();
+
         let option = _createElement("div", "", video_mode_caption);
         option.dataset.value = video_mode;
         if (selected) option.dataset.selected = 1;
@@ -684,6 +759,17 @@ window.addEventListener("load", function(){
 
         ui_setup_select(_id("video_modes"));
     });
+
+    let auto_detect_video_mode_added = false;
+    function add_auto_detect_video_mode() {
+        if (auto_detect_video_mode_added) return;
+
+        auto_detect_video_mode_added = true;
+        let option = _createElement("div", "", localize("auto_detect"));
+        option.dataset.value = "";
+
+        _id("video_modes").appendChild(option);
+    }
 
     engine.call('get_egs_state').then(function (egs_enabled) {
         if (!egs_enabled){
@@ -762,17 +848,13 @@ window.addEventListener("load", function(){
         _html(_id("aspect_ratio_info"), html);
     });
 
-    bind_event('add_customization_weapon', function (weapon_name, selected) {
-        // No idea what this was for, it was empty
-        //console.log("add_customization_weapon ... ?", weapon_name, selected);
-    });
-
     bind_event('set_select', function (variable, value) {
-        if (variable.startsWith("game_decals")) {
+        if (variable.startsWith("game_decals") && !global_set_stickers_from_server) {
             send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["sticker"]+"::"+value);
+            clear_profile_data_cache_id(global_self.data.user_id);
             return;
         }
-
+        /*
         if (variable.startsWith("hud_crosshair_type")) {
             if (variable.startsWith("hud_crosshair_type:")) {
                 _id("setting_hud_crosshair_layer_enabled").dataset.enabled = (value == 0 || value == "0") ? false : true;
@@ -818,7 +900,7 @@ window.addEventListener("load", function(){
             on_updated_crosshair_type_selection();
             return;
         }
-
+        */
         if (variable.startsWith("hud_crosshair_mask_aperture") || variable.startsWith("hud_zoom_crosshair_mask_aperture")) {
             on_updated_mask_type_selection();
         }
@@ -828,6 +910,7 @@ window.addEventListener("load", function(){
                 engine.call("set_string_variable", "lobby_custom_mode", global_lobby_init_mode);
                 value = global_lobby_init_mode;
             }
+            engine.call("on_custom_game_mode_changed", value, global_customSettingElements["map"].dataset.value || "");
         }
 
         if (variable == "lobby_region") {
@@ -841,12 +924,33 @@ window.addEventListener("load", function(){
         /********************
          * MAIN SELECT FIELDS
          */
-        _for_each_in_class("select-field", function(el) {
-            if (el.dataset.variable == variable) {
-                el.dataset.value = value;
-                update_select(el);
+        if (variable.startsWith("lobby_custom_")) {
+
+            // Only update the custom lobby select fields if you are the host or you are not in a lobby
+            if (bool_am_i_host || global_lobby_id == -1) {
+                _for_each_in_class("select-field", function(el) {
+                    if (el.dataset.variable == variable) {
+                        el.dataset.value = value;
+                        update_select(el);
+                    }
+                });
             }
-        });
+
+        } else {
+            _for_each_in_class("select-field", function(el) {
+                if (el.dataset.variable == variable) {
+                    el.dataset.value = value;
+                    update_select(el);
+                }
+            });
+        }
+
+        // Update the lobby settings on the MS if you are in a lobby and are the host
+        if (variable.startsWith("lobby_custom_")) {
+            if (bool_am_i_host && global_lobby_id != -1) {
+                custom_game_settings_changed(true);
+            }
+        }
 
         // Call the response handler for any queued callbacks
         global_variable.handleResponse("select", variable, value);
@@ -874,6 +978,27 @@ window.addEventListener("load", function(){
         global_variable.handleResponse("color", variable, value);
     });
 
+    bind_event('set_custom_component', function (variable, value) {
+
+        //console.log("set_custom_component", variable, value);
+
+        if (variable == "lobby_custom_map") set_lobby_custom_map(value);
+        if (variable == "lobby_custom_commands") set_lobby_custom_commands(value);
+        
+        if (variable.startsWith('hud_zoom_crosshair_definition:') && variable.substr(30) != currentCrosshairCreatorZoomWeaponIndex) {            
+            initialize_crosshair_creator(true, generateFullCrosshairDefinition(value), variable);
+            currentCrosshairCreatorZoomWeaponIndex = variable.substr(30); //so we dont initialize every time the engine_variable gets updated
+        }
+        if (variable.startsWith('hud_crosshair_definition:') && variable.substr(25) != currentCrosshairCreatorWeaponIndex) {
+            initialize_crosshair_creator(false, generateFullCrosshairDefinition(value), variable);
+            currentCrosshairCreatorWeaponIndex = variable.substr(25);   //so we dont initialize every time the engine_variable gets updated
+        }
+
+
+        // Call the response handler for any queued callbacks
+        global_variable.handleResponse("custom_component", variable, value);
+    });
+
     _for_each_in_class("color-picker-new", function(el) {
         var current_variable = el.dataset.variable;
         if (current_variable && current_variable.length) {
@@ -882,6 +1007,23 @@ window.addEventListener("load", function(){
     });
     
     bind_event('set_range', function (variable, value) {
+
+        if (variable == "video_max_fps" || variable == "video_lobby_max_fps") {
+            let cb = undefined;
+            if (variable == "video_max_fps") cb = _id("setting_video_max_fps_cb");
+            if (variable == "video_lobby_max_fps") cb = _id("setting_lobby_video_max_fps_cb");
+
+            if (cb) {
+                if (value == 0) {
+                    cb.classList.remove("checkbox_enabled");
+                    cb.firstChild.classList.remove("inner_checkbox_enabled");
+                } else {
+                    cb.classList.add("checkbox_enabled");
+                    cb.firstChild.classList.add("inner_checkbox_enabled");
+                }
+            }
+        }
+
         if (global_range_slider_map.hasOwnProperty(variable)) {
             global_range_slider_map[variable].setValue(value);
         }
@@ -900,6 +1042,7 @@ window.addEventListener("load", function(){
         global_variable.handleResponse("range", variable, value);
     });
 
+    /*
     _id('enable_direction_hints').addEventListener("click", function() {
         let checkbox = _id('enable_direction_hints');
         let value = false;
@@ -925,6 +1068,7 @@ window.addEventListener("load", function(){
         // include/exclude element in default hud according to explicit user intent
         //place_direction_hints_element(value, window.experimental_default_hud_definition_json, true);
     });
+    */
     
 
     // Setup crosshair option selection
@@ -938,31 +1082,75 @@ window.addEventListener("load", function(){
         });
     });
     
-    _for_each_with_class_in_parent(_id("lobby_container"), "crosshair-option", function(el) {
-        el.addEventListener("click", function() {
-            el.parentElement.dataset.value = el.dataset.cross;
-
-            _for_each_with_class_in_parent(el.parentElement, "selected", function(sel) {
-                sel.classList.remove("selected");
-            })
-            el.classList.add("selected");
-
-            engine.call("set_string_variable", el.parentElement.dataset.variable, el.parentElement.dataset.value);
-        });
-    });
-
-
     bind_event("set_restart_required", function (restart_required) {
         if (restart_required) {
-            anim_show(_id("settings_message_container"), 50);
+            _id("settings_message_container").style.display = "flex";
+            //anim_show(_id("settings_message_container"), 50);
         } else {
-            anim_hide(_id("settings_message_container"), 50);
+            _id("settings_message_container").style.display = "none";
+            //anim_hide(_id("settings_message_container"), 50);
         }
     });
 
     bind_event("reveal_ui", function () {
         console.log("reveal_ui");
+
         anim_show(document.body, 350);
+    });
+
+    bind_event("update_user_info", function() {
+        load_user_info(function(user) {
+            if (user && user.social_profiles.find(c => c.type === "twitch")) {
+                _id("settings_connections_twitch_unlink").style.display = "flex";
+                _id("settings_connections_twitch_link").style.display = "none";
+                update_twitch_list_link_state(true);
+            } else {
+                _id("settings_connections_twitch_unlink").style.display = "none";
+                _id("settings_connections_twitch_link").style.display = "flex";
+                update_twitch_list_link_state(false);
+            }
+        });
+    });
+    bind_event("start_redeem", function(payload) {
+        /* Game requested to redeem some pending entitlements */
+        /* It usually happens when players redeemed a coin pack */
+        /* using a code in the Epic website or through EOS overlay */
+        const data = JSON.parse(payload);
+        const toBeRedemeed = data
+            .entitlements
+            .filter(ent => !ent.isRedeemed).map(ent => ent.id);
+
+        if (toBeRedemeed && toBeRedemeed.length) {           
+            queue_dialog_msg({
+                "title": localize("toast_title_updating_wallet"),
+                "msg": localize("toast_msg_updating_wallet")
+            });
+            api_request(
+                "POST",
+                "/redeem",
+                {
+                    "entitlements": toBeRedemeed,
+                    "epic_id": data.epic_id,
+                    "epic_token": data.epic_token
+                },
+                function (data) {
+                    if (data.coins) {                   
+                       queue_dialog_msg({
+                          "title": localize("toast_title_updated_wallet"),
+                          "msg": localize_ext("toast_msg_updated_wallet", { "count": data.coins })
+                       });
+                        global_self.private.coins = data.coins;
+                        update_wallet(global_self.private.coins);
+                    } else {
+                        queue_dialog_msg({
+                            "title": localize("toast_title_wallet_error"),
+                            "msg": localize("toast_msg_wallet_error"),
+                        });
+                        console.error("Invalid data: " + JSON.stringify(data));
+                    }
+                }
+            );
+        }
     });
 
     console.log("LOAD200");
@@ -1036,9 +1224,7 @@ window.addEventListener("load", function(){
         console.log("POSTLOAD001");
 
         //Must do this after the engine has had an opportunity to send setting values like hit sounds.
-        settings_combat_update(0);
-
-        updateMenuBottomBattlepass();
+        settings_combat_update(0);        
 
         // Temporary solution to get list all the stickers available, see customize_screen.js -> set_asset_browser_content
         engine.call("request_character_browser_update", "decals");
@@ -1052,7 +1238,6 @@ window.addEventListener("load", function(){
         engine.call("post_load_finished");
         console.log("POSLOAD100");
 
-        //on_masterserver_auth_success();
     });
 
     window.requestAnimationFrame(anim_update);
@@ -1084,17 +1269,20 @@ window.addEventListener("load", function(){
         }
     });
 
-    bind_event('on_masterserver_auth_success', function() {
-        global_masterserver_connected = true;
-        on_masterserver_auth_success();
-    });
-
     console.log("LOAD202");
 
     // Initialize character sticker decals variable
     engine.call("initialize_select_value", "game_decals");
 
+    init_custom_game_references();
+
     init_custom_modes();
+
+    //init_crosshair_options();
+
+    //Initialize canvas crosshair creator preview maps and crosshair preset options
+    createCanvasCrosshairPreviewMaps();
+    initialize_canvas_crosshair_presets();
 
     // Select list setup, initialize just adds the "click outside to hide list" listeners
     initialize_select(_id("main_menu"));
@@ -1113,6 +1301,9 @@ window.addEventListener("load", function(){
     });
 
     console.log("LOAD208");
+    
+    // load shared code between menu and hud views
+    init_shared();
 
     init_screen_ingame_menu();
     init_screen_home();
@@ -1121,69 +1312,138 @@ window.addEventListener("load", function(){
     init_screen_battlepass_list();
     init_screen_battlepass();
     init_screen_create();
-    init_screen_leaderboards();
     init_screen_play_customlist();
     init_screen_play();
     init_screen_practice();
     init_screen_custom();
+    init_screen_learn();
+    init_watch_screen();
 
     console.log("LOAD209");
-
-    // load shared code between menu and hud views
-    init_shared();
 
     initialize_scrollbars();
     
     setupMenuSoundListeners();
     setupVariousListeners();
 
+    init_debug_listeners();
+
+    set_masterserver_connection_state(false, true);
+
     console.log("LOAD210");
     engine.call('menu_view_loaded');
-    global_menu_view_loaded = true;
 });
 
-function on_masterserver_auth_success() {
-    if (global_menu_view_loaded == false) {
-        setTimeout(function() {
-            on_masterserver_auth_success();
-        },100);
-        return;
+function set_masterserver_connection_state(connected, initial) {
+
+    global_ms_connected = connected;
+
+    if (!initial) {
+        _id("connecting_masterserver").style.display = "none";
     }
 
-    console.log("POSTMSAUTH000");
+    if(connected) {
+        console.log("POSTMSAUTH000");
 
-    // Request initial invite and party infos
-    send_string(CLIENT_COMMAND_GET_INVITE_LIST);
-    send_string(CLIENT_COMMAND_PARTY, "party-status");
-    send_string(CLIENT_COMMAND_GET_RANKED_MMRS);
+        // =============================
+        // Request data from MS and API
+        // =============================
 
-    // Request API token:
-    send_string(CLIENT_COMMAND_GET_API_TOKEN, "", "apitoken", function(token) {
-        global_stats_api.updateToken(token);
+        // Request initial invite and party infos
+        send_string(CLIENT_COMMAND_GET_INVITE_LIST);
+        send_string(CLIENT_COMMAND_PARTY, "party-status");
 
-        // Request the users customization item list
-        load_user_customizations();
+        send_string(CLIENT_COMMAND_GET_RANKED_MMRS);
 
-        // Get the list of saved huds
-        load_user_hud_list();
-    });
+        // Request API token
+        send_string(CLIENT_COMMAND_GET_API_TOKEN, "", "apitoken", function(token) {
+            apiHandler().updateToken(token);
 
-    // Request competitive season info
-    send_string(CLIENT_COMMAND_GET_COMP_SEASON, "", "competitive-season", function(data) {
-        global_competitive_season = data.data;
-    });
+            // Request the general user information
+            load_user_info(function(user) {
+                if (user.social_profiles.find(c => c.type === "twitch")) {
+                    _id("settings_connections_twitch_unlink").style.display = "flex";
+                    update_twitch_list_link_state(true);
+                } else {
+                    _id("settings_connections_twitch_link").style.display = "flex";
+                    update_twitch_list_link_state(false);
+                }
 
-    // Request Battlepass data:
-    send_string(CLIENT_COMMAND_GET_BATTLEPASS_DATA, "", "battlepass-data", function(data) {
-        global_user_battlepass = data.data;
-    });
+                if (user) {
+                    global_self.private.coins = user.user.coins
+                    global_self.private.challenge_reroll_ts = (user.user.challenge_reroll_ts == null) ? null : new Date(user.user.challenge_reroll_ts);
+                    update_wallet(global_self.private.coins);
+                }
+            });
 
-    // Request personal data
-    send_string(CLIENT_COMMAND_GET_PERSONAL_DATA, "", "get-personal-data", function(data) {
-        global_self.private = data.data;
-    });
+            // Request the users customization item list
+            load_user_customizations();
 
-    console.log("POSTMSAUTH100");
+            // Get the list of saved huds
+            load_user_hud_list();
+
+            // Request battlepass data
+            load_battlepass_data();
+        });
+
+        // Requeust queues
+        send_string(CLIENT_COMMAND_GET_QUEUES);
+
+        // Request competitive season info
+        send_string(CLIENT_COMMAND_GET_COMP_SEASON);
+
+        // Request and show user notifications
+        send_string(CLIENT_COMMAND_GET_NOTIFICATIONS, "", "get-notifications", function(data) {
+            if (data.notifs.length) {
+                for (let n of data.notifs) {
+                    if (n.notif_id) global_notifs.addNotification(n);
+                }
+                setTimeout(function() {
+                    load_notifications();
+                },1000);
+            }
+        });
+
+        // Request match reconnect informations
+        send_string(CLIENT_COMMAND_GET_RECONNECTS);
+
+        // =============================
+        // Show/Hide ui containers
+        // =============================
+
+        // Hide not connected indicator
+        _id("masterserver_warning").style.display = "none";
+
+        _id("play_screen_content").style.display = "flex";
+        _id("play_screen_unavailable").style.display = "none";
+
+        _id("customize_content").style.display = "flex";
+        _id("customize_screen").querySelector(".customization_window").style.display = "flex";
+        _id("customize_offline_msg").style.display = "none";
+
+        console.log("POSTMSAUTH100");
+
+    } else {
+
+        // Show not connected indicator
+        if (!initial) {
+            _id("masterserver_warning").style.display = "flex";
+        }
+
+        _id("play_screen_content").style.display = "none";
+        _id("play_screen_unavailable").style.display = "flex";
+
+        _id("customize_content").style.display = "none";
+        _id("customize_screen").querySelector(".customization_window").style.display = "none";
+        _id("customize_offline_msg").style.display = "flex";
+
+        // Remove the queues
+        clear_queues();
+
+        // Stop searching
+        process_queue_msg("all", "stop");
+
+    }
 }
 
 function update_variable(type, variable, value, callback_type, callback) {
@@ -1203,6 +1463,110 @@ function update_variable(type, variable, value, callback_type, callback) {
     if (type == "real")   engine.call("set_real_variable", variable, value);
 }
 
+function parse_modes(modes) {
+    global_queues = {};
+
+    for (let name in modes) {
+        let vs = '';
+        let i18n = 'game_mode_';
+        let mode = '';
+
+        if (modes[name].modes.length == 0) continue;
+        else if (modes[name].modes.length == 1) {
+            if (modes[name].modes[0].instagib) vs += localize("game_mode_type_instagib")+" ";
+            i18n += modes[name].modes[0].mode_name;
+            mode = modes[name].modes[0].mode_name;
+        } else {
+            if (modes[name].players_per_team == 1) {
+                i18n += "circuit";
+                mode = "solo_mix";
+            } else {
+                i18n += "circuit";
+                mode = "team_mix";
+            }
+        }
+
+        if (modes[name].teams == 2) {
+            vs += modes[name].players_per_team+localize("game_mode_type_vs_short")+modes[name].players_per_team;
+        } else {
+            if (modes[name].players_per_team == 1) vs += localize("game_mode_type_ffa");
+            else vs += Array(modes[name].teams).fill(modes[name].players_per_team).join(localize("game_mode_type_vs_short"));
+        }
+
+        let queue_name = "";
+        if (modes[name].modes.length == 1) {
+            queue_name = localize(i18n)+" "+vs;
+        } else {
+            queue_name = vs+" "+localize(i18n);
+        }
+
+        let roles = [];
+        for (let role in modes[name].roles) {
+            roles.push({
+                "name": role,
+                "i18n": "role_"+role,
+                "players": modes[name].roles[role]
+            });
+        }
+
+        global_queues[name] = {
+            "i18n": i18n,
+            "match_type": modes[name].type,
+            "variable": "lobby_search_"+name,
+            "vs": vs,
+            "queue_name": queue_name,
+            "team_size": modes[name].players_per_team,
+            "modes": modes[name].modes,
+            "roles": roles,
+            "locked": modes[name].enabled ? false : true,
+            "leaderboard": modes[name].leaderboard,
+            "ranked": modes[name].ranked,
+        };
+    }
+}
+
+function handle_match_reconnect(data) {
+    let dialog_object = {
+        //"dialog_type": "sticky",
+        "duration": 60000,
+        "title": localize("title_reconnect"),
+        "msg": localize_ext("message_reconnect", {
+            "type": localize(MATCH_TYPE[data.match_type].i18n),
+            "mode": localize(global_game_mode_map[data.match_mode].i18n),
+        }),
+        "options": [
+            {   
+                "label": localize("menu_button_join"),
+                "callback": function() {
+                    send_string(CLIENT_COMMAND_RECONNECT);
+                }
+            }
+        ]
+    };
+
+    if (data.penalty == true) {
+        dialog_object.msg = localize_ext("message_reconnect_abandon", {
+            "type": localize(MATCH_TYPE[data.match_type].i18n),
+            "mode": localize(global_game_mode_map[data.match_mode].i18n),
+        });
+        dialog_object.options.push({
+            "label": localize("menu_button_abandon"),
+            "callback": function() {
+                send_string(CLIENT_COMMAND_ABANDON);
+            },
+            "style": "negative",
+        });
+    } else {
+        dialog_object.options.push({   
+            "label": localize("menu_button_dismiss"),
+            "callback": function() {
+                send_string(CLIENT_COMMAND_DISMISS_RECONNECT);
+            },
+        });
+    }
+
+    queue_dialog_msg(dialog_object);
+}
 
 
 function set_console(visible) {
@@ -1265,12 +1629,16 @@ function anim_misc(timestamp) {
     window.requestAnimationFrame(anim_misc);
 }
 
-function open_modal_screen(id) {
+function open_modal_screen(id, cb) {
+    engine.call("ui_sound", "ui_window_open");
     engine.call("set_modal", true);
-    anim_show(_id(id),100);
+    anim_show(_id(id), 100, "flex", cb);
 }
 
-function close_modal_screen(e, selector) {
+var global_manual_modal_close_disabled = false;
+function close_modal_screen(e, selector, instant) {
+    if (global_manual_modal_close_disabled) return;
+
     let el = undefined;
     if (selector !== undefined) {
         el = _id(selector);
@@ -1282,8 +1650,13 @@ function close_modal_screen(e, selector) {
     let style = window.getComputedStyle(el);
     if (style.getPropertyValue('display') == "none") return;
 
-
-    anim_hide(el,100);
+    if (instant && instant === true) {
+        el.style.display = "none";
+        el.style.opacity = 0;
+    } else {
+        engine.call("ui_sound", "ui_window_close");
+        anim_hide(el,100);
+    }
 
     // Close any open select lists
     _click_outside_handler();
@@ -1297,8 +1670,8 @@ function close_modal_screen(e, selector) {
 
 }
 
-function close_modal_screen_by_selector(id) {
-    close_modal_screen(null, id);
+function close_modal_screen_by_selector(id, instant) {
+    close_modal_screen(null, id, instant);
     return false;
 }
 
@@ -1319,7 +1692,7 @@ function initialize_references(){
     zoom_crosshair_containers = [];
     _for_each_in_class("game_crosshairs_container", function(el) { crosshair_containers.push(el); });
     _for_each_in_class("game_zoom_crosshairs_container", function(el) { zoom_crosshair_containers.push(el); });
-    _for_each_in_class("crosshair_preview_container", function(el) { crosshair_containers.push(el); });
+    //_for_each_in_class("crosshair_preview_container", function(el) { crosshair_containers.push(el); });
 }
 
 function goUpALevel(){
@@ -1332,11 +1705,14 @@ function goUpALevel(){
     close_modal_screen_by_selector('custom_game_settings_modal_screen');
     close_modal_screen_by_selector('region_select_modal_screen');
     close_modal_screen_by_selector('generic_modal');
+    close_modal_screen_by_selector('basic_modal');
     close_modal_screen_by_selector('customlist_filter_modal_screen');
     close_modal_screen_by_selector('advanced_mouse_settings_screen');
     close_modal_screen_by_selector('field_of_view_conversion_screen');
-    close_modal_screen_by_selector('crosshair_editor_screen');
-    close_modal_screen_by_selector('zoom_crosshair_editor_screen');
+    close_modal_screen_by_selector('mask_editor_screen');
+    close_modal_screen_by_selector('zoom_mask_editor_screen');
+    close_modal_screen_by_selector('crosshair_canvas_editor_screen');
+    close_modal_screen_by_selector('crosshair_canvas_zoom_editor_screen');
 }
 
 function colorPickerValueUpdated(element, jscolor){
@@ -1350,7 +1726,6 @@ function setupVariousListeners() {
 
     let menu_bottom_bp = _id("menu_background_bottom").querySelector(".menu_bottom_battlepass_open");
     let menu_bottom_challenges = _id("menu_background_bottom").querySelector(".menu_bottom_battlepass_daily");
-
 
     menu_bottom_bp.addEventListener("mouseenter", function() {
         // Hack to stop mouseover sound from being played when clicking on this item (since click replaces the content, forces a redraw -> re-triggers mouseenter)
@@ -1405,7 +1780,39 @@ function setupVariousListeners() {
         invite_friends();
     });
 
+    // Setup number only input fields
+    let number_inputs = document.querySelectorAll("input.number");
+    for (let i=0; i<number_inputs.length; i++) {
+        _numberInput(number_inputs[i]);
+    }
 
+    // Max fps setting checkbox handlers
+    let video_max_fps_cb = _id("setting_video_max_fps_cb");
+    video_max_fps_cb.addEventListener("click", function() {
+        if (video_max_fps_cb.classList.contains("checkbox_enabled")) {
+            video_max_fps_cb.classList.remove("checkbox_enabled");
+            video_max_fps_cb.firstChild.classList.remove("inner_checkbox_enabled");            
+            update_variable("real", "video_max_fps", 0);
+        } else {
+            video_max_fps_cb.classList.add("checkbox_enabled");
+            video_max_fps_cb.firstChild.classList.add("inner_checkbox_enabled");
+            update_variable("real", "video_max_fps", 250);
+        }
+    });
+
+    let video_lobby_max_fps_cb = _id("setting_lobby_video_max_fps_cb");
+    video_lobby_max_fps_cb.addEventListener("click", function() {
+        if (video_lobby_max_fps_cb.classList.contains("checkbox_enabled")) {
+            video_lobby_max_fps_cb.classList.remove("checkbox_enabled");
+            video_lobby_max_fps_cb.firstChild.classList.remove("inner_checkbox_enabled");
+            update_variable("real", "video_lobby_max_fps", 0);
+        } else {
+            video_lobby_max_fps_cb.classList.add("checkbox_enabled");
+            video_lobby_max_fps_cb.firstChild.classList.add("inner_checkbox_enabled");
+            update_variable("real", "video_lobby_max_fps", 125);
+        }
+    });
+    
 
     // ============================================================================
     // Enable text selection across the whole ui for elements with user-select:text
@@ -1502,23 +1909,167 @@ function genericModal(title, text, btn_negative, cb_negative, btn_positive, cb_p
 
     open_modal_screen("generic_modal");
 }
+function basicGenericModal(title, content, button, cb) {
+    let fragment = new DocumentFragment();
 
-function openBasicModal(content) {
+    if (title) {
+        if (typeof title === "string") {
+            let header = _createElement("div", "generic_modal_dialog_header", title);
+            fragment.appendChild(header);
+        } else if (title.nodeType != undefined && title.nodeType == 1 || title.nodeType == 11) {
+            let header = _createElement("div", "generic_modal_dialog_header");
+            header.appendChild(title);
+            fragment.appendChild(header);
+        }
+    }
+
+    if (content) {
+        let content_cont = _createElement("div", "generic_modal_dialog_text");
+        if (content.nodeType == undefined) {
+            // Text
+            content_cont.textContent = content;
+        } else if (content.nodeType == 1 || content.nodeType == 11) {
+            // Element Node
+            content_cont.appendChild(content);
+        }
+        fragment.appendChild(content_cont);
+    }
+
+    if (button) {
+        let btn_cont = _createElement("div", "generic_modal_dialog_action");
+        if (typeof button === "string") {
+            // Text
+            let btn = _createElement("div", "dialog_button", button);
+            _addButtonSounds(btn, 1);
+            btn.addEventListener("click", function() {
+                closeBasicModal();
+
+                if (typeof cb === "function") cb();
+            });
+            btn_cont.appendChild(btn);
+        } else if (button.nodeType != undefined && button.nodeType == 1 || button.nodeType == 11) {
+            // Element Node
+            btn_cont.appendChild(button);
+        }
+        fragment.appendChild(btn_cont);
+    }
+
+    return fragment;
+}
+
+function updateBasicModalContent(content) {
     let modal = _id("basic_modal");
 
     _for_first_with_class_in_parent(modal, "generic_modal_dialog_container", function(el) {
+        _empty(el);
+
         if (content.nodeType == undefined) {
             // Text
             el.textContent = content;
         } else if (content.nodeType == 1 || content.nodeType == 11) {
             // Element Node
-            _empty(el);
             el.appendChild(content);
         }
     });
+}
+
+function openBasicModal(content) {
+    updateBasicModalContent(content);
     open_modal_screen("basic_modal");
 }
 
-function closeBasicModal() {
-    close_modal_screen_by_selector('basic_modal');   
+function closeBasicModal(instant) {
+    // instant == true, close without animation/delay
+    close_modal_screen_by_selector('basic_modal', instant);   
+}
+
+function settingsTwitchAccount(isLinked) {
+    engine.call("open_browser",
+                isLinked ?
+                "https://www.diabotical.com/twitch/unlink" :
+                "https://www.diabotical.com/twitch/link");
+}
+
+function init_debug_listeners() {
+
+    // /devop ui_call test_battlepass_upgrade_notif
+    bind_event("test_battlepass_upgrade_notif", function() {
+        global_notifs.addNotification({
+            "notif_id": 181,
+            "notif_type": 0,
+            "from_user_id": null,
+            "message": null,
+            "items": []
+        });
+        load_notifications();
+    });
+
+    // /devop ui_call test_item_unlock_notif
+    bind_event("test_item_unlock_notif", function() {
+        global_notifs.addNotification({
+            "notif_id": 182,
+            "notif_type": 1,
+            "from_user_id": null,
+            "message": null,
+            "items": [
+                {
+                    "notif_id": 182,
+                    "customization_id": "av_smileyblue",
+                    "customization_type": 2,
+                    "customization_sub_type": "",
+                    "customization_set_id": null,
+                    "rarity": 0,
+                    "amount": 1
+                },
+                {
+                    "notif_id": 183,
+                    "customization_id": "av_smileyred",
+                    "customization_type": 2,
+                    "customization_sub_type": "",
+                    "customization_set_id": null,
+                    "rarity": 0,
+                    "amount": 1
+                },
+                {
+                    "notif_id": 184,
+                    "customization_id": "av_smileyorange",
+                    "customization_type": 2,
+                    "customization_sub_type": "",
+                    "customization_set_id": null,
+                    "rarity": 0,
+                    "amount": 1
+                }
+            ]
+        });
+        load_notifications();
+    });
+
+}
+
+function preload_image(url) {
+  return new Promise(function (resolve, reject) {
+    var img = new Image();
+    img.src=url;
+    img.onload = function () {
+      resolve();
+    }
+    img.onerror = function() {
+      // Works as intended. Do not handle errors
+      resolve();
+    }
+  });
+}
+
+function replay_css_anim(element) {
+  element.getAnimations().map(function (anim) {
+    anim.currentTime = 0;
+    anim.play();
+  });
+}
+
+
+function update_styles(el, styles) {
+    Object.keys(styles).forEach(style => {
+        el.style[style] = styles[style];
+    });
 }

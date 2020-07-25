@@ -1,4 +1,4 @@
-function rangeSlider(el, updateVar, callback) {
+function rangeSlider(el, updateVar, callback, onFineChangeCallback) {
     // example element:
     // <div id="setting_mouse_accel_post_scale_x" class="range-slider" data-min="0" data-max="10" data-step="0.0001" data-hide-slider="false"></div>
     // Add data-variable to initialize right away or set dataset.variable later and initialize after
@@ -11,7 +11,7 @@ function rangeSlider(el, updateVar, callback) {
     let contRect;
 
     // 2vh to px
-    let thumbWidth = 0.02 * window.innerHeight;
+    let thumbWidth = 0.014 * window.innerHeight;
 
     let hideSlider = el.dataset.hideSlider ? Boolean(el.dataset.hideSlider) : false;
 
@@ -40,6 +40,7 @@ function rangeSlider(el, updateVar, callback) {
     if (hideSlider) {
         cont.style.display = "none";
         cont_overflow.style.display = "none";
+        el.classList.add("no-slider");
     }
 
     let bg = document.createElement("div");
@@ -57,7 +58,7 @@ function rangeSlider(el, updateVar, callback) {
         this.setSelectionRange(0, this.value.length);
     };
 
-
+    
     input.addEventListener("keypress",function(e) {
         // only allow numbers , . - backspace, tab, enter ("keypress" doesn't register arrow keys, so no need to include them)
         // TODO consider ctrl+c/v
@@ -98,7 +99,10 @@ function rangeSlider(el, updateVar, callback) {
     cont.addEventListener("mousedown", function(e) {
         contRect = cont.getBoundingClientRect();
         mouse_down = true;
-        updateSlider(e);
+        let valueChanged = updateSlider(e);
+        if (valueChanged && typeof onFineChangeCallback == "function"){
+            onFineChangeCallback(el.dataset.variable, Number(el.dataset.value));
+        }
         return false;
     });
 
@@ -112,7 +116,10 @@ function rangeSlider(el, updateVar, callback) {
     document.addEventListener("mousemove", function(e) {
         if (snapDefault == true) return;
         if (mouse_down) {
-            updateSlider(e);
+            let valueChanged = updateSlider(e);
+            if (valueChanged && typeof onFineChangeCallback == "function"){
+                onFineChangeCallback(el.dataset.variable, Number(el.dataset.value));
+            }
         }
     });
 
@@ -281,6 +288,7 @@ function rangeSlider(el, updateVar, callback) {
         readSettings();
         let update = false;
         let currentPerc = null;
+        let initial_val = el.dataset.value;
         if (e.screenX >= (contRect.left + (thumbWidth/2)) && e.screenX <= (contRect.left + contRect.width + (thumbWidth/2))) {
             currentPerc = ((e.screenX - contRect.left - (thumbWidth/2)) / contRect.width) * 100;
             bg.style.width = (currentPerc+1) + '%';
@@ -321,6 +329,7 @@ function rangeSlider(el, updateVar, callback) {
             el.dataset.value = (snapDefault == true) ? def_val : new_val;
             input.value = (sig_fig||type.includes("log")||stops.length>0) ? Number(el.dataset.value)*display_shift : parseFloat((Number(el.dataset.value) * display_shift).toFixed(decimals));
         }
+        return initial_val != el.dataset.value; //true if value changed, false if not 
     }
     
     function snapToStops(val) {

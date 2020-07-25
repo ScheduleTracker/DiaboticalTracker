@@ -423,48 +423,6 @@
         <div id="game_intro_server">Frankfurt - i3D.net</div>
     </div>
 
-    <div id="teams_scoreboard" class="scoreboard" style="display:none;">  
-        <div class="scoreboard_header">
-            <span class="scoreboard_mode"><span class="i18n" data-i18n="ingame_scoreboard_mode">MODE: </span><span class="scoreboard_gamemode_name" data-bind-value="_format_game_mode({{game_data.game_mode}})">???</span></span>
-            <span class="scoreboard_rank i18n" data-bind-if="{{game_data.ranked}} == 1" data-i18n="ingame_scoreboard_rank">Rank</span>
-            <span class="scoreboard_head i18n" data-bind-if="!{{game_data.race_mode}}" data-i18n="ingame_scoreboard_kills">Frags</span>
-            <span class="scoreboard_head i18n" data-bind-if="!{{game_data.race_mode}}" data-i18n="ingame_scoreboard_points">Points</span>
-            <span class="scoreboard_head i18n" data-bind-if="{{game_data.race_mode}}" data-i18n="ingame_scoreboard_time">Best Time</span>
-        </div>
-
-        <div class="scoreboard_player_scores">
-            <div data-bind-for="team_iter:sort_game_data_teams({{game_data.teams}}, 'score')" class="scoreboard_team" data-bind-property="'--team_margin:'+(({{game_data.team_size}} > 1) ? 1 : 0)">
-                <div data-bind-if="{{team_iter.team_id}} != -1 && {{team_iter.players}}.length > 0">
-
-                    <div class="scoreboard_player_score_holder">
-                        <div data-bind-for="player_iter:{{team_iter.players}}" class="score_line">
-                            <div class="score_color" data-bind-style-background-color="{{team_iter.color}}"></div>
-                            <div class="score_avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})">
-                                <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
-                            </div>
-                            <div class="score_name" data-bind-value="{{player_iter.name}}">&nbsp;</div>
-                            <div class="score_rank" data-bind-if="{{game_data.ranked}} == 1" data-bind-rank-icon="{{player_iter.rank_tier}}+':'+{{player_iter.rank_position}}+':'+{{game_data.team_size}}">
-                                <div class="rank_icon rank_8 small"></div>
-                            </div>
-                            <div class="score_score" data-bind-if="!{{game_data.race_mode}}" data-bind-value="{{player_iter.kills}}">&nbsp;</div>
-                            <div class="score_score points" data-bind-if="!{{game_data.race_mode}}" data-bind-value="{{player_iter.score}}">&nbsp;</div>
-                            <div class="score_score points" data-bind-if="{{game_data.race_mode}}" data-bind-value="{{player_iter.best_time}}">&nbsp;</div>
-
-                            <div class=score_place>&nbsp;</div>
-                            <div class=score_skill>&nbsp;</div>
-                            <div class=score_skill>&nbsp;</div>
-                        </div>
-                    </div>
-
-                    <div class="scoreboard_team_score" data-bind-if="!{{game_data.race_mode}}" data-bind-style-background-color="{{team_iter.color}}" data-bind-value="{{team_iter.team_score}}">
-                        0
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="game_hud_special">
         <div id="hud_load_during_loading" class="hud"></div>              
         <div id="spec_hud_load_during_loading" class="hud"></div> 
@@ -472,55 +430,51 @@
 
     <div id="game_hud">
 
-        <div id="game_masks_container" class="game_masks_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"></div>
-        <div id="game_masks_container_zoom" class="game_masks_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"></div>
+        <div id="game_masks_container" class="game_masks_container" data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"></div>
+        <div id="game_masks_container_zoom" class="game_masks_container" data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"></div>
 
         <div id="non_editing_hud_container">
 
             <div id="real_hud_container" class="hud_container">
                 <div id="real_3D_hud" class="hud"></div>
-                <div id="real_hud" class="hud" data-bind-class-toggle="databound_set_invisible:{{game_data.spectating}}"></div>
-                <div id="spec_hud" class="hud" data-bind-class-toggle="databound_set_invisible:!{{game_data.spectating}}"></div>
-            </div>
-
-            <div id=teamscore_container>
-                <div id="teamscore">
-                    <div id="current_gamestate"></div>
-                    <div id="time_left_holder_bar" class="duel_dynamic_timer">
-                        <div class="timer_bar" id="time_left_bar"></div>
-                        <div class="tide_left_bar" id="tide_bar"></div>
-                    </div>
-                </div>
+                <div id="real_hud" class="hud" data-bind-class-toggle="databound_set_invisible:{{common_game_data.spectating}}"></div>
+                <div id="spec_hud" class="hud" data-bind-class-toggle="databound_set_invisible:!{{common_game_data.spectating}}"></div>
             </div>
 
             <div id=announcements></div>
 
-            <div id="respawn_timer" data-bind-if="{{game_data.show_respawn_timers}}"></div>
-
             <div id="respawn_message" class="i18n" data-i18n="ingame_press_attack_to_respawn">Press attack to respawn</div>
             
+            <!--
             <div id="f3_message" class="unready" 
-                data-bind-if="{{game_data.game_stage}} == 1 && !{{battle_data.self.ready}} && !{{game_data.race_mode}} && !{{battle_data.is_editor_loaded}}" 
+                data-bind-if="{{game_data.spectator}} == false && {{game_data.game_stage}} == 1 && !{{battle_data.self.ready}} && !{{game_data.race_mode}} && !{{battle_data.is_editor_loaded}}" 
                 data-bind-i18n="'ingame_status_unready:'+{{battle_data.ready_key}}"></div>
-            <div id="f3_message" 
-                data-bind-if="{{game_data.game_stage}} == 1 && {{battle_data.self.ready}} && !{{battle_data.is_editor_loaded}}" 
-                data-bind-i18n="'ingame_status_ready:'+{{battle_data.self.ready}}"></div>
+            -->
+
+            <!--<div id="f3_message" 
+                data-bind-if="{{game_data.spectator}} == false && {{game_data.game_stage}} == 1 && {{battle_data.self.ready}} && !{{battle_data.is_editor_loaded}}" 
+                data-bind-i18n="'ingame_status_ready:'+{{battle_data.self.ready}}"></div>-->
 
             <div id="paused_message" class="i18n" data-i18n="ingame_game_is_paused">Game Is Paused.</div>
 
         </div>
 
-        <div id="game_crosshairs_container"                class="game_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"></div>
-        <div id="game_crosshairs_container_zoom"           class="game_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"></div>
-        <div id="game_crosshairs_container_hitmarker"      class="game_zoom_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}" data-bind-style-opacity="{{frame_data.hit_marker_opacity}}"></div>
-        <div id="game_crosshairs_container_hitmarker_zoom" class="game_zoom_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}" data-bind-style-opacity="{{frame_data.hit_marker_opacity}}"></div>
+        <div id="game_crosshairs_container"                class="game_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"></div>
+        <div id="game_crosshairs_container_zoom"           class="game_zoom_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"></div>
+        <div id="game_crosshairs_container_hitmarker"      class="game_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}" data-bind-style-opacity="{{frame_data.hit_marker_opacity}}"></div>
+        <div id="game_crosshairs_container_hitmarker_zoom" class="game_zoom_crosshairs_container" data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}" data-bind-style-opacity="{{frame_data.hit_marker_opacity}}"></div>
 
+    </div>
+
+    <div id="ingame_chat_prompt">
+        <div id="ingame_chat_label"></div>
+        <input id="ingame_chat_input" />
     </div>
 
     <div id="join_menu" onclick="join_menu_visible(false)">
     <div class="inner" onclick="event.stopPropagation();">
+        <!--
         <div class="left">
-            <!-- Show Teams table with player count and Team Join Buttons, don't show Team Join Buttons if team_size == 1 or maybe also not if the current team player count == team_size -->
             <div class="join_header">
                 <div class="header_team">Teams</div>
                 <div class="header_count">Players</div>
@@ -535,10 +489,10 @@
 
         </div>
         <div class="right">
-            <!-- Show automatic Join Match button and Spectate button -->
             <div class="join_match mouseover-sound4 click-sound i18n" data-i18n="ingame_menu_join_match" onclick="join_menu_join_match()">Join Match</div>
             <div class="spectate i18n" data-i18n="ingame_menu_spectate" data-bind-if="{{game_data.team_switching}} == 2" onclick="join_menu_spectate()">Spectate</div>
         </div>
+        -->
     </div>
 </div>
 
@@ -551,19 +505,19 @@
     <div id="game_report">
         <div id="game_report_cont">
     <div class="head"></div>
-    <div class="report_scoreboard"></div>
+    <div class="report_scoreboard scroll-outer" data-sb-hide-empty="true">
+        <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+        <div id="report_scoreboard" class="scroll-inner"></div>
+    </div>
     <div class="bottom">
-        <div class="countdown">
-            <div class="text" data-bind-if="{{game_data.continuous}} == 0" data-bind-i18n="'report_leaving_game_in:'+{{game_data.continuous}}">Leaving game in</div>
-            <div class="text" data-bind-if="{{game_data.continuous}} == 1" data-bind-i18n="'report_next_map_in:'+{{game_data.continuous}}" >Next map in</div>
-            <div id="game_report_countdown" class="value"></div>
-        </div>
-
         <div class="chat">
             <div class="chat_container">
                 <div class="chat_messages"></div>
             </div>
-            <input class="chat_input" />
+            <div class="chat_input_cont">
+                <div id="game_report_chat_input_mode" class="i18n" data-i18n="settings_controls_chat">Chat</div>
+                <input class="chat_input" />
+            </div>
         </div>
         
         <div class="container">
@@ -573,15 +527,23 @@
         </div>
 
         <div class="menu">
-            <div style="display:none;" class="btn i18n mouseover-sound4 click-sound progress" data-i18n="report_progression" onclick="game_report_show_progression(true)">Progression</div>
-            <div class="btn mouseover-sound4 map_vote" onclick="game_report_show_map_vote(true)" data-bind-i18n="report_map_vote" data-bind-if="{{game_data.continuous}} == 1">Map Vote</div>
-            <div class="btn i18n mouseover-sound4 stats" onclick="game_report_show_stats(true)" data-i18n="report_stats" >Statistics</div>
-            <div class="btn i18n mouseover-sound4 click-sound quit" onclick="button_game_over_quit()" data-i18n="report_disconnect" >Disconnect</div>
+            <div class="btn i18n mouseover-sound4 progress" onclick="game_report_show_progression(true)" data-i18n="report_progression">Progression</div>
+            <div class="btn i18n mouseover-sound4 map_vote" onclick="game_report_show_map_vote(true)" data-i18n="report_map_vote">Map Vote</div>
+            <div class="btn i18n mouseover-sound4 stats"    onclick="game_report_show_stats(true)" data-i18n="report_stats">Statistics</div>
+            <div id="game_report_rematch_cont">
+                <div class="btn i18n mouseover-sound4 click-sound rematch" onclick="game_report_request_rematch()">Request rematch</div>
+                <div class="rematch_state"></div>
+            </div>
+            <!--<div class="btn i18n mouseover-sound4 click-sound quit" onclick="button_game_over_quit()" data-i18n="report_disconnect" >Disconnect</div>-->
+            <div class="countdown">
+                <div class="text"></div>
+                <div id="game_report_countdown" class="value"></div>
+            </div>
         </div>
     </div>
 </div>
         <div id="rank_screen">
-
+    <div class="bg"></div>
 
     <div class="rank_progression">
 <!--
@@ -626,6 +588,39 @@
     <div class="wip">Work in Progress</div>
 </div>
     </div>
+
+    <div id="aim_report">
+
+    <div class="head">
+        <div class="title i18n" data-i18n="aim_report_title">Aim Report</div>
+        <div class="db-btn dark mouseover-sound4 click-sound i18n" data-i18n="aim_report_leave" onclick="on_aim_report_leave();">Leave</div>
+    </div>
+
+    <div class="stat_cont_row">
+        <div class="stat_cont acc">
+            <div class="bg"></div>
+            <div class="icon"></div>
+            <div class="stat" id="aim_report_acc">34%</div>
+            <div class="label i18n" data-i18n="aim_report_accuracy">Accuracy</div>
+        </div>
+        <div class="stat_cont score">
+            <div class="bg"></div>
+            <div class="icon"></div>
+            <div class="stat" id="aim_report_score">46</div>
+            <div class="label i18n" data-i18n="aim_report_final_score">Score</div>
+        </div>
+        <div class="stat_cont time">
+            <div class="bg"></div>
+            <div class="icon"></div>
+            <div class="stat" id="aim_report_time">150ms</div>
+            <div class="label i18n" data-i18n="aim_report_reaction_time">Reaction Time</div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <div class="db-btn bright mouseover-sound4 click-sound i18n" data-i18n="aim_report_restart" onclick="on_aim_report_restart();">Restart</div>        
+    </div>
+</div>
     
 </div>
 
@@ -696,111 +691,6 @@
 
 <script id="hud_group" type="text/jsrender"></script>
 
-<script id="hud_player_name" type="text/jsrender">
-    <div class="player_name [[if uc==1]]upper[[/if]]" data-bind-if="{{battle_data.self.alive}} [[if vis=='p']]&& !{{game_data.spectating}}[[/if]] [[if vis=='s']]&& {{game_data.spectating}}[[/if]]">
-        [[if pre==1]]<div class="following" data-bind-i18n="'following:'+{{battle_data.self.name}}">Following</div>[[/if]]
-        <div [[if teamColor==1]]data-bind-style-color="{{game_data.own_team.color}}[[/if]]" data-bind-value="{{battle_data.self.name}}">Mr. Eggbot</div>
-    </div>
-</script>
-
-<script id="hud_weapons_list" type="text/x-jsrender">
-    <div class="ammo_container [[:direction]]" data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
-
-        [[if render_normal]]
-            <div class="ammo_row [[:wDirection]]" data-bind-for="weapon_iter:{{weapons_group.weapons}}" data-bind-property="'--weapon_color:'+{{weapon_iter.color}}">
-                
-                [[if accShow==1]]
-                <div class="ammo_stats"  data-bind-value="{{weapon_iter.accuracy}} + '%'">0%</div>
-                [[/if]]
-
-                <div class="ammo_label [[:aBGC]]_bg [[:aC]]_color [[:aBGCActive]]_bg_active [[:aCActive]]_color_active" data-bind-class-toggle="selected:{{weapon_iter.current}}">
-                    [[if aKeybindShow == 1]]
-                        <div data-bind-if="{{weapon_iter.current}} && {{weapon_iter.unlimited_ammo}}">&infin;</div>
-                        <div data-bind-if="{{weapon_iter.current}} && !{{weapon_iter.unlimited_ammo}}" data-bind-value="{{weapon_iter.ammo}}">0</div>
-                        <div data-bind-if="!{{weapon_iter.current}}" data-bind-value="{{weapon_iter.key}}"></div>
-                    [[else]]
-                        <div data-bind-if="{{weapon_iter.unlimited_ammo}}">&infin;</div>
-                        <div data-bind-if="!{{weapon_iter.unlimited_ammo}}" data-bind-value="{{weapon_iter.ammo}}">0</div>
-                    [[/if]]
-                </div>
-                
-                <div class="ammo_icon [[:iBGC]]_bg [[:iBGCActive]]_bg_active" data-bind-class-toggle="selected:{{weapon_iter.current}}">
-                    <div [[if iShadow==1]]class="shadow"[[/if]] data-bind-if="!{{weapon_iter.current}}" data-bind-style-background-image-url="{{weapon_iter.icon_url}}+'?fill='+[[if iC=="weapon"]]{{weapon_iter.color}}[[/if]][[if iC=="custom"]]'[[:iCCustom]]'[[/if]]"></div>
-                    <div [[if iShadow==1]]class="shadow"[[/if]] data-bind-if="{{weapon_iter.current}}"  data-bind-style-background-image-url="{{weapon_iter.icon_url}}+'?fill='+[[if iCActive=="weapon"]]{{weapon_iter.color}}[[/if]][[if iCActive=="custom"]]'[[:iCActiveCustom]]'[[/if]]"></div>
-                </div>
-                
-                <div class="ammo_accent"></div>
-
-                [[if aBarShow==1]]
-                <div class="ammo_bar">
-                    <div class="ammo_bar_inner [[if aBarWC==1]]weapon_bg[[/if]]" data-bind-if="{{weapon_iter.unlimited_ammo}}"
-                        [[if wDirection.startsWith("horizontal")]]style="height:100%"[[/if]]
-                        [[if wDirection.startsWith("vertical")]]style="width:100%"[[/if]]
-                    ></div>
-                    <div class="ammo_bar_inner [[if aBarWC==1]]weapon_bg[[/if]]" data-bind-if="!{{weapon_iter.unlimited_ammo}}"
-                        [[if wDirection.startsWith("horizontal")]]data-bind-style-height="({{weapon_iter.ammo}} / {{weapon_iter.max_ammo}} * 100) +'%'"[[/if]]
-                        [[if wDirection.startsWith("vertical")]]data-bind-style-width="({{weapon_iter.ammo}} / {{weapon_iter.max_ammo}} * 100) +'%'"[[/if]]
-                    ></div>
-                </div>
-                [[/if]]
-
-                <div class="ammo_key_cont" style="[[if !(keybindShow==1)]]display: none;[[/if]]">
-                    <div class="ammo_key" data-bind-value="{{weapon_iter.key}}"></div>
-                </div>
-
-            </div>
-        [[/if]]
-        [[if render_separator]]<div class="ammo_category_separator" data-bind-if="{{super_weapons_group.weapons}}.length > 0"></div>[[/if]]
-        [[if render_super]]
-            <div class="ammo_row [[:wDirection]]" data-bind-for="weapon_iter:{{super_weapons_group.weapons}}" data-bind-property="'--weapon_color:'+{{weapon_iter.color}}">
-                
-                [[if accShow==1]]
-                <div class="ammo_stats"  data-bind-value="{{weapon_iter.accuracy}} + '%'">0%</div>
-                [[/if]]
-
-                <div class="ammo_label [[:aBGC]]_bg [[:aC]]_color [[:aBGCActive]]_bg_active [[:aCActive]]_color_active" data-bind-class-toggle="selected:{{weapon_iter.current}}">
-                    [[if aKeybindShow == 1]]
-                        <div data-bind-if="{{weapon_iter.current}} && {{weapon_iter.unlimited_ammo}}">&infin;</div>
-                        <div data-bind-if="{{weapon_iter.current}} && !{{weapon_iter.unlimited_ammo}}" data-bind-value="{{weapon_iter.ammo}}">0</div>
-                        <div data-bind-if="!{{weapon_iter.current}}" data-bind-value="{{weapon_iter.key}}"></div>
-                    [[else]]
-                        <div data-bind-if="{{weapon_iter.unlimited_ammo}}">&infin;</div>
-                        <div data-bind-if="!{{weapon_iter.unlimited_ammo}}" data-bind-value="{{weapon_iter.ammo}}">0</div>
-                    [[/if]]
-                </div>
-                
-                <div class="ammo_icon [[:iBGC]]_bg [[:iBGCActive]]_bg_active" data-bind-class-toggle="selected:{{weapon_iter.current}}">
-                    <div [[if iShadow==1]]class="shadow"[[/if]] data-bind-if="!{{weapon_iter.current}}" data-bind-style-background-image-url="{{weapon_iter.icon_url}}+'?fill='+[[if iC=="weapon"]]{{weapon_iter.color}}[[/if]][[if iC=="custom"]]'[[:iCCustom]]'[[/if]]"></div>
-                    <div [[if iShadow==1]]class="shadow"[[/if]] data-bind-if="{{weapon_iter.current}}"  data-bind-style-background-image-url="{{weapon_iter.icon_url}}+'?fill='+[[if iCActive=="weapon"]]{{weapon_iter.color}}[[/if]][[if iCActive=="custom"]]'[[:iCActiveCustom]]'[[/if]]"></div>
-                </div>
-                
-                <div class="ammo_accent"></div>
-
-                [[if aBarShow==1]]
-                <div class="ammo_bar">
-                    <div class="ammo_bar_inner [[if aBarWC==1]]weapon_bg[[/if]]" data-bind-if="{{weapon_iter.unlimited_ammo}}"
-                        [[if wDirection.startsWith("horizontal")]]style="height:100%"[[/if]]
-                        [[if wDirection.startsWith("vertical")]]style="width:100%"[[/if]]
-                    ></div>
-                    <div class="ammo_bar_inner [[if aBarWC==1]]weapon_bg[[/if]]" data-bind-if="!{{weapon_iter.unlimited_ammo}}"
-                        [[if wDirection.startsWith("horizontal")]]data-bind-style-height="({{weapon_iter.ammo}} / {{weapon_iter.max_ammo}} * 100) +'%'"[[/if]]
-                        [[if wDirection.startsWith("vertical")]]data-bind-style-width="({{weapon_iter.ammo}} / {{weapon_iter.max_ammo}} * 100) +'%'"[[/if]]
-                    ></div>
-                </div>
-                [[/if]]
-
-                <div class="ammo_key_cont" style="[[if !(keybindShow==1)]]display: none;[[/if]]">
-                    <div class="ammo_key" data-bind-value="{{weapon_iter.key}}"></div>
-                </div>
-
-            </div>
-        [[/if]]
-
-    </div>
-
-</script>
-
-
 <script id="hud_game_timer" type="text/x-jsrender">
     [[if analog==1]]
     <div style="width:calc([[:fontSize]]vh*var(--ratio));height:calc([[:fontSize]]vh*var(--ratio));border-radius:50%;border:2px solid [[:color]]">
@@ -822,7 +712,7 @@
         </div>
     </div>
     [[else]]
-    88:88
+    00:00
     [[/if]]
 </script>
 
@@ -851,96 +741,11 @@
     [[/if]]
 </script>
 
-<script id="hud_coins" type="text/x-jsrender">
-    [[if hudPreview]]
-    <div class="coin_cont">
-        <div class="icon"></div>
-        <div class="counter">×6</div>
-    </div>
-    [[else]]
-    <div class="coin_cont" data-bind-if="{{game_data.game_mode}} == 'coinrun' && {{battle_data.self.coins}} > 0">
-        <div class="icon"></div>
-        <div class="counter" data-bind-value="'×'+{{battle_data.self.coins}}"></div>
-    </div>
-    [[/if]]
-</script>
-
-<script id="hud_simple_text" type="text/x-jsrender">
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>200</div>
-</script>
-
-<script id="hud_hp" type="text/x-jsrender">
-    <div data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:threshold]]" data-bind-value="{{battle_data.self.hp}}">200</div>
-</script>
-
-<script id="hud_armor" type="text/x-jsrender">
-    <div data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}} && !([[:hideIf0]] && {{battle_data.self.armor}} <= 0)" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:threshold]]" data-bind-value="{{battle_data.self.armor}}">100</div>
-</script>
-
-<script id="hud_stack" type="text/x-jsrender">
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}" [[if gradientColor==1]]data-bind-style-color="hslToRgbString(Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})/400, 1, 0.5)"[[/if]] data-bind-value="Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})"[[/if]] [[if hudPreview && gradientColor==1]]style="color:cyan"[[/if]]>300</div>
-    [[if showDormant==1]]
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}" [[if gradientColor==1]]data-bind-style-color="hslToRgbString(Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})/400, 1, 0.5)"[[/if]] data-bind-value="'+'+Math.max(0, {{battle_data.self.hp}}+{{battle_data.self.armor}}-{{battle_data.self.hp}}*3)"[[/if]] style="font-size:0.5em;[[if hudPreview && gradientColor==1]]color:cyan[[/if]]">+0</div>
-    [[/if]]
-</script>
-<!--
-[[if gradientColor==1]]data-bind-style-color="'hsl('+Math.min({{battle_data.self.hp}}*3, {{battle_data.self.hp}}+{{battle_data.self.armor}})*0.6+',100%,50%)'"[[/if]]
-
-
-   /*<div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && {{current_weapon_data.unlimited_ammo}}"[[/if]] [[if weapon_fill == 1]]data-bind-style-color="{{current_weapon_data.color}}"[[/if]]>[[if !hudPreview]]&infin;[[/if]]</div>
-    <div [[if !hudPreview]]data-bind-if="{{battle_data.self.alive}} && !{{current_weapon_data.unlimited_ammo}}"[[/if]] [[if weapon_fill == 1]]data-bind-style-color="{{current_weapon_data.color}}"[[/if]] data-bind-value="{{current_weapon_data.ammo}}"></div>
-        */
--->
-<script id="hud_current_ammo" type="text/x-jsrender">
-    <span data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
-        <div class="[[:aC]]_color [[:lowAC]]_color_low" data-bind-class-toggle="threshold:{{current_weapon_data.ammo}} <= ({{current_weapon_data.max_ammo}} * [[:threshold]])" data-bind-property="'--weaponColor:'+{{current_weapon_data.color}}">
-            <div data-bind-if="!{{current_weapon_data.unlimited_ammo}}" data-bind-value="{{current_weapon_data.ammo}}"></div>
-            <div data-bind-if="{{current_weapon_data.unlimited_ammo}}">&infin;</div>
-        </div>
-    </span>        
-</script>
-
-<script id="hud_speed" type="text/x-jsrender">
-    <div data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}"><span data-bind-value="{{frame_data.speed}}">0</span>[[if !(hideUnit==1)]]<span>ups</span>[[/if]]</div>
-</script>
-
-<script id="hud_itempickup" type="text/x-jsrender">    
-    [[if hudPreview]]
-        <div class="container">
-            [[if icon == 1]]
-            <div class="icon" style="background-image:url('images/weapon_rl.svg?fill=#df1f2d')"></div>
-            [[/if]]
-            [[if name == 1]]
-            <div class="text">
-                [[if owner == 1]]
-                <div class="owner">Mr Eggbot's</div>
-                [[/if]]
-                <div class="name">Rocket Launcher</div>
-            </div>
-            [[/if]]
-        </div>
-    [[else]]
-        <div class="container" data-bind-if="{{battle_data.self.alive}}">
-            [[if icon == 1]]
-            <div class="icon"></div>
-            [[/if]]
-            [[if name == 1]]
-            <div class="text">
-                [[if owner == 1]]
-                <div class="owner"></div>
-                [[/if]]
-                <div class="name"></div>
-            </div>
-            [[/if]]
-        </div>
-    [[/if]]
-</script>
-
 <script id="hud_rect" type="text/x-jsrender">
     [[if hudPreview]]
         <div style="[[if bgC == "weapon"]]background-color:#df1f2d;[[/if]]"></div>
     [[else]]
-        <div [[if hide_dead==1]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] 
+        <div [[if hide_dead==1]]data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]] 
              [[if bgC == "team"]]data-bind-style-background-color="{{game_data.own_team.color}}"[[/if]]
              [[if bgC == "team_dark"]]data-bind-style-background-color="{{game_data.own_team.color_dark}}"[[/if]]
              [[if bgC == "team_darker"]]data-bind-style-background-color="{{game_data.own_team.color_darker}}"[[/if]]
@@ -972,50 +777,10 @@
     [[/if]]
 </script>
 
-<script id="hud_hp_bar" type="text/x-jsrender">
-    <div class="ha_bar_container [[if rightToLeft==1]]reverse[[/if]] [[if boxShadow == 1]]shadow[[/if]]" data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
-        <div class="bg_container">
-            [[for start=0 end=(+segments)]]
-                <div class="bar_segment_bg"></div>
-            [[/for]]
-        </div>
-        <div class="overflow_container">
-            [[for start=0 end=(+segments)]]
-            <div class="fg_container">
-                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.hp}} <= [[:~root.threshold]]"  
-                                            data-idx="[[:#getIndex()]]" 
-                                            data-fillattr="[[:~root.fillStyle]]"
-                                            data-segments="[[:~root.segments]]" 
-                                            data-bind-bar="{{battle_data.self.hp_percentage}}">
-                </div>
-            </div>
-            [[/for]]
-        </div>
-    </div>
-</script>
-<script id="hud_armor_bar" type="text/x-jsrender">
-    <div class="ha_bar_container [[if rightToLeft==1]]reverse[[/if]] [[if boxShadow == 1]]shadow[[/if]]" data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
-        <div class="bg_container">
-            [[for start=0 end=(+segments)]]
-                <div class="bar_segment_bg"></div>
-            [[/for]]
-        </div>
-        <div class="overflow_container">
-            [[for start=0 end=(+segments)]]
-            <div class="fg_container">
-                <div class="bar_segment_fg" data-bind-class-toggle="threshold:{{battle_data.self.armor}} <= [[:~root.threshold]]"  
-                                            data-idx="[[:#getIndex()]]" 
-                                            data-fillattr="[[:~root.fillStyle]]"
-                                            data-segments="[[:~root.segments]]" 
-                                            data-bind-bar="{{battle_data.self.armor_percentage}}">
-                </div>
-            </div>
-            [[/for]]
-        </div>
-    </div>
-</script>
+
+
 <script id="hud_stack_bar" type="text/x-jsrender">
-    <div class="ha_bar_container"        [[if !hudPreview]] data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] style="background-color:rgba(0,0,0,0.3);transform: [[if rightToLeft==1]]scaleX(-1)[[/if]] [[if armorOnTop==1]]scaleY(-1)[[/if]];">
+    <div class="ha_bar_container"        [[if !hudPreview]] data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]] style="background-color:rgba(0,0,0,0.3);transform: [[if rightToLeft==1]]scaleX(-1)[[/if]] [[if armorOnTop==1]]scaleY(-1)[[/if]];">
       <!--<div class="stack_hp_overtip"      [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.min(100, 200-{{battle_data.self.hp}}) + '%'"[[/if]]></div>-->
       <div class="stack_hp_overbase"     [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.max(  0, {{battle_data.self.hp}}-100) + '%'"[[/if]] style="background-color:[[:hpColour]]"></div>
       <div class="stack_hp_overbase"     [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.max(  0, {{battle_data.self.hp}}-100) + '%'"[[/if]] style="background-color:rgba(255,255,255,0.3)"></div>
@@ -1034,11 +799,9 @@
     </div>
 </script>
 
-
-
 <script id="hud_chat" type="text/x-jsrender">
 
-    <div class="chat_container" [[if showTimestamp==1]]style="--chat_show_timestamp_while_ingame:flex;"[[/if]]  data-bind-class-toggle="active:[[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
+    <div class="chat_container" [[if showTimestamp==1]]style="--chat_show_timestamp_while_ingame:flex;"[[/if]]  data-bind-class-toggle="active:[[if !hudSpectating]]![[/if]]{{common_game_data.spectating}}">
         <div class="chat_temp_cont">
             <div class="chat_temp"></div>
         </div>
@@ -1046,351 +809,26 @@
             <div class="chat_messages_container">
                 <div class="chat_messages"></div>
             </div>
-            <input class="ingame_chat_input"/>
         </div>
     </div>
 
 </script>
 
 <script id="hud_icon" type="text/x-jsrender">
-    <div class="icon_cont" [[if hide_dead==1]]data-bind-if="{{battle_data.self.alive}}"[[/if]]>
+    <div class="icon_cont" [[if hide_dead==1]]data-bind-if="{{common_game_data.self_alive}}"[[/if]]>
         <img [[if iconShadow==1]]class="shadow"[[/if]] src="/html/images/hud_icon_[[:icon]].svg?fill=[[:fill]]&stroke=[[:stroke]]&stroke-width=[[:stroke_width]]">
-    </div>
-</script>
-
-<script id="hud_current_weapon_icon" type="text/x-jsrender">
-    <div class="icon_cont [[if iconShadow==1]]shadow[[/if]]" data-bind-if="{{battle_data.self.alive}}"
-        [[if weapon_fill == 1]]
-            data-bind-style-background-image-url="'images/weapon_' + {{current_weapon_data.tag}} + '.svg?fill=' + {{current_weapon_data.color}}"
-        [[else]]
-            data-bind-style-background-image-url="'images/weapon_' + {{current_weapon_data.tag}} + '.svg?fill=[[:fill]]'"
-        [[/if]]
-    ></div>
-</script>
-
-<script id="hud_score" type="text/x-jsrender">
-    <div class="score [[if sC=="custom"]]customcolor[[/if]] [[if bgC=="custom"]]custombg[[/if]]" [[if hide_dead==1]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]
-    [[if team=="own"]]
-        [[if sC=="team"]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]] 
-        [[if bgC=="team"]]data-bind-style-background-color="{{game_data.own_team.color}}"[[/if]]
-        [[if sType=="score"]]data-bind-value="{{game_data.own_team.team_score}}"[[/if]]
-        [[if sType=="round"]][[if !hudPreview]]data-bind-if="{{game_data.round_mode}}"[[/if]] data-bind-value="{{game_data.own_team.game_score}}"[[/if]]>0</div>
-    [[else team=="enemy"]]
-        [[if sC=="team"]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]] 
-        [[if bgC=="team"]]data-bind-style-background-color="{{game_data.enemy_team.color}}"[[/if]]
-        [[if sType=="score"]]data-bind-value="{{game_data.enemy_team.team_score}}"[[/if]]
-        [[if sType=="round"]][[if !hudPreview]]data-bind-if="{{game_data.round_mode}}"[[/if]] data-bind-value="{{game_data.enemy_team.game_score}}"[[/if]]>0</div>
-    [[/if]]
-</script>
-
-<script id="hud_flag" type="text/x-jsrender">
-    <div class="flag [[if bgC=="custom"]]custombg[[/if]]" [[if hide_dead==1]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] [[if !hudPreview]]data-bind-if="{{game_data.game_mode}} == 'ctf'"[[/if]]
-    [[if team=="own"]]
-        [[if bgC=="team"]]data-bind-style-background-color="{{game_data.own_team.color}}"[[/if]]>
-        <div class="home" data-bind-if="{{game_data.own_team.team_flag_state}} == 0" [[if iC=="default"]]data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{game_data.own_team.color}}"[[/if]]
-                                                                                     [[if iC="custom"]]style="background-image:url('/html/images/item_flag.svg?fill=[[:iCCustom]]')"[[/if]]></div>
-        <div class="enemy"   data-bind-if="{{game_data.own_team.team_flag_state}} == 1" [[if iC=="custom"]]style="background-image: url(/html/images/icons/fa/times.svg?fill=[[:iCCustom]])"[[/if]]></div>
-        <div class="dropped" data-bind-if="{{game_data.own_team.team_flag_state}} == 2" [[if iC=="custom"]]style="background-image: url(/html/images/icons/fa/question.svg?fill=[[:iCCustom]])"[[/if]]></div>
-    [[else team=="enemy"]]
-        [[if bgC=="team"]]data-bind-style-background-color="{{game_data.enemy_team.color}}"[[/if]]>
-        <div class="home" data-bind-if="{{game_data.enemy_team.team_flag_state}} == 0" [[if iC=="default"]]data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{game_data.enemy_team.color}}"[[/if]]
-                                                                                       [[if iC="custom"]]style="background-image:url('/html/images/item_flag.svg?fill=[[:iCCustom]]')"[[/if]]></div>
-        <div class="enemy"   data-bind-if="{{game_data.enemy_team.team_flag_state}} == 1" [[if iC=="custom"]]style="background-image: url(/html/images/icons/fa/times.svg?fill=[[:iCCustom]])"[[/if]]></div>
-        <div class="dropped" data-bind-if="{{game_data.enemy_team.team_flag_state}} == 2" [[if iC=="custom"]]style="background-image: url(/html/images/icons/fa/question.svg?fill=[[:iCCustom]])"[[/if]]></div>
-    [[/if]]
-    </div>
-</script>
-
-<script id="hud_my_team_score" type="text/x-jsrender">
-    <div class="teamscore_team_container [[if reverse == 1]]reverse[[/if]]" data-bind-if="[[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
-        <div class="teamscore_score [[if sS == 1]]shadow[[/if]]" data-bind-style-background-color="{{game_data.own_team.color}}" data-bind-value="{{game_data.own_team.team_score}}">X</div>
-        <div class="teamscore_subscore" data-bind-if="{{game_data.round_mode}}" data-bind-value="{{game_data.own_team.game_score}}">0</div>
-        <div class="teamscore_macguffin" data-bind-if="{{game_data.own_team.team_has_macguffin}}"><div></div></div>
-        <div class="teamscore_flag" data-bind-if="{{game_data.game_mode}} == 'ctf'">
-            <div class="home"    data-bind-if="{{game_data.own_team.team_flag_state}} == 0" data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{game_data.own_team.color}}"></div>
-            <div class="enemy"   data-bind-if="{{game_data.own_team.team_flag_state}} == 1"></div>
-            <div class="dropped" data-bind-if="{{game_data.own_team.team_flag_state}} == 2"></div>
-        </div>
-        [[if players == true]]
-        <div class='teamscore_solo' data-bind-if="{{game_data.team_size}} == 1">
-            <div class="solo_player" data-bind-for="player_iter:{{game_data.own_team.players}}">
-                <div class="name" data-bind-style-background-color="{{game_data.own_team.color_dark}}+'[[:name_bg_opacity]]'"><div data-bind-value="{{player_iter.name}}">Player1</div></div>
-                <div class="avatar" style="--height:[[:height]]" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-style-background-color="{{game_data.own_team.color_dark}}+'[[:name_bg_opacity]]'" data-bind-class-toggle="player_dead:!{{player_iter.alive}}">
-                    <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="solo_player_stack_cont" data-bind-for="player_iter:{{game_data.own_team.players}}">
-            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.team_size}} == 1 && {{game_data.spectator}}">
-                <div class="hp_bar_cont"><div class="hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.own_team.color}}"></div></div>
-                <div class="armor_bar_cont"><div class="armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div></div>
-            </div>
-            [[if showStocks == 1]]
-            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
-                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
-                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
-                                   [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
-                </div>
-            </div>
-            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'duel' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
-                [[if !(reverse == 1)]]
-                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{player_iter.alive}})"
-                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.own_team.color}}">
-                </div>
-                [[/if]]
-                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
-                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
-                                   [[/if]]             data-bind-for="_:(dummy_stock_array_maker({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{player_iter.alive}}))">
-                </div>
-                [[if (reverse == 1)]]
-                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.own_team.team_score}},{{game_data.enemy_team.team_score}},{{player_iter.alive}})"
-                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.own_team.color}}">
-                </div>
-                [[/if]]
-            </div>
-            [[/if]]
-        </div>
-
-
-        <div class="teamscore_team" data-bind-if="{{game_data.team_size}} > 1">
-            <div class="teamscore_score_players">
-                <div class="player_icon" data-bind-for="player_iter:{{game_data.own_team.players}}">
-                    <div class="avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-class-toggle="player_self:{{player_iter.is_self}};player_dead:!{{player_iter.alive}}">
-                        <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
-                    </div>
-                    <div class="name" data-bind-value="{{player_iter.name}}"></div>
-                    <div class="icon_bars" data-bind-if="{{player_iter.alive}}">
-                        <div class="icon_hp_bar_holder">
-                            <div class="icon_hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.own_team.color}}"></div>
-                        </div>
-                        <div class="icon_hp_armor_holder">
-                            <div class="icon_armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div>
-                        </div>
-                    </div>
-                    <div class="player_respawn_timer" data-bind-if="{{player_iter.alive}} == false && {{game_data.show_respawn_timers}} == true" data-bind-value="{{player_iter.respawn_timer}}">X</div>
-                    <div class="player_powerup_holder">
-                        <div class="player_macguffin" data-bind-if="{{player_iter.has_macguffin}}">
-                            <div data-bind-class-toggle="small:{{player_iter.has_powerup}}"></div>
-                        </div>
-
-                        <div class="player_flag_icon" data-bind-if="{{player_iter.has_flag}}">
-                            <div data-bind-class-toggle="small:{{player_iter.has_powerup}}" data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{player_iter.flag_color}}"></div>
-                        </div>
-                                                
-                        <div class="player_powerup" data-bind-if="{{player_iter.has_powerup}}">
-                            <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
-                        </div>
-                    </div>
-                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca'">
-                        <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.own_team.color}}"
-                                           [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.own_team.color}}" 
-                                           [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        [[/if]]
-    </div>
-</script>
-
-<script id="hud_enemy_team_score" type="text/x-jsrender">
-    <div class="teamscore_team_container [[if reverse == 1]]reverse[[/if]]" data-bind-if="[[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
-        <div class="teamscore_score [[if sS == 1]]shadow[[/if]]" data-bind-style-background-color="{{game_data.enemy_team.color}}" data-bind-value="{{game_data.enemy_team.team_score}}">X</div>
-        <div class="teamscore_subscore" data-bind-if="{{game_data.round_mode}}" data-bind-value="{{game_data.enemy_team.game_score}}">0</div>
-        <div class="teamscore_macguffin" data-bind-if="{{game_data.enemy_team.team_has_macguffin}}"><div></div></div>
-        <div class="teamscore_flag" data-bind-if="{{game_data.game_mode}} == 'ctf'">
-            <div class="home"    data-bind-if="{{game_data.enemy_team.team_flag_state}} == 0" data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{game_data.enemy_team.color}}"></div>
-            <div class="enemy"   data-bind-if="{{game_data.enemy_team.team_flag_state}} == 1"></div>
-            <div class="dropped" data-bind-if="{{game_data.enemy_team.team_flag_state}} == 2"></div>
-        </div>
-        [[if players == true]]
-        <div class='teamscore_solo' data-bind-if="{{game_data.team_size}} == 1">
-            <div class="solo_player" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
-                <div class="name" data-bind-style-background-color="{{game_data.enemy_team.color_dark}}+'[[:name_bg_opacity]]'"><div data-bind-value="{{player_iter.name}}">Player2</div></div>
-                <div class="avatar" style="--height:[[:height]]" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-style-background-color="{{game_data.enemy_team.color_dark}}+'[[:name_bg_opacity]]'" data-bind-class-toggle="player_dead:!{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
-                    <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="solo_player_stack_cont" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
-            <div class="solo_player_stack" data-bind-if="{{player_iter.alive}} && {{game_data.team_size}} == 1 && {{game_data.spectator}}">
-                <div class="hp_bar_cont"><div class="hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.enemy_team.color}}"></div></div>
-                <div class="armor_bar_cont"><div class="armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div></div>
-            </div>
-            [[if showStocks == 1]]
-            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
-                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
-                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
-                                   [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
-                </div>
-            </div>
-            <div class="solo_player_stocks" data-bind-if="{{game_data.game_mode}} == 'duel' && {{game_data.team_size}} == 1" data-bind-class-toggle="make_room_for_stack_cont:{{game_data.spectator}}">
-                [[if !(reverse == 1)]]
-                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.enemy_team.team_score}},{{game_data.own_team.team_score}},{{player_iter.alive}})"
-                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.enemy_team.color}}">
-                </div>
-                [[/if]]
-                <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
-                                   [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
-                                   [[/if]]             data-bind-for="_:(dummy_stock_array_maker({{game_data.enemy_team.team_score}},{{game_data.own_team.team_score}},{{player_iter.alive}}))">
-                </div>
-                [[if (reverse == 1)]]
-                <div class="stock" data-bind-class-toggle="protected:is_stock_protected({{game_data.enemy_team.team_score}},{{game_data.own_team.team_score}},{{player_iter.alive}})"
-                                   data-bind-style-background-image-url="operating_eggbot_image({{player_iter.alive}},[[:stockIcon]])+{{game_data.enemy_team.color}}">
-                </div>
-                [[/if]]
-            </div>
-            [[/if]]
-        </div>
-
-        <div class="teamscore_team" data-bind-if="{{game_data.team_size}} > 1">
-            <div class="teamscore_score_players">
-                <div class="player_icon" data-bind-for="player_iter:{{game_data.enemy_team.players}}">
-                    <div class="avatar" data-bind-style-background-image-url="_avatarUrl({{player_iter.avatar}})" data-bind-class-toggle="player_dead:!{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
-                        <div class="player_ready_box" data-bind-if="{{game_data.game_stage}} == 1" data-bind-class-toggle="player_ready:{{player_iter.ready}}"></div>
-                    </div>
-                    <div class="name" data-bind-value="{{player_iter.name}}"></div>
-                    <div class="icon_bars" data-bind-if="{{player_iter.alive}} && {{game_data.spectating}} && {{game_data.own_team_id}} < 0">
-                        <div class="icon_hp_bar_holder">
-                            <div class="icon_hp_bar" data-bind-style-width="{{player_iter.hp_percentage}} + '%'" data-bind-style-background-color="{{game_data.enemy_team.color}}"></div>
-                        </div>
-                        <div class="icon_hp_armor_holder">
-                            <div class="icon_armor_bar" data-bind-style-width="{{player_iter.armor_percentage}} + '%'"></div>
-                        </div>
-                    </div>
-                    <div class="player_respawn_timer" data-bind-if="{{player_iter.alive}} == false && {{game_data.show_respawn_timers}} == true" data-bind-value="{{player_iter.respawn_timer}}">X</div>
-                    <div class="player_powerup_holder">
-                        <div class="player_macguffin" data-bind-if="{{player_iter.has_macguffin}}">
-                            <div data-bind-class-toggle="small:{{player_iter.has_powerup}}"></div>
-                        </div>
-
-                        <div class="player_flag_icon" data-bind-if="{{player_iter.has_flag}}">
-                            <div data-bind-class-toggle="small:{{player_iter.has_powerup}}" data-bind-style-background-image-url="'/html/images/item_flag.svg?fill='+{{player_iter.flag_color}}"></div>
-                        </div>
-                                                
-                        <div class="player_powerup" data-bind-if="{{player_iter.has_powerup}}">
-                            <div data-bind-class-toggle="small:{{player_iter.has_macguffin}} || {{player_iter.has_flag}}" data-bind-style-background-image-url="{{player_iter.pd_powerup_image}}+'?fill='+{{player_iter.pd_powerup_color}}"></div>
-                        </div>
-                    </div>
-                    <div class="player_stocks" data-bind-if="{{game_data.game_mode}} == 'ca'">
-                        <div class="stock" [[if stockIcon==1]] data-bind-style-background-image-url="'/html/images/icons/fa/wrench.svg?fill='+{{game_data.enemy_team.color}}"
-                                           [[else]]            data-bind-style-background-image-url="'/html/images/icons/fa/heart.svg?fill='+{{game_data.enemy_team.color}}" 
-                                           [[/if]]             data-bind-for="_:count_to_empty_array({{player_iter.life_count}})">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        [[/if]]
-    </div>
-</script>
-
-<script id="hud_time_limit" type="text/x-jsrender">
-    88:88
-</script>
-
-<script id="hud_dodge" type="text/x-jsrender">
-    <div class="indicator_cont [[if flip==1]]reverse[[/if]]" data-bind-if="{{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
-        [[if aT == 0]]
-        <div class="indicator_icon ability_dodge [[if hudPreview]]active[[/if]]" data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} == 0">
-            <div class="indicator_icon_bg">
-                <div class="dodge_icon_part [[if hudPreview]]active[[/if]]" [[if !hudPreview]]data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} == 0"[[/if]]>
-                    <img src="/html/images/icons/dodge_arrow_single.svg?fill=[[:mC]]" />
-                </div>
-            </div>
-        </div>
-        [[else]]
-        <div class="indicator_icon ability_dodge [[if hudPreview]]active[[/if]]" data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} == 0">
-            <div class="indicator_icon_bg">
-                <div class="dodge_icon_part [[if hudPreview]]active[[/if]]" [[if !hudPreview]]data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} >= 33.3333 || {{frame_data.bolt_recharging_progress}} == 0"[[/if]]>
-                    <img src="/html/images/icons/dodge_arrow_type[[:aT]]_1.svg?fill=[[:mC]]" />
-                </div>
-                <div class="dodge_icon_part dodge_part_2 [[if hudPreview]]active[[/if]]" [[if !hudPreview]]data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} > 66.66666 || {{frame_data.bolt_recharging_progress}} == 0"[[/if]]>
-                    <img src="/html/images/icons/dodge_arrow_type[[:aT]]_2.svg?fill=[[:mC]]" />
-                </div>
-                <div class="dodge_icon_part dodge_part_3 [[if hudPreview]]active[[/if]]" [[if !hudPreview]]data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}} == 0"[[/if]]>
-                    <img src="/html/images/icons/dodge_arrow_type[[:aT]]_3.svg?fill=[[:mC]]" />
-                </div>
-            </div>
-        </div>
-        [[/if]]
-        <div class="indicator_below" data-bind-if="{{frame_data.bolt_cooldown_recovery}}">
-            <div class="indicator_below_text_cont">
-                <div class="indicator_below_progress">
-                    <div class="indicator_below_progress_bar" data-bind-style-width="{{frame_data.bolt_recharging_progress}} + '%'"></div>
-                    <div class="indicator_below_text" data-bind-if="{{frame_data.bolt_recharging_progress}}">KERS</div>
-                </div>
-            </div>
-        </div>
-        [[if !hudPreview]]
-        <div class="indicator_above" data-bind-if="{{frame_data.slide_time_max}}">
-            <div class="indicator_below_text_cont">
-                <div class="indicator_below_progress">
-                    <div class="indicator_below_progress_bar" data-bind-style-width="(100*{{frame_data.slide_time_left}}/{{frame_data.slide_time_max}}) + '%'"></div>
-                    <div class="indicator_below_text" data-bind-value="{{frame_data.slide_time_left}}.toFixed(3)" data-bind-if="{{frame_data.slide_time_left}}"></div>
-                </div>
-            </div>
-        </div>
-        [[/if]]
-    </div>
-</script>
-
-<script id="hud_item" type="text/x-jsrender">
-    <div class="indicator_cont [[if flip==1]]reverse[[/if]] [[:style]]" data-bind-if="{{battle_data.have_item}} && {{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
-        <div class="indicator_icon">
-            <div class="indicator_icon_bg">
-                <div class="icon" data-bind-class-toggle="active:{{frame_data.item_cooldown}} <= 0" [[if style=="default"]]data-bind-border-color="{{battle_data.item_color}}"[[/if]]>
-                    <div class="icon_image [[if iShadow==1]]shadow[[/if]]" data-bind-class-toggle="active:{{frame_data.item_cooldown}} <= 0"
-                                            data-bind-style-background-image-url="{{battle_data.item_image}}+'?fill='+[[if iC=="item"]]{{battle_data.item_color}}[[/if]][[if iC=="custom"]]'[[:iCCustom]]'[[/if]]"></div>
-                </div>
-                <div class="cooldown" data-bind-if="{{frame_data.item_cooldown}} > 0" data-bind-value="{{frame_data.item_cooldown}}"></div>
-            </div>
-        </div>
-        <div class="indicator_below">
-            <div class="indicator_below_text_cont" data-bind-if="{{battle_data.is_item_countable}}">
-                <div class="indicator_below_text" data-bind-if="{{battle_data.is_item_countable}}" data-bind-value="{{battle_data.item_charge}}"></div>
-            </div>
-            [[if name == 1]]<div class="indicator_below_desc" data-bind-value="format_item_name({{battle_data.item_name}})">ITEM NAME</div>[[/if]]
-            [[if keybind == 1]]
-            <div class="indicator_key_cont">
-                <div class="indicator_keybind" data-bind-value="{{battle_data.item_keybind}}"></div>
-                <!-- icons for binds MMB, LMB, RMB, MWU, MWD, reference for when we its implemented properly engine side -->
-                <!--<div class="indicator_keybind" data-bind-value="{{battle_data.item_keybind}}" data-bind-style-background-image-url="'images/'+{{battle_data.item_keybind}}+'.svg'" style="background-color:transparent;background-size:contain;background-repeat:no-repeat;background-position:center;color:transparent"></div>-->
-            </div>
-            [[/if]]
-        </div>
-    </div>
-</script>
-
-<script id="hud_powerup" type="text/x-jsrender">
-    <div class="indicator_cont [[if flip==1]]reverse[[/if]] [[:style]]" data-bind-if="{{battle_data.have_powerup}} && {{battle_data.self.alive}} && [[if !hudSpectating]]![[/if]]{{game_data.spectating}}">
-        <div class="indicator_icon active">
-            <div class="indicator_icon_bg">
-                <div class="icon active" [[if style=="default"]]data-bind-border-color="{{battle_data.powerup_color}}"[[/if]]>
-                    <div class="icon_image active [[if iShadow==1]]shadow[[/if]]" data-bind-style-background-image-url="{{battle_data.powerup_image}}+'?fill='+[[if iC=="powerup"]]{{battle_data.powerup_color}}[[/if]][[if iC=="custom"]]'[[:iCCustom]]'[[/if]]"></div>
-                </div>
-            </div>
-        </div>
-        <div class="indicator_below">
-            <div class="indicator_below_text_cont">
-                <div class="indicator_below_text" data-bind-value="{{frame_data.powerup_countdown}}"></div>
-            </div>
-        </div>
     </div>
 </script>
 
 <script id="hud_throttle" type="text/x-jsrender">
     [[if !(hidePercent==1)]]
-    <div [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] 
+    <div [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]] 
          data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="true?strafe_data.efficiency:{{frame_data.speed}}" style="opacity:[[:opacity]]">0</div>
-    <div [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]]
+    <div [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]]
          data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" style="font-size:0.4em;opacity:[[:opacity]]" class="need_strafe_calc">%</div>
 
     [[else]]
-    <div class="need_strafe_calc" [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}"[[/if]] 
+    <div class="need_strafe_calc" [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]] 
          style="display:flex;justify-content:center;opacity:[[:opacity]];width:calc([[:barWidth]]vh*var(--ratio));height:calc([[:barHeight]]vh*var(--ratio));border: 1px solid rgba(255,255,255,0.25);[[if !(reversed==1)]]transform:scaleX(-1)[[/if]]">
         <div data-bind-style-background-color="true?strafe_data.color:{{frame_data.speed}}"
              data-bind-style-width="true?strafe_data.throttle:{{frame_data.speed}}"
@@ -1404,7 +842,7 @@
 </script>
 
 <script id="hud_g_meter" type="text/x-jsrender">
-    <div data-bind-class-toggle="databound_set_invisible:!{{battle_data.self.alive}}" 
+    <div data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}" 
        [[if !hudPreview && showIn3D==1]]
          data-bind-style-width ="Math.max({{frame_data.speed}}/320,1)*[[:size]] + 'vh'" 
          data-bind-style-height="Math.max({{frame_data.speed}}/320,1)*[[:size]] + 'vh'"
@@ -1425,7 +863,7 @@
                 <div class="g_meter_outer_ring" style="transform:rotate( -45deg)">
                     <div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*0.992773891679)) scale(calc([[:ringInnerSize]]/100))"></div>
                 <!--<div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*1)) scale(calc([[:ringInnerSize]]/100))"
-                         data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.shadowcolor:{{battle_data.self.alive}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
+                         data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.shadowcolor:{{common_game_data.self_alive}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
                     </div>-->
                 </div>
             </div>
@@ -1512,16 +950,12 @@
     </div>
 </script>
 
-<script id="hud_misc_settings" type="text/x-jsrender">
-    <div style="display:none"></div>
-</script>
-
 <script id="hud_yaw_ruler" type="text/x-jsrender">
     [[if hudPreview]]
     <div style="color:[[:bandColor]]">Aim Helper</div>
     [[else]]
     <div data-bind-style-height="true?strafe_data.pitch_clip:{{frame_data.speed}}" [[if crop==1]]data-bind-style-width="true?strafe_data.pitch_crop:{{frame_data.speed}}"[[/if]]
-         data-bind-if="{{battle_data.self.alive}}"
+         data-bind-if="{{common_game_data.self_alive}}"
          style="overflow:hidden;transform:translateY(50%);display:flex;justify-content:center;align-items:flex-start">
         <div data-bind-style-width="true?strafe_data.pitch_diam:{{frame_data.speed}}" 
              data-bind-style-height="true?strafe_data.pitch_diam:{{frame_data.speed}}"
@@ -1531,6 +965,13 @@
     [[/if]]
     <div class="need_pitch_calc" style="display:none"></div>
 </script>
+
+<script id="hud_team_pickups" type="text/x-jsrender">  
+
+</script>
+
+
+<!-- Editor templates -->
 
 <script id="hud_editor_input" type="text/x-jsrender">
     <div class="hud_editor_option_row row_input">
@@ -1584,33 +1025,502 @@
 </script>
 
 
-<script id="hud_teammates_alive" type="text/x-jsrender">
-    [[if hudPreview]]
-        <div [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]]>4[[if aliveText == 1]] alive[[/if]]</div>
-    [[else]]
-        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}}) || game_data.team_size == 1" 
-            [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]] 
-            data-bind-value="{{game_data.own_team.players}}.filter(x => x.alive==true).length[[if aliveText == 1]] + ' alive'[[/if]]">
+<!-- Crosshair Templates -->
+
+<script id="canvas_crosshair_paste_input_template" type="text/x-jsrender">
+    <div id="canvas_crosshair[[:zoom]]_paste_prompt" class="crosshair_paste_prompt">
+        <div class="label">[[:~localize("settings_crosshair_paste_crosshair_definition")]]</div>
+        <input id="crosshair[[:zoom]]_paste_input" class="crosshair_paste_prompt_input"></input>
+        <div class="crosshair_paste_prompt_button_row">
+            <div id="crosshair[[:zoom]]_paste_input_confirm" class="dialog_button positive">[[:~localize("menu_button_confirm")]]</div>
+            <div id="crosshair[[:zoom]]_paste_input_cancel" class="dialog_button negative">[[:~localize("menu_button_cancel")]]</div>
+            <div id="crosshair[[:zoom]]_paste_input_warning" class="crosshair_paste_warning">[[:~localize("settings_crosshair_paste_warning")]]</div>
         </div>
-<!--        [[if nextUp== 1]]
-        <div data-bind-for="player_iter:{{game_data.own_team.players}}"
-             data-bind-class-toggle="databound_set_invisible:!['wipeout'].includes({{game_data.game_mode}})"
-            [[if teamColor == 1]]data-bind-style-color="{{game_data.own_team.color}}"[[/if]]  
-            data-bind-value="is_my_respawn_closest({{player_iter.respawn_timer}},{{player_iter}})">
-        </div>
-        [[/if]]-->
-    [[/if]]
+    </div>
 </script>
 
-<script id="hud_enemies_alive" type="text/x-jsrender">  
-    [[if hudPreview]]
-        <div [[if teamColor == 1]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]]>4[[if aliveText == 1]] alive[[/if]]</div>
-    [[else]]
-        <div data-bind-class-toggle="databound_set_invisible:!['ca','wipeout'].includes({{game_data.game_mode}}) || game_data.team_size == 1" 
-            [[if teamColor == 1]]data-bind-style-color="{{game_data.enemy_team.color}}"[[/if]] 
-            data-bind-value="{{game_data.enemy_team.players}}.filter(x => x.alive==true).length[[if aliveText == 1]] + ' alive'[[/if]]">
+<script id="canvas_crosshair_none_template" type="text/x-jsrender">
+    <div class="canvas-crosshair-layer-block">
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_no_layer_type")]]</div>
+            </div>
         </div>
-    [[/if]]
+    </div>
+</script>
+
+<script id="canvas_crosshair_cross_template" type="text/x-jsrender">
+    <div class="canvas-crosshair-layer-block">
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container quad">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_top")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_top" class="checkbox checkbox_canvas_crosshair" data-default="1" data-key="crTop"><div></div></div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container quad">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_right")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_right" class="checkbox checkbox_canvas_crosshair" data-default="1" data-key="crRig"><div></div></div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container quad">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_bottom")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_bottom" class="checkbox checkbox_canvas_crosshair" data-default="1" data-key="crBot"><div></div></div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container quad">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_left")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_left" class="checkbox checkbox_canvas_crosshair" data-default="1" data-key="crLef"><div></div></div>
+                </div>
+            </div>
+        </div>
+[[!--
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_segments")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_segments" class="range-slider" data-min="1" data-max="8" data-step="1" data-default="4" data-key="crSeg"></div>
+                </div>
+            </div>
+        </div>
+--]]
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_length")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_length" class="range-slider" data-min="0" data-max="[[:~scale(50)]]" data-step="1" data-default="[[:~scale(8)]]" data-key="crLen"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_thickness")]]</div>
+                <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_thickness_warning" class="crosshair_warning tooltip2" data-msg="[[:~localize("settings_crosshair_warning_cross_thickness")]]"></div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_thickness" class="range-slider" data-min="0" data-max="[[:~scale(50)]]" data-step="1" data-default="[[:~scale(2)]]" data-key="crThi"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_gap")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_gap" class="range-slider" data-min="0" data-max="[[:~scale(25)]]" data-step="1" data-default="[[:~scale(4)]]" data-key="crGap"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_rotation")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_rotation" class="range-slider" data-min="0" data-max="90" data-step="1" data-default="0" data-key="crRot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_fill")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_cross_color" class="jscolor color-picker-new" data-alpha="true" data-default="FFFFFF" data-key="crCol">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_style")]]</div>
+                    <div class="ctrl">
+                        <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_outline_style" class="select-field select_setting" data-theme="settings" data-opts="Persistent,Adaptive" data-default="persistent" data-key="crOSt"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_color")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_cross_outline_color" class="jscolor color-picker-new" data-alpha="true" data-default="000000" data-key="crOCo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_thickness")]]</div>
+                    <div class="ctrl">
+                        <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_outline_thickness" class="range-slider" data-min="0" data-max="[[:~scale(25)]]" data-step="1" data-default="[[:~scale(1)]]" data-key="crOTh"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_hit_color")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_cross_hit_color" class="jscolor color-picker-new" data-alpha="true" data-default="FF0000" data-key="crHCo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_hit_color_enabled")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_cross_hit_color_enabled" class="checkbox checkbox_canvas_crosshair" data-default="0" data-key="crHCE"><div></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</script>
+
+<script id="canvas_crosshair_circle_template" type="x-jsrender">
+    <div class="canvas-crosshair-layer-block">
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_segments")]]</div>
+                <div id="canvas_crosshair_[[:layer]][[:zoom]]_circle_segments_warning" class="crosshair_warning tooltip2" data-msg="[[:~localize("settings_crosshair_warning_circle_segments")]]"></div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_circle_segments" class="range-slider" data-min="1" data-max="8" data-step="1" data-default="4" data-key="ciSeg"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_radius")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_circle_radius" class="range-slider" data-min="0" data-max="[[:~scale(50)]]" data-step="1" data-default="[[:~scale(18)]]" data-key="ciRad"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_thickness")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_circle_thickness" class="range-slider" data-min="0" data-max="[[:~scale(30)]]" data-step="1" data-default="[[:~scale(2)]]" data-key="ciThi"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_gap_percent")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_circle_gap" class="range-slider" data-min="0" data-max="99" data-step="1" data-default="20" data-key="ciGap"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_rotation")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_circle_rotation" class="range-slider" data-min="0" data-max="360" data-step="1" data-default="0" data-key="ciRot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_fill")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_circle_color" class="jscolor color-picker-new" data-alpha="true" data-default="FFFFFF" data-key="ciCol">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_style")]]</div>
+                    <div class="ctrl">
+                        <div id="canvas_crosshair_[[:layer]][[:zoom]]_circle_outline_style" class="select-field select_setting" data-theme="settings" data-opts="Persistent,Adaptive" data-default="persistent" data-key="ciOSt"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_color")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_circle_outline_color" class="jscolor color-picker-new" data-alpha="true" data-default="000000" data-key="ciOCo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_thickness")]]</div>
+                    <div class="ctrl">
+                        <div id="canvas_crosshair_[[:layer]][[:zoom]]_circle_outline_thickness" class="range-slider" data-min="0" data-max="[[:~scale(30)]]" data-step="1" data-default="[[:~scale(1)]]" data-key="ciOTh"></div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_hit_color")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_circle_hit_color" class="jscolor color-picker-new" data-alpha="true" data-default="FF0000" data-key="ciHCo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_hit_color_enabled")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_circle_hit_color_enabled" class="checkbox checkbox_canvas_crosshair" data-default="0" data-key="ciHCE"><div></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+</script>
+
+<script id="canvas_crosshair_dot_template" type="x-jsrender">
+    <div class="canvas-crosshair-layer-block">
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_type")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_dot_type" class="select-field select_setting" data-theme="settings" data-opts="Square,Round" data-default="square" data-key="dTyp"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_thickness")]]</div>
+                <div id="canvas_crosshair_[[:layer]][[:zoom]]_dot_thickness_warning" class="crosshair_warning tooltip2" data-msg="[[:~localize("settings_crosshair_warning_dot_thickness")]]"></div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_dot_thickness" class="range-slider" data-min="0" data-max="[[:~scale(60)]]" data-step="1" data-default="[[:~scale(2)]]" data-key="dThi"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_rotation")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_dot_rotation" class="range-slider" data-min="0" data-max="90" data-step="1" data-default="0" data-key="dRot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_fill")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_dot_color" class="jscolor color-picker-new" data-alpha="true" data-default="FFFFFF" data-key="dCol">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_style")]]</div>
+                    <div class="ctrl">
+                        <div id="canvas_crosshair_[[:layer]][[:zoom]]_dot_outline_style" class="select-field select_setting" data-theme="settings" data-opts="Persistent,Adaptive" data-default="persistent" data-key="dOSt"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_color")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_dot_outline_color" class="jscolor color-picker-new" data-alpha="true" data-default="000000" data-key="dOCo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_thickness")]]</div>
+                    <div class="ctrl">
+                        <div id="canvas_crosshair_[[:layer]][[:zoom]]_dot_outline_thickness" class="range-slider" data-min="0" data-max="[[:~scale(30)]]" data-step="1" data-default="[[:~scale(1)]]" data-key="dOTh"></div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_hit_color")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_dot_hit_color" class="jscolor color-picker-new" data-alpha="true" data-default="FF0000" data-key="dHCo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_hit_color_enabled")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_dot_hit_color_enabled" class="checkbox checkbox_canvas_crosshair" data-default="0" data-key="dHCE"><div></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+</script>
+
+<script id="canvas_crosshair_pointer_template" type="text/x-jsrender">
+    <div class="canvas-crosshair-layer-block">
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container quad">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_top_left")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_topleft" class="checkbox checkbox_canvas_crosshair" data-default="0" data-key="poTL"><div></div></div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container quad">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_top_right")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_topright" class="checkbox checkbox_canvas_crosshair" data-default="0" data-key="poTR"><div></div></div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container quad">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_bottom_right")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_bottomright" class="checkbox checkbox_canvas_crosshair" data-default="1" data-key="poBR"><div></div></div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container quad">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_bottom_left")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_bottomleft" class="checkbox checkbox_canvas_crosshair" data-default="0" data-key="poBL"><div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_length")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_length" class="range-slider" data-min="0" data-max="[[:~scale(50)]]" data-step="1" data-default="[[:~scale(12)]]" data-key="poLen"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_thickness")]]</div>
+                <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_thickness_warning" class="crosshair_warning tooltip2" data-msg="[[:~localize("settings_crosshair_warning_pointer_thickness")]]"></div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_thickness" class="range-slider" data-min="0" data-max="[[:~scale(50)]]" data-step="1" data-default="[[:~scale(2)]]" data-key="poThi"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_gap")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_gap" class="range-slider" data-min="0" data-max="[[:~scale(25)]]" data-step="1" data-default="0" data-key="poGap"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="crosshair_setting_container">
+            <div class="setting">
+                <div class="label">[[:~localize("settings_crosshair_rotation")]]</div>
+                <div class="ctrl">
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_rotation" class="range-slider" data-min="0" data-max="90" data-step="1" data-default="0" data-key="poRot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_fill")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_color" class="jscolor color-picker-new" data-alpha="true" data-default="FFFFFF" data-key="poCol">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_style")]]</div>
+                    <div class="ctrl">
+                        <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_outline_style" class="select-field select_setting" data-theme="settings" data-opts="Persistent,Adaptive" data-default="persistent" data-key="poOSt"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_color")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_outline_color" class="jscolor color-picker-new" data-alpha="true" data-default="000000" data-key="poOCo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_outline_thickness")]]</div>
+                    <div class="ctrl">
+                        <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_outline_thickness" class="range-slider" data-min="0" data-max="[[:~scale(30)]]" data-step="1" data-default="[[:~scale(1)]]" data-key="poOTh"></div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="canvas_crosshair_settings_row">
+            <div class="crosshair_setting_container double35">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_hit_color")]]</div>
+                    <div class="ctrl">
+                        <input id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_hit_color" class="jscolor color-picker-new" data-alpha="true" data-default="FF0000" data-key="poHCo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="crosshair_setting_container double65">
+                <div class="setting">
+                    <div class="label">[[:~localize("settings_crosshair_hit_color_enabled")]]</div>
+                    <div id="canvas_crosshair_[[:layer]][[:zoom]]_pointer_hit_color_enabled" class="checkbox checkbox_canvas_crosshair" data-default="0" data-key="poHCE"><div></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </script>
 
     <div id="preload_trick_container"></div>
@@ -1626,8 +1536,18 @@
     <script src="vendors/numeral/numeral.min.js"></script>
     <script src="vendors/numeral/locales.js"></script>
 
-    <script src="javascript/i18next.min.js"></script>
+    <script src="vendors/i18next.min.js"></script>
+    <script src="vendors/i18nextICU.min.js"></script>
     <script src="vendors/loc-i18next/loc-i18next.js"></script>
+    <script src="vendors/loc-icu/de.js"></script>
+    <script src="vendors/loc-icu/en.js"></script>
+    <script src="vendors/loc-icu/es.js"></script>
+    <script src="vendors/loc-icu/fr.js"></script>
+    <script src="vendors/loc-icu/it.js"></script>
+    <script src="vendors/loc-icu/ja.js"></script>
+    <script src="vendors/loc-icu/pt.js"></script>
+    <script src="vendors/loc-icu/ru.js"></script>
+    <script src="vendors/loc-icu/zh.js"></script>
 
     <script src="translations/translation-en.js"></script>
     <script src="translations/translation-zh-TW.js"></script>
@@ -1662,6 +1582,7 @@
     
     <script src="javascript/ui_shared.js"></script>
 
+    <script src="components/ingame/aim_report.js"></script>
     <script src="components/ingame/game_report.js"></script>
     <script src="components/ingame/join_menu.js"></script>
     <script src="components/ingame/rank_screen.js"></script>
@@ -1670,6 +1591,9 @@
     <script src="javascript/ui_hud_creator.js"></script>
     <script src="javascript/ui_strafe.js"></script>
     <script src="javascript/ui_fov.js"></script> <!-- FILM notation code used for focal length calc for onscreen indicators-->
+    <script src="javascript/ui_crosshair_creator.js"></script>
+
+    <script src="javascript/ui_scrollbar.js"></script>
 
     <script src="javascript/hud_elements/element_group.js"></script>
 
@@ -1705,6 +1629,12 @@
 <script src="javascript/hud_elements/element_current_weapon_icon.js"></script>
 <script src="javascript/hud_elements/element_teammates_alive.js"></script>
 <script src="javascript/hud_elements/element_item_pickups.js"></script>
+<script src="javascript/hud_elements/element_team_pickups.js"></script>
+<script src="javascript/hud_elements/element_steal_progress.js"></script>
+<script src="javascript/hud_elements/element_overtime_progress.js"></script>
+<script src="javascript/hud_elements/element_hint.js"></script>
+<script src="javascript/hud_elements/element_players.js"></script>
+<script src="javascript/hud_elements/element_team_name.js"></script>
 
     <div id="watermark" class="ingame"></div>
 <script type="text/javascript" src="/html/hud.bundle.js"></script></body>

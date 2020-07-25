@@ -6,6 +6,8 @@ let global_friend_invites_count = 0;
 let global_friends_online_data = undefined;
 let global_friends_online_data_requested = false;
 
+let global_friends_list_map = {};
+
 function init_friends_list() {
     let friends_popup = _id("friends_list_popup");
     global_active_friends_list_cont = friends_popup.querySelector(".friends_list_cont.active");
@@ -64,6 +66,7 @@ function init_friends_list() {
     });
 
     // Setup friend list tab handlers
+    /*
     _for_each_with_selector_in_parent(friends_popup, ".friends_list_tabs .tab", function(tab) {
         tab.addEventListener("click", function() {
             if (tab.classList.contains("active")) return;
@@ -74,15 +77,18 @@ function init_friends_list() {
             close_friends_list_action_menu();
         });
     });
+    */
 
     // Setup add friend handlers
+    /*
     let cont = _id("friends_list_cont_invites");
     let input = cont.querySelector(".friend_request_cont input");
     input.addEventListener("keydown", function(e) {
         if (e.keyCode == 13) { //return
             send_friend_request();
         }
-    })
+    });
+    */
     
     // call : "friend_request": string user_id
     bind_event("friend_request_result", function(success) {
@@ -153,7 +159,7 @@ function handle_friend_list_update_self(data) {
 
 function set_friend_list_avatar_self(data) {
     if (!friends_list_self) friends_list_self = _id("friends_list_popup").querySelector(".friends_list_self");
-    friends_list_self.querySelector(".avatar").style.backgroundImage = "url("+_avatarUrl(data.data.avatar)+")";
+    friends_list_self.querySelector(".avatar").style.backgroundImage = "url("+_avatarUrl(data.customizations.avatar)+")";
 }
 
 let friends_list_cache = {
@@ -232,7 +238,13 @@ function handle_friend_list_update(friends) {
                 
     */
 
+    //console.log(_dump(friends));
+
     let start = performance.now();
+
+    for (let f of friends) {
+        global_friends_list_map[f.user_id] = f.name;
+    }
 
     handle_friends_user_ids_tracker(friends);
 
@@ -319,10 +331,13 @@ function handle_friends_in_diabotical_data(data) {
     if (global_friends_online_data_requested) global_friends_online_data_requested = false;
 
     for (let f of data) {
+        // f[0] = user_id
+        // f[1] = privacy
+        // f[2] = avatar
         for (let c of friends_list_cache.in_diabotical) {
-            if (f.user_id == c.user_id) {
-                c.el.dataset.party_privacy = f.party_privacy;
-                c.el.querySelector(".avatar").style.backgroundImage = "url("+_avatarUrl(f.avatar)+")";
+            if (f[0] == c.user_id) {
+                c.el.dataset.party_privacy = f[1];
+                c.el.querySelector(".avatar").style.backgroundImage = "url("+_avatarUrl(f[2])+")";
                 break;
             }
         }
@@ -477,7 +492,7 @@ function create_friend_entry(f) {
         friend.classList.add("inparty");
 
         let avatar = _createElement("div", "avatar")
-        avatar.style.backgroundImage = "url("+_avatarUrl(f.data.avatar)+")";
+        avatar.style.backgroundImage = "url("+_avatarUrl(f.customizations.avatar)+")";
         friend.appendChild(avatar);
     } else {
         friend.appendChild(_createElement("div", "accent"));
@@ -495,10 +510,10 @@ function create_friend_entry(f) {
     }
 
     if (f.account_status == "in_my_party") {
-        if (f.match_connected == 2) {
-            desc.appendChild(_createElement("div", "state", localize("friends_list_state_playing")));
-        } else {
+        if (f.match_connected == false) {
             desc.appendChild(_createElement("div", "state", localize("friends_list_state_in_menu")));
+        } else {
+            desc.appendChild(_createElement("div", "state", localize("friends_list_state_playing")));
         }
     }
 
@@ -524,7 +539,7 @@ function create_friend_state_string(f) {
         if (f.presence_status == "away" || f.presence_status == "extended_away") state += localize("friends_list_state_away") + " - ";
         if (f.presence_status == "do_not_disturb") state += localize("friends_list_state_dnd") + " - ";
 
-        if (f.application == "launcher") {
+        if (f.application == "launcher" || f.application == "") {
             state += localize("friends_list_state_in_launcher");
         } else {
             if (f.rich_text && f.rich_text.trim().length) {
@@ -564,7 +579,7 @@ function setup_friends_list_friend_listeners(el) {
     let arrow = el.querySelector(".arrow");
     el.addEventListener("mouseenter", function() {
         arrow.classList.add("hover");
-        engine.call("ui_sound", "ui_mouseover4");
+        _play_mouseover4();
     });
 
     el.addEventListener("mouseleave", function() {
@@ -573,7 +588,7 @@ function setup_friends_list_friend_listeners(el) {
     
     // Click on a friend handler
     el.addEventListener("click", function() {
-        engine.call("ui_sound", "ui_click1");
+        _play_click1();
 
         if (el.classList.contains("open")) {
             toggle_friend_open(el);
@@ -858,7 +873,8 @@ function create_friends_settings_menu() {
         menu.appendChild(option);
     }
 
-    let settings = ["status"];
+    //let settings = ["status"];
+    let settings = [];
     if (bool_am_i_leader) settings.push("privacy");
 
     for (let setting of settings) {
@@ -924,15 +940,15 @@ function update_friendlist_invite_count() {
     //let total = global_friend_request_count + global_friend_invites_count;
     let total = global_friend_invites_count;
 
-    let count_cont = _id("friends_list_popup").querySelector(".friends_list_tabs .tab_invites .count");
+    //let count_cont = _id("friends_list_popup").querySelector(".friends_list_tabs .tab_invites .count");
     let count_cont2 = _id("friends_list_notice");
     if (total == 0) {
-        count_cont.classList.remove("visible");
+        //count_cont.classList.remove("visible");
         count_cont2.style.display = "none";
     } else {
-        count_cont.textContent = total;
+        //count_cont.textContent = total;
         count_cont2.textContent = total;
-        count_cont.classList.add("visible");
+        //count_cont.classList.add("visible");
         count_cont2.style.display = "block";
     }
 }
@@ -1024,13 +1040,22 @@ function friends_list_toggle_category(head) {
 
 function popup_friends_list(open_only) {
     if (!global_friends_list_enabled) {
-        anim_show(_id("friends_list_popup"), window.fade_time);
+
+        anim_start({
+            element: _id("friends_list_popup"),
+            translateX: [-40, 0, "vh"],
+            duration: 250,
+            easing: easing_functions.easeOutQuad,
+            show: true,
+        });
+
         global_friends_list_enabled = true;
         _id("friends_icon").classList.add("toggled");
-        setTimeout(function() {
+        req_anim_frame(() => {
             // in settimeout otherwise it would fire instantly with the current "click" event
             _id("main_menu").addEventListener("click", friends_list_outside_click);
-        },0);
+            refreshScrollbar(global_active_friends_list_cont);
+        });
     } else {
         if (open_only) return;
         close_friends_list();
@@ -1038,7 +1063,14 @@ function popup_friends_list(open_only) {
 }
 
 function close_friends_list() {
-    anim_hide(_id("friends_list_popup"), window.fade_time);
+    anim_start({
+        element: _id("friends_list_popup"),
+        translateX: [0, -40, "vh"],
+        duration: 250,
+        easing: easing_functions.easeOutQuad,
+        hide: true,
+    });
+
     global_friends_list_enabled = false;
     _id("friends_icon").classList.remove("toggled");
     _id("main_menu").removeEventListener("click", friends_list_outside_click);
@@ -1063,22 +1095,27 @@ function friends_list_outside_click() {
         close_friends_list_action_menu();
         return;
     }
-    anim_hide(_id("friends_list_popup"), window.fade_time);
+    anim_start({
+        element: _id("friends_list_popup"),
+        translateX: [0, -40, "vh"],
+        duration: 250,
+        easing: easing_functions.easeOutQuad,
+        hide: true,
+    });
     global_friends_list_enabled = false;
     _id("friends_icon").classList.remove("toggled");
     _id("main_menu").removeEventListener("click", friends_list_outside_click);
 }
 
 function party_invite_friends() {
-    change_friendlist_tab("friends");
     popup_friends_list(true);
 }
 
 function invite_friends() {
-    change_friendlist_tab("friends");
     popup_friends_list(true);
 }
-    
+
+/*
 function change_friendlist_tab(target) {
     let popup = _id("friends_list_popup");
 
@@ -1098,6 +1135,7 @@ function change_friendlist_tab(target) {
         _id("friends_list_cont_invites").classList.remove("active");
     }
 }
+*/
 
 function handle_friends_user_ids_tracker(friends) {
     for (let f of friends) {

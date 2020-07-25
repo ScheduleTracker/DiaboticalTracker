@@ -1,16 +1,15 @@
 function init_element_hp() {
 
-    const hud_elem = new HUD_element('hp', //Name
-    "", //Edior Text
+    const hud_elem = new HUD_element('hp', true,
     {
         "fontSize": "5",
-        "color": "rgb(44, 216, 107)",
+        "color": "#2CD86B",
         "align": "center",
         "threshold": "30",
-        "thresholdColor": "red",
+        "thresholdColor": "#ff0000",
         "scaleOnPickup": "1",
+        "font": "roboto-bold",
         "shadow": "1",
-        "advanced": "",
     },      //Dfault values
     [       //Editor settings
         defaultPivot,
@@ -23,7 +22,6 @@ function init_element_hp() {
         {"inputType": "color", "type": "thresholdColor", "text": "Low HP Color"},        
         {"inputType": "toggle", "type": "scaleOnPickup", "text": "Scale on Pickup"},
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
-        {"inputType": "advanced", "type": "advanced"},
     ]
     , "#hud_hp");  //Template Name
     hud_elements.push(hud_elem);

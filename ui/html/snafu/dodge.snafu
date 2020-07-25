@@ -1,0 +1,213 @@
+BEGIN TEMPLATE dodge
+    SETTING cell_direction "vertical"
+    SETTING align pivot
+    INT aT
+    DOUBLE iSize
+    DOUBLE icon_inactive_opacity
+    DOUBLE bRadius
+    DOUBLE cCode
+    DOUBLE bWidth
+
+    DOUBLE bg_offset
+    bg_offset = bWidth * -1
+    DOUBLE bg_size
+    bg_size = iSize + bWidth
+    bg_size = bg_size + bWidth
+
+    STRING bg_svg
+    bg_svg = "<svg "
+    bg_svg = bg_svg & " width='" & iSize & "'"
+    bg_svg = bg_svg & " height='" & iSize & "'"
+    bg_svg = bg_svg & " viewBox='" & bg_offset
+    bg_svg = bg_svg & " " & bg_offset
+    bg_svg = bg_svg & " " & bg_size
+    bg_svg = bg_svg & " " & bg_size & "'>"
+    bg_svg = bg_svg & "<rect "
+    bg_svg = bg_svg & " width='" & iSize & "' "
+    bg_svg = bg_svg & " height='" & iSize & "' "
+    bg_svg = bg_svg & " rx='" & bRadius & "' "
+    bg_svg = bg_svg & " fill='#ffffff' "
+    bg_svg = bg_svg & " stroke-width='0' "
+    bg_svg = bg_svg & " y='0' "
+    bg_svg = bg_svg & " x='0' "
+    bg_svg = bg_svg & "/></svg>"
+
+    DOUBLE border_offset
+    border_offset = bWidth / 2
+    border_offset = border_offset * -1
+    DOUBLE border_size
+    border_size = iSize + bWidth
+
+    STRING border_svg 
+    border_svg = "<svg "
+    border_svg = border_svg & " width='" & iSize & "'"
+    border_svg = border_svg & " height='" & iSize & "'"
+    border_svg = border_svg & " viewBox='" & border_offset
+    border_svg = border_svg & " " & border_offset
+    border_svg = border_svg & " " & border_size
+    border_svg = border_svg & " " & border_size & "'>"
+    border_svg = border_svg & "<rect "
+    border_svg = border_svg & " width='" & iSize & "' "
+    border_svg = border_svg & " height='" & iSize & "' "
+    border_svg = border_svg & " rx='" & bRadius & "' "
+    border_svg = border_svg & " fill-opacity='0' "
+    border_svg = border_svg & " stroke='#ffffff' "
+    border_svg = border_svg & " stroke-width='" & bWidth & "' "
+    border_svg = border_svg & " y='0' "
+    border_svg = border_svg & " x='0' "
+    border_svg = border_svg & "/></svg>"
+
+    COL_OUTPUT 0 image bg_svg
+    COL_OUTPUT 0 image_width iSize
+    COL_OUTPUT 0 image_height iSize
+    COL_OUTPUT 0 image_color bgC
+    COL_OUTPUT 0 width iSize
+    COL_OUTPUT 0 height iSize
+
+    COL_OUTPUT 1 image border_svg
+    COL_OUTPUT 1 image_width iSize
+    COL_OUTPUT 1 image_height iSize
+    COL_OUTPUT 1 image_color mC
+    COL_OUTPUT 1 width iSize
+    COL_OUTPUT 1 height iSize
+    COL_OUTPUT 1 x 0
+    COL_OUTPUT 1 y 0
+
+    DOUBLE icon_size
+    icon_size = iSize * 0.9
+    IF aT == 0
+        COL_OUTPUT 2 image "images/icons/dodge_arrow_single.svg"
+        COL_OUTPUT 2 align "center"
+        COL_OUTPUT 2 image_width icon_size 
+        COL_OUTPUT 2 image_height icon_size
+        COL_OUTPUT 2 image_color mC
+        COL_OUTPUT 2 width iSize
+        COL_OUTPUT 2 height iSize
+        COL_OUTPUT 2 x 0
+        COL_OUTPUT 2 y 0
+    END IF
+    IF aT == 1
+        COL_OUTPUT 2 image "images/icons/dodge_arrow_type1_1.svg"
+        COL_OUTPUT 2 align "center"
+        COL_OUTPUT 2 image_width icon_size 
+        COL_OUTPUT 2 image_height icon_size
+        COL_OUTPUT 2 image_color mC
+        COL_OUTPUT 2 width iSize
+        COL_OUTPUT 2 height iSize
+        COL_OUTPUT 2 x 0
+        COL_OUTPUT 2 y 0
+
+        COL_OUTPUT 3 image "images/icons/dodge_arrow_type1_2.svg"
+        COL_OUTPUT 3 align "center"
+        COL_OUTPUT 3 image_width icon_size 
+        COL_OUTPUT 3 image_height icon_size
+        COL_OUTPUT 3 image_color mC
+        COL_OUTPUT 3 width iSize
+        COL_OUTPUT 3 height iSize
+        COL_OUTPUT 3 x 0
+        COL_OUTPUT 3 y 0
+
+        COL_OUTPUT 4 image "images/icons/dodge_arrow_type1_3.svg"
+        COL_OUTPUT 4 align "center"
+        COL_OUTPUT 4 image_width icon_size 
+        COL_OUTPUT 4 image_height icon_size
+        COL_OUTPUT 4 image_color mC
+        COL_OUTPUT 4 width iSize
+        COL_OUTPUT 4 height iSize
+        COL_OUTPUT 4 x 0
+        COL_OUTPUT 4 y 0
+    END IF
+
+    IF aT == 2
+        COL_OUTPUT 2 image "images/icons/dodge_arrow_type2_1.svg"
+        COL_OUTPUT 2 align "center"
+        COL_OUTPUT 2 image_width icon_size 
+        COL_OUTPUT 2 image_height icon_size
+        COL_OUTPUT 2 image_color mC
+        COL_OUTPUT 2 width iSize
+        COL_OUTPUT 2 height iSize
+        COL_OUTPUT 2 x 0
+        COL_OUTPUT 2 y 0
+
+        COL_OUTPUT 3 image "images/icons/dodge_arrow_type2_2.svg"
+        COL_OUTPUT 3 align "center"
+        COL_OUTPUT 3 image_width icon_size 
+        COL_OUTPUT 3 image_height icon_size
+        COL_OUTPUT 3 image_color mC
+        COL_OUTPUT 3 width iSize
+        COL_OUTPUT 3 height iSize
+        COL_OUTPUT 3 x 0
+        COL_OUTPUT 3 y 0
+
+        COL_OUTPUT 4 image "images/icons/dodge_arrow_type2_3.svg"
+        COL_OUTPUT 4 align "center"
+        COL_OUTPUT 4 image_width icon_size 
+        COL_OUTPUT 4 image_height icon_size
+        COL_OUTPUT 4 image_color mC
+        COL_OUTPUT 4 width iSize
+        COL_OUTPUT 4 height iSize
+        COL_OUTPUT 4 x 0
+        COL_OUTPUT 4 y 0
+    END IF
+
+ON_UPDATE
+
+    IF !common_game_data.self_alive
+        discard
+    END IF
+
+    IF IN_EDITOR
+        OUTPUT 0 1 opacity 1
+        OUTPUT 0 2 opacity 1
+        OUTPUT 0 3 opacity 1
+        OUTPUT 0 4 opacity 1
+        BREAK
+    END IF
+
+    IF frame_data.bolt_recharging_progress == 0
+        # "active", show border
+        OUTPUT 0 1 opacity 1
+    ELSE
+        IF frame_data.bolt_recharging_progress >= 99.5
+            OUTPUT 0 1 opacity 1
+        ELSE 
+            OUTPUT 0 1 opacity 0
+        END IF
+    END IF
+
+    IF aT == 0 
+        IF frame_data.bolt_recharging_progress == 0
+            OUTPUT 0 2 opacity 1
+        ELSE 
+            OUTPUT 0 2 opacity icon_inactive_opacity
+        END IF
+    END IF
+
+    IF aT == 1 || aT == 2
+        IF frame_data.bolt_recharging_progress == 0
+            OUTPUT 0 2 opacity 1
+            OUTPUT 0 3 opacity 1
+            OUTPUT 0 4 opacity 1
+        ELSE 
+            IF frame_data.bolt_recharging_progress < 33.3333
+                OUTPUT 0 2 opacity icon_inactive_opacity
+                OUTPUT 0 3 opacity icon_inactive_opacity
+                OUTPUT 0 4 opacity icon_inactive_opacity
+            END IF
+            IF frame_data.bolt_recharging_progress >= 33.3333
+                OUTPUT 0 2 opacity 1
+                OUTPUT 0 3 opacity icon_inactive_opacity
+                OUTPUT 0 4 opacity icon_inactive_opacity
+            END IF
+            IF frame_data.bolt_recharging_progress >= 66.6666
+                OUTPUT 0 2 opacity 1
+                OUTPUT 0 3 opacity 1
+                OUTPUT 0 4 opacity icon_inactive_opacity
+            END IF
+            IF frame_data.bolt_recharging_progress >= 99.5
+                OUTPUT 0 4 opacity 1
+            END IF
+        END IF
+    END IF
+
+END TEMPLATE

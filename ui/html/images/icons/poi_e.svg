@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" version="1.1" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <style type="text/css">.st0{}</style>
+  <path class="st0" fill="#ff0000" d="m39.988 6.4-33.588 33.588v176.02l33.588 33.588h176.02l33.588-33.588v-176.02l-33.588-33.588z"/>
+  <path d="m55.832 28.29-27.542 27.542v144.34l27.542 27.542h144.34l27.542-27.542v-144.34l-27.542-27.542z" fill="#000" opacity=".25"/>
+  <path d="m79.647 59.96h94.701v26.523h-59.609v25.339h56.055v26.523h-56.055v31.172h61.615v26.523h-96.706z" fill="#fff"/>
+</svg>

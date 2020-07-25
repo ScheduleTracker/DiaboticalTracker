@@ -1,18 +1,18 @@
 function init_element_time_limit() {
 
 
-    const hud_elem = new HUD_element('time_limit', //Name
-    "",     //Editor Text
+    const hud_elem = new HUD_element('time_limit', true,
     {       //Default values
-        "fontSize": "3",
+        "fontSize": "1.5",
+        "font": "roboto-bold",
         "shadow": "1",
+        "color": "#ffffff"
     },   
     [       //Editor settings
         defaultPivot,
         defaultX,
         defaultY,
         defaultFontSize,
-        defaultAlign,
         defaultFontFamily,
         defaultColor,
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},

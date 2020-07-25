@@ -1,11 +1,10 @@
 function init_element_group() {
-    hud_group = new HUD_element('group', "", 
+    hud_group = new HUD_element('group', false, 
     {
         "groupName": "",
         "width": "30",
         "height": "20",
         "pivot":"center",
-        "advanced": "",
     },
     [
         {"inputType": "text", "type": "groupName", "text": "Group Name", "maxLength": "18"},
@@ -14,7 +13,6 @@ function init_element_group() {
         defaultY,
         defaultWidth,
         defaultHeight,
-        {"inputType": "advanced", "type": "advanced"},
     ]
     , "#hud_group");
 };

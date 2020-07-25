@@ -1,23 +1,26 @@
 function init_element_low_ammo_warning() {
 
 
-    const hud_hp = new HUD_element('low_ammo_warning', "Low Ammo Warning", 
+    const hud_hp = new HUD_element('low_ammo_warning', true,
     {
-        "width": "30",
-        "height": "5",
         "fontSize": "3",
+        "color": "#ff0000",
+        "font": "montserrat-bold",
+        "threshold": 0.16,
+        "shadow": 1,
     },
     [
         defaultPivot,
         defaultX,
         defaultY,
-        defaultWidth,
         defaultFontSize,
         defaultFontFamily,
-        defaultAlign,
-        defaultColor
+        defaultColor,
+        {"inputType": "float", "type": "threshold", "text": "Low Ammo Multiplier"},
+        {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
+        {"inputType": "toggle", "type": "uc", "text": "Uppercase"},
     ]
-    , "#hud_simple_text");
+    , "#hud_low_ammo_warning");
     hud_elements.push(hud_hp);    
 
     

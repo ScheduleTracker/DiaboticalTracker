@@ -1,0 +1,25 @@
+BEGIN TEMPLATE team_name
+    SETTING align pivot
+
+    COL_OUTPUT 0 align pivot
+    COL_OUTPUT 0 font font
+
+    IF shadow
+        COL_OUTPUT 0 shadow 1
+    END IF
+
+ON_UPDATE
+
+    IF game_data.team_size <= 1
+        IF !IN_EDITOR
+            discard
+        END IF
+    END IF
+
+    IF team == "own"
+        OUTPUT 0 0 value game_data.own_team.team_name
+    ELSE
+        OUTPUT 0 0 value game_data.enemy_team.team_name
+    END IF
+
+END TEMPLATE

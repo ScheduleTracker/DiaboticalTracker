@@ -234,7 +234,7 @@ function update_accel_chart() {
 
     // Disable the irritating initial animation
     Chart.defaults.global.animation.duration = 0;
-    Chart.defaults.global.defaultFontColor = "#28394b";
+    Chart.defaults.global.defaultFontColor = "#eee";
     Chart.defaults.global.defaultFontSize = 12 * window.innerHeight / 1080;
 
     var ctx = document.getElementById('accel_chart').getContext('2d');
@@ -260,6 +260,8 @@ function update_accel_chart() {
         type: 'scatter',
         data: scatterChartData,
         options: {
+            responsive: true,
+            maintainAspectRatio: true,
             legend: { display: false },
             tooltips: { enabled: false },
             hover: { mode: false },
@@ -269,12 +271,19 @@ function update_accel_chart() {
 	                    id: "cpms",
 	                    position: "bottom",
 	                    scaleLabel: {
-	                        display: true,
-	                        labelString: "Counts per millisecond (cpms)"
+                            display: true,
+                            padding: {
+                                left: 0,
+                                right: 0,
+                                top: 0,
+                                bottom: 0
+                            },
+                            labelString: "Counts per millisecond (cpms)",
 	                    },
 	                    gridLines: {
 	                   		drawTicks: false,
-	                        zeroLineColor: "rgba(0,0,0,1)"
+                            zeroLineColor: "#eee",
+                            color:"rgba(255,255,255,0.05)",
 	                    },
 	                    ticks: {
 	                        beginAtZero: true,
@@ -289,12 +298,19 @@ function update_accel_chart() {
 	                    position: "left",
 	                    display: true,
 	                    scaleLabel: {
-	                        display: true,
-	                        labelString: "x100%"
+                            display: true,
+                            padding: {
+                                left: 0,
+                                right: 0,
+                                top: 0,
+                                bottom: 0
+                            },
+                            labelString: "x100%",
 	                    },
 	                    gridLines: {
 	                		tickMarkLength: 2,
-	                        zeroLineColor: "rgba(0,0,0,1)"
+                            zeroLineColor: "#eee",
+                            color:"rgba(255,255,255,0.05)",
 	                    }, 
 	                    ticks: {
 	                        beginAtZero: true, // important because accel starts at 1
@@ -320,7 +336,12 @@ function update_accel_chart() {
                 ],
             },
 	        layout: {
-	            padding: 0
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
 	        },
         },
     });
@@ -388,17 +409,30 @@ function modernized_accel_calculation(x, y, dt, settings){
 }
 
 function toggle_ultra_advanced_accel(el) {    
-    let ultra_accel = _id("ultra_advanced_accel_settings");
-    let accel_chart = _id("accel_chart");
-
     if (el.classList.contains("selected")) {
-        el.classList.remove("selected");
-        accel_chart.style.display = "flex";
-        ultra_accel.style.display = "none";
+        ultra_advanced_accel_visible(false);
     } else {
-        el.classList.add("selected");
+        ultra_advanced_accel_visible(true);
+    }
+}
+
+function ultra_advanced_accel_visible(bool) {
+    let toggle = _id("ultra_advanced_accel_toggle");
+    let ultra_accel = _id("ultra_advanced_accel_settings");
+    let accel_chart = _id("accel_chart_cont");
+
+    if (bool) {
+        toggle.classList.add("selected");
         accel_chart.style.display = "none";
         ultra_accel.style.display = "flex";
+    } else {
+        toggle.classList.remove("selected");
+        accel_chart.style.display = "flex";
+        ultra_accel.style.display = "none";
+
+        req_anim_frame(() => {
+            update_accel_chart();
+        }, 2);
     }
 }
 
@@ -409,18 +443,20 @@ function update_accel_options(element){
         _id('gamma_accel_only_settings').style.display='none';
         _id('exp_accel_only_settings').style.display='none';
     } else if (val=="1"){
-        _id('linear_accel_only_settings').style.display='flex';
+        _id('linear_accel_only_settings').style.display='block';
         _id('gamma_accel_only_settings').style.display='none';
         _id('exp_accel_only_settings').style.display='none';
     } else if (val=="2"){
         _id('linear_accel_only_settings').style.display='none';
-        _id('gamma_accel_only_settings').style.display='flex';
+        _id('gamma_accel_only_settings').style.display='block';
         _id('exp_accel_only_settings').style.display='none';
     } else if (val=="3"){
         _id('linear_accel_only_settings').style.display='none';
         _id('gamma_accel_only_settings').style.display='none';
-        _id('exp_accel_only_settings').style.display='flex';
+        _id('exp_accel_only_settings').style.display='block';
     }
+
+    ultra_advanced_accel_visible(false);
 
     if (element.dataset.value == "0") {
         //setTimeout(function() { update_accel_chart(); });
@@ -438,11 +474,13 @@ function update_accel_options(element){
     }
 }
 
+/*
 function misc_fl_trigger(flag) {
     write_misc_hud_preference('fl', '1');
     place_direction_hints_element(false);
     engine.call("set_real_variable", "lobby_custom_physics", flag);
 }
+*/
 
 function update_physical_sens(id_str,from_engine){
     var zoom = id_str.includes('zoom');

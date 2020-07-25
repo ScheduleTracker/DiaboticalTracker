@@ -1,14 +1,13 @@
 function init_element_stack() {
 
-    const hud_stack = new HUD_element('stack',
-    "",
+    const hud_stack = new HUD_element('stack', true,
     {
         "fontSize": 3,
-        "color": "white",
+        "color": "#ffffff",
         "font": "furore",
         "shadow": 1,
         "showDormant": 1,
-        "gradientColor": 1,
+        //"gradientColor": 1,
     },
     [
         defaultPivot,
@@ -18,7 +17,7 @@ function init_element_stack() {
         defaultFontFamily,
         defaultAlign,
         defaultColor,
-        {"inputType": "toggle", "type": "gradientColor", "text": "Color by value"},
+        //{"inputType": "toggle", "type": "gradientColor", "text": "Color by value"},
         {"inputType": "toggle", "type": "showDormant", "text": "Show dormant stack"},
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
     ]
@@ -26,8 +25,8 @@ function init_element_stack() {
 
     hud_elements.push(hud_stack);
 
-    const hud_stack_bar = new HUD_element('stack_bra',
-    "",
+    /*
+    const hud_stack_bar = new HUD_element('stack_bra', false,
     {
         "width": 18.52,
         "height": 4.63,
@@ -48,5 +47,5 @@ function init_element_stack() {
     , "#hud_stack_bar");
 
     hud_elements.push(hud_stack_bar);
-
+    */
 }

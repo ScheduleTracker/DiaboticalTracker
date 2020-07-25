@@ -1,0 +1,42 @@
+INSTANCE ready_up_msg 50 35.5
+
+BEGIN TEMPLATE ready_up_msg
+    SETTING align "center"
+
+ON_UPDATE
+
+    INT show_msg
+    show_msg = 1
+
+    IF game_data.spectator
+        show_msg = 0
+    END IF
+
+    IF game_data.game_stage > 1
+        show_msg = 0
+    END IF
+
+    IF battle_data.self.ready
+        show_msg = 0
+    END IF
+
+    IF game_data.race_mode
+        show_msg = 0
+    END IF
+
+    IF battle_data.is_editor_loaded
+        show_msg = 0
+    END IF
+
+    IF !show_msg
+        discard
+    END IF
+
+    OUTPUT 0 0 lvalue "ingame_status_unready"
+    OUTPUT 0 0 value battle_data.ready_key
+    OUTPUT 0 0 font "roboto-bold"
+    OUTPUT 0 0 font_size 3
+    OUTPUT 0 0 shadow 1    
+
+
+END TEMPLATE

@@ -1,0 +1,66 @@
+BEGIN TEMPLATE overtime_progress
+    SETTING align pivot
+    INT txt
+
+    STRING progress_rect
+    progress_rect = "<svg width='" & width & "'"
+    progress_rect = progress_rect & " height='" & height & "'>"
+    progress_rect = progress_rect & "<rect width='" & width & "'"
+    progress_rect = progress_rect & " height='" & height & "'"
+    progress_rect = progress_rect & " x='0' y='0' fill='white' /></svg>"
+
+    COL_OUTPUT 0 width width
+    COL_OUTPUT 0 height height
+    COL_OUTPUT 0 fill "#FFFFFF4C"
+
+    COL_OUTPUT 1 width width
+    COL_OUTPUT 1 height height
+    COL_OUTPUT 1 image progress_rect
+    COL_OUTPUT 1 image_width width
+    COL_OUTPUT 1 image_height height
+    COL_OUTPUT 1 image_color "#ffff9c"
+    COL_OUTPUT 1 x 0
+    COL_OUTPUT 1 y 0
+
+    DOUBLE progress
+    progress = 0
+
+    IF txt
+        DOUBLE fontsize
+        fontsize = height * 1.5
+
+        DOUBLE text_offset
+        text_offset = fontsize * 0.66
+        text_offset = text_offset * -1
+
+        COL_OUTPUT 2 lvalue "ingame_message_overtime"
+        COL_OUTPUT 2 uppercase 1
+        COL_OUTPUT 2 width width
+        COL_OUTPUT 2 height fontsize
+        COL_OUTPUT 2 align "center"
+        COL_OUTPUT 2 font "montserrat-bold"
+        COL_OUTPUT 2 font_size fontsize
+        COL_OUTPUT 2 x 0
+        COL_OUTPUT 2 y text_offset
+        COL_OUTPUT 2 shadow 1
+    END IF
+
+ON_UPDATE
+
+    IF game_data.game_mode != "macguffin" && !IN_EDITOR
+        discard
+    END IF
+
+    IF IN_EDITOR
+        COL_OUTPUT 1 clip_x -0.6
+    ELSE
+        IF frame_data.finish_progress == 0
+            discard
+        END IF
+
+        progress = frame_data.finish_progress / 100
+        progress = progress * -1
+        COL_OUTPUT 1 clip_x progress
+    END IF
+
+END TEMPLATE

@@ -1,0 +1,50 @@
+BEGIN TEMPLATE current_ammo
+    SETTING align pivot
+    DOUBLE threshold
+    INT lowAO
+    INT shadow
+
+    COL_OUTPUT 0 font font
+    COL_OUTPUT 0 align pivot
+    IF shadow 
+        COL_OUTPUT 0 shadow 1
+    END IF
+
+ON_UPDATE
+    DOUBLE threshold_abs
+    threshold_abs = threshold * current_weapon_data.max_ammo
+
+    STRING color
+    STRING value
+    color = aCCustom
+    value = current_weapon_data.ammo
+    
+    IF lowAO
+        IF current_weapon_data.ammo > threshold_abs 
+            IF !IN_EDITOR
+                discard
+            END IF
+        END IF
+    END IF
+
+    IF !common_game_data.self_alive
+        discard
+    END IF
+    IF current_weapon_data.unlimited_ammo 
+        OUTPUT 0 0 value "∞" 
+        BREAK
+    END IF 
+    IF aC == "weapon" 
+        color = current_weapon_data.color
+    END IF 
+    IF lowAC == "weapon" 
+        lowACCustom = current_weapon_data.color
+    END IF
+    IF current_weapon_data.ammo <= threshold_abs 
+        color = lowACCustom
+    END IF
+
+    OUTPUT 0 0 value value
+    OUTPUT 0 0 color color
+
+END TEMPLATE

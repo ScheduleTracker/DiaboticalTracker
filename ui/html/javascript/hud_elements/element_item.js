@@ -1,21 +1,20 @@
 function init_element_item() {
 
-    var hud_elem = new HUD_element('item', //Name
-    "",     //Editor Text
-    {//Default values
-        //"fontSize": "1.5",
-        "iSize": "3",
-        "mC": "white",
-        "bRadius": "0.8",
-        "cCode": "15",
-        "bWidth": 0.2,
+    var hud_elem = new HUD_element('item', true,
+    {
+        "font": "montserrat-bold",
+        "iSize": "10",
+        "mC": "#ffffff",
+        "bRadius": "50",
+        //"cCode": "15",
+        "bWidth": "0.5",
         "bgC": "#24232188",
         "flip": "0",
         "keybind": "1",
         "iShadow": "0",
-        "iC": "item",
-        "iCCustom": "white",
-        "style": "none",
+        "iC": "custom",
+        "iCCustom": "#ffffff",
+        "style": "default",
         "name": "1",
     },      
         
@@ -24,12 +23,11 @@ function init_element_item() {
         defaultX,
         defaultY,
         defaultFontFamily,
-        //defaultFontSize,
         {"inputType": "float", "type": "iSize", "text": "Icon Size"},
         {"inputType": "color", "type": "mC", "text": "Main Color"},
         {"inputType": "color", "type": "bgC", "text": "Background Color"},
         {"inputType": "float", "type": "bRadius", "text": "Icon Corner Radius"},
-        {"inputType": "float", "type": "cCode", "text": "Icon Corner Bitmask"},
+        //{"inputType": "float", "type": "cCode", "text": "Icon Corner Bitmask"},
         {"inputType": "float", "type": "bWidth", "text": "Border Width" },
         {"inputType": "toggle","type": "flip", "text": "Flip layout" },
         {"inputType": "toggle","type": "name", "text": "Show Item Name"},

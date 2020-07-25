@@ -9868,7 +9868,7 @@ var core_helpers = function() {
 
 				h = val;
 			}
-			else if(asd.includes("vh")){
+			else if(heightString.includes("vh")){
 				val = parseInt(heightString.substring(0, heightString.length - 2), 10);				
 
 				w = val * window.screen.height / 100;

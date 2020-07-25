@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.st0{fill:#fff;}</style></defs><title>cypherX</title><path class="st0" d="M9,5.73V.27A.27.27,0,0,1,9.27,0h5.46A.27.27,0,0,1,15,.27V5.73a.27.27,0,0,1-.27.27H9.27A.27.27,0,0,1,9,5.73ZM9.27,24h5.46a.27.27,0,0,0,.27-.27V18.27a.27.27,0,0,0-.27-.27H9.27a.27.27,0,0,0-.27.27v5.46A.27.27,0,0,0,9.27,24ZM0,9.27v5.46A.27.27,0,0,0,.27,15H5.73A.27.27,0,0,0,6,14.73V9.27A.27.27,0,0,0,5.73,9H.27A.27.27,0,0,0,0,9.27Zm18,0v5.46a.27.27,0,0,0,.27.27h5.46a.27.27,0,0,0,.27-.27V9.27A.27.27,0,0,0,23.73,9H18.27A.27.27,0,0,0,18,9.27Z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <style>.st0{fill:#fff;}</style>
+  <g fill="#fff">
+    <rect class="st0" x="9.81" y="3.253" width="4.377" height="4.377"/>
+    <rect class="st0" x="16.37" y="9.8128" width="4.377" height="4.377"/>
+    <rect class="st0" x="9.81" y="16.373" width="4.377" height="4.377"/>
+    <rect class="st0" x="3.25" y="9.813" width="4.377" height="4.377"/>
+  </g>
+</svg>

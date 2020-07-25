@@ -1,11 +1,10 @@
 function init_element_voicechat() {
 
-    const hud_elem = new HUD_element('voicechat', 
-     "", 
+    const hud_elem = new HUD_element('voicechat', false,
     {
         "fontSize": "1.5",
         "font": "montserrat",
-        "color": "white",
+        "color": "#ffffff",
         "pivot": "top-left",
         "v_align": "flex-start",
         "iC": "#00ff00",

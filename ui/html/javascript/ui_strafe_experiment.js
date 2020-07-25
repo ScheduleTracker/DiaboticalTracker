@@ -11,7 +11,7 @@ let global_presentedStrafeEfficiency = 0;
 let global_hud_3d_counts=0;
 let global_hud_3d_instance=[];
 
-let strafe_data = IS_MENU_VIEW == true ? {"efficiency":"80","wallheight":"44.4444%","wallwidth":"45.8%","lineheight":"100%","abovebase":true,"veldir":"0","arrowopa":1,"haskey":true,"keydir":315,"dot_trans":"-40%","color":"rgb(92,255,204)","shadowcolor":"rgb(0,0,0)"} : {"efficiency":"0","shadowcolor":"rgb(0,0,0)"};
+let strafe_data = GAMEFACE_VIEW === 'menu' ? {"efficiency":"80","wallheight":"44.4444%","wallwidth":"45.8%","lineheight":"100%","abovebase":true,"veldir":"0","arrowopa":1,"haskey":true,"keydir":315,"dot_trans":"-40%","color":"rgb(92,255,204)","shadowcolor":"rgb(0,0,0)"} : {"efficiency":"0","shadowcolor":"rgb(0,0,0)"};
 
 function refresh_strafe_hud(intent_mask, obj, yaw, speed_x, speed_y, speed_z){
 

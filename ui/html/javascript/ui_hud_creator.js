@@ -21,22 +21,26 @@ function init_hud_elements() {
     init_element_time_limit();
     init_element_round_mvp();
     init_element_score();
-    init_element_team_scores();
     init_element_flag();
     init_element_dodge();
     init_element_item();
     init_element_player_name();
     init_element_powerup();
-    init_element_g_meter();
-    init_element_misc_settings();
+    //init_element_g_meter();
     init_element_you_fragged();
     init_element_chat();
-    init_element_voicechat();
+    //init_element_voicechat();
     init_element_rect();
     init_element_icon();
     init_element_current_weapon_icon();
     init_element_teammates_alive();
     init_element_item_picked();
+    init_element_team_pickups();
+    init_element_steal_progress();
+    init_element_overtime_progress();
+    init_element_hint();
+    init_element_players();
+    init_element_team_name();
 }
 
 function make_hud_in_element(container_id, editing_mode, spectating_hud) {
@@ -75,7 +79,7 @@ function make_hud_in_element(container_id, editing_mode, spectating_hud) {
                         var settingName = hud_group.hudEditCode[j].type;
                         var settingValue = hud.groups[i][settingName];
 
-                        if (settingName == "advanced") continue;
+                        //if (settingName == "advanced") continue;
 
                         if (settingValue != undefined) {
                             new_group.style.setProperty("--" + settingName, settingValue + "");
@@ -90,7 +94,7 @@ function make_hud_in_element(container_id, editing_mode, spectating_hud) {
                 }
             }
 
-            var id = "group_" + i;
+            var id = "group_" + gid;
             if (editing_mode) id += "_preview";
             new_group.id = id;
             new_group.dataset.groupIdx = i;
@@ -149,9 +153,11 @@ function make_hud_in_element(container_id, editing_mode, spectating_hud) {
             }
 
             // Advanced css rules
+            /*
             if (hud.groups[i].advanced) {
                 editorAddAdvancedProperties(new_group, hud.groups[i].advanced);
             }
+            */
 
 
             _id(container_id).appendChild(new_group);
@@ -382,19 +388,13 @@ function _process_hud_element_text(container_element, type, element, isPreview, 
         return obj.type == type
     });
     if (result.length > 0 && element_property_override_filter(result)) {
-        if (result[0].previewCode.isEmpty()) {
-            return result[0].getRenderCode(element, isPreview, isSpectating);
-        } else {
-            return result[0].previewCode;
-        }
+        return result[0].getRenderCode(element, isPreview, isSpectating);
     }
 }
 
 function element_property_override_filter(input) {
     var output = input;
-    if (output.type == "misc_settings") {
-        return false;
-    } else if (output["t"] == "yaw_ruler") {
+    if (output["t"] == "yaw_ruler") {
         output["x"] = "50";
         output["y"] = "50";
         output["pivot"] = "center";
@@ -412,7 +412,9 @@ function element_property_override_filter(input) {
             }
         } else if (output["t"] == "throttle") {
             output["fontSize"] = _clamp(output["fontSize"], 0, 2*output["height"]);
-        } else {output = {};}
+        } else {
+            output = {};
+        }
     } else if (output["t"] == "fps") {
         engine.call("set_real_variable", "hud_fps", 0);
     }
@@ -486,24 +488,33 @@ function renderElement(container_id, container_element, editing_mode, spectating
     new_element.dataset.type = hud.elements[idx].t;
     new_element.dataset.id = idx;
 
+    let native = false;
+
     let hud_element = getFirstMatchingElement(hud_elements, hud.elements[idx].t);            
     if (hud_element) {
+        native = hud_element.nativeElement;
+
         if(hud_element.hudEditCode.length > 0) {
             for (var j = 0; j < hud_element.hudEditCode.length; j++) {
                 var settingName = hud_element.hudEditCode[j].type;
                 var settingValue = hud.elements[idx][settingName];
 
-                if (settingName == "advanced") continue;
+                //if (settingName == "advanced") continue;
 
+                if (native && !editing_mode) {
+                    return false;
+                }
+                
                 if (settingValue != undefined) {
-                    new_element.style.setProperty("--" + settingName, settingValue + "");
+                    if (!native)  new_element.style.setProperty("--" + settingName, settingValue + "");
                     new_element.dataset[settingName] = settingValue;
                 } else {
                     if (hud_element.defaultValues[settingName]) {
-                        new_element.style.setProperty("--" + settingName, hud_element.defaultValues[settingName] + "");
+                        if (!native) new_element.style.setProperty("--" + settingName, hud_element.defaultValues[settingName] + "");
                         new_element.dataset[settingName] = hud_element.defaultValues[settingName];
                     }
                 }
+            
             }
         }
     } else {
@@ -516,59 +527,36 @@ function renderElement(container_id, container_element, editing_mode, spectating
     new_element.dataset.elemIdx = idx;
 
     new_element.classList.add("hud_element");
-    new_element.classList.add("elem_" + hud.elements[idx].t);
+    if (!native) new_element.classList.add("elem_" + hud.elements[idx].t);
+
     var downscale = "1";
     if(editing_mode) {
         new_element.classList.add("hud_isPreview");
         downscale = window.hud_editor_preview_downscale_factor; //make sure this is always the same as the #hud_preview height
     }
 
-    new_element.innerHTML = 
-        _process_hud_element_text(
-            container_element,
-            hud.elements[idx].t,
-            new_element,                    
-            editing_mode,
-            spectating_hud
-        );
-
-    new_element.style.setProperty("--ratio", downscale);
-
-    if (propertyIsValidForElement(hud_element, "shadow")) {
-        if (hud.elements[idx].shadow && (hud.elements[idx].shadow == true || hud.elements[idx].shadow == 1)) {
-            new_element.style.textShadow = "2px 2px 3px rgba(0,0,0,0.9)";
-        }
-    }
-
     new_element.style.position = "absolute";
-
+    
     hud.elements[idx].x = _clamp(hud.elements[idx].x,0,100);
     hud.elements[idx].y = _clamp(hud.elements[idx].y,0,100);
     new_element.style.left = (hud.elements[idx].x) + "%";
     new_element.style.top  = (hud.elements[idx].y) + "%";
 
-    // Hack: override small icon sizes to avoid a GameFace crash for now
-    if (propertyIsValidForElement(hud_element, "iSize")) {
-        if (Number(hud.elements[idx].iSize) < 1) {
-            hud.elements[idx].iSize = 1;
-            new_element.style.setProperty("--iSize", hud.elements[idx].iSize+"");
-            new_element.dataset["iSize"] = hud.elements[idx].iSize;
-        }
+    if (!native) {
+        new_element.innerHTML = 
+            _process_hud_element_text(
+                container_element,
+                hud.elements[idx].t,
+                new_element,
+                editing_mode,
+                spectating_hud
+            );
+    } else {
+        new_element.dataset.native = 1;
+        return new_element;
     }
-    if (propertyIsValidForElement(hud_element, "iWidth")) {
-        if (Number(hud.elements[idx].iWidth) < 1) {
-            hud.elements[idx].iWidth = 1;
-            new_element.style.setProperty("--iWidth", hud.elements[idx].iWidth+"");
-            new_element.dataset["iWidth"] = hud.elements[idx].iWidth;
-        }
-    }
-    if (propertyIsValidForElement(hud_element, "iHeight")) {
-        if (Number(hud.elements[idx].iHeight) < 1) {
-            hud.elements[idx].iHeight = 1;
-            new_element.style.setProperty("--iHeight", hud.elements[idx].iHeight+"");
-            new_element.dataset["iHeight"] = hud.elements[idx].iHeight;
-        }
-    }
+
+    new_element.style.setProperty("--ratio", downscale);
 
     if (propertyIsValidForElement(hud_element, "pivot")) {
         var pivotTransformStringX = "translateX(-50%)";
@@ -602,6 +590,35 @@ function renderElement(container_id, container_element, editing_mode, spectating
             pivotTransformStringX = "translateX(-100%)";
         }
         new_element.style.transform = pivotTransformStringX + " " + pivotTransformStringY;
+    }
+
+    if (propertyIsValidForElement(hud_element, "shadow")) {
+        if (hud.elements[idx].shadow && (hud.elements[idx].shadow == true || hud.elements[idx].shadow == 1)) {
+            new_element.style.textShadow = "2px 2px 3px rgba(0,0,0,0.9)";
+        }
+    }
+
+    // Hack: override small icon sizes to avoid a GameFace crash for now
+    if (propertyIsValidForElement(hud_element, "iSize")) {
+        if (Number(hud.elements[idx].iSize) < 1) {
+            hud.elements[idx].iSize = 1;
+            new_element.style.setProperty("--iSize", hud.elements[idx].iSize+"");
+            new_element.dataset["iSize"] = hud.elements[idx].iSize;
+        }
+    }
+    if (propertyIsValidForElement(hud_element, "iWidth")) {
+        if (Number(hud.elements[idx].iWidth) < 1) {
+            hud.elements[idx].iWidth = 1;
+            new_element.style.setProperty("--iWidth", hud.elements[idx].iWidth+"");
+            new_element.dataset["iWidth"] = hud.elements[idx].iWidth;
+        }
+    }
+    if (propertyIsValidForElement(hud_element, "iHeight")) {
+        if (Number(hud.elements[idx].iHeight) < 1) {
+            hud.elements[idx].iHeight = 1;
+            new_element.style.setProperty("--iHeight", hud.elements[idx].iHeight+"");
+            new_element.dataset["iHeight"] = hud.elements[idx].iHeight;
+        }
     }
 
     if (propertyIsValidForElement(hud_element, "background")) {
@@ -652,6 +669,10 @@ function renderElement(container_id, container_element, editing_mode, spectating
         new_element.style.fontSize =  (downscale * hud.elements[idx].fontSize) + "vh";
     }
 
+    if (propertyIsValidForElement(hud_element, "bUp")) {
+        new_element.style.flexDirection = "column-reverse";
+    }
+
     // Border radius support for all elements (container element only)
     if (propertyIsValidForElement(hud_element, "bRadius")) {
         if (hud.elements[idx].cCode && hud.elements[idx].bRadius) {
@@ -683,11 +704,13 @@ function renderElement(container_id, container_element, editing_mode, spectating
     }
 
     // Advanced css rules
+    /*
     if (propertyIsValidForElement(hud_element, "advanced")) {
         if (hud.elements[idx].advanced) {
             editorAddAdvancedProperties(new_element, hud.elements[idx].advanced)
         }
     }
+    */
     
     // 3D pitch
     if (hud.elements[idx].showIn3D&&hud.elements[idx].previewpitch) {
@@ -697,6 +720,7 @@ function renderElement(container_id, container_element, editing_mode, spectating
     return new_element;
 }
 
+/*
 function editorAddAdvancedProperties(element, rule_list) {
     for (let rule of rule_list) {
         if (editor_valid_advanced_rules.includes(rule[0]) || rule[0].startsWith("border-")) {
@@ -721,6 +745,7 @@ function editorAddAdvancedProperties(element, rule_list) {
         }
     }
 }
+*/
 
 function vh_size_string_at_least_1px(vh_size) {
     let px_size = onevh_float * vh_size;

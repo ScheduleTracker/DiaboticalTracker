@@ -1,0 +1,63 @@
+BEGIN TEMPLATE player_name
+    SETTING cell_direction "horizontal"
+    SETTING align pivot
+    INT shadow
+    INT teamColor
+    INT pre
+    INT uc
+
+    # Following text
+    IF pre
+        COL_OUTPUT 0 lvalue "following"
+        COL_OUTPUT 0 color "#ffffff"
+        COL_OUTPUT 0 font font
+        COL_OUTPUT 0 height fontSize
+        COL_OUTPUT 0 indent 0.5
+        IF uc
+            COL_OUTPUT 0 uppercase 1
+        END IF
+        IF shadow
+            COL_OUTPUT 0 shadow 1
+        END IF
+    END IF
+
+    # Player Name
+    COL_OUTPUT 1 font font
+    COL_OUTPUT 1 height fontSize
+    IF uc
+        COL_OUTPUT 1 uppercase 1
+    END IF
+    IF shadow
+        COL_OUTPUT 1 shadow 1
+    END IF
+
+ON_UPDATE
+
+    INT disc
+    disc = 0
+    IF !common_game_data.self_alive
+        disc = 1
+    END IF
+
+    IF vis == "p" && common_game_data.spectating
+        disc = 1
+    END IF
+    IF vis == "s" && !common_game_data.spectating
+        disc = 1
+    END IF
+
+    IF !IN_EDITOR && disc
+        discard
+    END IF
+
+    STRING name_color
+    name_color = color
+    IF teamColor
+        name_color = game_data.pov_team.color
+    END IF
+
+    OUTPUT 0 1 color name_color
+    OUTPUT 0 1 value battle_data.self.name
+
+    
+END TEMPLATE

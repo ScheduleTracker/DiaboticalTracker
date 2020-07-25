@@ -21,75 +21,109 @@ const CLIENT_COMMAND_SET_PARTY_EXPAND_SEARCH = 69;
 const CLIENT_COMMAND_PARTY_JOIN_SESSION = 70;
 const CLIENT_COMMAND_PARTY_JOIN_LOBBY_KEY = 71;
 const CLIENT_COMMAND_GET_API_TOKEN = 72;
-const CLIENT_COMMAND_GET_BATTLEPASS_DATA = 73;
+const CLIENT_COMMAND_COMMEND = 73;
 const CLIENT_COMMAND_GET_BATTLEPASS_REWARDS = 74;
-const CLIENT_COMMAND_GET_BATTLEPASS_LIST = 75;
-const CLIENT_COMMAND_SET_ACTIVE_BATTLEPASS = 76;
+const CLIENT_COMMAND_REROLL_CHALLENGE = 75;
+const CLIENT_COMMAND_ABANDON = 76;
 const CLIENT_COMMAND_GET_COMP_SEASON = 77;
 const CLIENT_COMMAND_SET_CUSTOMIZATION = 78;
 const CLIENT_COMMAND_MESSAGE_PARTY = 79;
 const CLIENT_COMMAND_MESSAGE_LOBBY = 80;
-const CLIENT_COMMAND_GET_CURRENT_SHOP = 81;
+const CLIENT_COMMAND_DISCONNECTED = 81;
 const CLIENT_COMMAND_GET_CUSTOM_MATCH_LIST = 82;
-const CLIENT_COMMAND_GET_PERSONAL_DATA = 83;
+const CLIENT_COMMAND_DISMISS_RECONNECT = 83;
 const CLIENT_COMMAND_SELECT_MAP = 84;
 const CLIENT_COMMAND_GET_RANKED_MMRS = 85;
 const CLIENT_COMMAND_GET_SINGLE_RANKED_MMR = 86;
+const CLIENT_COMMAND_GET_NOTIFICATIONS = 89;
+const CLIENT_COMMAND_DEL_NOTIFICATION = 90;
+const CLIENT_COMMAND_GET_QUEUES = 92;
+const CLIENT_COMMAND_GET_RECONNECTS = 93;
+const CLIENT_COMMAND_RECONNECT = 94;
+const CLIENT_COMMAND_REQUEST_REMATCH = 95;
+const CLIENT_COMMAND_JOIN_WARMUP = 96;
+const CLIENT_COMMAND_SELECT_MODE = 97;
+const CLIENT_COMMAND_LOBBY_MAKE_ADMIN = 98;
+const CLIENT_COMMAND_LOBBY_REVOKE_ADMIN = 99;
 
-// key => [color, i18n_key, image_path]
+const MATCH_TYPE_CUSTOM = 0;
+const MATCH_TYPE_TOURNAMENT = 1;
+const MATCH_TYPE_RANKED = 2;
+const MATCH_TYPE_QUICKPLAY = 3;
+
+const MATCH_TYPE = {
+    0: { "i18n": "match_type_custom" },
+    1: { "i18n": "match_type_tournament" },
+    2: { "i18n": "match_type_ranked" },
+    3: { "i18n": "match_type_quickplay" },
+    4: { "i18n": "match_type_warmup" },
+};
+
+const SHOP_ITEM_TYPE = {
+    CUSTOMIZATION: 'c',
+    PACK: 'p',
+    BATTLEPASS_BASIC: 'b',
+    BATTLEPASS_BUNDLE: 'B',
+};
+
+const NOTIFICATION_TYPE = {
+    0: "battlepass",
+    1: "battlepass_items",
+    2: "gift_battlepass",
+    3: "gift_item",
+    4: "twitch_drop",
+};
+
+// key => [color, i18n_key, image_path, type]
 var global_item_name_map = {
-    "coin":         ["#ffffff", "item_coin",                    "images/item_coin.svg",          ],
-    "ghost":        ["#ffffff", "item_coin",                    "images/item_coin.svg",          ],
-    "score_pickup_short": ["#ffdfa4", "item_coin",              "images/item_coin.svg",          ],
-    "score_pickup": ["#ffdfa4", "item_score_pickup",            "images/item_coin.svg",          ],
-    "score_deny":   ["#dbdbdb", "item_score_deny",              "images/item_coin.svg",          ],
-    "flag":         ["#ffffff", "item_flag",                    "images/item_flag.svg",          ],
-    "macguffin":    ["#d7b500", "item_macguffin",               "images/item_macguffin.svg",     ],
-    "doubledamage": ["#ffff0d", "item_diabotical",              "images/powerup_diabotical.svg", ],
-    "survival":     ["#42fc42", "item_siphonator",              "images/powerup_siphonator.svg", ],
-    "haste":        ["#ff5c42", "item_haste",                   "images/powerup_surge.svg",      ],
-    "vanguard":     ["#0dffff", "item_vanguard",                "images/powerup_vanguard.svg",   ],
-    "weaponmelee":  ["#333333", "weapon_melee",                 "images/weapon_melee.svg",       ],
-    "weaponrl":     ["#df1f2d", "weapon_rocket_launcher",       "images/weapon_rl.svg",          ],
-    "weaponbl":     ["#7c62d1", "weapon_blaster",               "images/weapon_sb.svg",          ],
-    "weaponsb":     ["#7c62d1", "weapon_super_blaster",         "images/weapon_sb.svg",          ],
-	"weaponmb":     ["#7c62d1", "weapon_master_blaster",        "images/weapon_mb.svg",          ],
-    "weaponmac":    ["#318c29", "weapon_machinegun",            "images/weapon_mac.svg",         ],
-    "weaponcb_pncr":["#1fa8b6", "weapon_crossbow_pncr",         "images/weapon_pncr.svg",        ],
-    "weaponcb":     ["#a65f25", "weapon_crossbow",              "images/weapon_cb.svg",          ],
-    "weaponpncr":   ["#1fa8b6", "weapon_pncr",                  "images/weapon_pncr.svg",        ],
-    "weapondf":     ["#cdb200", "weapon_shaft",                 "images/weapon_df.svg",          ],
-    "weapongl":     ["#9d3329", "weapon_grenade_launcher",      "images/weapon_gl.svg",          ],
-    "weaponshotgun":["#9bc44d", "weapon_shotgun",               "images/weapon_ss.svg",          ],
-    "weaponss":     ["#9bc44d", "weapon_super_shotgun",         "images/weapon_ss.svg",          ],
-    "weaponsg":     ["#9bc44d", "weapon_shotgun",               "images/weapon_sg.svg",          ],
-    "weaponmg":     ["#b05620", "weapon_minigun",               "images/weapon_mg.svg",          ],
-    //"weaponfg":     ["#a1751e", "weapon_scattergun",            "images/weapon_fg.svg",          ], // Scatter gun is removed, model repurposed for super shotgun
-    "weaponbfg":    ["#6b318b", "weapon_bfg",                   "images/weapon_bfg.svg",         ],
-    "weaponst":     ["#23598e", "weapon_laserpen",              "images/weapon_st.svg",          ],
-    "weaponiw":     ["#be2f83", "weapon_implosion_weeball",     "images/weapon_iw.svg",          ],
-    "weaponsw":     ["#28cdcd", "weapon_slowfield_weeball",     "images/weapon_sw.svg",          ],
-    "weaponbw":     ["#b4513b", "weapon_explosive_weeball",     "images/weapon_bw.svg",          ],
-    "weaponsmw":    ["#5a811e", "weapon_smoke_weeball",         "images/weapon_smw.svg",         ],
-    "weaponhw":     ["#67da80", "weapon_healing_weeball",       "images/weapon_hw.svg",          ],
-    "weaponkw":     ["#015850", "weapon_knockback_weeball",     "images/weapon_kw.svg",          ],
-    "weaponhook":   ["#777777", "weapon_hook",                  "",                              ],
-    "armort1":      ["#27b1cf", "item_armort1",                 "images/item_armort1.svg",       ],
-    "armort2":      ["#27b1cf", "item_armort2",                 "images/item_armort2.svg",       ],
-    "armort3":      ["#ddb625", "item_armort3",                 "images/item_armort3.svg",       ],
-    "armort4":      ["#e51d1d", "item_armort4",                 "images/item_armort4.svg",       ],
-    "hpt0":         ["#3dbc75", "item_hpt0",                    "images/item_hpt0.svg",          ],
-    "hpt1":         ["#3dbc75", "item_hpt1",                    "images/item_hpt1.svg",          ],
-    "hpt2":         ["#3dbc75", "item_hpt2",                    "images/item_hpt2.svg",          ],
-    "hpt3":         ["#3dbc75", "item_hpt3",                    "images/item_hpt3.svg",          ],
-    "ammovc":       ["#7c62d1", "ammo_blaster",                 "images/weapon_bl.svg",          ],
-    "ammodf":       ["#cdb200", "ammo_shaft",                   "images/weapon_df.svg",          ],
-    "ammorl":       ["#df1f2d", "ammo_rockets",                 "images/weapon_rl.svg",          ],
-    "ammoss":       ["#9bc44d", "ammo_shotgun",                 "images/weapon_ss.svg",          ],
-    "ammopncr":     ["#1fa8b6", "ammo_pncr",                    "images/weapon_pncr.svg",        ],
-    "ammomac":      ["#318c29", "ammo_machinegun",              "images/weapon_mac.svg",         ],
-    "ammogl":       ["#9d3329", "ammo_grenades",                "images/weapon_gl.svg",          ],
-    "editpad":      ["#555555", "tool_editpad",                 "images/weapon_editpad.svg",     ],
+    "coin":         ["#ffffff", "item_coin",                    "images/item_coin.svg",            "mode_pickup"],
+    "ghost":        ["#ffffff", "item_coin",                    "images/item_coin.svg",            "mode_pickup"],
+    "score_pickup_short": ["#ffdfa4", "item_coin",              "images/item_coin.svg",            "mode_pickup"],
+    "score_pickup": ["#ffdfa4", "item_score_pickup",            "images/item_coin.svg",            "mode_pickup"],
+    "score_deny":   ["#dbdbdb", "item_score_deny",              "images/item_coin.svg",            "mode_pickup"],
+    "flag":         ["#ffffff", "item_flag",                    "images/item_flag.svg",            "mode_pickup"],
+    "macguffin":    ["#f8d206", "item_macguffin",               "images/item_macguffin.svg",       "mode_pickup"],
+    "doubledamage": ["#ffff0d", "item_diabotical",              "images/powerup_diabotical.svg",   "powerup"],
+    "tripledamage": ["#891e94", "item_tripledamage",            "images/powerup_tripledamage.svg", "powerup"],
+    "survival":     ["#42fc42", "item_siphonator",              "images/powerup_siphonator.svg",   "powerup"],
+    "haste":        ["#ff5c42", "item_haste",                   "images/powerup_surge.svg",        "powerup"],
+    "vanguard":     ["#0dffff", "item_vanguard",                "images/powerup_vanguard.svg",     "powerup"],
+    "weaponmelee":  ["#888888", "weapon_melee",                 "images/weapon_melee.svg",         "weapon"],
+    "weaponrl":     ["#df1f2d", "weapon_rocket_launcher",       "images/weapon_rl.svg",            "weapon"],
+    "weaponbl":     ["#7c62d1", "weapon_blaster",               "images/weapon_sb.svg",            "weapon"],
+    "weaponmac":    ["#cc791d", "weapon_machinegun",            "images/weapon_mac.svg",           "weapon"],
+    "weaponcb_pncr":["#1fa8b6", "weapon_crossbow_pncr",         "images/weapon_cb.svg",            "weapon"],
+    "weaponcb":     ["#1d89cc", "weapon_crossbow",              "images/weapon_cb.svg",            "weapon"],
+    "weaponpncr":   ["#1fa8b6", "weapon_pncr",                  "images/weapon_pncr.svg",          "weapon"],
+    "weaponshaft":  ["#cdb200", "weapon_shaft",                 "images/weapon_shaft.svg",         "weapon"],
+    "weapongl":     ["#9d3329", "weapon_grenade_launcher",      "images/weapon_gl.svg",            "weapon"],
+    "weaponss":     ["#9bc44d", "weapon_super_shotgun",         "images/weapon_ss.svg",            "weapon"],
+    "weaponmg":     ["#b05620", "weapon_minigun",               "images/weapon_mg.svg",            "weapon"],
+    "weaponw9":     ["#6b318b", "weapon_w9",                    "images/weapon_w9.svg",            "weapon"],
+    "weaponst":     ["#23598e", "weapon_laserpen",              "images/weapon_st.svg",            "weapon"],
+    "weaponiw":     ["#be2f83", "weapon_implosion_weeball",     "images/weapon_iw.svg",            "weapon"],
+    "weaponsw":     ["#28cdcd", "weapon_slowfield_weeball",     "images/weapon_sw.svg",            "weapon"],
+    "weaponbw":     ["#b4513b", "weapon_explosive_weeball",     "images/weapon_bw.svg",            "weapon"],
+    "weaponsmw":    ["#5a811e", "weapon_smoke_weeball",         "images/weapon_smw.svg",           "weapon"],
+    "weaponhw":     ["#67da80", "weapon_healing_weeball",       "images/weapon_hw.svg",            "weapon"],
+    "weaponkw":     ["#015850", "weapon_knockback_weeball",     "images/weapon_kw.svg",            "weapon"],
+    "weaponhook":   ["#777777", "weapon_hook",                  "",                                "weapon"],
+    "armort1":      ["#27b1cf", "item_armort1",                 "images/item_armort1.svg",         "armor"],
+    "armort2":      ["#27b1cf", "item_armort2",                 "images/item_armort2.svg",         "armor"],
+    "armort3":      ["#ddb625", "item_armort3",                 "images/item_armort3.svg",         "armor"],
+    "armort4":      ["#e51d1d", "item_armort4",                 "images/item_armort4.svg",         "armor"],
+    "hpt0":         ["#3dbc75", "item_hpt0",                    "images/item_hpt0.svg",            "health"],
+    "hpt1":         ["#3dbc75", "item_hpt1",                    "images/item_hpt1.svg",            "health"],
+    "hpt2":         ["#3dbc75", "item_hpt2",                    "images/item_hpt2.svg",            "health"],
+    "hpt3":         ["#3dbc75", "item_hpt3",                    "images/item_hpt3.svg",            "health"],
+    "ammobl":       ["#7c62d1", "ammo_blaster",                 "images/weapon_bl.svg",            "ammo"],
+    "ammoshaft":    ["#cdb200", "ammo_shaft",                   "images/weapon_shaft.svg",         "ammo"],
+    "ammorl":       ["#df1f2d", "ammo_rockets",                 "images/weapon_rl.svg",            "ammo"],
+    "ammoss":       ["#9bc44d", "ammo_shotgun",                 "images/weapon_ss.svg",            "ammo"],
+    "ammopncr":     ["#1fa8b6", "ammo_pncr",                    "images/weapon_pncr.svg",          "ammo"],
+    "ammomac":      ["#318c29", "ammo_machinegun",              "images/weapon_mac.svg",           "ammo"],
+    "ammogl":       ["#9d3329", "ammo_grenades",                "images/weapon_gl.svg",            "ammo"],
+    "editpad":      ["#555555", "tool_editpad",                 "images/weapon_editpad.svg",       "special"],
 };
 
 // weapon index to data map
@@ -97,54 +131,92 @@ let global_weapon_idx_name_map = {
     0 : "default",
     1 : "editpad",
     2 : "weaponmelee",
-    3 : "weaponbl",
-    4 : "weaponsg",
+    3 : "weaponmac",
+    4 : "weaponbl",
     5 : "weaponss",
     6 : "weaponrl",
-    7 : "weapondf",
+    7 : "weaponshaft",
     8 : "weaponcb_pncr",
     9 : "weaponpncr",
-    10: "weaponmac",
-    11: "weapongl",
-    12: "weaponbfg",
-    13: "weaponmg",
-    14: "weaponst",
-    15: "weaponhw",
-    16: "weaponiw",
-    17: "weaponsw",
-    18: "weaponbw",
-    19: "weaponsmw",
-    20: "weaponkw",   
-    21: "weaponhook",
+    10: "weapongl",
+    11: "weaponw9",
+    12: "weaponmg",
+    13: "weaponst",
+    14: "weaponhw",
+    15: "weaponiw",
+    16: "weaponsw",
+    17: "weaponbw",
+    18: "weaponsmw",
+    19: "weaponkw",   
+    20: "weaponhook",
 };
   
 // weapon index to data map
 let global_weapon_idx_name_map2 = {
     0 : "weaponmelee",
-    1 : "weaponbl",
-    2 : "weaponsg",
+    1 : "weaponmac",
+    2 : "weaponbl",
     3 : "weaponss",
     4 : "weaponrl",
-    5 : "weapondf",
-    6 : "weaponcb_pncr",
+    5 : "weaponshaft",
+    6 : "weaponcb",
     7 : "weaponpncr",
-    8 : "weaponmac",
-    9 : "weapongl",
-    10: "weaponbfg",
-    11: "weaponmg",
-    12: "weaponst",
-    13: "weaponhw",
-    14: "weaponiw",
-    15: "weaponsw",
-    16: "weaponbw",
-    17: "weaponsmw",
-    18: "weaponkw",   
-    19: "weaponhook",
+    8 : "weapongl",
+    9 : "weaponw9",
+    10: "weaponmg",
+    11: "weaponst",
+    12: "weaponhw",
+    13: "weaponiw",
+    14: "weaponsw",
+    15: "weaponbw",
+    16: "weaponsmw",
+    17: "weaponkw",   
+    18: "weaponhook",
+};
+
+// Reverse weapon tag to index lookup map
+let global_weapon_tag_idx_map = {};
+for (let idx in global_weapon_idx_name_map2) {
+    global_weapon_tag_idx_map[global_weapon_idx_name_map2[idx].substring(6)] = parseInt(idx);
+}
+
+let global_weapons_in_scoreboard = [0,1,2,3,4,5,6,7,8];
+// For the customization weapon tabs:
+let global_weapons_with_skins = [0,1,2,3,4,5,6,7,8];
+// The reload times are used to calculate the weapon usage statistic in %
+let global_weapon_reload_times = {
+    0 : 700,
+    1 : 50,
+    2 : 92,
+    3 : 950 / 21,  // divide Shotgun reload time by 21 to get a usage relevant stat, doing this here so its not missed if we change indexes of weapons
+    4 : 800,
+    5 : 48,
+    6 : 1000,
+    7 : 1450,
+    8 : 100,
+    9 : 800,
+    10: 1000,
+    11: 1500,
+    12: 1000,
+    13: 1000,
+    14: 1000,
+    15: 1000,
+    16: 1000,
+    17: 1000,
+    18: 850,
 };
 
 var global_hud_need_strafe_calculations = false;
 var global_hud_need_pitch_calculations = false;
 var global_hud_direction_hints_enabled = false;
+
+let global_report_reasons = [
+    {"id": 0, "i18n": "report_reason_offensive_sticker_setup" },
+    {"id": 1, "i18n": "report_reason_cheating" },
+    {"id": 2, "i18n": "report_reason_offensive_speech" },
+    {"id": 3, "i18n": "report_reason_bug_exploit" },
+    {"id": 4, "i18n": "report_reason_griefing" },
+];
 
 var global_ping_colors = {
     "green": "#41e447",
@@ -177,6 +249,8 @@ var global_region_map = {
     "tes": { "flag": "nl", "i18n": "datacenter_test", "provider": "i3D.net", "name": "Test Location" },
 };
 
+const CUSTOM_MULTI_TEAM_MODES = ["brawl","instagib","ghosthunt", "ffa", "race"];
+const CUSTOM_ROUND_BASED_MODES = ["ca","shaft_arena","rocket_arena","wipeout","macguffin"];
 
 var global_game_mode_map = {
     "brawl": {
@@ -186,6 +260,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_brawl",
         "announce": "announcer_common_gamemode_brawl",
         "enabled": true,
+        "image": "brawl_loop.jpg", // html/images/gamemode_cards/
+        "icon": "/html/images/gamemodes/brawl.svg"
     },
     "duel": {
         "mode": "duel",
@@ -194,6 +270,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_duel",
         "announce": "announcer_common_gamemode_duel",
         "enabled": true,
+        "image": "duel_loop.jpg",
+        "icon": "/html/images/gamemodes/duel.svg"
     },
     "ca": {
         "mode": "ca",
@@ -202,6 +280,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_arena",
         "announce": "announcer_common_gamemode_arena",
         "enabled": true,
+        "image": "arena_loop.jpg",
+        "icon": "/html/images/gamemodes/arena.svg"
     },
     "rocket_arena": {
         "mode": "rocket_arena",
@@ -210,6 +290,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_rocket_arena",
         "announce": "announcer_common_gamemode_rocket_arena",
         "enabled": true,
+        "image": "arena_loop.jpg",
+        "icon": "/html/images/gamemodes/arena.svg"
     },
     "shaft_arena": {
         "mode": "shaft_arena",
@@ -218,6 +300,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_shaft_arena",
         "announce": "announcer_common_gamemode_shaft_arena",
         "enabled": true,
+        "image": "arena_loop.jpg",
+        "icon": "/html/images/gamemodes/arena.svg"
     },
     "wipeout": {
         "mode": "wipeout",
@@ -226,14 +310,18 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_wipeout",
         "announce": "announcer_common_gamemode_wipeout",
         "enabled": true,
+        "image": "wipeout_loop.jpg",
+        "icon": "/html/images/gamemodes/wipeout.svg"
     },
     "ctf": {
         "mode": "ctf",
         "name": "Capture The Flag",
-        "i18n": "game_mode_capture_the_flag",
+        "i18n": "game_mode_ctf",
         "desc_i18n": "game_mode_desc_ctf",
         "announce": "announcer_common_gamemode_ctf",
-        "enabled": true,
+        "enabled": false,
+        "image": "ctf_loop.jpg",
+        "icon": "/html/images/gamemodes/ctf.svg"
     },
     "flagrun": {
         "mode": "flagrun",
@@ -242,6 +330,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_flagrun",
         "announce": "announcer_common_gamemode_flagrun",
         "enabled": false,
+        "image": "arcade_loop.jpg",
+        "icon": "/html/images/gamemodes/instagib.svg"
     },
     "coinrun": {
         "mode": "coinrun",
@@ -250,6 +340,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_coinrun",
         "announce": "announcer_common_gamemode_coinrun",
         "enabled": true,
+        "image": "arcade_loop.jpg",
+        "icon": "/html/images/gamemodes/instagib.svg"
     },
     "macguffin": {
         "mode": "macguffin",
@@ -258,6 +350,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_macguffin",
         "announce": "announcer_common_gamemode_macguffin",
         "enabled": true,
+        "image": "macguffin_loop.jpg",
+        "icon": "/html/images/gamemodes/macguffin.svg"
     },
     "ghosthunt": {
         "mode": "ghosthunt",
@@ -266,6 +360,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_instagib",
         "announce": "announcer_common_gamemode_wee-bow_instagib",
         "enabled": true,
+        "image": "arcade_loop.jpg",
+        "icon": "/html/images/gamemodes/instagib.svg"
     },
     "race": {
         "mode": "race",
@@ -273,7 +369,9 @@ var global_game_mode_map = {
         "i18n": "game_mode_race",
         "desc_i18n": "game_mode_desc_race",
         "announce": "announcer_common_gamemode_time_trials",
-        "enabled": true,
+        "enabled": false,
+        "image": "arcade_loop.jpg",
+        "icon": "/html/images/gamemodes/race.svg"
     },
     "tdm": {
         "mode": "tdm",
@@ -282,6 +380,8 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_tdm",
         "announce": "",
         "enabled": true,
+        "image": "brawl_loop.jpg",
+        "icon": "/html/images/gamemodes/tdm.svg"
     },
     "tw": {
         "mode": "tw",
@@ -290,154 +390,50 @@ var global_game_mode_map = {
         "desc_i18n": "game_mode_desc_tw",
         "announce": "",
         "enabled": false,
+        "image": "brawl_loop.jpg",
+        "icon": ""
+    },
+    "warmup": {
+        "mode": "warmup",
+        "name": "Warmup",
+        "i18n": "game_mode_warmup",
+        "desc_i18n": "game_mode_desc_warmup",
+        "announce": "",
+        "enabled": false,
+        "image": "practice_loop.jpg",
+        "icon": ""
     },
 };
 
-let global_queue_modes = {
-    "qp_instagib_5": {
-        "i18n": "game_mode_instagib",
-        "variable": "lobby_search_qp_instagib_5",
-        "vs": "5v5",
+let global_queues = {
+    /* data coming from the MS
+    "<queue_name>": {
+        "i18n": "game_mode_<mode_name>",
+        "variable": "lobby_search_<queue_name>",
+        "vs": "5v5/FFA/Instagib X etc.",
+        "queue_name": localize(i18n)+" "+vs,
         "team_size": 5,
-        "mode": "ghosthunt",
-        "locked": false,
-    },
-    "qp_flagrun_5": {
-        "i18n": "game_mode_flagrun",
-        "variable": "lobby_search_qp_flagrun_5",
-        "vs": "5v5",
-        "team_size": 5,
-        "mode": "flagrun",
-        "locked": false,
-    },
-    "qp_coinrun_5": {
-        "i18n": "game_mode_coinrun",
-        "variable": "lobby_search_qp_coinrun_5",
-        "vs": "5v5",
-        "team_size": 5,
-        "mode": "coinrun",
-        "locked": false,
-    },
-    "qp_rocket_arena_1": {
-        "i18n": "game_mode_rocket_arena",
-        "variable": "lobby_search_qp_rocket_arena_1",
-        "vs": "1v1",
-        "team_size": 1,
-        "mode": "rocket_arena",
         "locked": false,
         "leaderboard": true,
-    },
-    "qp_brawl_3": {
-        "i18n": "game_mode_brawl",
-        "variable": "lobby_search_qp_brawl_3",
-        "vs": "3v3v3",
-        "team_size": 3,
-        "mode": "brawl",
-        "locked": true,
-    },
-    "qp_wo_4": {
-        "i18n": "game_mode_wipeout",
-        "variable": "lobby_search_qp_wo_4",
-        "vs": "4v4",
-        "team_size": 4,
-        "mode": "wipeout",
-        "locked": false,
-    },
-    "qp_wo_5": {
-        "i18n": "game_mode_wipeout",
-        "variable": "lobby_search_qp_wo_5",
-        "vs": "5v5",
-        "team_size": 5,
-        "mode": "wipeout",
-        "locked": false,
-    },
-    "qp_ca_1": {
-        "i18n": "game_mode_arena",
-        "variable": "lobby_search_qp_ca_1",
-        "vs": "1v1",
-        "team_size": 1,
-        "mode": "ca",
-        "locked": false,
-        "leaderboard": true,
-    },
-    "qp_ca_2": {
-        "i18n": "game_mode_arena",
-        "variable": "lobby_search_qp_ca_2",
-        "vs": "2v2",
-        "team_size": 2,
-        "mode": "ca",
-        "locked": false,
-        "leaderboard": true,
-    },
-    "qp_ffa": {
-        "i18n": "game_mode_brawl",
-        "variable": "lobby_search_qp_ffa",
-        "vs": "FFA",
-        "team_size": 1,
-        "mode": "brawl",
-        "locked": false,
-    },
-    "qp_instagib_ffa": {
-        "i18n": "game_mode_brawl_instagib",
-        "variable": "lobby_search_qp_instagib_ffa",
-        "vs": "FFA",
-        "team_size": 1,
-        "mode": "brawl",
-        "locked": false,
-    },
-    "r_ctf_5": {
-        "i18n": "game_mode_capture_the_flag",
-        "variable": "lobby_search_r_ctf_5",
-        "vs": "5v5",
-        "team_size": 5,
-        "mode": "ctf",
+        "ranked": true,
         "roles": [
             { "name": "attack", "i18n": "role_attack" },
             { "name": "defend", "i18n": "role_defend" },
         ],
-        "locked": false,
+        "modes": [{
+            "maps": [
+                "mg_crystal_cove",
+                "mg_sunken",
+            ],
+            "physics": 0,
+            "instagib": false,
+            "mode_name": "macguffin",
+            "queue_name": "r_team_3",
+            "time_limit": 0,
+            "score_limit": 2,
+        }]
     },
-    "r_wo_5": {
-        "i18n": "game_mode_wipeout",
-        "variable": "lobby_search_r_wo_5",
-        "vs": "5v5",
-        "team_size": 5,
-        "mode": "wipeout",
-        "locked": false,
-    },
-    "r_ca_1": {
-        "i18n": "game_mode_arena",
-        "variable": "lobby_search_r_ca_1",
-        "vs": "1v1",
-        "team_size": 1,
-        "mode": "ca",
-        "locked": false,
-    },
-    "r_tdm_3": {
-        "i18n": "game_mode_tdm",
-        "variable": "lobby_search_r_tdm_3",
-        "vs": "3v3",
-        "team_size": 3,
-        "mode": "tdm",
-        "locked": false,
-    },
-    "r_macguffin_3": {
-        "i18n": "game_mode_macguffin",
-        "variable": "lobby_search_r_macguffin_3",
-        "vs": "3v3",
-        "team_size": 3,
-        "mode": "macguffin",
-        "locked": false, 
-    },
-    "r_duel": {
-        "i18n": "game_mode_duel",
-        "variable": "lobby_search_r_duel",
-        "vs": "1v1",
-        "team_size": 1,
-        "mode": "duel",
-        "locked": false,
-        "leaderboard": true,
-    }
+    */
 };
 
 var global_general_card_data = {
@@ -452,7 +448,9 @@ var global_general_card_data = {
 }
 
 var global_physics_map = {
-    "0":  { "i18n": "custom_settings_physics_default" },
+    "0":  { "i18n": "custom_settings_physics_diabotical" },
+    "1":  { "i18n": "custom_settings_physics_race" },
+    /*
     "1":  { "i18n": "custom_settings_physics_vintage" },
     "2":  { "i18n": "custom_settings_physics_hybrid" },
     "3":  { "i18n": "custom_settings_physics_freestyle" },
@@ -461,25 +459,28 @@ var global_physics_map = {
     "21": { "i18n": "custom_settings_physics_twitchy" },
     "30": { "i18n": "custom_settings_physics_tactical" },
     "31": { "i18n": "custom_settings_physics_legacy" },
+    */
 };
 
 // battlepass season id -> data map
 var global_battlepass_data = {
-    "bp_pre_season1": {
+    "test_bp": {
         "level-image": "/html/images/icons/battlepass_level.png",
 
         "title": "battlepass_1_title", // localize key
         "description": "battlepass_1_description", // localize key
         "tag": "battlepass_1_tag", // localize key
+        /*
         "colors": {
             "color": "#f77b2f",
-            "gradient_1": "#D16D2E",
-            "gradient_2": "#C35816",
-            "gradient_hover_1": "#dd7534",
-            "gradient_hover_2": "#cf601a",
-            "gradient_active_1": "#e47b3a",
-            "gradient_active_2": "#e06b22"
-        }
+            "color_hover": "#ff8f4a",
+            "color_active": "#ff995a",
+            "gradient_1": "#CF601A",
+            "gradient_2": "#DD7534",
+        },
+        */
+        "price_basic": 1000,   // gets updated by MS
+        "price_bundle": 2800,  // gets updated by MS
     },
     "bp_season1": {
         "level-image": "/html/images/icons/battlepass_2_level.png",
@@ -487,30 +488,33 @@ var global_battlepass_data = {
         "title": "battlepass_2_title", // localize key
         "description": "battlepass_2_description", // localize key
         "tag": "battlepass_2_tag", // localize key
+        /*
         "colors": {
             "color": "#0082d0",
+            "color_hover": "#0a8ada",
+            "color_active": "#0974b8",
             "gradient_1": "#0082d0",
             "gradient_2": "#0367a5",
-            "gradient_hover_1": "#0a8ada",
-            "gradient_hover_2": "#0974b8",
-            "gradient_active_1": "#1594e2",
-            "gradient_active_2": "#32a6ee"
-        }
+        },
+        */
+        "price_basic": 1000,
+        "price_bundle": 2800,
     },
 };
 
 var global_customization_type_map = {
-    "0": { "name": "currency",          "i18n": "customization_type_currency" },
-    "1": { "name": "sticker",           "i18n": "customization_type_sticker" },
-    "2": { "name": "avatar",            "i18n": "customization_type_avatar" },
-    "3": { "name": "music",             "i18n": "customization_type_music" },
-    "4": { "name": "emote",             "i18n": "customization_type_emote" },
-    "5": { "name": "spray",             "i18n": "customization_type_spray" },
-    "6": { "name": "weapon",            "i18n": "customization_type_weapon" },
-    "7": { "name": "weapon_attachment", "i18n": "customization_type_weapon_attachment" },
-    "8": { "name": "announcer",         "i18n": "customization_type_announcer" },
-    "9": { "name": "shoes",             "i18n": "customization_type_shoes" },
-    "10":{ "name": "flag",              "i18n": "customization_type_flag" },
+    "0": { "name": "currency",          "prefix": "cu", "group": "",                  "img_path": "/html/customization/currency/",          "i18n": "customization_type_currency" },
+    "1": { "name": "sticker",           "prefix": "st", "group": "sticker",           "img_path": "/resources/asset_thumbnails/",           "i18n": "customization_type_sticker" },
+    "2": { "name": "avatar",            "prefix": "av", "group": "profile",           "img_path": "/html/customization/avatar/",            "i18n": "customization_type_avatar" },
+    "3": { "name": "music",             "prefix": "mu", "group": "music",             "img_path": "/html/customization/music/",             "i18n": "customization_type_music" },
+    "4": { "name": "emote",             "prefix": "em", "group": "emote",             "img_path": "/html/customization/emote/",             "i18n": "customization_type_emote" },
+    "5": { "name": "spray",             "prefix": "sp", "group": "spray",             "img_path": "/html/customization/spray/",             "i18n": "customization_type_spray" },
+    "6": { "name": "weapon",            "prefix": "we", "group": "weapon",            "img_path": "/html/customization/weapon/",            "i18n": "customization_type_weapon" },
+    "7": { "name": "weapon_attachment", "prefix": "wa", "group": "weapon_attachment", "img_path": "/html/customization/weapon_attachment/", "i18n": "customization_type_weapon_attachment" },
+    "8": { "name": "announcer",         "prefix": "an", "group": "",                  "img_path": "/html/customization/announcer/",         "i18n": "customization_type_announcer" },
+    "9": { "name": "shoes",             "prefix": "sh", "group": "character",         "img_path": "/html/customization/shoes/",             "i18n": "customization_type_shoes" },
+    "10":{ "name": "country",           "prefix": "co", "group": "profile",           "img_path": "/html/customization/flag/",              "i18n": "customization_type_flag" },
+    "11":{ "name": "shell",             "prefix": "se", "group": "character",         "img_path": "/html/customization/shell/",             "i18n": "customization_type_shell" },
 };
 
 var global_customization_type_id_map = {
@@ -524,10 +528,11 @@ var global_customization_type_id_map = {
     "weapon_attachment": 7,
     "announcer": 8,
     "shoes": 9,
-    "flag": 10,
+    "country": 10,
+    "shell": 11,
 };
 
-const customization_item_order = [6, 7, 9, 4, 5, 3, 8, 2, 1, 10];
+const customization_item_order = [11, 6, 7, 9, 4, 5, 3, 8, 2, 1, 10];
 
 var global_rarity_map = {
     "0": { "i18n": "rarity_common" },
@@ -562,6 +567,10 @@ const GLOBAL_ABBR = {
     STATS_KEY_WEAPON_IDX: "i",
     STATS_KEY_SHOTS_FIRED: "sf",
     STATS_KEY_SHOTS_HIT: "sh",
+    STATS_KEY_WEAPONS: "w",
+    STATS_KEY_ROUNDS: "r",
+    STATS_KEY_BASE: "b",
+    STATS_KEY_ASSISTS: "a",
 };
 
 
@@ -569,6 +578,7 @@ const GLOBAL_ABBR = {
 // all of those default to rarity 0
 var GLOBAL_DEFAULT_CUSTOMIZATION_OPTIONS = {
     "avatar": [
+        /*
         "smileyblue", "smileygreen", "smileyorange", "smileypurple", "smileyred", "smileyteal", "smileyyellow",
         "AT1_1", "AT1_2", "AT1_3", "AT1_4", "AT1_5", "AT1_6", "AT1_7", "AT1_8", "AT1_9", "AT1_10",
         "AT1_11", "AT1_12", "AT1_13", "AT1_14", "AT1_15", "AT1_16", "AT1_17", "AT1_18", "AT1_19",        
@@ -576,6 +586,7 @@ var GLOBAL_DEFAULT_CUSTOMIZATION_OPTIONS = {
         "AT2_1", "AT2_2", "AT2_3", "AT2_4", "AT2_5", "AT2_6", "AT2_7", "AT2_8", "AT2_9", "AT2_10", 
         "AT2_11", "AT2_12", "AT2_13", "AT2_14", "AT2_15", "AT2_16", "AT2_17", "AT2_18", "AT2_19", "AT2_20", 
         "AT2_21", "AT2_22", "AT2_23", "AT2_24",
+        */
     ],
 
     // Temporarily adding all the stickers, see customize_screen.js -> set_asset_browser_content

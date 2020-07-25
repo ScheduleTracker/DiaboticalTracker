@@ -1,12 +1,9 @@
 // global vars
 let global_queue_mode_checkboxes = [];
+let global_queue_groups = [];
 
 // on load
-
 function init_screen_play() {
-    renderQuickPlayCards();
-    renderRankedCards();
-
     play_screen_setup_card_sliding();
 
     
@@ -22,6 +19,22 @@ function init_screen_play() {
             _id("match_found_splash").classList.remove("out");
         }
     });
+}
+
+function init_queues() {
+    global_queue_mode_checkboxes = [];
+    renderQuickPlayCards(global_queue_groups.filter(g => g.type == "quickplay"));
+    renderRankedCards(global_queue_groups.filter(g => g.type == "ranked"));
+}
+
+// For when no masterserver connection is available
+function clear_queues() {
+    try {
+        _empty(_id("play_screen_quickplay").querySelector(".play_cards_container"));
+        _empty(_id("play_screen_ranked").querySelector(".play_cards_container"));
+    } catch(e) {
+        console.error("clear_queues() - Error trying to clear play cards!", e.message);
+    }
 }
 
 // functions
@@ -266,6 +279,9 @@ function update_region_selection() {
         // send region info to MS
         send_string(CLIENT_COMMAND_SET_PARTY_LOCATIONS, datacenters.join(':'));
     }
+
+    // Update the datacenter location in the lobby too
+    engine.call("initialize_select_value", "lobby_custom_datacenter");
 }
 
 let global_initial_region_selection = true;
@@ -325,7 +341,7 @@ function set_region_selection(from_engine, regions) {
 
 function get_best_regions_by_ping() {
     let regions = Object.keys(global_datacenter_map);
-    console.log(_dump(global_datacenter_map));
+    //console.log(_dump(global_datacenter_map));
 
     let best_regions = [];
     for (let region of regions) {
@@ -367,35 +383,10 @@ function get_best_regions_by_ping() {
 // ================
 // QUEUE PLAY CARDS
 // ================
-
-
-function renderQuickPlayCards() {
+function renderQuickPlayCards(cards) {
     let screen = _id("play_screen_quickplay");
     let container = screen.querySelector(".play_cards_container");
-
-    let cards = [
-        {
-            "type": "quickplay",
-            "title": "game_modes_arcade",
-            "card_style": "ARCADE",
-            "queue_modes": ["qp_ffa", "qp_instagib_ffa", "qp_coinrun_5", "qp_instagib_5"],
-            "locked": false,
-        },
-        {
-            "type": "quickplay",
-            "title": "game_mode_wipeout",
-            "card_style": "WIPEOUT",
-            "queue_modes": ["qp_wo_4"],
-            "locked": false,
-        },
-        {
-            "type": "quickplay",
-            "title": "game_mode_arena",
-            "card_style": "ARENA",
-            "queue_modes": ["qp_rocket_arena_1", "qp_ca_1", "qp_ca_2"],
-            "locked": false,
-        }
-    ];
+    _empty(container);
 
     for (let card of cards) {
         container.appendChild(renderPlayCard(card));
@@ -404,53 +395,20 @@ function renderQuickPlayCards() {
         add_tooltip2_listeners(el);
     });
 
-    _for_each_with_class_in_parent(container, 'card_checkbox', function(el) {
-        let variable = el.dataset.variable;
-        if (variable) engine.call("initialize_checkbox_value", variable);
+    req_anim_frame(() => {
+        _for_each_with_class_in_parent(container, 'card_checkbox', function(el) {
+            let variable = el.dataset.variable;
+            if (variable) engine.call("initialize_checkbox_value", variable);
+        });
     });
 }
 
-function renderRankedCards() {
+function renderRankedCards(cards) {
     let screen = _id("play_screen_ranked");
     let container = screen.querySelector(".play_cards_container");
+    _empty(container);
 
-    let cards_ranked = [
-        /*
-        {
-            "type": "ranked",
-            "title": "game_mode_capture_the_flag",
-            "card_style": "CTF",
-            "queue_modes": ["r_ctf_5"],
-            "locked": false,
-        },
-        {
-            "type": "ranked",
-            "title": "game_mode_tdm",
-            "card_style": "BRAWL",
-            "queue_modes": ["r_tdm_3"],
-            "locked": false,
-        },
-        */
-        {
-            "type": "ranked",
-            "title": "game_mode_duel",
-            "card_style": "ARENA",
-            "queue_modes": ["r_duel"],
-            "locked": false,
-        },
-        /*
-        {
-            "type": "ranked",
-            "title": "game_mode_macguffin",
-            "card_style": "MCGUFFIN",
-            "queue_modes": ["r_macguffin_3"],
-            "locked": false,
-        },
-        */
-    ];
-
-
-    for (let card of cards_ranked) {
+    for (let card of cards) {
         container.appendChild(renderPlayCard(card));
     }
 
@@ -458,9 +416,11 @@ function renderRankedCards() {
         add_tooltip2_listeners(el);
     });
 
-    _for_each_with_class_in_parent(container, 'card_checkbox', function(el) {
-        let variable = el.dataset.variable;
-        if (variable) engine.call("initialize_checkbox_value", variable);
+    req_anim_frame(() => {
+        _for_each_with_class_in_parent(container, 'card_checkbox', function(el) {
+            let variable = el.dataset.variable;
+            if (variable) engine.call("initialize_checkbox_value", variable);
+        });
     });
 }
 
@@ -469,38 +429,20 @@ let play_card_index = 0;
 let play_card_lookup = {}; 
 let play_card_checkboxes = {};
 function renderPlayCard(data) {
+    //console.log("renderPlayCard", _dump(data));
 
-    let base_modes = [];
-    if (data.queue_modes) {
-        for (let queue of data.queue_modes) {
-            if (!(global_queue_modes[queue])) continue;
-            if (!base_modes.includes(global_queue_modes[queue].mode)) base_modes.push(global_queue_modes[queue].mode);
-        }
-    } else {
-        data.queue_modes = [];
-    }
+    if (!data.queues) data.queues = [];
 
     let card_flex = _createElement("div", ["card_flex"]);
-    let tt = false;
-    if (data.queue_modes.length) {
-        card_flex.dataset.msgHtmlId = "mode_description";
-        card_flex.dataset.mode = base_modes.join(":");
-        tt = true;
-    } else if (data.tooltip) {
-        card_flex.dataset.msgHtmlId = "card_tooltip";
-        card_flex.dataset.mode = data.tooltip;
-        tt = true;
-    }
-    if (tt) card_flex.classList.add("tooltip2");
     card_flex.dataset.card_idx = play_card_index;
     card_flex.dataset.currently_active = "false";
     
-    let play_card_video = new PlayCardVideo(data.card_style);
+    let play_card_video = new PlayCardVideo(data.background);
     card_flex.appendChild(play_card_video.card);
     play_card_lookup[play_card_index] = play_card_video;
     play_card_index++;
 
-    if (data.locked) {
+    if (data.state == 1) {
         card_flex.classList.add("locked");
         let card_locked = _createElement("div", "card_locked");
         card_locked.appendChild(_createElement("div", "icon"));
@@ -526,14 +468,32 @@ function renderPlayCard(data) {
 
     let card_checkboxes = [];
 
-    for (let queue of data.queue_modes) {
-        if (!(global_queue_modes[queue])) continue;
+    for (let queue of data.queues) {
+        if (!(global_queues[queue])) continue;
+
+        let match_modes = [];
+        if (global_queues[queue]) {
+            for (let mode of global_queues[queue].modes) {
+                if (!match_modes.includes(mode.mode_name)) match_modes.push(mode.mode_name);
+            }
+        }
 
         let card_checkbox = _createElement("div", "card_checkbox");
         card_checkbox.dataset.mode = queue;
-        card_checkbox.dataset.variable = global_queue_modes[queue].variable;
-        card_checkbox.dataset.locked = data.locked;
+        card_checkbox.dataset.variable = global_queues[queue].variable;
+        card_checkbox.dataset.locked = (data.state == 1) ? true : false;
         card_checkbox.dataset.type = data.type;
+
+        if (match_modes.length > 1) {
+            card_checkbox.dataset.msgHtmlId = "mode_description";
+            card_checkbox.dataset.match_mode = match_modes.join(":");
+            card_checkbox.classList.add("tooltip2");
+        } else if (match_modes.length == 1) {
+            card_checkbox.dataset.msgHtmlId = "card_tooltip";
+            card_checkbox.dataset.match_mode = match_modes[0];
+            card_checkbox.classList.add("tooltip2");
+        }
+
         card_bottom.appendChild(card_checkbox);
         card_checkboxes.push(card_checkbox);
         global_queue_mode_checkboxes.push(card_checkbox);
@@ -542,7 +502,7 @@ function renderPlayCard(data) {
 
         let checkbox_box = _createElement("div", "checkbox_box");
 
-        if (data.locked) {
+        if (data.state == 1) {
             let checkbox_locked = _createElement("div", "checkbox_locked");
             checkbox_box.appendChild(checkbox_locked);
         } else {
@@ -555,16 +515,22 @@ function renderPlayCard(data) {
         }
         card_checkbox.appendChild(checkbox_box);
 
-        let label = localize(global_queue_modes[queue].i18n);
         let checkbox_label = _createElement("div", "checkbox_label");
-        checkbox_label.appendChild(_createElement("span", "", label));
-        checkbox_label.appendChild(_createElement("span", "", localize(global_queue_modes[queue].vs)));
+        checkbox_label.appendChild(_createElement("span", "", global_queues[queue].queue_name));
         card_checkbox.appendChild(checkbox_label);
 
         let checkbox_rank = _createElement("div", "checkbox_rank");
         card_checkbox.appendChild(checkbox_rank);
 
-        if (global_queue_modes[queue].roles) {
+        if (global_queues[queue].modes.length > 1) {
+            let mode_list = _createElement("div", "mode_list");
+            for (let mode of global_queues[queue].modes) {
+                mode_list.appendChild(_createElement("div", "mode", localize(global_game_mode_map[mode.mode_name].i18n)));
+            }
+            card_bottom.appendChild(mode_list);
+        }
+
+        if (global_queues[queue].roles && global_queues[queue].roles.length) {
             let card_roles = _createElement("div", "card_roles");
             let card_roles_inner = _createElement("div", "card_roles_inner");
             card_roles.appendChild(card_roles_inner);
@@ -574,7 +540,7 @@ function renderPlayCard(data) {
                 ev.stopPropagation();
             });
 
-            for (let role of global_queue_modes[queue].roles) {
+            for (let role of global_queues[queue].roles) {
                 let card_role = _createElement("div", ["card_role", "_comp_play_role"]);
                 card_role.dataset.mode = queue;
                 card_role.dataset.role = role.name;
@@ -617,7 +583,7 @@ function renderPlayCard(data) {
         }
     }
 
-    if (!data.locked) {
+    if (data.state > 1) {
         card_flex.addEventListener("mouseenter", function() {
             card_flex.classList.add("hover");
             if (data.hover_button && card_text) card_text.classList.add("hover");
@@ -641,7 +607,7 @@ function renderPlayCard(data) {
             let set_all_enabled = false;
             let first = true;
 
-            if (!data.locked && data.on_click) {
+            if (data.state > 1 && data.on_click) {
                 data.on_click();
             }
        
@@ -699,14 +665,21 @@ function renderPlayCard(data) {
 
 class PlayCardVideo {
     constructor(style) {
+        style = style.toLowerCase();
+
+        this.intro = true;
+        if (style.toLowerCase() == "arena") this.intro = false;
+
         this.card = _createElement("div", "card_video");
-        this.start_image = _createElement("img",   ["card_video_preview", "start"]);
-        this.start_video = _createElement("video", ["card_video_clip", "start"]);
+        if (this.intro) {
+            this.start_image = _createElement("img",   ["card_video_preview", "start"]);
+            this.start_video = _createElement("video", ["card_video_clip", "start"]);
+            this.start_image.src = "/html/images/gamemode_cards/"+style+"_intro.jpg";
+            this.start_video.src = "/html/images/gamemode_cards/"+style+"_intro.webm";
+            this.start_video.currentTime = 1;
+        }
         this.loop_image  = _createElement("img",   ["card_video_preview", "loop"]);
         this.loop_video  = _createElement("video", ["card_video_clip", "loop"]);
-        this.start_image.src = "/html/images/gamemode_cards/"+style+"_intro.jpg";
-        this.start_video.src = "/html/images/gamemode_cards/"+style+"_intro.webm";
-        this.start_video.currentTime = 1;
         this.loop_image.src  = "/html/images/gamemode_cards/"+style+"_loop.jpg";
         this.loop_video.src  = "/html/images/gamemode_cards/"+style+"_loop.webm";
         this.loop_video.currentTime = 1;
@@ -714,10 +687,13 @@ class PlayCardVideo {
 
         this.card.appendChild(this.loop_video);
         this.card.appendChild(this.loop_image);
-        this.card.appendChild(this.start_video);
-        this.card.appendChild(this.start_image);
+        if (this.intro) {
+            this.card.appendChild(this.start_video);
+            this.card.appendChild(this.start_image);
+        }
 
-        this.state = 0;
+        if (this.intro) this.state = 0;
+        else this.state = 2;
         this.playing = false;
 
         this.setupListeners();
@@ -752,13 +728,18 @@ class PlayCardVideo {
     }
 
     reset() {
-        this.state = 0;
-        this.start_video.style.display = "block";
-        this.start_image.style.visibility = "visible";
+        if (this.intro) {
+            this.state = 0;
+            this.start_video.style.display = "block";
+            this.start_image.style.visibility = "visible";
+            this.start_video.currentTime = 0;
+            this.start_video.pause();
+        } else { 
+            this.state = 2;
+        }
+    
         this.loop_image.style.visibility = "visible";
-        this.start_video.currentTime = 0;
         this.loop_video.currentTime = 0;
-        this.start_video.pause();
         this.loop_video.pause();
         this.playing = false;
     }
@@ -768,11 +749,13 @@ class PlayCardVideo {
     }
 
     setupListeners() {
-        this.start_video.addEventListener("ended", () => {
-            this.start_video.style.display = "none";
-            this.state = 2;
-            this.play();
-        });
+        if (this.intro) {
+            this.start_video.addEventListener("ended", () => {
+                this.start_video.style.display = "none";
+                this.state = 2;
+                this.play();
+            });
+        }
     }
 }
 
@@ -806,6 +789,7 @@ function play_screen_update_cb(variable, value) {
                 if (global_update_queue_modes_timeout != null) clearTimeout(global_update_queue_modes_timeout);
                 global_update_queue_modes_timeout = setTimeout(function() {
                     update_queue_modes();
+                    global_update_queue_modes_timeout = null;
                 },50);
             }
 
@@ -942,9 +926,13 @@ function update_role_selection() {
 }
 
 function update_queue_mode_selection() {
+    if (global_update_queue_modes_timeout !== null) return;
+
     let qp_count = 0;
     let ranked_count = 0;
     for (let cb of global_queue_mode_checkboxes) {
+        if (cb.parentElement == null) continue;
+        
         if (global_party["modes"].includes(cb.dataset.mode)) {
             enable_mode_checkbox(cb);
             if (cb.dataset.type == "quickplay") qp_count++;
@@ -1000,6 +988,7 @@ function update_queue_mode_selection() {
 function handle_mm_match_event(data) {
     //console.log("handle_mm_match_event", _dump(data));
 
+    let delay = 0;
     if (data.action == "mm-match-found") {
         if (data.type == "quickplay") {
             process_queue_msg("quickplay", "found");
@@ -1012,61 +1001,143 @@ function handle_mm_match_event(data) {
     } else if (data.action == "mm-join-match-found") {
         process_queue_msg("quickplay", "found");
         process_queue_msg("ranked", "stop");
+    } else if (data.action == "mm-map-vote") {
+        // mm-map-vote only comes after a mode-vote, so the draft screen is already visible
+        delay = 250;
+        anim_hide(_id("draft_screen_inner"), 250);
     }
-        
-    if (data.maps && data.maps.length) {
 
-        let cont = _id("draft_maps_container");
-        _empty(cont);
-
-        if (data.maps.length <= 3) {
-            cont.style.setProperty("--map_row_count", 3);
-        } else if (data.maps.length == 4) {
-            cont.style.setProperty("--map_row_count", 2);
-        } else if (data.maps.length > 4) {
-            cont.style.setProperty("--map_row_count", 3);
+    setTimeout(() => {
+        let map_cont = _id("draft_maps_container");
+        _empty(map_cont);
+        if (data.vote == "map" && data.vote_options && data.vote_options.length) {
+            draft_render_map_vote(map_cont, data.vote_options);
         }
 
-        let fragment = new DocumentFragment();
-        for (let map of data.maps) {
-            let map_thumbnail = _createElement("div", "map_thumbnail");
-            map_thumbnail.style.backgroundImage = "url(map_thumbnails/"+map+".png)";
-            map_thumbnail.dataset.map = map;
-
-            let map_thumbnail_name = _createElement("div", "map_thumbnail_name", _format_map_name(map));
-            map_thumbnail.appendChild(map_thumbnail_name);
-
-            map_thumbnail.addEventListener("click", function() {
-                _play_click1();
-                _for_each_with_class_in_parent(cont, "active", function(el) {
-                    el.classList.remove("active");
-                });
-                map_thumbnail.classList.add("active");
-                map_thumbnail_name.classList.add("active");
-
-                send_string(CLIENT_COMMAND_SELECT_MAP, map);
-            });
-            map_thumbnail.addEventListener("mouseenter", function() {
-                _play_mouseover4();
-            });
-
-            fragment.appendChild(map_thumbnail);
+        let mode_cont = _id("draft_modes_container");
+        _empty(mode_cont);
+        if (data.vote ==  "mode" && data.vote_options && data.vote_options.length) {
+            draft_render_mode_vote(mode_cont, data.vote_options);
         }
 
-        cont.appendChild(fragment);
-    } 
-
-    if (data.mode && data.mode in global_game_mode_map && data.mm_mode && data.mm_mode in global_queue_modes) {
         let icon_cont = _id("draft_screen_mode_icon");
         let title_cont = _id("draft_screen_mode_name");
         let text_cont = _id("draft_screen_mode_text");
+        if (data.vote == "map" && data.mode in global_game_mode_map && data.mm_mode && data.mm_mode in global_queues) {
+            icon_cont.style.display = "flex";
+            icon_cont.style.backgroundImage = "url("+global_game_mode_map[data.mode].icon+")";
+            title_cont.textContent = localize(global_game_mode_map[data.mode].i18n)+" "+global_queues[data.mm_mode].vs;
+            text_cont.textContent = localize(global_game_mode_map[data.mode].desc_i18n);
+        } else {
+            icon_cont.style.display = "none";
+            title_cont.textContent = '';
+            text_cont.textContent = '';
+        }
 
-        icon_cont.style.backgroundImage = "url(/html/images/gamemodes/"+data.mode+".jpg)";
-        title_cont.textContent = localize(global_game_mode_map[data.mode].i18n)+" "+localize(global_queue_modes[data.mm_mode].vs);
-        text_cont.textContent = localize(global_game_mode_map[data.mode].desc_i18n);
+        if (data.action == "mm-match-found" || data.action == "mm-join-match-found") {
+            mm_match_found_overlay(data);
+        } else if (data.action == "mm-map-vote") {
+            anim_show(_id("draft_screen_inner"), 250);
+            set_draft_visible(true, data);
+        }
+    }, delay);
+}
+
+function draft_render_map_vote(cont, maps) {
+    if (maps.length <= 3) {
+        cont.style.setProperty("--map_row_count", 3);
+    } else if (maps.length == 4) {
+        cont.style.setProperty("--map_row_count", 2);
+    } else if (maps.length > 4) {
+        cont.style.setProperty("--map_row_count", 3);
     }
 
-    mm_match_found_overlay(data);
+    _id("draft_vote_header").textContent = localize("pick_your_preferred_map");
+
+    let fragment = new DocumentFragment();
+    for (let map of maps) {
+        let map_thumbnail = _createElement("div", ["map_thumbnail", "vote_option"]);
+        map_thumbnail.style.backgroundImage = "url(map_thumbnails/"+map+".png)";
+        map_thumbnail.dataset.option = map;
+
+        let map_thumbnail_name = _createElement("div", "map_thumbnail_name", _format_map_name(map));
+        map_thumbnail.appendChild(map_thumbnail_name);
+
+        map_thumbnail.appendChild(_createElement("div", "vote_cont"));
+
+        map_thumbnail.addEventListener("click", function() {
+            _play_click1();
+            _for_each_with_class_in_parent(cont, "active", function(el) {
+                el.classList.remove("active");
+            });
+            map_thumbnail.classList.add("active");
+            map_thumbnail_name.classList.add("active");
+
+            send_string(CLIENT_COMMAND_SELECT_MAP, map);
+        });
+        map_thumbnail.addEventListener("mouseenter", function() {
+            _play_mouseover4();
+        });
+
+        fragment.appendChild(map_thumbnail);
+    }
+
+    cont.appendChild(fragment);
+}
+
+function draft_render_mode_vote(cont, modes) {
+    _id("draft_vote_header").textContent = localize("pick_your_preferred_mode");
+
+    let fragment = new DocumentFragment();
+    for (let mode of modes) {
+        if (!(mode in global_game_mode_map)) continue;
+        let mode_div = _createElement("div", ["mode", "vote_option"]);
+        mode_div.style.backgroundImage = 'url(/html/images/gamemode_cards/'+global_game_mode_map[mode].image+')';
+        mode_div.dataset.option = mode;
+
+        let mode_name = _createElement("div", "name", localize(global_game_mode_map[mode].i18n));
+        mode_div.appendChild(mode_name);
+
+        mode_div.appendChild(_createElement("div", "vote_cont"));
+
+        mode_div.addEventListener("click", function() {
+            _play_click1();
+            _for_each_with_class_in_parent(cont, "active", function(el) {
+                el.classList.remove("active");
+            });
+            mode_div.classList.add("active");
+            mode_name.classList.add("active");
+
+            send_string(CLIENT_COMMAND_SELECT_MODE, mode);
+        });
+
+        fragment.appendChild(mode_div);
+    }
+
+    cont.appendChild(fragment);
+}
+
+function draft_update_vote_counts(data) {
+    if (!global_draft_is_visible) return;
+
+    let cont = undefined;
+    if (data.type == "map") cont = _id("draft_maps_container");
+    if (data.type == "mode") cont = _id("draft_modes_container");
+    if (!cont) return;
+
+    _for_each_with_class_in_parent(cont, "vote_option", function(opt_el) {
+        let vote_cont = _get_first_with_class_in_parent(opt_el, "vote_cont");
+        if (!vote_cont) return;
+
+        _empty(vote_cont);
+        if (opt_el.dataset.option in data.votes && data.votes[opt_el.dataset.option] > 0) {
+            let fragment = new DocumentFragment();
+            for (let i=0; i<data.votes[opt_el.dataset.option]; i++) {
+                fragment.appendChild(_createElement("div", "vote"));
+            }
+            vote_cont.appendChild(fragment);
+        }
+    });
 }
 
 let mm_cancel_timeout = undefined;
@@ -1091,15 +1162,14 @@ function mm_match_found_overlay(data) {
     let cancel = splash.querySelector(".btn");
     cancel.style.display = "none";
 
-    if (data.action == "mm-match-found") cancel.dataset.type = "new-match";
+    if (data.action == "mm-match-found")      cancel.dataset.type = "new-match";
     if (data.action == "mm-join-match-found") cancel.dataset.type = "join-match";
 
-    if (data.type == "quickplay") type.textContent = localize("match_found_quickplay");
+    if (data.type == "quickplay")   type.textContent = localize("match_found_quickplay");
     else if (data.type == "ranked") type.textContent = localize("match_found_ranked");
     else type.textContent = localize("match_found");
 
-
-    mode.textContent = localize(global_queue_modes[data.mm_mode].i18n)+" "+localize(global_queue_modes[data.mm_mode].vs);
+    mode.textContent = global_queues[data.mm_mode].queue_name;
 
     splash.style.display = "flex";
     
@@ -1123,17 +1193,30 @@ function mm_cancel_found_match(ev) {
 }
 
 function handle_mm_match_cancelled() {
-    if (mm_cancel_timeout) clearTimeout(mm_cancel_timeout);
+    if (mm_cancel_timeout)   clearTimeout(mm_cancel_timeout);
     if (draft_screen_queued) clearTimeout(draft_screen_queued);
-    if (countdown_interval) clearInterval(countdown_interval);
+    if (countdown_interval)  clearInterval(countdown_interval);
     _id("match_found_splash").classList.add("out");
     set_draft_visible(false);
 }
 
 let draft_screen_queued = undefined;
 let countdown_interval = undefined;
+let show_backbutton_timeout = undefined;
+let global_draft_is_visible = false;
 function set_draft_visible(visible, data) {
     //console.log("set_draft_visible", visible);
+    global_draft_is_visible = visible;
+
+    if (show_backbutton_timeout !== undefined) {
+        clearTimeout(show_backbutton_timeout);
+        show_backbutton_timeout = undefined;
+    }
+
+    if (countdown_interval !== undefined) {
+        clearInterval(countdown_interval);
+        countdown_interval = undefined;
+    }
 
     let countdown = 10;
     
@@ -1143,16 +1226,26 @@ function set_draft_visible(visible, data) {
 
         engine.call('ui_sound', "ui_transition_mapvote");
 
+        if (draft_screen_queued !== undefined) clearTimeout(draft_screen_queued);
         draft_screen_queued = setTimeout(function() {
+            let draft_screen = _id("draft_screen");
+
             engine.call("show_draft", true);
             set_blur(true);
-            anim_show(_id("draft_screen"), window.fade_time);
-            anim_hide(_id("lobby_container"), window.fade_time);
 
-            if (data && data.mode && data.mode in global_game_mode_map && global_game_mode_map[data.mode].announce.length) {
-                engine.call('ui_sound_queue', global_game_mode_map[data.mode].announce);
+            let display_computed = getComputedStyle(draft_screen).display;    
+            if (display_computed == "none") {
+                anim_show(draft_screen, window.fade_time);
+                anim_hide(_id("lobby_container"), window.fade_time);
             }
-            engine.call('ui_sound_queue', "announcer_common_menu_mapvote");
+
+            if (data.vote == "map") {
+                
+                if (data && data.mode && data.mode in global_game_mode_map && global_game_mode_map[data.mode].announce.length) {
+                    engine.call('ui_sound_queue', global_game_mode_map[data.mode].announce);
+                }
+                engine.call('ui_sound_queue', "announcer_common_menu_mapvote");
+            }
 
             set_draft_countdown(countdown);
             countdown--;
@@ -1161,10 +1254,11 @@ function set_draft_visible(visible, data) {
                 if (countdown < 0) {
                     clearInterval(countdown_interval);
 
-                    setTimeout(function() {
+                    show_backbutton_timeout = setTimeout(function() {
                         anim_hide(_id("draft_screen_countdown"), 200, function() {
                             anim_show(_id("draft_screen_backbutton"));
                         });
+                        show_backbutton_timeout = undefined;
                     },5000);
 
                     return;
@@ -1190,7 +1284,7 @@ function set_draft_visible(visible, data) {
 }
 
 function set_draft_countdown(countdown) {
-    _html(_id("draft_screen_countdown"),countdown);
+    _id("draft_screen_countdown").textContent = countdown;
 }
 
 
@@ -1221,7 +1315,7 @@ function updateQueueRanks() {
         }
 
         let team_size = 1;
-        if (mode in global_queue_modes) team_size = global_queue_modes[mode].team_size;
+        if (mode in global_queues) team_size = global_queues[mode].team_size;
 
         rank_cont.appendChild(renderRankIcon(global_self.mmr[mode].rank_tier, global_self.mmr[mode].rank_position, team_size, "small"));
 
@@ -1251,4 +1345,8 @@ function updateQueueRanks() {
 
 function showRankOverview() {
     open_modal_screen("rank_overview_modal_screen");
+}
+
+function join_warmup() {
+    send_string(CLIENT_COMMAND_JOIN_WARMUP);
 }

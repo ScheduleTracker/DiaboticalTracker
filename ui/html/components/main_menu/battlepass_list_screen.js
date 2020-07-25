@@ -4,25 +4,17 @@ function init_screen_battlepass_list() {
 
         if (el.classList.contains("prev")) {
             el.addEventListener("click", function(e) { 
-                if (!battlepass_modal_rewards_drag_scroll) return;
-                battlepass_modal_rewards_drag_scroll.scrollTo(false, 0.1); 
+                if (global_scrollboosters['bp_modal_rewards']) {
+                    global_scrollboosters['bp_modal_rewards'].scrollToArrow(-1, 70);
+                }
             });
         }
         if (el.classList.contains("next")) {
             el.addEventListener("click", function(e) { 
-                if (!battlepass_modal_rewards_drag_scroll) return;
-                battlepass_modal_rewards_drag_scroll.scrollTo(true, 0.1); 
+                if (global_scrollboosters['bp_modal_rewards']) {
+                    global_scrollboosters['bp_modal_rewards'].scrollToArrow(1, 70);
+                }
             });
-        }
-    });
-
-    _id("battlepass_rewards_modal_screen").querySelector(".battlepass_rewards").addEventListener("wheel", function(e) {
-        if (!battlepass_modal_rewards_drag_scroll) return;
-
-        if (e.deltaY < 0) {
-            battlepass_modal_rewards_drag_scroll.scrollTo(false, 0.05);
-        } else {
-            battlepass_modal_rewards_drag_scroll.scrollTo(true, 0.05);
         }
     });
 }
@@ -97,8 +89,6 @@ function createBattlepassBox(data, user_active) {
     let cont = _createElement("div", "bp");
     if (user_active) cont.classList.add("user_active");
 
-    if (data.battlepass_id in global_battlepass_data) _set_battle_pass_colors(cont, global_battlepass_data[data.battlepass_id].colors);
-
     let title = _createElement("div", "title");
     title.innerHTML = localize(global_battlepass_data[data.battlepass_id].title);
     cont.appendChild(title);
@@ -157,7 +147,7 @@ function createBattlepassBox(data, user_active) {
         let level_icon = _createElement("div", "bp_level_icon");
         level_icon.innerHTML = data.battlepass.level;
         if (data.battlepass.owned) {
-            level_icon.style.backgroundImage = "url("+global_battlepass_data[data.battlepass_id]['level-image']+")";
+            level_icon.classList.add("paid");
         }
         status.appendChild(level_icon);
     }
@@ -167,9 +157,7 @@ function createBattlepassBox(data, user_active) {
 
 function battlepass_list_show_rewards(bp) {
     
-    // Class for battlepass colors
     let screen = _id("battlepass_rewards_modal_screen");
-    if (bp.battlepass_id in global_battlepass_data) _set_battle_pass_colors(screen, global_battlepass_data[bp.battlepass_id].colors);
 
     let bp_rewards = screen.querySelector(".battlepass_rewards");        
     _empty(bp_rewards);
@@ -183,8 +171,9 @@ function battlepass_list_show_rewards(bp) {
     // In a set Timeout because we need to do a redraw after showing the modal to calculate the rewards container width for the initial reward scroll position
     setTimeout(function() {
         if (bp.battlepass_id in global_battlepass_rewards_cache) {
-            render_battlepass_rewards(screen, bp, global_battlepass_rewards_cache[bp.battlepass_id], showRewardPreview);
-            battlepass_modal_rewards_drag_scroll = new Dragscroll(bp_rewards);
+            let { pos } = render_battlepass_rewards(screen, bp, global_battlepass_rewards_cache[bp.battlepass_id], showRewardPreview);
+            if (!global_scrollboosters['bp_modal_rewards']) setup_battlepass_reward_scroll('bp_modal_rewards', bp_rewards, pos);
+            else global_scrollboosters['bp_modal_rewards'].setPosition({"x": pos, "y":0 });
         } else {
             // Hide arrows during loading
             _for_each_with_selector_in_parent(screen, ".rewards_arrow", function(el) {
@@ -192,9 +181,21 @@ function battlepass_list_show_rewards(bp) {
             });
 
             send_string(CLIENT_COMMAND_GET_BATTLEPASS_REWARDS, bp.battlepass_id, "battlepass-rewards", function(data) {
-                global_battlepass_rewards_cache[bp.battlepass_id] = data.data;
-                render_battlepass_rewards(screen, bp, global_battlepass_rewards_cache[bp.battlepass_id], showRewardPreview);
-                battlepass_modal_rewards_drag_scroll = new Dragscroll(bp_rewards);
+                bp_rewards.style.opacity = 0;
+
+                global_battlepass_rewards_cache[bp.battlepass_id] = format_battlepass_rewards(data.data);
+                let { pos } = render_battlepass_rewards(screen, bp, global_battlepass_rewards_cache[bp.battlepass_id], showRewardPreview);
+
+                if (global_scrollboosters['bp_modal_rewards']) global_scrollboosters['bp_modal_rewards'].destroy();
+                setup_battlepass_reward_scroll('bp_modal_rewards', bp_rewards, pos);
+                req_anim_frame(function() { 
+                    anim_start({
+                        element: bp_rewards,
+                        opacity: [0, 1],
+                        duration: 200,
+                        easing: easing_functions.easeOutQuad,
+                    });
+                },4);
             });
         }
     });

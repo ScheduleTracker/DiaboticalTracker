@@ -22,8 +22,20 @@ function select_click_handler(event) {
                 let rect = event.target.getBoundingClientRect();
 
                 let clone = list_element.cloneNode(true);
-                clone.style.top = (Math.ceil(rect.y) + rect.height + 3) + "px";
+
+                let one_perc_px = window.innerHeight / 100;
+                let max_height = clone.children[1].children[0].children.length * 4 * one_perc_px;
+                if (max_height > (29.6 * one_perc_px)) max_height = 29.6 * one_perc_px;
+                let client_bottom_pos = rect.y + rect.height + max_height;
+
+                if (client_bottom_pos > window.innerHeight) {
+                    clone.style.top = (rect.y - max_height) + "px";
+                } else {
+                    clone.style.top = (Math.floor(rect.y) + rect.height + 3) + "px";
+                }
+                
                 clone.style.left = Math.ceil(rect.x) + "px";
+
                 clone.style.display = "flex";
                 clone.style.width = rect.width + "px";
                 clone.id = clone.id + "_clone";
@@ -31,23 +43,23 @@ function select_click_handler(event) {
                 _click_outside_handler();   
                 _living_select_lists_ids[clone.id] = true;
 
-                if (clone.children[1].children.length > 10) {
+                if (clone.children[1].children[0].children.length > 9) {
                     let sb = new Scrollbar(clone,999);
 
                     let idx = -1;
-                    for (let i=0; i<clone.children[1].children.length; i++) {
-                        if (clone.children[1].children[i].classList.contains("selected")) {
+                    for (let i=0; i<clone.children[1].children[0].children.length; i++) {
+                        if (clone.children[1].children[0].children[i].classList.contains("selected")) {
                             idx = i;
                         }
                     }
                     // Scroll to the selected element if its outside the visible first 10 options
-                    if (idx > 9) {
-                        setTimeout(function() {
+                    if (idx >= 9) {
+                        req_anim_frame(() => {
                             let rect_container = clone.getBoundingClientRect();
-                            let rect_option = clone.children[1].children[idx].getBoundingClientRect();
+                            let rect_option = clone.children[1].children[0].children[idx].getBoundingClientRect();
                             clone.children[1].scrollTop = (rect_option.y - rect_container.y);
                             sb.updateThumbPositionFromScroll();
-                        });
+                        },2);
                     }
 
                 } else {
@@ -173,29 +185,27 @@ function setup_select(el, cb, data) {
                 el.removeChild(el.children[i]);
                 i--;
             } else {
-                if (el.children[i].dataset.value){
-                   // data[el.children[i].dataset.value] = {};
 
-                    var newNode = {};
-                    newNode.selected = false;
-                    if (el.children[i].dataset.selected == "1"){
-                        el.dataset.value = el.children[i].dataset.value;
-                        caption = el.children[i].textContent;
-                        if ("i18n" in el.children[i].dataset && el.children[i].classList.contains("i18n")) {
-                            i18n = el.children[i].dataset.i18n;
-                        }
-                        newNode.selected = true;
+                var newNode = {};
+                newNode.selected = false;
+                if (el.children[i].dataset.selected == "1"){
+                    el.dataset.value = el.children[i].dataset.value;
+                    caption = el.children[i].textContent;
+                    if ("i18n" in el.children[i].dataset && el.children[i].classList.contains("i18n")) {
+                        i18n = el.children[i].dataset.i18n;
                     }
-                    for (var dataset_key in el.children[i].dataset){
-        
-                        newNode[dataset_key] = el.children[i].dataset[dataset_key];
-                    }
-                    newNode.text_content = el.children[i].textContent;
-                    
-                    data.push(newNode);
-
+                    newNode.selected = true;
                 }
-                else if(el.children[i].classList.contains("select-category")){
+                
+                for (var dataset_key in el.children[i].dataset) {
+                    newNode[dataset_key] = el.children[i].dataset[dataset_key];
+                }
+                newNode.text_content = el.children[i].textContent;
+                
+                data.push(newNode);
+
+
+                if (el.children[i].classList.contains("select-category")){
 
                     var newNode = {};
 
@@ -204,8 +214,7 @@ function setup_select(el, cb, data) {
 
                     data.push(newNode);
                     
-                }
-                else if(el.children[i].classList.contains("select-divider")){
+                } else if (el.children[i].classList.contains("select-divider")){
 
                     var newNode = {};
                     newNode.text_content = "";
@@ -232,9 +241,7 @@ function setup_select(el, cb, data) {
 
     el.classList.add("mouseover-sound4");
     
-    var button_element = document.createElement("div");
-    button_element.classList.add("select-button");
-    button_element.textContent = caption;
+    var button_element = _createElement("div", "select-button", caption);
     button_element.dataset.selectinternal = "1";
     if (i18n.length) {
         button_element.classList.add("i18n");
@@ -242,25 +249,20 @@ function setup_select(el, cb, data) {
     }
     el.appendChild(button_element);
     
-    var list_element = document.createElement("div");
-    list_element.classList.add("select-list");
-    list_element.classList.add('scroll-outer');
+    var list_element = _createElement("div", ["select-list", "scroll-outer"]);
     list_element.style.display = "none";
     list_element.dataset.selectinternal = "1";
     var id = _select_id_counter++;
     list_element.id = "select_list_" + id;
 
-    var scrollbar = document.createElement("div");
-    scrollbar.classList.add("scroll-bar");
-    var scrollthumb = document.createElement("div");
-    scrollthumb.classList.add("scroll-thumb");
+    var scrollbar = _createElement("div", "scroll-bar");
+    var scrollthumb = _createElement("div", "scroll-thumb");
     scrollbar.appendChild(scrollthumb);
     list_element.appendChild(scrollbar);
 
-    var list_cont = document.createElement("div");
-    list_cont.classList.add('scroll-inner');
-
-
+    var list_cont = _createElement("div", "scroll-inner");
+    var list_cont_inner = _createElement("div", "select-list-inner");
+    
    
     for (var i=0;i < data.length; i++) {
         var node = data[i];
@@ -304,19 +306,11 @@ function setup_select(el, cb, data) {
             field_element.classList.add("select-divider");
         }
 
-        list_cont.appendChild(field_element);
-
-      
+        list_cont_inner.appendChild(field_element);
     }
 
+    list_cont.appendChild(list_cont_inner);
     list_element.appendChild(list_cont);
-    if (list_cont.children.length >= 10) {
-        //list_element.style.height = '30vh';
-        list_element.style.height = "calc(30px * var(--onevh))";
-    } else {
-        //list_element.style.height = (list_cont.children.length * 3) + 'vh';
-        list_element.style.height = "calc("+(list_cont.children.length * 3)+"px * var(--onevh))";
-    }
 
     el.appendChild(list_element);
 

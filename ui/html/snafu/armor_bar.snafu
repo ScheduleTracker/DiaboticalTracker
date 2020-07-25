@@ -1,0 +1,148 @@
+BEGIN TEMPLATE armor_bar
+    SETTING align pivot
+    SETTING cell_direction "horizontal"
+    DOUBLE segments
+    DOUBLE gap
+    DOUBLE threshold
+    INT rightToLeft
+    INT boxShadow
+    DOUBLE bRadius
+    DOUBLE cCode
+    DOUBLE skewX
+    DOUBLE skewY
+
+    INT gaps
+    gaps = segments - 1
+
+    DOUBLE gap_size
+    gap_size = gap / 10
+
+    DOUBLE total_gaps_width
+    total_gaps_width = gaps * gap_size
+
+    DOUBLE total_segments_width
+    total_segments_width = width - total_gaps_width
+
+    DOUBLE segment_width
+    segment_width = total_segments_width / segments
+
+    DOUBLE segment_perc
+    segment_perc = segment_width / width
+
+    DOUBLE total_segments_perc
+    total_segments_perc = total_segments_width / width
+
+    DOUBLE gap_perc
+    gap_perc = gap_size / width
+
+    DOUBLE nogap_segment_perc
+    nogap_segment_perc = 1 / segments
+
+    INT fill_dir
+    IF rightToLeft
+        fill_dir = 1
+    END IF
+
+    STRING svg
+    DOUBLE n    
+
+    svg = "<svg "
+    svg = svg & " width='" & width & "'"
+    svg = svg & " height='" & height & "'"
+    svg = svg & " viewBox='0 0 " & width
+    svg = svg & " " & height & "'"
+    svg = svg & ">"
+
+    FOR segments
+        svg = svg & "<rect "
+        svg = svg & " width='" & segment_width & "' "
+        svg = svg & " height='" & height & "' "
+        svg = svg & " rx='" & bRadius & "' "
+        svg = svg & " fill='#ffffff' "
+        svg = svg & " y='0' "
+        svg = svg & " x='" & n & "'"
+        svg = svg & "/>"
+
+        n = n + segment_width
+        n = n + gap_size
+    END FOR
+
+    svg = svg & "</svg>"
+    
+    COL_OUTPUT 0 image svg
+    COL_OUTPUT 0 image_width width
+    COL_OUTPUT 0 image_height height
+    COL_OUTPUT 0 width width
+    COL_OUTPUT 0 height height
+    COL_OUTPUT 0 image_color bC
+
+    COL_OUTPUT 1 image svg
+    COL_OUTPUT 1 image_width width
+    COL_OUTPUT 1 image_height height
+    COL_OUTPUT 1 width width
+    COL_OUTPUT 1 height height
+
+    COL_OUTPUT 1 x 0
+    COL_OUTPUT 1 y 0
+
+ON_UPDATE
+
+    IF !common_game_data.self_alive 
+        discard
+    END IF
+
+    # Clip percent
+    DOUBLE armor_perc
+    armor_perc = battle_data.self.armor_percentage / 100
+    armor_perc = CLAMP armor_perc 0 1
+
+    DOUBLE segment_only_perc
+    segment_only_perc = total_segments_perc * armor_perc
+
+    INT live_segments
+    live_segments = armor_perc / nogap_segment_perc
+    live_segments = live_segments + 1
+
+    INT live_gaps
+    live_gaps = armor_perc / nogap_segment_perc
+    
+    DOUBLE tmp
+    tmp = armor_perc % nogap_segment_perc
+
+    INT bleh 
+    bleh = 0
+    IF tmp == 0
+        bleh = bleh + 1
+    END IF
+    IF live_segments > segments
+        bleh = bleh + 1
+    END IF
+    IF bleh > 0
+        live_gaps = live_gaps - 1
+    END IF
+    
+    DOUBLE clip_perc
+    clip_perc = live_gaps * gap_perc
+    clip_perc = clip_perc + segment_only_perc
+
+    IF !fill_dir
+        clip_perc = clip_perc * -1
+    END IF
+
+    IF armor_perc == 0
+        OUTPUT 0 1 clip_x 0
+    ELSE
+        OUTPUT 0 1 clip_x clip_perc
+    END IF
+
+    # Color
+    STRING bar_color
+    bar_color = color
+    IF battle_data.self.armor <= threshold
+        bar_color = thresholdColor
+    END IF
+
+    OUTPUT 0 1 image_color bar_color
+
+
+END TEMPLATE

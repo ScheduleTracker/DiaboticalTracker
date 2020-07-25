@@ -1,6 +1,4 @@
-//
 
-window.current_screen = "home";
 window.fade_time = 70;
 
 function set_logged_out_screen(visible, reason) {
@@ -30,19 +28,6 @@ function set_logged_out_screen(visible, reason) {
     }
 }
 
-window.setup_section_markers = {};
-function change_screen(new_screen) {
-    if (window.current_screen == "customization") {
-        engine.call("on_show_customization_screen", false);
-    }
-
-    if (!window.setup_section_markers[new_screen]) {
-        window.setup_section_markers[new_screen] = true;
-    }
-
-    window.current_screen = new_screen;
-}
-
 function processSliderUpdate(el) {
     let id_str = "" + el.id;
     if (id_str.startsWith("setting_mouse")) {
@@ -66,14 +51,52 @@ function update_selectmenu(element, from_engine){
         on_yaw_pitch_preset_select();
     }
 }
+/*
+function init_crosshair_options() {
+    let fragment = new DocumentFragment();
+    for (let i=1; i<=21; i++) {
+        let option = _createElement("img", "crosshair-option");
+        option.dataset.cross = i;
+        option.src = "/html/images/crosshairs/ch_"+i+".svg?fil=%23ffffff";
+        fragment.appendChild(option);
+    }
+
+    _for_each_with_class_in_parent(_id("crosshair_editor_screen"), "crosshair-layer-selection", function(el) {
+        _empty(el);
+        el.appendChild(fragment.cloneNode(true));
+        for (let i=0; i<el.children.length; i++) {
+            addCrosshairSelectHandler(el.children[i]);
+        }
+    });
+    _for_each_with_class_in_parent(_id("zoom_crosshair_editor_screen"), "crosshair-layer-selection", function(el) {
+        _empty(el);
+        el.appendChild(fragment.cloneNode(true));
+        for (let i=0; i<el.children.length; i++) {
+            addCrosshairSelectHandler(el.children[i]);
+        }
+    });
+}*/
+
+function addCrosshairSelectHandler(crosshair_option) {
+    crosshair_option.addEventListener("click", function() {
+        crosshair_option.parentElement.dataset.value = crosshair_option.dataset.cross;
+
+        _for_each_with_class_in_parent(crosshair_option.parentElement, "selected", function(sel) {
+            sel.classList.remove("selected");
+        })
+        crosshair_option.classList.add("selected");
+
+        engine.call("set_string_variable", crosshair_option.parentElement.dataset.variable, crosshair_option.parentElement.dataset.value);
+    });
+}
 
 function settings_combat_update(weapon) {
 
     let weapon_settings = _id("custom_weapon_settings");
     let weapon_settings_checkboxes = _id("weapon_sheet").querySelectorAll('.settings_block_header .checkbox_component');
     if (weapon == 0) {
-        anim_show(_id("combat_subheader_row_default"));
-        anim_hide(_id("combat_subheader_row_weapon"));
+        _id("combat_subheader_row_default").style.display = "flex";
+        _id("combat_subheader_row_weapon").style.display = "none";
         if (weapon_settings.style.display == "none") {
             weapon_settings.style.display = "flex";
             weapon_settings.style.opacity = 1;
@@ -83,8 +106,8 @@ function settings_combat_update(weapon) {
             weapon_settings_checkboxes[i].classList.add("hidden");
         }
     } else {
-        anim_hide(_id("combat_subheader_row_default"));
-        anim_show(_id("combat_subheader_row_weapon"));
+        _id("combat_subheader_row_default").style.display = "none";
+        _id("combat_subheader_row_weapon").style.display = "flex";
 
         for (let i=0; i<weapon_settings_checkboxes.length; i++) {
             weapon_settings_checkboxes[i].classList.remove("hidden");
@@ -219,6 +242,7 @@ function settings_combat_update(weapon) {
     global_range_slider_map["film_fov_converted"] = new rangeSlider(_id("film_fov_converted"), false, function(value) { update_fov_conversion_options('film_fov_converted'); });
     global_range_slider_map["film_fov_zoom_converted"] = new rangeSlider(_id("film_fov_zoom_converted"), false, function(value) { update_fov_conversion_options('film_fov_zoom_converted'); });
 
+    /*
     /// REGULAR CROSSHAIRS
 
     //crosshair type 1
@@ -370,6 +394,12 @@ function settings_combat_update(weapon) {
     //crosshair hit color 3
     _id("setting_hud_zoom_crosshair_hit_color3").dataset.variable = ("hud_zoom_crosshair_hit_color3:" + weapon);
     engine.call("initialize_color_value", "hud_zoom_crosshair_hit_color3:" + weapon);
+    */
+    
+    // CANVAS CROSSHAIR DEFINITIONS
+    engine.call("initialize_custom_component_value", "hud_crosshair_definition:" + weapon);
+    engine.call("initialize_custom_component_value", "hud_zoom_crosshair_definition:" + weapon);
+
 
     // PER-WEAPON & ZOOM FULLSCREEN MASK
     
@@ -412,7 +442,7 @@ function settings_combat_update(weapon) {
         window.current_selected_setting_weapon_number = 0;
     }
 }
-
+/*
 function update_crosshair_selection(el) {
     let val = el.dataset.value;
     _for_each_with_class_in_parent(el, 'crosshair-option', function(opt) {
@@ -474,11 +504,11 @@ function on_updated_crosshair_type_selection() {
     _for_each_with_class_in_parent(_id("zoom_crosshair_editor_screen"), 'crosshair_scroll', function(el) {
         refreshScrollbar(el);
     });
-}
+}*/
 
 function on_updated_mask_type_selection() {
 
-    let cont = _id("crosshair_editor_screen");
+    let cont = _id("mask_editor_screen");
     let mask = _id("setting_hud_crosshair_typemask");
     if (mask.dataset.value == "none" || mask.dataset.value == "custom") {
         _for_each_with_class_in_parent(cont, "crosshairmask_properties", function(el) { el.style.display = "none"; });
@@ -489,7 +519,7 @@ function on_updated_mask_type_selection() {
         refreshScrollbar(el);
     });
     
-    let cont_zoom = _id("zoom_crosshair_editor_screen");
+    let cont_zoom = _id("zoom_mask_editor_screen");
     let mask_zoom = _id("setting_hud_zoom_crosshair_typemask");
     if (mask_zoom.dataset.value == "none" || mask_zoom.dataset.value == "custom") {
         _for_each_with_class_in_parent(cont_zoom, "zoom_crosshairmask_properties", function(el) { el.style.display = "none"; });
@@ -510,9 +540,9 @@ function sound_click() {
 }
 
 function open_home(silent) {
-    change_screen("home");
     hl_button("mm_home");
     set_blur(false);
+    historyPushState({"page": "home_screen"});
     switch_screens(_id("home_screen"), silent);
     set_party_box_visible(true);
     engine.call("set_avatar_camera_main");
@@ -550,14 +580,18 @@ function button_game_over_play_again() {
 
 let global_fullscreen_spinner_state = false;
 function setFullscreenSpinner(bool) {
+    let spinner = _id("fullscreen_spinner");
     if (global_fullscreen_spinner_state == false) {
         if (bool) {
-            anim_show(_id("fullscreen_spinner"));
+            spinner.querySelector(".spinner-icon").classList.add("running");
+            anim_show(spinner);
             global_fullscreen_spinner_state = true;
         }
     } else {
         if (!bool) {
-            anim_hide(_id("fullscreen_spinner"));
+            anim_hide(spinner, 200, () => {
+                spinner.querySelector(".spinner-icon").classList.add("running");
+            });
             global_fullscreen_spinner_state = false;
         }
     }
@@ -573,7 +607,10 @@ function _fade_out_if_not(selector, exception) {
     anim_remove(selector);
 
     if (selector != exception) {
-        if (getComputedStyle(selector).display != "none") {
+        let display_computed = getComputedStyle(selector).display;
+        let display_set = selector.style.display;
+
+        if ((display_set != undefined && display_set != "none") || display_computed != "none") {
             anim_hide(selector);
 
             if (selector.id == "shop_screen") shop_set_animation_state(false);
@@ -597,6 +634,7 @@ function switch_screens(dst, silent) {
         set_party_box_visible(false);
     }
 
+    // Contained screens
     _fade_out_if_not(_id('ingame_menu_screen'), dst);
     _fade_out_if_not(_id('settings_screen'), dst);
     _fade_out_if_not(_id('play_panel'), dst);
@@ -604,8 +642,10 @@ function switch_screens(dst, silent) {
     _fade_out_if_not(_id('customize_screen'), dst);
     _fade_out_if_not(_id('battlepass_screen'), dst);
     _fade_out_if_not(_id('battlepass_list_screen'), dst);
+    _fade_out_if_not(_id('battlepass_upgrade_screen'), dst);
     //_fade_out_if_not(_id('replays_screen'), dst);
-    //_fade_out_if_not(_id('watch_screen'), dst);
+    _fade_out_if_not(_id('learn_screen'), dst);
+    _fade_out_if_not(_id('watch_screen'), dst);
     _fade_out_if_not(_id('shop_screen'), dst);
     _fade_out_if_not(_id('shop_item_screen'), dst);
     _fade_out_if_not(_id('coin_shop_screen'), dst);
@@ -614,11 +654,32 @@ function switch_screens(dst, silent) {
     _fade_out_if_not(_id('player_profile_screen'), dst);
     _fade_out_if_not(_id('practice_screen'), dst);
     _fade_out_if_not(_id('license_center_screen'), dst);
+    _fade_out_if_not(_id('match_screen'), dst);
+
+    // Full screens
+    _fade_out_if_not(_id('notification_screen'), dst);
+
+    // Customization screen view
+    if (dst.id == "customize_screen") {
+        //engine.call("on_show_customization_screen", true);
+    } else {
+        engine.call("on_show_customization_screen", false);
+        if (global_menu_page == "customize_screen") {
+            reset_customization_previews();
+            customize_pause_selected_music();
+        }
+    }
 
     let changed = false;
     if (global_menu_page != dst.id) {
         global_menu_page = dst.id;
         changed = true;
+    }
+
+    if (dst.id == "settings_screen" && global_current_settings_section == "hud") {
+        hud_editor_visible(true);
+    } else {
+        hud_editor_visible(false);
     }
     
     cleanup_floating_containers();
@@ -660,6 +721,11 @@ function play_menu_change_tab(tab, newPage) {
 
         global_play_menu_page = newPage.id;
     }
+
+    historyPushState({
+        "page": "play_screen",
+        "subpage": global_play_menu_page,
+    });
     
     _fade_out_if_not(_id('play_screen_quickplay'), newPage);
     _fade_out_if_not(_id('play_screen_ranked'), newPage);
@@ -689,18 +755,16 @@ function highlight_play_menu(selector) {
     selector.classList.add("active");
 }
 
-
 function open_play(screen, silent) {
-    change_screen("play");
     hl_button("mm_play");
     set_blur(true);
     engine.call("set_avatar_camera_main");
 
-    if (screen && screen == 'custom') {
-        play_screen_open_custom(true);
-    } else if (screen && screen == 'competitive') {
+    if (screen && (screen == 'play_screen_custom' || screen == 'play_screen_customlist')) {
+        play_screen_open_custom(true, screen);
+    } else if (screen && screen == 'play_screen_ranked') {
         play_screen_open_competitive_play();
-    } else if (screen && screen == 'quickplay') {
+    } else if (screen && screen == 'play_screen_quickplay') {
         play_screen_open_quick_play();
     } else {
         play_screen_open_default(silent);
@@ -716,8 +780,8 @@ function open_play(screen, silent) {
     if (global_play_menu_page == "play_screen_ranked") play_screen_reset_cards("ranked");
 }
 
-function play_screen_open_custom(switch_screen) {
-    play_menu_change_tab(_id("play_menu_tab_custom"), _id('play_screen_custom'));
+function play_screen_open_custom(switch_screen, screen) {
+    play_menu_change_tab(_id("play_menu_tab_custom"), _id(screen));
     if (switch_screen) {
         switch_screens(_id('play_panel'));
     }
@@ -733,115 +797,135 @@ function play_screen_open_competitive_play() {
     if (changed) play_screen_reset_cards("ranked");
 }
 function play_screen_open_default(silent) {
+    historyPushState({
+        "page": "play_screen",
+        "subpage": global_play_menu_page,
+    });
     switch_screens(_id("play_panel"), silent);
 }
 
 function open_ingame_menu(silent) {
-    change_screen("ingame_menu");
     set_blur(true);
     hl_button("mm_ingame");
     switch_screens(_id("ingame_menu_screen"), silent);
 }
 
 function open_create() {
-    change_screen("create");
     set_blur(true);
     hl_button("mm_create");
+    historyPushState({"page": "create_screen"});
     switch_screens(_id("create_screen"));
 }
 
 function open_practice() {
-    change_screen("practice");
     set_blur(true);
     hl_button("mm_practice");
     let changed = switch_screens(_id("practice_screen"));
-    if (changed) practice_screen_reset_cards();
+    if (changed) {
+        historyPushState({"page": "practice_screen"});
+        practice_screen_reset_cards();
+    }
 }
 
 function open_license_center() {
-    change_screen("license_center");
     switch_screens(_id("license_center_screen"));
 }
 
 function open_shop() {
-    load_shop();
-
-    change_screen("shop");
     set_blur(true);
     hl_button("mm_shop");
+    historyPushState({"page": "shop_screen"});
     switch_screens(_id("shop_screen"));
+
+    load_shop();
 }
 
-function open_shop_item() {
-    change_screen("shop_item");
+function open_shop_item(item_group_data, item_index) {
     set_blur(true);
     hl_button("mm_shop");
+    historyPushState({
+        "page": "shop_item_screen",
+        "item_group_data": item_group_data,
+        "item_index": item_index
+    });
     switch_screens(_id("shop_item_screen"));
+
+    render_shop_item(item_group_data, item_index);
 }
 
 function open_coin_shop() {
-    change_screen("shop_item");
     set_blur(true);
     hl_button("mm_shop");
+    if (global_menu_page != 'coin_shop_screen') {
+        historyPushState({"page": "coin_shop_screen"});
+    }
     switch_screens(_id("coin_shop_screen"));
 }
 
+function open_gift() {
+    load_gift();
+}
+
+function open_learn() {
+    set_blur(true);
+    hl_button("mm_learn");
+    historyPushState({"page": "learn_screen"});
+    switch_screens(_id("learn_screen"));
+}
+
 function open_watch() {
-    change_screen("watch");
     set_blur(true);
     hl_button("mm_watch");
+    historyPushState({"page": "watch_screen"});
     switch_screens(_id("watch_screen"));
+
+    refreshScrollbar(_id("twitch_reward_streams").querySelector(".scroll-outer"));
 }
 
 function open_leaderboards() {
-    change_screen("leaderboards");
     set_blur(true);
     hl_button("mm_leaderboards");
+    historyPushState({"page": "leaderboards_screen"});
     switch_screens(_id("leaderboards_screen"));
     
     load_leaderboard();
 }
 
-function open_stats() {
-    change_screen("stats");
-    set_blur(true);
-    hl_button("mm_stats");
-    switch_screens(_id("stats_screen"));
-}
-
 function open_replays() {
-    change_screen("replays");
     set_blur(true);
     hl_button("mm_replays");
     switch_screens(_id("replays_screen"));
 }
 
-function open_player_profile(id) {
+function open_player_profile(id, subpage) {
     let origin = global_menu_page;
 
-    change_screen("player_profile");
     set_blur(true);
     hl_button("mm_stats");
     switch_screens(_id("player_profile_screen"));
 
-    if (id == "own") {
-        load_player_profile(origin,"profile",global_self.user_id);
-    } else {
-        load_player_profile(origin,"profile",id);
-    }
+    let load_subpage = "profile";
+    if (subpage) load_subpage = subpage;
+
+    let load_id = id;
+    if (id == "own") load_id = global_self.user_id;
+
+    load_player_profile(origin, load_subpage, load_id);
 }
 
 function open_match(match_id) {
     if (match_id == undefined) return;
 
-    let origin = global_menu_page;
-
-    change_screen("match_screen");
     set_blur(true);
     hl_button("mm_stats");
     switch_screens(_id("match_screen"));
 
-    load_match(origin, match_id);
+    historyPushState({
+        "page": "match_screen",
+        "id": match_id
+    });
+
+    load_match(match_id);
 }
 
 function open_battlepass() {
@@ -850,23 +934,21 @@ function open_battlepass() {
         hl_button();
 
         if (!global_user_battlepass.battlepass_id) {
-            send_string(CLIENT_COMMAND_GET_BATTLEPASS_DATA, "", "battlepass-data", function(data) {
-                global_user_battlepass = data.data;
-
-                if (!global_user_battlepass.battlepass_id) {
-                    open_battlepass_list();
-                } else {
-                    change_screen("battlepass");
+            load_battlepass_data(function() {
+                if (global_user_battlepass.battlepass_id) {
                     set_blur(true);
+                    historyPushState({"page": "battlepass_screen"});
                     switch_screens(_id("battlepass_screen"));
                     load_battlepass();
                 }
             });
         } else {
-            change_screen("battlepass");
             set_blur(true);
-            switch_screens(_id("battlepass_screen"));
+            historyPushState({"page": "battlepass_screen"});
             load_battlepass();
+            req_anim_frame(() => {
+                switch_screens(_id("battlepass_screen"));
+            }, 2);
         }
 
     } else {
@@ -874,9 +956,10 @@ function open_battlepass() {
     }
 }
 
+/* outdated
 function open_battlepass_list() {
-    change_screen("battlepass_list");
     set_blur(true);
+    historyPushState({"page": "battlepass_list_screen"});
     switch_screens(_id("battlepass_list_screen"));
 
     if (!global_battlepass_list.length) {
@@ -888,12 +971,25 @@ function open_battlepass_list() {
         load_battlepass_list();
     }
 }
+*/
+
+function open_battlepass_upgrade() {
+    if ("battlepass" in global_user_battlepass && global_user_battlepass.battlepass.owned == true) {
+        open_battlepass();
+        return;
+    }
+    set_blur(true);
+    historyPushState({"page": "battlepass_upgrade_screen"});
+    switch_screens(_id("battlepass_upgrade_screen"));
+}
+
+function open_notifications() {
+    set_blur(true);
+    switch_screens(_id("notification_screen"));
+}
 
 function updateMenuBottomBattlepass(bp) {
-    //console.log("update Main Menu battlepass data", _dump(bp));
-
-    let cont = _id("menu_background_bottom");
-    if (bp && bp.battlepass_id in global_battlepass_data) _set_battle_pass_colors(cont, global_battlepass_data[bp.battlepass_id].colors);
+    let cont = _id("menu_background_bottom").querySelector(".menu_bottom_battlepass");
     
     let bp_cont = cont.querySelector(".menu_bottom_battlepass_open");
     _empty(bp_cont);
@@ -902,35 +998,67 @@ function updateMenuBottomBattlepass(bp) {
     label.innerHTML = localize("battlepass");
     bp_cont.appendChild(label);
 
-    if (!bp) {
+    if (!bp || !bp.battlepass) {
+        anim_remove(cont);
         label.classList.add("no_bp");
-        cont.querySelector(".menu_bottom_battlepass_daily").style.display = "none";
+        cont.style.display = "none";
         return;
     }
     
-    if (bp.battlepass) {
+    if (global_user_battlepass.battlepass) {
         let level_icon = _createElement("div", "bp_level_icon");
-        level_icon.innerHTML = bp.battlepass.level;
-        if (bp.battlepass.owned) {
-            level_icon.style.backgroundImage = "url("+global_battlepass_data[bp.battlepass_id]['level-image']+")";
+        level_icon.textContent = global_user_battlepass.battlepass.level;
+        if (global_user_battlepass.battlepass.owned) {
+            level_icon.classList.add("paid");
         }
         bp_cont.appendChild(level_icon);
-
-        if (bp.challenges && bp.challenges.length) {
-            let state_cont = cont.querySelector(".daily_challenges_state");
-            _empty(state_cont);
-            for (let c of bp.challenges) {
-                let circle = _createElement("div", "simple_circle");
-                if (c.achieved) circle.classList.add("circle_filled");
-                state_cont.appendChild(circle);
-            }
-            cont.querySelector(".menu_bottom_battlepass_daily").style.display = "flex";
-        } else {
-            cont.querySelector(".menu_bottom_battlepass_daily").style.display = "none";
-        }
     } else {
+        anim_remove(cont);
         label.classList.add("no_bp");
-        cont.querySelector(".menu_bottom_battlepass_daily").style.display = "none";
+        cont.style.display = "none";
+    }
+}
+
+function updateMenuBottomBattlepassLevel() {
+    if (global_user_battlepass.battlepass) {
+        let cont = _id("menu_background_bottom").querySelector(".bp_level_icon");
+        cont.textContent = global_user_battlepass.battlepass.level;
+    }
+}
+
+function showMenuBottomBattlepass() {
+    if (global_user_battlepass && global_user_battlepass.battlepass) {
+        let cont = _id("menu_background_bottom").querySelector(".menu_bottom_battlepass");
+        if (cont) anim_show(cont, 350);
+    }
+}
+
+function replaceChallenge(challenge_id, new_challenge) {
+    for (let i=0; i<global_user_battlepass.challenges.length; i++) {
+        if (global_user_battlepass.challenges[i].challenge_id == challenge_id) {
+            global_user_battlepass.challenges[i] = new_challenge;
+            break;
+        }
+    }
+}
+
+function updateChallenges() {
+    // Home menu challenge list
+    render_home_challenges();
+
+    // Bottom menu challenge indicators
+    let cont = _id("menu_background_bottom").querySelector(".menu_bottom_battlepass_daily");
+    if (global_user_battlepass.challenges && global_user_battlepass.challenges.length) {
+        let state_cont = cont.querySelector(".daily_challenges_state");
+        _empty(state_cont);
+        for (let c of global_user_battlepass.challenges) {
+            let circle = _createElement("div", "simple_circle");
+            if (c.achieved) circle.classList.add("circle_filled");
+            state_cont.appendChild(circle);
+        }
+        cont.style.display = "flex";
+    } else {
+        cont.style.display = "none";
     }
 }
 
@@ -973,18 +1101,20 @@ function open_settings() {
         _id("settings_section_title_mods").style.display = "block";
     }
 
-    // Timeout just for redraw reasons (smoother view change animation in case hud_editor_fullscreen has to do lots of stuff first)
-    setTimeout(function() {
-        change_screen("settings");
+    historyPushState({"page": "settings_screen"});
+
+    // wait for hud_editor_fullscreen false to finish
+    req_anim_frame(() => {
         hl_button("mm_options");
         set_blur(true);
 
         switch_screens(_id("settings_screen"));        
         update_fov_preview();
-        setTimeout(function() {
+        req_anim_frame(() => {
+            ultra_advanced_accel_visible(false);
             update_accel_chart();
         });
-    });
+    }, 2);
 }
 
 function set_settings_section_visible(section, current_section) {
@@ -1012,6 +1142,7 @@ function set_settings_section_visible(section, current_section) {
     }
 }
 
+var global_current_settings_section = "weapons";
 function settings_section(section) {
     set_settings_section_visible("weapons", section);
     set_settings_section_visible("controls", section);
@@ -1020,6 +1151,13 @@ function settings_section(section) {
     set_settings_section_visible("audio", section);
     set_settings_section_visible("hud", section);
     set_settings_section_visible("mods", section);
+    global_current_settings_section = section;
+
+    if (section == "hud") {
+        hud_editor_visible(true);
+    } else {
+        hud_editor_visible(false);
+    }
     
     cleanup_floating_containers();
 }
@@ -1072,24 +1210,27 @@ function skin_section(section) {
     }
 }
 */
+let initial_customization_opened = false;
+function open_customization(category, type) {
+    set_blur(global_customization_blur_active);
 
-function open_customization() {
-    customization_show_window("list");
-    
-    change_screen("customization");
+    if (category && type) {
+        customization_load_category(null, category, type);
+        initial_customization_opened = true;   
+    } else if (!initial_customization_opened) {
+        if (global_ms_connected) {
+            customization_load_category(null, "sticker", "");
+            initial_customization_opened = true;
+        }
+    } else {
+        if (global_customization_active_category) {
+            customization_show_category(global_customization_active_category, global_customization_active_ctype);
+        }
+    }
+    historyPushState({"page": "customize_screen" });
     switch_screens(_id("customize_screen"));
     hl_button("mm_customize");
     anim_show(_id("customize_screen"));
-
-    //open_customization_section(_id("customization_tab_decals"), "decals");
-    //anim_show(_id("skin_screen_decals"), window.fade_time);
-
-    set_blur(false);
-
-    engine.call("on_customize_section_loaded", "decals");
-    engine.call("on_show_customization_screen", true);
-
-  //  skin_section("decals");
 }
 
 /*
@@ -1157,17 +1298,32 @@ function update_checkbox(checkbox) {
 }
 
 function load_crosshair_editor() {
-    open_modal_screen("crosshair_editor_screen");
-    on_updated_crosshair_type_selection();
+    open_modal_screen("mask_editor_screen", function() {
+        refreshScrollbar(_id("mask_editor_screen").querySelector(".crosshair_scroll"));
+    });
+    //on_updated_crosshair_type_selection();
     on_updated_mask_type_selection();
 }
 
 function load_zoom_crosshair_editor() {
-    open_modal_screen("zoom_crosshair_editor_screen");
-    on_updated_crosshair_type_selection();
+    open_modal_screen("zoom_mask_editor_screen",  function() {
+        refreshScrollbar(_id("zoom_mask_editor_screen").querySelector(".crosshair_scroll"));
+    });
+    //on_updated_crosshair_type_selection();
     on_updated_mask_type_selection();
 }
 
+function load_canvas_crosshair_editor() {
+    open_modal_screen("crosshair_canvas_editor_screen", function() {
+        refreshScrollbar(_id("crosshair_canvas_editor_screen").querySelector(".crosshair_scroll"));
+    });
+}
+
+function load_canvas_crosshair_zoom_editor() {
+    open_modal_screen("crosshair_canvas_zoom_editor_screen", function() {
+        refreshScrollbar(_id("crosshair_canvas_zoom_editor_screen").querySelector(".crosshair_scroll"));
+    });
+}
 
 /*
 function close_skill_selection() {
@@ -1181,20 +1337,6 @@ function close_skill_selection() {
     }
 }
 */
-
-function send_json_data(data, returnaction, cb) {
-    if (returnaction != undefined && cb != undefined) {
-        global_ms.addResponseHandler(returnaction, cb);
-    }
-    engine.call("send_json", CLIENT_COMMAND_JSON_DATA, JSON.stringify(data));
-}
-function send_string(command, string, returnaction, cb) {
-    if (returnaction != undefined && cb != undefined) {
-        global_ms.addResponseHandler(returnaction, cb);
-    }
-    if (string === undefined) string = "";
-    engine.call("send_json", command, string);
-}
 
 function party_context_select(cmd, user_id) {
     if (cmd == "remove") {
@@ -1317,10 +1459,10 @@ function process_queue_msg(type, msg) {
 
     }
 
-    // Set Timeout to wait for the next animationFrame update which updates global_mm_searching_ranked and global_mm_searching_quickplay 
-    setTimeout(function() {
+    // wait for the next animationFrame update which updates global_mm_searching_ranked and global_mm_searching_quickplay 
+    req_anim_frame(() => {
         update_queue_mode_selection();
-    },50);
+    }, 2);
 }
 
 function cancel_search(type) {
@@ -1635,8 +1777,8 @@ function generate_tt_content(el) {
     let msg_id = el.dataset.msgHtmlId
     //console.log("generate TT content, id:",msg_id);
 
-    if (msg_id == "daily_quests") {
-        return generate_tooltip_daily_quests();
+    if (msg_id == "daily_challenges") {
+        return generate_tooltip_daily_challenges();
     }
 
     if (msg_id == "queue_info_quickplay") {
@@ -1656,16 +1798,16 @@ function generate_tt_content(el) {
     }
 
     if (msg_id == "mode_description") {
-        if (el.dataset.mode) {
-            return generate_mode_info(el.dataset.mode);
+        if (el.dataset.match_mode) {
+            return generate_mode_info(el.dataset.match_mode);
         } else {
             return;
         }
     }
 
     if (msg_id == "card_tooltip") {
-        if (el.dataset.mode) {
-            return generate_card_info(el.dataset.mode);
+        if (el.dataset.match_mode) {
+            return generate_card_info(el.dataset.match_mode);
         } else {
             return;
         }
@@ -1705,13 +1847,13 @@ function generate_mode_info(mode) {
 function generate_card_info(mode) {
     let cont = _createElement("div", "mode_description_cont");        
     let desc_cont = _createElement("div", "mode_description");
-    desc_cont.appendChild(_createElement("div", "title", localize(global_general_card_data[mode].i18n)));
-    desc_cont.appendChild(_createElement("div", "desc", localize(global_general_card_data[mode].desc_i18n)));
+    desc_cont.appendChild(_createElement("div", "title", localize(global_game_mode_map[mode].i18n)));
+    desc_cont.appendChild(_createElement("div", "desc", localize(global_game_mode_map[mode].desc_i18n)));
     cont.appendChild(desc_cont);
     return cont;
 }
 
-function generate_tooltip_daily_quests() {
+function generate_tooltip_daily_challenges() {
     let list = _createElement("div", "challenge_list");
     render_daily_challenges(list, global_user_battlepass.challenges);
     return list;
@@ -1723,6 +1865,8 @@ function generate_tooltip_queue_info(type) {
     let groups = {};
 
     for (let cb of global_queue_mode_checkboxes) {
+        if (cb.parentElement == null) continue;
+        
         if (cb.dataset.type == type && cb.dataset.mode.length && cb.dataset.enabled == "true") {
             let group = cb.parentNode.parentNode.querySelector(".card_top").textContent;
             if (!(group in groups)) {
@@ -1771,17 +1915,15 @@ function generate_tooltip_queue_info(type) {
 }
 
 function generate_customization_item_info(id, type, rarity) {
-
-    let cont = _createElement("div", "customization_info");
-    cont.style.maxWidth = "25vh";
-    let type_cont = _createElement("div", ["type","rarity_bg_"+rarity]);
-    type_cont.appendChild(_createElement("div", "rarity", localize(global_rarity_map[rarity].i18n)));
-    type_cont.appendChild(_createElement("div", "separator", "/"));
-    type_cont.appendChild(_createElement("div", "item_type", localize(global_customization_type_map[type].i18n)));
-    cont.appendChild(type_cont);
-    //cont.appendChild(_createElement("div", "name", localize("customization_"+id)));
-
-    return cont;
+    let show_name = true;
+    if (type == 1 || type == 2) show_name = false;
+    let customization_info = createCustomizationInfo({
+        "customization_id": id,
+        "customization_type": type,
+        "rarity": rarity,
+    }, show_name);
+    customization_info.style.maxWidth = "25vh";
+    return customization_info;
 }
 
 function generate_custom_match_info(session_id) {
@@ -1796,6 +1938,11 @@ function generate_custom_match_info(session_id) {
     }
     if (!m) return cont;
 
+    let commands = _createElement("div", ["value", "column"]);
+    for (let c of m.commands) {
+        commands.appendChild(_createElement("div", "", c.key+": "+c.value));
+    }
+
     let left = _createElement("div", "left");
     left.appendChild(_createElement("div", ["label"], localize("custom_game_settings_duration")));
     left.appendChild(_createElement("div", ["label","even"], localize("custom_game_settings_score_limit")));
@@ -1803,6 +1950,7 @@ function generate_custom_match_info(session_id) {
     left.appendChild(_createElement("div", ["label","even"], localize("custom_game_settings_team_size")));
     left.appendChild(_createElement("div", ["label"], localize("custom_settings_instagib")));
     left.appendChild(_createElement("div", ["label"], localize("custom_settings_physics")));
+    left.appendChild(_createElement("div", ["label"], localize("custom_settings_commands")));
     cont.appendChild(left);
 
     let right = _createElement("div","right");
@@ -1812,6 +1960,7 @@ function generate_custom_match_info(session_id) {
     right.appendChild(_createElement("div", ["value","even"], m.team_size));
     right.appendChild(_createElement("div", ["value"], (m.modifier_instagib) ? localize("enabled") : localize("disabled")));
     right.appendChild(_createElement("div", ["value"], (m.modifier_physics in global_physics_map) ? localize(global_physics_map[m.modifier_physics].i18n) : localize("unknown")));
+    right.appendChild(commands);
     cont.appendChild(right);
 
     return cont;

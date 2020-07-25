@@ -1,0 +1,27 @@
+BEGIN TEMPLATE current_weapon_icon
+    SETTING align pivot
+    DOUBLE size
+    INT weapon_fill
+    INT iconShadow
+
+    COL_OUTPUT 0 image_width size
+    COL_OUTPUT 0 image_height size
+    COL_OUTPUT 0 width size
+    COL_OUTPUT 0 height size
+
+ON_UPDATE
+    
+    IF !common_game_data.self_alive
+        discard
+    END IF
+
+    STRING color
+    color = fill
+    IF weapon_fill 
+        color = current_weapon_data.color
+    END IF
+
+    OUTPUT 0 0 image current_weapon_data.icon_url
+    OUTPUT 0 0 image_color color
+
+END TEMPLATE

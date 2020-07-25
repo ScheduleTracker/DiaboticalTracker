@@ -2,7 +2,7 @@ let global_leaderboards_data = {
     "game_mode": "r_duel",
     "friends_only": false,
     "page": 1,
-    "max_per_page": 15
+    "max_per_page": 10
 };
 
 /* cache own position for 10 minutes (TODO: should also invalidate cache when a match is finished) ... lets ignore the fact for now that your ranking is also affected by other users moving up/down
@@ -35,13 +35,13 @@ function init_screen_leaderboards() {
     let mode_filter = _id("leaderboards_screen_filter_gamemode");
     _empty(mode_filter);
 
-    for (let mode in global_queue_modes) {
-        if ("leaderboard" in global_queue_modes[mode] && global_queue_modes[mode].leaderboard == true) {
+    for (let mode in global_queues) {
+        if ("leaderboard" in global_queues[mode] && global_queues[mode].leaderboard == true) {
             let opt = _createElement("div");
             opt.dataset.value = mode;
-            opt.textContent = localize(global_game_mode_map[global_queue_modes[mode].mode].i18n)+" "+global_queue_modes[mode].vs;
+            opt.textContent = global_queues[mode].queue_name;
 
-            if (mode == "r_duel") opt.dataset.selected = 1;
+            if (mode == "r_team") opt.dataset.selected = 1;
             mode_filter.appendChild(opt);
         }
     }
@@ -55,11 +55,6 @@ function init_screen_leaderboards() {
 
 
 function load_leaderboard() {
-    // TODO
-    // # get leaderboard from apiserver
-    // - get own leaderboard entry from apiserver
-    // # global_leaderboards_filter.game_mode
-    // # global_competitive_season.comp_season_id
     let params_all = { 
         "mode": global_leaderboards_data.game_mode, 
         //"season": global_competitive_season.comp_season_id, 
@@ -79,7 +74,6 @@ function load_leaderboard() {
     let leaderboards_bottom = _id("leaderboards_bottom");
 
     let requests = [{
-        "api": global_stats_api,
         "path": "/stats/leaderboard",
         "data_key_from": "leaderboard",
         "data_key_to": "leaderboard",
@@ -99,7 +93,6 @@ function load_leaderboard() {
 
     if (load_self) {
         requests.push({
-            "api": global_stats_api,
             "path": "/users/"+global_self.user_id+"/leaderboard",
             "data_key_from": "leaderboard",
             "data_key_to": "self",
@@ -211,6 +204,8 @@ function render_leaderboard(first_pos, data, self) {
             }
             position++;
         }
+    } else {
+        fragment.appendChild(_createElement("div", "empty_leaderboard", localize("leaderboards_empty")));
     }
 
     if (self && "user_id" in self && self_rendered == false) {

@@ -1,7 +1,12 @@
 class HUD_element {
-    constructor(type, previewCode, defaultValues, hudEditCode = [], template, content) {
+    constructor(type, nativeElement, defaultValues, hudEditCode = [], template, content) {
+
+        if (nativeElement) {
+            //hudEditCode.unshift({"inputType": "toggle", "type": "native", "text": "Render Native"});
+        }
+        
         this.type = type;
-        this.previewCode = previewCode;
+        this.nativeElement = nativeElement;
         this.defaultValues = defaultValues;
         this.hudEditCode = hudEditCode;
         //If content is provided, we use that for the contents of the element, otherwise
@@ -17,6 +22,10 @@ class HUD_element {
     setDefaultValues(element){
         for (var item in this.defaultValues) {
             element[item] = this.defaultValues[item];
+        }
+
+        if (this.nativeElement) {
+            element["native"] = "1";
         }
     }
 
@@ -38,8 +47,8 @@ class HUD_element {
                 returnString += editorCreateInputText(element, item.id, item.type, item.text, item.maxLength, captured_id);
             } else if (item.inputType === "list") {
                 returnString += editorCreateList(element, item.id, item.type, item.text, item.listValues, captured_id);
-            } else if (item.inputType === "advanced") {
-                returnString += editorCreateAdvanced(element, item.id, this.type, captured_id);
+            //} else if (item.inputType === "advanced") {
+                //returnString += editorCreateAdvanced(element, item.id, this.type, captured_id);
             }
         }
 
@@ -129,7 +138,7 @@ const defaultFontList = [
     {"name": "Furore", "value": "furore"},
     {"name": "NotoSans-Regular", "value": "notosans"},
     {"name": "NotoSans-Bold", "value": "notosans-bold"},
-    {"name": "Poppins-Medium", "value": "poppins-pedium"},
+    {"name": "Poppins-Medium", "value": "poppins-medium"},
     {"name": "Poppins-Bold", "value": "poppins-bold"},
     {"name": "Veneer", "value": "veneer"},
     {"name": "Veneer Italic", "value": "veneer-italic"},
