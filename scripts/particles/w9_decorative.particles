@@ -2,7 +2,7 @@
 
 
 
-bfg_muzzle_static_particle
+w9_muzzle_static_particle
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_2
@@ -25,7 +25,7 @@ bfg_muzzle_static_particle
 
 }
 
-bfg_muzzle_static_particle_2
+w9_muzzle_static_particle_2
 {
 	map particle_sheet3.png
 	region s3_plasma_52
@@ -49,7 +49,7 @@ bfg_muzzle_static_particle_2
  
 }
 
-bfg_muzzle_static_particle_3
+w9_muzzle_static_particle_3
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_6
@@ -72,7 +72,7 @@ bfg_muzzle_static_particle_3
    
  
 }
-// bfg_muzzle_sparks_decorative
+// w9_muzzle_sparks_decorative
 // {
 	// map particle_sheet3.png
 	// region region s3_explosion01_9
@@ -99,7 +99,7 @@ bfg_muzzle_static_particle_3
 
 	// acceleration 0 0 0 0 0 0
 // }
-bfg_muzzle_light base_light_impact
+w9_muzzle_light base_light_impact
 {
 	lifetime 0
 	system_light_radius 25	
@@ -111,13 +111,13 @@ bfg_muzzle_light base_light_impact
 }
 
 
-bfg_muzzle_filament
+w9_muzzle_filament
 {
 
-	subsystem  bfg_muzzle_static_particle
-	subsystem  bfg_muzzle_static_particle_2
-	subsystem  bfg_muzzle_static_particle_3
-	// subsystem bfg_muzzle_sparks_decorative
-	subsystem  bfg_muzzle_light
+	subsystem  w9_muzzle_static_particle
+	subsystem  w9_muzzle_static_particle_2
+	subsystem  w9_muzzle_static_particle_3
+	// subsystem w9_muzzle_sparks_decorative
+	subsystem  w9_muzzle_light
 }
 

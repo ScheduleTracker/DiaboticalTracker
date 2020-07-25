@@ -943,37 +943,214 @@ map particle_sheet3.png
 	position -10 0 -10 10 0 10
 
 }
-splash_02
+
+splash_vfx
+{	 
+subsystem splash_01
+
+}
+////////////////////////////////////////////////////////////////////////////////////////-----------------SPLASH_2-----------------////////////////////////////////////////////////////////////////
+
+water_vapor_02
 {
 	map particle_sheet3.png
 	region 	s3_smoke02
-period 0.1
-	max_particles 15
+
+	max_particles 10
 	max_emissions 0
 	lifetime 1
 	fade_in 1
 	blend add
 
 
-	color_start 1 1 1 1
-	color_end 0.1 0.1 0.1 0
+	color_start 0.5 0.5 0.5 0.25
+	color_end 0.5 0.5 0.5 0
 	//position -1 0 0   
-    scale_start 150
-    scale_end 10
+    scale_start 150 200
+    scale_end 50 30
+    rotation_start -3 3
+    fade_out 0.5
+velocity_angles 80 0 80 90 0 90 
+	speed_start 10
+	speed_end 0
+position -5 0 -5 5 0 5
+}
+
+splash_02
+{
+	map oil_splash.png
+	region oil_splash
+	period 0.3
+	animation_speed 17
+	max_particles 10
+	max_emissions 0
+	lifetime 1
+	fade_in 1
+	blend add
+
+
+	color_start 2 2 2 1
+	color_end 1 1 1 0.1 0
+	position -15 0 10 15 0 10  
+    scale_start 50
+    scale_end 100
     rotation_start 0 360
     fade_out 0.1
 velocity_angles 75 15 75 105 -15 105    
-	speed_start 30
-speed_end 30
-position -5 0 -5 5 0 5
+	speed_start 20
+speed_end 0
+
 
 }
-splash_vfx
+
+splash_2_vfx
 {	 
-subsystem splash_01
-//subsystem splash_02
+subsystem splash_02
+subsystem water_vapor_02
+}
+////////////////////////////////////////////////////////////////////////////////////////-----------------SPLASH_3-----------------////////////////////////////////////////////////////////////////
+water_vapor_03
+{
+	map particle_sheet3.png
+	region 	s3_smoke02
+
+	max_particles 100
+	max_emissions 0
+	lifetime 1
+	fade_in 1
+	blend add
+period 0.01
+	color_start 0.25 0.25 0.25 0.25
+	color_end 0.25 0.25 0.25 0
+	//position -1 0 0   
+    scale_start 150 200
+    scale_end 50 30
+    rotation_start 0
+    fade_out 0.5
+velocity_angles 80 0 80 90 0 90 
+	speed_start 5
+	speed_end 0
+	aspect_start 2
+position -80 0 -20 0 0 25
+range 0
+}
+water_vapor_03_2
+{
+	map particle_sheet3.png
+	region 	s3_smoke02
+
+	max_particles 100
+	max_emissions 0
+	lifetime 1
+	fade_in 1
+	blend add
+period 0.01
+	color_start 0.25 0.25 0.25 0.25
+	color_end 0.25 0.25 0.25 0
+	//position -1 0 0   
+    scale_start 150 200
+    scale_end 50 30
+    rotation_start 0
+    fade_out 0.5
+velocity_angles 80 0 80 90 0 90 
+	speed_start 5
+	speed_end 0
+	aspect_start 2
+position 80 0 -20 0 0 25
+range 0
 }
 
+
+splash_03
+{
+	map oil_splash.png
+	region oil_splash
+	period 0.05
+	animation_speed 15
+	max_particles 18
+	max_emissions 0
+	lifetime 1
+	fade_in 1
+	blend add
+position -60 0 -20 60 0 20
+	
+	color_start 2 2 2 1
+	color_end 2 2 2 1
+	//position -1 0 0   
+    scale_start 50
+    scale_end 150
+    rotation_start 0 360
+    fade_out 0.1
+velocity_angles 75 15 75 105 -15 105    
+	speed_start 20
+speed_end 0
+range 0
+
+}
+splash_03_small
+{
+	map oil_splash.png
+	region oil_splash
+	period 0.05
+	animation_speed 17
+	max_particles 18
+	max_emissions 0
+	lifetime 1
+	fade_in 1
+	blend add
+position -60 0 -20 60 0 20
+	
+	color_start 2 2 2 1
+	color_end 2 2 2 0.1 0
+	//position -1 0 0   
+    scale_start 0 50
+    scale_end 50 100
+    rotation_start 0 360
+    fade_out 0.1
+velocity_angles 75 15 75 105 -15 105    
+	speed_start 20
+speed_end 0
+
+range 0
+}
+splash_03_1
+{
+map particle_sheet3.png
+	region region s3_rl_muzzle_2
+	animation_speed 50
+	animation_start 10
+	max_particles 30
+	max_emissions 0
+	lifetime .075 .1
+	fade_in 0
+	blend add
+	fade_out 0.1
+	period 0.0125
+	color_start 1 1 1 1
+	color_end  1 1 1 0
+	//position -1 0 0   
+    scale_start 2 7
+    scale_end 1 5
+    rotation_start 180
+    fade_out 0.2
+	velocity_angles 1 0 0 359 359 0
+	speed_start 60
+	speed_end 80
+	auto_orient true
+	aspect_start 1 
+	aspect_end 2
+	acceleration 0 -5 0 0 -2 0
+	position -60 0 -40 60 0 40
+range 0
+}
+splash_3_vfx
+{	 
+subsystem water_vapor_03
+subsystem water_vapor_03_2
+subsystem splash_03
+subsystem splash_03_small
+subsystem splash_03_1
+}
 ///////////////////////////////////////////////////////////////////////---------------------FLOATING DUST-----------------------------///////////////////////////////////////////////////////////////////
 floating_dust
 {
@@ -1091,4 +1268,220 @@ furnace_orb_system
 
 subsystem furnace_orb 0 10
 subsystem furnace_beam 0 10
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////--DD-STATUE---///////////////////////////////////////////////////////////////////////////////////
+
+pu_statue_ring
+{
+	map explosion_2.png
+	region   explosion 
+	animation_speed 40
+	animation_start 0
+	blend add
+	max_particles 18
+	max_emissions 0
+	lifetime 0.75
+	fade_in 0
+	fade_out 0.10
+	period 0.02
+	color_start  3 3 0 1
+	color_end  4 6 0 1
+     scale_start 90
+    scale_end 90
+    rotation_start 0 360
+   	hard_edges true
+position 0 -2 -0.5
+angular_speed_start -1000 1000
+}
+pu_statue_flames_top
+{
+
+	map particle_sheet5.png
+	region   flame 	
+	animation_speed 2 4
+	animation_start 0
+	blend add
+	max_particles 7
+	max_emissions 0
+	lifetime 0.75
+	fade_in 0
+	fade_out 0.10
+	period 0.2	
+	color_start  1 2 0 0.8
+	color_end 2 3 0 0.0
+     scale_start 50 70
+    scale_end 15 10
+    rotation_start 0 90
+   	hard_edges true
+	speed_start 80 70
+position 0 0 -0.5
+velocity_angles 90 0 0 90 0 0
+angular_speed_start -1000 1000
+}
+pu_statue_flames_top_2
+{
+	map particle_sheet5.png
+	region   flame 	
+	animation_speed 4 8
+	animation_start 0
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.75
+	fade_in 0
+	fade_out 0.10
+	period 0.25
+	color_start  1 2 0 0.8
+	color_end 2 3 0 0.5
+     scale_start 70 90
+    scale_end 30 25
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 45 50
+position 0 0 -0.5
+velocity_angles 92 90 0 88 90 0
+angular_speed_start -1000 1000
+}
+
+pu_statue_embers_top
+{
+	map particle_sheet3.png
+	region  s3_rl_muzzle_23
+	animation_start 0
+	blend add
+	max_particles 12
+	max_emissions 0
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+	color_start  2 1 0 1
+	color_end  2 3 0 0.5
+     scale_start 20 10
+    scale_end 10 0
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 125 115
+position 0 0 -0.5
+velocity_angles 80 10  0 100 -10  0
+angular_speed_start -1000 1000
+}
+
+pu_statue_embers_top_2
+
+{
+	map particle_sheet3.png
+		region region s3_rl_muzzle_40
+		animation_speed 50
+		animation_start 10
+		max_particles 160
+		max_emissions 0
+		lifetime 1.3
+		fade_in 0.2
+		blend add
+		fade_out 0.1
+		period 0.04
+		color_start 0.75 1.5 0.5 0.5 1.5 0.75 0.6 0.5
+		scale_start 2.3 3
+		scale_end 1 0.4
+		rotation_start 180
+		fade_out 0.2
+		velocity_angles 90 0 0
+		speed_start 80
+		speed_end 10
+		//auto_orient true
+		//turbulence 2000 1000 2000
+		//acceleration 0 -5 0 0 -2 0
+		//position -5 -5 -5 5 -5 5
+		emitter horizontal_circle 10
+		position 0 -7 0
+}
+
+
+
+pu_statue_orb
+{
+	map particle_sheet5.png
+	region  plasma_circle
+	animation_start 0
+	blend alpha
+	max_particles 1
+	max_emissions 0
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.10
+	period 0.2
+	color_start  0.5 0.8 0 1
+	color_end  0.5 0.8 0 1
+     scale_start 105
+    scale_end 105
+ position 0 -1 0
+   	hard_edges true
+	}
+
+
+pu_statue_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 100
+	system_light_intensity 15
+	position 0 10 0
+	system_light_color 0.8 1.2 0.5
+	system_light_falloff 0.0	
+}
+powerup_statue_01_pfx
+{
+subsystem  light_green
+subsystem pu_statue_orb 0 0.7 
+ subsystem pu_statue_ring 0 0.7 
+subsystem pu_statue_flames_top 0 1.5
+ subsystem pu_statue_flames_top_2 0 1.5
+ subsystem pu_statue_embers_top 0 1.5
+ subsystem pu_statue_embers_top_2 0 1.5
+
+subsystem pu_statue_light
+
+}
+///////////////////////////////////////////////////////////////////////---------------------FALLING SNOW-----------------------------///////////////////////////////////////////////////////////////////
+falling_snow_1
+{
+	map particle_sheet3.png
+		region region s3_rl_muzzle_2
+		animation_speed 50
+		animation_start 10
+		max_particles 200
+		max_emissions 0
+		lifetime 16
+		fade_in 0.2
+		blend add
+		fade_out 0.1
+		period 0.04
+		color_start 1 1 1.2 1 1 1 1
+		scale_start 2.3 3
+		scale_end 2.3 3
+		rotation_start 180 0
+		fade_out 0.2
+		velocity_angles -90 5 5 -90 -5 -5
+		speed_start 80 90
+		speed_end 10
+		//auto_orient true
+		//turbulence 2000 1000 2000
+		//acceleration 0 -5 0 0 -2 0
+		
+		emitter horizontal_circle 1000
+		position 0 -7 0
+}
+falling_snow_2 falling_snow_1
+{
+	scale_start  3 7
+	scale_end 3 7
+
+}
+falling_snow_field
+{
+subsystem falling_snow_1 
+subsystem falling_snow_2
 }

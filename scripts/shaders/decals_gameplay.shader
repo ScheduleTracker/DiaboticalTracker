@@ -11,6 +11,32 @@ ring_decal
 	}
 }
 
+circle_decal
+{
+	{
+		map textures/decals/circle.png
+		map textures/flat_normal.png
+		map textures/black.png
+		vertex_shader tilestatic.vs.cso 111 NGT
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		pixel_shader tiledecal.ps.cso
+	}
+}
+
+blob_decal
+{
+	{
+		map textures/decals/blob.png
+		map textures/flat_normal.png
+		map textures/black.png
+		vertex_shader tilestatic.vs.cso 111 NGT
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		pixel_shader tiledecal.ps.cso
+	}
+}
+
 decal_glow
 {
 	{
@@ -50,10 +76,10 @@ decal_glow_blue
 	}
 }
 
-decal_df
+decal_shaft
 {
 	{
-		map textures/decals/decal_df.png
+		map textures/decals/decal_shaft.png
 		map textures/flat_normal.png
 		map textures/black.png
 		vertex_shader tilestatic.vs.cso 111 NGT
@@ -63,10 +89,10 @@ decal_df
 	}
 }
 
-decal_df_connector
+decal_shaft_connector
 {
 	{
-		map textures/decals/decal_df_connector.png
+		map textures/decals/decal_shaft_connector.png
 		map textures/flat_normal.png
 		map textures/black.png
 		vertex_shader tilestatic.vs.cso 111 NGT
@@ -76,10 +102,10 @@ decal_df_connector
 	}
 }
 
-decal_df_back
+decal_shaft_back
 {
 	{
-		map textures/decals/decal_df_back.png
+		map textures/decals/decal_shaft_back.png
 		map textures/flat_normal.png
 		map textures/black.png
 		vertex_shader tilestatic.vs.cso 111 NGT
@@ -89,10 +115,10 @@ decal_df_back
 	}
 }
 
-decal_df_back_connector
+decal_shaft_back_connector
 {
 	{
-		map textures/decals/decal_df_back_connector.png
+		map textures/decals/decal_shaft_back_connector.png
 		map textures/flat_normal.png
 		map textures/black.png
 		vertex_shader tilestatic.vs.cso 111 NGT

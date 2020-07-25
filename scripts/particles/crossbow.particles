@@ -447,6 +447,7 @@ crossbow_projectile
 subsystem crossbow_star 0 2
 subsystem crossbow_star2 0 2
 //subsystem crossbow_bolt
+range 0
 
 }
 
@@ -476,10 +477,12 @@ crossbow_trail
 	scale_start 3
 	scale_end 10
 	position 0 0 0
+	range 0
 }
 crossbow_bolt_dynamic_trail
 {
 	subsystem crossbow_trail
+	range 0
 
 	//subsystem base_smoke_trail
 }
@@ -510,6 +513,7 @@ crossbow_trail_3p
 	scale_start 1
 	scale_end 10
 	position 0 0 -20
+	range 0
 }
 crossbow_bolt_dynamic_trail_3p
 {

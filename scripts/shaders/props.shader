@@ -2324,8 +2324,8 @@ props/metro/redlight_sign_01
 	{
 		map textures/props/metro/redlight_sign_01_02_d.png
 		map textures/props/metro/redlight_sign_01_02_n.png
-		map textures/props/metro/redlight_sign_01_02_s.png
-		map textures/props/metro/redlight_sign_01_02_i.png
+		map textures/black.png
+		map textures/black.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2338,8 +2338,8 @@ props/metro/redlight_sign_01_noholder
 	{
 		map textures/props/metro/redlight_sign_01_02_d.png
 		map textures/props/metro/redlight_sign_01_02_n.png
-		map textures/props/metro/redlight_sign_01_02_s.png
-		map textures/props/metro/redlight_sign_01_02_i.png
+		map textures/black.png
+		map textures/black.png
 		material_id 103
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
@@ -2352,9 +2352,9 @@ props/metro/redlight_sign_02
 	{
 		map textures/props/metro/redlight_sign_01_02_d.png
 		map textures/props/metro/redlight_sign_01_02_n.png
-		map textures/props/metro/redlight_sign_01_02_s.png
-		map textures/props/metro/redlight_sign_01_02_i.png
-		material_id 103
+		map textures/black.png
+		map textures/black.png
+		material_id 40
 		vertex_shader tilestatic.vs.cso 111 NGT
 		vertex_shader_param inverse
 		vertex_shader_param camera

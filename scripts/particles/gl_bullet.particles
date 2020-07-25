@@ -154,6 +154,7 @@ gl_bullet
 	subsystem gl_bullet_ring_particle
 	subsystem gl_bullet_ring_particle_2
 	//subsystem rl_flame1 
+	range 0
 }
 
 gl_trail
@@ -188,6 +189,7 @@ gl_bullet_dynamic_trail
 {
 	subsystem gl_trail
 	//subsystem base_smoke_trail
+	range 0
 }
 
 

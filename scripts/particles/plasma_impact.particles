@@ -170,16 +170,16 @@ tier_1_plasma_impact_ring_1
 //IMPACT
 plasma_impact_tier_1
 {
-	subsystem tier_1_plasma_impact_ring_1
+	//subsystem tier_1_plasma_impact_ring_1
 	subsystem tier_1_plasma_line
 	
-	subsystem tier_1_plasma_explosion_1 0 1.1
+	//subsystem tier_1_plasma_explosion_1 0 1.1
 	
-	subsystem tier_1_plasma_impact_center_1 0 1.1
+	//subsystem tier_1_plasma_impact_center_1 0 1.1
 	// subsystem tier_1_plasma_impact_center_2 0 1.1
-	subsystem tier_1_plasma_impact_light
+	//subsystem tier_1_plasma_impact_light
 
-    subsystem tier_1_plasma_distortion
+    //subsystem tier_1_plasma_distortion
 	
 }
 

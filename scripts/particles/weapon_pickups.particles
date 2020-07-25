@@ -113,19 +113,19 @@ weapon_pickup_pfx_rl
 
 
 
-weapon_pickup_pfx_df_sub weapon_pickup_pfx_base_sub
+weapon_pickup_pfx_shaft_sub weapon_pickup_pfx_base_sub
 {
    color_start 10 10 1 1      10 10 5 1
    position -6 -2 -20 6 -2 20
 }
-weapon_pickup_pfx_df_sub_light base_weapon_light
+weapon_pickup_pfx_shaft_sub_light base_weapon_light
 {
     system_light_color 0.5 0.5 0.4
 }
-weapon_pickup_pfx_df
+weapon_pickup_pfx_shaft
 {	
-    subsystem weapon_pickup_pfx_df_sub_light 
-	subsystem weapon_pickup_pfx_df_sub
+    subsystem weapon_pickup_pfx_shaft_sub_light 
+	subsystem weapon_pickup_pfx_shaft_sub
 	//subsystem item_sparkles
 }
 

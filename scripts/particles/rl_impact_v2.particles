@@ -118,15 +118,15 @@ rl_distortion
 	range 0
 }
 
-	rl_impact_explosion_1
-	{
+rl_impact_explosion_1
+{
 		map particle_sheet5.png
 		region ricochet_smoke
-		animation_speed 20
+		animation_speed 12	
 		animation_start 0	
 		blend add
 		max_particles 1
-		delay 0.01
+		delay 0
 		max_emissions 1
 		lifetime 0.4
 		fade_in 1 
@@ -138,8 +138,8 @@ rl_distortion
 		color_start  6 2 0 1
 		color_end  2 0.5 0 .5
 		velocity_angles  20 0 0 70 0 0
-		speed_start 200
-		speed_end 100
+		speed_start 0
+		speed_end 10
 		aspect_start .8
 		aspect_end 1.2
 		auto_orient_3d true
@@ -150,7 +150,7 @@ rl_distortion
 		scale_timeline 0=0,l;0.5=0.7,l;0.9=1,l;1=0.9,l
 		range 0
 		angular_speed_start -5000 
-	}
+}
 
 rl_impact_explosion_2 rl_impact_explosion_1
 {
@@ -563,34 +563,34 @@ rl_shockwave
 //IMPACT
 rl_impact_v2
 {
-	subsystem rl_shockwave
-	subsystem rl_explosion_2
-	subsystem rl_explosion_2 0 .75
-	   subsystem rl_explosion_smoke 0 0.9
+	//subsystem rl_shockwave
+	//subsystem rl_explosion_2
+	//subsystem rl_explosion_2 0 .75
+	//   subsystem rl_explosion_smoke 0 0.9
 	//	subsystem rl_explosion_smoke_2 0 0.9
-		 subsystem rl_explode_spark
-		 subsystem rl_explode_spark_2
-			   subsystem rl_explosion_ring_1 0 1
+	//	 subsystem rl_explode_spark
+	//	 subsystem rl_explode_spark_2
+	//		   subsystem rl_explosion_ring_1 0 1
 			  // subsystem rl_explosion_ring_2 0 1.2
 			//  subsystem rl_explosion_ring_1 0 1.1
 		  //subsystem rl_explosion_ring_1 0 0.85
 		//   subsystem rl_explosion_ring_2 0 0.85
-		subsystem rl_distortion 0 0.85
-		   subsystem rl_explosion_center_1 0 0.7
-		   subsystem rl_explosion_center_2 0 0.75
-		   subsystem rl_explosion_center_3 0 0.5
-		  subsystem rl_explosion_center_4 0 0.6
+	//	subsystem rl_distortion 0 0.85
+	//	   subsystem rl_explosion_center_1 0 0.7
+	//	   subsystem rl_explosion_center_2 0 0.75
+	//	   subsystem rl_explosion_center_3 0 0.5
+	//	  subsystem rl_explosion_center_4 0 0.6
 		  subsystem rl_impact_explosion_1 0 0.6
 		  subsystem rl_impact_explosion_2 0 0.6
 		  subsystem rl_impact_explosion_3 0 0.6
 		 subsystem rl_impact_explosion_4 0 0.6
-		subsystem rl_explode_flash01 0 1
+	//	subsystem rl_explode_flash01 0 1
 	
-		 subsystem rl_explode_ember_01 0 0.95
-		 subsystem rl_explode_ember_02 0 0.95
-		 subsystem rl_explode_ember_03
-		  subsystem rl_debris 0 0.8
-			subsystem rl_debris 0 0.8
+	//	 subsystem rl_explode_ember_01 0 0.95
+	//	 subsystem rl_explode_ember_02 0 0.95
+	//	 subsystem rl_explode_ember_03
+	//	  subsystem rl_debris 0 0.8
+		//	subsystem rl_debris 0 0.8
 		 subsystem rl_impact_light
 		 subsystem rl_smoke_impact_1 0 0.7
 		// subsystem rl_smoke_impact_2 0 0.7

@@ -1,7 +1,7 @@
 // //IMPACT
 
 
-// bfg_center_spark_1
+// w9_center_spark_1
 // {
 	// map particle_sheet3.png
 	// region s3_rl_muzzle_24
@@ -27,13 +27,13 @@
 	// range 0
 // }
 
-// bfg_center_spark_2 bfg_center_spark_1
+// w9_center_spark_2 w9_center_spark_1
 // {
 	// scale_end 600
 	// range 0
 // }
 
-// bfg_ring_1
+// w9_ring_1
 // {
 	// map particle_sheet3.png
 	// region s3_rl_muzzle_14
@@ -58,7 +58,7 @@
 	// range 0
 // }
 
-// bfg_ring_2 bfg_ring_1
+// w9_ring_2 w9_ring_1
 // {
 	// region s3_rl_muzzle_25
 	// color_start  0.6 0.6 1.5 1
@@ -67,7 +67,7 @@
 	// range 0
 // }
 
-// bfg_ring_3 bfg_ring_1
+// w9_ring_3 w9_ring_1
 // {
 	// region s3_rl_muzzle_14
 	// color_start  .8 0.4 1.4 1
@@ -77,21 +77,21 @@
 	// range 0
 // }
 
-// bfg_ring_4 bfg_ring_1
+// w9_ring_4 w9_ring_1
 // {
 	// region s3_rl_muzzle_25
 	// color_start  .1 0.4 1.4 1
 	// color_end   0.2 0.1 1 1
 	// range 0
 // }
-// bfg_ring_5 bfg_ring_1
+// w9_ring_5 w9_ring_1
 // {
 	// region s3_rl_muzzle_5
 	// scale_end 800
 	// range 0
 // }
 
-// bfg_ring_6
+// w9_ring_6
 // {
 	// map particle_sheet3.png
 	// region s3_rl_muzzle
@@ -114,7 +114,7 @@
 	// range 0
 // }
 
-// bfg_light base_light_impact
+// w9_light base_light_impact
 // {
 	// map effects1.png
 	// region r_transparent
@@ -137,7 +137,7 @@
 	// range 0
 // }
 
-// bfg_spark_1
+// w9_spark_1
 // {
 	// map particle_sheet3.png
 	// region s3_rl_muzzle_4
@@ -169,7 +169,7 @@
 	// range 0
 // }
 
-// bfg_embers_1
+// w9_embers_1
 // {
 	// map particle_sheet3.png
 	// region s3_rl_muzzle_23
@@ -201,7 +201,7 @@
 	// range 0
 // }
 
-// bfg_explosion_border_1
+// w9_explosion_border_1
 // {
 	// map particle_sheet3.png
 	// region s3_rl_muzzle_37
@@ -226,7 +226,7 @@
 	// range 0
 // }
 
-// bfg_explosion_border_2 bfg_explosion_border_1
+// w9_explosion_border_2 w9_explosion_border_1
 // {
 	// region s3_rl_muzzle_39 
 	// color_start 0.1 0.1 0.4 1
@@ -236,7 +236,7 @@
 	// range 0
 // }
 
-// bfg_smoke_1
+// w9_smoke_1
 // {
 	// map particle_sheet3.png
 	// region s3_explosion01_9
@@ -264,19 +264,19 @@
 	// range 0
 // }
 
-// bfg_smoke_2 bfg_smoke_1
+// w9_smoke_2 w9_smoke_1
 // {
     // velocity_angles 120 0 0 240 360 0
 	// range 0
 // }
 
-// bfg_smoke_3 bfg_smoke_1
+// w9_smoke_3 w9_smoke_1
 // {
     // velocity_angles 240 0 0 360 360 0
 	// range 0
 // }
 
-// bfg_debris
+// w9_debris
 // {
 	// map particle_sheet3.png
 	// mesh models/particles/debris_01.fbx 100
@@ -304,7 +304,7 @@
 	// range 0
 // }
 
-// bfg_impact_light base_light_impact
+// w9_impact_light base_light_impact
 // {
 	// lifetime 0.3
 	// system_light_radius 250
@@ -318,7 +318,7 @@
 	// perspective_radius 180
 	// range 0
 // }
-// bfg_floor_outer_line
+// w9_floor_outer_line
 // {
 	// map ring.png
 
@@ -345,35 +345,35 @@
 	// color_end 1 1 1 1
 	// displacement true 1 0.01 50 0.25
 // } 
-// bfg_impact_v2
+// w9_impact_v2
 // {
-// subsystem bfg_floor_outer_line 0 0.64
-	// subsystem bfg_impact_light 0 0.64
-	// //subsystem bfg_light_impact doesn't exist, subsystem bfg_impact_light is at the bottom of these definitions, probably the one meant to be used above
-	// subsystem bfg_ring_1 0 0.9
+// subsystem w9_floor_outer_line 0 0.64
+	// subsystem w9_impact_light 0 0.64
+	// //subsystem w9_light_impact doesn't exist, subsystem w9_impact_light is at the bottom of these definitions, probably the one meant to be used above
+	// subsystem w9_ring_1 0 0.9
 	
-		// subsystem bfg_ring_3 0 0.9
-		// subsystem bfg_ring_4 0 0.9
-	// subsystem bfg_ring_5 0 0.9
-	// subsystem bfg_ring_6 0 0.9
-	// //subsystem bfg_ring_implode_1
-	// //subsystem bfg_ring_implode_2
-	// subsystem bfg_center_spark_1 0 0.9
-	// subsystem bfg_center_spark_20 0.9
-	// //subsystem bfg_center_spark_2 0 1.4 is probably what the above should be
-		// subsystem bfg_embers_1 0 1.6
-	 // subsystem bfg_impact_center_1 0 0.9
-	 // subsystem bfg_impact_center_2 0 0.9
-	// // subsystem bfg_center_2
-	// subsystem bfg_explode_light 0.02 3.26
-	// //subsystem bfg_explode_light doesn't seem to currently exist in the files
-	// subsystem bfg_spark_1 0 0.9
-	// subsystem bfg_smoke_1 0 1.02
-	// subsystem bfg_smoke_2 0 1.02
-	// subsystem bfg_smoke_3 0 1.02
-	// subsystem bfg_debris
-	// subsystem bfg_explosion_border_1 0 0.64
-		// subsystem bfg_explosion_border_2 0 0.64
+		// subsystem w9_ring_3 0 0.9
+		// subsystem w9_ring_4 0 0.9
+	// subsystem w9_ring_5 0 0.9
+	// subsystem w9_ring_6 0 0.9
+	// //subsystem w9_ring_implode_1
+	// //subsystem w9_ring_implode_2
+	// subsystem w9_center_spark_1 0 0.9
+	// subsystem w9_center_spark_20 0.9
+	// //subsystem w9_center_spark_2 0 1.4 is probably what the above should be
+		// subsystem w9_embers_1 0 1.6
+	 // subsystem w9_impact_center_1 0 0.9
+	 // subsystem w9_impact_center_2 0 0.9
+	// // subsystem w9_center_2
+	// subsystem w9_explode_light 0.02 3.26
+	// //subsystem w9_explode_light doesn't seem to currently exist in the files
+	// subsystem w9_spark_1 0 0.9
+	// subsystem w9_smoke_1 0 1.02
+	// subsystem w9_smoke_2 0 1.02
+	// subsystem w9_smoke_3 0 1.02
+	// subsystem w9_debris
+	// subsystem w9_explosion_border_1 0 0.64
+		// subsystem w9_explosion_border_2 0 0.64
 
 // }
 //IMPACT
@@ -768,7 +768,7 @@ max_particles 60
 
 
 
-bfg_impact_v2
+w9_impact_v2
 {
 	subsystem weapon9_dome_add 0 0.9
 	

@@ -1,4 +1,4 @@
-rl_star
+	rl_star
 {
 	// advance 1
 	// animation_start 5 8
@@ -11,12 +11,11 @@ rl_star
 	max_particles 1
 	max_emissions 0
 	lifetime 0
-	advance 0.05
 	// period 0.05
 	// fade_in 0.05
 	// fade_out 0.1 0.05
-	scale_start 30
-	scale_end 30
+	scale_start 50
+	scale_end 50
 	
 	// velocity 0 0 -2800
 	angular_speed_start 10000
@@ -40,12 +39,12 @@ rl_star2
 	max_particles 1
 	max_emissions 0
 	lifetime 0
-	advance 0.05
+	advance 1
 	// period 0.05
 	// fade_in 0.05
 	// fade_out 0.1 0.05
-	scale_start 25
-	scale_end 25
+	scale_start 45
+	scale_end 45
 	
 	// velocity 0 0 -2800
 	angular_speed_start 10000
@@ -70,10 +69,11 @@ rl_star3
 	max_particles 5
 	max_emissions 0
 	lifetime 0.5
+	advance 1
 	 period 0.15
 	// fade_in 0.05
 	// fade_out 0.1 0.05
-	scale_start 10
+	scale_start 40
 	scale_end 70
 	
 	// velocity 0 0 -2800
@@ -233,7 +233,7 @@ rl_rocket
 rl_light base_light_impact
 {
 	advance 0.05
-	lifetime 0
+	lifetime 1
 	system_light_radius 500	
 	system_light_intensity 4.5
 	system_light_color 1 0.8 0.6
@@ -268,6 +268,7 @@ rl_bullet
 	subsystem rl_light
 	//subsystem rl_flame1 
 	//subsystem rocket_smoke
+	range 0
 }
 
 rocket_smoke_trail
@@ -276,15 +277,15 @@ rocket_smoke_trail
 	map particle_sheet3.png
 	region s3_smoke02
 	blend alpha
-	max_particles 1024
+	max_particles 512
 	lifetime 1.9 1.6
-	period 0.002
-    fixed_timestep 0.002
+	period 0.004
+    fixed_timestep 0.004
 	fade_in 0
 	fade_out 0.2
 	position 0 0 0 0 0 0
-	color_start 0.25 0.25 0.25 0.5
-	color_end 0.35 0.35 0.35 0.1
+	color_start 0.25 0.25 0.25 0.6
+	color_end 0.35 0.35 0.35 0.2
 	color_end_point 0.07
 	rotation_start 180
 	velocity -1 -1 -1 1 1 1

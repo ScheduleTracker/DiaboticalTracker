@@ -2,17 +2,16 @@ sword
 {
     weapon_tag melee
     bind_group 9
-	color 90461d
+	color 888888
 	//group 5
-	damage 75
-	damage 75
+	damage 50
 	knockback 250
 	ground_knockback 250
 	rate 700
 	speed 0
 	can_destroy 1
 	unlimited_ammo true
-	distance 55
+	distance 36
 	hit_radius 25
 
 allow_during_bolt true

@@ -514,6 +514,7 @@ heal_weeble_impact_light base_light_impact
 
 heal_weeble_impact
 {
+    auto_remove true
     subsystem primitive_test
 	subsystem heal_weeble_ring 0 2.4
 	//	subsystem heal_weeble_ring_2 0 2.4
@@ -534,6 +535,6 @@ heal_weeble_impact
 				subsystem heal_weeble_crosses_03_2  0 0.9
 			//subsystem heal_weeble_crosses_end
 	subsystem heal_weeble_impact_light	
-						
+	range 0					
 		
 }

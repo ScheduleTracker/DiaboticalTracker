@@ -26,7 +26,7 @@
 	// scale_end 80
 // }
 
-bfg_explode_smokeb
+w9_explode_smokeb
 {
 	map effects1.png
 	region r_smoke_new	
@@ -51,7 +51,7 @@ bfg_explode_smokeb
 	scale_end 250
 }
 
-bfg_explode_spark_3
+w9_explode_spark_3
 {
 	// animation_speed 30
 	// lifetime 0.20
@@ -80,7 +80,7 @@ bfg_explode_spark_3
 	scale_end 300 130
 }
 
-bfg_explode_sparks
+w9_explode_sparks
 {
 	map particle_sheet1.png
 	
@@ -112,7 +112,7 @@ bfg_explode_sparks
 	aspect_end 1
 }
 
-bfg_explode_smoke1 base_smoke_explosion
+w9_explode_smoke1 base_smoke_explosion
 {
 	sync_group 1
 	rotation_start 0 80
@@ -121,7 +121,7 @@ bfg_explode_smoke1 base_smoke_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explode_smoke2 base_smoke_explosion
+w9_explode_smoke2 base_smoke_explosion
 {
 	sync_group 2
 	rotation_start 120 180
@@ -130,7 +130,7 @@ bfg_explode_smoke2 base_smoke_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explode_smoke3 base_smoke_explosion
+w9_explode_smoke3 base_smoke_explosion
 {
 	sync_group 3
 	lifetime 0.40
@@ -142,7 +142,7 @@ bfg_explode_smoke3 base_smoke_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explode_smoke4 base_smoke_explosion
+w9_explode_smoke4 base_smoke_explosion
 {
 	sync_group 4
 	lifetime 0.60
@@ -154,7 +154,7 @@ bfg_explode_smoke4 base_smoke_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explode_smoke5 base_smoke_explosion
+w9_explode_smoke5 base_smoke_explosion
 {
 	sync_group 5
 	rotation_start 200 300
@@ -163,7 +163,7 @@ bfg_explode_smoke5 base_smoke_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explode_smoke_big base_smoke_explosion
+w9_explode_smoke_big base_smoke_explosion
 {
 	animation_start 0.002
 	lifetime 0.90
@@ -175,7 +175,7 @@ bfg_explode_smoke_big base_smoke_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explosion_1 base_explosion
+w9_explosion_1 base_explosion
 {
 	sync_group 1
 	rotation_start 0 80
@@ -184,7 +184,7 @@ bfg_explosion_1 base_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explosion_2 base_explosion
+w9_explosion_2 base_explosion
 {
 	sync_group 2
 	rotation_start 120 170
@@ -193,7 +193,7 @@ bfg_explosion_2 base_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explosion_3 base_explosion
+w9_explosion_3 base_explosion
 {
 	animation_speed 20
 	sync_group 3
@@ -214,7 +214,7 @@ explosion_4 base_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explosion_5 base_explosion
+w9_explosion_5 base_explosion
 {
 	sync_group 5
 	rotation_start 200 300
@@ -223,7 +223,7 @@ bfg_explosion_5 base_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explosion_inner base_explosion
+w9_explosion_inner base_explosion
 {
 	lifetime 0.10
 	fade_in 0 
@@ -234,7 +234,7 @@ bfg_explosion_inner base_explosion
 	position 0 0 1 0 0 1
 }
 
-bfg_explosion_fire base_explosion
+w9_explosion_fire base_explosion
 {
 	map particle_sheet1.png
 	region r_explosion_part3
@@ -256,7 +256,7 @@ bfg_explosion_fire base_explosion
 	scale_end 200 300
 }
 
-bfg_explosion_fire2 base_explosions
+w9_explosion_fire2 base_explosions
 {
 	map particle_sheet1.png
 	region r_explosion_part4
@@ -278,7 +278,7 @@ bfg_explosion_fire2 base_explosions
 	scale_end 300 350
 }
 
-bfg_explosion_inner base_explosion
+w9_explosion_inner base_explosion
 {
 	map particle_sheet1.png
 	region r_explosion_part2
@@ -301,7 +301,7 @@ bfg_explosion_inner base_explosion
 	scale_end 100
 }
 
-bfg_explode_barrel
+w9_explode_barrel
 {
 	map particle_sheet1.png
 	region r_explosion_ring
@@ -324,7 +324,7 @@ bfg_explode_barrel
 	scale_end 250
 }
 
-bfg_explode_spark
+w9_explode_spark
 {
 	map particle_sheet1.png
 	region r_spark_ruzzle_1
@@ -347,7 +347,7 @@ bfg_explode_spark
 	scale_end 250
 }
 
-bfg_explode_ring
+w9_explode_ring
 {
 	map particle_sheet1.png
 	region r_explosion_ring2
@@ -370,7 +370,7 @@ bfg_explode_ring
 	scale_end 350
 }
 
-bfg_embers
+w9_embers
 {
 	// geometry quad
 	map particle_sheet1.png
@@ -398,7 +398,7 @@ bfg_embers
 	drag 0.8
 }
 
-bfg_embers2
+w9_embers2
 {
 	// geometry quad
 	map particle_sheet1.png
@@ -426,7 +426,7 @@ bfg_embers2
 	drag 0.8
 }
 
-bfg_impact_light base_light_impact
+w9_impact_light base_light_impact
 {
 	lifetime 0.12
 	system_light_radius 450
@@ -436,7 +436,7 @@ bfg_impact_light base_light_impact
 	velocity 0 0 0
 }
 
-bfg_thegetaway
+w9_thegetaway
 {
 	geometry quad
 	map effects1.png
@@ -462,27 +462,27 @@ bfg_thegetaway
 	soft_destruction on
 }
 
-explodebfg
+explodew9
 {
 
-	subsystem bfg_impact_light
-	subsystem bfg_explode_ring 0.02 3.26
-	subsystem bfg_explode_light 0.02 3.26
-	//subsystem bfg_explode_light doesn't seem to currently exist in the files
-	subsystem bfg_explode_spark_3 0.02 3.26
-	subsystem bfg_embers 0 2
-	subsystem bfg_embers2 0 2
+	subsystem w9_impact_light
+	subsystem w9_explode_ring 0.02 3.26
+	subsystem w9_explode_light 0.02 3.26
+	//subsystem w9_explode_light doesn't seem to currently exist in the files
+	subsystem w9_explode_spark_3 0.02 3.26
+	subsystem w9_embers 0 2
+	subsystem w9_embers2 0 2
 	
-	// subsystem bfg_explosion_1 0.02 3.26
-	// subsystem bfg_explosion_2 0.02 3.26
-	// subsystem bfg_explosion_3 0.02 3.26
-	// subsystem bfg_explosion_4 0.02 3.26
-	// subsystem bfg_explosion_5 0.02 3.26
-	// subsystem bfg_explosion_inner 0.02 3.26
-	// subsystem bfg_explode_smokeb 0 4
-	// subsystem bfg_explode_smoke1 0.02 4
-	// subsystem bfg_explode_smoke2 0.02 4
-	// subsystem bfg_explode_smoke3 0.02 4
-	// subsystem bfg_explode_smoke4 0.02 4
-	// subsystem bfg_explode_smoke5 0.02 4
+	// subsystem w9_explosion_1 0.02 3.26
+	// subsystem w9_explosion_2 0.02 3.26
+	// subsystem w9_explosion_3 0.02 3.26
+	// subsystem w9_explosion_4 0.02 3.26
+	// subsystem w9_explosion_5 0.02 3.26
+	// subsystem w9_explosion_inner 0.02 3.26
+	// subsystem w9_explode_smokeb 0 4
+	// subsystem w9_explode_smoke1 0.02 4
+	// subsystem w9_explode_smoke2 0.02 4
+	// subsystem w9_explode_smoke3 0.02 4
+	// subsystem w9_explode_smoke4 0.02 4
+	// subsystem w9_explode_smoke5 0.02 4
 }

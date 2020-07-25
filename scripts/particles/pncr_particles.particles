@@ -7,7 +7,7 @@ pncr_tube
 {
     //noise radius, noise strength
 	geometry tube
-	map effects_defacer.png
+	map effects_shaft.png
 	region ed_02
 	blend add
 	//length = 170*5 = 850
@@ -244,7 +244,8 @@ subsystem  pncr_embers_2
 	subsystem pncr_dispersion
 subsystem pncr_dispersion_2
 subsystem pncr_tube
-subsystem pncr_tube_2	
+subsystem pncr_tube_2
+range 0	
 }
 
 
@@ -313,6 +314,7 @@ subsystem  pncr_embers_2 0 5
 subsystem pncr_dispersion_2 0 3
 subsystem pncr_tube 0 5
 subsystem pncr_tube_2	 0 5	
+range 0
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 pncr_muzzle_flash

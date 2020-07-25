@@ -50,7 +50,7 @@ lg_tube
 {
     //noise radius, noise strength
 	geometry tube
-	map effects_defacer.png
+	map effects_shaft.png
 	region ed_00
 	blend alpha
 	//length = 170*5 = 850
@@ -111,7 +111,7 @@ tube
 {
     //noise radius, noise strength
 	geometry tube
-	map effects_defacer.png
+	map effects_shaft.png
 	region ed_00
 	blend alpha
 	//length = 170*5 = 850
@@ -239,7 +239,7 @@ lighting2_3p
 ////////////
 
 
-df_embers
+//shaft_embers
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_23
@@ -270,7 +270,7 @@ df_embers
 
 }
 
-df_center_spark
+//shaft_center_spark
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_24
@@ -295,7 +295,7 @@ df_center_spark
 
 
 
-df_impact_1
+//shaft_impact_1
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_20
@@ -321,20 +321,20 @@ df_impact_1
 	auto_rotate true
 }
 
-df_impact_2 df_impact_1
+//shaft_impact_2 shaft_impact_1
 {
 	region s3_rl_muzzle_21
 	color_start  0.25 2.75 4
 }
 
 
-df_impact
+//shaft_impact
 {
 
 	//subsystem bfg_light_impact
-    subsystem df_embers
-	subsystem df_impact_1
-	subsystem df_impact_2
-	//subsystem df_center_spark
+    subsystem shaft_embers
+	subsystem shaft_impact_1
+	subsystem shaft_impact_2
+	//subsystem shaft_center_spark
 }
 

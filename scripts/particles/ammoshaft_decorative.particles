@@ -1,4 +1,4 @@
-ammodf_decorative_spark
+ammoshaft_decorative_spark
 {
 	map shaft_ammo_lightning.png
 	region shaft_ammo_lightning
@@ -30,20 +30,20 @@ ammodf_decorative_spark
 	position 5.67 -3.023 4.68
 }
 
-ammodf_decorative_spark2 ammodf_decorative_spark
+ammoshaft_decorative_spark2 ammoshaft_decorative_spark
 {
 	position 5.67 -3.023 4.68
 	animation_start 20
 	color_start 0.6 0.55 0.04
 	color_end 0.6 0.55 0.04
 }
-ammodf_decorative_spark3 ammodf_decorative_spark
+ammoshaft_decorative_spark3 ammoshaft_decorative_spark
 {
 	geometry segment 0.008 7.413 -3
     position -5.734 -3.172 4.648
 	animation_start 8
 }
-ammodf_decorative_spark4 ammodf_decorative_spark
+ammoshaft_decorative_spark4 ammoshaft_decorative_spark
 {
 		geometry segment 0.008 7.413 -3
 	position -5.734 -3.172 4.648
@@ -51,13 +51,13 @@ ammodf_decorative_spark4 ammodf_decorative_spark
 	color_start 0.6 0.55 0.04
 	color_end 0.6 0.55 0.04
 }
-ammodf_decorative_spark5 ammodf_decorative_spark
+ammoshaft_decorative_spark5 ammoshaft_decorative_spark
 {
 		geometry segment 0.021 7.237 -2.034
 	position 0 -5.694 -4.984
 	animation_start 16
 }
-ammodf_decorative_spark6 ammodf_decorative_spark
+ammoshaft_decorative_spark6 ammoshaft_decorative_spark
 {
 	//geometry segment 0.029 7.331 -13.526
 	//position 0.029 -2.517 7.837
@@ -67,7 +67,7 @@ ammodf_decorative_spark6 ammodf_decorative_spark
 	color_start 0.6 0.55 0.04
 	color_end 0.6 0.55 0.04
 }
-ammodf_decorative_circle_01
+ammoshaft_decorative_circle_01
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_2
@@ -88,36 +88,36 @@ color_start 8 4 0 1
 	position 5.67 -3.023 4.68
  
 }
-ammodf_decorative_circle_02 ammodf_decorative_circle_01
+ammoshaft_decorative_circle_02 ammoshaft_decorative_circle_01
 {
 	position -5.734 -3.172 4.648
  
 }
-ammodf_decorative_circle_03 ammodf_decorative_circle_01
+ammoshaft_decorative_circle_03 ammoshaft_decorative_circle_01
 {
 	position 0 -5.694 -4.984
  
 }
 
-ammodf_decorative
+ammoshaft_decorative
 {
-	subsystem ammodf_decorative_spark
-	subsystem ammodf_decorative_spark2
-	subsystem ammodf_decorative_spark3
-	subsystem ammodf_decorative_spark4
-	subsystem ammodf_decorative_spark5
-	subsystem ammodf_decorative_spark6
+	subsystem ammoshaft_decorative_spark
+	subsystem ammoshaft_decorative_spark2
+	subsystem ammoshaft_decorative_spark3
+	subsystem ammoshaft_decorative_spark4
+	subsystem ammoshaft_decorative_spark5
+	subsystem ammoshaft_decorative_spark6
 	
 	
-	subsystem ammodf_decorative_circle_01
-	subsystem ammodf_decorative_circle_02
-	subsystem ammodf_decorative_circle_03
+	subsystem ammoshaft_decorative_circle_01
+	subsystem ammoshaft_decorative_circle_02
+	subsystem ammoshaft_decorative_circle_03
 
 }
 
 
 
-// ammodf_decorative_spark
+// ammoshaft_decorative_spark
 // {
 	// map lightning_stylized.png
 	// region lightning1
@@ -148,20 +148,20 @@ ammodf_decorative
 	// //(Add 1.162)
 	// position 5.694 1.297 5.007
 // }
-// ammodf_decorative_spark2 ammodf_decorative_spark
+// ammoshaft_decorative_spark2 ammoshaft_decorative_spark
 // {
 	// position 5.694 1.297 5.007
 	// animation_start 20
 	// color_start 0.6 0.55 0.04
 	// color_end 0.6 0.55 0.04
 // }
-// ammodf_decorative_spark3 ammodf_decorative_spark
+// ammoshaft_decorative_spark3 ammoshaft_decorative_spark
 // {
 	// geometry segment 0 8.263 -2.385
     // position -5.726 1.278 4.941
 	// animation_start 8
 // }
-// ammodf_decorative_spark4 ammodf_decorative_spark
+// ammoshaft_decorative_spark4 ammoshaft_decorative_spark
 // {
 	// geometry segment 0 8.263 -2.385
 	// position -5.726 1.278 4.941
@@ -169,13 +169,13 @@ ammodf_decorative
 	// color_start 0.6 0.55 0.04
 	// color_end 0.6 0.55 0.04
 // }
-// ammodf_decorative_spark5 ammodf_decorative_spark
+// ammoshaft_decorative_spark5 ammoshaft_decorative_spark
 // {
 		// geometry segment 0 8.299 -2.286
 	// position 0.0 -1.42 -4.633
 	// animation_start 16
 // }
-// ammodf_decorative_spark6 ammodf_decorative_spark
+// ammoshaft_decorative_spark6 ammoshaft_decorative_spark
 // {
 	// //geometry segment 0.029 7.331 -13.526
 	// //position 0.029 -2.517 7.837
@@ -186,13 +186,13 @@ ammodf_decorative
 	// color_end 0.6 0.55 0.04
 // }
 
-// ammodf_decorative
+// ammoshaft_decorative
 // {
-	// subsystem ammodf_decorative_spark
-	// subsystem ammodf_decorative_spark2
-	// subsystem ammodf_decorative_spark3
-	// subsystem ammodf_decorative_spark4
-	// subsystem ammodf_decorative_spark5
-	// subsystem ammodf_decorative_spark6
+	// subsystem ammoshaft_decorative_spark
+	// subsystem ammoshaft_decorative_spark2
+	// subsystem ammoshaft_decorative_spark3
+	// subsystem ammoshaft_decorative_spark4
+	// subsystem ammoshaft_decorative_spark5
+	// subsystem ammoshaft_decorative_spark6
 // }
 

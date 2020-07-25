@@ -135,6 +135,7 @@ smoke_primitive
 //IMPACT
 smoke_weeble_impact
 {
+  auto_remove true
   subsystem smoke_primitive
   //subsystem rl_explosion_smoke 0 1.2
     //subsystem rl_explosion_smoke_2 0 1.2 

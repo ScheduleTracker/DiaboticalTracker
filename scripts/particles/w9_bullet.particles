@@ -268,7 +268,7 @@ weapon9_bullet_dots
 }
 //SUBSYSTEM BULLET
 
-bfg_bullet
+w9_bullet
 {
 
 	subsystem weapon9_bullet_center_1

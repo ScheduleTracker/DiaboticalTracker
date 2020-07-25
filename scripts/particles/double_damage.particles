@@ -9,7 +9,7 @@ orb_pickup
 	blend add
 	max_particles 1
 	max_emissions 1
-	lifetime 0
+	lifetime 100
 	//fade_in 0.1
 	//fade_out 0.999
 	rotation_start 0
@@ -248,7 +248,7 @@ orb_pickup_gold orb_pickup
     range 0
 	color_start 1.5 1.2 0.5
 	color_end 1.5 1.2 0.5
-	position 0 8.5 0
+	position 0 0 0
     scale_start 100
 	scale_end 100
 }

@@ -2,35 +2,66 @@ asset armor/5
 {
   listed true
   type entity
-  command multi /add armort1; /set !last time 25
+  command multi /add armort1
 }
 
 asset armor/50
 {
   listed true
   type entity
-  command multi /add armort2; /set !last time 25
+  command multi /add armort2
 }
 
 asset armor/75
 {
   listed true
   type entity
-  command multi /add armort3; /set !last time 25
+  command multi /add armort3
 }
 
 asset armor/100
 {
   listed true
   type entity
-  command multi /add armort4; /set !last time 25
+  command multi /add armort4
+}
+
+asset macguffin_pickup
+{
+  listed true
+  type entity
+  command /add macguffin
+}
+
+asset flag/1
+{
+  listed true
+  type entity
+  command multi /add flag; /set !last team 0
+}
+asset flag/2
+{
+  listed true
+  type entity
+  command multi /add flag; /set !last team 1
+}
+asset flag
+{
+  pickup_size large
 }
 
 asset liquid
 {
   listed true
   type entity
-  command multi /add liquid; /resize !last 160 40 160
+  command multi /add liquid; /resize !last 160 40 160; /forsel move %1 +0 +10 +0
+}
+
+asset terrain_grass
+{
+  listed true
+  type entity
+  command multi /add prop_terrain_grass; /set !last model experiments/grass11
 }
 
 asset hp/5
@@ -66,9 +97,62 @@ asset powerup/doubledamage
   listed true
   type entity
   command multi /add doubledamage
-
 }
 
+asset powerup/diabotical
+{
+  listed true
+  type entity
+  command multi /add doubledamage
+}
+asset doubledamage
+{
+  pickup_size large
+}
+
+asset powerup/tripledamage
+{
+  listed true
+  type entity
+  command multi /add tripledamage
+}
+asset tripledamage
+{
+  pickup_size large
+}
+
+asset powerup/vanguard
+{
+  listed true
+  type entity
+  command multi /add vanguard
+}
+asset vanguard
+{
+  pickup_size large
+}
+
+asset powerup/siphonator
+{
+  listed true
+  type entity
+  command multi /add survival
+}
+asset survival
+{
+  pickup_size large
+}
+
+asset powerup/haste
+{
+  listed true
+  type entity
+  command multi /add haste
+}
+asset haste
+{
+  pickup_size large
+}
 
 //asset energy/5
 {
@@ -101,7 +185,7 @@ asset ammo/machinegun
   command add ammomac
 }
 
-asset ammo/shotgun
+asset ammo/super_shotgun
 {
   listed true
   type entity
@@ -112,7 +196,7 @@ asset ammo/shaft
 {
   listed true
   type entity
-  command add ammodf
+  command add ammoshaft
 }
 
 asset ammo/rocket_launcher
@@ -133,7 +217,7 @@ asset ammo/blaster
 {
   listed true
   type entity
-  command add ammovc
+  command add ammobl
 }
 
 asset ammo/grenade_launcher
@@ -144,21 +228,6 @@ asset ammo/grenade_launcher
 }
 
 //WEAPONS
-
-
-asset weapon/minigun
-{
-  listed true
-  type entity
-  command add weaponmg
-}
-
-asset weapon/shotgun
-{
-  listed true
-  type entity
-  command add weaponsg
-}
 
 asset weapon/super_shotgun
 {
@@ -171,7 +240,7 @@ asset weapon/shaft
 {
   listed true
   type entity
-  command add weapondf  
+  command add weaponshaft 
 }
 
 asset weapon/rocket_launcher
@@ -209,11 +278,11 @@ asset weapon/crossbow
 //  command add weaponir
 //}
 
-asset weapon/super_blaster
+asset weapon/blaster
 {
   listed true
   type entity
-  command add weaponsb
+  command add weaponbl
 }
 
 asset weapon/grenade_launcher
@@ -223,12 +292,6 @@ asset weapon/grenade_launcher
   command add weapongl
 }
 
-asset weapon/bfg
-{
-  listed true
-  type entity
-  command add weaponbfg
-}
 asset weapon/machinegun
 {
   listed true
@@ -272,11 +335,25 @@ asset weapon/smoke_weeball
 }
 
 //MISC
-asset trigger_volume
+asset trigger
 {
   listed true
   type entity
-  command multi /add trigger; /resize !last 40 40 40
+  command multi /add trigger; /resize !last 40 40 40; /forsel move %1 +0 +10 +0
+}
+
+asset trigger_start
+{
+  listed true
+  type entity
+  command multi /add trigger; /resize !last 40 40 40; /set !last action start_timer; /forsel move %1 +0 +10 +0
+}
+
+asset trigger_end
+{
+  listed true
+  type entity
+  command multi /add trigger; /resize !last 40 40 40; /set !last action end_timer; /forsel move %1 +0 +10 +0
 }
 
 asset light
@@ -297,14 +374,14 @@ asset jumppad
 {
   listed true
   type entity
-  command multi /add jumppad; /resize !last 40 10 40
+  command multi /add jumppad; /resize !last 80 10 80; /forsel move %1 +0 +-5 +0
 }
 
 asset teleport
 {
   listed true
   type entity
-  command multi /add teleport; /resize !last 40 80 40
+  command multi /add teleport; /resize !last 40 80 40; /forsel move %1 +0 +30 +0
 }
 
 asset jpdir
@@ -325,92 +402,154 @@ asset spawn
 {
   listed true
   type entity
-  command /add spawn
+  command multi /add spawn; /forsel move %1 +0 +-10 +0
+}
+
+asset spawn_template
+{
+  listed true
+  type entity
+  command multi /add prop_spawn; /forsel set %1 model props/production/spawnpoint/spawnpoint_vercol; /forsel move %1 +0 +-9 +0; /forsel rotate %1 0 180 0; /forsel set %1 newspawn 1; /add spawn; /forsel move %1 +0 +-10 +0; /find * newspawn 1; /forsel set %1 newspawn
+}
+
+asset base_team_0
+{
+  listed true
+  type entity
+  command multi /add base_team_0; /resize !last 400 180 400; /set !last team 0; /forsel move %1 +0 +80 +0
+}
+
+asset base_team_0_minor
+{
+  listed true
+  type entity
+  command multi /add base_team_0_minor; /resize !last 240 180 240; /set !last team 0; /set !last minor true; /forsel move %1 +0 +80 +0
+}
+
+asset base_team_1
+{
+  listed true
+  type entity
+  command multi /add base_team_1; /resize !last 400 180 400; /set !last team 1; /forsel move %1 +0 +80 +0
+}
+
+asset base_team_1_minor
+{
+  listed true
+  type entity
+  command multi /add base_team_1_minor; /resize !last 240 180 240; /set !last team 1; /set !last minor true; /forsel move %1 +0 +80 +0
+}
+
+asset thumbnail
+{
+  listed true
+  type entity
+  command multi /del thumbnail; /add thumbnail eye
 }
 
 ///////////////////////////////////////WEAPON_PICKUP_LIGHTS///////////////////////////////////////////////////
 
-asset weapondf
+asset weaponshaft
 {
-	pfx weapon_pickup_pfx_df
+	pfx weapon_pickup_pfx_shaft
+	pickup_size large
 }
 asset weaponpncr
 {
 	pfx weapon_pickup_pfx_pncr
+	pickup_size large
 }
 asset weaponcb
 {
 	pfx weapon_pickup_pfx_cb
+	pickup_size large
 }
 asset weaponss
 {
 	pfx weapon_pickup_pfx_ss
+	pickup_size large
 }
 asset weaponrl
 {
 	pfx weapon_pickup_pfx_rl
+	pickup_size large
 }
-asset weaponbfg
+asset weaponw9
 {
-	pfx weapon_pickup_pfx_bfg
+	pfx weapon_pickup_pfx_w9
+	pickup_size large
 }
 asset weapongl
 {
 	pfx weapon_pickup_pfx_gl
+	pickup_size large
 }
 asset weaponmg
 {
+	pfx weapon_pickup_pfx_mg
+	pickup_size large
 }
 asset weaponbl
 {
 	pfx weapon_pickup_pfx_vc
-}
-asset weaponsb
-{
-	pfx weapon_pickup_pfx_vc
-	model weaponbl
+	pickup_size large
 }
 asset weaponmac
 {
 	pfx weapon_pickup_pfx_mac
+	pickup_size large
 }
 asset weaponfg
 {
 	pfx weapon_pickup_pfx_fg
+	pickup_size large
 }
 asset weaponiw
 {
     pivot 0 0 0
-	scale 1.25
+	scale 1.4
 	pfx weapon_pickup_pfx_iw
+	pickup_size large
 }
 asset weaponsw
 {
     pivot 0 0 0
-	scale 1.25
+	scale 1.4
 	pfx weapon_pickup_pfx_sw
+	pickup_size large
 }
 asset weaponbw
 {
     pivot 0 0 0
-	scale 1.25
+	scale 1.4
 	pfx weapon_pickup_pfx_bw
+	pickup_size large
 }
 asset weaponhw
 {
     pivot 0 0 0
-	scale 1.25
+	scale 1.4
 	pfx weapon_pickup_pfx_hw
+	pickup_size large
 }
 asset weaponsmw
 {
     pivot 0 0 0
-	scale 1.25
+	scale 1.4
 	pfx weapon_pickup_pfx_smw
+	pickup_size large
 }
 asset weaponkw
 {
     pivot 0 0 0
-	scale 1.25
+	scale 1.4
 	pfx weapon_pickup_pfx_kw
+	pickup_size large
+}
+asset macguffin
+{
+  pivot 0 0 0
+  scale 1.4
+  pickup_size large
+  pfx macguffin_pfx 0 10 0
 }

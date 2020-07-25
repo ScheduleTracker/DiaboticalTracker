@@ -66,7 +66,7 @@ asset yellow_room
   listed true
   type decal
 }
-asset blue_room
+//asset blue_room
 {
   listed true
   type decal
@@ -541,6 +541,11 @@ asset no_entry
 }
 asset ring_decal
 
+{
+  listed true
+  type decal
+}
+asset circle_decal
 {
   listed true
   type decal

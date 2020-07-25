@@ -1,6 +1,6 @@
-//DEFACER IMPACT
+//shaft MUZZLE
 
-df_muzzle_flash_1
+shaft_muzzle_flash_1
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_15
@@ -12,7 +12,7 @@ df_muzzle_flash_1
 	lifetime 0.10 0.12
 	fade_in 0
 	fade_out 0.10
-	period 0.0
+	period 0.01
 	color_start 20 10 1.2 1
 	color_end  20 10 1.	2 1
 	position 0 0 6
@@ -21,7 +21,7 @@ df_muzzle_flash_1
     rotation_start 0 360
    
 }
-df_muzzle_flash_2
+shaft_muzzle_flash_2
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_15
@@ -42,7 +42,7 @@ df_muzzle_flash_2
     rotation_start 0 360
    
 }
-df_muzzle_spark_1
+shaft_muzzle_spark_1
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_4
@@ -71,9 +71,9 @@ df_muzzle_spark_1
    
 }
 
-df_impact
+shaft_muzzle
 {
-	subsystem df_muzzle_flash_1 0
-    subsystem df_muzzle_flash_2 0
-	subsystem df_muzzle_spark_1 0
+	subsystem shaft_muzzle_flash_1 0
+    subsystem shaft_muzzle_flash_2 0
+	subsystem shaft_muzzle_spark_1 0
 }

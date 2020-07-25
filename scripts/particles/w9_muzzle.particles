@@ -1,6 +1,6 @@
 //MUZZLE
 
-bfg_muzzle_flash_1
+w9_muzzle_flash_1
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_5
@@ -22,14 +22,14 @@ bfg_muzzle_flash_1
 position 0 0.25 2
 }
 
-bfg_muzzle_flash_2 bfg_muzzle_flash_1
+w9_muzzle_flash_2 w9_muzzle_flash_1
 {
 	scale_end 25
 	
 	region s3_rl_muzzle_2  
 }
 
-bfg_muzzle_flash_3 bfg_muzzle_flash_1
+w9_muzzle_flash_3 w9_muzzle_flash_1
 {
 
 	region s3_rl_muzzle_2 
@@ -37,7 +37,7 @@ bfg_muzzle_flash_3 bfg_muzzle_flash_1
 	
 }
 
-bfg_muzzle_flash_4
+w9_muzzle_flash_4
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_31
@@ -59,14 +59,14 @@ bfg_muzzle_flash_4
 position 0 0.25 3
 }
 
-bfg_muzzle_flash_5 bfg_muzzle_flash_4
+w9_muzzle_flash_5 w9_muzzle_flash_4
 {
 region s3_rl_muzzle_31
     scale_end 5
 	lifetime 0.07
   
 }
-bfg_muzzle_flash_6 bfg_muzzle_flash_4
+w9_muzzle_flash_6 w9_muzzle_flash_4
 {
 	region s3_rl_muzzle_25
 	color_start  2 2 10 1
@@ -75,7 +75,7 @@ bfg_muzzle_flash_6 bfg_muzzle_flash_4
 	lifetime 0.1
   
 }
-bfg_muzzle_flash_7 bfg_muzzle_flash_4
+w9_muzzle_flash_7 w9_muzzle_flash_4
 {
 
 	region s3_rl_muzzle_2
@@ -85,7 +85,7 @@ bfg_muzzle_flash_7 bfg_muzzle_flash_4
 	scale_end 20
     
 }
-bfg_muzzle_spark_1
+w9_muzzle_spark_1
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_4
@@ -114,25 +114,25 @@ color_start 7 2 10 1
 position 0 0.25 2
 }
 
-bfg_muzzle_spark_2 bfg_muzzle_spark_1
+w9_muzzle_spark_2 w9_muzzle_spark_1
 {
 
 	velocity_angles 180 90 0 90 90 0
 	
 }
-bfg_muzzle_spark_3 bfg_muzzle_spark_1
+w9_muzzle_spark_3 w9_muzzle_spark_1
 {
 	
 	velocity_angles 270 90 0 180 90 0
 
 }
-bfg_muzzle_spark_4 bfg_muzzle_spark_1
+w9_muzzle_spark_4 w9_muzzle_spark_1
 {
 
 	velocity_angles 360 90 0 270 90 0
 	
 }
-bfg_muzzle_spark_5
+w9_muzzle_spark_5
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_4
@@ -163,7 +163,7 @@ color_start 7 2 10 1
 position 0 0.25 2
 }
 
-bfg_muzzle_smoke_1
+w9_muzzle_smoke_1
 {
 
 	map particle_sheet3.png
@@ -190,16 +190,16 @@ bfg_muzzle_smoke_1
 		position 0 0.5 2
 }
 
-bfg_muzzle_smoke_2 bfg_muzzle_smoke_1
+w9_muzzle_smoke_2 w9_muzzle_smoke_1
 {
 velocity_angles 120 0 0 240 360 0
 }
 
-bfg_muzzle_smoke_3 bfg_muzzle_smoke_1
+w9_muzzle_smoke_3 w9_muzzle_smoke_1
 {
 velocity_angles 240 0 0 360 360 0
 }
-bfg_light base_light_impact
+w9_light base_light_impact
 {
 	lifetime 0.3
 	system_light_radius 50
@@ -210,7 +210,7 @@ bfg_light base_light_impact
 	position 2 0 0
 	
 }
-bfg_muzzle_center_flash
+w9_muzzle_center_flash
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_2
@@ -231,7 +231,7 @@ bfg_muzzle_center_flash
    	hard_edges true
 position 0 0.25 1
 }
-bfg_muzzle_center_flash_2
+w9_muzzle_center_flash_2
 {
 	map particle_sheet3.png
 	region s3_rl_muzzle_31
@@ -252,7 +252,7 @@ bfg_muzzle_center_flash_2
    	hard_edges true
 position 0 0.25 1
 }
-bfg_muzzle_center_flash_3
+w9_muzzle_center_flash_3
 {
 	map particle_sheet3.png
 	region s3_plasma_54
@@ -273,49 +273,49 @@ bfg_muzzle_center_flash_3
    	hard_edges true
 position 0 0.25 0
 }
-bfg_muzzle
+w9_muzzle
 {	
-	subsystem bfg_muzzle_flash_1 0 0.5
-		subsystem bfg_muzzle_flash_2 0 0.5
-			subsystem bfg_muzzle_flash_3 0 0.5
-	 subsystem bfg_muzzle_flash_4 0 1
-	 subsystem bfg_muzzle_flash_5 0 0.5
-	  subsystem bfg_muzzle_flash_6 0 0.5
-	  	  subsystem bfg_muzzle_flash_7 0 0.5
-	subsystem bfg_muzzle_center_spark_1 0 0.5
-	subsystem bfg_muzzle_spark_1 0 
-	subsystem bfg_muzzle_spark_2 0 
-	subsystem bfg_muzzle_spark_3 0 
-	subsystem bfg_muzzle_spark_4 0 
-	subsystem bfg_muzzle_spark_5 0 
-	subsystem  bfg_muzzle_smoke_1 0 0.5
-	subsystem  bfg_muzzle_smoke_2 0 0.5
-	subsystem  bfg_muzzle_smoke_3 0 0.5
-	subsystem bfg_muzzle_center_flash
-	subsystem bfg_muzzle_center_flash_2
-	subsystem bfg_muzzle_center_flash_3
-subsystem  bfg_light
+	subsystem w9_muzzle_flash_1 0 0.5
+		subsystem w9_muzzle_flash_2 0 0.5
+			subsystem w9_muzzle_flash_3 0 0.5
+	 subsystem w9_muzzle_flash_4 0 1
+	 subsystem w9_muzzle_flash_5 0 0.5
+	  subsystem w9_muzzle_flash_6 0 0.5
+	  	  subsystem w9_muzzle_flash_7 0 0.5
+	subsystem w9_muzzle_center_spark_1 0 0.5
+	subsystem w9_muzzle_spark_1 0 
+	subsystem w9_muzzle_spark_2 0 
+	subsystem w9_muzzle_spark_3 0 
+	subsystem w9_muzzle_spark_4 0 
+	subsystem w9_muzzle_spark_5 0 
+	subsystem  w9_muzzle_smoke_1 0 0.5
+	subsystem  w9_muzzle_smoke_2 0 0.5
+	subsystem  w9_muzzle_smoke_3 0 0.5
+	subsystem w9_muzzle_center_flash
+	subsystem w9_muzzle_center_flash_2
+	subsystem w9_muzzle_center_flash_3
+subsystem  w9_light
 }
-bfg_muzzle_3p
+w9_muzzle_3p
 {	
-	subsystem bfg_muzzle_flash_1 0 5
-		subsystem bfg_muzzle_flash_2 0 5
-			subsystem bfg_muzzle_flash_3 0 5
-	 subsystem bfg_muzzle_flash_4 0 10
-	 subsystem bfg_muzzle_flash_5 0 5
-	  subsystem bfg_muzzle_flash_6 0 5
-	  	  subsystem bfg_muzzle_flash_7 0 55
-	subsystem bfg_muzzle_center_spark_1 0 5
-	subsystem bfg_muzzle_spark_1 0 5
-	subsystem bfg_muzzle_spark_2 0 5
-	subsystem bfg_muzzle_spark_3 0 5
-	subsystem bfg_muzzle_spark_4 0 5
-	subsystem bfg_muzzle_spark_5 0 5
-	subsystem  bfg_muzzle_smoke_1 0 5
-	subsystem  bfg_muzzle_smoke_2 0 5
-	subsystem  bfg_muzzle_smoke_3 0 5
-	subsystem bfg_muzzle_center_flash 0 5
-	subsystem bfg_muzzle_center_flash_2 0 5
-	subsystem bfg_muzzle_center_flash_3 0 5
-subsystem  bfg_light
+	subsystem w9_muzzle_flash_1 0 5
+		subsystem w9_muzzle_flash_2 0 5
+			subsystem w9_muzzle_flash_3 0 5
+	 subsystem w9_muzzle_flash_4 0 10
+	 subsystem w9_muzzle_flash_5 0 5
+	  subsystem w9_muzzle_flash_6 0 5
+	  	  subsystem w9_muzzle_flash_7 0 55
+	subsystem w9_muzzle_center_spark_1 0 5
+	subsystem w9_muzzle_spark_1 0 5
+	subsystem w9_muzzle_spark_2 0 5
+	subsystem w9_muzzle_spark_3 0 5
+	subsystem w9_muzzle_spark_4 0 5
+	subsystem w9_muzzle_spark_5 0 5
+	subsystem  w9_muzzle_smoke_1 0 5
+	subsystem  w9_muzzle_smoke_2 0 5
+	subsystem  w9_muzzle_smoke_3 0 5
+	subsystem w9_muzzle_center_flash 0 5
+	subsystem w9_muzzle_center_flash_2 0 5
+	subsystem w9_muzzle_center_flash_3 0 5
+subsystem  w9_light
 }

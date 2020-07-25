@@ -9,41 +9,31 @@ eggbot
 	
 	//0
 	weapon sword
-
-	weapon blasta
-	weapon shelly
-	weapon shelly_spreader
+	weapon machinegun
+	weapon blaster
+	weapon super_shotgun
 	weapon rocket_launcher
 	//5
-	weapon defacer
+	weapon shaft
 	weapon crossbow
 	weapon pncr
-	
-	weapon machinegun
 	weapon grenade_launcher
+	weapon weapon9
 	
 	////    DO NOT CHANGE ANYTHING IN THE EGGBOT CLASS     ////
 	
 	//10
-	weapon weapon9
 	weapon minigun
 	weapon showtime
-	
-	//13
 	weapon healing_weeble	
-	//14
 	weapon implosive_weeble
-	//15
 	weapon slowfield_weeble
+	//15
 	weapon explosive_weeble
 	weapon smoke_weeble
-
-    //18
     weapon knock_weeble
 	weapon hook
     
-	//Shared-model weapon upgrades:
-	weapon supa_blasta
 
 	
 }

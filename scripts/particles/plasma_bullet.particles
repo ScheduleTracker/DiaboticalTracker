@@ -104,6 +104,7 @@ plasma_bullet_tier_1
 	subsystem  tier_1_plasma_bullet_circle
 	subsystem 	tier_1_plasma_ring+tier_1_plasma_ring_2+tier_1_plasma_ring_3+tier_1_plasma_ring_4
 	subsystem tier_1_plasma_bullet_light
+	range 0
 
 }
 
