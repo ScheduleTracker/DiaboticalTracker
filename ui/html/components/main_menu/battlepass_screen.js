@@ -447,6 +447,7 @@ function render_daily_challenges(c_cont, challenges, show_reroll) {
     _empty(c_cont);
     
     let reset_time = untilMidnight();
+    //console.log("render_daily_challenges", _dump(challenges), reset_time);
 
     let fragment = new DocumentFragment();
 
@@ -558,7 +559,7 @@ function render_daily_challenges(c_cont, challenges, show_reroll) {
     function untilMidnight() {
         let now = new Date();
         let then = new Date(now);
-        then.setHours(24, 0, 0, 0);
+        then.setUTCHours(24, 0, 0, 0);
         let total_mins = (then - now) / 6e4;
         let hours = Math.floor(total_mins / 60);
         let minutes = Math.ceil(total_mins % 60);

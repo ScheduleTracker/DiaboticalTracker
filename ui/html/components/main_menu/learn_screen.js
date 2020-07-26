@@ -125,7 +125,7 @@ function learn_screen_initialize_tab_weapons() {
                                 },
                         'weapon_image': '/html/images/entities/weaponrl.png.dds',
                         'ammo_image': '/html/images/entities/ammorl.png.dds',
-                        'description': 'The Rocket Launcher is a high damage, close-range weapon with great utility. Use in direct combat to bounce targets around to set up consecutive shots or attempt combination kills. Try to anticipate your opponents movements around the map, as a well placed prediction rocket can unnerve even the most experienced combatant.<div>By firing at the ground and jumping at the same time, you can also propel yourself across great vertical distances with the knockback of your own rocket.</div>'
+                        'description': "The Rocket Launcher is a high damage, close-range weapon with great utility. Use in direct combat to bounce targets around to set up consecutive shots or attempt combination kills. Try to anticipate your opponent's movements around the map, as a well placed prediction rocket can unnerve even the most experienced combatant.<div>By firing at the ground and jumping at the same time, you can also propel yourself across great vertical distances with the knockback of your own rocket.</div>"
                         },
         'weaponshaft':  {'script_key': 'shaft',
                         'entries': {'damage': 'damage', 

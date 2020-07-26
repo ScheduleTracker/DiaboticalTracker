@@ -1,5 +1,5 @@
 let global_leaderboards_data = {
-    "game_mode": "r_duel",
+    "game_mode": "r_team",
     "friends_only": false,
     "page": 1,
     "max_per_page": 10
@@ -41,7 +41,7 @@ function init_screen_leaderboards() {
             opt.dataset.value = mode;
             opt.textContent = global_queues[mode].queue_name;
 
-            if (mode == "r_team") opt.dataset.selected = 1;
+            if (mode == global_leaderboards_data.game_mode) opt.dataset.selected = 1;
             mode_filter.appendChild(opt);
         }
     }

@@ -587,6 +587,8 @@ window.addEventListener("load", function(){
     bind_event('on_masterclient_down',       function() { set_logged_out_screen(true, "service_down"); });
     bind_event('on_masterclient_disabled',   function() { set_logged_out_screen(true, "disabled"); });
 
+    bind_event('on_anticheat_error',   function(code) { set_logged_out_screen(true, "anticheat", code); });
+
     bind_event('global_event', function(event_name, value) {
 
         if (event_name == "disconnected") {
@@ -986,11 +988,11 @@ window.addEventListener("load", function(){
         if (variable == "lobby_custom_commands") set_lobby_custom_commands(value);
         
         if (variable.startsWith('hud_zoom_crosshair_definition:') && variable.substr(30) != currentCrosshairCreatorZoomWeaponIndex) {            
-            initialize_crosshair_creator(true, generateFullCrosshairDefinition(value), variable);
+            initialize_crosshair_creator(true, generateFullCrosshairDefinition(value), variable, 'none');
             currentCrosshairCreatorZoomWeaponIndex = variable.substr(30); //so we dont initialize every time the engine_variable gets updated
         }
         if (variable.startsWith('hud_crosshair_definition:') && variable.substr(25) != currentCrosshairCreatorWeaponIndex) {
-            initialize_crosshair_creator(false, generateFullCrosshairDefinition(value), variable);
+            initialize_crosshair_creator(false, generateFullCrosshairDefinition(value), variable, 'none');
             currentCrosshairCreatorWeaponIndex = variable.substr(25);   //so we dont initialize every time the engine_variable gets updated
         }
 
@@ -1301,7 +1303,7 @@ window.addEventListener("load", function(){
     });
 
     console.log("LOAD208");
-    
+
     // load shared code between menu and hud views
     init_shared();
 

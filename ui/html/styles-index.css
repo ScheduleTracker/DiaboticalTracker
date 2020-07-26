@@ -54,6 +54,9 @@ body, html {
     top:50%;
     transform:translateX(-50%) translateY(-50%);
     font-size:1.8vh;
+    width: 100vh;
+    text-align: center;
+    line-height: 3vh;
 }
 
 #main_menu {

@@ -504,6 +504,7 @@ var TRANSLATION_en =
     "chat_user_left_lobby":"{name} has left the lobby.",
     "message_multi_user_logged_out":"You have been logged out due to a new login being detected on another device or process.",
     "message_version_user_logged_out":"Your version of the game is outdated. Please restart the game to get the new update.",
+    "message_anticheat": "The anticheat system has requested a shutdown with error code {code}. This doesn't mean that you are suspected of cheating, as this could happen due to technical issues. Please contact us if you think this error is unwarranted.",
     "message_game_is_currently_offline":"Diabotical servers are currently offline.",
     "message_disabled":"This account has been disabled.",
     "message_service_down":"Thanks everyone for playing! Follow our Twitter, Reddit and join our Discord to know when Diabotical will be available again :)",

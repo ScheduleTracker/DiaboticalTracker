@@ -756,7 +756,7 @@ function drawPointers(ctxCross, enabledSides, length, thickness, outlineThicknes
     ctxCross.restore();
 }
 
-function initialize_crosshair_creator(zoom, crosshair_definition, engine_variable){ //need another function that draws each crosshair type from definition on initial load
+function initialize_crosshair_creator(zoom, crosshair_definition, engine_variable, layer_display){ //need another function that draws each crosshair type from definition on initial load
     
     cleanCrosshairDefinition(crosshair_definition); //set default crosshair if we have received empty definition
 
@@ -786,7 +786,7 @@ function initialize_crosshair_creator(zoom, crosshair_definition, engine_variabl
             el.appendChild(opt);
         }
 
-        set_crosshair_creator_layer_type(layer, crosshair_definition[layer].type, zoom, crosshair_definition, engine_variable, 'none');
+        set_crosshair_creator_layer_type(layer, crosshair_definition[layer].type, zoom, crosshair_definition, engine_variable, layer_display);
 
         ui_setup_select(el, function(opt, field) {
             crosshair_definition[layer].type = field.dataset.value;
@@ -1030,7 +1030,7 @@ function load_preset_canvas_crosshair(preset_crosshair_definition, engine_variab
     //So that we dont modify the values in the presets array (e.g. select preset -> change value -> try to use preset again keeps changed value if we dont 'deep clone' definition)
     var crosshair_definition = JSON.parse(JSON.stringify(preset_crosshair_definition)); 
     //fully reinitialize so that layer type select fields point to the new crosshair_definition
-    initialize_crosshair_creator(zoom, crosshair_definition, engine_variable);
+    initialize_crosshair_creator(zoom, crosshair_definition, engine_variable, 'block');
     updateEngineCrosshairDefinition(zoom, engine_variable, crosshair_definition);
 }
 
@@ -1216,7 +1216,7 @@ function initializeCrosshairPasteInput(zoom, current_crosshair_definition, engin
     
     confirmButton.addEventListener("click", function() {
         if (input.dataset.valid == 'true'){
-            initialize_crosshair_creator(zoom, new_crosshair_definition, engine_variable);
+            initialize_crosshair_creator(zoom, new_crosshair_definition, engine_variable, 'none');
             updateEngineCrosshairDefinition(zoom, engine_variable, new_crosshair_definition);
         }
     })
@@ -1315,7 +1315,7 @@ function scaleCrosshairValue(crosshair_definition, layer, key, scaleFactor){
 function scaleCrosshairToRes(zoom, crosshair_string, engine_variable){
     crosshair_definition = JSON.parse(crosshair_string);
     scaleCrosshairDefinition(crosshair_definition);
-    initialize_crosshair_creator(zoom, crosshair_definition, engine_variable);
+    initialize_crosshair_creator(zoom, crosshair_definition, engine_variable, 'block');
     updateEngineCrosshairDefinition(zoom, engine_variable, crosshair_definition);
 }
 
