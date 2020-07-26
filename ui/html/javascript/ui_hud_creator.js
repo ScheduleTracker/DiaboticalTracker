@@ -633,7 +633,12 @@ function renderElement(container_id, container_element, editing_mode, spectating
 
     if (propertyIsValidForElement(hud_element, "font")) {
         if (hud.elements[idx].font != undefined && hud.elements[idx].font != "default") {
-            new_element.style.fontFamily = hud.elements[idx].font;
+            if (["zh_TW", "zh_CN", "ja", "ru"].includes(global_language)) {
+                new_element.style.fontFamily = "notosans";
+                new_element.style.fontWeight = "bold";
+            } else {
+                new_element.style.fontFamily = hud.elements[idx].font;
+            }
         }
     }
 

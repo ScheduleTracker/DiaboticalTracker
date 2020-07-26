@@ -516,6 +516,7 @@ var TRANSLATION_en =
     "message_team_join_uneven":"Unable to join team: change would decrease evenness.",
     "message_reconnect":"Rejoin previous {type} {mode} match?",
     "message_reconnect_abandon": "Abandoning this {type} {mode} match can lead to matchmaking penalties!",
+    "queuing_for": "Queuing for",
     "match_found": "Match Found",
     "match_found_quickplay": "Quick Play Match Found",
     "match_found_ranked": "Ranked Match Found",

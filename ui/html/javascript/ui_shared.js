@@ -457,7 +457,7 @@ function init_shared() {
     // Set initial language to english
     global_translations = TRANSLATION_en;
     global_countries = COUNTRIES_en;
-    
+
     bind_event("set_egs_language", function(locale) {
         console.log("set language", locale);
         engine.call("echo", "Language: " + locale);
@@ -480,7 +480,7 @@ function init_shared() {
             "de": "de"
         };
 
-        let global_language = "en";
+        global_language = "en";
         if (locale.toLowerCase() in langCodes) global_language = langCodes[locale.toLowerCase()];
 
         if (global_language == "zh_TW") {
