@@ -550,7 +550,7 @@ game tdm
 {
 	setting game_team_mode 1
 	setting game_friendly_fire 1
-	setting game_weapon_respawn_time 25
+	setting game_weapon_respawn_time 15
 	setting game_hp 125
 	setting game_time_limit 720
 	setting game_overtime_score_limit 10
