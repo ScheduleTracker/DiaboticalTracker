@@ -1213,9 +1213,7 @@ var TRANSLATION_zh_TW =
     "aim_report_accuracy": "Accuracy",
     "aim_report_reaction_time": "Reaction Time",
     "aim_report_leave": "Leave",
-    "aim_report_restart": "Restart"
-}
-{
+    "aim_report_restart": "Restart",
     "chat_spam_warning": "Message sent too quickly.",
     "chat_user_joined_party": "{name} has joined the party.",
     "chat_user_joined_lobby": "{name} has joined the lobby.",
