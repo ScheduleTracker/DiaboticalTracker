@@ -13,6 +13,15 @@ body, html {
 	overflow: hidden;
 }
 
+#game_version {
+    position:absolute;
+    top:7vh;
+    right:1vh;
+    font-size:1.3vh;
+    font-family:var(--main-font-medium);
+    opacity:0.6;
+}
+
 #main_logged_out {
     position: absolute;
     top: 2vh;
@@ -195,7 +204,14 @@ body, html {
 	margin-left: 2vh;
 	font-family: var(--main-font);
 }
-
+#console_version {
+    position:absolute;
+    bottom:3.5vh;
+    right:1vh;
+    font-size:1.3vh;
+    font-family: var(--main-font-medium);
+    opacity:0.4;
+}
 
 
 /*

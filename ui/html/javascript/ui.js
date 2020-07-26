@@ -225,6 +225,11 @@ window.addEventListener("load", function(){
         }
     });
 
+    bind_event("set_version", function(version) {
+        _id("console_version").textContent = "v"+version;
+        _id("game_version").textContent = "v"+version;
+    });
+
     bind_event("set_locations", function(json_loc_data) {
         try {
             data = JSON.parse(json_loc_data);

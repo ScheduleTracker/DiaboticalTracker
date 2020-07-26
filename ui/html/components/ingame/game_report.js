@@ -499,6 +499,10 @@ function selectPlayer(stats, show) {
 
     if (GLOBAL_ABBR.STATS_KEY_WEAPONS in stats) {
         for (let s of stats[GLOBAL_ABBR.STATS_KEY_WEAPONS]) {
+
+            // Only show stats of main weapons
+            if (!global_weapons_in_scoreboard.includes(s[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX])) continue;
+
             let weapon = _createElement("div", "weapon");
 
             let w_data = undefined;
@@ -647,7 +651,7 @@ function game_report_switch_bottom_content(new_button, new_content) {
     if (new_button === button_prev_active) return;
     if (button_prev_active) button_prev_active.classList.remove("active");
     new_button.classList.add("active");
-    
+
     let prev_active = gr.querySelector(".bottom .container .cont_box.active");
     if (prev_active) prev_active.classList.remove("active");
     new_content.classList.add("active");

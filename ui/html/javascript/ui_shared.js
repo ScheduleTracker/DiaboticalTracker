@@ -460,7 +460,6 @@ function init_shared() {
 
     bind_event("set_egs_language", function(locale) {
         console.log("set language", locale);
-        engine.call("echo", "Language: " + locale);
 
         var langCodes = {
             "en-gb": "en",
