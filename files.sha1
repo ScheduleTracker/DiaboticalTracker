@@ -14,7 +14,7 @@ f79605274bcf374a5ff11f7b8e93cbcf7e6286b3	NvVolumetricLighting.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-eeb1f884038a9be3dcc65a8c30855aeaea74ab1f	anticheat/equ8.db
+978993b903e578da44413d7ccde90cb603d038c5	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1554,7 +1554,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-1d25a7355df12e4ed5723f5d7529a75b6f317c08	diabotical.exe
+7cd4c56091f8f3afecc9b30a6e148ab20c0f080e	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -6790,8 +6790,8 @@ e0e60464a32b5935c77b96b528c6c6b50559e954	ui/html/translations/translation-ja.js
 502fa7f7206c4ac96fd7a2d321b1ce72a089d64f	ui/html/translations/translation-pt-BR.js
 310ac7cfc66c5bfad6be05da217a220b608099c1	ui/html/translations/translation-ru.js
 d973b3351a6b315cd672470925e8084e3596a741	ui/html/translations/translation-zh-CN.js
-8b32430d337cb2c2104bdc70c86551fd1669a2fd	ui/html/translations/translation-zh-TW.js
-0e97c1cd149fdbc9ee8e72805a49cdd210063d23	ui/html/ui.html
+44b49e0cdd2ba214dc3c0f25fbb7ea092b827c6f	ui/html/translations/translation-zh-TW.js
+863af68d5435a779ba69ea0c81699f5447d47181	ui/html/ui.html
 18c61eaa43f0b2d2d56cabd10bfb4191336debf7	ui/html/vendors/anime/anime.min.js
 9737735e4a7e3a0db1fd7aec9c9670a94e31e035	ui/html/vendors/chartjs/_Chart.bundle.js
 388ec557ec1e260c59ce61d819077cb52949bd02	ui/html/vendors/fetch.umd.js
