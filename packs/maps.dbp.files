@@ -10,7 +10,13 @@ maps\a_junktion-h.png		136044
 maps\a_junktion.rbe		23422050
 maps\aim1.rbe		2847888
 maps\aim_template.rbe		2844799
+maps\b_alchemy-b.png		2876
+maps\b_alchemy-h.png		473727
+maps\b_alchemy.rbe		30310343
 maps\b_furnace.rbe		43889918
+maps\b_icefall-b.png		3456
+maps\b_icefall-h.png		481103
+maps\b_icefall.rbe		16882974
 maps\b_marina-b.png		8734
 maps\b_marina-h.png		373884
 maps\b_marina.rbe		28895612
@@ -85,7 +91,7 @@ maps\menu9.rbe		8274869
 maps\mg_marina-b.png		8734
 maps\mg_marina-h.png		373884
 maps\mg_marina.rbe		28904590
-maps\mg_sunken.rbe		19009192
+maps\mg_sunken.rbe		19008992
 maps\practice.rbe		12824253
 maps\tdm_alchemy-b.png		2876
 maps\tdm_alchemy-h.png		473727
