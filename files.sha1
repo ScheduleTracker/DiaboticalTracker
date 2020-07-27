@@ -14,7 +14,7 @@ f79605274bcf374a5ff11f7b8e93cbcf7e6286b3	NvVolumetricLighting.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-8396227d509baa3606ee06359ebef904aee0b2db	anticheat/equ8.db
+a51c4f192230f7d7513c4c447b7eabac3ef0bc43	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1554,7 +1554,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-968e0255a14a5c7e2a886308b940de872aaa486b	diabotical.exe
+0052ec686c1886fa2255a9ee1dea1e421c18a4b1	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -4773,7 +4773,7 @@ ace5d5cc1815ae395fb51ba938ea9fd658fb96e5	ui/html/components/main_menu/customize_
 d727bf3507a457073ddbb6e036f989e876b45240	ui/html/components/main_menu/gift_screen.js
 2a69b4c7089cff48c4e450fb92576206fd9cf00f	ui/html/components/main_menu/home_screen.js
 274d07413171a8da346167f277f32e820b4d1a9d	ui/html/components/main_menu/ingame_menu.js
-92bcc456c96d27524672b9ade98814a495234001	ui/html/components/main_menu/leaderboards_screen.js
+ddf172f4bba4f7c392f382bca29cc17241e840e3	ui/html/components/main_menu/leaderboards_screen.js
 04066b97fbbd1b91553c6e7a6737d904928e0440	ui/html/components/main_menu/learn_screen.js
 4266c162020ce99bafd6072095b151ec7934bd16	ui/html/components/main_menu/main_chat.js
 e92c0ad36718d0582b953fa5a98a014bae8d246e	ui/html/components/main_menu/match_screen.js
@@ -6781,7 +6781,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 4bf8dc93589fb97321e114e6c1c24b5ea49cc8d0	ui/html/translations/strings_play.json
 628b88ca0722ebd3be8618c7d3fd3339389b34fa	ui/html/translations/translation-de.js
-560cc6be6ee8a5b20c285951572ca9923b7d0afa	ui/html/translations/translation-en.js
+264d27a4976a35e8211060b7c56ca249bc36e96c	ui/html/translations/translation-en.js
 ee02b19fa1bde12654b1a22a6099c1083ca46a71	ui/html/translations/translation-es-ES.js
 c5c266562726239266dbdfbbd74a2c3d1be679e2	ui/html/translations/translation-es-MX.js
 3ee0bb0597e4171a41644698030f024b4d2e1d6d	ui/html/translations/translation-fr.js
