@@ -14,7 +14,7 @@ f79605274bcf374a5ff11f7b8e93cbcf7e6286b3	NvVolumetricLighting.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-1a5ac843a28eb88424de95f20098d15b5da5e68e	anticheat/equ8.db
+8396227d509baa3606ee06359ebef904aee0b2db	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1554,7 +1554,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-90da2b3e9aaca63d48c433fa9825568ad9b27451	diabotical.exe
+968e0255a14a5c7e2a886308b940de872aaa486b	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
