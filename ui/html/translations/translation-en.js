@@ -507,7 +507,7 @@ var TRANSLATION_en =
     "message_anticheat": "The anticheat system has requested a shutdown with error code {code}. This doesn't mean that you are suspected of cheating, as this could happen due to technical issues. Please contact us if you think this error is unwarranted.",
     "message_game_is_currently_offline":"Diabotical servers are currently offline.",
     "message_disabled":"This account has been disabled.",
-    "message_service_down":"Thanks everyone for playing! Follow our Twitter, Reddit and join our Discord to know when Diabotical will be available again :)",
+    "message_service_down":"Thank you for playing in the 24h Stress Test 1! The next 24h Stress Test will start on August 1st at 19:00 CEST. Follow our Twitter, Reddit and join our Discord to stay up to date about Diabotical!",
     "message_verification_failed":"Authentication Verification with Epic Online Services failed. Please restart your game to try again.",
     "message_press_button_to_bind":"Press a button to bind it or the Escape key to cancel.",
     "message_no_servers_avail":"No server available.",

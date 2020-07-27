@@ -4,6 +4,8 @@ let global_leaderboards_data = {
     "page": 1,
     "max_per_page": 10
 };
+let global_leaderboards_max_page = 50; // 500 max players
+let global_request_leaderboard_timeout = undefined; 
 
 /* cache own position for 10 minutes (TODO: should also invalidate cache when a match is finished) ... lets ignore the fact for now that your ranking is also affected by other users moving up/down
     mode -> {
@@ -68,6 +70,7 @@ function load_leaderboard() {
         "season": 1,
     };
 
+    let page_requested = global_leaderboards_data['page'];
     let first_pos = ((global_leaderboards_data['page'] - 1) * global_leaderboards_data["max_per_page"]) + 1;
 
     let leaderboards_table = _id("leaderboards_table");
@@ -113,8 +116,10 @@ function load_leaderboard() {
                 own_data = global_leaderboards_self_cache[params_self.mode].data;
             }
         }
-        
-        render_leaderboard(first_pos, data.leaderboard, own_data);
+
+        if (page_requested == global_leaderboards_data['page']) {
+            render_leaderboard(first_pos, data.leaderboard, own_data);
+        }
     }
 
     function on_timeout() {
@@ -137,7 +142,14 @@ function load_leaderboard() {
         _empty(leaderboards_table);
     }
 
-    multi_req_handler("leaderboards_screen", requests, on_success, on_delay, on_timeout, on_pagechange);
+    if (global_request_leaderboard_timeout !== undefined) {
+        clearTimeout(global_request_leaderboard_timeout);
+    }
+    global_request_leaderboard_timeout = setTimeout(() => {
+        multi_req_handler("leaderboards_screen", requests, on_success, on_delay, on_timeout, on_pagechange);
+        global_request_leaderboard_timeout = undefined;
+    }, 200);
+    
 
     /*
     	{
@@ -218,7 +230,6 @@ function render_leaderboard(first_pos, data, self) {
     render_leaderboard_controls(more_pages);
 
     leaderboards_table.appendChild(fragment);
-    global_leaderboard_switching_page = false;
 }
 
 function render_leaderboard_row(target, position, data, self) {
@@ -266,7 +277,6 @@ function render_leaderboard_row(target, position, data, self) {
 }
 
 function leaderboard_on_row_click(e) {
-    if (global_leaderboard_switching_page) return;
     if (e.currentTarget.classList.contains("self")) {
         open_player_profile("own");
     } else {
@@ -276,6 +286,10 @@ function leaderboard_on_row_click(e) {
 
 let global_leaderboard_controls = undefined;
 function render_leaderboard_controls(more_pages) {
+
+    if (global_leaderboards_data['page'] >= global_leaderboards_max_page) {
+        more_pages = false;
+    }
 
     //console.log("global_leaderboard_controls",global_leaderboard_controls);
     if (global_leaderboard_controls != undefined) {
@@ -309,11 +323,9 @@ function render_leaderboard_controls(more_pages) {
     let nav = _createElement("div", "navigation");
     let btn_first = _createElement("div", ["db-btn", "plain", "nav", "first"]);
     btn_first.addEventListener("click", function(e) {
-        if (!global_leaderboard_switching_page) {
-            global_leaderboards_data['page'] = 1;
-            load_leaderboard();
-            global_leaderboard_switching_page = true;
-        }
+        global_leaderboards_data['page'] = 1;
+        load_leaderboard();
+        render_leaderboard_controls(true);
     });
     _addButtonSounds(btn_first, 1);
     nav.appendChild(btn_first);
@@ -321,12 +333,10 @@ function render_leaderboard_controls(more_pages) {
     
     let btn_prev = _createElement("div", ["db-btn", "plain", "nav", "prev"]);
     btn_prev.addEventListener("click", function(e) {
-        if (!global_leaderboard_switching_page) {
-            global_leaderboards_data['page']--;
-            if (global_leaderboards_data['page'] < 1) global_leaderboards_data['page'] = 1;
-            load_leaderboard();
-            global_leaderboard_switching_page = true;
-        }
+        global_leaderboards_data['page']--;
+        if (global_leaderboards_data['page'] < 1) global_leaderboards_data['page'] = 1;
+        load_leaderboard();
+        render_leaderboard_controls(true);
     });
     _addButtonSounds(btn_prev, 1);
     nav.appendChild(btn_prev);
@@ -338,11 +348,9 @@ function render_leaderboard_controls(more_pages) {
 
     let btn_next = _createElement("div", ["db-btn", "plain", "nav", "next"]);
     btn_next.addEventListener("click", function(e) {
-        if (!global_leaderboard_switching_page) {
-            global_leaderboards_data['page']++;
-            load_leaderboard();
-            global_leaderboard_switching_page = true;
-        }
+        global_leaderboards_data['page']++;
+        load_leaderboard();
+        render_leaderboard_controls(true);
     });
     _addButtonSounds(btn_next, 1);
     nav.appendChild(btn_next);
