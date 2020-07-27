@@ -111,7 +111,7 @@ game default
     setting phy_air_steering_dottenuation 1
     setting phy_air_steering_bonus 0
     setting phy_bolt_type 1
-    setting phy_bolt_cooldown 4
+    setting phy_bolt_cooldown 3.5
     setting phy_bolt_cooldown_recovery 0
     setting phy_bolt_minimum_ground_time 0.0697941
     setting phy_bolt_base_speed 450
