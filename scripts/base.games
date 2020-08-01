@@ -12,7 +12,10 @@ game default
 	setting game_tide_bonus 0
 	setting game_confirmation_frag 0
 	setting game_time_limit 0
-	setting game_frag_limit 0
+	setting game_score_limit 0
+
+	setting game_maximum_respawn_time_ms 5000
+        setting game_minimum_respawn_time_ms 1500
 
 	setting game_hp 125
 	setting game_stable_hp 100
@@ -62,6 +65,7 @@ game default
 	setting game_player_hitbox_height 61
     setting game_player_hitbox_hover_offset -0.25
 	setting game_lifesteal 0
+	setting game_life_count 0
 
 	setting game_inventory_slots 0		
     setting game_deposit_coins 0
@@ -111,11 +115,11 @@ game default
     setting phy_air_steering_dottenuation 1
     setting phy_air_steering_bonus 0
     setting phy_bolt_type 1
-    setting phy_bolt_cooldown 3.5
+    setting phy_bolt_cooldown 3
     setting phy_bolt_cooldown_recovery 0
     setting phy_bolt_minimum_ground_time 0.0697941
-    setting phy_bolt_base_speed 450
-    setting phy_bolt_extra_speed 0
+    setting phy_bolt_base_speed 482
+    setting phy_bolt_extra_speed 0.1
     setting phy_bolt_extra_accel 0
     setting phy_bolt_extra_accel_time 0
     setting phy_bolt_pitch 22.5
@@ -151,22 +155,22 @@ game edit
 	setting game_draft_time 0
 	setting game_countdown 0
 	setting game_time_limit 0
-	setting game_frag_limit 0
+	setting game_score_limit 0
 	
+    weapon sword 999
+	weapon machinegun 999
 	weapon blaster 999 true
 	weapon super_shotgun 999
 	weapon rocket_launcher 999
-	weapon pncr 999
 	weapon shaft 999
+	weapon crossbow 999
+	weapon pncr 999
 	weapon grenade_launcher 999
+	weapon healing_weeble 999
+	weapon smoke_weeble 999
 	weapon implosive_weeble 999
    	weapon slowfield_weeble 999
 	weapon explosive_weeble 999
-	weapon healing_weeble 999
-	weapon smoke_weeble 999
-	weapon machinegun 999
-    weapon sword 999
-	weapon crossbow 999
 }
 
 game practice
@@ -182,20 +186,21 @@ game practice
 	
 	map practice
 	
+	
+	weapon sword 999
+	weapon machinegun 999
 	weapon blaster 999 true
 	weapon super_shotgun 999
 	weapon rocket_launcher 999
-	weapon pncr 999
 	weapon shaft 999
+	weapon crossbow 999
+	weapon pncr 999
 	weapon grenade_launcher 999
+	weapon healing_weeble 999
+	weapon smoke_weeble 999
 	weapon implosive_weeble 999
    	weapon slowfield_weeble 999
 	weapon explosive_weeble 999
-	weapon healing_weeble 999
-	weapon smoke_weeble 999
-	weapon machinegun 999
-    weapon sword 999
-	weapon crossbow 999
 }
 
 game warmup
@@ -213,27 +218,28 @@ game warmup
 	setting game_max_armor 100
     setting game_ghost_limit_hp 125
 	setting game_time_limit 480
-	setting game_frag_limit 0
+	setting game_score_limit 0
 
 
+	map b_crystal_cove
 	map b_furnace
 	map b_refinery
 	map b_wellspring
-	map b_alchemy
+	map b_oxide
 	map b_icefall
 	map b_marina
 	map b_sunken
 
-		
+	weapon sword 999
+	weapon machinegun 100
 	weapon blaster 250 true
 	weapon super_shotgun 50
 	weapon rocket_launcher 50
 	weapon shaft 250
 	weapon pncr 50
 	weapon grenade_launcher 5
-	weapon machinegun 100
-	weapon sword 999
 }
+
 game aim_pncr_flickshots 
 {
     setting game_initial_item_time 0
@@ -266,10 +272,11 @@ game duel
 	map duel_kasbah
 	map duel_outpost_dunia
 	map duel_perilous
+	map duel_perilous_wip
 	map duel_skybreak
 
-	weapon machinegun 100
 	weapon sword 999
+	weapon machinegun 100
 }
 
 //game ad
@@ -295,7 +302,8 @@ game ca
 	setting game_enable_items 0
 	setting game_team_mode 1
     setting game_rounds 10
-	setting game_frag_limit 3
+	setting game_score_limit 3
+	setting game_life_count 2
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -311,14 +319,14 @@ game ca
 	
 	setting game_friendly_fire 0
 	
+	weapon sword 999
+	weapon machinegun 100 
 	weapon blaster 250 true
 	weapon super_shotgun 50
 	weapon rocket_launcher 50
 	weapon shaft 250
 	weapon pncr 50
 	weapon grenade_launcher 5
-	weapon machinegun 100
-	weapon sword 999
 }
 
 game rocket_arena
@@ -332,7 +340,8 @@ game rocket_arena
 	setting game_enable_items 0
 	setting game_team_mode 1
     setting game_rounds 10
-	setting game_frag_limit 4
+	setting game_score_limit 4
+	setting game_life_count 2
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -349,8 +358,8 @@ game rocket_arena
 	
 	setting game_friendly_fire 0
 	
-	weapon rocket_launcher 999
 	weapon sword 999
+	weapon rocket_launcher 999
 }
 
 game shaft_arena
@@ -365,7 +374,8 @@ game shaft_arena
 	setting game_enable_items 0
 	setting game_team_mode 1
     setting game_rounds 10
-	setting game_frag_limit 3
+	setting game_score_limit 3
+	setting game_life_count 2
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -382,8 +392,8 @@ game shaft_arena
 	
 	setting game_friendly_fire 0
 	
-	weapon shaft 999
 	weapon sword 999
+	weapon shaft 999
 }
 
 game wipeout
@@ -391,12 +401,13 @@ game wipeout
 	map wo_furnace
 	map wo_refinery
 	map wo_wellspring
+	map wo_crystal_cove
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
 	setting game_team_mode 1
    	setting game_rounds 10
-	setting game_frag_limit 3
+	setting game_score_limit 3
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -412,15 +423,15 @@ game wipeout
 	
 	setting game_friendly_fire 0
 	
+	weapon sword 999
+	weapon machinegun 100
 	weapon blaster 150 true
 	weapon super_shotgun 50
 	weapon rocket_launcher 50
 	weapon shaft 200
 	weapon pncr 50
 	weapon grenade_launcher 5
-	weapon machinegun 100
 	weapon healing_weeble 1
-	weapon sword 999
 }
 
 game brawl
@@ -432,19 +443,19 @@ game brawl
     setting game_stable_hp 100
     setting game_ghost_limit_hp 125
 	setting game_time_limit 480
-	setting game_frag_limit 0
+	setting game_score_limit 0
 
+	map b_crystal_cove
 	map b_furnace
 	map b_refinery
 	map b_wellspring
-	map b_alchemy
+	map b_oxide
 	map b_icefall
 	map b_marina
 	map b_sunken
 	
-		
+	weapon sword 999	
 	weapon machinegun 100
-	weapon sword 999
 }
 
 game macguffin
@@ -452,16 +463,19 @@ game macguffin
 	setting game_team_mode 1
 	setting game_weapon_respawn_time 2
 	setting game_friendly_fire 0
-	setting game_frag_limit 2
+	setting game_score_limit 2
 	setting game_spawn_farthest_threshold 4
 	setting game_round_countdown 15
+
+        setting game_maximum_respawn_time_ms 3000
+        setting game_minimum_respawn_time_ms 3000
 
 	map mg_sunken
 	map mg_marina
 	
 
-	weapon machinegun 100
 	weapon sword 999
+	weapon machinegun 100
 }
 
 //This game mode isn't used directly normally, it's used as a metatemplate when another
@@ -477,10 +491,11 @@ game instagib
 	map wo_furnace
 	map wo_refinery
 	map wo_wellspring
+	map wo_crystal_cove
 
 
-	weapon crossbow 999
 	weapon sword 999
+	weapon crossbow 999
 }
 
 //Another metamode
@@ -495,10 +510,11 @@ game instagib_brawl
 	map wo_furnace
 	map wo_refinery
 	map wo_wellspring
+	map wo_crystal_cove
 
 
-	weapon pncr 999
 	weapon sword 999
+	weapon pncr 999
 }
 game ghosthunt
 {	
@@ -510,7 +526,7 @@ game ghosthunt
 	setting game_enable_items 1
 	setting game_self_damage 0
 	setting game_time_limit 360
-	setting game_frag_limit 0
+	setting game_score_limit 0
 	setting game_overtime 60
 
 	map ig_coastline
@@ -519,8 +535,8 @@ game ghosthunt
 	map ig_terminal
 
 
-	weapon crossbow 999
 	weapon sword 999
+	weapon crossbow 999
 }
 
 game coinrun
@@ -533,7 +549,7 @@ game coinrun
 	setting game_enable_items 1
 	setting game_self_damage 0
 	setting game_time_limit 360
-	setting game_frag_limit 0
+	setting game_score_limit 0
 	setting game_overtime 60
     setting game_deposit_coins 1
 
@@ -542,14 +558,14 @@ game coinrun
 	map gr_titans_crossing
 
 
-	weapon crossbow 999
 	weapon sword 999
+	weapon crossbow 999
 }
 
 game tdm
 {
 	setting game_team_mode 1
-	setting game_friendly_fire 1
+	setting game_friendly_fire 0
 	setting game_weapon_respawn_time 15
 	setting game_hp 125
 	setting game_time_limit 720
@@ -557,14 +573,30 @@ game tdm
 	setting game_overtime_score_threshold 10
 	setting game_mercy_limit 30
 
-	map tdm_alchemy
 	map tdm_icefall
+	map tdm_oxide
 	
-		
-	weapon machinegun 100
 	weapon sword 999
+	weapon machinegun 100
 }
 
+game extinction
+{
+    setting game_friendly_fire 0
+	setting game_team_mode 1
+	setting game_hp 125
+	setting game_score_limit 2
+	setting game_life_count 3
+	setting game_weapon_respawn_time 5
+	
+
+	map tdm_icefall
+	map tdm_oxide
+	
+	
+	weapon sword 999
+	weapon machinegun 100
+}
 
 // DONT CHANGE ID NUMBERS ASSIGNED TO  SKILLS!
 

@@ -1,0 +1,320 @@
+
+dd_ring
+{
+	map explosion_2.png
+	region   explosion 
+	animation_speed 40
+	animation_start 0
+	blend add
+	max_particles 18
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0
+	fade_out 0.10
+	period 0.02
+	color_start  3 0.5 3 1
+	color_end  3 0.5 4 1
+     scale_start 90
+    scale_end 90
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 -0.5
+angular_speed_start -1000 1000
+}
+dd_ring2
+{
+	map particle_sheet2.png
+	region   r_orb_new
+	animation_speed 6
+	animation_start 0
+	blend add
+	max_particles 3
+	max_emissions 0
+	lifetime 2
+	fade_in 0.2
+	fade_out 0.2
+	period 1
+	color_start  2 0 3 1
+	color_end  2 0 4 1
+     scale_start 80
+    scale_end 80
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 -0.5
+angular_speed_start -1000 1000
+}
+dd_flames_top
+{
+
+	map particle_sheet5.png
+	region   lightning_bolt	
+	animation_speed 6 10
+	animation_start 0
+	blend add
+	max_particles 7
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0
+	fade_out 0.10
+	period 0.2	
+		color_start  2 0.5 2 1
+	color_end  2 0.5 3 1
+     scale_start 90
+     scale_start 50 70
+    scale_end 40 45	
+    rotation_start -120 90
+   	hard_edges true
+	speed_start 125 120
+position 0 0 -0.5
+velocity_angles 90 0 0 90 0 0
+angular_speed_start -1000 1000
+}
+
+dd_ethereal_top dd_flames_top
+{
+	animation_speed 6 10
+	 scale_start 110 90
+    scale_end 5 15
+	period 0.1	
+map particle_sheet4.png
+	region r_smoke_ae_new2
+}
+dd_flames_top_2
+{
+	map particle_sheet5.png
+	region   lightning_bolt
+	animation_speed 6 10
+	animation_start 0
+	blend add
+	max_particles 7
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0
+	fade_out 0.10
+	period 0.25
+	color_start  2 0.5 3 1
+	color_end  2 0.75 4 1
+     scale_start 90
+     scale_start 60 80
+    scale_end 30 35
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 60 70
+position 0 0 -0.5
+velocity_angles 92 90 0 88 90 0
+angular_speed_start -1000 1000
+}
+dd_embers_top
+{
+	map particle_sheet3.png
+	region  s3_rl_muzzle_23
+	animation_start 0
+	blend add
+	max_particles 12
+	max_emissions 0
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+		color_start  3 1 3 1
+	color_end  2 1 4 1
+     scale_start 90
+     scale_start 20 10
+    scale_end 10 0
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 125 115
+position 0 0 -0.5
+velocity_angles 80 10  0 100 -10  0
+angular_speed_start -1000 1000
+}
+	dd_embers_top_2
+	{
+		map particle_sheet3.png
+		region region s3_rl_muzzle_40
+		animation_speed 50
+		animation_start 10
+		max_particles 160
+		max_emissions 0
+		lifetime 1.3
+		fade_in 0.2
+		blend add
+		fade_out 0.1
+		period 0.04
+		color_start   3 1 2 1 5 1 2 1
+     scale_start 90
+		scale_start 2.3 3
+		scale_end 1 0.4
+		rotation_start 180
+		fade_out 0.2
+		velocity_angles 90 0 0
+		speed_start 80
+		speed_end 10
+		//auto_orient true
+		//turbulence 2000 1000 2000
+		//acceleration 0 -5 0 0 -2 0
+		//position -5 -5 -5 5 -5 5
+		emitter horizontal_circle 10
+		position 0 -7 0
+	}
+dd_flames
+{
+	map particle_sheet5.png
+	region   lightning_bolt	
+	animation_speed 10 20
+	animation_start 0
+	blend add
+	max_particles 4
+	max_emissions 0
+	lifetime 0.3
+	fade_in 0
+	fade_out 0.10
+	period 0.1
+	color_start  3 1 2 1
+	color_end  3 1 5 1
+     scale_start 90
+     scale_start 50 80
+    scale_end 20 15
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 120 125 
+position 0 0 -0.5
+velocity_angles 0 0 0 360 360 360
+angular_speed_start -1000 1000
+}
+dd_orb
+{
+	map particle_sheet5.png
+	region  plasma_circle
+	animation_start 0
+	blend alpha
+	max_particles 1
+	max_emissions 0
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.10
+	period 0.2
+	color_start  0.5 0.8 0 1
+	color_end  0.5 0.8 0 1
+     scale_start 105
+    scale_end 105
+ 
+   	hard_edges true
+	}
+dd_embers
+{
+	map particle_sheet3.png
+	region  s3_rl_muzzle_23
+	animation_start 0
+	blend add
+	max_particles 8
+	max_emissions 0
+	lifetime 0.8 0.3
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+	color_start   3 1 2 1 5 1 2 1
+	color_end  2 1 4 1
+     scale_start 20 10
+    scale_end 10 0
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 50
+position 0 0 -0.5
+velocity_angles 100 90 0 80 90 0
+angular_speed_start -1000 1000
+}
+dd_embers_2
+{
+	map particle_sheet3.png
+	region  s3_rl_muzzle_23
+	animation_start 0
+	blend add
+	max_particles 8
+	max_emissions 0
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+	color_start   3 1 2 1 5 1 2 1
+	color_end  2 1 4 1
+     scale_start 20 10
+    scale_end 10 0
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 100
+position 0 0 -0.5
+velocity_angles 0 0 0 360 360 360
+angular_speed_start -1000 1000
+}
+dd_embers_3
+{
+	map particle_sheet5.png
+	region   lightning_bolt	
+	animation_start 0
+	blend add
+	max_particles 8
+	max_emissions 0
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+	color_start   3 1 2 1 5 1 2 1
+	color_end  2 1 4 1
+     scale_start 20 10
+    scale_end 10 0
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 100
+position 0 0 -0.5
+velocity_angles 0 0 0 360 360 360
+angular_speed_start -1000 1000
+}
+
+dd_light base_light_impact
+{
+	lifetime 0
+	system_light_radius 50	
+	system_light_intensity 10
+	position 0 0 0
+	system_light_color 1 0.5 1.5
+	system_light_falloff 0.0	
+}
+triple_damage_pfx
+{	
+subsystem  light_green
+subsystem dd_orb
+ subsystem dd_ring 
+  subsystem dd_ring2
+subsystem dd_flames_top
+subsystem dd_ethereal_top
+subsystem dd_flames_top_2
+subsystem dd_embers_top
+subsystem dd_embers_top_2
+subsystem  dd_flames
+subsystem	dd_embers
+subsystem dd_embers_2
+subsystem dd_embers_3
+subsystem dd_light
+
+}
+ bot_triple_damage_pfx
+{	
+subsystem  light_green 0 1.5
+subsystem dd_orb 0 1.5
+ subsystem dd_ring 0 1.5
+  subsystem dd_ring2 0 1.5
+subsystem dd_flames_top 0 1.5
+subsystem dd_ethereal_top 0 1.5
+subsystem dd_flames_top_2 0 1.5
+subsystem dd_embers_top 0 1.5
+subsystem dd_embers_top_2 0 1.5
+subsystem  dd_flames 0 1.5
+subsystem	dd_embers 0 1.5
+subsystem dd_embers_2 0 1.5
+subsystem dd_embers_3 0 1.5
+subsystem dd_light 0 1.5
+
+}
+
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

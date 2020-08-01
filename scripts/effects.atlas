@@ -221,6 +221,7 @@ r_point_big3		512 768 256 256 1 1
 r_sg_muzzle_spark2	1280 3328 256 256 3 3
 r_flat				512 768 256 256 1 1
 r_sparkle           0 3840 256 256 1 1
+r_ghost           256 3840 256 256 1 1
 }
 
 effects4.png 4096 4096

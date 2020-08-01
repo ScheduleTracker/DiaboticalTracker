@@ -11,7 +11,7 @@ sword
 	speed 0
 	can_destroy 1
 	unlimited_ammo true
-	distance 36
+	distance 38
 	hit_radius 25
 
 allow_during_bolt true

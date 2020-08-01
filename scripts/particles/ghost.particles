@@ -1,0 +1,241 @@
+
+ghost_ring
+{
+map explosion_2.png
+	region   explosion 
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 4
+	max_emissions 0
+	lifetime 2
+	fade_in 0.1
+	fade_out 0.10
+	period 0.4
+     scale_start 100
+    scale_end 100
+    rotation_start 0 360
+   	hard_edges true
+
+angular_speed_start -1000 1000
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.25
+	color_end  0.9 0.95 1 0.1
+	
+}
+ghost_ring_2
+{
+	map particle_sheet4.png
+	region r_smoke_ae_new2
+	animation_speed 40
+	animation_start 0
+	blend add
+	max_particles 3
+	max_emissions 0
+	lifetime 2
+	fade_in 0.1
+	fade_out 0.10
+	period 0.66
+     scale_start 50
+    scale_end 250
+    rotation_start 0 360
+   	hard_edges true
+
+angular_speed_start -1000 1000
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.25
+	
+}
+ghost_ring_3 ghost_ring_2
+{
+
+	lifetime 1
+	fade_in 0.1
+	fade_out 0.10
+	period 0.33
+     scale_start 0
+    scale_end 200
+
+}
+ghost_flames
+{
+	map particle_sheet4.png
+	region r_smoke_ae_new2
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 8
+	max_emissions 0
+	lifetime 2
+	fade_in 0
+	fade_out 0.10
+	period 0.3
+
+     scale_start 120 150
+    scale_end 10
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 45 55
+
+
+angular_speed_start -1000 1000
+ position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.2
+
+}
+ghost_flames_2
+{
+	map particle_sheet4.png
+	region r_smoke_ae_new2
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 4
+	max_emissions 0
+	lifetime 1
+	fade_in 0
+	fade_out 0.10
+	period 0.25
+
+     scale_start 50 80
+    scale_end 20 25
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 60 70
+	angular_speed_start -1000 1000
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.2
+}
+ghost_embers
+{
+	map particle_sheet3.png
+	region  s3_rl_muzzle_23
+	animation_start 0
+	blend add
+	max_particles 8
+	max_emissions 0
+	lifetime 0.8 0.3
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+
+     scale_start 20 10
+    scale_end 10 0
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 50
+	angular_speed_start -1000 1000
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+
+}
+ghost_embers_2
+{
+	map particle_sheet3.png
+	region  s3_rl_muzzle_23
+	animation_start 0
+	blend add
+	max_particles 8
+	max_emissions 0
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+     scale_start 20 10
+    scale_end 10 0
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 100
+
+angular_speed_start -1000 1000
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+
+}
+ghost_flames_back
+{
+
+	map particle_sheet5.png
+	region   flame 	
+	animation_speed 6 10
+	animation_start 0
+	blend add
+	max_particles 7
+	max_emissions 0
+	lifetime 0.5
+	fade_in 0
+	fade_out 0.10
+	period 0.10
+
+     scale_start 50 70
+    scale_end 20 25
+    rotation_start -130 90
+   	hard_edges true
+	speed_start 125 120
+velocity_angles 0 -90 0 0 -90 0
+angular_speed_start -1000 1000
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+}
+
+ghost_embers_back
+{
+	map particle_sheet3.png
+	region  s3_rl_muzzle_23
+	animation_start 0
+	blend add
+	max_particles 12
+	max_emissions 0
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.10
+	period 0.15
+	
+     scale_start 20 10
+    scale_end 10 0
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 125 115
+
+angular_speed_start -1000 1000
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+}
+light_orange_1 base_light_impact
+{
+	lifetime 0
+	system_light_radius 80	
+	system_light_intensity 1
+	system_light_color 4 3 0.8 
+	system_light_falloff 0.5
+	
+}
+
+bot_ghosts_pfx
+{
+	subsystem light_orange_1
+	subsystem ghost_ring 0 1.5
+	subsystem ghost_ring_2 0 1.5
+	subsystem ghost_ring_3  0 1.5
+	  subsystem	ghost_flames  0 1.5
+	 subsystem	ghost_flames_2  0 1.5
+	 subsystem ghost_embers  0 1.5
+	 subsystem ghost_embers_2  0 1.5
+	
+	 // subsystem ghost_embers_back  0 1.5
+}

@@ -1,12 +1,16 @@
-A//---------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------
 //------------------------------------------------ DIR  --------------------------------------------------
 //---------------------------------------------------------------------------------------------------------
+
 
 // 1. blaster
 // 2. shotgun
 // 3. shaft
-// 4. rocket Launcher
-// 5. PnCR
+// 4. rocket_launcher
+// 5. crossbow
+// 6. pncr
+// 7. machinegun
+// 8. grenade_launcher
 // 300 min switch times added for animation
 
 
@@ -22,7 +26,7 @@ blaster
 	color 7c62d1
  	//group 3
 	//unlimited_ammo true
-	speed 2000
+	speed 2200
  	rate 100
 	damage 20
 	default_ammo_pickup_ammo 50
@@ -306,10 +310,10 @@ rocket_launcher
 	
 	charge_animation 6
 	
-  	splash_radius 120
-	knockback 110
+  	splash_radius 125
+	knockback 100
 	knockback_self 110
-	ground_knockback 80
+	ground_knockback 70
 	ground_knockback_self 110
 	center_of_mass_offset 0
 	center_of_mass_offset_self 0
@@ -376,8 +380,8 @@ crossbow
 	speed 5236.3636363636363636363636363636
  	rate 1000
     penetrating true
-  	damage 70 80
-	max_damage_distance 1000
+  	damage 70 90
+	max_damage_distance 1250
     min_damage_distance 500
 	gravity 400
     gravity_pitch_offset 0

@@ -1526,3 +1526,100 @@ bot_sparkles_t3_pfx
 	subsystem bot_sparkles_t3 0 1.5
 	subsystem bot_sparkles_t3_2 0 1.5
 }
+
+
+bot_ghosts
+{
+    map particle_sheet1.png
+	region r_ghost
+	animation_speed 50
+	animation_start 10
+    
+	max_particles 6
+	max_emissions 6
+    emitter ellipse 15 15 6
+    
+	lifetime 999999
+	fade_in 0
+	fade_out 0.4
+	blend alpha
+	period 0.01
+
+    position 0 0 -8
+    
+    scale_start 12 12
+    rotation_start 180 180
+	//angular_speed_start 90
+
+	//position -12 -12 -15 12 12 -15
+	
+
+	velocity_angles 0 0 90
+	color_start 0.96 0.98 1 0.8 0.96 0.98 1 0.8
+	color_end 0.96 0.98 1 0.8 0.96 0.98 1 0.8
+	range 0
+}
+    
+bg_diabot_ring diabot_ring
+{
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+}
+bg_diabot_flames diabot_flames
+{
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+}
+bg_diabot_flames_2 diabot_flames_2
+{
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+}
+bg_diabot_embers diabot_embers
+{
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+}
+bg_diabot_embers_2 diabot_embers_2
+{
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+}
+bg_diabot_flames_back diabot_flames_back
+{
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+}
+bg_diabot_embers_back diabot_embers_back
+{
+    position 0 0 10
+    velocity_angles 0 0 0 0 0 0
+    color_start  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.5
+}
+    
+bot_ghosts_pfx
+{
+    subsystem bot_ghosts
+    
+    subsystem light_orange_1
+	subsystem bg_diabot_ring 0 1.5
+	subsystem bg_diabot_flames  0 1.5
+	subsystem bg_diabot_flames_2  0 1.5
+	subsystem bg_diabot_embers  0 1.5
+	subsystem bg_diabot_embers_2  0 1.5
+	subsystem bg_diabot_flames_back  0 1.5
+	subsystem bg_diabot_embers_back  0 1.5
+}

@@ -185,3 +185,17 @@ diabotical_pfx
 	subsystem diabot_flames_back  0 1.2
 	subsystem diabot_embers_back  0 1.2
 }
+
+
+
+bot_diabotical_pfx
+{
+	subsystem light_orange_1
+	subsystem diabot_ring 0 1.5
+	subsystem	diabot_flames  0 1.5
+	subsystem	diabot_flames_2  0 1.5
+	subsystem diabot_embers  0 1.5
+	subsystem diabot_embers_2  0 1.5
+	subsystem diabot_flames_back  0 1.5
+	subsystem diabot_embers_back  0 1.5
+}
