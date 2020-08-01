@@ -357,7 +357,7 @@ models\weapons\pncr\deathray\pncr_d.png.dds		5592580
 models\weapons\pncr\deathray\pncr_n.png.dds		1398276
 models\weapons\pncr\deathray\pncr_s.png.dds		1398276
 models\weapons\pncr\deathray\weapons_3p.shader		1613
-models\weapons\pncr\deathray\weapons_carry.shader		1408
+models\weapons\pncr\deathray\weapons_carry.shader		1404
 models\weapons\pncr\deathray\weapons_preview.shader		1958
 models\weapons\pncr\digital_camo\pncr_d.png.dds		5592548
 models\weapons\pncr\digital_camo\weapons_3p.shader		1613
@@ -385,7 +385,7 @@ models\weapons\pncr\glitter\pncr_d.png.dds		5592580
 models\weapons\pncr\glitter\pncr_n.png.dds		1398276
 models\weapons\pncr\glitter\pncr_s.png.dds		1398276
 models\weapons\pncr\glitter\weapons_3p.shader		1603
-models\weapons\pncr\glitter\weapons_carry.shader		1400
+models\weapons\pncr\glitter\weapons_carry.shader		1397
 models\weapons\pncr\glitter\weapons_preview.shader		1947
 models\weapons\pncr\goldenfrag\pncr_d.png.dds		5592580
 models\weapons\pncr\goldenfrag\pncr_s.png.dds		1398276
@@ -393,7 +393,7 @@ models\weapons\pncr\goldplated_diamond\pncr_d.png		2918619
 models\weapons\pncr\goldplated_diamond\pncr_n.png		1301813
 models\weapons\pncr\goldplated_diamond\pncr_s.png		971290
 models\weapons\pncr\goldplated_diamond\weapons_3p.shader		1713
-models\weapons\pncr\goldplated_diamond\weapons_carry.shader		1488
+models\weapons\pncr\goldplated_diamond\weapons_carry.shader		1474
 models\weapons\pncr\goldplated_diamond\weapons_preview.shader		2068
 models\weapons\pncr\grip\pncr_d.png		2780427
 models\weapons\pncr\grip\pncr_n.png		933646
@@ -405,13 +405,13 @@ models\weapons\pncr\hearts\pncr_d.png.dds		5592580
 models\weapons\pncr\hearts\pncr_n.png.dds		1398276
 models\weapons\pncr\hearts\pncr_s.png.dds		1398276
 models\weapons\pncr\hearts\weapons_3p.shader		1593
-models\weapons\pncr\hearts\weapons_carry.shader		1392
+models\weapons\pncr\hearts\weapons_carry.shader		1390
 models\weapons\pncr\hearts\weapons_preview.shader		1936
 models\weapons\pncr\hydro_dip\pncr_d.png.dds		5592548
 models\weapons\pncr\hydro_dip\pncr_n.png.dds		1398276
 models\weapons\pncr\hydro_dip\pncr_s.png.dds		1398276
 models\weapons\pncr\hydro_dip\weapons_3p.shader		1623
-models\weapons\pncr\hydro_dip\weapons_carry.shader		1416
+models\weapons\pncr\hydro_dip\weapons_carry.shader		1411
 models\weapons\pncr\hydro_dip\weapons_preview.shader		1969
 models\weapons\pncr\maze\pncr_d.png.dds		5592548
 models\weapons\pncr\maze\pncr_n.png.dds		1398276
@@ -423,7 +423,7 @@ models\weapons\pncr\mud_splatter\pncr_d.png.dds		5592580
 models\weapons\pncr\mud_splatter\pncr_n.png.dds		1398276
 models\weapons\pncr\mud_splatter\pncr_s.png.dds		1398276
 models\weapons\pncr\mud_splatter\weapons_3p.shader		1653
-models\weapons\pncr\mud_splatter\weapons_carry.shader		1440
+models\weapons\pncr\mud_splatter\weapons_carry.shader		1432
 models\weapons\pncr\mud_splatter\weapons_preview.shader		2002
 models\weapons\pncr\pool\pncr_d.png.dds		5592548
 models\weapons\pncr\pool\weapons_3p.shader		1573
