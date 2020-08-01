@@ -276,7 +276,7 @@ function create_game_report(game_status, snafu_data) {
         score_left.appendChild(_createElement("div", "value", game_status.teams[snafu_data["game_data.own_team.team_id"]].score));
         head_center.appendChild(score_left);
 
-        head_center.appendChild(_createElement("div","separator"));
+        //head_center.appendChild(_createElement("div","separator"));
 
         let score_right = _createElement("div", ["score_cont", "right"]);
         score_right.style.setProperty("--team_color", snafu_data["game_data.enemy_team.color"]);
