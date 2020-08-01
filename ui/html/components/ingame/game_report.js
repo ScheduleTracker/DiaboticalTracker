@@ -381,6 +381,16 @@ function create_game_report(game_status, snafu_data) {
 
             if ("players" in t && t.players.length) {
                 for (let p of t.players) {
+                    /*
+                    if (!player_lookup[p.user_id]) {
+                        console.log("missing player_data", p.user_id, _dump(p));
+                        continue;
+                    }
+                    */
+                    if (!p.stats) {
+                        console.log("missing player stats", p.user_id, _dump(p));
+                        continue;
+                    }
                     player_rows++;
 
                     let player_row = _createElement("div", "player_row");
@@ -392,7 +402,7 @@ function create_game_report(game_status, snafu_data) {
                     }
 
                     let avatar = _createElement("div", "avatar");
-                    avatar.style.backgroundImage = "url("+_avatarUrl(player_lookup[p.user_id].avatar)+")";
+                    if (player_lookup[p.user_id]) avatar.style.backgroundImage = "url("+_avatarUrl(player_lookup[p.user_id].avatar)+")";
                     player_row.appendChild(avatar);
                     player_row.appendChild(_createElement("div","name", p.name));
 
@@ -401,13 +411,13 @@ function create_game_report(game_status, snafu_data) {
                         if (p.user_id == global_self.user_id && current_match.mm_mode && current_match.mm_mode in global_self.mmr) {
                             rank_icon_cont.appendChild(renderRankIcon(global_self.mmr[current_match.mm_mode].rank_tier, global_self.mmr[current_match.mm_mode].rank_position, team_size, "small"));
                         } else {
-                            rank_icon_cont.appendChild(renderRankIcon(player_lookup[p.user_id].rank_tier, player_lookup[p.user_id].rank_position, team_size, "small"));
+                            if (player_lookup[p.user_id]) rank_icon_cont.appendChild(renderRankIcon(player_lookup[p.user_id].rank_tier, player_lookup[p.user_id].rank_position, team_size, "small"));
                         }
                         player_row.appendChild(rank_icon_cont);
                     }
 
                     if (game_status.mode == "race") {
-                        player_row.appendChild(_createElement("div","stat", player_lookup[p.user_id].best_time));
+                        if (player_lookup[p.user_id]) player_row.appendChild(_createElement("div","stat", player_lookup[p.user_id].best_time));
                     } else {
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_SCORE]));
                         player_row.appendChild(_createElement("div","stat", p.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]));

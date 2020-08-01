@@ -71,6 +71,8 @@ function show_dialog(data) {
         let options = _createElement("div", "options");
         for (let o of data.options) {
             let option = _createElement("div", "option", o.label);
+            if (o.hasOwnProperty("style")) option.classList.add(o.style);
+            
             option.addEventListener("click", function() {
                 if (typeof o.callback == "function") o.callback(dialog);
 

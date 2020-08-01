@@ -1477,10 +1477,11 @@ function parse_modes(modes) {
         let vs = '';
         let i18n = 'game_mode_';
         let mode = '';
+        var modifier = '';
 
         if (modes[name].modes.length == 0) continue;
         else if (modes[name].modes.length == 1) {
-            if (modes[name].modes[0].instagib) vs += localize("game_mode_type_instagib")+" ";
+            if (modes[name].modes[0].instagib && modes[name].modes[0].mode_name != "ghosthunt") modifier += localize("game_mode_type_instagib")+" ";
             i18n += modes[name].modes[0].mode_name;
             mode = modes[name].modes[0].mode_name;
         } else {
@@ -1488,7 +1489,11 @@ function parse_modes(modes) {
                 i18n += "circuit";
                 mode = "solo_mix";
             } else {
-                i18n += "circuit";
+                if (modes[name].max_party_size == 1) {
+                    i18n += "pickup";
+                } else {
+                    i18n += "circuit";
+                }
                 mode = "team_mix";
             }
         }
@@ -1500,12 +1505,7 @@ function parse_modes(modes) {
             else vs += Array(modes[name].teams).fill(modes[name].players_per_team).join(localize("game_mode_type_vs_short"));
         }
 
-        let queue_name = "";
-        if (modes[name].modes.length == 1) {
-            queue_name = localize(i18n)+" "+vs;
-        } else {
-            queue_name = vs+" "+localize(i18n);
-        }
+        let queue_name = vs+" "+localize(i18n).toUpperCase()+" "+modifier.toUpperCase();
 
         let roles = [];
         for (let role in modes[name].roles) {

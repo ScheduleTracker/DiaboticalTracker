@@ -893,8 +893,8 @@ function createCustomizationName(item) {
     return name;
 }
 function createCustomizationInfo(item, show_name) {
-    let customization_info = _createElement("div", "customization_info");
-    let div_type = _createElement("div", ["type","rarity_bg_"+item.rarity]);
+    let customization_info = _createElement("div", ["customization_info", "rarity_bg_"+item.rarity]);
+    let div_type = _createElement("div", "type");
     customization_info.appendChild(div_type);
     div_type.appendChild(_createElement("div", "rarity", localize(global_rarity_map[item.rarity].i18n)));
     div_type.appendChild(_createElement("div", "separator", "/"));

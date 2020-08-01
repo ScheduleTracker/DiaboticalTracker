@@ -103,22 +103,78 @@ function comp_play_queue(btn) {
 // DATACENTER SELECTION
 // ====================
 
+function toggle_datacenter_visibility(btn) {
+    let datacenters = _id("region_select_modal_screen").querySelectorAll(".datacenters");
+
+    if (btn.classList.contains("active")) {
+        btn.classList.remove("active");
+        for (let i=0; i<datacenters.length; i++) datacenters[i].classList.remove("active");
+    } else {
+        btn.classList.add("active");
+        for (let i=0; i<datacenters.length; i++) datacenters[i].classList.add("active");
+    }
+}
+
 function update_server_location_selection() {
 
     let cont = document.querySelector("#region_select_modal_screen .body");
     _empty(cont);
+
     let regions = Object.keys(global_server_regions).sort();
+    let count = 3;
+    let row = undefined;
     for (let region of regions) {
+        if (count == 3) {
+            row = _createElement("div", "row");
+            cont.appendChild(row);
+            count = 0;
+        }
+
+        count++;
+
         let region_div = document.createElement("div");
         region_div.classList.add("region");
+        region_div.dataset.region = region;
 
-        let region_head = document.createElement("div");
-        region_head.classList.add("head");
-        region_head.innerHTML = region;
+        let region_head = _createElement("div", "head");
         region_div.appendChild(region_head);
 
+        let main_cb = _createElement("div", "checkbox");
+        main_cb.appendChild(_createElement("div"));
+
+        region_head.appendChild(main_cb);
+        region_head.appendChild(_createElement("div", "region_name", region));
+        region_head.appendChild(_createElement("div", "region_ping", "999 ms"));
+
+        let datacenters = _createElement("div", "datacenters");
+        region_div.appendChild(datacenters);
+
+        region_head.addEventListener("click", function() {
+            if (main_cb.classList.contains("checkbox_enabled")) {
+                _play_cb_uncheck();
+                main_cb.classList.remove("checkbox_enabled");
+                main_cb.firstElementChild.classList.remove("inner_checkbox_enabled");
+                let cbs = datacenters.querySelectorAll(".small_checkbox.checkbox_enabled");
+                for (let i=0; i<cbs.length; i++) {
+                    cbs[i].classList.remove("checkbox_enabled");
+                    cbs[i].firstElementChild.classList.remove("checkbox_enabled");
+                }
+            } else {
+                _play_cb_check();
+                main_cb.classList.add("checkbox_enabled");
+                main_cb.firstElementChild.classList.add("inner_checkbox_enabled");
+                let cbs = datacenters.querySelectorAll(".small_checkbox");
+                for (let i=0; i<cbs.length; i++) {
+                    cbs[i].classList.add("checkbox_enabled");
+                    cbs[i].firstElementChild.classList.add("checkbox_enabled");
+                }
+            }
+
+            update_region_selection();
+        });
+
         for (let ds of global_server_regions[region]) {
-            let div_ds = document.createElement("div") ;
+            let div_ds = document.createElement("div");
             div_ds.classList.add("datacenter");
             div_ds.dataset.id = ds;
 
@@ -155,15 +211,15 @@ function update_server_location_selection() {
             div_ds.appendChild(cb);
             div_ds.appendChild(name);
             div_ds.appendChild(ping);
-            region_div.appendChild(div_ds);
+            datacenters.appendChild(div_ds);
         }
 
-        cont.appendChild(region_div);
+        row.appendChild(region_div);
     }
 
     let css_fix = document.createElement("div");
     css_fix.classList.add("empty-region");
-    cont.appendChild(css_fix);
+    row.appendChild(css_fix);
 
     refresh_datacenter_pings();
 }
@@ -198,8 +254,9 @@ function update_server_location_pings(data) {
         if (global_ping_update_in_progress) update_region_selection();
         global_ping_update_in_progress = false;
         initial_server_locations_ready = true;
-        
     }
+
+    let region_pings = {};
 
     _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".datacenter", function(el) {
         let ping = 'N/A';
@@ -212,19 +269,50 @@ function update_server_location_pings(data) {
             }
         }
 
+        let region = el.closest(".region");
+        if (region && ping != 'N/A') {
+            if (!(region.dataset.region in region_pings)) region_pings[region.dataset.region] = [];
+            region_pings[region.dataset.region].push(ping);
+        }
+
         let ping_el = el.querySelector('.ping');
-        _html(ping_el ,ping+" ms");
+        if (ping_el) {
+            ping_el.textContent = ping+" ms";
         
-        if (ping == -1) {
-            ping_el.style.color = '#bcbcbc';
-        } else if (ping < 45) {
-            ping_el.style.color = global_ping_colors['green'];
-        } else if (ping < 90) {
-            ping_el.style.color = global_ping_colors['yellow'];
-        } else if (ping < 130) {
-            ping_el.style.color = global_ping_colors['orange'];
+            if (ping == -1) {
+                ping_el.style.color = '#bcbcbc';
+            } else if (ping < 45) {
+                ping_el.style.color = global_ping_colors['green'];
+            } else if (ping < 90) {
+                ping_el.style.color = global_ping_colors['yellow'];
+            } else if (ping < 130) {
+                ping_el.style.color = global_ping_colors['orange'];
+            } else {
+                ping_el.style.color = global_ping_colors['red'];
+            }
+        }
+    });
+
+    _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".region_ping", function(el) {
+        let region = el.closest(".region");
+        if (region.dataset.region in region_pings) {
+            let best = 999;
+            for (let ping of region_pings[region.dataset.region]) {
+                if (ping < best) best = ping;
+            }
+            el.textContent = best+" ms";
+             if (best < 45) {
+                el.style.color = global_ping_colors['green'];
+            } else if (best < 90) {
+                el.style.color = global_ping_colors['yellow'];
+            } else if (best < 130) {
+                el.style.color = global_ping_colors['orange'];
+            } else {
+                el.style.color = global_ping_colors['red'];
+            }
         } else {
-            ping_el.style.color = global_ping_colors['red'];
+            el.textContent = "N/A";
+            el.style.color = global_ping_colors['red'];
         }
     });
 
@@ -270,6 +358,8 @@ function update_region_selection() {
     datacenters.sort(function(a, b) {
         if (!(a in global_server_locations)) return 1;
         if (!(b in global_server_locations)) return -1;
+        if (global_server_locations[a].ping == -1) return 1;
+        if (global_server_locations[b].ping == -1) return 1;
         return global_server_locations[a].ping - global_server_locations[b].ping;
     });
     
@@ -288,10 +378,24 @@ let global_initial_region_selection = true;
 function set_region_selection(from_engine, regions) {
     global_server_selected_locations = regions.split(':');
 
+    _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".checkbox", function(el) {
+        el.classList.remove("checkbox_enabled");
+        el.firstElementChild.classList.remove("inner_checkbox_enabled");
+    });
+
     _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".small_checkbox", function(el) {
         if (global_server_selected_locations.includes(el.dataset.id)) {
             el.classList.add("checkbox_enabled");
             el.children[0].classList.add("inner_checkbox_enabled");
+
+            let region = el.closest(".region");
+            if (region) {
+                let cb = region.querySelector(".checkbox");
+                if (cb) {
+                    cb.classList.add("checkbox_enabled");
+                    cb.firstElementChild.classList.add("inner_checkbox_enabled");
+                }
+            }
         } else {
             el.classList.remove("checkbox_enabled");
             el.children[0].classList.remove("inner_checkbox_enabled");
@@ -453,6 +557,28 @@ function renderPlayCard(data) {
     let card_top = _createElement("div", "card_top", localize(data.title));
     let card_best_rank = _createElement("div", "card_best_rank");
     card_top.appendChild(card_best_rank);
+    if (data.type == "ranked") {
+        let top_links = _createElement("div", "card_top_links");
+        let link_leaderboards = _createElement("div", "link", localize("menu_title_leaderboards"));
+        _addButtonSounds(link_leaderboards, 1);
+        link_leaderboards.addEventListener("click", function(ev) {
+            ev.stopPropagation();
+            if (data.queues.length) {
+                open_leaderboards(data.queues[0]);
+            } else {
+                open_leaderboards();
+            }
+        });
+        top_links.appendChild(link_leaderboards);
+        let link_ranks = _createElement("div", "link", localize("menu_title_rank_legend"));
+        _addButtonSounds(link_ranks, 1);
+        link_ranks.addEventListener("click", function(ev) {
+            ev.stopPropagation();
+            showRankOverview();
+        });
+        top_links.appendChild(link_ranks);
+        card_top.appendChild(top_links);
+    }
     card_flex.appendChild(card_top);
 
     let card_bottom = _createElement("div", "card_bottom");
@@ -527,7 +653,7 @@ function renderPlayCard(data) {
             for (let mode of global_queues[queue].modes) {
                 mode_list.appendChild(_createElement("div", "mode", localize(global_game_mode_map[mode.mode_name].i18n)));
             }
-            card_bottom.appendChild(mode_list);
+            card_checkbox.appendChild(mode_list);
         }
 
         if (global_queues[queue].roles && global_queues[queue].roles.length) {
@@ -1334,12 +1460,10 @@ function updateQueueRanks() {
         best_cont.dataset.position = best_position;
 
         _empty(best_cont);
-        let icon = renderRankIcon(best_rank, best_position, team_size, "");
-        icon.addEventListener("click", function(e) {
-            e.stopPropagation();
-            showRankOverview();
-        });
-        best_cont.appendChild(icon);
+        if (best_rank > 0) {
+            let icon = renderRankIcon(best_rank, best_position, team_size, "");
+            best_cont.appendChild(icon);
+        }
     }
 }
 

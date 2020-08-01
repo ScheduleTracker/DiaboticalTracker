@@ -11,6 +11,7 @@ function init_element_rect() {
         "bCCustom": "#ffffff",
         "bgC": "custom",
         "bgCCustom": "#00000080",
+        "o": 1,
         "hide_dead": "1",
     },
     [
@@ -35,6 +36,7 @@ function init_element_rect() {
             ]
         },
         {"inputType": "color", "type": "bgCCustom", "text": "Background Color Custom"},
+        {"inputType": "float", "type": "o", "text": "Opacity"},
         {"inputType": "toggle", "type": "hide_dead", "text": "Hide on death"},
     ]
     , "#hud_rect");

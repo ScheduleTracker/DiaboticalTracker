@@ -869,7 +869,7 @@ function open_gift() {
 
 function open_learn() {
     set_blur(true);
-    hl_button("mm_learn");
+    hl_button(".learn_menu_button");
     historyPushState({"page": "learn_screen"});
     switch_screens(_id("learn_screen"));
 }
@@ -883,13 +883,13 @@ function open_watch() {
     refreshScrollbar(_id("twitch_reward_streams").querySelector(".scroll-outer"));
 }
 
-function open_leaderboards() {
+function open_leaderboards(mode) {
     set_blur(true);
     hl_button("mm_leaderboards");
     historyPushState({"page": "leaderboards_screen"});
     switch_screens(_id("leaderboards_screen"));
     
-    load_leaderboard();
+    load_leaderboard(mode);
 }
 
 function open_replays() {
@@ -1081,16 +1081,23 @@ function accept_invitation(lobby_id) {
 
 function hl_button(selector) {
     
-    var items = document.querySelectorAll(".hl_button");
+    let items = document.querySelectorAll(".hl_button");
 
     for (var i = 0; i < items.length; i++) {
         items[i].classList.remove('hl_button')
     }
 
     if (selector) {
-        let el = _id(selector);
-        if (el) {
-            el.classList.add("hl_button");
+        if (selector.charAt(0) == ".") {
+            items = _id("lobby_container").querySelectorAll(selector);
+            for (var i = 0; i < items.length; i++) {
+                items[i].classList.add('hl_button')
+            }
+        } else {
+            let el = _id(selector);
+            if (el) {
+                el.classList.add("hl_button");
+            }
         }
     }
 }
@@ -1917,7 +1924,8 @@ function generate_tooltip_queue_info(type) {
 
 function generate_customization_item_info(id, type, rarity) {
     let show_name = true;
-    if (type == 1 || type == 2) show_name = false;
+    //if (type == 1 || type == 2) show_name = false;
+    if (type == 2) show_name = false;
     let customization_info = createCustomizationInfo({
         "customization_id": id,
         "customization_type": type,

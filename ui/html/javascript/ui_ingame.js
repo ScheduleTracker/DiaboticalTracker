@@ -720,6 +720,8 @@ window.addEventListener("load", function(){
     
 
     function showAnnounce(text, large, fade_out_ms, duration_ms){
+        if (!text) return;
+        
         var container = _id("announcements");
         _empty(container);
         

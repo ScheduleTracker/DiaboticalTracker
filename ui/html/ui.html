@@ -495,8 +495,8 @@
                     </div>
                     <div class="half right">
                         
-                        <div class="return_to_match mouseover-sound4 click-sound i18n" data-bind-if="!{{menu_game_data.spectator}}" data-i18n="ingame_menu_return_to_match" onclick="ingame_menu_close_menu()">Return to Match</div>
-                        <div class="return_to_match mouseover-sound4 click-sound i18n" data-bind-if="{{menu_game_data.spectator}}" data-i18n="ingame_menu_join_match" onclick="ingame_menu_join_match()">Join Match</div>
+                        <div class="return_to_match mouseover-sound4 click-sound i18n" data-bind-if="!{{menu_game_data.spectator}}" data-bind-i18n="'ingame_menu_return_to_match:'+{{menu_game_data.spectator}}" onclick="ingame_menu_close_menu()">Return to Match</div>
+                        <div class="return_to_match mouseover-sound4 click-sound i18n" data-bind-if="{{menu_game_data.spectator}}" data-bind-i18n="'ingame_menu_join_match:'+{{menu_game_data.spectator}}" onclick="ingame_menu_join_match()">Join Match</div>
 
                         <div data-bind-if="{{menu_game_data.team_switching}} > 0">
                             <div data-bind-if="{{menu_game_data.team_size}} > 1">
@@ -532,8 +532,8 @@
                                 <div class="team_name" data-bind-if="{{menu_game_data.team_size}} > 1" data-bind-i18n="'team_with_idx:'+({{team_iter.team_id}} + 1)"></div>
                                 <div class="player" data-bind-for="player_iter:{{team_iter.players}}" data-bind-dataset="'user_id:'+{{player_iter.user_id}}">
                                     <div class="name" data-bind-value="{{player_iter.name}}"></div>
-                                    <!--<div class="voice_status" data-bind-class-toggle="muted:{{player_iter.voip_muted}}"></div>-->
-                                    <!--<div class="btn" data-bind-click="ingame_toggle_mute({{player_iter.user_id}}, {{player_iter.voip_muted}})" data-bind-i18n="'toggle_mute:'+{{player_iter.voip_muted}}">Toggle Mute</div>-->
+                                    <div class="voice_status" data-bind-class-toggle="muted:{{player_iter.voip_muted}}"></div>
+                                    <div class="btn" data-bind-click="ingame_toggle_mute({{player_iter.user_id}}, {{player_iter.voip_muted}})" data-bind-i18n="'toggle_mute:'+{{player_iter.voip_muted}}">Toggle Mute</div>
                                     <div class="btn" data-bind-click="ingame_open_profile({{player_iter.user_id}})" data-bind-i18n="'profile:'+{{player_iter.voip_muted}}">Profile</div>
                                     <div class="separator"></div>
                                     <div class="btn" data-bind-click="ingame_report_user({{player_iter.user_id}}, {{player_iter.name}})" data-bind-i18n="'report:'+{{player_iter.user_id}}">Report</div>
@@ -546,8 +546,8 @@
                                 <div class="team_name" data-bind-i18n="'spectators:'+{{menu_game_data.spectators}}.length">Spectators</div>
                                 <div class="player" data-bind-for="player_iter:{{menu_game_data.spectators}}" data-bind-dataset="'user_id:'+{{player_iter.user_id}}">
                                     <div class="name" data-bind-value="{{player_iter.name}}"></div>
-                                    <!--<div class="voice_status" data-bind-class-toggle="muted:{{player_iter.voip_muted}}"></div>-->
-                                    <!--<div class="btn" data-bind-click="ingame_toggle_mute({{player_iter.user_id}}, {{player_iter.voip_muted}})" data-bind-i18n="'toggle_mute:'+{{player_iter.voip_muted}}">Toggle Mute</div>-->
+                                    <div class="voice_status" data-bind-class-toggle="muted:{{player_iter.voip_muted}}"></div>
+                                    <div class="btn" data-bind-click="ingame_toggle_mute({{player_iter.user_id}}, {{player_iter.voip_muted}})" data-bind-i18n="'toggle_mute:'+{{player_iter.voip_muted}}">Toggle Mute</div>
                                     <div class="btn" data-bind-click="ingame_open_profile({{player_iter.user_id}})" data-bind-i18n="'profile:'+{{player_iter.voip_muted}}">Profile</div>
                                     <div class="separator"></div>
                                     <div class="btn" data-bind-click="ingame_report_user({{player_iter.user_id}}, {{player_iter.name}})" data-bind-i18n="'report:'+{{player_iter.user_id}}">Report</div>
@@ -815,14 +815,12 @@
                                 </div>
                             </div>
 
-                            <!--
                             <div class="controls_row">
                                 <div class="controls_pair">
                                     <div class="controls_header i18n" data-i18n="settings_controls_team_voice_chat">Team Voice chat</div>
                                     <div class="controls_value" data-db-binding="talk" data-db-binding-mode="game"></div>
                                 </div>
                             </div>
-                            -->
 
                             <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_emote" style="margin-top:2vh;">
                                 Emote
@@ -1043,10 +1041,9 @@
                                     <div class="controls_value" data-db-binding="reload_selection" data-db-binding-mode="editor"></div>
                                 </div>
                             </div>
-                            <!--
                             <div class="controls_row">
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_voice_chat">Voice chat</div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_team_voice_chat">Team Voice chat</div>
                                     <div class="controls_value" data-db-binding="talk" data-db-binding-mode="editor"></div>
                                 </div>
                                 <div class="controls_pair">
@@ -1054,7 +1051,6 @@
                                     <div class="controls_value_empty"></div>
                                 </div>
                             </div>
-                            -->
 
                             <div style="height:4vh; width:100%"></div>
                         </div>
@@ -1571,7 +1567,7 @@
                                             <div class="settings_header i18n" data-i18n="settings_zoom_crosshair">Zoom Crosshair</div>
                                         </div>
                                         <div id="settings_block_zoom_crosshair" class="lockable">
-                                            <div class="crosshair_previews_container">
+                                            <div class="crosshair_previews_container zoomed">
                                                 <div id="preview_zoom_crosshairs_box" class="preview_crosshairs_box">
                                                     <div class="preview_crosshairs_zoom crosshairs_box" id="preview_crosshairs_content_zoom">
                                                         <div class="crosshair1 crosshair">
@@ -1806,7 +1802,7 @@
                                         id=game_team8_color_override data-variable="game_team8_color_override" data-presets="#23c841,#8438f6,#ff8800,#18c7ff,#ffa1ce,#f3f723,#ff1c1c,#7a874e">
                             </div>
                         </div>
-                        
+
                     <!--
                         <div class="settings_header i18n" data-i18n="settings_streaming" style="margin-top:2vh;">Streaming</div>
 
@@ -1863,14 +1859,14 @@
                                 <div id="slider_sound_announcer_volume" class="range-slider" data-variable="sound_announcer_volume" data-min="0" data-max="1" data-step="0.01" data-shift="100"></div>
                             </div>
                         </div>
-<!--
+
                         <div class="setting">
-                            <div class="label i18n" data-i18n="settings_sound_voice_chat">Voice Chat</div>
+                            <div class="label i18n" data-i18n="settings_controls_team_voice_chat">Team Voice Chat</div>
                             <div class="ctrl">
                                 <div id="slider_sound_voice_chat" class="range-slider" data-variable="sound_voip_volume" data-min="0" data-max="1" data-step="0.01" data-shift="100"></div>
                             </div>
                         </div>
--->
+
                     </div>
                 </div>
             </div>
@@ -2077,11 +2073,9 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="chat">
                                     <div class="element_label element_label_chat i18n" data-i18n="chat">Chat</div>
                                 </div>
-                            <!--
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="voicechat">
                                     <div class="element_label element_label_voicechat i18n" data-i18n="voicechat">Voice Chat</div>
                                 </div>
-                            -->
                                 <!--
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="system_clock" style="display:none;">
                                     <div class="element_label element_label_system_clock i18n" data-i18n="settings_hud_system_clock">System Clock</div>
@@ -2421,6 +2415,7 @@
             <div id="leaderboards_screen">
     <div class="leaderboards_screen_head">
         <div>
+            <div class="db-btn plain back mouseover-sound4 click-sound" onclick="historyBack();"></div>
             <div id=leaderboards_screen_filter_gamemode class="select-field" data-theme="gray2"></div>
             <!--
             <div class="separator"></div>
@@ -2550,6 +2545,10 @@
             <div class="learn_screen_button_label"><div class="i18n" data-i18n="learn_screen_tab_ha">Health and Armor</div></div>
         </div>
 
+        <div id="learn_screen_button_gamemodes" class="learn_screen_button last mouseover-sound2 click-sound i18n" onclick="learn_screen_change_tab('gamemodes')">
+            <div class="learn_screen_button_label"><div class="i18n" data-i18n="learn_screen_tab_gamemodes">Game Modes</div></div>
+        </div>
+
         <div id="learn_screen_button_powerups" class="learn_screen_button last mouseover-sound2 click-sound i18n" onclick="learn_screen_change_tab('powerups')">
             <div class="learn_screen_button_label"><div class="i18n" data-i18n="learn_screen_tab_powerups">Powerups</div></div>
         </div>
@@ -2576,6 +2575,21 @@
         <div id="learn_screen_info_armor" class="learn_screen_information_ha right"></div>
     </div>
 
+    <div id="learn_screen_content_gamemodes" class="learn_screen_content row">
+
+        <div id="learn_screen_item_list_gamemodes" class="learn_screen_item_list"></div>
+
+        <div class="crosshair_scroll scroll-outer theme_learn" style="flex: 1 0 0;" data-sb-hide-empty="true">
+            <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+            <div class="scroll-inner">
+
+            <div id="learn_screen_info_gamemodes" class="learn_screen_information_gamemodes"></div>
+
+            </div>
+        </div>  
+
+    </div>
+
     <div id="learn_screen_content_powerups" class="learn_screen_content">
 
         <div id="learn_screen_item_list_powerups" class="learn_screen_item_list">
@@ -2600,8 +2614,6 @@
                     <div id="play_menu_tab_quickplay" class="play_screen_button mouseover-sound2 click-sound active" onclick="play_menu_change_tab(this, _id('play_screen_quickplay'))">
                         <span class="i18n" data-i18n="play_menu_quick_play">Quick play</span>
                     </div>
-
-                    <div class="play_menu_divider"></div>
 <!--
                     <div id="play_menu_tab_ranked" class="play_screen_button mouseover-sound2 click-sound locked" onclick="play_menu_change_tab(this, _id('play_screen_ranked'))">
                         <span class="i18n" data-i18n="play_menu_competitive">Competitive</span><span class="lock"></span>
@@ -2610,15 +2622,11 @@
                     <div id="play_menu_tab_ranked" class="play_screen_button mouseover-sound2 click-sound" onclick="play_menu_change_tab(this, _id('play_screen_ranked'))">
                         <span class="i18n" data-i18n="play_menu_competitive">Competitive</span>
                     </div>
-
-                    <div class="play_menu_divider"></div>
-                    <!--
+<!--
                     <div id="play_menu_tab_event" class="play_screen_button mouseover-sound2 click-sound" onclick="play_menu_change_tab(this, _id('play_screen_esports'))" data-i18n="play_menu_events">
                         <span class="i18n" data-i18n="play_menu_events">Events</span>
                     </div>
-
-                    <div class="play_menu_divider"></div>
-                    -->
+-->
                     <div id="play_menu_tab_custom" class="play_screen_button mouseover-sound2 click-sound" onclick="play_menu_change_tab(this, _id('play_screen_customlist'))">
                         <span class="i18n" data-i18n="play_menu_custom_game">Custom games</span>
                     </div>
@@ -3148,13 +3156,19 @@
         <div class="category mouseover-sound4 click-sound selected" onclick="customization_load_category(this, 'sticker')">
             <div class="label i18n" data-i18n="customize_group_sticker">Sticker</div>
         </div>
-    <!--
+<!--
         <div class="category mouseover-sound4 click-sound" onclick="customization_load_category(this, 'character')">
             <div class="label i18n" data-i18n="customize_group_character">Character</div>
         </div>
+ -->
+        <div class="category locked"><div class="label i18n" data-i18n="customize_group_character">Character</div><div class="locked"></div></div>
+
         <div class="category mouseover-sound4 click-sound" onclick="customization_load_category(this, 'weapon')">
             <div class="label i18n" data-i18n="customize_group_weapon">Weapons</div>
         </div>
+    <!--
+        <div class="category locked"><div class="label i18n" data-i18n="customize_group_weapon">Weapons</div><div class="locked"></div></div>
+
         <div class="category mouseover-sound4 click-sound" onclick="customization_load_category(this, 'weapon_attachment')">
             <div class="label i18n" data-i18n="customize_group_weapon_attachment">Weapon Attachments</div>
         </div>
@@ -3162,8 +3176,6 @@
             <div class="label i18n" data-i18n="customize_group_spray">Sprays</div>
         </div>
     -->
-        <div class="category locked"><div class="label i18n" data-i18n="customize_group_character">Character</div><div class="locked"></div></div>
-        <div class="category locked"><div class="label i18n" data-i18n="customize_group_weapon">Weapons</div><div class="locked"></div></div>
         <div class="category locked"><div class="label i18n" data-i18n="customize_group_weapon_attachment">Weapon Attachments</div><div class="locked"></div></div>
         <div class="category locked"><div class="label i18n" data-i18n="customize_group_spray">Sprays</div><div class="locked"></div></div>
         <div class="category mouseover-sound4 click-sound" onclick="customization_load_category(this, 'music')">
@@ -3465,21 +3477,30 @@
                 </div>
             </div>
 
-            <div id="mm_ingame" class="main_menu_button click-sound mouseover-sound2" onclick='open_ingame_menu(false)'   data-bind-if="{{application_data.in_match}}"   ><div class="inner i18n" data-i18n="menu_top_match">Match</div></div>
+            <div id="mm_ingame" class="main_menu_button click-sound mouseover-sound2" onclick='open_ingame_menu(false)'   data-bind-if="{{application_data.in_match}}"><div class="inner" data-bind-i18n="'menu_top_match:'+{{application_data.in_match}}">Match</div></div>
             <div id="mm_play" class="main_menu_button click-sound mouseover-sound2" onclick='open_play()'><div class="inner i18n" data-i18n="menu_top_play">Play</div></div>
             <div id="mm_practice" class="main_menu_button click-sound mouseover-sound2" onclick='open_practice()'><div class="inner i18n" data-i18n="menu_top_practice">Practice</div></div>
             <div id="mm_customize" class="main_menu_button click-sound mouseover-sound2" onclick='open_customization()'><div class="inner i18n" data-i18n="menu_top_customize">Customize</div></div>
+            <div id="mm_learn_big" class="main_menu_button click-sound mouseover-sound2 learn_menu_button" onclick='open_learn()'><div class="inner i18n" data-i18n="menu_top_learn">Learn</div></div>
             <div id="mm_shop" class="main_menu_button click-sound mouseover-sound2" onclick='open_shop()' style="display:none;"><div class="inner i18n" data-i18n="menu_top_shop">Shop</div></div>
         </div>
 
         <div id="main_menu_icons">
 
-            <div id="mm_watch" onclick='open_watch()' class="main_menu_icon left mouseover-sound2 click-sound tooltip" style="display:none;">
+            <div id="mm_options" onclick='open_settings()' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
+                <span data-i18n="menu_top_settings" class="tip_inner i18n">Settings</span>
+                <div class="icon_cont">
+                    <div class="icon"></div>
+                </div>
+            </div>
+        <!--
+            <div id="mm_watch" onclick='open_watch()' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
                 <span data-i18n="menu_top_watch" class="tip_inner i18n">Watch</span>
                 <div class="icon"></div>
             </div>
+        -->
 
-            <div id="mm_learn" onclick='open_learn()' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
+            <div id="mm_learn" onclick='open_learn()' class="main_menu_icon left mouseover-sound2 click-sound tooltip learn_menu_button">
                 <span data-i18n="menu_top_learn" class="tip_inner i18n">Learn</span>
                 <div class="icon"></div>
             </div>
@@ -3489,10 +3510,12 @@
                 <div class="icon"></div>
             </div>
 
+        <!--
             <div id="mm_leaderboards" onclick='open_leaderboards()' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
                 <span data-i18n="menu_top_leaderbpards" class="tip_inner i18n">Leaderboards</span>
                 <div class="icon"></div>
             </div>
+        -->
         <!--
             <div id="mm_replays" onclick='open_replays()' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
                 <span data-i18n="menu_top_replays" class="tip_inner i18n">Replays</span>
@@ -3507,13 +3530,6 @@
             <div class="main_menu_logo_end_triangle"></div>
 
             <div class="main_menu_far_right_buttons">
-                <div id="mm_options" onclick='open_settings()' class="mouseover-sound2 click-sound tooltip">
-                    <span data-i18n="menu_top_settings" class="tip_inner i18n">Settings</span>
-                    <div class="icon_cont">
-                        <img src="/html/images/icons/fa/cog.svg">
-                    </div>
-                </div>
-                <div class="main_menu_icon_separator"></div>
                 <div id="mm_quit" onclick='open_modal_screen("quit_dialog_modal_screen")' class="mouseover-sound2 click-sound tooltip">
                     <span data-i18n="menu_top_quit" class="tip_inner i18n">Quit</span>
                     <img src="/html/images/icons/fa/power-off.svg?fill=#a51f1f">
@@ -4139,7 +4155,9 @@
             <div class="generic_modal_dialog region_select_modal" onclick="event.stopPropagation();">
                 <div class="top">
                     <div class="title i18n" data-i18n="datacenter_select">Select your region</div>
-                    <div class="refresh click-sound mouseover-sound2" onclick="refresh_datacenter_pings()"><div class="inner"></div></div>
+                    <div class="spacer"></div>
+                    <div class="toggle_servers click-sound mouseover-sound2 tooltip2" data-msg-id="toggle_datacenters" onclick="toggle_datacenter_visibility(this)"></div>
+                    <div class="refresh click-sound mouseover-sound2 tooltip2" data-msg-id="refresh_pings" onclick="refresh_datacenter_pings()"><div class="inner"></div></div>
                 </div>
                 <div class="body"></div>
             </div>

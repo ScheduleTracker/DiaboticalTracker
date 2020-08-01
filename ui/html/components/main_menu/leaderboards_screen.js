@@ -56,7 +56,14 @@ function init_screen_leaderboards() {
 }
 
 
-function load_leaderboard() {
+function load_leaderboard(mode) {
+    if (mode) {
+        let mode_filter = _id("leaderboards_screen_filter_gamemode");
+        mode_filter.dataset.value = mode;
+        update_select(mode_filter);
+
+        global_leaderboards_data.game_mode = mode;
+    }
     let params_all = { 
         "mode": global_leaderboards_data.game_mode, 
         //"season": global_competitive_season.comp_season_id, 
@@ -132,10 +139,7 @@ function load_leaderboard() {
 
     function on_delay() {
         global_leaderboard_controls = undefined;
-        _empty(leaderboards_table);
         _empty(leaderboards_bottom);
-        
-        leaderboards_table.appendChild(_createSpinner());
     }
 
     function on_pagechange() {
@@ -149,6 +153,9 @@ function load_leaderboard() {
         multi_req_handler("leaderboards_screen", requests, on_success, on_delay, on_timeout, on_pagechange);
         global_request_leaderboard_timeout = undefined;
     }, 200);
+
+    _empty(leaderboards_table);
+    leaderboards_table.appendChild(_createSpinner());
     
 
     /*

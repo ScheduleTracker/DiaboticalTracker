@@ -77,6 +77,9 @@ BEGIN TEMPLATE own_players
     DOUBLE lives_offset
     lives_offset = height + 2
 
+    DOUBLE lives_offset_text
+    lives_offset_text = height + 2.2
+
     DOUBLE lives_image_size
     lives_image_size = small_item_size * 0.7
 
@@ -375,7 +378,112 @@ ON_UPDATE
         j = j + 1
 
         # ========================================
+        # LIVES
+        INT show_lives
+        show_lives = 0
+
+        INT lives_mode
+        lives_mode = 0
+        IF IN_EDITOR
+            lives_mode = 1
+        END IF
+        IF game_data.game_mode == "ca" || game_data.game_mode == "extinction"
+            lives_mode = 1
+        END IF
+        IF game_data.game_mode == "rocket_arena" || game_data.game_mode == "shaft_arena"
+            lives_mode = 1
+        END IF
+        IF game_data.game_mode == "bounty"
+            lives_mode = 1
+        END IF
+
+        IF lives_mode && sL
+
+            show_lives = 1
+            life_count = own_team_players[IDX].life_count & "x"
+
+            # ========================================
+            # ARENA LIFE COUNT
+            OUTPUT IDX j width small_item_size
+            OUTPUT IDX j height small_item_size
+            OUTPUT IDX j x lives_offset_text
+            OUTPUT IDX j shadow 1
+            OUTPUT IDX j font_size 1.8
+            OUTPUT IDX j font "roboto-bold"
+            OUTPUT IDX j value life_count
+            IF own_team_players[IDX].life_count < 1
+                OUTPUT IDX j opacity 0
+            END IF
+            j = j + 1
+
+            # ========================================
+            # ARENA LIFE 2
+            OUTPUT IDX j image "images/icons/fa/heart.svg"
+            OUTPUT IDX j width small_item_size
+            OUTPUT IDX j height small_item_size
+            OUTPUT IDX j image_width lives_image_size
+            OUTPUT IDX j image_height lives_image_size
+            OUTPUT IDX j x lives_offset
+            OUTPUT IDX j offset_x small_item_size
+            OUTPUT IDX j image_color game_data.own_team.color
+            IF own_team_players[IDX].life_count < 1
+                OUTPUT IDX j opacity 0
+            END IF
+            j = j + 1
+
+            OUTPUT IDX j image "images/icons/icon_dead.svg"
+            OUTPUT IDX j width DOUBLE(height * 0.7)
+            OUTPUT IDX j height height
+            OUTPUT IDX j image_width DOUBLE(item_image_size * 0.66)
+            OUTPUT IDX j image_height DOUBLE(item_image_size * 0.66)
+            OUTPUT IDX j x DOUBLE(lives_offset - 0.4)
+            OUTPUT IDX j image_color "#ffffff"
+            OUTPUT IDX j opacity 0
+            IF own_team_players[IDX].life_count < 1
+                OUTPUT IDX j opacity 0.5
+            END IF
+            j = j + 1
+
+            ## ========================================
+            ## ARENA LIFE 2
+            #OUTPUT IDX j image_color game_data.own_team.color
+            #OUTPUT IDX j image "images/icons/fa/heart.svg"
+            #OUTPUT IDX j width small_item_size
+            #OUTPUT IDX j height small_item_size
+            #OUTPUT IDX j image_width lives_image_size
+            #OUTPUT IDX j image_height lives_image_size
+            #OUTPUT IDX j x lives_offset
+            #IF own_team_players[IDX].life_count < 1
+            #    OUTPUT IDX j opacity 0
+            #END IF
+            #j = j + 1
+#
+            ## ========================================
+            ## ARENA LIFE 2
+            #OUTPUT IDX j image "images/icons/fa/heart.svg"
+            #OUTPUT IDX j width small_item_size
+            #OUTPUT IDX j height small_item_size
+            #OUTPUT IDX j image_width lives_image_size
+            #OUTPUT IDX j image_height lives_image_size
+            #OUTPUT IDX j x lives_offset
+            #OUTPUT IDX j offset_x small_item_size
+            #OUTPUT IDX j image_color game_data.own_team.color
+            #IF own_team_players[IDX].life_count < 2
+            #    OUTPUT IDX j opacity 0
+            #END IF
+            #j = j + 1
+
+        END IF
+
+        # ========================================
         # POWERUP / ITEM COMMON
+        DOUBLE item_offset_x_extra
+        item_offset_x_extra = item_offset_x
+
+        IF show_lives == 1
+            item_offset_x_extra = item_offset_x + small_item_size
+        END IF
+
         INT items
         items = 0
 
@@ -398,13 +506,17 @@ ON_UPDATE
             OUTPUT IDX j image_color "#f8d206"
             OUTPUT IDX j image_width item_image_size
             OUTPUT IDX j image_height item_image_size
-            OUTPUT IDX j x item_offset_x
+            OUTPUT IDX j x item_offset_x_extra
 
             IF items > 1
                 OUTPUT IDX j width small_item_size
                 OUTPUT IDX j height small_item_size
                 OUTPUT IDX j image_width small_item_image_size
                 OUTPUT IDX j image_height small_item_image_size
+            END IF
+
+            IF game_data.game_mode == "extinction" || game_data.game_mode == "bounty"
+                OUTPUT IDX j opacity 0
             END IF
 
             j = j + 1
@@ -419,7 +531,7 @@ ON_UPDATE
             OUTPUT IDX j image_color own_team_players[IDX].flag_color
             OUTPUT IDX j image_width item_image_size
             OUTPUT IDX j image_height item_image_size
-            OUTPUT IDX j x item_offset_x
+            OUTPUT IDX j x item_offset_x_extra
 
             IF items > 1
                 OUTPUT IDX j width small_item_size
@@ -441,7 +553,7 @@ ON_UPDATE
             OUTPUT IDX j image_color own_team_players[IDX].pd_powerup_color
             OUTPUT IDX j image_width item_image_size
             OUTPUT IDX j image_height item_image_size
-            OUTPUT IDX j x item_offset_x
+            OUTPUT IDX j x item_offset_x_extra
 
             IF items > 1
                 OUTPUT IDX j width small_item_size
@@ -452,51 +564,6 @@ ON_UPDATE
             END IF
 
             j = j + 1
-        END IF
-
-        # ========================================
-        # LIVES
-        INT lives_mode
-        IF IN_EDITOR
-            lives_mode = 1
-        END IF
-        IF game_data.game_mode == "ca"
-            lives_mode = 1
-        END IF
-        IF game_data.game_mode == "rocket_arena" || game_data.game_mode == "shaft_arena"
-            lives_mode = 1
-        END IF
-
-        IF lives_mode && sL
-            # ========================================
-            # ARENA LIFE 2
-            OUTPUT IDX j image_color game_data.own_team.color
-            OUTPUT IDX j image "images/icons/fa/heart.svg"
-            OUTPUT IDX j width small_item_size
-            OUTPUT IDX j height small_item_size
-            OUTPUT IDX j image_width lives_image_size
-            OUTPUT IDX j image_height lives_image_size
-            OUTPUT IDX j x lives_offset
-            IF own_team_players[IDX].life_count < 1
-                OUTPUT IDX j opacity 0
-            END IF
-            j = j + 1
-
-            # ========================================
-            # ARENA LIFE 2
-            OUTPUT IDX j image "images/icons/fa/heart.svg"
-            OUTPUT IDX j width small_item_size
-            OUTPUT IDX j height small_item_size
-            OUTPUT IDX j image_width lives_image_size
-            OUTPUT IDX j image_height lives_image_size
-            OUTPUT IDX j x lives_offset
-            OUTPUT IDX j offset_x small_item_size
-            OUTPUT IDX j image_color game_data.own_team.color
-            IF own_team_players[IDX].life_count < 2
-                OUTPUT IDX j opacity 0
-            END IF
-            j = j + 1
-
         END IF
 
     ELSE

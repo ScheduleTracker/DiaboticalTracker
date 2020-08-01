@@ -1,25 +1,17 @@
 function init_element_voicechat() {
 
-    const hud_elem = new HUD_element('voicechat', false,
+    const hud_elem = new HUD_element('voicechat', true,
     {
         "fontSize": "1.5",
-        "font": "montserrat",
+        "font": "montserrat-bold",
         "color": "#ffffff",
         "pivot": "top-left",
-        "v_align": "flex-start",
         "iC": "#00ff00",
     },      
     [       
         defaultPivot,
         defaultX,
         defaultY,
-        {"inputType": "list", "type": "v_align", "text": "Align", "listValues":
-            [
-                {"name": "Left", "value": "flex-start"},
-                {"name": "Center", "value": "center"},
-                {"name": "Right", "value": "flex-end"},
-            ]
-        },
         defaultFontFamily,
         defaultFontSize,
         defaultColor,

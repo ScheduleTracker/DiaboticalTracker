@@ -275,7 +275,7 @@ var global_game_mode_map = {
     },
     "ca": {
         "mode": "ca",
-        "name": "Arena",
+        "name": "Aim Arena",
         "i18n": "game_mode_arena",
         "desc_i18n": "game_mode_desc_arena",
         "announce": "announcer_common_gamemode_arena",
@@ -383,6 +383,16 @@ var global_game_mode_map = {
         "image": "brawl_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
     },
+    "protdm": {
+        "mode": "protdm",
+        "name": "Pro-Team Deathmatch",
+        "i18n": "game_mode_protdm",
+        "desc_i18n": "game_mode_desc_protdm",
+        "announce": "",
+        "enabled": false,
+        "image": "brawl_loop.jpg",
+        "icon": "/html/images/gamemodes/tdm.svg"
+    },
     "tw": {
         "mode": "tw",
         "name": "Team Wars",
@@ -402,6 +412,26 @@ var global_game_mode_map = {
         "enabled": false,
         "image": "practice_loop.jpg",
         "icon": ""
+    },
+    "extinction": {
+        "mode": "extinction",
+        "name": "Extinction",
+        "i18n": "game_mode_extinction",
+        "desc_i18n": "game_mode_desc_extinction",
+        "announce": "",
+        "enabled": true,
+        "image": "arcade_loop.jpg",
+        "icon": "/html/images/gamemodes/tdm.svg"
+    },
+    "bounty": {
+        "mode": "bounty",
+        "name": "Bounty",
+        "i18n": "game_mode_bounty",
+        "desc_i18n": "game_mode_desc_bounty",
+        "announce": "",
+        "enabled": false,
+        "image": "brawl_loop.jpg",
+        "icon": "/html/images/gamemodes/tdm.svg"
     },
 };
 

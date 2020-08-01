@@ -23,6 +23,9 @@ ON_UPDATE
         discard
     END IF
 
+    OUTPUT 0 0 width 1
+    OUTPUT 0 0 height 1
+
     # Diabotical Logo
     OUTPUT 0 1 width 6
     OUTPUT 0 1 height 6
@@ -37,7 +40,7 @@ ON_UPDATE
     OUTPUT 0 2 image_width 45
     OUTPUT 0 2 image_height 6
     OUTPUT 0 2 image_color "#00000033"
-    OUTPUT 0 2 x 7
+    OUTPUT 0 2 x 8
 
     # Label "Mode"
     OUTPUT 1 0 lvalue "custom_game_settings_mode"
@@ -45,7 +48,7 @@ ON_UPDATE
     OUTPUT 1 0 font_size 1.3
     OUTPUT 1 0 opacity 0.8
     OUTPUT 1 0 indent 0.6
-    OUTPUT 1 0 offset_x 9.5
+    OUTPUT 1 0 offset_x 10.5
     OUTPUT 1 0 y 2
     
     # Value "Mode"
@@ -54,7 +57,7 @@ ON_UPDATE
     OUTPUT 1 1 lvalue mode_string
     OUTPUT 1 1 font "roboto-bold"
     OUTPUT 1 1 font_size 1.3
-    OUTPUT 1 1 offset_x 9.5
+    OUTPUT 1 1 offset_x 10.5
     OUTPUT 1 1 y 2
 
     # Label "Map"
@@ -63,14 +66,14 @@ ON_UPDATE
     OUTPUT 2 0 font_size 1.3
     OUTPUT 2 0 opacity 0.8
     OUTPUT 2 0 indent 0.6
-    OUTPUT 2 0 offset_x 30
+    OUTPUT 2 0 offset_x 31
     OUTPUT 2 0 y 2
 
     # Value "Map"
     OUTPUT 2 1 value game_data.map
     OUTPUT 2 1 font "roboto-bold"
     OUTPUT 2 1 font_size 1.3
-    OUTPUT 2 1 offset_x 30
+    OUTPUT 2 1 offset_x 31
     OUTPUT 2 1 y 2
 
     # Label "Duration"
@@ -79,14 +82,14 @@ ON_UPDATE
     OUTPUT 3 0 font_size 1.3
     OUTPUT 3 0 opacity 0.8
     OUTPUT 3 0 indent 0.6
-    OUTPUT 3 0 offset_x 9
+    OUTPUT 3 0 offset_x 10
     OUTPUT 3 0 y 4.2
 
     # Value "Duration"
     duration_ts = TIMESTAMP game_data.time_limit
     OUTPUT 3 1 font "roboto-bold"
     OUTPUT 3 1 font_size 1.3
-    OUTPUT 3 1 offset_x 9
+    OUTPUT 3 1 offset_x 10
     OUTPUT 3 1 y 4.2
     IF game_data.time_limit == 0
         OUTPUT 3 1 lvalue "time_unlimited"
@@ -99,7 +102,7 @@ ON_UPDATE
     OUTPUT 4 0 font_size 1.3
     OUTPUT 4 0 opacity 0.8
     OUTPUT 4 0 indent 0.6
-    OUTPUT 4 0 offset_x 29.5
+    OUTPUT 4 0 offset_x 30.5
     OUTPUT 4 0 y 4.2
     IF game_data.round_mode
         OUTPUT 4 0 lvalue "custom_game_settings_round_limit"
@@ -110,7 +113,7 @@ ON_UPDATE
     # Value "Score Limit/Round Limit"
     OUTPUT 4 1 font "roboto-bold"
     OUTPUT 4 1 font_size 1.3
-    OUTPUT 4 1 offset_x 29.5
+    OUTPUT 4 1 offset_x 30.5
     OUTPUT 4 1 y 4.2
     IF game_data.score_limit == 0
         OUTPUT 4 1 lvalue "score_unlimited"
@@ -183,111 +186,129 @@ ON_UPDATE
         END IF
     END IF
 
+    INT i
+    i = 0
+
+    # SPACER
+    OUTPUT 0 i width 1
+    OUTPUT 0 i height 1
+    i = i + 1
+
     # Background
-    OUTPUT 0 0 width table_width
-    OUTPUT 0 0 height 3
-    OUTPUT 0 0 fill "#00000033"
+    OUTPUT 0 i width table_width
+    OUTPUT 0 i height 3
+    OUTPUT 0 i fill "#00000033"
+    i = i + 1
 
     DOUBLE cell_offset
-    cell_offset = 25.3
-
+    cell_offset = 26.3
+    
     # Rank icon
     IF game_data.ranked
-        OUTPUT 0 1 x cell_offset
-        OUTPUT 0 1 lvalue "stats_rank"
-        OUTPUT 0 1 width 7
-        OUTPUT 0 1 opacity 0.7
-        OUTPUT 0 1 font "roboto-medium-bold"
-        OUTPUT 0 1 font_size 1.3
+        OUTPUT 0 i x cell_offset
+        OUTPUT 0 i lvalue "stats_rank"
+        OUTPUT 0 i width 7
+        OUTPUT 0 i opacity 0.7
+        OUTPUT 0 i font "roboto-medium-bold"
+        OUTPUT 0 i font_size 1.3
         cell_offset = cell_offset + 7
+        i = i + 1
     END IF
 
     # Status
     IF game_data.game_stage <= 1
-        OUTPUT 0 2 x cell_offset
-        OUTPUT 0 2 lvalue "stats_status"
-        OUTPUT 0 2 width 8
-        OUTPUT 0 2 opacity 0.7
-        OUTPUT 0 2 font "roboto-medium-bold"
-        OUTPUT 0 2 font_size 1.3
+        OUTPUT 0 i x cell_offset
+        OUTPUT 0 i lvalue "stats_status"
+        OUTPUT 0 i width 8
+        OUTPUT 0 i opacity 0.7
+        OUTPUT 0 i font "roboto-medium-bold"
+        OUTPUT 0 i font_size 1.3
         cell_offset = cell_offset + 8
+        i = i + 1
     END IF
 
     IF !game_data.race_mode
         # Score
         IF game_data.team_size > 1    
-            OUTPUT 0 3 x cell_offset
-            OUTPUT 0 3 lvalue "stats_score"
-            OUTPUT 0 3 width 7
-            OUTPUT 0 3 opacity 0.7
-            OUTPUT 0 3 font "roboto-medium-bold"
-            OUTPUT 0 3 font_size 1.3
+            OUTPUT 0 i x cell_offset
+            OUTPUT 0 i lvalue "stats_score"
+            OUTPUT 0 i width 7
+            OUTPUT 0 i opacity 0.7
+            OUTPUT 0 i font "roboto-medium-bold"
+            OUTPUT 0 i font_size 1.3
             cell_offset = cell_offset + 7
+            i = i + 1
         END IF
 
         # K/D/A
-        OUTPUT 0 4 x cell_offset
-        OUTPUT 0 4 lvalue "stats_kda"
-        OUTPUT 0 4 width 9
-        OUTPUT 0 4 opacity 0.7
-        OUTPUT 0 4 font "roboto-medium-bold"
-        OUTPUT 0 4 font_size 1.3
+        OUTPUT 0 i x cell_offset
+        OUTPUT 0 i lvalue "stats_kda"
+        OUTPUT 0 i width 9
+        OUTPUT 0 i opacity 0.7
+        OUTPUT 0 i font "roboto-medium-bold"
+        OUTPUT 0 i font_size 1.3
         cell_offset = cell_offset + 9
+        i = i + 1
 
         # DMG
-        OUTPUT 0 5 x cell_offset
-        OUTPUT 0 5 lvalue "stats_dmg"
-        OUTPUT 0 5 width 6
-        OUTPUT 0 5 opacity 0.7
-        OUTPUT 0 5 font "roboto-medium-bold"
-        OUTPUT 0 5 font_size 1.3
+        OUTPUT 0 i x cell_offset
+        OUTPUT 0 i lvalue "stats_dmg"
+        OUTPUT 0 i width 6
+        OUTPUT 0 i opacity 0.7
+        OUTPUT 0 i font "roboto-medium-bold"
+        OUTPUT 0 i font_size 1.3
         cell_offset = cell_offset + 6
+        i = i + 1
 
     END IF
 
     # Ping
-    OUTPUT 0 6 x cell_offset
-    OUTPUT 0 6 lvalue "stats_ping"
-    OUTPUT 0 6 width 5
-    OUTPUT 0 6 opacity 0.7
-    OUTPUT 0 6 font "roboto-medium-bold"
-    OUTPUT 0 6 font_size 1.3
+    OUTPUT 0 i x cell_offset
+    OUTPUT 0 i lvalue "stats_ping"
+    OUTPUT 0 i width 5
+    OUTPUT 0 i opacity 0.7
+    OUTPUT 0 i font "roboto-medium-bold"
+    OUTPUT 0 i font_size 1.3
     cell_offset = cell_offset + 5
+    i = i + 1
 
     # Time
     IF game_data.race_mode
-        OUTPUT 0 7 x cell_offset
-        OUTPUT 0 7 lvalue "stats_best_time"
-        OUTPUT 0 7 width 16
-        OUTPUT 0 7 opacity 0.7
-        OUTPUT 0 7 font "roboto-medium-bold"
-        OUTPUT 0 7 font_size 1.3
+        OUTPUT 0 i x cell_offset
+        OUTPUT 0 i lvalue "stats_best_time"
+        OUTPUT 0 i width 16
+        OUTPUT 0 i opacity 0.7
+        OUTPUT 0 i font "roboto-medium-bold"
+        OUTPUT 0 i font_size 1.3
         cell_offset = cell_offset + 16
+        i = i + 1
     END IF
 
     # Round Score
     IF game_data.round_mode
-        OUTPUT 0 8 x cell_offset
-        OUTPUT 0 8 lvalue "stats_rounds"
-        OUTPUT 0 8 width 6
-        OUTPUT 0 8 opacity 0.7
-        OUTPUT 0 8 font "roboto-medium-bold"
-        OUTPUT 0 8 font_size 1.3
+        OUTPUT 0 i x cell_offset
+        OUTPUT 0 i lvalue "stats_rounds"
+        OUTPUT 0 i width 6
+        OUTPUT 0 i opacity 0.7
+        OUTPUT 0 i font "roboto-medium-bold"
+        OUTPUT 0 i font_size 1.3
         cell_offset = cell_offset + 6
+        i = i + 1
     END IF
 
     IF !game_data.race_mode
         IF game_data.game_mode == "macguffin" || game_data.game_mode == "coinrun"
-            OUTPUT 0 9 lvalue "stats_coins"
+            OUTPUT 0 i lvalue "stats_coins"
         ELSE
-            OUTPUT 0 9 lvalue "stats_score"
+            OUTPUT 0 i lvalue "stats_score"
         END IF
-        OUTPUT 0 9 x cell_offset
-        OUTPUT 0 9 width 8
-        OUTPUT 0 9 opacity 0.7
-        OUTPUT 0 9 font "roboto-medium-bold"
-        OUTPUT 0 9 font_size 1.3
+        OUTPUT 0 i x cell_offset
+        OUTPUT 0 i width 8
+        OUTPUT 0 i opacity 0.7
+        OUTPUT 0 i font "roboto-medium-bold"
+        OUTPUT 0 i font_size 1.3
         cell_offset = cell_offset + 8
+        i = i + 1
     END IF
     
 END TEMPLATE
@@ -314,6 +335,9 @@ BEGIN TEMPLATE scoreboard_main
     COL_OUTPUT 9 font_size 1.4
     COL_OUTPUT 10 font_size 1.4
     COL_OUTPUT 11 font_size 1.4
+    COL_OUTPUT 12 font_size 1.4
+    COL_OUTPUT 13 font_size 1.4
+    COL_OUTPUT 14 font_size 1.4
 
     COL_OUTPUT 0 font "roboto-bold"
     COL_OUTPUT 1 font "roboto-bold"
@@ -328,6 +352,8 @@ BEGIN TEMPLATE scoreboard_main
     COL_OUTPUT 10 font "roboto-bold"
     COL_OUTPUT 11 font "roboto-bold"
     COL_OUTPUT 12 font "roboto-bold"
+    COL_OUTPUT 13 font "roboto-bold"
+    COL_OUTPUT 14 font "roboto-bold"
 
     INT row
     row = 0
@@ -382,6 +408,8 @@ ON_UPDATE
     INT team_idx
     INT player_idx
     INT player_in_team_idx
+    DOUBLE header_width
+    DOUBLE row_width
     
     player_in_team_idx = IDX
     team_idx = IDX2
@@ -417,9 +445,6 @@ ON_UPDATE
 
     INT render_team_header
     render_team_header = 0
-
-    DOUBLE header_width
-    header_width = 0
 
     # Reset "odd" row tracker for new teams
     IF player_in_team_idx == 0
@@ -497,10 +522,10 @@ ON_UPDATE
     ping = players[player_idx].ping * 1000
     ping = CLAMP ping 0 999
 
-    DOUBLE row_width
     row_width = 0
 
     INT team_header_row_idx
+    team_header_row_idx = 0
 
     # ===============================================
     # TEAM Header
@@ -525,19 +550,11 @@ ON_UPDATE
 
     # ===============================================
     # ROW Background
-    OUTPUT row 0 height 3
-    OUTPUT row 0 y row_offset
-    OUTPUT row 0 fill row_color
+    OUTPUT row i height 3
+    OUTPUT row i y row_offset
+    OUTPUT row i fill row_color
     bg_row = row
-    row = row + 1
-
-    IF players[player_idx].is_self
-        OUTPUT row 0 height 3
-        OUTPUT row 0 y row_offset
-        OUTPUT row 0 fill "#ffffff55"
-        bg_row_self = row
-    END IF
-    row = row + 1
+    i = i + 1
 
     DOUBLE cell_offset
     cell_offset = 0
@@ -550,9 +567,21 @@ ON_UPDATE
     OUTPUT row i image_width 3
     OUTPUT row i image_height 3
     OUTPUT row i y row_offset
-    OUTPUT row i x row_width
+    OUTPUT row i x 0
     row_width = row_width + 3
     i = i + 1
+
+    OUTPUT row i width 2
+    OUTPUT row i height 3
+    OUTPUT row i x -1
+    OUTPUT row i y row_offset
+    IF players[player_idx].is_self        
+        OUTPUT row i image "images/icons/fa/caret-right.svg"
+        OUTPUT row i image_width 2
+        OUTPUT row i image_height 2
+        OUTPUT row i image_color "#ffffff"
+    END IF
+    i = i + 1 
 
     # ===============================================
     # COUNTRY
@@ -629,13 +658,22 @@ ON_UPDATE
         END IF
 
         # ===============================================
+        # KDA Background
+        OUTPUT row i width 9
+        OUTPUT row i height 3
+        OUTPUT row i y row_offset
+        OUTPUT row i x row_width
+        OUTPUT row i color text_color
+        OUTPUT row i fill "#FFFFFF19"
+        i = i + 1
+
+        # ===============================================
         # FRAGS
         OUTPUT row i width 3
         OUTPUT row i height 3
         OUTPUT row i y row_offset
         OUTPUT row i x row_width
         OUTPUT row i color text_color
-        OUTPUT row i fill "#FFFFFF19"
         OUTPUT row i value players[player_idx].kills
         row_width = row_width + 3
         i = i + 1
@@ -647,7 +685,6 @@ ON_UPDATE
         OUTPUT row i y row_offset
         OUTPUT row i x row_width
         OUTPUT row i color text_color
-        OUTPUT row i fill "#FFFFFF19"
         OUTPUT row i value players[player_idx].deaths
         row_width = row_width + 3
         i = i + 1
@@ -659,7 +696,6 @@ ON_UPDATE
         OUTPUT row i y row_offset
         OUTPUT row i x row_width
         OUTPUT row i color text_color
-        OUTPUT row i fill "#FFFFFF19"
         OUTPUT row i value players[player_idx].assists
         row_width = row_width + 3
         i = i + 1
@@ -699,6 +735,10 @@ ON_UPDATE
         OUTPUT row i value players[player_idx].best_time
         row_width = row_width + 16
         i = i + 1
+        
+        IF render_team_header
+            OUTPUT team_header_row_idx 0 width row_width
+        END IF
     ELSE 
 
         header_width = row_width
@@ -706,21 +746,18 @@ ON_UPDATE
         # TEAM Round Score & Main Score
         IF player_in_team_idx == 0
             team_height = 3 * teams[team_idx].players_count
-            team_score_row = teams[team_idx].players_count * 2
-            team_score_row = team_score_row - 2
-            team_score_row = team_score_row + row
             
             # ===============================================
             # TEAM ROUND SCORE
             IF game_data.round_mode
-                OUTPUT team_score_row i height team_height
-                OUTPUT team_score_row i width 6
-                OUTPUT team_score_row i font_size 1.8
-                OUTPUT team_score_row i fill teams[team_idx].color_dark
-                OUTPUT team_score_row i color text_color
-                OUTPUT team_score_row i value teams[team_idx].game_score
-                OUTPUT team_score_row i y row_offset
-                OUTPUT team_score_row i x header_width
+                OUTPUT row i height team_height
+                OUTPUT row i width 6
+                OUTPUT row i font_size 1.8
+                OUTPUT row i fill teams[team_idx].color_dark
+                OUTPUT row i color text_color
+                OUTPUT row i value teams[team_idx].game_score
+                OUTPUT row i y row_offset
+                OUTPUT row i x header_width
                 i = i + 1
 
                 header_width = header_width + 6
@@ -728,27 +765,27 @@ ON_UPDATE
 
             # ===============================================
             # TEAM MAIN SCORE
-            OUTPUT team_score_row i height team_height
-            OUTPUT team_score_row i width 8
-            OUTPUT team_score_row i font_size 2
-            OUTPUT team_score_row i fill teams[team_idx].color
-            OUTPUT team_score_row i color text_color
-            OUTPUT team_score_row i value teams[team_idx].team_score
-            OUTPUT team_score_row i y row_offset
-            OUTPUT team_score_row i x header_width
+            OUTPUT row i height team_height
+            OUTPUT row i width 8
+            OUTPUT row i font_size 2
+            OUTPUT row i fill teams[team_idx].color
+            OUTPUT row i color text_color
+            OUTPUT row i value teams[team_idx].team_score
+            OUTPUT row i y row_offset
+            OUTPUT row i x header_width
             i = i + 1
 
             header_width = header_width + 8
+
+            IF render_team_header
+                OUTPUT team_header_row_idx 0 width header_width
+            END IF
         END IF
 
     END IF
 
     # Set background width
     OUTPUT bg_row 0 width row_width
-    OUTPUT bg_row_self 0 width row_width
-    IF render_team_header
-        OUTPUT team_header_row_idx 0 width header_width
-    END IF
 
     row = row + 1
     real_row = real_row + 1

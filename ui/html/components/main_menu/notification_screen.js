@@ -62,7 +62,9 @@ function load_notifications() {
             notif_video.src = "/html/animations/battlepass_upgrade.webm";
             item_preview.appendChild(notif_video);
 
-            item_desc.appendChild(_createElement("div", "battlepass_name", localize(global_battlepass_data[global_user_battlepass.battlepass_id].title)));
+            if (global_user_battlepass.battlepass_id && global_user_battlepass.battlepass_id in global_battlepass_data) {
+                item_desc.appendChild(_createElement("div", "battlepass_name", localize(global_battlepass_data[global_user_battlepass.battlepass_id].title)));
+            }
             
         }
         if (['gift_item', 'battlepass_items', 'twitch_drop'].includes(NOTIFICATION_TYPE[notif.notif_type])) {
@@ -110,6 +112,7 @@ function load_notifications() {
         
         // show customization info as the item description
         _empty(item_desc);
+        item_desc.style.setProperty("--rarity", "var(--rarity_"+item.rarity+")");
         item_desc.appendChild(createCustomizationInfo(item));
 
         //engine.call('ui_sound', "ui_shop_purchase_successful");
@@ -124,7 +127,7 @@ function load_notifications() {
             if (notif.items.length > 0) {
                 count.textContent = notif.items.length;
             } else {
-                count.parentElement.style.display = "none";
+                count.parentElement.style.opacity = 0;
                 if (btn_confirm_all) btn_confirm_all.style.display = "none";
             }
         } else {

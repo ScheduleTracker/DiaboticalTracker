@@ -108,5 +108,6 @@ ON_UPDATE
     END IF
     
     OUTPUT 0 0 image_color bg_color
+    OUTPUT 0 0 opacity o
 
 END TEMPLATe

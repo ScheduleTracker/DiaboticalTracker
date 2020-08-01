@@ -433,6 +433,8 @@ body, html {
     justify-content:center;
     align-items:center;
     width:100%;
+    padding:0 1vh 0.4vh 1vh;
+    background-image: linear-gradient(90deg,rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
 }
 .customization_info .type {
     display:flex;
@@ -465,7 +467,6 @@ body, html {
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
 }
 .customization_info .name {
-    margin-top:1.5vh;
     font-weight:bold;
     font-size:3.6vh;
     font-family: var(--mont-font);
@@ -476,6 +477,7 @@ body, html {
     display:flex;
     justify-content:center;
     align-items:center;
+    text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.4);
 }
 
 /*
@@ -4004,7 +4006,7 @@ h2 {
     display:flex;
     flex-direction: row;
     align-items:center;
-    height:calc(3px * var(--onevh));
+    /*height:calc(3px * var(--onevh));*/
     border-right-style:solid;
     border-right-width:0.4vh;
     border-right-color:transparent;

@@ -70,11 +70,14 @@ function update_party(data) {
 
         initialize_element_tooltip_hover(member_div);
 
-        if (m.user_id == data.data['leader-id']) {
+        if (data.data.members.length > 1 && m.user_id == data.data['leader-id']) {
             member_div.classList.add("leader");
+            member_div.appendChild(_createElement("div", "leader_crown"));
+        }
 
-            let leader_arrow = _createElement("div", "leader_arrow");
-            member_div.appendChild(leader_arrow);
+        if (m.user_id == global_self.user_id) {
+            member_div.classList.add("self");
+            member_div.appendChild(_createElement("div", "self_arrow"));
         }
 
         member_div.appendChild(name);

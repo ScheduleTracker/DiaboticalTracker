@@ -9,7 +9,7 @@ function init_main_chat() {
     main_chat.addEventListener("click", function(e) {
         global_main_chat_opening = true;
 
-        anim_show(_id("main_chat_popup"));
+        _id("main_chat_popup").style.display = "flex";
         global_main_chat_open = true;
 
         let tab = undefined;
@@ -229,9 +229,11 @@ function main_chat_lobby_visibility(visible) {
     refreshScrollbar(_id("main_chat_buffer"));
 }
 
-function main_chat_minimize() {
+function main_chat_minimize(ev) {
+    if (ev) ev.stopPropagation();
+
     if (global_main_chat_open) {
-        anim_hide(_id("main_chat_popup"));
+        _id("main_chat_popup").style.display = "none";
         global_main_chat_open = false;
     }
 }

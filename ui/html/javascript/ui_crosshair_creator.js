@@ -756,7 +756,7 @@ function drawPointers(ctxCross, enabledSides, length, thickness, outlineThicknes
     ctxCross.restore();
 }
 
-function initialize_crosshair_creator(zoom, crosshair_definition, engine_variable, layer_display){ //need another function that draws each crosshair type from definition on initial load
+function initialize_crosshair_creator(zoom, crosshair_definition, engine_variable, layer_display){
     
     cleanCrosshairDefinition(crosshair_definition); //set default crosshair if we have received empty definition
 

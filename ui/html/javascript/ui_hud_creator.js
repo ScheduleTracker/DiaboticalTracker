@@ -29,7 +29,7 @@ function init_hud_elements() {
     //init_element_g_meter();
     init_element_you_fragged();
     init_element_chat();
-    //init_element_voicechat();
+    init_element_voicechat();
     init_element_rect();
     init_element_icon();
     init_element_current_weapon_icon();

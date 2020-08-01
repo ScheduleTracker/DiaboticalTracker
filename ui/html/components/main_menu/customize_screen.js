@@ -95,6 +95,10 @@ function init_screen_customize() {
     // Create weapon and weapon attachment ctypes
     for (let type of ["weapon", "weapon_attachment"]) {
         for (let wid of global_weapons_with_skins) {
+
+            // TEMPORARILY HIDE MELEE because its entirely white and offscreen
+            if (wid == 0) continue;
+
             let ctype = new CustomizationType(
                 type,  
                 global_weapon_idx_name_map2[wid].substring(6)
@@ -1316,7 +1320,6 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
     if (show_desc) {
         let customization_desc = _createElement("div", "customization_desc");
         customization_desc.style.setProperty("--item_rarity_color", "var(--rarity_"+customization.rarity+")");
-        customization_desc.appendChild(_createElement("div", "background"));
         customization_desc.appendChild(createCustomizationInfo(customization, show_name));
         fragment.appendChild(customization_desc);
     }

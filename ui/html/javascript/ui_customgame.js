@@ -417,40 +417,6 @@ function init_screen_custom() {
         
         send_json_data({"action": "lobby-swap", "from": from, "to": {"team": -1, "slot": 0} });
     });
-
-    // DEBUG TESTS FUNCTIONS
-/*
-    _for_each_with_class_in_parent(_id("home_screen"), "party_invite", function(el) {
-        el.style.backgroundColor = "black";
-        el.style.color = "white";
-        el.style.marginBottom = "0.2vh";
-        el.style.padding = "0.5vh 1vh";
-        el.addEventListener("click", function() {
-            send_json_data({"action": "invite-add", "type": "party", "user-id": Number(this.dataset.id) });
-        });
-    });
-
-    _for_each_with_class_in_parent(_id("home_screen"), "lobby_invite", function(el) {
-        el.style.backgroundColor = "black";
-        el.style.color = "white";
-        el.style.marginBottom = "0.2vh";
-        el.style.padding = "0.5vh 1vh";
-        el.addEventListener("click", function() {
-            send_json_data({"action": "invite-add", "type": "lobby", "user-id": Number(this.dataset.id) });
-        });
-    });
-
-    <!-- buttons used for party & lobby debugging purposes
-                <div class="party_invite" data-id="0">PARTY Invite 0</div>
-                <div class="party_invite" data-id="1">PARTY Invite 1</div>
-                <div class="party_invite" data-id="2">PARTY Invite 2</div>
-                <div class="party_invite" data-id="3">PARTY Invite 3</div>
-                <div class="lobby_invite" data-id="0">LOBBY Invite 0</div>
-                <div class="lobby_invite" data-id="1">LOBBY Invite 1</div>
-                <div class="lobby_invite" data-id="2">LOBBY Invite 2</div>
-                <div class="lobby_invite" data-id="3">LOBBY Invite 3</div>
--->
-*/
 }
 
 // Set the map selection

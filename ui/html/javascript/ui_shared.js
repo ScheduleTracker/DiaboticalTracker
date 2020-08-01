@@ -815,7 +815,7 @@ function count_to_empty_array(count) {
 }
 
 
-let global_hud_version = 1.1;
+let global_hud_version = 1.2;
 let global_hud_version_min = 1.1; // lower than this = hud gets reset to default
 function hud_version_check(hud, hud_type) {
     if (!("version" in hud)) hud.version = 0;
@@ -823,7 +823,7 @@ function hud_version_check(hud, hud_type) {
 
     let version = Number(hud.version);
     if (version < global_hud_version) {
-        //if (version < 1 && hud_type == HUD_SPECTATING) add_elements.push("player_name");
+        if (version < 1.2) add_elements.push("voicechat");
     }
 
     if (version < global_hud_version_min) {
@@ -848,25 +848,19 @@ function hud_version_check(hud, hud_type) {
         }
 
         if (!found) {
-            /*
-            // Example:
-            if (add_el == "player_name") {
+            if (add_el == "voicechat") {
                 hud.elements.push({
-                    "t":"player_name",
+                    "t":"voicechat",
                     "gid":-1,
-                    "x":50,
-                    "y":30,
-                    "fontSize":"4",
-                    "pivot":"center",
-                    "color":"#FFFFFF",
-                    "shadow":1,
-                    "teamColor":1,
+                    "x":3,
+                    "y":4,
+                    "fontSize":"2",
                     "font":"montserrat-bold",
-                    "vis":"s",
-                    "pre":1
+                    "color":"#ffffff",
+                    "pivot":"top-left",
+                    "iC":"#00FF00",
                 });
             }
-            */
         }
     }
 

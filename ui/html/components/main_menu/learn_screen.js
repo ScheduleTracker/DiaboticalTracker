@@ -1,6 +1,7 @@
 function init_screen_learn() {
     if (typeof global_weapon_data === 'undefined' || typeof global_gamemode_data === 'undefined'){
         _id("mm_learn").style.display = "none"; //if script data doesn't exist, hide learn button and dont initialize screen
+        _id("mm_learn_big").style.display = "none";
     }
     else {
         //mouseover/out events for tabs
@@ -15,6 +16,7 @@ function init_screen_learn() {
 
         learn_screen_initialize_tab_weapons();
         learn_screen_initialize_tab_ha();
+        learn_screen_initialize_tab_gamemodes();
         learn_screen_initialize_tab_powerups();
 
         learn_screen_change_tab('weapons'); //default tab
@@ -191,6 +193,9 @@ function learn_screen_initialize_tab_weapons() {
     var relevantWeebles = ['weaponiw', 'weaponsw', 'weaponbw', 'weaponsmw', 'weaponhw', 'weaponkw'];
     
     function generate_weapons_content(item, type){
+        var currentWeapon = relevantWeapons[item].script_key;
+        if(!global_weapon_data.hasOwnProperty(currentWeapon)){return};
+        
         //create list item
         let listItem = _createElement("div","learn_screen_list_button", localize(global_item_name_map[item][1]).toUpperCase());
         listItem.style.setProperty("--itemIcon", "url(/html/" + global_item_name_map[item][2] + ")");
@@ -207,7 +212,6 @@ function learn_screen_initialize_tab_weapons() {
         infoItem.style.display = "none";
 
         if (type == 'weapon'){
-            var currentWeapon = relevantWeapons[item].script_key;
             var entriesObject = relevantWeapons[item].entries;
         }
         else if (type == 'weeball'){
@@ -562,6 +566,7 @@ function learn_screen_initialize_tab_ha(){
     }
 
     function generate_ha_content(item, container){
+        if(!global_gamemode_data.hasOwnProperty('default')){return};
 
         let contentItemRow = _createElement("div", "learn_screen_ha_item_row")
 
@@ -690,34 +695,31 @@ function learn_screen_initialize_tab_powerups() {
 
     var relevantPowerups = {
         'survival':     {'powerupImage': '/html/images/entities/survival.png.dds',
-                        'entries':{'Initial Spawn (Brawl)': '1:00',
+                        'entries':{'Initial Spawn': '1:00',
+                                    'Respawn Time': '120s',
+                                    'Initial Spawn (Brawl)': '1:00',
                                     'Respawn Time (Brawl)': '240s',
-                                    'Duration': '30s',
-                                    'Health Gained on Pickup': '50',
-                                    'Armor Gained on Pickup': '50'},
+                                    'Duration': '30s'},
                         'description': 'When equipped with Siphonator you passively heal for 5 health every second and any damage you deal to enemies heals you for 50% of the damage dealt. Additionally, your friendly fire heals your teammates for 50% of weapon damage. <div>Seek out 1v1 confrontations safe in the knowledge that you can outlast your opponent, and pay attention to the health of your teammates, as a clutch heal can turn the tide of a fight.</div>'
                         }, 
         'vanguard':     {'powerupImage': '/html/images/entities/vanguard.png.dds',
-                        'entries':{'Initial Spawn (Brawl)': '1:00',
+                        'entries':{'Initial Spawn': '1:00',
+                                    'Respawn Time': '120s',
+                                    'Initial Spawn (Brawl)': '1:00',
                                     'Respawn Time (Brawl)': '240s',
-                                    'Duration': '30s',
-                                    'Health Gained on Pickup': '50',
-                                    'Armor Gained on Pickup': '50'},
+                                    'Duration': '30s'},
                         'description': 'A potent shield that protects its wielder from even the most ferocious of attacks, Vanguard reduces damage taken by 50% and mitigates all self damage. Group up with your allies and charge first into the breach, soaking up damage and carving a path for your team to take control.'
                         },  
         'tripledamage': {'powerupImage': '/html/images/entities/tripledamage.png.dds',
                         'entries':{'Initial Spawn': '1:00',
                                     'Respawn Time': '120s',
-                                    'Duration': '30s',
-                                    'Available In': 'TDM, MacGuffin'},
+                                    'Duration': '30s'},
                         'description': 'A triple damage boost to all of your weaponry provides a significant advantage in any fight you possess Vindicator. Out damage opponents even wielding the same weaponry and bring encounters to a rapid conclusion, so long as you can survive their focused efforts to take you down together.'
                         }, 
         'doubledamage': {'powerupImage': '/html/images/entities/doubledamage.png.dds', //Diabotical
                         'entries':{'Initial Spawn (Brawl)': '3:00',
                                     'Respawn Time (Brawl)': '240s',
-                                    'Duration': '30s',
-                                    'Health Gained on Pickup': '50',
-                                    'Armor Gained on Pickup': '50'},
+                                    'Duration': '30s'},
                         'description': 'Possessed by the incredible energies of Diabotical your attacks gain extra viciousness, with all damage you deal being quadrupled. Music blasts from your core fuelling a spree like no other as you crush all who cower before you. <div>Decimate the competition! But beware, for though it is true that while equipped with Diabotical you are the most dangerous force on the field, to the brave or simply unhinged, you are also the biggest target.</div>'
                         },
     };
@@ -739,6 +741,7 @@ function learn_screen_initialize_tab_powerups() {
         listItem.addEventListener("click", function(){
             learn_screen_highlight_button(listItem);
             learn_screen_show_content(infoItem);
+            refreshScrollbar(_id("learn_screen_content_powerups").querySelector(".crosshair_scroll"));
         })
         list.appendChild(listItem);
 
@@ -805,4 +808,294 @@ function learn_screen_initialize_tab_powerups() {
     for (const item of Object.keys(relevantPowerups)) {
         generate_powerups_content(item);
     }    
+}
+
+//Game Modes tab
+function learn_screen_initialize_tab_gamemodes() {
+    var list = _id("learn_screen_item_list_gamemodes");
+    var infoContainer = _id("learn_screen_info_gamemodes");
+
+    var relevantGamemodes = {
+        'brawl':    {   'entries':['spawn_health_armor',
+                                    'stable_health_armor',                                    
+                                    'weapon_respawn_time',
+                                    'self_damage',
+                                    'starting_weapons',
+                                    'powerup_drop',
+                                    'health_armor_gained_on_powerup'],
+                        'description': 'Brawl is a frag score based mode between multiple teams or individual players where you pick up weapons and items to help you frag your opponents.<div>Gain the edge over your opponents by taking the powerups that spawn throughout the match. At 1:00 and every 240s after, two utility powerups will spawn on the map at the same time, and at 3:00 and every 240s after, Diabotical will spawn in the centre of the map.</div><div>In Brawl you will gain health and armor upon taking a powerup.</div>'
+                    },        
+        'wipeout':  {   'entries':['spawn_health_armor',
+                                    'stable_health_armor',
+                                    'self_damage',
+                                    'starting_weapons',
+                                    'respawn_time'],
+                        'description':"Wipeout is a round based mode in which players spawn with a full loadout, including a Healing Weeball. Consecutive deaths increase a player's respawn time up to a maximum of 80s, and a round is won when all enemy players are dead at the same time."
+                    },  
+        'ca':  {        'entries':['spawn_health_armor',
+                                    'stable_health_armor',
+                                    'self_damage',
+                                    'starting_weapons'],
+                        'description': "Arena is a round based mode played in compact arenas where each player has 2 lives per round and spawns with a full loadout, when a round ends players move on to a different arena.<div>There are also weapon specific versions of arena in which you test your skills with a single weapon.</div>"
+        },                   
+        'macguffin':{   'entries':['spawn_health_armor',
+                                    'stable_health_armor',
+                                    'initial_macguffin_spawn',
+                                    'macguffin_steal_time',
+                                    'weapon_respawn_time',
+                                    'self_damage',
+                                    'starting_weapons',
+                                    'powerup_drop'],
+                        'description': 'MacGuffin is a round based mode where the objective is to bring the MacGuffin to your base to generate 100 coins for your team to win, while preventing your opponents from stealing it to achieve the same goal.<div>At the start of the round you will be assigned one of two bases, and the next round you will swap bases with your opponents. If the game goes to a third round both bases will be open and set once a team captures the MacGuffin at the base of their choice.</div>',
+                        'description_extended': 'Co-ordinate with your team by timing your attacks together and stealing the MacGuffin by standing on the enemy point, and throwing it to each other as you attempt to cross the map to return to your base.<div>The MacGuffin will also generate up to 10 coins while being held by players, which will be deposited upon capture, so a slow and careful approach can also yield great rewards.'
+                    },
+        'tdm':      {   'entries':['spawn_health_armor',
+                                    'stable_health_armor',
+                                    'weapon_respawn_time',       
+                                    'self_damage',
+                                    'starting_weapons',
+                                    'powerup_drop'],
+                        'description': "Team Deathmatch is a frag score based mode fought between two teams. Fight for control over the map and its resources to gain the upper hand over your enemies, or use your instincts to outsmart and out position stacked opponents.<div>Once the time limit has been reached, the game ends if the frag difference is greater than 10. However if the scores are within 10 frags of each other, a frag limit of 10 frags is added to the leading team's score and a team must reach this limit to be victorious."
+                    },
+        'extinction':{   'entries':['spawn_health_armor',
+                                    'stable_health_armor',
+                                    'weapon_respawn_time',       
+                                    'self_damage',
+                                    'starting_weapons',
+                                    'powerup_drop'],
+                        'description': "Extinction is a round based mode where players start with 3 lives each, and the team who loses all of their lives loses the round. If you're out of lives, don't give up yet! You'll still keep spawning if one player on your team has lives remaining. With nothing to lose, roam the map marked with your lost lives circling your feet and protect your surviving teammates, or chase down your enemies and eliminate them, focusing on those with lives remaining.",
+                        'description_extended': "If the player with the most lives on your team has more lives than anybody on the enemy team, your team will have a longer respawn time based on the difference. Each round the powerup that spawns changes, cycling between Vindicator, Vanguard and Siphonator for that round."
+                    },
+        'duel':      {   'entries':['spawn_health_armor',
+                                    'stable_health_armor',
+                                    'weapon_respawn_time',       
+                                    'self_damage',
+                                    'starting_weapons'],
+                        'description': "Duel is a frag score based mode where two players fight each other for control over the map and its resources. After the time limit is reached, a Duel is won when one of the players gets the Golden Frag.<div>The game starts with a base time limit which is reduced by 30s for each point of frag difference. Once this reduced time limit is reached the game goes into Golden Frag where the player in the lead needs one last frag to win, and the trailing player has one last chance to make a comeback."
+                    }
+    }
+
+    function generate_gamemodes_content(item){
+        if(!global_gamemode_data.hasOwnProperty(item)){return};
+        //create list items
+        let listItem = _createElement("div","learn_screen_list_button", localize(global_game_mode_map[item].i18n).toUpperCase());
+        listItem.style.setProperty("--itemIcon", "url(" + global_game_mode_map[item].icon + ")");
+        listItem.style.setProperty("--backgroundItemColor", hexToRGBA('#FFFFFF', 0.65));
+
+        //create info screens
+        let infoItem = _createElement("div", "learn_screen_gamemode_item");
+
+        let gamemodeInfoContainer = _createElement("div");
+
+        infoItem.style.display = "none";
+        infoContainer.appendChild(infoItem);
+
+        listItem.addEventListener("click", function(){
+            learn_screen_highlight_button(listItem);
+            learn_screen_show_content(infoItem);
+            refreshScrollbar(_id("learn_screen_content_gamemodes").querySelector(".crosshair_scroll"));
+        })
+        
+        list.appendChild(listItem);
+    
+
+        if(item == 'brawl'){ 
+            //default screen is macguffin
+            learn_screen_highlight_button(listItem);
+            learn_screen_show_content(infoItem);
+        }
+
+        //create descriptions
+        let gamemodeDescriptionContainer = _createElement("div", ["learn_screen_row_container", "description"]);
+
+        let infoGamemodeRender = _createElement("div", "learn_screen_gamemode_image");
+        infoGamemodeRender.style.backgroundImage = "url(" + global_game_mode_map[item].icon + ")";
+        
+
+        let gamemodeDescriptionTextContainer = _createElement("div", "learn_screen_gamemode_info_description_text_container");
+        //let weaponDescriptionText = _createElement("div", "learn_screen_item_description", relevantWeapons[item].description);
+
+
+        let gamemodeTitleContainer = _createElement("div", ["learn_screen_row_container", "title"]);
+        let gamemodeTitle = _createElement("div", "learn_screen_gamemode_title", localize(global_game_mode_map[item].i18n).toUpperCase());
+        let accentLine = _createElement("div", "learn_screen_gamemode_accent_line");
+
+        gamemodeTitleContainer.appendChild(gamemodeTitle);
+        gamemodeTitleContainer.appendChild(accentLine);
+
+        let gamemodeInfoText = _createElement("div", "learn_screen_item_description");
+        if(relevantGamemodes[item].hasOwnProperty('description')){
+            gamemodeInfoText.innerHTML = relevantGamemodes[item].description;
+        }
+        else{
+            gamemodeInfoText.innerHTML = localize(global_game_mode_map[item].desc_i18n);
+        }
+
+        gamemodeDescriptionTextContainer.appendChild(gamemodeTitleContainer);
+        gamemodeDescriptionTextContainer.appendChild(gamemodeInfoText);
+
+        gamemodeDescriptionContainer.appendChild(infoGamemodeRender);
+        gamemodeDescriptionContainer.appendChild(gamemodeDescriptionTextContainer);
+         
+
+
+        //add entries based on present values in gamemode_data
+        if(global_gamemode_data[item].hasOwnProperty('game_friendly_fire')){
+            if(global_gamemode_data[item].game_friendly_fire == "1"){relevantGamemodes[item].entries.push('friendly_fire')}
+        }
+        if(global_gamemode_data[item].hasOwnProperty('game_life_count')){
+            relevantGamemodes[item].entries.unshift('lives_per_round');
+        }
+
+        //generate gamemode rows        
+        for (const entry of relevantGamemodes[item].entries){
+            let infoRow = _createElement("div", "learn_screen_gamemode_item_row");
+
+            let infoLabel = _createElement("div", "learn_screen_gamemode_item_label");
+            var infoLabelText = _createElement("div", "text_container", localize("learn_screen_" + entry));
+            infoLabel.appendChild(infoLabelText);
+
+            infoRow.appendChild(infoLabel);
+
+            if(entry == 'spawn_health_armor'){
+                let value_hp = global_gamemode_data[item].hasOwnProperty('game_hp') ? global_gamemode_data[item].game_hp : global_gamemode_data.default.game_hp;
+                let value_armor = global_gamemode_data[item].hasOwnProperty('game_armor') ? global_gamemode_data[item].game_armor : global_gamemode_data.default.game_armor;
+                let value = value_hp + " / " + value_armor;
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }
+            else if(entry == 'stable_health_armor'){
+                let value_hp = global_gamemode_data[item].hasOwnProperty('game_stable_hp') ? global_gamemode_data[item].game_stable_hp : global_gamemode_data.default.game_stable_hp;
+                let value_armor = global_gamemode_data[item].hasOwnProperty('game_stable_armor') ? global_gamemode_data[item].game_stable_armor : global_gamemode_data.default.game_stable_armor;
+                let value = value_hp + " / " + value_armor;
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }
+            else if(entry == 'starting_weapons'){                
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                infoCell.style.paddingLeft = '1.5vh'; //add padding so icons line up with text padding                
+                infoRow.appendChild(infoCell);
+                if(Array.isArray(global_gamemode_data[item].weapon)){
+                    var starting_weapon_array = global_gamemode_data[item].weapon;
+                }
+                else{
+                    var starting_weapon_array = [];
+                    starting_weapon_array.push(global_gamemode_data[item].weapon);
+                }
+
+                for(const weapon of starting_weapon_array){
+                    let weaponIcon = _createElement("div", "learn_screen_gamemode_weapon_icon");
+                    if(weapon.startsWith('sword')){var weapon_name_map_key = "weaponmelee"}
+                    else if(weapon.startsWith('machinegun')){var weapon_name_map_key = "weaponmac"}
+                    else if(weapon.startsWith('blaster')){var weapon_name_map_key = "weaponbl"}
+                    else if(weapon.startsWith('super_shotgun')){var weapon_name_map_key = "weaponss"}
+                    else if(weapon.startsWith('rocket_launcher')){var weapon_name_map_key = "weaponrl"}
+                    else if(weapon.startsWith('shaft')){var weapon_name_map_key = "weaponshaft"}
+                    else if(weapon.startsWith('pncr')){var weapon_name_map_key = "weaponpncr"}
+                    else if(weapon.startsWith('grenade_launcher')){var weapon_name_map_key = "weapongl"}
+                    else if(weapon.startsWith('healing_weeble')){var weapon_name_map_key = "weaponhw"}
+
+                    if(typeof weapon_name_map_key !== 'undefined'){
+                        weaponIcon.style.backgroundImage = "url(/html/" + global_item_name_map[weapon_name_map_key][2] + "?fill=" +  global_item_name_map[weapon_name_map_key][0] + ")";
+                        infoCell.appendChild(weaponIcon);
+                    }
+                }
+            }
+            else if(entry == 'friendly_fire'){
+                let value = localize("enabled")
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }
+            else if(entry == 'powerup_drop'){
+                if(item == 'tdm' || item == 'protdm'){var value = localize("disabled")}
+                else{var value = localize("enabled")}
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }
+            else if(entry == 'weapon_respawn_time'){
+                let value = global_gamemode_data[item].hasOwnProperty('game_weapon_respawn_time') ? global_gamemode_data[item].game_weapon_respawn_time : global_gamemode_data.default.game_weapon_respawn_time;
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value + "s");
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }
+            else if(entry == 'self_damage'){
+                let self_damage = global_gamemode_data[item].hasOwnProperty('game_self_damage') ? global_gamemode_data[item].game_self_damage : global_gamemode_data.default.game_self_damage;
+                let value = self_damage == 0 ? "0%" : "50%";
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }
+            else if(entry == 'initial_macguffin_spawn'){
+                let value = '0:30';
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }
+            else if(entry == 'macguffin_steal_time'){
+                let value = '3s';
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            } 
+            else if(entry == 'lives_per_round'){
+                let value = global_gamemode_data[item].game_life_count;
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }
+            else if(entry == 'respawn_time'){
+                if(item == 'wipeout'){
+                    var value = '5, 20, 40, 60, 80s';
+                }
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }
+            else if(entry == 'health_armor_gained_on_powerup'){
+                if(item == 'brawl'){
+                    var value = '25 / 25';
+                }
+                let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                let infoCellText = _createElement("div", "text_container", value);
+                infoCell.appendChild(infoCellText);
+                infoRow.appendChild(infoCell);
+            }              
+            
+           
+            gamemodeInfoContainer.appendChild(infoRow);
+        }
+
+
+        infoItem.appendChild(gamemodeDescriptionContainer);
+
+        if(relevantGamemodes[item].hasOwnProperty('description_extended')){
+            let gamemodeExtendedDescription = _createElement("div", "learn_screen_item_description");
+            gamemodeExtendedDescription.innerHTML = relevantGamemodes[item].description_extended;
+            infoItem.appendChild(gamemodeExtendedDescription);
+
+            gamemodeExtendedDescription.style.marginBottom = '2vh';
+            gamemodeDescriptionContainer.style.marginBottom = '0vh';
+        }
+        
+        infoItem.appendChild(gamemodeInfoContainer);
+    }
+
+    for (const item of Object.keys(relevantGamemodes)) {
+        generate_gamemodes_content(item);
+    }    
+
 }

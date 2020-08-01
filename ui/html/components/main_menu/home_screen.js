@@ -36,11 +36,10 @@ function init_screen_home() {
       }
     );
 
-  // Click handler temporary disabled for closed beta
-  /* _id("home_screen_motd_window").addEventListener("click", function(event) {
-   *   if(event.currentTarget.dataset.uid)
-   *     engine.call('open_browser', `https://www.diabotical.com/news#${event.currentTarget.dataset.uid}`);
-   * }); */
+  _id("home_screen_motd_window").addEventListener("click", function(event) {
+    if(event.currentTarget.dataset.uid)
+       engine.call('open_browser', `https://www.diabotical.com/news#${event.currentTarget.dataset.uid}`);
+   });
 }
 
 function update_motd({ uid, slugs, data }) {
@@ -103,3 +102,27 @@ function render_home_challenges() {
 function show_home_challenges() {
   anim_show(_id("home_screen_challenges_cont"), 350, "block");
 }
+
+/*
+    // DEBUG TESTS FUNCTIONS
+
+    _for_each_with_class_in_parent(_id("home_screen"), "party_invite", function(el) {
+        el.style.backgroundColor = "black";
+        el.style.color = "white";
+        el.style.marginBottom = "0.2vh";
+        el.style.padding = "0.5vh 1vh";
+        el.addEventListener("click", function() {
+            send_json_data({"action": "invite-add", "type": "party", "user-id": Number(this.dataset.id) });
+        });
+    });
+
+    _for_each_with_class_in_parent(_id("home_screen"), "lobby_invite", function(el) {
+        el.style.backgroundColor = "black";
+        el.style.color = "white";
+        el.style.marginBottom = "0.2vh";
+        el.style.padding = "0.5vh 1vh";
+        el.addEventListener("click", function() {
+            send_json_data({"action": "invite-add", "type": "lobby", "user-id": Number(this.dataset.id) });
+        });
+    });
+*/

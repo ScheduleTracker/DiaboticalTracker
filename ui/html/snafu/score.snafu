@@ -1,5 +1,7 @@
 BEGIN TEMPLATE score
     SETTING align pivot
+    SETTING item_direction "vertical"
+    SETTING cell_direction "horizontal"
     DOUBLE bRadius
     DOUBLE cCode
     INT shadow
@@ -68,6 +70,12 @@ ON_UPDATE
         IF game_data.own_team.team_has_macguffin == "true"
             has_macguffin = 1
         END IF
+        IF game_data.game_mode == "wipeout" || game_data.game_mode == "ca"
+            main_score = game_data.own_team.game_score
+        END IF
+        IF game_data.game_mode == "extinction"
+            main_score = game_data.own_team.game_score
+        END IF
     ELSE 
         main_score = game_data.enemy_team.team_score
         round_score = game_data.enemy_team.game_score
@@ -76,6 +84,12 @@ ON_UPDATE
         flag_state = game_data.enemy_team.team_flag_state
         IF game_data.enemy_team.team_has_macguffin == "true"
             has_macguffin = 1
+        END IF
+        IF game_data.game_mode == "wipeout" || game_data.game_mode == "ca"
+            main_score = game_data.enemy_team.game_score
+        END IF
+        IF game_data.game_mode == "extinction"
+            main_score = game_data.enemy_team.game_score
         END IF
     END IF
 
@@ -138,15 +152,23 @@ ON_UPDATE
     IF rS && game_data.round_mode
         show_round_score = 1
     END IF
+    IF game_data.game_mode == "wipeout" || game_data.game_mode == "ca"
+        show_round_score = 0
+    END IF
+    IF game_data.game_mode == "extinction"
+        show_round_score = 0
+    END IF
+
     IF show_round_score
         OUTPUT 0 1 width width
-        OUTPUT 0 1 height 2
+        OUTPUT 0 1 height 3
         OUTPUT 0 1 x 0
-        OUTPUT 0 1 y 2
+        OUTPUT 0 1 y 2.9
         OUTPUT 0 1 font "roboto-bold"
-        OUTPUT 0 1 font_size 1.5
+        OUTPUT 0 1 font_size 2.4
         OUTPUT 0 1 value round_score
         OUTPUT 0 1 fill team_color_dark
+        OUTPUT 0 1 font "roboto-bold"
     ELSE
         OUTPUT 0 1 opacity 0
     END IF
@@ -209,7 +231,7 @@ ON_UPDATE
         OUTPUT 1 0 image macguffin_bar
         OUTPUT 1 0 image_width 2.5
         OUTPUT 1 0 image_height height
-        OUTPUT 1 0 image_color team_color_dark
+        OUTPUT 1 0 image_color team_color
         OUTPUT 1 0 width 2.5
         OUTPUT 1 0 height height
         OUTPUT 1 0 fill "#00000066"
