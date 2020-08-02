@@ -246,6 +246,7 @@ window.addEventListener("load", function(){
     });
 
     bind_event('process_server_json_data', function (string) {
+        console.error("process_server_json_data", string);
         let type = string.charAt(0);
         let data = string.trim().substring(2);
 
@@ -255,9 +256,11 @@ window.addEventListener("load", function(){
                 json_data = JSON.parse(data);
             } catch (e) {
                 console.log("Error parsing server JSON. err=" + e);
+                console.error("ERROR parsing server json", string);
             }
             if (!json_data.action) return;
 
+            console.error("process_server_json", json_data.action);
             
             if (json_data.action == "vote-counts") {
                 game_report_update_vote_counts(json_data);
@@ -368,6 +371,7 @@ window.addEventListener("load", function(){
     
     bind_event('hud_changed', function (type, jsonStr) {
         //console.log("hud_changed", type);
+        console.error("hud_changed", type, jsonStr);
         try {
             editing_hud_data = JSON.parse(jsonStr);
         } catch (err) {
@@ -438,6 +442,7 @@ window.addEventListener("load", function(){
     let global_on_after_connected = false;
     bind_event('on_connected', function() {
         console.log("on_connected");
+        console.error("on_connected");
 
         global_hud_view_active = true;
 
@@ -617,6 +622,7 @@ window.addEventListener("load", function(){
     });
 
     bind_event('show_ingame_hud', function (visible) {
+        console.error("show_ingame_hud", visible);
         console.log("show_ingame_hud " + visible);
         engine.call("hud_mouse_control", false);
         console.log("hud_mouse_control false #2");
