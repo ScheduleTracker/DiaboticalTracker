@@ -14,7 +14,7 @@ a3823a45935cb0ae9d19549271f5a0f2cdc9a450	RenoirCore.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-95a628b95298911082f5d4b18fd8fe9bfc675745	anticheat/equ8.db
+fb8b7ca15bc6ca3d74c94dfb84a58a6f46cf58c7	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1576,7 +1576,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-90b61b78df6a4821c62f312e96fc9293467c8914	diabotical.exe
+2a8e5a919d0151eb9b846415b54f6209f5d120ec	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1605,7 +1605,7 @@ d140546037842537d7d7ee9fb14ef44c8ab4008b	packs/models_theme_medina.dbp
 c782befffe28597f53b988f1cf16791af746c405	packs/models_weapons_crossbow.dbp
 f6ba8fdcf5f1c199535532965939fdcb46a4f36c	packs/models_weapons_rocket_launcher.dbp
 6a8d335cda6a66bc4d795bfc789b20c7e04d2b42	packs/models_weapons_shaft.dbp
-805a5cd01129875163eb7340dc32232395325370	packs/scripts.dbp
+746f2aba9077260cead066af40124b5f866229ee	packs/scripts.dbp
 e56cc18916ebbb6cb575585079e6170460fab816	packs/textures.dbp
 0a3391822214d32c1f94e3e5c804783737a73e9a	packs/textures_cubemaps.dbp
 89179e663066b9059ca31bbdc047aca5deaa4f3b	packs/textures_customization.dbp
@@ -4782,7 +4782,7 @@ c1a91cfd4d787337ca0abfdbd907aa7ab38ecfae	ui/html/asset_thumbnails/wt_stairs.png.
 f44abfa053c6eed3dfe0e98dd62687f98b8b2108	ui/html/asset_thumbnails/xsmallpipe_horizontal.png.dds
 845785109821a039003c21faa5727e5a11de29d9	ui/html/asset_thumbnails/xsmallpipe_vertical.png.dds
 833cc6cdbcda850dcfcadd19f3cbc844e6f2c8dd	ui/html/components/ingame/aim_report.js
-fba01869fb2352754cbbbe1f90b9095c27fd4250	ui/html/components/ingame/game_report.js
+6d79a37bbcdbe462f8c6273668b87a3bfea82f1f	ui/html/components/ingame/game_report.js
 f05157e48569d746e5190a0b9b5b8295f21c6cf4	ui/html/components/ingame/join_menu.js
 ded315e0735321c309436fb27ad109041d74308d	ui/html/components/ingame/rank_screen.js
 6df1bcdd636d7034a88f4ebe9050d3acdf7e7a45	ui/html/components/main_menu/battlepass_list_screen.js
@@ -6798,7 +6798,7 @@ fcc9a8a95cd96048bc449fff94f5794ca22fef44	ui/html/snafu/time_limit.snafu
 c880f29b6176ee2b421c1e34ab6d89218fca9749	ui/html/snafu/translation.snafu
 b217964f2881b110671d82a96aa68680f0b8596f	ui/html/snafu/voicechat.snafu
 d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list.snafu
-d732669c1390bc926cf943749d46cfa0eb6b7964	ui/html/styles-hud.css
+18bf847a12a126e4e2fb464047d6d6c5cdcdfb98	ui/html/styles-hud.css
 8fd21d20764e47a50c98bb2e6d7673cb2778199f	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
