@@ -100,91 +100,91 @@ function main_chat_keydown(e) {
 function main_chat_add_incoming_msg(data) {
     //console.log("incoming chat msg",_dump(data));
 
-    let fragment = new DocumentFragment();
-
-    if (data.msg_type == "user") {
-
-        var line = _createElement("div", "line");
-        line.appendChild(_createElement("div", "ts", _current_hour_minute()));
-        line.appendChild(_createElement("div", "name", data.name));
-        line.appendChild(_createElement("div", "separator", ":"));
-        line.appendChild(_createElement("div", "msg", data.msg));
-
-        if (data.user_id == global_self.user_id) {
-            line.classList.add("self");
-        } else {
-            if (!global_main_chat_open || global_main_chat_active_channel != data.type) {
-                if (data.type == "party") _id("chat_tab_party").classList.add("new");
-                if (data.type == "lobby") _id("chat_tab_lobby").classList.add("new");
-                updateChatHighlight();
-            }
-        }
-        fragment.appendChild(line);
-        
-    } else if (data.msg_type == "spam-warn") {
-
-        var line = _createElement("div", "line");
-        line.appendChild(_createElement("div", "ts", _current_hour_minute()));
-        line.appendChild(_createElement("div", "server_msg", localize("chat_spam_warning")));
-        fragment.appendChild(line);
-
-    } else if (data.msg_type == "user-join") {
-
-        let key = '';
-        if (data.type == "lobby") key = 'chat_user_joined_lobby';
-        if (data.type == "party") key = 'chat_user_joined_party';
-        var line = _createElement("div", "line");
-        line.appendChild(_createElement("div", "ts", _current_hour_minute()));
-        line.appendChild(_createElement("div", "server_msg", localize_ext(key, {"name":data.msg})));
-        fragment.appendChild(line);
-
-    } else if (data.msg_type == "user-join-multiple") {
-
-        let key = '';
-        if (data.type == "lobby") key = 'chat_user_joined_lobby';
-        if (data.type == "party") key = 'chat_user_joined_party';
-        if (typeof data.msg == "object" && Array.isArray(data.msg)) {
-            for (let user of data.msg) {
-                var line = _createElement("div", "line");
-                line.appendChild(_createElement("div", "ts", _current_hour_minute()));
-                line.appendChild(_createElement("div", "server_msg", localize_ext(key, {"name":user.name})));
-                fragment.appendChild(line);
-            }
-        }
-
-    } else if (data.msg_type == "user-leave") {
-
-        let key = '';
-        if (data.type == "lobby") key = 'chat_user_left_lobby';
-        if (data.type == "party") key = 'chat_user_left_party';
-        var line = _createElement("div", "line");
-        line.appendChild(_createElement("div", "ts", _current_hour_minute()));
-        line.appendChild(_createElement("div", "server_msg", localize_ext(key, {"name":data.msg})));
-        fragment.appendChild(line);
-    
-    } else if (data.msg_type == "user-leave-multiple") {
-
-        let key = '';
-        if (data.type == "lobby") key = 'chat_user_left_lobby';
-        if (data.type == "party") key = 'chat_user_left_party';
-        if (typeof data.msg == "object" && Array.isArray(data.msg)) {
-            for (let user of data.msg) {
-                var line = _createElement("div", "line");
-                line.appendChild(_createElement("div", "ts", _current_hour_minute()));
-                line.appendChild(_createElement("div", "server_msg", localize_ext(key, {"name":user.name})));
-                fragment.appendChild(line);
-            }
-        }
-
-    }
-    
     let cont = undefined;
     if (data.type == "party") cont = _id("chat_party");
     if (data.type == "lobby") cont = _id("chat_lobby");
 
     if (cont) {
+
+        if (data.msg_type == "user") {
+
+            var line = _createElement("div", "line");
+            line.appendChild(_createElement("div", "ts", _current_hour_minute()));
+            line.appendChild(_createElement("div", "name", data.name));
+            line.appendChild(_createElement("div", "separator", ":"));
+            line.appendChild(_createElement("div", "msg", data.msg));
+
+            if (data.user_id == global_self.user_id) {
+                line.classList.add("self");
+            } else {
+                if (!global_main_chat_open || global_main_chat_active_channel != data.type) {
+                    if (data.type == "party") _id("chat_tab_party").classList.add("new");
+                    if (data.type == "lobby") _id("chat_tab_lobby").classList.add("new");
+                    updateChatHighlight();
+                }
+            }
+            cont.appendChild(line);
+            
+        } else if (data.msg_type == "spam-warn") {
+
+            var line = _createElement("div", "line");
+            line.appendChild(_createElement("div", "ts", _current_hour_minute()));
+            line.appendChild(_createElement("div", "server_msg", localize("chat_spam_warning")));
+            cont.appendChild(line);
+
+        } else if (data.msg_type == "user-join") {
+
+            let key = '';
+            if (data.type == "lobby") key = 'chat_user_joined_lobby';
+            if (data.type == "party") key = 'chat_user_joined_party';
+            var line = _createElement("div", "line");
+            line.appendChild(_createElement("div", "ts", _current_hour_minute()));
+            line.appendChild(_createElement("div", "server_msg", localize_ext(key, {"name":data.msg})));
+            cont.appendChild(line);
+
+        } else if (data.msg_type == "user-join-multiple") {
+
+            let key = '';
+            if (data.type == "lobby") key = 'chat_user_joined_lobby';
+            if (data.type == "party") key = 'chat_user_joined_party';
+            if (typeof data.msg == "object" && Array.isArray(data.msg)) {
+                for (let user of data.msg) {
+                    var line = _createElement("div", "line");
+                    line.appendChild(_createElement("div", "ts", _current_hour_minute()));
+                    line.appendChild(_createElement("div", "server_msg", localize_ext(key, {"name":user.name})));
+                    cont.appendChild(line);
+                }
+            }
+
+        } else if (data.msg_type == "user-leave") {
+
+            let key = '';
+            if (data.type == "lobby") key = 'chat_user_left_lobby';
+            if (data.type == "party") key = 'chat_user_left_party';
+            var line = _createElement("div", "line");
+            line.appendChild(_createElement("div", "ts", _current_hour_minute()));
+            line.appendChild(_createElement("div", "server_msg", localize_ext(key, {"name":data.msg})));
+            cont.appendChild(line);
+        
+        } else if (data.msg_type == "user-leave-multiple") {
+
+            let key = '';
+            if (data.type == "lobby") key = 'chat_user_left_lobby';
+            if (data.type == "party") key = 'chat_user_left_party';
+            if (typeof data.msg == "object" && Array.isArray(data.msg)) {
+                for (let user of data.msg) {
+                    var line = _createElement("div", "line");
+                    line.appendChild(_createElement("div", "ts", _current_hour_minute()));
+                    line.appendChild(_createElement("div", "server_msg", localize_ext(key, {"name":user.name})));
+                    cont.appendChild(line);
+                }
+            }
+
+        }
+    
+
         let main_buffer = _id("main_chat_buffer");
-        cont.appendChild(fragment);
+
         while (cont.childElementCount > 50) {
             cont.removeChild(cont.firstElementChild);
         }

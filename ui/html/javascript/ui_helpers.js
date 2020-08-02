@@ -218,7 +218,7 @@ function stackTrace() {
 
 function _empty_node(node){
   while (node.hasChildNodes()) {
-    _empty_node(node.firstChild);
+    _empty_node(node.lastChild);
   }
   if (node.parentNode) node.parentNode.removeChild(node);
 }
@@ -229,7 +229,7 @@ function _empty(node) {
     //}
     if (node === undefined) return;
     while (node.hasChildNodes()) {
-       _empty_node(node.firstChild);
+       _empty_node(node.lastChild);
     }
 }
 
@@ -817,7 +817,8 @@ let global_rank_tier_lookup = [
     [36,40]
 ];
 function getRankName(rank, position) {
-    let fragment = new DocumentFragment();
+    //let fragment = new DocumentFragment();
+    let fragment = _createElement("div");
     if (position && position > 0) {
 
         if (position == 1) fragment.appendChild(_createElement("div", "name", localize("rank_tier_top1")));

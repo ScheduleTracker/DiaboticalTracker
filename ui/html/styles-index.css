@@ -6708,9 +6708,11 @@ h2 {
 }
 #main_chat_buffer .chat.active {
     display:block;
+    /*
     animation-name: chat_line_fade_in;
     animation-duration: 0.1s;
     animation-timing-function: ease-in-out;
+    */
 }
 
 #main_chat_buffer .chat .line {
@@ -6721,9 +6723,11 @@ h2 {
     font-size:1.3vh;
     margin-bottom: 0.2vh;
     padding-bottom: 0.2vh;
+    /*
     animation-name: chat_line_fade_in;
     animation-duration: 0.1s;
     animation-timing-function: ease-in-out;
+    */
 }
 @keyframes chat_line_fade_in {
     from { opacity: 0; }
@@ -13113,7 +13117,7 @@ h2 {
 #player_profile_screen .profile .summary_featured .featured .content .rank_icon .position {
     font-size:1.3vh;
 }
-#player_profile_screen .profile .summary_featured .featured .content .rank_name {
+#player_profile_screen .profile .summary_featured .featured .content .rank_name > div {
     display:flex;
     justify-content:center;
     align-items:center;
