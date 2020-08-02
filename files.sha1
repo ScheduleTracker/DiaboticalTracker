@@ -14,7 +14,7 @@ a3823a45935cb0ae9d19549271f5a0f2cdc9a450	RenoirCore.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-c166a5f70a0ebfb11071af18a02642cad978822f	anticheat/equ8.db
+b6b913d1f48e757cb8305aa4d9aad84fc5967cd3	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1576,7 +1576,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-c4c6e86867ea5b9a8056fe69c763acc725157b93	diabotical.exe
+5a7fdeb71b02d9ba5e4ee274941008d728ba3056	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -4782,7 +4782,7 @@ c1a91cfd4d787337ca0abfdbd907aa7ab38ecfae	ui/html/asset_thumbnails/wt_stairs.png.
 f44abfa053c6eed3dfe0e98dd62687f98b8b2108	ui/html/asset_thumbnails/xsmallpipe_horizontal.png.dds
 845785109821a039003c21faa5727e5a11de29d9	ui/html/asset_thumbnails/xsmallpipe_vertical.png.dds
 833cc6cdbcda850dcfcadd19f3cbc844e6f2c8dd	ui/html/components/ingame/aim_report.js
-6d79a37bbcdbe462f8c6273668b87a3bfea82f1f	ui/html/components/ingame/game_report.js
+4fb0995816235726d1e9d32bcb1fe17041e8e82f	ui/html/components/ingame/game_report.js
 f05157e48569d746e5190a0b9b5b8295f21c6cf4	ui/html/components/ingame/join_menu.js
 ded315e0735321c309436fb27ad109041d74308d	ui/html/components/ingame/rank_screen.js
 6df1bcdd636d7034a88f4ebe9050d3acdf7e7a45	ui/html/components/main_menu/battlepass_list_screen.js
@@ -4804,7 +4804,7 @@ d3a6205e602f5dabf76223386f8a7cd988a987c9	ui/html/components/main_menu/notificati
 e0512f0f10f26659da55f0bc964f506f768d6dd8	ui/html/components/main_menu/party_box.js
 ff11e919825c62461836ebf414eeef5bd449cd70	ui/html/components/main_menu/play_screen.js
 61e092710c465ed4e0adacf6271c78a28e089f4d	ui/html/components/main_menu/play_screen_customlist.js
-d77c051d3be4dd089dcddc078a4d681a738a1fc0	ui/html/components/main_menu/player_profile_screen.js
+3ff09e91e9cb0afdec3fbd85dfc806d2f4f01bf5	ui/html/components/main_menu/player_profile_screen.js
 0a033b7b31ba2c9540bd83a26549c81225769c62	ui/html/components/main_menu/practice_screen.js
 52d17363f6c797a9142677c4d31bf1b91ea8ed6e	ui/html/components/main_menu/shop_item_screen.js
 8beebdb33867b3fd064b7e03f8fb4d681114d047	ui/html/components/main_menu/shop_screen.js
@@ -5921,8 +5921,8 @@ d5558a3f6dbc6fad73e63ed68bf6a17a33411278	ui/html/fonts/veneer.otf
 0593300258cae4637579b1a69abd60a98676063c	ui/html/fonts/veneer_fixed.ttf
 8a565b6639a2c641b73ee59562c03c32d8fb3071	ui/html/fonts/veneer_italic.otf
 5fc5bc24de0991a2ff0d27ba57a9a40e7402f89f	ui/html/fonts/veneer_italic.ttf
-bd28994de91ab8047f0dc9dc45ad640eec1f32be	ui/html/hud.bundle.js
-43cde5771f35ec03c2cbe207d2ba0a86fcb9aa5b	ui/html/hud.html
+66c445a4f24b6e9b66198685f306023395f73c69	ui/html/hud.bundle.js
+c056bac5c33d85f6b791d5c6bcef6d044f066689	ui/html/hud.html
 19e2adc1899d26fac9898d7882958342feb78509	ui/html/images/Spark.svg
 542165899a9d5da612fbb8e7912d1eb17cd3f37c	ui/html/images/armor.svg
 a88ca6f1937d73ca626c24b97f0ebd47286bc7f7	ui/html/images/arrow.png
@@ -6452,15 +6452,15 @@ dd3e44a4928cc58fe3d038a6754b14f1c3658ee5	ui/html/javascript/ui_crosshair_creator
 730cde9a1fd45982406ade36c185ff099e46f5c3	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
 6a0d4ab150106c0d1931bf6046fc07127abd643b	ui/html/javascript/ui_fov.js
-48236622d862c9f06016ce94f4b4c3a5f0c02df8	ui/html/javascript/ui_helpers.js
+1d443db211ff42b2b680f06301d868cbdc8bbe2a	ui/html/javascript/ui_helpers.js
 25f050d1a61884222a39a82f436a1c691114cb19	ui/html/javascript/ui_hud_creator.js
 7967755f8dc7c6cc6236eccde37e390b50734e35	ui/html/javascript/ui_hud_editor.js
-852a1fdae7daea07ced59447fc1fdacd5204e77c	ui/html/javascript/ui_ingame.js
+b26a9593f22de9cdf40789b20dcbe996c9263c8a	ui/html/javascript/ui_ingame.js
 d4bf49b9cc1dff18fbfe80c213ce7d7ae4d413d4	ui/html/javascript/ui_mouse.js
 888be6f8df6b06fe4aae0f0a956bd07e39b15378	ui/html/javascript/ui_ms.js
 8ef7fe4cd529480bdf328d5e03b8eb25d545d4bc	ui/html/javascript/ui_play.js
 5ca1fd55438af7d6c25064991124310554f5141b	ui/html/javascript/ui_scrollbar.js
-3ffdd2c053800ffc08bf6b69b2d5ca75aff44e22	ui/html/javascript/ui_select_component.js
+debdea73c16f44c81fa9801fde336f0d515fb641	ui/html/javascript/ui_select_component.js
 6140e1c410824275043d6ffb4e5ebba3825a0326	ui/html/javascript/ui_shared.js
 407bd1e3a92481bd248a58ec2b463fc025eb6788	ui/html/javascript/ui_slider_component.js
 929d6cc7d8604180d519f86aa67774c7c4e2c69f	ui/html/javascript/ui_strafe.js
@@ -6798,8 +6798,8 @@ fcc9a8a95cd96048bc449fff94f5794ca22fef44	ui/html/snafu/time_limit.snafu
 c880f29b6176ee2b421c1e34ab6d89218fca9749	ui/html/snafu/translation.snafu
 b217964f2881b110671d82a96aa68680f0b8596f	ui/html/snafu/voicechat.snafu
 d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list.snafu
-18bf847a12a126e4e2fb464047d6d6c5cdcdfb98	ui/html/styles-hud.css
-8fd21d20764e47a50c98bb2e6d7673cb2778199f	ui/html/styles-index.css
+02ae724ca94d15b3c5c66c40e252909cf28d22e0	ui/html/styles-hud.css
+eda7df58c5468ff71604ac43b7eedf3e0cdba4ed	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
