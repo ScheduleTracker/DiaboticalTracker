@@ -186,25 +186,6 @@ function setup_select(el, cb, data) {
                 i--;
             } else {
 
-                var newNode = {};
-                newNode.selected = false;
-                if (el.children[i].dataset.selected == "1"){
-                    el.dataset.value = el.children[i].dataset.value;
-                    caption = el.children[i].textContent;
-                    if ("i18n" in el.children[i].dataset && el.children[i].classList.contains("i18n")) {
-                        i18n = el.children[i].dataset.i18n;
-                    }
-                    newNode.selected = true;
-                }
-                
-                for (var dataset_key in el.children[i].dataset) {
-                    newNode[dataset_key] = el.children[i].dataset[dataset_key];
-                }
-                newNode.text_content = el.children[i].textContent;
-                
-                data.push(newNode);
-
-
                 if (el.children[i].classList.contains("select-category")){
 
                     var newNode = {};
@@ -222,6 +203,25 @@ function setup_select(el, cb, data) {
 
                     data.push(newNode);
                     
+                } else {
+                    
+                    var newNode = {};
+                    newNode.selected = false;
+                    if (el.children[i].dataset.selected == "1"){
+                        el.dataset.value = el.children[i].dataset.value;
+                        caption = el.children[i].textContent;
+                        if ("i18n" in el.children[i].dataset && el.children[i].classList.contains("i18n")) {
+                            i18n = el.children[i].dataset.i18n;
+                        }
+                        newNode.selected = true;
+                    }
+                    
+                    for (var dataset_key in el.children[i].dataset) {
+                        newNode[dataset_key] = el.children[i].dataset[dataset_key];
+                    }
+                    newNode.text_content = el.children[i].textContent;
+                    data.push(newNode);
+
                 }
                 el.children[i].style.display = "none";
             }

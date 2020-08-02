@@ -25,6 +25,7 @@ function init_hud_screen_game_report() {
      * json_snafu_data json Native snafu data model
      */
     bind_event('set_game_report', function (json_game_status, model_data, json_snafu_data) {
+        console.error("set_game_report");
         if (!json_game_status)  return;
 
         send_view_data("menu", "reset_own_profile_cache");
@@ -36,12 +37,15 @@ function init_hud_screen_game_report() {
             //console.log("snafu_data", _dump(snafu_data));
         } catch(e) {
             console.log("game_report json parse error");
+            console.error("game_report json parse error #1 ", json_game_status);
+            console.error("game_report json parse error #2 ", json_snafu_data);
         }
 
         let countdown_text = _id("game_report_cont").querySelector(".countdown .text");
         if (game_data.continuous == 0) countdown_text.textContent = localize("report_leaving_game_in");
         if (game_data.continuous == 1) countdown_text.textContent = localize("report_next_map_in");
 
+        console.error("set_game_report #1");
         game_report_reset_rematch_option();
 
         let game_report_countdown = _id("game_report_countdown");
@@ -57,12 +61,14 @@ function init_hud_screen_game_report() {
             game_report_countdown.textContent = global_game_report_countdown;
         },1000);
 
+        console.error("set_game_report #2");
         engine.call('set_chat_enabled', false);
 
 
         // sort all clients by score (independent of team)
         game_status.clients.sort(sortPlayersByStats);
 
+        console.error("set_game_report #3");
         // Organize players into team arrays within the server_status object
         for (var i = 0; i < game_status.clients.length; i++) {
             var teamId = game_status.clients[i].team;
@@ -93,6 +99,7 @@ function init_hud_screen_game_report() {
             }
         }
 
+        console.error("set_game_report #4");
         // Make sure there is an entry for at least own and enemy team
         if (!(snafu_data["game_data.own_team.team_id"] in game_status.teams))   game_status.teams[snafu_data["game_data.own_team.team_id"]] = { "score": 0 };
         if (!(snafu_data["game_data.enemy_team.team_id"] in game_status.teams)) game_status.teams[snafu_data["game_data.enemy_team.team_id"]] = { "score": 0 };
@@ -109,10 +116,12 @@ function init_hud_screen_game_report() {
             return (a.placement > b.placement) ? 1 : -1
         });
 
+        console.error("set_game_report #5");
         create_game_report(game_status, snafu_data);
     });
 
     bind_event('show_game_report', function (visible) {
+        console.error("show_game_report");
         //console.log("show_game_report", visible);
         global_game_report_active = visible;
 
@@ -182,6 +191,7 @@ function init_hud_screen_game_report() {
 
 function create_game_report(game_status, snafu_data) {
     //console.log("game_status", _dump(game_status));
+    console.error("create_game_report #1");
 
     let game_report = _id("game_report_cont");
     let head = game_report.querySelector(".head");
@@ -189,6 +199,8 @@ function create_game_report(game_status, snafu_data) {
     _empty(head);
     _empty(scoreboard);
 
+    console.error("create_game_report #1-2");
+    
     let player_lookup = {};
     let placement_lookup = {};
     for (let t of snafu_data.teams) {
@@ -214,6 +226,8 @@ function create_game_report(game_status, snafu_data) {
     if (snafu_data.own_team_players.length) first_user_own = snafu_data.own_team_players[0];
     if (snafu_data.enemy_team_players.length) first_user_enemy = snafu_data.enemy_team_players[0];
 
+    console.error("create_game_report #2");
+
     //console.log("game_status", _dump(game_status));
     //console.log("snafu_data", _dump(snafu_data));
 
@@ -232,7 +246,7 @@ function create_game_report(game_status, snafu_data) {
 
     let victory = false;
     if (game_status.teams[snafu_data["game_data.own_team.team_id"]].placement == 0) victory = true;
-
+    console.error("create_game_report #3");
     //======//
     // HEAD //
     //======//
@@ -302,7 +316,7 @@ function create_game_report(game_status, snafu_data) {
     head_fragment.appendChild(head_right);
 
     head.appendChild(head_fragment);
-    
+    console.error("create_game_report #4");
     //=================//
     // MAIN SCOREBOARD //
     //=================//
@@ -476,10 +490,11 @@ function create_game_report(game_status, snafu_data) {
         }
     //}
     scoreboard.appendChild(scoreboard_fragment);
-
+    console.error("create_game_report #5");
     if (self_stats) selectPlayer(self_stats, false);
-
+    console.error("create_game_report #6");
     renderMapVote();
+    console.error("create_game_report #7");
 }
 
 function updateGameReportRank(mode) {
@@ -555,6 +570,7 @@ function selectPlayer(stats, show) {
 }
 
 function renderMapVote() {
+    console.error("renderMapVote #1");
     let map_vote_cont = _id("game_report_map_vote");
     _empty(map_vote_cont);
 
@@ -579,7 +595,7 @@ function renderMapVote() {
 
     let container = _createElement("div", "map_vote_cont");
     container.appendChild(_createElement("div", "title", localize("vote_next_map")));
-
+    console.error("renderMapVote #2");
     let map_list = _createElement("div", "map_list");
     for (let map of valid_maps) {
         let map_div = _createElement("div", ["map", "vote_option"]);
@@ -605,6 +621,7 @@ function renderMapVote() {
     container.appendChild(map_list);
 
     map_vote_cont.appendChild(container);
+    console.error("renderMapVote #3");
 }
 
 function game_report_update_vote_counts(data) {

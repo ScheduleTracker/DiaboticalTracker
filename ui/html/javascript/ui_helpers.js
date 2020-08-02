@@ -102,10 +102,10 @@ function play_anim(element_id, anim_class) {
     //Hack documented here, https://css-tricks.com/restart-css-animation/
     //Note that this requires non-strict mode according to the article.
     //Note also that use jquery selection here doesn't seem to work with the hack.
-    $("#" + element_id).removeClass(anim_class);
-    var elem = document.getElementById(element_id);
-    void elem.offsetWidth;
-    $("#" + element_id).addClass(anim_class);
+    let el = _id(element_id);
+    el.classList.remove(anim_class);
+    void el.offsetWidth;
+    el.classList.add(anim_class);
 }
 
 function _for_each_child(element, callback) {

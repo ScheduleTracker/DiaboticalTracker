@@ -31,6 +31,7 @@ function clear_profile_data_cache() {
 }
 
 function clear_profile_data_cache_id(id) {
+    console.error("clear_profile_data_cache_id", id);
     if (id in global_profile_data_cache) {
         delete global_profile_data_cache[id];
     }

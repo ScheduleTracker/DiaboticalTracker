@@ -102,7 +102,6 @@ let game_hud_special = undefined;
 let real_hud_container = undefined;
 let real_hud_element = undefined;
 let spec_hud_element = undefined;
-let real_3D_hud_element = undefined;
 let preview_hud_element = undefined;
 function initialize_references() {
     hud_containers = [_id("real_hud"), _id("hud_preview")];
@@ -110,7 +109,6 @@ function initialize_references() {
     real_hud_container = _id("real_hud_container");
     real_hud_element = _id("real_hud");
     spec_hud_element = _id("spec_hud");
-    real_3D_hud_element = _id("real_3D_hud");
     preview_hud_element = _id("hud_preview");
 
     crosshair_containers = [];
@@ -267,10 +265,12 @@ window.addEventListener("load", function(){
 
             if (json_data.action == "post-match-updates") {
                 //console.log("post-match-updates", _dump(json_data));
+                console.error("post-match-updates", string);
 
                 if (current_match.match_id == json_data.data.match_id) {
                     if ("mmr_updates" in json_data.data && json_data.data.mmr_updates.ranked) {
                         global_show_rank_change = true;
+                        console.error("renderRankScreen");
                         renderRankScreen(json_data.data.mmr_updates);
 
                         let mmr_data = json_data.data.mmr_updates;
@@ -285,29 +285,37 @@ window.addEventListener("load", function(){
                             }
                         }
 
+                        console.error("updateGameReportRank");
                         updateGameReportRank(mmr_data.mode);
                     }
 
                     // clear the previous progression update
+                    console.error("clear_battle_pass_progression");
                     clear_battle_pass_progression();
 
                     // Update game report with battle pass and achievement progression
                     if ("progression_updates" in json_data.data) {
                         
                         if ("achievement_rewards" in json_data.data.progression_updates) {
+                            console.error("set_achievement_rewards #1");
                             set_achievement_rewards(json_data.data.progression_updates.achievement_rewards);
                         } else {
+                            console.error("set_achievement_rewards #2");
                             set_achievement_rewards();
                         }
 
                         if ("battlepass_update" in json_data.data.progression_updates) {
+                            console.error("set_battle_pass_rewards #1");
                             set_battle_pass_rewards(json_data.data.progression_updates.battlepass_rewards);
+                            console.error("set_battle_pass_progression");
                             set_battle_pass_progression(json_data.data.progression_updates.battlepass_update);
                         } else {
+                            console.error("set_battle_pass_rewards #2");
                             set_battle_pass_rewards();
                         }
 
                         // Add rewards to the progression update
+                        console.error("set_progression_reward_unlocks");
                         set_progression_reward_unlocks();
                     }
 
@@ -316,6 +324,7 @@ window.addEventListener("load", function(){
                     } else {
                         global_game_report_rematch_enabled = false;
                     }
+                    console.error("game_report_reset_rematch_option");
                     game_report_reset_rematch_option();
                 }
             }
@@ -563,29 +572,7 @@ window.addEventListener("load", function(){
         */
     });
 
-   bind_event("show_game_over", function (show, victory) {
-        console.log("show_game_over", show);
-        _id("game_over_screen").style.display = show ? 'block' : 'none';
-        if (show) {
-            if (victory) {
-                _id("game_over_victory").style.display = "flex";
-                _id("game_over_defeat").style.display = "none";
-            } else {
-                _id("game_over_defeat").style.display = "flex";
-                _id("game_over_victory").style.display = "none";
-            }
-            // setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
-            if (victory) {
-                play_anim("game_over_victory", "game_over_anim");
-            } else {
-                play_anim("game_over_defeat", "game_over_anim");
-            }
-        } else {
-            _id("game_over_defeat").style.display = "none";
-            _id("game_over_victory").style.display = "none";
-        }
-    });
-
+    bind_event("show_game_over", show_game_over);
 
     bind_event('set_respawn_timer', function (time_ms) {
         //console.log("respawning in time_seconds " + time_ms);
@@ -721,7 +708,7 @@ window.addEventListener("load", function(){
 
     function showAnnounce(text, large, fade_out_ms, duration_ms){
         if (!text) return;
-        
+
         var container = _id("announcements");
         _empty(container);
         
@@ -927,6 +914,7 @@ window.addEventListener("load", function(){
     });
 
     bind_event("show_play_of_the_game", function (show, player_name) {
+        return;
         if (show) {
 
             _id("play_of_the_game_player").textContent = player_name
@@ -1209,4 +1197,29 @@ function hudUITestRankScreen(mmr_updates, delay) {
 function play_tracked_sound(sound_key) {
     if (!global_hud_view_active) return;
     engine.call('ui_sound_tracked', sound_key);
+}
+
+function show_game_over(show, victory) {
+    //console.log("show_game_over", show);
+    _id("game_over_screen").style.display = show ? 'block' : 'none';
+    if (show) {
+        if (victory) {
+            _id("game_over_victory").style.display = "flex";
+            _id("game_over_defeat").style.display = "none";
+        } else {
+            _id("game_over_defeat").style.display = "flex";
+            _id("game_over_victory").style.display = "none";
+        }
+        //setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
+        if (victory) {
+            //play_anim("game_over_victory", "game_over_anim");
+            _id("game_over_victory").style.display = "block";
+        } else {
+            //play_anim("game_over_defeat", "game_over_anim");
+            _id("game_over_defeat").style.display = "block";
+        }
+    } else {
+        _id("game_over_defeat").style.display = "none";
+        _id("game_over_victory").style.display = "none";
+    }
 }
