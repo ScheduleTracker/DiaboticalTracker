@@ -259,7 +259,7 @@ models\dynamic_props\medieval\med_base_walls\full_wall\left_corner_x1_y4_z2.fbx	
 models\dynamic_props\medieval\med_base_walls\full_wall\left_corner_x1_y4_z3.fbx		24480
 models\dynamic_props\medieval\med_base_walls\full_wall\left_corner_x1_y4_z4.fbx		24480
 models\dynamic_props\medieval\med_base_walls\full_wall\med_full_wall.assets		20616
-models\dynamic_props\medieval\med_base_walls\full_wall\med_full_wall.shader		2206
+models\dynamic_props\medieval\med_base_walls\full_wall\med_full_wall.shader		2202
 models\dynamic_props\medieval\med_base_walls\full_wall\med_full_wall_brick_10.assets		20625
 models\dynamic_props\medieval\med_base_walls\full_wall\med_full_wall_leaves.assets		44847
 models\dynamic_props\medieval\med_base_walls\full_wall\med_full_wall_plaster_03.assets		20629
@@ -467,8 +467,8 @@ models\dynamic_props\medieval\med_base_walls\med_board_wall\med_thin_wall_01_til
 models\dynamic_props\medieval\med_base_walls\med_board_wall\med_thin_wall_01_tile_04_3.fbx		24144
 models\dynamic_props\medieval\med_base_walls\med_board_wall\med_thin_wall_01_tile_04_4.dbm		2785
 models\dynamic_props\medieval\med_base_walls\med_board_wall\med_thin_wall_01_tile_04_4.fbx		23888
-models\dynamic_props\medieval\med_base_walls\med_brick_wall\med_brick_wall.assets		18539
-models\dynamic_props\medieval\med_base_walls\med_brick_wall\med_brick_wall.shader		4664
+models\dynamic_props\medieval\med_base_walls\med_brick_wall\med_brick_wall.assets		18731
+models\dynamic_props\medieval\med_base_walls\med_brick_wall\med_brick_wall.shader		4738
 models\dynamic_props\medieval\med_base_walls\med_brick_wall\med_brick_wall_01_tile_01_1.dbm		5603
 models\dynamic_props\medieval\med_base_walls\med_brick_wall\med_brick_wall_01_tile_01_1.fbx		26192
 models\dynamic_props\medieval\med_base_walls\med_brick_wall\med_brick_wall_01_tile_01_2.dbm		5603
