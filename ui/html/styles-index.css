@@ -3743,8 +3743,8 @@ h2 {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
     width:100%;
 }
-.elem_chat .chat_temp > div,
-.elem_chat .chat_messages > div {
+.elem_chat .chat_temp .chat_msg,
+.elem_chat .chat_messages .chat_msg {
     display: flex;
 }
 .elem_chat .chat_temp .chat_timestamp,

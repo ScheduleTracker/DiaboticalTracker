@@ -170,15 +170,15 @@ function addServerChatMessage(msg){
 }
 
 function addChatMessage(playerName, msg, self, team, game_time) {
-    let fragment = new DocumentFragment();
+    let div = _createElement("div", "chat_msg");
     if (game_time !== undefined) {
-        fragment.appendChild(_createElement("span","chat_timestamp", "[" + _seconds_to_digital(game_time) + "] "));
+        div.appendChild(_createElement("span","chat_timestamp", "[" + _seconds_to_digital(game_time) + "] "));
     }
-    if (team) fragment.appendChild(_createElement("span","team_indicator", " [T] "));
-    fragment.appendChild(_createElement("span",["chat_playername", (self) ? "self" : ""], playerName));
-    fragment.appendChild(_createElement("span","colon", ":"));
-    fragment.appendChild(_createElement("span","msg", msg));
-    chatMessage(fragment, team);    
+    if (team) div.appendChild(_createElement("span","team_indicator", " [T] "));
+    div.appendChild(_createElement("span",["chat_playername", (self) ? "self" : ""], playerName));
+    div.appendChild(_createElement("span","colon", ":"));
+    div.appendChild(_createElement("span","msg", msg));
+    chatMessage(div, team);    
 }
 
 function element_chat_setup() {

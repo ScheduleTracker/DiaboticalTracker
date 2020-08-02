@@ -598,10 +598,10 @@ window.addEventListener("load", function(){
         let seconds = Math.round(time_ms/1000);
         if (seconds == 0) return;
 
-        let cont = new DocumentFragment();
-        cont.appendChild(_createElement("div", "text", localize("ingame_message_respawning_in")));
-        cont.appendChild(_createElement("div", ["countdown", "medium"], seconds));
-        showAnnounce(cont, 1, 1000, 1000);
+        let div = _createElement("div");
+        div.appendChild(_createElement("div", "text", localize("ingame_message_respawning_in")));
+        div.appendChild(_createElement("div", ["countdown", "medium"], seconds));
+        showAnnounce(div, 1, 1000, 1000);
     });
 
     /* replaced by player_name hud element
@@ -744,27 +744,27 @@ window.addEventListener("load", function(){
         if (key == "countdown") {
             showAnnounce(value, 2, 1000, 0);
         } else if (key == "round_countdown") {
-            let cont = new DocumentFragment();
+            let cont = _createElement("div");
             cont.appendChild(_createElement("div", "text", localize("ingame_message_round_begins_in")));
             cont.appendChild(_createElement("div", "countdown", value));
             showAnnounce(cont, 1, 1000, 1000);
         } else if (key == "respawn_countdown") {
-            let cont = new DocumentFragment();
+            let cont = _createElement("div");
             cont.appendChild(_createElement("div", "text", localize("ingame_message_respawning_in")));
             cont.appendChild(_createElement("div", ["countdown", "medium"], Math.round(value/1000)));
             showAnnounce(cont, 1, 1000, 1000);
         } else if (key == "pre_countdown") {
-            let cont = new DocumentFragment();
+            let cont = _createElement("div");
             cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_get_ready")));
             cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_start_countdown", {"seconds": value })));
             showAnnounce(cont, 0, value == 0?300:0, 1100);
         } else if (key == "overtime") {
-            let cont = new DocumentFragment();
+            let cont = _createElement("div");
             cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_overtime")));
             cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_overtime_seconds", {"seconds": value })));
             showAnnounce(cont, 1, 1000, 1000);
         } else if (key == "score_overtime") {
-            let cont = new DocumentFragment();
+            let cont = _createElement("div");
             cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_overtime")));
             cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_overtime_fraglimit", {"score": value })));
             showAnnounce(cont, 1, 1000, 1000);

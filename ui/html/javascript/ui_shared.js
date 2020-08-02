@@ -63,7 +63,7 @@ class i18nHandler {
                 let msg = localize_ext(res[0], { "value": bind });
                 let pos = msg.indexOf(bind);
                 
-                let fragment = new DocumentFragment();
+                let fragment = _createElement("div");
                 if (pos > 0) fragment.appendChild(_createElement("span","",msg.substring(0,pos).trim()));
                 fragment.appendChild(_createElement("span","hl",bind));
                 if (msg.length > pos+bind.length) fragment.appendChild(_createElement("span","",msg.substring(pos+bind.length).trim()));

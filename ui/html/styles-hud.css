@@ -1250,6 +1250,12 @@ h2 {
     align-items:center;
     justify-content:center;
 }
+#announcements .inner > div {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
 #announcements .inner.large {
     font-size: 4vh;
 }
@@ -1616,8 +1622,8 @@ h2 {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
     width:100%;
 }
-.elem_chat .chat_temp > div,
-.elem_chat .chat_messages > div {
+.elem_chat .chat_temp .chat_msg,
+.elem_chat .chat_messages .chat_msg {
     display: flex;
 }
 .elem_chat .chat_temp .chat_timestamp,
@@ -2370,7 +2376,7 @@ h2 {
     color: white;
 }
 
-#game_report_cont .bottom .chat .chat_messages > div { display: flex; }
+#game_report_cont .bottom .chat .chat_messages .chat_msg { display: flex; }
 #game_report_cont .bottom .chat .chat_messages .chat_playername {color: lightblue; }
 #game_report_cont .bottom .chat .chat_messages .chat_playername.self {color: #90e881; }
 #game_report_cont .bottom .chat .chat_messages .colon { margin-right:0.6vh; }
