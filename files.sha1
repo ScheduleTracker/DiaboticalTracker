@@ -14,7 +14,7 @@ a3823a45935cb0ae9d19549271f5a0f2cdc9a450	RenoirCore.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-b6b913d1f48e757cb8305aa4d9aad84fc5967cd3	anticheat/equ8.db
+2571f71e84096210a6067ffc8d526cc204af7411	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1576,7 +1576,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-5a7fdeb71b02d9ba5e4ee274941008d728ba3056	diabotical.exe
+e13e7219ec4bccda975bbb9f0ef8018ddc45bcb1	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -4782,7 +4782,7 @@ c1a91cfd4d787337ca0abfdbd907aa7ab38ecfae	ui/html/asset_thumbnails/wt_stairs.png.
 f44abfa053c6eed3dfe0e98dd62687f98b8b2108	ui/html/asset_thumbnails/xsmallpipe_horizontal.png.dds
 845785109821a039003c21faa5727e5a11de29d9	ui/html/asset_thumbnails/xsmallpipe_vertical.png.dds
 833cc6cdbcda850dcfcadd19f3cbc844e6f2c8dd	ui/html/components/ingame/aim_report.js
-4fb0995816235726d1e9d32bcb1fe17041e8e82f	ui/html/components/ingame/game_report.js
+7cab07a7d0f85e6cdfd52098c994cc6ea518ce53	ui/html/components/ingame/game_report.js
 f05157e48569d746e5190a0b9b5b8295f21c6cf4	ui/html/components/ingame/join_menu.js
 ded315e0735321c309436fb27ad109041d74308d	ui/html/components/ingame/rank_screen.js
 6df1bcdd636d7034a88f4ebe9050d3acdf7e7a45	ui/html/components/main_menu/battlepass_list_screen.js
@@ -6455,7 +6455,7 @@ c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
 1d443db211ff42b2b680f06301d868cbdc8bbe2a	ui/html/javascript/ui_helpers.js
 25f050d1a61884222a39a82f436a1c691114cb19	ui/html/javascript/ui_hud_creator.js
 7967755f8dc7c6cc6236eccde37e390b50734e35	ui/html/javascript/ui_hud_editor.js
-b26a9593f22de9cdf40789b20dcbe996c9263c8a	ui/html/javascript/ui_ingame.js
+2208629d7135e4ba4c748b0c8765501f41ae7f40	ui/html/javascript/ui_ingame.js
 d4bf49b9cc1dff18fbfe80c213ce7d7ae4d413d4	ui/html/javascript/ui_mouse.js
 888be6f8df6b06fe4aae0f0a956bd07e39b15378	ui/html/javascript/ui_ms.js
 8ef7fe4cd529480bdf328d5e03b8eb25d545d4bc	ui/html/javascript/ui_play.js
