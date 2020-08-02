@@ -14,7 +14,7 @@ a3823a45935cb0ae9d19549271f5a0f2cdc9a450	RenoirCore.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-0d9365751efdf5e9c3380c289bcb7c5999c108b3	anticheat/equ8.db
+53e754eccc5a00c8304375fc6a0fc89550c29ee9	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1576,7 +1576,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-ad0bdaa6c0c1b0a2eb1130bb6bd4a5ef2f505fe8	diabotical.exe
+ebf8ebd6bbbf5db8e45b76557e655dc833110008	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -4797,7 +4797,7 @@ d727bf3507a457073ddbb6e036f989e876b45240	ui/html/components/main_menu/gift_scree
 274d07413171a8da346167f277f32e820b4d1a9d	ui/html/components/main_menu/ingame_menu.js
 0da4c313ed547c65a10a1f85c35faf62b7f21b46	ui/html/components/main_menu/leaderboards_screen.js
 2c1d071e32f96df11a31ab7f31af6553f1bd9df6	ui/html/components/main_menu/learn_screen.js
-8ef5efd2703ac697acd5ffb563b980f56a50d513	ui/html/components/main_menu/main_chat.js
+6d32354473b7d635ff1a20131032c7fbef1a727c	ui/html/components/main_menu/main_chat.js
 e92c0ad36718d0582b953fa5a98a014bae8d246e	ui/html/components/main_menu/match_screen.js
 3a5ccd63182dbe1be0b3c661efd12f1e49070f77	ui/html/components/main_menu/new_items_screen.js
 d3a6205e602f5dabf76223386f8a7cd988a987c9	ui/html/components/main_menu/notification_screen.js
@@ -6452,10 +6452,10 @@ dd3e44a4928cc58fe3d038a6754b14f1c3658ee5	ui/html/javascript/ui_crosshair_creator
 730cde9a1fd45982406ade36c185ff099e46f5c3	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
 6a0d4ab150106c0d1931bf6046fc07127abd643b	ui/html/javascript/ui_fov.js
-1d443db211ff42b2b680f06301d868cbdc8bbe2a	ui/html/javascript/ui_helpers.js
+92d284a938069c23fb19bfd75a5f2da66f23be0a	ui/html/javascript/ui_helpers.js
 25f050d1a61884222a39a82f436a1c691114cb19	ui/html/javascript/ui_hud_creator.js
 7967755f8dc7c6cc6236eccde37e390b50734e35	ui/html/javascript/ui_hud_editor.js
-437e5bc23ad4f0c32b9bcc678f8250bf44d95ae0	ui/html/javascript/ui_ingame.js
+0910814ebf0b82b60ac1c69db3f3b32d4523b51c	ui/html/javascript/ui_ingame.js
 d4bf49b9cc1dff18fbfe80c213ce7d7ae4d413d4	ui/html/javascript/ui_mouse.js
 888be6f8df6b06fe4aae0f0a956bd07e39b15378	ui/html/javascript/ui_ms.js
 8ef7fe4cd529480bdf328d5e03b8eb25d545d4bc	ui/html/javascript/ui_play.js
@@ -6798,8 +6798,8 @@ fcc9a8a95cd96048bc449fff94f5794ca22fef44	ui/html/snafu/time_limit.snafu
 c880f29b6176ee2b421c1e34ab6d89218fca9749	ui/html/snafu/translation.snafu
 b217964f2881b110671d82a96aa68680f0b8596f	ui/html/snafu/voicechat.snafu
 d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list.snafu
-eb3be3677090c5b740ac9ba2223051097b05c001	ui/html/styles-hud.css
-5724837872f621956a59981d97043a7841ee9162	ui/html/styles-index.css
+47cd4a8fcd79ea8d9406aa97afa76779c3f9c263	ui/html/styles-hud.css
+a891b1ab19ba7a324d5620b9d08edd14cffa5b35	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
