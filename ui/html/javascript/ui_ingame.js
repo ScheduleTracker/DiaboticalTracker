@@ -574,7 +574,7 @@ window.addEventListener("load", function(){
                 _id("game_over_defeat").style.display = "flex";
                 _id("game_over_victory").style.display = "none";
             }
-            setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
+            // setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
             if (victory) {
                 play_anim("game_over_victory", "game_over_anim");
             } else {
