@@ -3977,7 +3977,7 @@ h2 {
     flex:1;
 }
 #game_report_cont .head .head_center .separator {
-    /*transform:rotateZ(25deg);*/
+    transform:rotateZ(25deg);
     height:200%;
     width:0.1vh;
     background-color:rgba(255,255,255,0.1);
