@@ -31,12 +31,12 @@ ghost_ring_2
 	animation_speed 40
 	animation_start 0
 	blend add
-	max_particles 5
+	max_particles 10
 	max_emissions 0
 	lifetime 2	
 	fade_in 0.1
 	fade_out 0.10
-	period 0.4
+	period 0.2
      scale_start 50
     scale_end 200
     rotation_start 0 360
@@ -74,15 +74,15 @@ ghost_flames
 	fade_out 0.10
 	period 0.3
 
-     scale_start 120 150
+     scale_start 122 165
     scale_end 1 2
     rotation_start -40 40
    	hard_edges true
-	speed_start 30 35
+	speed_start 30 32
 
 
 angular_speed_start -1000 1000
- position 0 0 15
+ position 0 0 12
     velocity_angles 0 0 0 0 0 0
     color_start  0.9 0.95 1 0.5
 	color_end  0.9 0.95 1 0.0
@@ -102,68 +102,94 @@ ghost_flames_2
 	fade_out 0.10
 	period 0.25
 
-     scale_start 50 80
+     scale_start 65 88
     scale_end 5 8
     rotation_start -40 40
    	hard_edges true
 	speed_start 40 45
 	angular_speed_start -1000 1000
-    position 0 0 15
+    position 0 0 12
     velocity_angles 0 0 0 0 0 0
     color_start  0.9 0.95 1 0.5
 	color_end  0.9 0.95 1 0.0
-	range 0
+	
 }
-ghost_embers
+ghost_flames_3
 {
-	map particle_sheet3.png
-	region  s3_rl_muzzle_23
+	map particle_sheet4.png
+	region r_smoke_ae_new2
+	animation_speed 20
 	animation_start 0
 	blend add
-	max_particles 8
+	max_particles 4
 	max_emissions 0
-	lifetime 0.8 0.3
+	lifetime 1
 	fade_in 0
 	fade_out 0.10
 	period 0.15
 
-     scale_start 20 10
-    scale_end 10 0
+     scale_start 65 88
+    scale_end 5 8
     rotation_start -40 40
    	hard_edges true
-	speed_start 50
+	speed_start 40 45
 	angular_speed_start -1000 1000
-    position 0 0 15
+    position 0 0 11
     velocity_angles 0 0 0 0 0 0
     color_start  0.9 0.95 1 0.5
-	color_end  0.9 0.95 1 0.5
+	color_end  0.9 0.95 1 0.0
 
 }
-ghost_embers_2
-{
-	map particle_sheet3.png
-	region  s3_rl_muzzle_23
-	animation_start 0
-	blend add
-	max_particles 8
-	max_emissions 0
-	lifetime 0.6
-	fade_in 0
-	fade_out 0.10
-	period 0.15
-     scale_start 20 10
-    scale_end 10 0
-    rotation_start -40 40
-   	hard_edges true
-	speed_start 100
+// ghost_embers
+// {
+	// map particle_sheet3.png
+	// region  s3_rl_muzzle_23
+	// animation_start 0
+	// blend add
+	// max_particles 8
+	// max_emissions 0
+	// lifetime 0.8 0.3
+	// fade_in 0
+	// fade_out 0.10
+	// period 0.15
 
-angular_speed_start -1000 1000
-    position 0 0 15
-    velocity_angles 0 0 0 0 0 0
-    color_start  0.9 0.95 1 0.5
-	color_end  0.9 0.95 1 0.5
+     // scale_start 20 10
+    // scale_end 10 0
+    // rotation_start -40 40
+   	// hard_edges true
+	// speed_start 50
+	// angular_speed_start -1000 1000
+    // position 0 0 15
+    // velocity_angles 0 0 0 0 0 0
+    // color_start  0.9 0.95 1 0.5
+	// color_end  0.9 0.95 1 0.5
 
-}
+// }
+// ghost_embers_2
+// {
+	// map particle_sheet3.png
+	// region  s3_rl_muzzle_23
+	// animation_start 0
+	// blend add
+	// max_particles 8
+	// max_emissions 0
+	// lifetime 0.6
+	// fade_in 0
+	// fade_out 0.10
+	// period 0.15
+     // scale_start 20 10
+    // scale_end 10 0
+    // rotation_start -40 40
+   	// hard_edges true
+	// speed_start 100
+
+// angular_speed_start -1000 1000
+    // position 0 0 15
+    // velocity_angles 0 0 0 0 0 0
+    // color_start  0.9 0.95 1 0.5
+	// color_end  0.9 0.95 1 0.5
+
+// }
 
 
 bot_ghosts_pfx
@@ -174,8 +200,9 @@ bot_ghosts_pfx
 	subsystem ghost_ring_3  0 1
 	  subsystem	ghost_flames  0 1
 	 subsystem	ghost_flames_2  0 1
-	 subsystem ghost_embers  0 1
-	 subsystem ghost_embers_2  0 1
+	 subsystem	ghost_flames_3  0 1
+	 // subsystem ghost_embers  0 1
+	 // subsystem ghost_embers_2  0 1
 	
 	 // subsystem ghost_embers_back  0 1.5
 	 
