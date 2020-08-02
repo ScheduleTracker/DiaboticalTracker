@@ -103,8 +103,10 @@ function renderPlacementMatches(data) {
     let match_count = 10;
     if ("placement_matches" in data) match_count = Number(data.placement_matches);
 
-    let fragment = new DocumentFragment();
-    fragment.appendChild(_createElement("div", "title", localize("placement_matches")));
+    let cont = _id("rank_screen").querySelector(".placement_progression");
+    _empty(cont);
+
+    cont.appendChild(_createElement("div", "title", localize("placement_matches")));
 
     let match_list = _createElement("div", "match_list");
     match_list.appendChild(_createElement("div", ["dot", "block"]));
@@ -164,21 +166,18 @@ function renderPlacementMatches(data) {
         match_list.appendChild(dot);
     }
 
-    fragment.appendChild(match_list);
-
-    let cont = _id("rank_screen").querySelector(".placement_progression");
-    _empty(cont);
-
-    cont.appendChild(fragment);
+    cont.appendChild(match_list);
 }
 
 
 function renderPlacementRank(data) {
     //console.log("==== renderPlacementRank");
-    let fragment = new DocumentFragment();
+
+    let cont = _id("rank_screen").querySelector(".placement_rank");
+    _empty(cont);
 
     let title = _createElement("div", "title", localize("placement_matches_completed"));
-    fragment.appendChild(title);
+    cont.appendChild(title);
 
     let rank_icon_cont = _createElement("div", "rank_icon_cont");
 
@@ -202,13 +201,13 @@ function renderPlacementRank(data) {
         }
     }
 
-    fragment.appendChild(rank_icon_cont);
+    cont.appendChild(rank_icon_cont);
 
     let rank_name_cont = _createElement("div", "rank_name_cont");
     let rank_name = _createElement("div", "rank_name");
     rank_name.appendChild(getRankName(data.to.rank_tier, data.to.rank_position));
     rank_name_cont.appendChild(rank_name);
-    fragment.appendChild(rank_name_cont);
+    cont.appendChild(rank_name_cont);
 
     if (data.match_type == 2) {
         let progress_cont = _createElement("div", "progress_cont");
@@ -222,18 +221,15 @@ function renderPlacementRank(data) {
         progress.appendChild(value);
         progress.appendChild(unit);
         progress_cont.appendChild(progress);
-        fragment.appendChild(progress_cont);
+        cont.appendChild(progress_cont);
     }
-
-    let cont = _id("rank_screen").querySelector(".placement_rank");
-    _empty(cont);
-
-    cont.appendChild(fragment);
 }
 
 
 function renderRankUpdate(data) {
-    let fragment = new DocumentFragment();
+    
+    let cont = _id("rank_screen").querySelector(".rank_progression");
+    _empty(cont);
 
     let rank_icon_cont = _createElement("div", "rank_icon_cont");
 
@@ -259,8 +255,7 @@ function renderRankUpdate(data) {
         }
     }
     
-    fragment.appendChild(rank_icon_cont);
-
+    cont.appendChild(rank_icon_cont);
 
     let rank_name_cont = _createElement("div", "rank_name_cont");
     let prev_rank_name = _createElement("div", "rank_name");
@@ -271,8 +266,7 @@ function renderRankUpdate(data) {
     next_rank_name.appendChild(getRankName(data.to.rank_tier, data.to.rank_position));
     next_rank_name.classList.add("next");
     rank_name_cont.appendChild(next_rank_name);
-    fragment.appendChild(rank_name_cont);
-
+    cont.appendChild(rank_name_cont);
 
     let progress_cont = _createElement("div", "progress_cont");
     let progress = _createElement("div", "progress");
@@ -334,12 +328,8 @@ function renderRankUpdate(data) {
         }
     }
     progress_cont.appendChild(progress);
-    fragment.appendChild(progress_cont);
+    cont.appendChild(progress_cont);
 
-    let cont = _id("rank_screen").querySelector(".rank_progression");
-    _empty(cont);
-
-    cont.appendChild(fragment);
 }
 
 function showRankScreen(cb, initial) {

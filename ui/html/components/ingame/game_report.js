@@ -243,8 +243,7 @@ function create_game_report(game_status, snafu_data) {
     let result_text = (victory) ? localize("ingame_victory") : localize("ingame_defeat");
     if (snafu_data["game_data.spectator"] == "true") result_text = "";
 
-    let head_fragment = new DocumentFragment();
-    head_fragment.appendChild(_createElement("div", ["head_side", "result_text"], result_text));
+    head.appendChild(_createElement("div", ["head_side", "result_text"], result_text));
 
     let head_center = _createElement("div", "head_center");
 
@@ -296,15 +295,13 @@ function create_game_report(game_status, snafu_data) {
         head_center.appendChild(score_right);
     }
     
-    head_fragment.appendChild(head_center);
+    head.appendChild(head_center);
 
     let head_right = _createElement("div", ["head_side", "mode_map_time"]);
     head_right.appendChild(_createElement("div", "mode", localize(global_game_mode_map[game_status.mode].i18n)));
     head_right.appendChild(_createElement("div", "map", _format_map_name(game_status.map)));
     head_right.appendChild(_createElement("div", "time", _seconds_to_digital(game_status.match_time)));
-    head_fragment.appendChild(head_right);
-
-    head.appendChild(head_fragment);
+    head.appendChild(head_right);
 
     //=================//
     // MAIN SCOREBOARD //
@@ -317,11 +314,9 @@ function create_game_report(game_status, snafu_data) {
 
     let self_stats = undefined;
 
-    let scoreboard_fragment = new DocumentFragment();
-
     /*
     if (game_status.mode == "duel") {
-        scoreboard_fragment.appendChild(_createElement("div","duel","TBA"));
+        scoreboard.appendChild(_createElement("div","duel","TBA"));
     } else {
         */
         let player_rows = 0;
@@ -471,14 +466,13 @@ function create_game_report(game_status, snafu_data) {
                 }
             }
 
-            scoreboard_fragment.appendChild(team);
+            scoreboard.appendChild(team);
 
             if (team_size > 1) {
-                scoreboard_fragment.appendChild(_createElement("div", "separator"));
+                scoreboard.appendChild(_createElement("div", "separator"));
             }
         }
     //}
-    scoreboard.appendChild(scoreboard_fragment);
 
     if (self_stats) selectPlayer(self_stats, false);
 
@@ -625,11 +619,9 @@ function game_report_update_vote_counts(data) {
 
         _empty(vote_cont);
         if (opt_el.dataset.option in data.votes && data.votes[opt_el.dataset.option] > 0) {
-            let fragment = new DocumentFragment();
             for (let i=0; i<data.votes[opt_el.dataset.option]; i++) {
-                fragment.appendChild(_createElement("div", "vote"));
+                vote_cont.appendChild(_createElement("div", "vote"));
             }
-            vote_cont.appendChild(fragment);
         }
     });
 }
@@ -740,8 +732,6 @@ function set_battle_pass_progression(update) {
 
     let cont = _id("game_report_progression");
 
-    let fragment = new DocumentFragment();
-
     let progress_cont = _createElement("div", "progress_cont");
 
     let level_icon_prev = _createElement("div", "bp_level_icon", update.from.level);
@@ -762,15 +752,13 @@ function set_battle_pass_progression(update) {
     progress_cont.appendChild(progress_bar);
     progress_cont.appendChild(level_icon_next);
 
-    fragment.appendChild(progress_cont);
+    cont.appendChild(progress_cont);
 
     global_game_report_progression_map.level_icon_prev = level_icon_prev;
     global_game_report_progression_map.level_icon_next = level_icon_next;
     global_game_report_progression_map.progress_bar_inner = progress_bar_inner;
     global_game_report_progression_map.from = update.from;
     global_game_report_progression_map.to = update.to;
-
-    cont.appendChild(fragment);
 }
 
 function set_progression_reward_unlocks() {
