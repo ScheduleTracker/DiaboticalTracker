@@ -48,7 +48,7 @@ scripts\particles\crossbow.particles		13546
 scripts\particles\death.particles		16143
 scripts\particles\debris_trail.particles		450
 scripts\particles\destruction.particles		2001
-scripts\particles\diabotical.particles		3884
+scripts\particles\diabotical.particles		10660
 scripts\particles\double_damage.particles		4668
 scripts\particles\double_damage_v2NOP.particles		10530
 scripts\particles\dust_big.particles		1508
@@ -63,7 +63,7 @@ scripts\particles\fire.particles		1899
 scripts\particles\firefly.particles		397
 scripts\particles\flak.particles		0
 scripts\particles\flak_particles.particles		10521
-scripts\particles\ghost.particles		3276
+scripts\particles\ghost.particles		3927
 scripts\particles\gl_bullet.particles		9198
 scripts\particles\gl_impact.particles		8122
 scripts\particles\gl_impact_v2.particles		13412
@@ -136,7 +136,7 @@ scripts\particles\spawn.particles		4765
 scripts\particles\sword.particles		1502
 scripts\particles\testdisp.particles		317
 scripts\particles\testing.particles		4586
-scripts\particles\triple_damage.particles		6362
+scripts\particles\triple_damage.particles		13256
 scripts\particles\vc_bullet.particles		4332
 scripts\particles\vc_bullet_v2.particles		3293
 scripts\particles\vc_bullet_v3.particles		2000
