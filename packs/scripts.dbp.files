@@ -63,7 +63,7 @@ scripts\particles\fire.particles		1899
 scripts\particles\firefly.particles		397
 scripts\particles\flak.particles		0
 scripts\particles\flak_particles.particles		10521
-scripts\particles\ghost.particles		4398
+scripts\particles\ghost.particles		3276
 scripts\particles\gl_bullet.particles		9198
 scripts\particles\gl_impact.particles		8122
 scripts\particles\gl_impact_v2.particles		13412
