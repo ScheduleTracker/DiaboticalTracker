@@ -217,9 +217,11 @@ function stackTrace() {
 }
 
 function _empty_node(node){
-  while (node.hasChildNodes()) {
-    _empty_node(node.lastChild);
-  }
+  //while (node.hasChildNodes()) {
+  //  _empty_node(node.lastChild);
+  //}
+  if (!node) return;
+  node.innerHTML = "";
   if (node.parentNode) node.parentNode.removeChild(node);
 }
 
@@ -228,9 +230,10 @@ function _empty(node) {
     //    node.removeChild(node.firstChild);
     //}
     if (node === undefined) return;
-    while (node.hasChildNodes()) {
-       _empty_node(node.lastChild);
-    }
+    node.innerHTML = "";
+    //while (node.hasChildNodes()) {
+    //   _empty_node(node.lastChild);
+   // }
 }
 
 function _html(node, html) {
