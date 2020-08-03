@@ -1285,8 +1285,6 @@ window.addEventListener("load", function(){
 
     init_custom_modes();
 
-    //init_crosshair_options();
-
     //Initialize canvas crosshair creator preview maps and crosshair preset options
     createCanvasCrosshairPreviewMaps();
     initialize_canvas_crosshair_presets();
@@ -1917,7 +1915,7 @@ function genericModal(title, text, btn_negative, cb_negative, btn_positive, cb_p
     open_modal_screen("generic_modal");
 }
 function basicGenericModal(title, content, button, cb) {
-    let fragment = new DocumentFragment();
+    let fragment = _createElement("div");
 
     if (title) {
         if (typeof title === "string") {

@@ -52,31 +52,6 @@ function update_selectmenu(element, from_engine){
         on_yaw_pitch_preset_select();
     }
 }
-/*
-function init_crosshair_options() {
-    let fragment = new DocumentFragment();
-    for (let i=1; i<=21; i++) {
-        let option = _createElement("img", "crosshair-option");
-        option.dataset.cross = i;
-        option.src = "/html/images/crosshairs/ch_"+i+".svg?fil=%23ffffff";
-        fragment.appendChild(option);
-    }
-
-    _for_each_with_class_in_parent(_id("crosshair_editor_screen"), "crosshair-layer-selection", function(el) {
-        _empty(el);
-        el.appendChild(fragment.cloneNode(true));
-        for (let i=0; i<el.children.length; i++) {
-            addCrosshairSelectHandler(el.children[i]);
-        }
-    });
-    _for_each_with_class_in_parent(_id("zoom_crosshair_editor_screen"), "crosshair-layer-selection", function(el) {
-        _empty(el);
-        el.appendChild(fragment.cloneNode(true));
-        for (let i=0; i<el.children.length; i++) {
-            addCrosshairSelectHandler(el.children[i]);
-        }
-    });
-}*/
 
 function addCrosshairSelectHandler(crosshair_option) {
     crosshair_option.addEventListener("click", function() {

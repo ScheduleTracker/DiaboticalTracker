@@ -101,8 +101,8 @@ function show_dialog(data) {
 function show_sticky_dialog(data) {
     let cont = _id("dialog_sticky");
 
-    let fragment = new DocumentFragment();
-    fragment.appendChild(_createElement("div", "info"));
+    _empty(cont);
+    cont.appendChild(_createElement("div", "info"));
 
     let desc = _createElement("div", "desc");
     if (data.title) desc.appendChild(_createElement("div", "title", data.title));
@@ -115,7 +115,7 @@ function show_sticky_dialog(data) {
         message.appendChild(data.msg);
     }
     desc.appendChild(message);
-    fragment.appendChild(desc);
+    cont.appendChild(desc);
 
     if ("options" in data && data.options.length) {
         let options = _createElement("div", "options");
@@ -128,11 +128,9 @@ function show_sticky_dialog(data) {
             if (o.hasOwnProperty("style")) option.classList.add(o.style);
             options.appendChild(option);
         }
-        fragment.appendChild(options);
+        cont.appendChild(options);
     }
 
-    _empty(cont);
-    cont.appendChild(fragment);
 
     engine.call('ui_sound', 'ui_notification1'); 
     anim_show(cont, 100);

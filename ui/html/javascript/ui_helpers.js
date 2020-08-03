@@ -217,11 +217,9 @@ function stackTrace() {
 }
 
 function _empty_node(node){
-  //while (node.hasChildNodes()) {
-  //  _empty_node(node.lastChild);
-  //}
-  if (!node) return;
-  node.innerHTML = "";
+  while (node.hasChildNodes()) {
+    _empty_node(node.lastChild);
+  }
   if (node.parentNode) node.parentNode.removeChild(node);
 }
 
@@ -230,10 +228,9 @@ function _empty(node) {
     //    node.removeChild(node.firstChild);
     //}
     if (node === undefined) return;
-    node.innerHTML = "";
-    //while (node.hasChildNodes()) {
-    //   _empty_node(node.lastChild);
-   // }
+    while (node.hasChildNodes()) {
+       _empty_node(node.lastChild);
+    }
 }
 
 function _html(node, html) {
@@ -820,7 +817,6 @@ let global_rank_tier_lookup = [
     [36,40]
 ];
 function getRankName(rank, position) {
-    //let fragment = new DocumentFragment();
     let fragment = _createElement("div");
     if (position && position > 0) {
 
@@ -912,23 +908,17 @@ function createCustomizationInfo(item, show_name) {
 }
 
 function createCustomizationPreview(item) {
-    let fragment = new DocumentFragment();
+    let preview_image = _createElement("div", ["customization_preview_image", global_customization_type_map[item.customization_type].name]);
     if (global_customization_type_map[item.customization_type].name == "avatar") {
-        if (item.customization_id == "default") return fragment;
-        let preview_image = _createElement("div", ["customization_preview_image", global_customization_type_map[item.customization_type].name]);
+        if (item.customization_id == "default") return preview_image;
         preview_image.style.backgroundImage = "url("+_avatarUrl(item.customization_id)+")";
-        fragment.appendChild(preview_image);
     } else if (global_customization_type_map[item.customization_type].name == "currency") {
-        let preview_image = _createElement("div", ["customization_preview_image", global_customization_type_map[item.customization_type].name]);
         preview_image.style.backgroundImage = "url(/html/images/icons/reborn_coin.png.dds)";
-        fragment.appendChild(preview_image);
     } else if (global_customization_type_map[item.customization_type].name == "music") {
-        let preview_image = _createElement("div", ["customization_preview_image", global_customization_type_map[item.customization_type].name]);
         //preview_image.style.backgroundImage = "url(/html/customization/music/mu_pu_placeholder.png.dds)"; // TEMP until we have proper images for each song?
         preview_image.style.backgroundImage = "url("+_musicImageUrl(item.customization_id)+")";
-        fragment.appendChild(preview_image);
     }
-    return fragment;
+    return preview_image;
 }
 
 function _load_lazy_all(parent) {

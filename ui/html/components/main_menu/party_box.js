@@ -23,8 +23,6 @@ function update_party(data) {
     global_party['members'] = {};
     let count = 0;
 
-    let fragment = new DocumentFragment();
-
     for (let m of data.data.members) {
         count++;
         global_party['members'][m['user_id']] = m;
@@ -120,7 +118,7 @@ function update_party(data) {
             }
         });
         
-        fragment.appendChild(member_div);
+        party_box.appendChild(member_div);
 
     }
     let limit = 5;
@@ -142,11 +140,9 @@ function update_party(data) {
                 invite_friends();
             });
 
-            fragment.appendChild(member_div);
+            party_box.appendChild(member_div);
         }
     }
-
-    party_box.appendChild(fragment);
 
     update_queue_modes_availability();
 }
