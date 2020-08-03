@@ -14,7 +14,7 @@ a3823a45935cb0ae9d19549271f5a0f2cdc9a450	RenoirCore.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-53e754eccc5a00c8304375fc6a0fc89550c29ee9	anticheat/equ8.db
+574a7f24a5ab6e1b66afcdb881714e145e65bd7c	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1576,7 +1576,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-ebf8ebd6bbbf5db8e45b76557e655dc833110008	diabotical.exe
+112f40b1bc5b5c82d7cae67ba49c98e86acf70c8	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -6452,7 +6452,7 @@ dd3e44a4928cc58fe3d038a6754b14f1c3658ee5	ui/html/javascript/ui_crosshair_creator
 730cde9a1fd45982406ade36c185ff099e46f5c3	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
 6a0d4ab150106c0d1931bf6046fc07127abd643b	ui/html/javascript/ui_fov.js
-92d284a938069c23fb19bfd75a5f2da66f23be0a	ui/html/javascript/ui_helpers.js
+8ac68bb19e3e0e0ee39f29ec24c4fee1b6b71ff1	ui/html/javascript/ui_helpers.js
 25f050d1a61884222a39a82f436a1c691114cb19	ui/html/javascript/ui_hud_creator.js
 7967755f8dc7c6cc6236eccde37e390b50734e35	ui/html/javascript/ui_hud_editor.js
 0910814ebf0b82b60ac1c69db3f3b32d4523b51c	ui/html/javascript/ui_ingame.js
