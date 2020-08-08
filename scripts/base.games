@@ -70,6 +70,9 @@ game default
 	setting game_inventory_slots 0		
     setting game_deposit_coins 0
 
+	setting game_freeze_time 0
+	setting game_freeze_save_time 0
+	setting game_freeze_save_radius 0
 
 
     // lock out misc vestigial mechanics so it's not user cheatable, some of these should be removed from engine
@@ -208,14 +211,14 @@ game warmup
 	setting game_team_mode 1
 	setting game_friendly_fire 0
 	setting game_weapon_respawn_time 2
-	setting game_hp 200
-	setting game_stable_hp 200
-    setting game_ghost_limit_hp 100
+	setting game_hp 125
+	setting game_stable_hp 100
+    setting game_ghost_limit_hp 125
 	setting game_max_hp 200
 
 	setting game_armor 100
 	setting game_stable_armor 100
-	setting game_max_armor 100
+	setting game_max_armor 200
     setting game_ghost_limit_hp 125
 	setting game_time_limit 480
 	setting game_score_limit 0
@@ -225,6 +228,8 @@ game warmup
 	map b_furnace
 	map b_refinery
 	map b_wellspring
+    map b_test_map
+	map b_alchemy
 	map b_oxide
 	map b_icefall
 	map b_marina
@@ -240,20 +245,43 @@ game warmup
 	weapon grenade_launcher 5
 }
 
-game aim_pncr_flickshots 
+game brawl
 {
-    setting game_initial_item_time 0
-    setting game_truce_time 0
-    setting game_hp 1
-    setting game_time_limit 60
-    setting game_spawn_random_chance 1
-    setting game_spawn_farthest_foe_chance 1
-	setting game_maximum_respawn_time_ms 0
-    setting game_minimum_respawn_time_ms 0
-	setting game_bot_respawn_time_ms 1450
-    map aim1
+	setting game_team_mode 1
+	setting game_friendly_fire 0
+	setting game_weapon_respawn_time 2
+	setting game_hp 125
+	setting game_stable_hp 100
+    setting game_ghost_limit_hp 125
+	setting game_max_hp 200
 
-    weapon pncr 999
+	setting game_armor 100
+	setting game_stable_armor 100
+	setting game_max_armor 200
+    setting game_ghost_limit_hp 125
+	setting game_time_limit 480
+	setting game_score_limit 0
+
+
+	map b_crystal_cove
+	map b_furnace
+	map b_refinery
+	map b_wellspring
+	map b_test_map
+	map b_alchemy
+	map b_oxide
+	map b_icefall
+	map b_marina
+	map b_sunken
+
+	weapon sword 999
+	weapon machinegun 100
+	weapon blaster 250 true
+	weapon super_shotgun 50
+	weapon rocket_launcher 50
+	weapon shaft 250
+	weapon pncr 50
+	weapon grenade_launcher 5
 }
 
 game duel
@@ -401,6 +429,7 @@ game wipeout
 	map wo_refinery
 	map wo_wellspring
 	map wo_crystal_cove
+	map wo_test_map
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
@@ -433,13 +462,15 @@ game wipeout
 	weapon healing_weeble 1
 }
 
-game brawl
+game ffa
 {
 	setting game_team_mode 1
 	setting game_friendly_fire 0
 	setting game_weapon_respawn_time 2
 	setting game_hp 125
     setting game_stable_hp 100
+	setting game_armor 0
+	setting game_stable_armor 100
     setting game_ghost_limit_hp 125
 	setting game_time_limit 480
 	setting game_score_limit 0
@@ -448,12 +479,33 @@ game brawl
 	map b_furnace
 	map b_refinery
 	map b_wellspring
+	map b_test_map
+	map b_alchemy
 	map b_oxide
 	map b_icefall
 	map b_marina
 	map b_sunken
 	
 	weapon sword 999	
+	weapon machinegun 100
+}
+
+game ctf
+{
+	setting game_team_mode 1
+	setting game_friendly_fire 0
+	setting game_weapon_respawn_time 2
+	setting game_frag_limit 5
+	setting game_time_limit 960
+	setting game_self_damage 1
+	setting game_mercy_limit 8
+
+	
+	map ctf_cathedral
+	map ctf_dojo
+
+	
+	weapon sword 999
 	weapon machinegun 100
 }
 
@@ -466,8 +518,8 @@ game macguffin
 	setting game_spawn_farthest_threshold 4
 	setting game_round_countdown 15
 
-        setting game_maximum_respawn_time_ms 3000
-        setting game_minimum_respawn_time_ms 3000
+        setting game_maximum_respawn_time_ms 2500
+        setting game_minimum_respawn_time_ms 2500
 
 	map mg_sunken
 	map mg_marina
@@ -491,6 +543,7 @@ game instagib
 	map wo_refinery
 	map wo_wellspring
 	map wo_crystal_cove
+	map wo_test_map
 
 
 	weapon sword 999
@@ -510,6 +563,7 @@ game instagib_brawl
 	map wo_refinery
 	map wo_wellspring
 	map wo_crystal_cove
+	map wo_test_map
 
 
 	weapon sword 999
@@ -584,7 +638,7 @@ game extinction
     setting game_friendly_fire 0
 	setting game_team_mode 1
 	setting game_hp 125
-	setting game_score_limit 2
+	setting game_score_limit 4
 	setting game_life_count 3
 	setting game_weapon_respawn_time 5
 	

@@ -447,3 +447,75 @@ bot_diabotical_pfx
 	subsystem bot_diabot_embers_top_2  0 1.1
 	range 0
 }
+
+radar_light_orange_1 light_orange_1
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_ring bot_diabot_ring 
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_flames bot_diabot_flames
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_flames_2 bot_diabot_flames_2
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_embers bot_diabot_embers
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_embers_2 bot_diabot_embers_2
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_embers_3 bot_diabot_embers_3
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_flames_top bot_diabot_flames_top
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_flame_top_2 bot_diabot_flame_top_2
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_embers_top bot_diabot_embers_top
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+radar_bot_diabot_embers_top_2 bot_diabot_embers_top_2
+{
+    color_start 0.4 0.4 0.4 0.4
+    color_end 0.4 0.4 0.4 0.4
+}
+    
+radar_drop_pfx
+{
+	subsystem radar_light_orange_1
+	subsystem radar_bot_diabot_ring 0 0.8
+	subsystem radar_bot_diabot_flames  0 0.8
+	subsystem radar_bot_diabot_flames_2 s 0 0.8
+	subsystem radar_bot_diabot_embers  0 0.8
+	subsystem radar_bot_diabot_embers_2  0 0.8
+	subsystem radar_bot_diabot_embers_3  0 0.8
+	subsystem radar_bot_diabot_flames_top  0 0.8
+	subsystem radar_bot_diabot_flame_top_2 0 0.8
+	subsystem radar_bot_diabot_embers_top  0 0.8
+	subsystem radar_bot_diabot_embers_top_2  0 0.8
+	range 0
+}
