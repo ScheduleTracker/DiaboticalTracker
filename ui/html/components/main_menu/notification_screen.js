@@ -63,6 +63,7 @@ function load_notifications() {
             item_preview.appendChild(notif_video);
 
             if (global_user_battlepass.battlepass_id && global_user_battlepass.battlepass_id in global_battlepass_data) {
+                item_desc.classList.remove("item");
                 item_desc.appendChild(_createElement("div", "battlepass_name", localize(global_battlepass_data[global_user_battlepass.battlepass_id].title)));
             }
             
@@ -113,6 +114,7 @@ function load_notifications() {
         // show customization info as the item description
         _empty(item_desc);
         item_desc.style.setProperty("--rarity", "var(--rarity_"+item.rarity+")");
+        item_desc.classList.add("item");
         item_desc.appendChild(createCustomizationInfo(item));
 
         //engine.call('ui_sound', "ui_shop_purchase_successful");

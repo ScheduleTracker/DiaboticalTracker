@@ -379,7 +379,7 @@ function handle_friends_list_update_category(category, cont, fragment, cache, up
                     if (!crown && desc) _insertAfter(_createElement("div", "party_crown"), desc);
                 } else {
                     if (crown) {
-                        _empty_node(crown);
+                        _remove_node(crown);
                     }
                 }
             } else {
@@ -817,7 +817,7 @@ function create_action_menu(el, top) {
                 let no = _createElement("div", ["btn","last"], localize("menu_button_cancel"));
                 _addButtonSounds(no, 1);
                 no.addEventListener("click", function() {
-                    _empty_node(confirm);
+                    _remove_node(confirm);
                     confirm = undefined;
                 });
                 confirm.appendChild(no);
@@ -983,7 +983,7 @@ function update_friendlist_party(party) {
             _insertAfter(_createElement("div", "party_crown"), desc);
         }
     } else {
-        if (crown) _empty_node(crown);
+        if (crown) _remove_node(crown);
     }
 
     let members = [];

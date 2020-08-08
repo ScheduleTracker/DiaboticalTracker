@@ -19,7 +19,7 @@ function renderMatchScreen(match) {
     let top_stats = prepareMatchTopStats(match);
 
     let match_cont = _createElement("div", "match");
-    match_cont.style.opacity = 0;
+    match_cont.style.filter = "opacity(0)";
     
     match_cont.style.setProperty("--wstat_count", data.weapons.length);
     match_cont.style.setProperty("--rstat_count", data.rounds);
@@ -37,7 +37,7 @@ function renderMatchScreen(match) {
     match_cont.appendChild(match_head);
 
     let mode_icon = _createElement("div", "mode_icon");
-    mode_icon.style.backgroundImage = "url("+global_game_mode_map[match.match_mode].icon+")";
+    mode_icon.style.backgroundImage = "url("+global_game_mode_map[match.match_mode].icon+"?s=6)";
     match_head.appendChild(mode_icon);
 
     let head_left = _createElement("div", "block");

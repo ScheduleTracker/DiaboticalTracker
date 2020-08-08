@@ -71,8 +71,6 @@
     align-items:center;
     flex: 0;
 
-    margin-bottom: 0.1vh;
-    margin-top: 0.1vh;
     border-radius:0.4vh;
 }
 .select-option:hover    { background-color:#666; }

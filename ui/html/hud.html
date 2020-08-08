@@ -798,6 +798,14 @@
     </div>
 </script>
 
+<script id="hud_editing_info" type="text/x-jsrender">
+
+</script>
+<script id="hud_minimap" type="text/x-jsrender">
+
+</script>
+
+
 <script id="hud_chat" type="text/x-jsrender">
 
     <div class="chat_container" [[if showTimestamp==1]]style="--chat_show_timestamp_while_ingame:flex;"[[/if]]  data-bind-class-toggle="active:[[if !hudSpectating]]![[/if]]{{common_game_data.spectating}}">
@@ -1634,6 +1642,8 @@
 <script src="javascript/hud_elements/element_hint.js"></script>
 <script src="javascript/hud_elements/element_players.js"></script>
 <script src="javascript/hud_elements/element_team_name.js"></script>
+<script src="javascript/hud_elements/element_editing_info.js"></script>
+<script src="javascript/hud_elements/element_minimap.js"></script>
 
     <div id="watermark" class="ingame"></div>
 <script type="text/javascript" src="/html/hud.bundle.js"></script></body>

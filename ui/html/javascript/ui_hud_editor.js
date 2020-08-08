@@ -7,6 +7,7 @@ window.hud_editor_preview_fullscreen = false;
 let global_user_huds = [];
 let global_user_hud_slots = 6; // max hud slots the server allows (hud_index 0-5)
 let global_active_hud_type = HUD_PLAYING;
+let editing_hud_data = {};
 
 const MAX_HUD_DEFINITION_LENGTH = 16384;
 
@@ -18,6 +19,42 @@ const d = {
 };
 
 
+function init_hud_editor_elements() {
+    let cont = _id('hud_editor_elements');
+
+    global_scrollboosters['hud_element_list'] = new ScrollBooster({
+        viewport: cont.parentElement,
+        content: cont,
+        pointerMode: "mouse",
+        friction: 0.05,
+        bounceForce: 0.2,
+        direction: "horizontal",
+        scrollMode: "transform",
+        emulateScroll: true,
+    });
+
+    document.getElementById('hud_editor_elements_left_arrow').addEventListener("click", function () {
+        if (global_scrollboosters['hud_element_list']) {
+            global_scrollboosters['hud_element_list'].scrollToArrow(-1, 70);
+        }
+    });
+    document.getElementById('hud_editor_elements_right_arrow').addEventListener("click", function() {
+        if (global_scrollboosters['hud_element_list']) {
+            global_scrollboosters['hud_element_list'].scrollToArrow(1, 70);
+        }
+    });
+}
+
+function post_load_setup_hud_editor() {
+    ui_setup_select(_id("hud_editor_type_select"), function(field, opt) {
+        global_active_hud_type = Number(field.dataset.value);
+        load_hud();
+    });
+
+    bind_event("set_hud_element_size", set_hud_element_size);
+
+    load_hud();
+}
 
 function hud_editor_visible(bool, wait) {
     if (bool) {
@@ -110,6 +147,7 @@ function moveElement(x, y) {
             window.hud_editor_selected_element.style.top  = (editing_hud_data.elements[id].y) + "%";
         }
   
+        hud_set_default_false();
         send_sanitized_hud_definition_to_engine();
         _id("hud_preview_container").style.setProperty('--ratio',window.hud_editor_preview_downscale_factor);
         
@@ -163,6 +201,7 @@ function resizeElement(width, height) {
             }
         }
   
+        hud_set_default_false();
         send_sanitized_hud_definition_to_engine();
         _id("hud_preview_container").style.setProperty('--ratio',window.hud_editor_preview_downscale_factor);
         
@@ -298,19 +337,6 @@ function pre_load_setup_hud_editor_new() {
     _id("hud_editor").style.setProperty('--ratio',window.hud_editor_preview_downscale_factor);
 }
 
-var editing_hud_data = {};
-
-function post_load_setup_hud_editor() {
-    ui_setup_select(_id("hud_editor_type_select"), function(field, opt) {
-        global_active_hud_type = Number(field.dataset.value);
-        load_hud();
-    });
-
-    bind_event("set_hud_element_size", set_hud_element_size);
-
-    load_hud();
-}
-
 /**
  * Set and store the position and size of an element in the hud editor
  * @param {*} index Element index
@@ -345,6 +371,11 @@ function set_hud_element_size(index, x, y, w, h) {
         el.dataset.nativeW = w;
         el.dataset.nativeH = h;
     }
+}
+
+// Should be called whenever anything gets modified in the hud
+function hud_set_default_false() {
+    editing_hud_data.default = false;
 }
 
 function load_hud() {
@@ -422,6 +453,7 @@ function hud_editor_add_element(name, preview_pos_x, preview_pos_y) {
         hud.elements.push(new_element);
     }
 
+    hud_set_default_false();
     refresh_preview_hud();
 }
 
@@ -451,7 +483,8 @@ function hud_editor_unshift_element(name, preview_pos_x, preview_pos_y) {
 
 
     hud.elements.unshift(new_element);
-    preview_hud_clear_properties(); 
+    preview_hud_clear_properties();
+    hud_set_default_false(); 
     refresh_preview_hud();
     //_dump(hud);
 }
@@ -884,6 +917,8 @@ function refresh_preview_element(type, idx) {
 
     //console.log("refresh_preview_element",type, idx, _dump(editing_hud_data));
 
+    hud_set_default_false();
+
     if (type == "group") {
         refresh_preview_hud();
         return;
@@ -1144,6 +1179,7 @@ function hud_editor_delete_current_item() {
 
                     hud.groups.splice(i,1);
                     preview_hud_clear_properties();
+                    hud_set_default_false();
                     refresh_preview_hud();
                     return true;
                 }
@@ -1155,6 +1191,7 @@ function hud_editor_delete_current_item() {
                 if (i == window.hud_editor_current_item) {
                     hud.elements.splice(i,1);
                     preview_hud_clear_properties();
+                    hud_set_default_false();
                     refresh_preview_hud();
                     return true;
                 }
@@ -1181,6 +1218,7 @@ function hud_editor_clone_current_item(id) {
                 clonedElement.y = (parseInt(clonedElement.y)>50?parseInt(clonedElement.y)-1:parseInt(clonedElement.y)+1);
                 hud.elements.push(clonedElement);
                 preview_hud_clear_properties();
+                hud_set_default_false();
                 refresh_preview_hud();
                 return false;
             }
@@ -1200,6 +1238,7 @@ function hud_editor_surface_current_item(id) {
                 hud.elements.splice(i,1);
                 hud.elements.push(clonedElement);
                 preview_hud_clear_properties(); // workaround for now since the displayed properties does not point to the correct element after splice and push
+                hud_set_default_false();
                 refresh_preview_hud();
                 return false;
             }
@@ -1219,6 +1258,7 @@ function hud_editor_sink_current_item(id) {
                 hud.elements.splice(i,1);
                 hud.elements.unshift(clonedElement);
                 preview_hud_clear_properties(); // workaround for now since the displayed properties does not point to the correct element after splice and push
+                hud_set_default_false();
                 refresh_preview_hud();
                 return false;
             }
@@ -1236,6 +1276,7 @@ function hud_editor_ungroup_current_item(id) {
                 convert_group_coord_to_hud_coord(hud.elements[i].gid,hud.elements[i]);
                 hud.elements[i].gid = -1;
                 preview_hud_clear_properties();
+                hud_set_default_false();
                 refresh_preview_hud();
                 return false;
             }
@@ -1374,6 +1415,32 @@ function hud_editor_toggle_fullscreen(toggle) {
     }
 }
 
+function hud_editor_toggle_background(toggle) {
+    let hud_preview_container = _id("hud_preview_container");
+    if (toggle.dataset.enabled == "true") {
+        hud_preview_container.classList.remove("background_enabled");
+        toggle.dataset.enabled = "false";
+        toggle.classList.remove("toggle_enabled");
+    } else {
+        hud_preview_container.classList.add("background_enabled");
+        toggle.dataset.enabled = "true";
+        toggle.classList.add("toggle_enabled");
+    }
+}
+
+function hud_editor_toggle_weapon(toggle) {
+    let hud_preview_weapon_container = _id("hud_preview_weapon");
+    if (toggle.dataset.enabled == "true") {
+        hud_preview_weapon_container.classList.remove("background_enabled");
+        toggle.dataset.enabled = "false";
+        toggle.classList.remove("toggle_enabled");
+    } else {
+        hud_preview_weapon_container.classList.add("background_enabled");
+        toggle.dataset.enabled = "true";
+        toggle.classList.add("toggle_enabled");
+    }
+}
+
 function hud_editor_toggle_show_guides(toggle) {
     //toggle = _id("hud_editor_show_guides_button");
     if (toggle.dataset.enabled == "true") {
@@ -1399,32 +1466,6 @@ function hud_editor_toggle_snap_to_grid(toggle) {
         hud_editor_set_snap(true);
     }
 }
-
-window.addEventListener("load", function() {
-    let cont = _id('hud_editor_elements');
-
-    global_scrollboosters['hud_element_list'] = new ScrollBooster({
-        viewport: cont.parentElement,
-        content: cont,
-        pointerMode: "mouse",
-        friction: 0.05,
-        bounceForce: 0.2,
-        direction: "horizontal",
-        scrollMode: "transform",
-        emulateScroll: true,
-    });
-
-    document.getElementById('hud_editor_elements_left_arrow').addEventListener("click", function () {
-        if (global_scrollboosters['hud_element_list']) {
-            global_scrollboosters['hud_element_list'].scrollToArrow(-1, 70);
-        }
-    });
-    document.getElementById('hud_editor_elements_right_arrow').addEventListener("click", function() {
-        if (global_scrollboosters['hud_element_list']) {
-            global_scrollboosters['hud_element_list'].scrollToArrow(1, 70);
-        }
-    });
-});
 
 function hud_editor_change_tab(id){
 
@@ -1468,6 +1509,9 @@ function hud_editor_save_dialog() {
     });
     save_btn.addEventListener("click", function() {
         if (selected_index == null) return;
+
+        // Store the hud with the current global version
+        update_hud_version(editing_hud_data);
 
         let params = {
             "title": slots[selected_index].input.value,

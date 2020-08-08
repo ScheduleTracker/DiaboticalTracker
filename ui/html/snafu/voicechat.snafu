@@ -3,7 +3,7 @@ BEGIN TEMPLATE voicechat
     SETTING item_direction "vertical"
     SETTING cell_direction "horizontal"
     SETTING align pivot
-    SETTING item_spacing 1
+    SETTING item_spacing 0.5
     SETTING cell_spacing 0
 
     INT row
@@ -33,8 +33,14 @@ ON_UPDATE
     ELSE
         OUTPUT row 2 image "images/icons/fa/microphone.svg"
     END IF
+
+    STRING icon_color
+    icon_color = iC
+    IF own_team_players[IDX].is_self
+        icon_color = "#ff0000"
+    END IF
     
-    OUTPUT row 2 image_color iC
+    OUTPUT row 2 image_color icon_color 
     OUTPUT row 2 image_width fontSize
     OUTPUT row 2 image_height fontSize
     OUTPUT row 2 width fontSize

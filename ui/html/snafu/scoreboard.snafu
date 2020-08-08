@@ -39,7 +39,7 @@ ON_UPDATE
     OUTPUT 0 2 image bg
     OUTPUT 0 2 image_width 45
     OUTPUT 0 2 image_height 6
-    OUTPUT 0 2 image_color "#00000033"
+    OUTPUT 0 2 image_color "#00000077"
     OUTPUT 0 2 x 8
 
     # Label "Mode"
@@ -197,7 +197,7 @@ ON_UPDATE
     # Background
     OUTPUT 0 i width table_width
     OUTPUT 0 i height 3
-    OUTPUT 0 i fill "#00000033"
+    OUTPUT 0 i fill "#00000077"
     i = i + 1
 
     DOUBLE cell_offset
@@ -846,7 +846,7 @@ ON_UPDATE
         # Background
         OUTPUT 0 1 width 60
         OUTPUT 0 1 height 6
-        OUTPUT 0 1 fill "#00000033"
+        OUTPUT 0 1 fill "#00000077"
         OUTPUT 0 1 y offset
 
         # Header

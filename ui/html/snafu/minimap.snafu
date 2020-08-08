@@ -1,0 +1,6 @@
+BEGIN TEMPLATE minimap
+    //HACK: This do-nothing minimap template is currently required so that the
+    //metrics of the minimap, which is rendered by the engine, are processed correctly
+ON_UPDATE
+    OUTPUT 0 0 VALUE ""
+END TEMPLATE

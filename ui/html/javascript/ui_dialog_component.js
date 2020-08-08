@@ -72,12 +72,13 @@ function show_dialog(data) {
         for (let o of data.options) {
             let option = _createElement("div", "option", o.label);
             if (o.hasOwnProperty("style")) option.classList.add(o.style);
-            
+
             option.addEventListener("click", function() {
                 if (typeof o.callback == "function") o.callback(dialog);
 
                 if (dialog_timeout) clearTimeout(dialog_timeout);
 
+                /*
                 anim_start({
                     element: dialog,
                     opacity: [1, 0],
@@ -85,6 +86,8 @@ function show_dialog(data) {
                     easing: easing_functions.easeInOutQuad,
                     remove: true,
                 });
+                */
+               _remove_node(dialog);
             });
             options.appendChild(option);
         }

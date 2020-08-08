@@ -31,14 +31,13 @@ function clear_profile_data_cache() {
 }
 
 function clear_profile_data_cache_id(id) {
-    console.error("clear_profile_data_cache_id", id);
     if (id in global_profile_data_cache) {
         delete global_profile_data_cache[id];
     }
 }
 
 function clear_player_profile() {
-    let cont = _id("player_profile_screen");
+    let cont = _id("player_profile_content");
     if (global_profile_nav && global_profile_nav.parentNode) {
         global_profile_nav.parentNode.removeChild(global_profile_nav);
         global_profile_nav = undefined;
@@ -47,6 +46,10 @@ function clear_player_profile() {
     _for_each_with_selector_in_parent(cont, ".page", function(page_content) {
         page_content.parentNode.removeChild(page_content);
     });
+}
+
+function player_profile_load_page(page) {
+    load_player_profile("player_profile_screen", page, global_current_player_profile_user_id);
 }
 
 let global_profile_nav = undefined;
@@ -69,30 +72,33 @@ function load_player_profile(origin, page, id) {
         return;
     }
 
-    let cont = _id("player_profile_screen");
+    let cont = _id("player_profile_content");
 
+    // Check if the new page is the same as the old, don't do anything
     if (global_current_player_profile_user_id == id && global_current_player_profile_page == page && id in global_profile_data_cache) return;
 
+    // Check if the new user id is different from the previous
     if (global_current_player_profile_user_id != id) {
         global_current_player_profile_user_id = id;
 
         if (global_profile_nav) {
-            global_profile_nav.parentNode.removeChild(global_profile_nav);
+            _remove_node(global_profile_nav);
             global_profile_nav = undefined;
         }
 
         _for_each_with_selector_in_parent(cont, ".page", function(page_content) {
-            page_content.parentNode.removeChild(page_content);
+            _remove_node(page_content);
         });
     }
 
     if (global_current_player_profile_page != page) {
         global_current_player_profile_page = page;
 
-        if (global_profile_nav) {
-            global_profile_nav.parentNode.removeChild(global_profile_nav);
-            global_profile_nav = undefined;
-        }
+        let prev = _id("player_profile_nav").querySelector(".active");
+        if (prev) prev.classList.remove("active");
+
+        let newlink = _id("player_profile_nav").querySelector("."+global_current_player_profile_page);
+        if (newlink) newlink.classList.add("active");
     }
 
     _for_each_with_selector_in_parent(cont, ".page", function(page_content) {
@@ -108,13 +114,6 @@ function load_player_profile(origin, page, id) {
         clear_player_profile();
     }
 
-    let fragment = new DocumentFragment();
-
-    if (!global_profile_nav) {
-        global_profile_nav = player_profile_render_nav(page);
-        fragment.appendChild(global_profile_nav);
-    }
-
     let header_data = { "name": "" };
     if (_check_nested(global_profile_data_cache, id, "main")) {
         header_data = global_profile_data_cache[id].main.data;
@@ -126,8 +125,7 @@ function load_player_profile(origin, page, id) {
     page_cont.appendChild(head);
     page_cont.appendChild(player_profile_render_placeholder(page));
 
-    fragment.appendChild(page_cont);
-    cont.appendChild(fragment);
+    cont.appendChild(page_cont);
 
 
     // Fetch the requested data from the API
@@ -273,6 +271,7 @@ function render_player_profile_page(id, page, page_cont) {
     if (page == "achievements") page_cont.appendChild(player_profile_render_achievements(global_profile_data_cache[id])); 
 }
 
+/*
 function player_profile_render_nav(page) {
     let nav = _createElement("div", "nav");
 
@@ -306,6 +305,7 @@ function player_profile_render_nav(page) {
 
     return nav;
 }
+*/
 
 function player_profile_render_head(data, simple) {
 
@@ -461,7 +461,10 @@ function player_profile_render_main(data) {
             } else {
                 // render weeball in a cardboard box without extra info
                 content.appendChild(renderRankIcon(0, null));
-                content.appendChild(_createElement("div", "rank_name", localize("rank_unranked")));
+                let rank_name = _createElement("div", "rank_name");
+                rank_name.appendChild(_createElement("div", "", localize("rank_unranked")));
+                content.appendChild(rank_name);
+                
             }
         }
         if (featured_topics[i] == "battlepass") {
@@ -488,7 +491,7 @@ function player_profile_render_main(data) {
         let most_played_mode = _createElement("div", "most_played_mode");
     
         let icon = _createElement("div", "icon");
-        icon.style.backgroundImage = "url("+global_game_mode_map[most_played.match_mode].icon+")";
+        icon.style.backgroundImage = "url("+global_game_mode_map[most_played.match_mode].icon+"?s=8)";
         most_played_mode.appendChild(icon);
         
         let desc = _createElement("div", "desc");
@@ -571,7 +574,7 @@ function player_profile_render_main(data) {
         let last_match_cont = _createElement("div", "cont");
 
         let mode_icon = _createElement("div", "mode_icon");
-        mode_icon.style.backgroundImage = "url("+global_game_mode_map[match.match_mode].icon+")";
+        mode_icon.style.backgroundImage = "url("+global_game_mode_map[match.match_mode].icon+"?s=8)";
         last_match_cont.appendChild(mode_icon);
 
         let match_summary = _createElement("div", "match_summary");
@@ -1254,7 +1257,7 @@ function player_profile_render_stats_content_main_details_table(table, type, avg
             
                 let cell_right = _createElement("div", ["cell", "stat_double", "right"]);
                 let data_right = player_profile_render_stats_content_main_details_table_cell(data_2, stat, time_frame, avg_mode);
-                console.log("compare_data", _dump(data_right));
+
                 cell_right.textContent = data_right.display;
 
                 if (stat in INVERTED_STATS) {
@@ -1630,7 +1633,6 @@ function player_profile_render_achievements(data) {
     cont.appendChild(scroll_outer);
 
     for (let achievement_id in achievements) {
-        console.log("ach", _dump(achievements[achievement_id]));
 
         // Get the progress / next goal
         let goal_val = 0;

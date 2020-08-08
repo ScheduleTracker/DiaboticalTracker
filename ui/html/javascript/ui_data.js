@@ -249,8 +249,14 @@ var global_region_map = {
     "tes": { "flag": "nl", "i18n": "datacenter_test", "provider": "i3D.net", "name": "Test Location" },
 };
 
-const CUSTOM_MULTI_TEAM_MODES = ["brawl","instagib","ghosthunt", "ffa", "race"];
-const CUSTOM_ROUND_BASED_MODES = ["ca","shaft_arena","rocket_arena","wipeout","macguffin"];
+const CUSTOM_MULTI_TEAM_MODES = ["brawl","instagib","ghosthunt","ffa","race"];
+const CUSTOM_SOLO_MODES = ["duel","ffa"];
+const CUSTOM_ROUND_BASED_MODES = ["ca","shaft_arena","rocket_arena","wipeout","macguffin","extinction","bounty"];
+const CUSTOM_TIMELIMIT_ONLY_MODES = ["duel"];
+
+const CUSTOM_FRAG_LIMITS = [1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 100, 150, 200, 250, 300, 500, 1000, 0];
+const CUSTOM_ROUND_LIMITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20];
+const CUSTOM_CAPTURE_LIMITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 0];
 
 var global_game_mode_map = {
     "brawl": {
@@ -319,7 +325,7 @@ var global_game_mode_map = {
         "i18n": "game_mode_ctf",
         "desc_i18n": "game_mode_desc_ctf",
         "announce": "announcer_common_gamemode_ctf",
-        "enabled": false,
+        "enabled": true,
         "image": "ctf_loop.jpg",
         "icon": "/html/images/gamemodes/ctf.svg"
     },
@@ -378,7 +384,7 @@ var global_game_mode_map = {
         "name": "Team Deathmatch",
         "i18n": "game_mode_tdm",
         "desc_i18n": "game_mode_desc_tdm",
-        "announce": "",
+        "announce": "announcer_common_gamemode_tdm",
         "enabled": true,
         "image": "brawl_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
@@ -388,7 +394,7 @@ var global_game_mode_map = {
         "name": "Pro-Team Deathmatch",
         "i18n": "game_mode_protdm",
         "desc_i18n": "game_mode_desc_protdm",
-        "announce": "",
+        "announce": "announcer_common_gamemode_tdm",
         "enabled": false,
         "image": "brawl_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
@@ -408,7 +414,7 @@ var global_game_mode_map = {
         "name": "Warmup",
         "i18n": "game_mode_warmup",
         "desc_i18n": "game_mode_desc_warmup",
-        "announce": "",
+        "announce": "announcer_common_gamemode_warmup",
         "enabled": false,
         "image": "practice_loop.jpg",
         "icon": ""
@@ -418,7 +424,7 @@ var global_game_mode_map = {
         "name": "Extinction",
         "i18n": "game_mode_extinction",
         "desc_i18n": "game_mode_desc_extinction",
-        "announce": "",
+        "announce": "announcer_common_gamemode_extinction",
         "enabled": true,
         "image": "arcade_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
@@ -428,10 +434,30 @@ var global_game_mode_map = {
         "name": "Bounty",
         "i18n": "game_mode_bounty",
         "desc_i18n": "game_mode_desc_bounty",
-        "announce": "",
+        "announce": "announcer_common_gamemode_bounty",
         "enabled": false,
         "image": "brawl_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
+    },
+    "ft": {
+        "mode": "ft",
+        "name": "Freeze Tag",
+        "i18n": "game_mode_ft",
+        "desc_i18n": "game_mode_desc_ft",
+        "announce": "announcer_common_gamemode_ft",
+        "enabled": false,
+        "image": "brawl_loop.jpg",
+        "icon": "/html/images/gamemodes/tdm.svg"
+    },
+    "ffa": {
+        "mode": "ffa",
+        "name": "Free For All",
+        "i18n": "game_mode_ffa",
+        "desc_i18n": "game_mode_desc_ffa",
+        "announce": "announcer_common_gamemode_ffa",
+        "enabled": true,
+        "image": "brawl_loop.jpg",
+        "icon": "/html/images/gamemodes/brawl.svg"
     },
 };
 

@@ -71,8 +71,6 @@ function settings_combat_update(weapon) {
     let weapon_settings = _id("custom_weapon_settings");
     let weapon_settings_checkboxes = _id("weapon_sheet").querySelectorAll('.settings_block_header .checkbox_component');
     if (weapon == 0) {
-        _id("combat_subheader_row_default").style.display = "flex";
-        _id("combat_subheader_row_weapon").style.display = "none";
         if (weapon_settings.style.display == "none") {
             weapon_settings.style.display = "flex";
             weapon_settings.style.opacity = 1;
@@ -82,27 +80,22 @@ function settings_combat_update(weapon) {
             weapon_settings_checkboxes[i].classList.add("hidden");
         }
     } else {
-        _id("combat_subheader_row_default").style.display = "none";
-        _id("combat_subheader_row_weapon").style.display = "flex";
-
         for (let i=0; i<weapon_settings_checkboxes.length; i++) {
             weapon_settings_checkboxes[i].classList.remove("hidden");
         }
     }
     
     let combat_header = _id("combat_panel_header");
-    _for_each_with_class_in_parent(combat_header, 'button-weapon-selected', function(el) {
-        el.classList.remove("button-weapon-selected");
-    });
-    _for_each_with_class_in_parent(combat_header, 'img-weapon-selected', function(el) {
-        el.classList.remove("img-weapon-selected");
-    });
+    _for_each_with_class_in_parent(combat_header, 'button-weapon-selected', function(el) { el.classList.remove("button-weapon-selected"); });
+    _for_each_with_class_in_parent(combat_header, 'img-weapon-selected', function(el) { el.classList.remove("img-weapon-selected"); });
+    _for_each_with_class_in_parent(combat_header, 'combat_name', function(el) { el.classList.remove("active"); });
+    _for_each_with_class_in_parent(combat_header, 'tip_inner', function(el) { el.classList.remove("hidden"); });
 
     let button = _id("combat_panel_weapon_"+weapon);
     button.classList.add("button-weapon-selected");
-    _for_each_with_tag_in_parent(button, 'img', function(el) {
-        el.classList.add("img-weapon-selected");
-    });
+    _for_each_with_tag_in_parent(button, 'img', function(el) { el.classList.add("img-weapon-selected"); });
+    _for_each_with_class_in_parent(button, 'combat_name', function(el) { el.classList.add("active"); });
+    _for_each_with_class_in_parent(button, 'tip_inner', function(el) { el.classList.add("hidden"); });
 
 
     //Override default values checkboxes    
@@ -218,160 +211,6 @@ function settings_combat_update(weapon) {
     global_range_slider_map["film_fov_converted"] = new rangeSlider(_id("film_fov_converted"), false, function(value) { update_fov_conversion_options('film_fov_converted'); });
     global_range_slider_map["film_fov_zoom_converted"] = new rangeSlider(_id("film_fov_zoom_converted"), false, function(value) { update_fov_conversion_options('film_fov_zoom_converted'); });
 
-    /*
-    /// REGULAR CROSSHAIRS
-
-    //crosshair type 1
-    _id("setting_hud_crosshair_layer_enabled").dataset.variable = ("hud_crosshair_type:" + weapon);
-    _id("setting_hud_crosshair_type").dataset.variable = ("hud_crosshair_type:" + weapon);
-    engine.call("initialize_select_value", "hud_crosshair_type:" + weapon);
-    //crosshair type 2
-    _id("setting_hud_crosshair_layer_enabled2").dataset.variable = ("hud_crosshair_type2:" + weapon);
-    _id("setting_hud_crosshair_type2").dataset.variable = ("hud_crosshair_type2:" + weapon);
-    engine.call("initialize_select_value", "hud_crosshair_type2:" + weapon);
-    //crosshair type 3
-    _id("setting_hud_crosshair_layer_enabled3").dataset.variable = ("hud_crosshair_type3:" + weapon);
-    _id("setting_hud_crosshair_type3").dataset.variable = ("hud_crosshair_type3:" + weapon);
-    engine.call("initialize_select_value", "hud_crosshair_type3:" + weapon);
-
-    //crosshair color 1
-    _id("crosshair_color_1").dataset.variable = ("hud_crosshair_color:" + weapon);
-    engine.call("initialize_color_value", "hud_crosshair_color:" + weapon);
-    //crosshair color 2
-    _id("crosshair_color_2").dataset.variable = ("hud_crosshair_color2:" + weapon);
-    engine.call("initialize_color_value", "hud_crosshair_color2:" + weapon);
-    //crosshair color 3
-    _id("crosshair_color_3").dataset.variable = ("hud_crosshair_color3:" + weapon);
-    engine.call("initialize_color_value", "hud_crosshair_color3:" + weapon);
-    //crosshair stroke 1
-    _id("setting_hud_crosshair_stroke").dataset.variable = ("hud_crosshair_stroke:" + weapon);
-    engine.call("initialize_color_value", "hud_crosshair_stroke:" + weapon);
-    //crosshair stroke 2
-    _id("setting_hud_crosshair_stroke2").dataset.variable = ("hud_crosshair_stroke2:" + weapon);
-    engine.call("initialize_color_value", "hud_crosshair_stroke2:" + weapon);
-    //crosshair stroke 3
-    _id("setting_hud_crosshair_stroke3").dataset.variable = ("hud_crosshair_stroke3:" + weapon);
-    engine.call("initialize_color_value", "hud_crosshair_stroke3:" + weapon);
-    //crosshair size 1
-    _id("setting_hud_crosshair_size").dataset.variable = ("hud_crosshair_size:" + weapon);
-    global_range_slider_map["hud_crosshair_size:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_size"), true);
-    engine.call("initialize_range_value", "hud_crosshair_size:" + weapon);
-    //crosshair size 2
-    _id("setting_hud_crosshair_size2").dataset.variable = ("hud_crosshair_size2:" + weapon);
-    global_range_slider_map["hud_crosshair_size2:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_size2"), true);
-    engine.call("initialize_range_value", "hud_crosshair_size2:" + weapon);
-    //crosshair size 3
-    _id("setting_hud_crosshair_size3").dataset.variable = ("hud_crosshair_size3:" + weapon);
-    global_range_slider_map["hud_crosshair_size3:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_size3"), true);
-    engine.call("initialize_range_value", "hud_crosshair_size3:" + weapon);
-    //crosshair stroke width 1
-    _id("setting_hud_crosshair_stroke_width").dataset.variable = ("hud_crosshair_stroke_width:" + weapon);
-    global_range_slider_map["hud_crosshair_stroke_width:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_stroke_width"), true);
-    engine.call("initialize_range_value", "hud_crosshair_stroke_width:" + weapon);
-    //crosshair stroke width 2
-    _id("setting_hud_crosshair_stroke_width2").dataset.variable = ("hud_crosshair_stroke_width2:" + weapon);
-    global_range_slider_map["hud_crosshair_stroke_width2:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_stroke_width2"), true);
-    engine.call("initialize_range_value", "hud_crosshair_stroke_width2:" + weapon);
-    //crosshair stroke width 3
-    _id("setting_hud_crosshair_stroke_width3").dataset.variable = ("hud_crosshair_stroke_width3:" + weapon);
-    global_range_slider_map["hud_crosshair_stroke_width3:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_stroke_width3"), true);
-    engine.call("initialize_range_value", "hud_crosshair_stroke_width3:" + weapon);
-    //crosshair hit style 1
-    _id("setting_hud_crosshair_hit_style").dataset.variable = ("hud_crosshair_hit_style:" + weapon);
-    engine.call("initialize_checkbox_value", "hud_crosshair_hit_style:" + weapon);
-    //crosshair hit style 2
-    _id("setting_hud_crosshair_hit_style2").dataset.variable = ("hud_crosshair_hit_style2:" + weapon);
-    engine.call("initialize_checkbox_value", "hud_crosshair_hit_style2:" + weapon);
-    //crosshair hit style 3
-    _id("setting_hud_crosshair_hit_style3").dataset.variable = ("hud_crosshair_hit_style3:" + weapon);
-    engine.call("initialize_checkbox_value", "hud_crosshair_hit_style3:" + weapon);
-    //crosshair hit color 1
-    _id("setting_hud_crosshair_hit_color").dataset.variable = ("hud_crosshair_hit_color:" + weapon);
-    engine.call("initialize_color_value", "hud_crosshair_hit_color:" + weapon);
-    //crosshair hit color 2
-    _id("setting_hud_crosshair_hit_color2").dataset.variable = ("hud_crosshair_hit_color2:" + weapon);
-    engine.call("initialize_color_value", "hud_crosshair_hit_color2:" + weapon);
-    //crosshair hit color 3
-    _id("setting_hud_crosshair_hit_color3").dataset.variable = ("hud_crosshair_hit_color3:" + weapon);
-    engine.call("initialize_color_value", "hud_crosshair_hit_color3:" + weapon);
-
-
-    /// ZOOM CROSSHAIRS
-
-    //zoom crosshair type 1
-    _id("setting_hud_zoom_crosshair_layer_enabled").dataset.variable = ("hud_zoom_crosshair_type:" + weapon);
-    _id("setting_hud_zoom_crosshair_type").dataset.variable = ("hud_zoom_crosshair_type:" + weapon);
-    engine.call("initialize_select_value", "hud_zoom_crosshair_type:" + weapon);
-    //zoom crosshair type 2
-    _id("setting_hud_zoom_crosshair_layer_enabled2").dataset.variable = ("hud_zoom_crosshair_type2:" + weapon);
-    _id("setting_hud_zoom_crosshair_type2").dataset.variable = ("hud_zoom_crosshair_type2:" + weapon);
-    engine.call("initialize_select_value", "hud_zoom_crosshair_type2:" + weapon);
-    //zoom crosshair type 3
-    _id("setting_hud_zoom_crosshair_layer_enabled3").dataset.variable = ("hud_zoom_crosshair_type3:" + weapon);
-    _id("setting_hud_zoom_crosshair_type3").dataset.variable = ("hud_zoom_crosshair_type3:" + weapon);
-    engine.call("initialize_select_value", "hud_zoom_crosshair_type3:" + weapon);
-    //zoom crosshair color 1
-    _id("zoom_crosshair_color_1").dataset.variable = ("hud_zoom_crosshair_color:" + weapon);
-    engine.call("initialize_color_value", "hud_zoom_crosshair_color:" + weapon);
-    //zoom crosshair color 2
-    _id("zoom_crosshair_color_2").dataset.variable = ("hud_zoom_crosshair_color2:" + weapon);
-    engine.call("initialize_color_value", "hud_zoom_crosshair_color2:" + weapon);
-    //zoom crosshair color 3
-    _id("zoom_crosshair_color_3").dataset.variable = ("hud_zoom_crosshair_color3:" + weapon);
-    engine.call("initialize_color_value", "hud_zoom_crosshair_color3:" + weapon);
-    //zoom crosshair stroke 1
-    _id("setting_hud_zoom_crosshair_stroke").dataset.variable = ("hud_zoom_crosshair_stroke:" + weapon);
-    engine.call("initialize_color_value", "hud_zoom_crosshair_stroke:" + weapon);
-    //zoom crosshair stroke 2
-    _id("setting_hud_zoom_crosshair_stroke2").dataset.variable = ("hud_zoom_crosshair_stroke2:" + weapon);
-    engine.call("initialize_color_value", "hud_zoom_crosshair_stroke2:" + weapon);
-    //zoom crosshair stroke 3
-    _id("setting_hud_zoom_crosshair_stroke3").dataset.variable = ("hud_zoom_crosshair_stroke3:" + weapon);
-    engine.call("initialize_color_value", "hud_zoom_crosshair_stroke3:" + weapon);
-    //zoom crosshair size 1
-    _id("setting_hud_zoom_crosshair_size").dataset.variable = ("hud_zoom_crosshair_size:" + weapon);
-    global_range_slider_map["hud_zoom_crosshair_size:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_size"), true);
-    engine.call("initialize_range_value", "hud_zoom_crosshair_size:" + weapon);
-    //zoom crosshair size 2
-    _id("setting_hud_zoom_crosshair_size2").dataset.variable = ("hud_zoom_crosshair_size2:" + weapon);
-    global_range_slider_map["hud_zoom_crosshair_size2:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_size2"), true);
-    engine.call("initialize_range_value", "hud_zoom_crosshair_size2:" + weapon);
-    //zoom crosshair size 3
-    _id("setting_hud_zoom_crosshair_size3").dataset.variable = ("hud_zoom_crosshair_size3:" + weapon);
-    global_range_slider_map["hud_zoom_crosshair_size3:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_size3"), true);
-    engine.call("initialize_range_value", "hud_zoom_crosshair_size3:" + weapon);
-    //zoom crosshair stroke width 1
-    _id("setting_hud_zoom_crosshair_stroke_width").dataset.variable = ("hud_zoom_crosshair_stroke_width:" + weapon);
-    global_range_slider_map["hud_zoom_crosshair_stroke_width:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_stroke_width"), true);
-    engine.call("initialize_range_value", "hud_zoom_crosshair_stroke_width:" + weapon);
-    //zoom crosshair stroke width 2
-    _id("setting_hud_zoom_crosshair_stroke_width2").dataset.variable = ("hud_zoom_crosshair_stroke_width2:" + weapon);
-    global_range_slider_map["hud_zoom_crosshair_stroke_width2:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_stroke_width2"), true);
-    engine.call("initialize_range_value", "hud_zoom_crosshair_stroke_width2:" + weapon);
-    //zoom crosshair stroke width 3
-    _id("setting_hud_zoom_crosshair_stroke_width3").dataset.variable = ("hud_zoom_crosshair_stroke_width3:" + weapon);
-    global_range_slider_map["hud_zoom_crosshair_stroke_width3:" + weapon] = new rangeSlider(_id("setting_hud_zoom_crosshair_stroke_width3"), true);
-    engine.call("initialize_range_value", "hud_zoom_crosshair_stroke_width3:" + weapon);
-    //zoom crosshair hit style 1
-    _id("setting_hud_zoom_crosshair_hit_style").dataset.variable = ("hud_zoom_crosshair_hit_style:" + weapon);
-    engine.call("initialize_checkbox_value", "hud_zoom_crosshair_hit_style:" + weapon);
-    //zoom crosshair hit style 2
-    _id("setting_hud_zoom_crosshair_hit_style2").dataset.variable = ("hud_zoom_crosshair_hit_style2:" + weapon);
-    engine.call("initialize_checkbox_value", "hud_zoom_crosshair_hit_style2:" + weapon);
-    //zoom crosshair hit style 3
-    _id("setting_hud_zoom_crosshair_hit_style3").dataset.variable = ("hud_zoom_crosshair_hit_style3:" + weapon);
-    engine.call("initialize_checkbox_value", "hud_zoom_crosshair_hit_style3:" + weapon);
-    //crosshair hit color 1
-    _id("setting_hud_zoom_crosshair_hit_color").dataset.variable = ("hud_zoom_crosshair_hit_color:" + weapon);
-    engine.call("initialize_color_value", "hud_zoom_crosshair_hit_color:" + weapon);
-    //crosshair hit color 2
-    _id("setting_hud_zoom_crosshair_hit_color2").dataset.variable = ("hud_zoom_crosshair_hit_color2:" + weapon);
-    engine.call("initialize_color_value", "hud_zoom_crosshair_hit_color2:" + weapon);
-    //crosshair hit color 3
-    _id("setting_hud_zoom_crosshair_hit_color3").dataset.variable = ("hud_zoom_crosshair_hit_color3:" + weapon);
-    engine.call("initialize_color_value", "hud_zoom_crosshair_hit_color3:" + weapon);
-    */
-    
     // CANVAS CROSSHAIR DEFINITIONS
     engine.call("initialize_custom_component_value", "hud_crosshair_definition:" + weapon);
     engine.call("initialize_custom_component_value", "hud_zoom_crosshair_definition:" + weapon);
@@ -411,76 +250,11 @@ function settings_combat_update(weapon) {
     engine.call("weapon_settings_tab_changed", weapon);
     //change name in substitle
     if (weapon > 0) {
-        _id("customize_weapon_name").textContent = localize(global_item_name_map[global_weapon_idx_name_map[weapon]][1]);
         window.current_selected_setting_weapon_number = weapon;
     } else {
-        _id("customize_weapon_name").textContent = "";
         window.current_selected_setting_weapon_number = 0;
     }
 }
-/*
-function update_crosshair_selection(el) {
-    let val = el.dataset.value;
-    _for_each_with_class_in_parent(el, 'crosshair-option', function(opt) {
-        if (opt.dataset.cross == val) {
-            opt.classList.add("selected");
-        } else {
-            opt.classList.remove("selected");
-        }
-    });
-}
-
-function on_updated_crosshair_type_selection() {
-    
-    let cont = _id("crosshair_editor_screen");
-
-    let val  = _id("setting_hud_crosshair_layer_enabled").dataset.enabled;
-    let val2 = _id("setting_hud_crosshair_layer_enabled2").dataset.enabled;
-    let val3 = _id("setting_hud_crosshair_layer_enabled3").dataset.enabled;
-    if (val == "false") {
-        _for_each_with_class_in_parent(cont, "crosshair1_properties", function(el) { el.style.display = "none"; });
-    } else {
-        _for_each_with_class_in_parent(cont, "crosshair1_properties", function(el) { el.style.display = "flex"; });
-    }
-    if (val2 == "false") {
-        _for_each_with_class_in_parent(cont, "crosshair2_properties", function(el) { el.style.display = "none"; });
-    } else {
-        _for_each_with_class_in_parent(cont, "crosshair2_properties", function(el) { el.style.display = "flex"; });
-    }
-    if (val3 == "false") {
-        _for_each_with_class_in_parent(cont, "crosshair3_properties", function(el) { el.style.display = "none"; });
-    } else {
-        _for_each_with_class_in_parent(cont, "crosshair3_properties", function(el) { el.style.display = "flex"; });
-    }
-    _for_each_with_class_in_parent(_id("crosshair_editor_screen"), 'crosshair_scroll', function(el) {
-        refreshScrollbar(el);
-    });
-
-
-    let z_cont = _id("zoom_crosshair_editor_screen");
-
-    let z_val  = _id("setting_hud_zoom_crosshair_layer_enabled").dataset.enabled;
-    let z_val2 = _id("setting_hud_zoom_crosshair_layer_enabled2").dataset.enabled;
-    let z_val3 = _id("setting_hud_zoom_crosshair_layer_enabled3").dataset.enabled;
-    if (z_val == "false") {
-        _for_each_with_class_in_parent(z_cont, "zoom_crosshair1_properties", function(el) { el.style.display = "none"; });
-    } else {
-        _for_each_with_class_in_parent(z_cont, "zoom_crosshair1_properties", function(el) { el.style.display = "flex"; });
-    }
-    if (z_val2 == "false") {
-        _for_each_with_class_in_parent(z_cont, "zoom_crosshair2_properties", function(el) { el.style.display = "none"; });
-    } else {
-        _for_each_with_class_in_parent(z_cont, "zoom_crosshair2_properties", function(el) { el.style.display = "flex"; });
-    }
-    if (z_val3 == "false") {
-        _for_each_with_class_in_parent(z_cont, "zoom_crosshair3_properties", function(el) { el.style.display = "none"; });
-    } else {
-        _for_each_with_class_in_parent(z_cont, "zoom_crosshair3_properties", function(el) { el.style.display = "flex"; });
-    }
-    _for_each_with_class_in_parent(_id("zoom_crosshair_editor_screen"), 'crosshair_scroll', function(el) {
-        refreshScrollbar(el);
-    });
-}*/
 
 function on_updated_mask_type_selection() {
 
@@ -582,19 +356,23 @@ function play_transition_if_hidden(elem, sound_type) {
 function _fade_out_if_not(selector, exception) {
     anim_remove(selector);
 
-    if (selector != exception) {
-        let display_computed = getComputedStyle(selector).display;
-        let display_set = selector.style.display;
+    let display_computed = getComputedStyle(selector).display;
+    let display_set = selector.style.display;
 
+    if (selector != exception) {
         if ((display_set != undefined && display_set != "none") || display_computed != "none") {
             anim_hide(selector);
 
-            if (selector.id == "shop_screen") shop_set_animation_state(false);
+            if (selector.id == "shop_screen") {shop_set_animation_state(false)}
+            else if(selector.id == "aim_screen") {aim_scenario_set_video_play(false)}
         }
     } else {
-        if (selector.id == "shop_screen") shop_set_animation_state(true);
+        if (selector.id == "shop_screen") {shop_set_animation_state(true)}
+        else if(selector.id == "aim_screen") {aim_scenario_set_video_play(true)}
         
-        anim_show(selector);
+        if (display_set == undefined || display_set == "none" || display_computed == "none") {
+            anim_show(selector);
+        }
     }
 }
 
@@ -631,6 +409,7 @@ function switch_screens(dst, silent) {
     _fade_out_if_not(_id('practice_screen'), dst);
     _fade_out_if_not(_id('license_center_screen'), dst);
     _fade_out_if_not(_id('match_screen'), dst);
+    _fade_out_if_not(_id('aim_screen'), dst);
 
     // Full screens
     _fade_out_if_not(_id('notification_screen'), dst);
@@ -677,18 +456,22 @@ function play_menu_change_tab(tab, newPage) {
 
     if(newPage == _id("play_screen_customlist") || newPage == _id("play_screen_custom")) {
         if (global_lobby_id == -1) {
-            play_transition_if_hidden(_id('play_screen_customlist'), 'ui_transition1');
-            _fade_out_if_not(_id('play_screen_custom'), _id('play_screen_customlist'));
-            _fade_out_if_not(_id('play_screen_customlist'), _id('play_screen_customlist'));
+            if (global_play_menu_page != "play_screen_customlist") {
+                play_transition_if_hidden(_id('play_screen_customlist'), 'ui_transition1');
+                _fade_out_if_not(_id('play_screen_custom'), _id('play_screen_customlist'));
+                _fade_out_if_not(_id('play_screen_customlist'), _id('play_screen_customlist'));
 
-            global_play_menu_page = "play_screen_customlist";
-            updateCustomMatchList();
+                global_play_menu_page = "play_screen_customlist";
+                updateCustomMatchList();
+            }
         } else {
-            play_transition_if_hidden(_id('play_screen_custom'), 'ui_transition1');
-            _fade_out_if_not(_id('play_screen_customlist'), _id('play_screen_custom'));
-            _fade_out_if_not(_id('play_screen_custom'), _id('play_screen_custom'));
+            if (global_play_menu_page != "play_screen_custom") {
+                play_transition_if_hidden(_id('play_screen_custom'), 'ui_transition1');
+                _fade_out_if_not(_id('play_screen_customlist'), _id('play_screen_custom'));
+                _fade_out_if_not(_id('play_screen_custom'), _id('play_screen_custom'));
 
-            global_play_menu_page = "play_screen_custom";
+                global_play_menu_page = "play_screen_custom";
+            }
         }
     } else {
         play_transition_if_hidden(newPage, 'ui_transition1');
@@ -722,7 +505,7 @@ function set_blur(blur) {
 
 function highlight_play_menu(selector) {
 
-    var items = document.querySelectorAll(".bar_panel > div");
+    var items = document.querySelectorAll(".play_screen_button.active");
 
     for (var i = 0; i < items.length; i++) {
         items[i].classList.remove('active')
@@ -801,6 +584,13 @@ function open_practice() {
         historyPushState({"page": "practice_screen"});
         practice_screen_reset_cards();
     }
+}
+
+function open_aim() {
+    set_blur(true);
+    hl_button("mm_practice");
+    switch_screens(_id("aim_screen"));
+    historyPushState({"page": "aim_screen"});
 }
 
 function open_license_center() {
@@ -1213,7 +1003,6 @@ function open_customization(category, type) {
     historyPushState({"page": "customize_screen" });
     switch_screens(_id("customize_screen"));
     hl_button("mm_customize");
-    anim_show(_id("customize_screen"));
 }
 
 /*
@@ -1677,7 +1466,7 @@ function add_tooltip2_listeners(el) {
                 _empty(tt2);
                 tt2.appendChild(generate_tt_content(el));
             }
-            tt2.style.opacity = 0;
+            tt2.style.filter = "opacity(0)";
             tt2.style.display = "flex";
             setTimeout(function() {
                 tt2_rect = tt2.getBoundingClientRect();
@@ -1851,7 +1640,7 @@ function generate_tooltip_queue_info(type) {
         if (cb.parentElement == null) continue;
         
         if (cb.dataset.type == type && cb.dataset.mode.length && cb.dataset.enabled == "true") {
-            let group = cb.parentNode.parentNode.querySelector(".card_top").textContent;
+            let group = cb.parentNode.parentNode.querySelector(".card_top .title").textContent;
             if (!(group in groups)) {
                 groups[group] = [];
             }

@@ -197,7 +197,7 @@ function render_shop_item(group_items, item_idx) {
 
         item_box.style.setProperty("--item_rarity_color", "var(--rarity_"+item.rarity+")");
 
-        _empty_node(customization_info);
+        _remove_node(customization_info);
         customization_info = createCustomizationInfo(item);
         header.appendChild(customization_info);
 

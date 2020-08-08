@@ -823,8 +823,17 @@ function learn_screen_initialize_tab_gamemodes() {
                                     'starting_weapons',
                                     'powerup_drop',
                                     'health_armor_gained_on_powerup'],
-                        'description': 'Brawl is a frag score based mode between multiple teams or individual players where you pick up weapons and items to help you frag your opponents.<div>Gain the edge over your opponents by taking the powerups that spawn throughout the match. At 1:00 and every 240s after, two utility powerups will spawn on the map at the same time, and at 3:00 and every 240s after, Diabotical will spawn in the centre of the map.</div><div>In Brawl you will gain health and armor upon taking a powerup.</div>'
-                    },        
+                        'description': 'Brawl is a frag score based mode between multiple teams where you start with all weapons and try to out frag your opponents.<div>Gain the edge over your opponents by taking the powerups that spawn throughout the match. At 1:00 and every 240s after, two utility powerups will spawn on the map at the same time, and at 3:00 and every 240s after, Diabotical will spawn in the centre of the map.</div><div>In Brawl you will gain health and armor upon taking a powerup.</div>'
+                    },
+        'ffa':    {   'entries':['spawn_health_armor',
+                        'stable_health_armor',                                    
+                        'weapon_respawn_time',
+                        'self_damage',
+                        'starting_weapons',
+                        'powerup_drop',
+                        'health_armor_gained_on_powerup'],
+                        'description': 'Free for All is a frag score based mode between individual players where you pick up weapons and items to help you frag your opponents.<div>Gain the edge over your opponents by taking the powerups that spawn throughout the match. At 1:00 and every 240s after, two utility powerups will spawn on the map at the same time, and at 3:00 and every 240s after, Diabotical will spawn in the centre of the map.</div><div>In FFA you will gain health and armor upon taking a powerup.</div>'
+                    },         
         'wipeout':  {   'entries':['spawn_health_armor',
                                     'stable_health_armor',
                                     'self_damage',
@@ -863,8 +872,8 @@ function learn_screen_initialize_tab_gamemodes() {
                                     'self_damage',
                                     'starting_weapons',
                                     'powerup_drop'],
-                        'description': "Extinction is a round based mode where players start with 3 lives each, and the team who loses all of their lives loses the round. If you're out of lives, don't give up yet! You'll still keep spawning if one player on your team has lives remaining. With nothing to lose, roam the map marked with your lost lives circling your feet and protect your surviving teammates, or chase down your enemies and eliminate them, focusing on those with lives remaining.",
-                        'description_extended': "If the player with the most lives on your team has more lives than anybody on the enemy team, your team will have a longer respawn time based on the difference. Each round the powerup that spawns changes, cycling between Vindicator, Vanguard and Siphonator for that round."
+                        'description': "Extinction is a round based mode where players start with 3 lives each, and the team who loses all of their lives loses the round. If you're out of lives, don't give up yet! You'll still keep spawning if one player on your team has lives remaining. In this ghost state, roam the map and protect your surviving teammates, or chase down your enemies and eliminate them, focusing on those with lives remaining. But be careful as not only do ghosts have a longer respawn time, but will also drop an orb on death that will reveal the location of their life leader if picked up by an enemy.",
+                        'description_extended': "If the player with the most lives on your team has more lives than anybody on the enemy team, your team's ghosts will have less spawn health based on the difference. Each round the powerup that spawns changes, cycling between Vindicator, Vanguard and Siphonator for that round."
                     },
         'duel':      {   'entries':['spawn_health_armor',
                                     'stable_health_armor',
@@ -1066,7 +1075,7 @@ function learn_screen_initialize_tab_gamemodes() {
                 infoRow.appendChild(infoCell);
             }
             else if(entry == 'health_armor_gained_on_powerup'){
-                if(item == 'brawl'){
+                if(item == 'brawl' || item == 'ffa'){
                     var value = '25 / 25';
                 }
                 let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");

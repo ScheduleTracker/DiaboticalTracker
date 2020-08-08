@@ -25,7 +25,6 @@ function init_hud_screen_game_report() {
      * json_snafu_data json Native snafu data model
      */
     bind_event('set_game_report', function (json_game_status, model_data, json_snafu_data) {
-        console.error("set_game_report");
         if (!json_game_status)  return;
 
         send_view_data("menu", "reset_own_profile_cache");
@@ -111,11 +110,9 @@ function init_hud_screen_game_report() {
         });
 
         create_game_report(game_status, snafu_data);
-        console.error("set_game_report done");
     });
 
     bind_event('show_game_report', function (visible) {
-        console.error("show_game_report");
         //console.log("show_game_report", visible);
         global_game_report_active = visible;
 
@@ -185,7 +182,6 @@ function init_hud_screen_game_report() {
 
 function create_game_report(game_status, snafu_data) {
     //console.log("game_status", _dump(game_status));
-    console.error("create_game_report #1");
 
     let game_report = _id("game_report_cont");
     let head = game_report.querySelector(".head");
@@ -477,7 +473,6 @@ function create_game_report(game_status, snafu_data) {
     if (self_stats) selectPlayer(self_stats, false);
 
     renderMapVote();
-    console.error("create_game_report done");
 }
 
 function updateGameReportRank(mode) {

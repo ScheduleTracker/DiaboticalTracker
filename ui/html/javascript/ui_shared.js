@@ -815,18 +815,25 @@ function count_to_empty_array(count) {
 }
 
 
-let global_hud_version = 1.2;
+let global_hud_version = 1.3;
 let global_hud_version_min = 1.1; // lower than this = hud gets reset to default
 function hud_version_check(hud, hud_type) {
     if (!("version" in hud)) hud.version = 0;
     let add_elements = [];
+    let modify_elements = [];
 
     let version = Number(hud.version);
     if (version < global_hud_version) {
         if (version < 1.2) add_elements.push("voicechat");
+        if (version < 1.3) {
+            add_elements.push("minimap");
+            modify_elements.push("voicechat");
+        }
     }
 
-    if (version < global_hud_version_min) {
+    // If an outdated hud has the default flag and its set to true we simply reset the whole hud to the lastest default version
+    // If the hud version is older than the minimum required its also reset to default
+    if ((version < global_hud_version_min) || (hud.hasOwnProperty("default") && hud.default == true && version < global_hud_version)) {
         // Reset the hud to default
         if (GAMEFACE_VIEW == "menu") {
             reset_hud();
@@ -853,13 +860,45 @@ function hud_version_check(hud, hud_type) {
                     "t":"voicechat",
                     "gid":-1,
                     "x":3,
-                    "y":4,
+                    "y":32,
                     "fontSize":"2",
                     "font":"montserrat-bold",
                     "color":"#ffffff",
                     "pivot":"top-left",
                     "iC":"#00FF00",
                 });
+            }
+            if (add_el == "minimap") {
+                hud.elements.push({
+                    "t":"minimap",
+                    "gid":-1,
+                    "x":1,
+                    "y":1,
+                    "pivot":"top-left",
+                    "size":"30",
+                    "lc":"#32323c",
+                    "mc":"#4b4b4b",
+                    "hc":"#645a5a",
+                    "oc":"#FFFFFF",
+                    "ot":0.1,
+                    "tlo":1,
+                    "ci":1,
+                    "stll":1,
+                    "opo":0.5
+                });
+            }
+        }
+    }
+
+    // Update properties of certain elements
+    for (let modif_el of modify_elements) {
+        for (let el of hud.elements) {
+            if (el.t == modif_el) {
+                // Move the voice chat down from its original position if its still there
+                if (modif_el == "voicechat" && el.x == "3" && el.y == "4") {
+                    el.y = "32"
+                }
+                break;
             }
         }
     }

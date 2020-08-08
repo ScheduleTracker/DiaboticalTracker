@@ -54,7 +54,9 @@ function anim_update(timestamp){
         }
         if (anim.opacity){
             let val = lerp(anim.opacity[0], anim.opacity[1], t);
-            anim.element.style.opacity = val;
+            // Use filter opacity instead of normal opacity because GameFace >=1.9 has hard to reproduce/fix issues with opacity while filter works
+            //anim.element.style.opacity = val;
+            anim.element.style.filter = "opacity("+val+")";
         }
         if (anim.translateX){
             let val = lerp(anim.translateX[0], anim.translateX[1], t);
@@ -115,7 +117,8 @@ function anim_start(options){
 
         if (options.opacity){
             //Also take care of the initial opacity when used in combination with "show"
-            options.element.style.opacity = options.opacity[0];
+            //options.element.style.opacity = options.opacity[0];
+            options.element.style.filter = "opacity("+options.opacity[0]+")";
         }
         //Also remove the hide attribute on any other ongoing animations on the same object,
         //this avoids the disappearance issue when queuing fading animations quickly.

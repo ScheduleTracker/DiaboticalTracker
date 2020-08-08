@@ -181,7 +181,7 @@ function battlepass_list_show_rewards(bp) {
             });
 
             send_string(CLIENT_COMMAND_GET_BATTLEPASS_REWARDS, bp.battlepass_id, "battlepass-rewards", function(data) {
-                bp_rewards.style.opacity = 0;
+                bp_rewards.style.filter = "opacity(0)";
 
                 global_battlepass_rewards_cache[bp.battlepass_id] = format_battlepass_rewards(data.data);
                 let { pos } = render_battlepass_rewards(screen, bp, global_battlepass_rewards_cache[bp.battlepass_id], showRewardPreview);

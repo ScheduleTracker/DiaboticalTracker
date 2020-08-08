@@ -17,7 +17,7 @@ function init_hud_screen_aim_report() {
 
 function on_aim_report_restart() {
     // Restart aim map call
-    //engine.call("");
+    engine.call("aim_report_restart");
     anim_hide(_id("aim_report"));
 }
 

@@ -7,6 +7,7 @@ function init_element_you_fragged() {
         "color": "#ffffff",
         "pivot": "top-edge",
         "align": "center",
+        "ha": "0",
     },      
     [       
         defaultPivot,
@@ -16,6 +17,7 @@ function init_element_you_fragged() {
         defaultFontFamily,
         defaultFontSize,
         defaultColor,
+        {"inputType": "toggle", "type": "ha", "text": "Hide Assists"},
     ]
     ,"#hud_you_fragged");  
     hud_elements.push(hud_elem);
@@ -29,6 +31,9 @@ function init_element_you_fragged() {
 
     function frag_msg_handler(type, username, color) {
         for (let el of global_hud_references.you_fragged) {
+            let show_assists = (el.dataset.ha == "1") ? false : true;
+            if (type == "assist" && !show_assists) continue;
+
             let line = document.createElement("div");
 
             let text = '';
@@ -49,7 +54,7 @@ function init_element_you_fragged() {
                 delay: 3000,
                 completion: function() {
 
-                    _empty_node(line);
+                    _remove_node(line);
 
                     /*
                     if (line.classList.contains('remove_me')) {
@@ -70,7 +75,7 @@ function init_element_you_fragged() {
             if (el.children[0].children.length > 3) {
                 for (let i=el.children[0].children.length - 1; i >= 0; i--) {
                 
-                    _empty_node(el.children[0].children[i]);
+                    _remove_node(el.children[0].children[i]);
                     /*
                     if (el.children[0].children[i].classList.contains('remove_me')) {
                         continue;

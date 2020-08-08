@@ -234,7 +234,7 @@ function load_user_customizations(cb) {
 }
 
 function unflattenCustomizations(data) {
-    if (data.length <= 1) return [];
+    if (!data || data.length <= 1) return [];
 
     let customizations = [];
 
@@ -314,7 +314,7 @@ function add_user_customizations(customizations) {
         for (let sub_type in type_options[type_id]) {
             for (let saved in customize_saved_page) {
                 if (saved == type_name+"_"+sub_type) {
-                    _empty_node(customize_saved_page[saved]);
+                    _remove_node(customize_saved_page[saved]);
                     delete customize_saved_page[saved];
                 }
             }
@@ -387,7 +387,7 @@ function customization_load_category(btn, category, ctype) {
     customization_render_category(category, ctype);
     customization_show_category(category, global_customization_active_ctype);
 
-    let customization_content = _id("customize_screen").querySelector(".customization_window");
+    let customization_content = _id("customize_content");
     if (customization_content) customization_content.style.display = "flex";
 }
 
@@ -415,7 +415,7 @@ function customization_render_category(category, selected_ctype) {
         }
     }
 
-    let cont = _id("customize_screen").querySelector(".customization_window");
+    let cont = _id("customize_content");
 
     let menu = cont.querySelector(".menu");
     let bottom = _id("customization_bottom");
@@ -985,7 +985,7 @@ function customization_on_select(e) {
         global_customization_data_map[e.currentTarget.dataset.id].seen = true;
 
         let new_div = e.currentTarget.querySelector(".new");
-        if (new_div) _empty_node(new_div);
+        if (new_div) _remove_node(new_div);
     }
 }
 

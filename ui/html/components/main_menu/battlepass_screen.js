@@ -51,9 +51,6 @@ function load_battlepass() {
     
     render_battlepass(global_user_battlepass);
 
-    //let c_cont = _id("battlepass_daily_challenges");
-    //render_daily_challenges(c_cont, global_user_battlepass.challenges);
-
     let bp_rewards = screen.querySelector(".battlepass_rewards");
 
     if (global_user_battlepass.battlepass_id in global_battlepass_rewards_cache) {
@@ -73,7 +70,7 @@ function load_battlepass() {
         });
 
         send_string(CLIENT_COMMAND_GET_BATTLEPASS_REWARDS, global_user_battlepass.battlepass_id, "battlepass-rewards", function(data) {
-            bp_rewards.style.opacity = 0;
+            bp_rewards.style.filter = "opacity(0)";
 
             global_battlepass_rewards_cache[global_user_battlepass.battlepass_id] = format_battlepass_rewards(data.data);
             let { pos, locked_count } = render_battlepass_rewards(screen, global_user_battlepass, global_battlepass_rewards_cache[global_user_battlepass.battlepass_id], showRewardPreview);
@@ -275,7 +272,7 @@ function battlepass_buy_levels_modal() {
             if (level_before > new_level) {
                 // decreased
                 _for_each_with_class_in_parent(reward_list_inner, "customization_level", function(el) {
-                    if (Number(el.dataset.level) > new_level) _empty_node(el);
+                    if (Number(el.dataset.level) > new_level) _remove_node(el);
                 });
             } else if (level_before < new_level) {
                 // increased
@@ -533,7 +530,7 @@ function render_daily_challenges(c_cont, challenges, show_reroll) {
                 send_string(CLIENT_COMMAND_REROLL_CHALLENGE, c.challenge_id);
 
                 // Remove the reroll buttons
-                for (let r of rerolls) _empty_node(r);
+                for (let r of rerolls) _remove_node(r);
             });
 
             _addButtonSounds(reroll, 1);

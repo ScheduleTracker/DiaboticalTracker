@@ -216,20 +216,22 @@ function stackTrace() {
     return err.stack;
 }
 
-function _empty_node(node){
+// Recursively removes all child nodes and then itself from the DOM
+function _remove_node(node){
   while (node.hasChildNodes()) {
-    _empty_node(node.lastChild);
+    _remove_node(node.lastChild);
   }
   if (node.parentNode) node.parentNode.removeChild(node);
 }
 
+// Recursively removes all child nodes from the node
 function _empty(node) {
     //while (node.firstChild) {
     //    node.removeChild(node.firstChild);
     //}
     if (node === undefined) return;
     while (node.hasChildNodes()) {
-       _empty_node(node.lastChild);
+        _remove_node(node.lastChild);
     }
 }
 
@@ -908,14 +910,17 @@ function createCustomizationInfo(item, show_name) {
 }
 
 function createCustomizationPreview(item) {
-    let preview_image = _createElement("div", ["customization_preview_image", global_customization_type_map[item.customization_type].name]);
+    let preview_image = _createElement("div", "customization_preview_image");
     if (global_customization_type_map[item.customization_type].name == "avatar") {
         if (item.customization_id == "default") return preview_image;
+        preview_image.classList.add(global_customization_type_map[item.customization_type].name);
         preview_image.style.backgroundImage = "url("+_avatarUrl(item.customization_id)+")";
     } else if (global_customization_type_map[item.customization_type].name == "currency") {
+        preview_image.classList.add(global_customization_type_map[item.customization_type].name);
         preview_image.style.backgroundImage = "url(/html/images/icons/reborn_coin.png.dds)";
     } else if (global_customization_type_map[item.customization_type].name == "music") {
         //preview_image.style.backgroundImage = "url(/html/customization/music/mu_pu_placeholder.png.dds)"; // TEMP until we have proper images for each song?
+        preview_image.classList.add(global_customization_type_map[item.customization_type].name);
         preview_image.style.backgroundImage = "url("+_musicImageUrl(item.customization_id)+")";
     }
     return preview_image;

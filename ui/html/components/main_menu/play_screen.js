@@ -554,7 +554,8 @@ function renderPlayCard(data) {
         card_flex.appendChild(card_locked);
     }
 
-    let card_top = _createElement("div", "card_top", localize(data.title));
+    let card_top = _createElement("div", "card_top");
+    card_top.appendChild(_createElement("div", "title", localize(data.title)));
     let card_best_rank = _createElement("div", "card_best_rank");
     card_top.appendChild(card_best_rank);
     if (data.type == "ranked") {
@@ -570,13 +571,6 @@ function renderPlayCard(data) {
             }
         });
         top_links.appendChild(link_leaderboards);
-        let link_ranks = _createElement("div", "link", localize("menu_title_rank_legend"));
-        _addButtonSounds(link_ranks, 1);
-        link_ranks.addEventListener("click", function(ev) {
-            ev.stopPropagation();
-            showRankOverview();
-        });
-        top_links.appendChild(link_ranks);
         card_top.appendChild(top_links);
     }
     card_flex.appendChild(card_top);
@@ -586,9 +580,7 @@ function renderPlayCard(data) {
 
     if (data.hover_button) {
         var card_text = _createElement("div","card_text");
-        if (data.hover_button == "play") {
-            card_text.appendChild(_createElement("div", "card_play", localize("play")));
-        }
+        card_text.appendChild(_createElement("div", "card_play", localize(data.hover_button)));
         card_bottom.appendChild(card_text);
     }
 
@@ -1133,6 +1125,14 @@ function handle_mm_match_event(data) {
         anim_hide(_id("draft_screen_inner"), 250);
     }
 
+    let icon_cont = _id("draft_screen_mode_icon");
+    let title_cont = _id("draft_screen_mode_name");
+    let text_cont = _id("draft_screen_mode_text");
+
+    icon_cont.style.display = "none";
+    title_cont.style.display = "none";
+    text_cont.style.display = "none";
+
     setTimeout(() => {
         let map_cont = _id("draft_maps_container");
         _empty(map_cont);
@@ -1146,18 +1146,13 @@ function handle_mm_match_event(data) {
             draft_render_mode_vote(mode_cont, data.vote_options);
         }
 
-        let icon_cont = _id("draft_screen_mode_icon");
-        let title_cont = _id("draft_screen_mode_name");
-        let text_cont = _id("draft_screen_mode_text");
         if (data.vote == "map" && data.mode in global_game_mode_map && data.mm_mode && data.mm_mode in global_queues) {
-            icon_cont.style.display = "flex";
-            icon_cont.style.backgroundImage = "url("+global_game_mode_map[data.mode].icon+")";
+            icon_cont.style.backgroundImage = "url("+global_game_mode_map[data.mode].icon+"?s=6)";
             title_cont.textContent = localize(global_game_mode_map[data.mode].i18n)+" "+global_queues[data.mm_mode].vs;
             text_cont.textContent = localize(global_game_mode_map[data.mode].desc_i18n);
-        } else {
-            icon_cont.style.display = "none";
-            title_cont.textContent = '';
-            text_cont.textContent = '';
+            icon_cont.style.display = "flex";
+            title_cont.style.display = "flex";
+            text_cont.style.display = "flex";
         }
 
         if (data.action == "mm-match-found" || data.action == "mm-join-match-found") {

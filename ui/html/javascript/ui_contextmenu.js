@@ -69,6 +69,6 @@ function context_menu(e, options) {
 }
 
 function context_menu_outside_click() {
-    _empty_node(_id("context_menu"));
+    _remove_node(_id("context_menu"));
     _id("main_menu").removeEventListener("mousedown", context_menu_outside_click);
 }

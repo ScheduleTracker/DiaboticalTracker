@@ -87,8 +87,8 @@ function init_custom_game_references() {
         global_party_leader_elements = [
             _id("quick_play_queue_button"),
             _id("ranked_play_queue_button"),        
-            _id("quick_play_warmup_alignment"),
-            _id("ranked_play_warmup_alignment"),
+            //_id("quick_play_warmup_alignment"),
+            //_id("ranked_play_warmup_alignment"),
             _id("custom_play_create_lobby_button"),
             _id("custom_play_link_join_lobby_button"),
             _id("customlist_bottom"),
@@ -101,7 +101,7 @@ function init_custom_game_references() {
             "map":                       _id("custom_game_setting_map"),
             "location":                  _id("custom_game_setting_location"),
             "time_limit":                _id("custom_game_setting_time_limit"),
-            "score_limit":               _id("custom_game_setting_frag_limit"),
+            "score_limit":               _id("custom_game_setting_score_limit"),
             "team_count":                _id("custom_game_setting_team_count"),
             "team_size":                 _id("custom_game_setting_team_size"),
             "continuous":                _id("custom_game_setting_continuous"),
@@ -214,19 +214,19 @@ function init_screen_custom() {
             custom_lobby_setting_updated(field.dataset.variable, opt.dataset.value);
         }
     });
-    ui_setup_select(global_customSettingElements["mode"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["team_count"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["team_size"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["time_limit"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["score_limit"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["continuous"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["intro"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["team_switching"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["physics"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["ready_percentage"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["warmup_time"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["min_players"], update_variable_if_host);
-    ui_setup_select(global_customSettingElements["max_clients"], update_variable_if_host);
+    ui_setup_select(global_customSettingElements["mode"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["team_count"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["team_size"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["time_limit"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["score_limit"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["continuous"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["intro"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["team_switching"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["physics"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["ready_percentage"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["warmup_time"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["min_players"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["max_clients"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["model"], function() {
         if (bool_am_i_host) custom_game_settings_changed();
     });
@@ -249,13 +249,6 @@ function init_screen_custom() {
         if (bool_am_i_host) custom_game_settings_changed();
     }, 1000);
     
-
-    function update_variable_if_host(opt, field) {
-        if (bool_am_i_host) {
-            update_variable("string", field.dataset.variable, opt.dataset.value);
-            custom_lobby_setting_updated(field.dataset.variable, opt.dataset.value);
-        }
-    }
 
     // Instagib setting is currently not saved in a variable across restarts
     // logic here is independent of other checkboxes which are saved
@@ -417,6 +410,13 @@ function init_screen_custom() {
         
         send_json_data({"action": "lobby-swap", "from": from, "to": {"team": -1, "slot": 0} });
     });
+}
+
+function custom_update_variable_if_host(opt, field) {
+    if (bool_am_i_host) {
+        update_variable("string", field.dataset.variable, opt.dataset.value);
+        custom_lobby_setting_updated(field.dataset.variable, opt.dataset.value);
+    }
 }
 
 // Set the map selection
@@ -658,69 +658,52 @@ function custom_game_mode_changed(send_update) {
     let container_team_count = _id("custom_setting_team_count");
     let container_team_size = _id("custom_setting_team_size");
     let container_time_limit = _id("custom_setting_time_limit");
-    let container_score_limit = _id("custom_setting_frag_limit");
+    let container_score_limit = _id("custom_setting_score_limit");
 
-    if (CUSTOM_MULTI_TEAM_MODES.includes(mode)) {
-
-        custom_game_number_of_teams_changed(parseInt(global_customSettingElements["team_count"].dataset.value), false);
-        container_team_count.style.display = "flex";
-        container_team_size.style.display = "flex";
-
+    // Update team size option
+    if (CUSTOM_SOLO_MODES.includes(mode)) {
+        global_customSettingElements["team_size"].dataset.value = 1;
+        update_select(global_customSettingElements["team_size"]);
+        container_team_size.style.display = "none";
     } else {
-        if (mode == "duel") {
-
-            global_customSettingElements["team_count"].dataset.value = 2;
-            global_customSettingElements["team_size"].dataset.value = 1;
-            update_select(global_customSettingElements["team_count"]);
-            update_select(global_customSettingElements["team_size"]);
-            container_team_count.style.display = "none";
-            container_team_size.style.display = "none";
-
-        } else if (mode == "ffa") {
-
-            global_customSettingElements["team_size"].dataset.value = 1;
-            update_select(global_customSettingElements["team_size"]);
-            container_team_count.style.display = "flex";
-            container_team_size.style.display = "none";
-
-        } else {
-
-            global_customSettingElements["team_count"].dataset.value = 2;
-            update_select(global_customSettingElements["team_count"]);
-            container_team_count.style.display = "none";
-            container_team_size.style.display = "flex";
-
-        }
-
-        custom_game_number_of_teams_changed(parseInt(global_customSettingElements["team_count"].dataset.value), false);
+        container_team_size.style.display = "flex";
     }
 
+    // Update team count option
+    if (CUSTOM_MULTI_TEAM_MODES.includes(mode)) {
+        container_team_count.style.display = "flex";
+    } else {
+        global_customSettingElements["team_count"].dataset.value = 2;
+        update_select(global_customSettingElements["team_count"]);
+        container_team_count.style.display = "none";
+    }
+
+    // Update time limit & score limit options
     if (CUSTOM_ROUND_BASED_MODES.includes(mode)) {
         container_time_limit.style.display = "none";
         container_score_limit.querySelector(".setting_title").textContent = localize("custom_game_settings_round_limit");
+        custom_update_score_limit_options(CUSTOM_ROUND_LIMITS);
     } else {
         container_time_limit.style.display = "flex";
         if (mode == "ctf") {
             container_score_limit.querySelector(".setting_title").textContent = localize("custom_game_settings_capture_limit");
+            custom_update_score_limit_options(CUSTOM_CAPTURE_LIMITS);
         } else {
             container_score_limit.querySelector(".setting_title").textContent = localize("custom_game_settings_score_limit");
+            custom_update_score_limit_options(CUSTOM_FRAG_LIMITS);
         }
     }
 
-    if (mode == "duel") {
-        custom_game_number_of_teams_changed(2, false);
+    // Update score limit option for special modes
+    if (CUSTOM_TIMELIMIT_ONLY_MODES.includes(mode)) {
         container_score_limit.style.display = "none";
-
-        for (let i=2; i<global_gameSlotList.length; i++) {
-            global_gameSlotList[i].style.display = "none";
-        }        
     } else {
         container_score_limit.style.display = "flex";
-        for (let i=2; i<global_gameSlotList.length; i++) {
-            global_gameSlotList[i].style.display = "flex";
-        }
     }
-       
+
+    custom_game_number_of_teams_changed(parseInt(global_customSettingElements["team_count"].dataset.value), false);
+
+    /*
     if (mode == "race") {
         let refNode = _id('custom_setting_location');
         let parentNode = refNode.parentNode;
@@ -732,12 +715,46 @@ function custom_game_mode_changed(send_update) {
         _id("custom_game_setting_physics").classList.add("theme_modal");
         parentNode.insertBefore(_id('custom_setting_physics'),refNode);
     }
+    */
     
     // Trigger map selection list update and map choice update
     engine.call("on_custom_game_mode_changed", mode, global_customSettingElements["map"].dataset.value || "");
 
     if (send_update) {
         custom_game_settings_changed();
+    }
+}
+
+function custom_update_score_limit_options(options) {
+    let score_limit_select = _id("custom_game_setting_score_limit");
+    _empty(score_limit_select);
+
+    let score_limit_changed = false;
+    let changed_opt = undefined;
+    if (!options.includes(Number(global_customSettingElements["score_limit"].dataset.value))) {
+        global_customSettingElements["score_limit"].dataset.value = options[0];
+        score_limit_changed = true;
+    }
+
+    for (let limit of options) {
+        let opt = _createElement("div");
+        opt.dataset.value = limit;
+        if (limit == 0) {
+            opt.textContent = localize("score_unlimited");
+        } else {
+            opt.textContent = limit;
+        }
+
+        if (limit == global_customSettingElements["score_limit"].dataset.value) {
+            opt.dataset.selected = 1;
+            changed_opt = opt;
+        }
+        score_limit_select.appendChild(opt);
+    }
+
+    ui_setup_select(global_customSettingElements["score_limit"], custom_update_variable_if_host);
+    if (score_limit_changed) {
+        custom_update_variable_if_host(changed_opt, global_customSettingElements["score_limit"]);
     }
 }
 
@@ -758,9 +775,8 @@ function custom_game_number_of_teams_changed(numOfTeams, sendUpdate) {
         update_select(global_customSettingElements["team_size"]);
     }
 
-    if (mode === "duel") {
+    if (CUSTOM_SOLO_MODES.includes(mode)) {
         teamSize = 1;
-        numOfTeams = 2;
     }
 
     if (teamSize == 1) {
@@ -1391,11 +1407,13 @@ function update_custom_game_visibility() {
     }
 }
 
+let custom_lobby_local_var_update = false;
 function update_custom_game_settings(settings, init) {
     //console.log("update_custom_game_settings", _dump(settings));
 
     let update_teams = false;
     let update_mode = false;
+    let update_score = false;
 
     let visibility = (settings.private) ? 1 : 0;
     if (global_customSettingElements["visibility"].dataset.value != visibility || init) {
@@ -1453,6 +1471,7 @@ function update_custom_game_settings(settings, init) {
     if (parseInt(global_customSettingElements["score_limit"].dataset.value) != settings.score_limit) {
         global_customSettingElements["score_limit"].dataset.value = settings.score_limit;
         update_select(global_customSettingElements["score_limit"]);
+        update_score = true;
     }
     
     if(settings.instagib) {
@@ -1558,6 +1577,15 @@ function update_custom_game_settings(settings, init) {
     if (update_teams || init) {
         if (!update_mode) {
             custom_game_number_of_teams_changed(settings.team_count, false);
+        }
+    }
+
+    if (update_score) {
+        if (bool_am_i_host) {
+            custom_lobby_local_var_update = true;
+            update_variable("string", "lobby_custom_score_limit", global_customSettingElements["score_limit"].dataset.value);
+            update_select(global_customSettingElements["score_limit"]);
+            custom_lobby_local_var_update = false;
         }
     }
 

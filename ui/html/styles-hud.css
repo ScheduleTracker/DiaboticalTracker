@@ -285,6 +285,12 @@ body, html {
     pointer-events:none;
     
 }
+.customization_preview_image.currency {
+    width:50%;
+    height:50%;
+    max-width:30vh;
+    max-height:30vh;    
+}
 .customization_preview_image.avatar {
     width:50%;
     height:50%;
@@ -434,7 +440,7 @@ body, html {
     justify-content:center;
     align-items:center;
     width:100%;
-    padding:0 1vh 0.4vh 1vh;
+    padding:0 0 0.4vh 0;
     background-image: linear-gradient(90deg,rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
 }
 .customization_info .type {
@@ -1944,6 +1950,33 @@ h2 {
 
 
 
+/*
+ *  ELEMENT: Editing Info
+ */
+.hud .elem_editing_info {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+}
+.hud_isPreview.elem_editing_info {
+    width: calc(30vh * var(--ratio));
+    height: calc(20vh * var(--ratio));
+    background-color:rgba(255,255,255,0.1);
+}
+
+
+/*
+ *  ELEMENT: Minimap
+ */
+.elem_minimap {
+    width:calc(1vh * var(--size) * var(--ratio));
+    height:calc(1vh * var(--size) * var(--ratio));
+}
+.hud_isPreview.elem_minimap {
+    background-color:rgba(255,255,255,0.1);
+}
 #aim_report {
     position:absolute;
     left:50%;
@@ -4195,8 +4228,6 @@ h2 {
     align-items:center;
     flex: 0;
 
-    margin-bottom: 0.1vh;
-    margin-top: 0.1vh;
     border-radius:0.4vh;
 }
 .select-option:hover    { background-color:#666; }

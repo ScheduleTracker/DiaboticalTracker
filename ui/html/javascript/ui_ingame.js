@@ -39,13 +39,6 @@ for( var i=0; i < total; i++){
 }
 */
 
-// This preloads and renders the images of items
-let global_preload_trick_container = _id("preload_trick_container");
-for (let item of Object.keys(global_item_name_map)) {
-    _loadImage(global_preload_trick_container, global_item_name_map[item][2]+"?color="+global_item_name_map[item][0]);
-}
-
-
 class Match {
     constructor() {
         this.match_id = -1;
@@ -131,6 +124,7 @@ let global_hud_references = {
     "chat_container": [],
     "fraglog": [],
     "you_fragged": [],
+    "editing_info": [],
     "game_report_chat_messages": undefined,
     "game_report_chat_input": undefined,
 };
@@ -197,6 +191,15 @@ window.addEventListener("load", function(){
 
     console.log("load");
 
+    // This preloads and renders the images of items
+    /*
+    let global_preload_trick_container = _id("preload_trick_container");
+    for (let item of Object.keys(global_item_name_map)) {
+        if (global_item_name_map[item][2] == undefined || global_item_name_map[item][2].length == 0) continue;
+        _loadImage(global_preload_trick_container, global_item_name_map[item][2]+"?color="+global_item_name_map[item][0]);
+    }
+    */
+
     initialize_references();
 
     if (!window.jsrender){
@@ -246,7 +249,6 @@ window.addEventListener("load", function(){
     });
 
     bind_event('process_server_json_data', function (string) {
-        console.error("process_server_json_data", string);
         let type = string.charAt(0);
         let data = string.trim().substring(2);
 
@@ -256,24 +258,24 @@ window.addEventListener("load", function(){
                 json_data = JSON.parse(data);
             } catch (e) {
                 console.log("Error parsing server JSON. err=" + e);
-                console.error("ERROR parsing server json", string);
             }
             if (!json_data.action) return;
-
-            console.error("process_server_json", json_data.action);
             
             if (json_data.action == "vote-counts") {
                 game_report_update_vote_counts(json_data);
             }
 
+            if (json_data.action == "match-abort-user-reconnect-msg") addServerChatMessage(localize_ext("match_cancel_msg", {"count": Number(json_data.minutes)}));
+            if (json_data.action == "match-user-reconnect-msg")       addServerChatMessage(localize_ext("match_penalty_msg", {"count": Number(json_data.minutes)}));
+            if (json_data.action == "match-no-penalty-abandon")       addServerChatMessage(localize("match_penalty_removed_msg"));
+            if (json_data.action == "match-user-abandoned")           addServerChatMessage(localize_ext("match_user_abandoned", {"name": json_data.name}));
+
             if (json_data.action == "post-match-updates") {
                 //console.log("post-match-updates", _dump(json_data));
-                console.error("post-match-updates", string);
 
                 if (current_match.match_id == json_data.data.match_id) {
                     if ("mmr_updates" in json_data.data && json_data.data.mmr_updates.ranked) {
                         global_show_rank_change = true;
-                        console.error("renderRankScreen");
                         renderRankScreen(json_data.data.mmr_updates);
 
                         let mmr_data = json_data.data.mmr_updates;
@@ -288,37 +290,29 @@ window.addEventListener("load", function(){
                             }
                         }
 
-                        console.error("updateGameReportRank");
                         updateGameReportRank(mmr_data.mode);
                     }
 
                     // clear the previous progression update
-                    console.error("clear_battle_pass_progression");
                     clear_battle_pass_progression();
 
                     // Update game report with battle pass and achievement progression
                     if ("progression_updates" in json_data.data) {
                         
                         if ("achievement_rewards" in json_data.data.progression_updates) {
-                            console.error("set_achievement_rewards #1");
                             set_achievement_rewards(json_data.data.progression_updates.achievement_rewards);
                         } else {
-                            console.error("set_achievement_rewards #2");
                             set_achievement_rewards();
                         }
 
                         if ("battlepass_update" in json_data.data.progression_updates) {
-                            console.error("set_battle_pass_rewards #1");
                             set_battle_pass_rewards(json_data.data.progression_updates.battlepass_rewards);
-                            console.error("set_battle_pass_progression");
                             set_battle_pass_progression(json_data.data.progression_updates.battlepass_update);
                         } else {
-                            console.error("set_battle_pass_rewards #2");
                             set_battle_pass_rewards();
                         }
 
                         // Add rewards to the progression update
-                        console.error("set_progression_reward_unlocks");
                         set_progression_reward_unlocks();
                     }
 
@@ -327,7 +321,6 @@ window.addEventListener("load", function(){
                     } else {
                         global_game_report_rematch_enabled = false;
                     }
-                    console.error("game_report_reset_rematch_option");
                     game_report_reset_rematch_option();
                 }
             }
@@ -371,7 +364,6 @@ window.addEventListener("load", function(){
     
     bind_event('hud_changed', function (type, jsonStr) {
         //console.log("hud_changed", type);
-        console.error("hud_changed", type, jsonStr);
         try {
             editing_hud_data = JSON.parse(jsonStr);
         } catch (err) {
@@ -432,6 +424,9 @@ window.addEventListener("load", function(){
         global_hud_references.you_fragged.length = 0;
         _for_each_with_class_in_parent(real_hud_container, "fraglog", el => global_hud_references.fraglog.push(el));
         _for_each_with_class_in_parent(real_hud_container, "elem_you_fragged", el => global_hud_references.you_fragged.push(el));
+
+        global_hud_references.editing_info.length = 0;
+        _for_each_with_class_in_parent(game_hud_special, "elem_editing_info", el => global_hud_references.editing_info.push(el));
     }
 
     bind_event('set_checkbox', function (variable, value) {
@@ -442,7 +437,6 @@ window.addEventListener("load", function(){
     let global_on_after_connected = false;
     bind_event('on_connected', function() {
         console.log("on_connected");
-        console.error("on_connected");
 
         global_hud_view_active = true;
 
@@ -622,7 +616,6 @@ window.addEventListener("load", function(){
     });
 
     bind_event('show_ingame_hud', function (visible) {
-        console.error("show_ingame_hud", visible);
         console.log("show_ingame_hud " + visible);
         engine.call("hud_mouse_control", false);
         console.log("hud_mouse_control false #2");
@@ -1216,13 +1209,13 @@ function show_game_over(show, victory) {
             _id("game_over_defeat").style.display = "flex";
             _id("game_over_victory").style.display = "none";
         }
-        //setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
+        setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
         if (victory) {
-            //play_anim("game_over_victory", "game_over_anim");
-            _id("game_over_victory").style.display = "block";
+            play_anim("game_over_victory", "game_over_anim");
+            //_id("game_over_victory").style.display = "block";
         } else {
-            //play_anim("game_over_defeat", "game_over_anim");
-            _id("game_over_defeat").style.display = "block";
+            play_anim("game_over_defeat", "game_over_anim");
+            //_id("game_over_defeat").style.display = "block";
         }
     } else {
         _id("game_over_defeat").style.display = "none";

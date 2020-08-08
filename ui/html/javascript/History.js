@@ -89,6 +89,7 @@ function historyOnPopState(obj) {
     else if (obj.page == "customize_screen")          open_customization(obj.category, obj.type);
     else if (obj.page == "watch_screen")              open_watch();
     else if (obj.page == "learn_screen")              open_learn();
+    else if (obj.page == "aim_screen")                open_aim();
 
     global_popstate = false;
 }

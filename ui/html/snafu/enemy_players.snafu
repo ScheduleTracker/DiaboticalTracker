@@ -550,7 +550,7 @@ ON_UPDATE
             OUTPUT IDX j width height
             OUTPUT IDX j height height
             OUTPUT IDX j image "images/item_flag.svg"
-            OUTPUT IDX j image_color enemy_team_players[IDX].flag_color
+            OUTPUT IDX j hue enemy_team_players[IDX].flag_color
             OUTPUT IDX j image_width item_image_size
             OUTPUT IDX j image_height item_image_size
             OUTPUT IDX j x item_offset_x_enemy

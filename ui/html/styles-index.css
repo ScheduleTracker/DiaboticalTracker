@@ -696,6 +696,12 @@ body, html {
 #tooltip2 .queue_mode_list .row .modes .mode {
     margin-top:0.1vh;
 }
+#tooltip2 .customization_info {
+    padding:0 1vh;
+}
+#tooltip2 .customization_info .name {
+    margin-bottom:0.6vh;
+}
 
 
 /*
@@ -1154,6 +1160,7 @@ body, html {
     font-weight:bold;
     text-transform: uppercase;
     text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    text-align:center;
 }
 .generic_modal_dialog_text {
     /*letter-spacing: 1px;*/
@@ -1169,6 +1176,7 @@ body, html {
 .generic_modal_dialog_action {
     display:flex;
     flex-direction:row;
+    justify-content:center;
 }
 .generic_modal_dialog_action .processing {
     display: flex;
@@ -1424,7 +1432,7 @@ body, html {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 0 4vh 4vh;
+    border-width: 0 0 4vh 1.45vh;
     border-color: transparent transparent #151513 transparent;
 }
 .menu_bottom_battlepass .bp_level_icon {
@@ -2139,6 +2147,12 @@ body, html {
     pointer-events:none;
     
 }
+.customization_preview_image.currency {
+    width:50%;
+    height:50%;
+    max-width:30vh;
+    max-height:30vh;    
+}
 .customization_preview_image.avatar {
     width:50%;
     height:50%;
@@ -2288,7 +2302,7 @@ body, html {
     justify-content:center;
     align-items:center;
     width:100%;
-    padding:0 1vh 0.4vh 1vh;
+    padding:0 0 0.4vh 0;
     background-image: linear-gradient(90deg,rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
 }
 .customization_info .type {
@@ -2885,13 +2899,16 @@ h2 {
     justify-content: center;
     background-size:cover;
     background-position:center;
-    background-image:url(/html/images/hud_preview_background.png);
-    /*background-color:#0a0a0a;*/
+    /*background-image:url('../images/hud_preview_background.png');*/
+    background-color:#0a0a0a;
     max-width: calc(100vw*var(--ratio));
     width: 100%;
     height: calc(100vh * var(--ratio));
     overflow: hidden;
     --hud_preview_aspect_vw: 100vw;
+}
+#hud_preview_container.background_enabled{    
+    background-image:url(/html/images/hud_preview_background.png);
 }
 #hud_preview_container .hud_element > * {
     /* CRITICAL STYLE Prevents children elements of elements capturing hud editing events in the editor. */
@@ -2907,6 +2924,21 @@ h2 {
 }
 .hud_preview_shade.left { left:0; }
 .hud_preview_shade.right { right:0; }
+
+#hud_preview_weapon{
+    position: absolute;
+    max-width: calc(50vw*var(--ratio));
+    width: 50%;
+    height: calc(35vh * var(--ratio));
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 10% 100%;
+    bottom: 0;
+    right: 0;
+}
+#hud_preview_weapon.background_enabled{    
+    background-image: url('/html/images/hud_preview_weapon.png');
+}
 
 #hud_preview {
 	width: calc(var(--hud_preview_aspect_vw)*var(--ratio));
@@ -4065,6 +4097,33 @@ h2 {
 
 
 
+/*
+ *  ELEMENT: Editing Info
+ */
+.hud .elem_editing_info {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+}
+.hud_isPreview.elem_editing_info {
+    width: calc(30vh * var(--ratio));
+    height: calc(20vh * var(--ratio));
+    background-color:rgba(255,255,255,0.1);
+}
+
+
+/*
+ *  ELEMENT: Minimap
+ */
+.elem_minimap {
+    width:calc(1vh * var(--size) * var(--ratio));
+    height:calc(1vh * var(--size) * var(--ratio));
+}
+.hud_isPreview.elem_minimap {
+    background-color:rgba(255,255,255,0.1);
+}
 .g_meter_container {
     justify-content: center;
     align-items: center;
@@ -5022,8 +5081,6 @@ h2 {
     align-items:center;
     flex: 0;
 
-    margin-bottom: 0.1vh;
-    margin-top: 0.1vh;
     border-radius:0.4vh;
 }
 .select-option:hover    { background-color:#666; }
@@ -7447,7 +7504,6 @@ h2 {
     justify-content:flex-start;
     padding-left:2vh;
     text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.4);
-    margin-top:0.5vh;
 }
 
 #shop_item_screen .shop_item_box .desc {
@@ -7749,7 +7805,6 @@ h2 {
 }
 #play_panel{
     display: none;
-    opacity: 0;
 }
 
 /*
@@ -7757,23 +7812,38 @@ h2 {
  */
 .bar_panel {
     position: absolute;
-    top: 6vh;
+    top: 10vh;
     left:0;
     width: 100%;
 
     display: flex;
     flex-direction: row;
     justify-content:center;
-    background-color:rgba(255, 255, 255, 0.1);
+    /*background-color:rgba(255, 255, 255, 0.1); */
+}
+.bar_panel .button_cont {
+
+}
+.bar_panel .button_cont.left {
+    flex:1;
+    display:flex;
+    justify-content:flex-end;
+    width:100%;
+}
+.bar_panel .button_cont.right {
+    flex:1;
+    display:flex;
+    justify-content:flex-start;
+    width:100%;
 }
 .bar_panel .play_screen_button {
-    font-size: 1.65vh;
+    font-size: 2vh;
     font-family: var(--main-font) ;
     font-weight: bold;
     height: 5vh;
     line-height: 5vh;
     padding: 0 1vh;
-    margin: 0 2vh;
+    margin: 0 3vh;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.75);
     white-space: nowrap;
@@ -8281,21 +8351,25 @@ h2 {
     filter:grayscale(100%);
 }
 .play_button_container > .alignment_fix {
-    width:15vh;
-    min-width:15vh;
+    min-width:10vh;
+    font-size:1.5vh;
+    font-weight:bold;
     opacity:0;
     margin:0 2vh;
+    padding:0 2vh;
+    text-transform:uppercase;
+    letter-spacing:0.05vh;
 }
-.play_button_container > .warmup_queue_btn {
-    width:13vh;
-    min-width:15vh;
-    height:3.5vh;
+.play_button_container .warmup_queue_btn {
+    min-width:10vh;
+    height:4vh;
     font-size:1.5vh;
     background-color:rgba(35, 35, 43, 0.8);
     margin:0 2vh;
+    padding:0 2.4vh;
 }
-.play_button_container > .warmup_queue_btn:hover  { background-color:#3c3c47; }
-.play_button_container > .warmup_queue_btn:active { background-color:#484855; }
+.play_button_container .warmup_queue_btn:hover  { background-color:#3c3c47; }
+.play_button_container .warmup_queue_btn:active { background-color:#484855; }
 
 
 /*
@@ -8305,7 +8379,6 @@ h2 {
  
 #play_screen_quickplay {
     display:none;
-    opacity:0;
 
     flex-direction: column;
 
@@ -8322,7 +8395,6 @@ h2 {
 
 #play_screen_ranked {
     display: none;
-    opacity:0;
 
     flex-direction: column;
 
@@ -8339,7 +8411,6 @@ h2 {
 
 #play_screen_custom {
     display: none;
-    opacity:0;
 
     flex-direction: column;
 
@@ -8355,7 +8426,6 @@ h2 {
 
 #play_screen_esports {
     display: none;
-    opacity:0;
 
     flex-direction: column;
 
@@ -8539,7 +8609,7 @@ h2 {
     color: white;
     display: flex;
     flex-direction: row;
-    min-height: 60vh;
+    min-height: 61vh;
     box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.34);
     font-size: 1.5vh;
 }
@@ -9096,7 +9166,6 @@ h2 {
 }
 #play_screen_customlist {
     display: none;
-    opacity:0;
 
     flex-direction: column;
 
@@ -9400,7 +9469,6 @@ h2 {
     position:absolute;
     top:14vh;
     display:none;
-    opacity:0;
     flex-direction:column;
     align-self:center;
     width: 120vh;
@@ -9977,8 +10045,11 @@ h2 {
     align-items:center;
     width:24vh;
 }
-.battlepass_reward_preview .reward_info .customization_info .type {
+.battlepass_reward_preview .reward_info .customization_info {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+    padding-bottom:0;
+    border-radius:0.4vh;
+    width:auto;
 }
 .battlepass_reward_preview .reward_info .customization_info .name {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
@@ -10091,7 +10162,6 @@ h2 {
     position:absolute;
     top:18vh;
     display:none;
-    opacity:0;
     flex-direction:column;
     align-self:center;
     width: 100vh;
@@ -10192,7 +10262,7 @@ h2 {
     background-color:rgba(0,0,0,0.8);
     
     display:none;
-    opacity:0;
+    filter: opacity(0);
 }
 
 #battlepass_upgrade_screen .options {
@@ -10290,7 +10360,6 @@ h2 {
     background-repeat: no-repeat no-repeat;
     background-size: cover;
     display:none;
-    opacity:0;
 }
 
 #notification_screen .notif_content {
@@ -10345,11 +10414,13 @@ h2 {
 #notification_screen .notif_content .item_desc {
     display:flex;
     justify-content:center;
-    box-shadow: 0vh 0.2vh 1vh 0px rgba(0, 0, 0, 0.3);
     max-width:30vh;
     padding-bottom:0.4vh;
     background-color: var(--rarity);
     z-index:1;
+}
+#notification_screen .notif_content .item_desc.item {
+    box-shadow: 0vh 0.2vh 1vh 0px rgba(0, 0, 0, 0.3);
 }
 #notification_screen .notif_content .item_desc .battlepass_name {
     margin-top:2vh;
@@ -10398,7 +10469,6 @@ h2 {
     background-color:rgb(60, 122, 172);
     
     display:none;
-    opacity:0;
 }
 /* 
  *  SETTINGS Screen Containers
@@ -10409,7 +10479,7 @@ h2 {
     top: 6vh;
     left: 0;
     width: 100%;
-    height: 90.2vh;
+    height: 90vh;
 
     justify-content:center;
 
@@ -10435,13 +10505,13 @@ h2 {
     background-color:rgba(255,255,255,0.1);
 }
 #settings_screen_menu .subsection {
-    font-size: 1.25vh;
+    font-size: 1.4vh;
     font-family:var(--main-font);
     font-weight:bold;
-    height:4vh;
-    line-height: 4vh;
+    height:4.4vh;
+    line-height: 4.4vh;
     padding: 0 1vh;
-    margin:0 2vh;
+    margin:0 1.2vh;
     text-transform: uppercase;
     color: rgba(255,255,255,0.75);
     white-space:nowrap;
@@ -10457,7 +10527,7 @@ h2 {
 }
 #settings_screen_menu .subsection.settings_highlighted_section_title {
     color: white;
-    box-shadow:inset 0 -0.2vh 0 0 #fff;
+    box-shadow:inset 0 -0.3vh 0 0 #fff;
 }
 
 
@@ -10744,16 +10814,30 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 5vh;
     height: 5vh;
     font-size: 2vh;
     vertical-align: bottom;
     position: relative;
     color: rgba(255, 255, 255, 0.8);
     overflow: visible;
+    /*border-bottom:2px solid transparent;*/
 }
-#combat_panel_header > div.button-weapon-selected {
+#combat_panel_header .combat_panel_header_item .combat_name {
+    font-size:1.4vh;
+    font-weight:bold;
+    text-transform: uppercase;
+    padding-right:2vh;
+    white-space:nowrap;
+
+    display:none;
+}
+#combat_panel_header .combat_panel_header_item .combat_name.active {
+    display:block;
+}
+#combat_panel_header .combat_panel_header_item.button-weapon-selected {
     color: white;
+    /*border-bottom:2px solid white;*/
+    background-image: linear-gradient(to top,rgba(255, 255, 255, 0.1) 0%, transparent 100%);
 }
 #combat_panel_header .combat_panel_header_item img {
     width: 5vh;
@@ -10769,12 +10853,14 @@ h2 {
 #combat_panel_header > div > img.img-weapon-selected {
     opacity:1.0;
 }
-#combat_panel_header .separator { flex:1; }
 #combat_panel_header .combat_panel_header_item .tip_inner {
     top: -1vh;
 }
 #combat_panel_header .combat_panel_header_item .tip_inner.top.active {
     top: -1.5vh;
+}
+#combat_panel_header .combat_panel_header_item .tip_inner.hidden {
+    visibility: hidden;
 }
 #settings_screen_combat_content {
     position:absolute;
@@ -10789,18 +10875,6 @@ h2 {
     align-items: center;
     height:4vh;
     color:#fff;
-}
-#combat_subheader_row_weapon,
-#combat_subheader_row_default {
-    justify-content:center;
-}
-#combat_subheader_row_weapon > div,
-#combat_subheader_row_default > div {
-    padding-left: 1vh;
-    display:flex;
-}
-#customize_weapon_name {
-    margin-left:0.5vh;
 }
 #setting_combat_copy_defaults {
     position:absolute;
@@ -11829,15 +11903,15 @@ h2 {
 }
 
 #customize_screen .category_list .category {
-    font-size: 1.25vh;
+    font-size: 1.4vh;
     font-family: var(--main-font) ;
     font-weight: bold;
     text-transform:uppercase;
     color: rgba(255, 255, 255, 0.75);
-    height: 4vh;
-    line-height: 4vh;
+    height: 4.4vh;
+    line-height: 4.4vh;
     padding: 0 1vh;
-    margin:0 1.5vh;
+    margin:0 1.2vh;
     white-space: nowrap;
     box-shadow: 0px 0vh 0px 0px rgba(255, 255, 255, 1) inset;
     transition-property: box-shadow;
@@ -11854,7 +11928,7 @@ h2 {
 }
 #customize_screen .category_list .category.selected {
     color: white;
-    box-shadow:inset 0 -0.2vh 0 0 #fff;
+    box-shadow:inset 0 -0.3vh 0 0 #fff;
 }
 #customize_screen .category_list .category.locked {
     opacity:0.4;
@@ -11873,7 +11947,7 @@ h2 {
 
 
 
-#customize_screen .customization_window {
+#customize_content {
     position:absolute;
     top:50%;
     transform:translateY(-50%);
@@ -11886,12 +11960,12 @@ h2 {
     height:70vh;
     width:58.3vh;
 }
-#customize_screen .customization_window .head {
+#customize_content .head {
     display:flex;
     flex-direction:row;
     align-items:center;
 }
-#customize_screen .customization_window .head .back {
+#customize_content .head .back {
     margin-left:2vh;
     height:3.4vh;
     width:8vh;
@@ -11901,25 +11975,25 @@ h2 {
     background-repeat:no-repeat;
     background-size:70%;
 }
-#customize_screen .customization_window .head .back:hover {
+#customize_content .head .back:hover {
     background-color:rgba(255,255,255,0.1);
 }
-#customize_screen .customization_window .head .back:active {
+#customize_content .head .back:active {
     background-color:rgba(255,255,255,0.15);
 }
 
-#customize_screen .customization_window .head .title {
+#customize_content .head .title {
     font-size:2.2vh;
     font-family:var(--main-font-medium);
     padding:2vh;
     text-transform:uppercase;
 }
-#customize_screen .customization_window .menu {
+#customize_content .menu {
     margin:2vh 2vh 1vh 2vh;
     display:flex;
     flex-direction:row;
 }
-#customize_screen .customization_window .menu .option {
+#customize_content .menu .option {
     padding:0 2.8vh;
     height:3.6vh;
     min-width:6vh;
@@ -11939,15 +12013,15 @@ h2 {
     transform: scale(1);
     z-index:1;
 }
-#customize_screen .customization_window .menu .option:hover {
+#customize_content .menu .option:hover {
     background-color:rgb(62, 63, 73);
 }
-#customize_screen .customization_window .menu .option.active {
+#customize_content .menu .option.active {
     background-color:rgb(74, 75, 87);
     transform: scale(1.07);
     z-index:2;
 }
-#customize_screen .customization_window .menu .option.weapon {
+#customize_content .menu .option.weapon {
     background-size:2.5vh;
     min-width:5vh;
     padding:0;
@@ -12036,7 +12110,7 @@ h2 {
 }
 
 
-#customize_screen .customization_window .bottom {
+#customize_content .bottom {
     height:6vh;
     display:flex;
     flex-direction:row;
@@ -12064,19 +12138,19 @@ h2 {
 #customization_bottom_music .db-btn.play { background-image:url(/html/images/icons/fa/play.svg); }
 #customization_bottom_music .db-btn.pause { background-image:url(/html/images/icons/fa/pause.svg); }
 
-#customize_screen .customization_window .bottom .label {
+#customize_content .bottom .label {
     margin-right:2vh;
     font-size:1.6vh;
     font-family:var(--main-font-medium);
 }
-#customize_screen .customization_window .bottom input {
+#customize_content .bottom input {
     width:14vh;
     height:4vh;
     line-height:4vh;
     padding:0;
     text-align:center;
 }
-#customize_screen .customization_window .bottom .weapon_switcher {
+#customize_content .bottom .weapon_switcher {
     width:9vh;
     display: flex;
     flex-direction: row;
@@ -12084,7 +12158,7 @@ h2 {
     background-color:#3b3e4b;
     padding:0.2vh;
 }
-#customize_screen .customization_window .bottom .weapon_switcher .btn {
+#customize_content .bottom .weapon_switcher .btn {
     width:3.6vh;
     height:3.6vh;
     background-repeat:no-repeat;
@@ -12092,13 +12166,13 @@ h2 {
     background-position:center;
     border:2px solid transparent;
 }
-#customize_screen .customization_window .bottom .weapon_switcher .btn.left  { background-image:url("/html/images/icons/fa/chevron-left.svg"); }
-#customize_screen .customization_window .bottom .weapon_switcher .btn.right { background-image:url("/html/images/icons/fa/chevron-right.svg"); }
-#customize_screen .customization_window .bottom .weapon_switcher .btn:hover {
+#customize_content .bottom .weapon_switcher .btn.left  { background-image:url("/html/images/icons/fa/chevron-left.svg"); }
+#customize_content .bottom .weapon_switcher .btn.right { background-image:url("/html/images/icons/fa/chevron-right.svg"); }
+#customize_content .bottom .weapon_switcher .btn:hover {
     border: 2px solid rgba(255, 255, 255, 0.3);
     background-color: rgba(255,255,255,0.1);
 }
-#customize_screen .customization_window .bottom .weapon_switcher .btn:active {
+#customize_content .bottom .weapon_switcher .btn:active {
     border: 2px solid rgba(255, 255, 255, 0.3);
     background-color: rgba(255,255,255,0.2);
 }
@@ -12273,7 +12347,7 @@ h2 {
     #customize_model_preview_area {
         width:60vw;
     }
-    #customize_screen .customization_window {
+    #customize_content {
         left:2vw;
     }
 }
@@ -12571,7 +12645,6 @@ h2 {
     position:absolute;
     top:18vh;
     display:none;
-    opacity:0;
     flex-direction:column;
     align-self:center;
     width: 120vh;
@@ -12688,7 +12761,6 @@ h2 {
     position:absolute;
     top:16vh;
     display:none;
-    opacity:0;
     flex-direction:column;
     align-self:center;
     width: 100vh;
@@ -12870,45 +12942,63 @@ h2 {
 #leaderboards_bottom .leaderboards_page.hidden { visibility:hidden; }
 #player_profile_screen {
     position:absolute;
-    top:13vh;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    justify-content:center;
+
     display:none;
-    opacity:0;
+}
+
+#player_profile_nav {
+    position:absolute;
+    top:6vh;
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    background-color: rgba(35, 36, 40, 0.95);
+    box-shadow: 0px 3px 2vh 1px rgba(0, 0, 0, 0.4);
+}
+#player_profile_nav .navlink {
+    text-transform: uppercase;
+    font-size:1.4vh;
+    font-family:var(--main-font) ;
+    font-weight:bold;
+    height: 4.4vh;
+    line-height: 4.4vh;
+    color: rgba(255, 255, 255, 0.75);
+    transition-property: box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    padding:0 1vh;
+    margin:0 1.2vh;
+    white-space:nowrap;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#player_profile_nav .navlink:hover {
+    color:#fff;
+}
+#player_profile_nav .navlink.active {
+    color:#fff;
+    box-shadow: 0px -0.3vh 0px 0px rgba(255, 255, 255, 1) inset;
+}
+
+#player_profile_content {
+    position:absolute;
+    top:13vh;
     flex-direction:column;
     align-self:center;
     width: 100vh;
     max-width: 90vw;
 }
-
-#player_profile_screen .nav {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    margin-left:-1vh;
-}
-#player_profile_screen .nav .separator {
-    font-size:2vh;
-    text-shadow:0 3px 6px rgba(0, 0, 0, 0.161);
-    color:rgba(255,255,255,0.4);
-    margin:0 0.4vh;
-}
-#player_profile_screen .nav .navlink {
-    text-transform: uppercase;
-    font-size:1.8vh;
-    font-weight:bold;
-    text-shadow:0 3px 6px rgba(0, 0, 0, 0.161);
-    color:rgba(255,255,255,0.75);
-    transition-property: color;
-    transition-duration: 100ms;
-    transition-timing-function: ease-in-out;
-    padding:1vh;
-}
-#player_profile_screen .nav .navlink:hover {
-    color:#fff;
-}
-#player_profile_screen .nav .navlink.active {
-    color:#fff;
-}
-
 
 #player_profile_screen .head {
     display:flex;
@@ -12965,34 +13055,34 @@ h2 {
     background-image:url(/html/images/icons/fa/user-plus.svg);
 }
 
-#player_profile_screen > .page {
+#player_profile_screen .page {
     position:absolute;
     top:4vh;
     left:0;
     width:100%;
 }
-#player_profile_screen > .page .profile_spinner {
+#player_profile_screen .page .profile_spinner {
     display:flex;
     align-items:center;
     justify-content:center;
     height:49.7vh;
     background-color: rgba(46, 46, 46, 0.4);
 }
-#player_profile_screen > .page .matches_spinner {
+#player_profile_screen .page .matches_spinner {
     display:flex;
     align-items:center;
     justify-content:center;
     height:62vh;
     background-color: rgba(46, 46, 46, 0.4);
 }
-#player_profile_screen > .page .stats_spinner {
+#player_profile_screen .page .stats_spinner {
     display:flex;
     align-items:center;
     justify-content:center;
     height:57vh;
     background-color: rgba(46, 46, 46, 0.4);
 }
-#player_profile_screen > .page .achievements_spinner {
+#player_profile_screen .page .achievements_spinner {
     display:flex;
     align-items:center;
     justify-content:center;
@@ -13037,10 +13127,10 @@ h2 {
     }
 }
 
-#player_profile_screen .profile {
+#player_profile_content .profile {
     width:50vh;
 }
-#player_profile_screen .profile .summary_top {
+#player_profile_content .profile .summary_top {
     display:flex;
     flex-direction:row;
     background-color:rgba(46, 46, 46, 0.4);
@@ -13048,7 +13138,7 @@ h2 {
     margin-bottom:1vh;
     height:5vh;
 }
-#player_profile_screen .profile .summary_top .stat {
+#player_profile_content .profile .summary_top .stat {
     width:calc(100% / var(--stat_count));
     display:flex;
     flex-direction:column;
@@ -13060,26 +13150,26 @@ h2 {
     border-right:1px solid rgba(255,255,255,0.05);
 }
 */
-#player_profile_screen .profile .summary_top .stat .label {
+#player_profile_content .profile .summary_top .stat .label {
     color:#ade4ff;
     text-transform:uppercase;
     font-size:0.95vh;
     font-weight:bold;
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
-#player_profile_screen .profile .summary_top .stat .value {
+#player_profile_content .profile .summary_top .stat .value {
     color:#fff;
     font-size:1.6vh;
     font-family:var(--mont-font);
 }
 
-#player_profile_screen .profile .summary_featured {
+#player_profile_content .profile .summary_featured {
     display:flex;
     flex-direction:row;
     margin-bottom:1vh;
 }
 
-#player_profile_screen .profile .summary_featured .featured {
+#player_profile_content .profile .summary_featured .featured {
     width:calc(100% / var(--featured_count));
     flex:1;
     display:flex;
@@ -13091,24 +13181,24 @@ h2 {
     border:1px solid rgba(52, 52, 52, 0.1);
     margin:0 0.5vh;
 }
-#player_profile_screen .profile .summary_featured .featured.first { margin-left:0; }
-#player_profile_screen .profile .summary_featured .featured.last { margin-right:0; }
+#player_profile_content .profile .summary_featured .featured.first { margin-left:0; }
+#player_profile_content .profile .summary_featured .featured.last { margin-right:0; }
 
-#player_profile_screen .profile .summary_featured .featured .label {
+#player_profile_content .profile .summary_featured .featured .label {
     font-size:1vh;
     text-transform: uppercase;
     color:rgba(255,255,255,0.7);
     margin-bottom:1vh;
 }
-#player_profile_screen .profile .summary_featured .featured .content {
+#player_profile_content .profile .summary_featured .featured .content {
     min-height:16vh;
 }
 
-#player_profile_screen .profile .summary_featured .featured .content .bp_level_icon {
+#player_profile_content .profile .summary_featured .featured .content .bp_level_icon {
     margin-top:2vh;
 }
 
-#player_profile_screen .profile .summary_featured .featured .content .bp_title {
+#player_profile_content .profile .summary_featured .featured .content .bp_title {
     text-align:center;
     text-transform:uppercase;
     font-weight:bold;
@@ -13116,15 +13206,15 @@ h2 {
     margin-top:2vh;
 }
 
-#player_profile_screen .profile .summary_featured .featured .content .rank_icon {
+#player_profile_content .profile .summary_featured .featured .content .rank_icon {
     margin-top:0.4vh;
     width:10vh;
     height:10vh;
 }
-#player_profile_screen .profile .summary_featured .featured .content .rank_icon .position {
+#player_profile_content .profile .summary_featured .featured .content .rank_icon .position {
     font-size:1.3vh;
 }
-#player_profile_screen .profile .summary_featured .featured .content .rank_name > div {
+#player_profile_content .profile .summary_featured .featured .content .rank_name > div {
     display:flex;
     justify-content:center;
     align-items:center;
@@ -13133,17 +13223,17 @@ h2 {
     font-size:1.3vh;
     font-weight:bold;
 }
-#player_profile_screen .profile .summary_featured .featured .content .rank_name .name-post {
+#player_profile_content .profile .summary_featured .featured .content .rank_name .name-post {
     margin-left:1vh;
 }
-#player_profile_screen .profile .summary_featured .featured .content .rank_mode_name {
+#player_profile_content .profile .summary_featured .featured .content .rank_mode_name {
     margin-top:0.4vh;
     text-align:center;
     font-size:1.1vh;
     font-weight:bold;
 }
 
-#player_profile_screen .profile .most_played_mode {
+#player_profile_content .profile .most_played_mode {
     display:flex;
     flex-direction:row;
     align-items:center;
@@ -13153,7 +13243,7 @@ h2 {
     margin-bottom:1vh;
 }
 
-#player_profile_screen .profile .most_played_mode .icon {
+#player_profile_content .profile .most_played_mode .icon {
     width:8vh;
     height:8vh;
     margin:1vh;
@@ -13162,32 +13252,32 @@ h2 {
     background-size:8vh;
     background-position:center;
 }
-#player_profile_screen .profile .most_played_mode .desc {
+#player_profile_content .profile .most_played_mode .desc {
     flex:1;
 }
-#player_profile_screen .profile .most_played_mode .desc .label {
+#player_profile_content .profile .most_played_mode .desc .label {
     text-transform: uppercase;
     font-style:italic;
     color:rgba(255,255,255,0.7);
     margin-bottom:0.4vh;
     font-size:1.3vh;
 }
-#player_profile_screen .profile .most_played_mode .desc .mode_name {
+#player_profile_content .profile .most_played_mode .desc .mode_name {
     font-weight:bold;
     color:#fff;
     text-transform:uppercase;
     font-size:1.3vh;
 }
-#player_profile_screen .profile .most_played_mode .stats {
+#player_profile_content .profile .most_played_mode .stats {
     width:21vh;
 }
-#player_profile_screen .profile .most_played_mode .stats .row {
+#player_profile_content .profile .most_played_mode .stats .row {
     display:flex;
     flex-direction:row;
     justify-content:center;
     align-items:center;
 }
-#player_profile_screen .profile .most_played_mode .stats .stat {
+#player_profile_content .profile .most_played_mode .stats .stat {
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -13195,7 +13285,7 @@ h2 {
     width:50%;
     padding:0.5vh 0;
 }
-#player_profile_screen .profile .most_played_mode .stats .stat .stat_label {
+#player_profile_content .profile .most_played_mode .stats .stat .stat_label {
     color:rgba(255, 255, 255, 0.7);
     text-transform:uppercase;
     font-size:0.95vh;
@@ -13203,22 +13293,22 @@ h2 {
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
     margin-bottom:0.2vh;
 }
-#player_profile_screen .profile .most_played_mode .stats .stat .stat_value {
+#player_profile_content .profile .most_played_mode .stats .stat .stat_value {
     color:#fff;
     font-size:1.5vh;
     font-family:var(--mont-font);
 }
 
 
-#player_profile_screen .profile .last_match {
+#player_profile_content .profile .last_match {
     background-color:rgba(46, 46, 46, 0.4);
     border:1px solid rgba(52, 52, 52, 0.1);
 }
-#player_profile_screen .profile .last_match:hover {
+#player_profile_content .profile .last_match:hover {
     box-shadow:0 0 0 2px rgba(255,255,255,0.8);
 }
 
-#player_profile_screen .profile .last_match .last_match_head {
+#player_profile_content .profile .last_match .last_match_head {
     display:flex;
     flex-direction:row;
     justify-content:space-between;
@@ -13227,16 +13317,16 @@ h2 {
     background-color:rgba(0,0,0,0.1);
 }
 
-#player_profile_screen .profile .last_match .last_match_head .label {
+#player_profile_content .profile .last_match .last_match_head .label {
     text-transform:uppercase;
 }
 
-#player_profile_screen .profile .last_match .cont {
+#player_profile_content .profile .last_match .cont {
     display:flex;
     flex-direction:row;
     align-items:center;
 }
-#player_profile_screen .profile .last_match .cont .mode_icon {
+#player_profile_content .profile .last_match .cont .mode_icon {
     width:8vh;
     height:8vh;
     margin:2vh;
@@ -13245,29 +13335,29 @@ h2 {
     background-position:center;
 }
 
-#player_profile_screen .profile .last_match .cont .match_summary {
+#player_profile_content .profile .last_match .cont .match_summary {
     flex:1;
 }
-#player_profile_screen .profile .last_match .cont .match_summary .row {
+#player_profile_content .profile .last_match .cont .match_summary .row {
     display:flex;
     flex-direction:row;
     margin:0.5vh 0;
     align-items:center;
     font-size:1.3vh;
 }
-#player_profile_screen .profile .last_match .cont .match_summary .row .desc_label {
+#player_profile_content .profile .last_match .cont .match_summary .row .desc_label {
     min-width:10vh;
     text-transform:uppercase;
     padding-right:1vh;
 }
-#player_profile_screen .profile .last_match .cont .match_summary .row .desc_label.kda {
+#player_profile_content .profile .last_match .cont .match_summary .row .desc_label.kda {
     color:rgba(255,255,255,0.7);
 }
-#player_profile_screen .profile .last_match .cont .match_summary .row .kda_values {
+#player_profile_content .profile .last_match .cont .match_summary .row .kda_values {
     font-size:1.6vh;
 }
 
-#player_profile_screen .profile .last_match .cont .match_result {
+#player_profile_content .profile .last_match .cont .match_result {
     width:14vh;
     height:3vh;
     text-align:center;
@@ -13277,47 +13367,47 @@ h2 {
     font-family:var(--mont-font);
     font-fit-mode:shrink;
 }
-#player_profile_screen .profile .last_match .cont .match_result.win {
+#player_profile_content .profile .last_match .cont .match_result.win {
     color:#53e853;
 }
-#player_profile_screen .profile .last_match .cont .match_result.loss {}
+#player_profile_content .profile .last_match .cont .match_result.loss {}
 
 
-#player_profile_screen .matches {
+#player_profile_content .matches {
     font-size:1.2vh;
 }
 
-#player_profile_screen .matches .scroll-outer {
+#player_profile_content .matches .scroll-outer {
     height: 59vh;
 }
-#player_profile_screen .matches .scroll-outer .scroll-bar {
+#player_profile_content .matches .scroll-outer .scroll-bar {
     right: -2vh;
     width: 1.5vh;
 }
-#player_profile_screen .matches .scroll-inner {
+#player_profile_content .matches .scroll-inner {
     padding-right:0 !important;
 }
 
-#player_profile_screen .matches .matches_head {
+#player_profile_content .matches .matches_head {
     display:flex;
     flex-direction:row;
     background-color:rgba(46, 46, 46, 0.6);
 }
 /*
-#player_profile_screen .matches .td_datetime { width:18vh; border-right:1px solid rgba(255,255,255,0.05); }
-#player_profile_screen .matches .td_mode     { width:20vh; border-right:1px solid rgba(255,255,255,0.05); }
-#player_profile_screen .matches .td_map      { width:21vh; border-right:1px solid rgba(255,255,255,0.05); }
-#player_profile_screen .matches .td_length   { width:12vh; border-right:1px solid rgba(255,255,255,0.05); }
-#player_profile_screen .matches .td_kda      { width:12vh; border-right:1px solid rgba(255,255,255,0.05); }
+#player_profile_content .matches .td_datetime { width:18vh; border-right:1px solid rgba(255,255,255,0.05); }
+#player_profile_content .matches .td_mode     { width:20vh; border-right:1px solid rgba(255,255,255,0.05); }
+#player_profile_content .matches .td_map      { width:21vh; border-right:1px solid rgba(255,255,255,0.05); }
+#player_profile_content .matches .td_length   { width:12vh; border-right:1px solid rgba(255,255,255,0.05); }
+#player_profile_content .matches .td_kda      { width:12vh; border-right:1px solid rgba(255,255,255,0.05); }
 */
-#player_profile_screen .matches .td_datetime { width:18vh; }
-#player_profile_screen .matches .td_mode     { width:20vh; }
-#player_profile_screen .matches .td_map      { width:21vh; }
-#player_profile_screen .matches .td_length   { width:12vh; }
-#player_profile_screen .matches .td_kda      { width:12vh; }
-#player_profile_screen .matches .td_result   { width:17vh; }
+#player_profile_content .matches .td_datetime { width:18vh; }
+#player_profile_content .matches .td_mode     { width:20vh; }
+#player_profile_content .matches .td_map      { width:21vh; }
+#player_profile_content .matches .td_length   { width:12vh; }
+#player_profile_content .matches .td_kda      { width:12vh; }
+#player_profile_content .matches .td_result   { width:17vh; }
 
-#player_profile_screen .matches .matches_head .td {
+#player_profile_content .matches .matches_head .td {
     border-right-color:transparent;
     text-align:center;
     text-transform:uppercase;
@@ -13328,7 +13418,7 @@ h2 {
     align-items:center;
     color:rgba(255,255,255,0.8);
 }
-#player_profile_screen .matches .row {
+#player_profile_content .matches .row {
     display:flex;
     flex-direction:row;
     height:calc(7px* var(--onevh));
@@ -13336,22 +13426,22 @@ h2 {
     margin-top:4px;
     position:relative;
 }
-#player_profile_screen .matches .row.odd {
+#player_profile_content .matches .row.odd {
     background-color:rgba(46, 46, 46, 0.60);
 }
-#player_profile_screen .matches .row.win {
+#player_profile_content .matches .row.win {
     background-image:linear-gradient(to left,rgba(93, 168, 93, 0.75) 0%, rgba(0, 0, 0, 0) 24vh);
 }
-#player_profile_screen .matches .row:hover {
+#player_profile_content .matches .row:hover {
     background-color:rgba(192, 192, 192, 0.4); 
 }
-#player_profile_screen .matches .row .td {
+#player_profile_content .matches .row .td {
     display:flex;
     align-items:center;
     justify-content:center;
     padding:0 1vh;
 }
-#player_profile_screen .matches .row .td_map .map_gradient {
+#player_profile_content .matches .row .td_map .map_gradient {
     mask-image: linear-gradient(to right, rgba(0, 0, 0, 1.0), transparent);
     width:100%;
     height:100%;
@@ -13362,30 +13452,30 @@ h2 {
     background-position:center;
     background-repeat:no-repeat;
 }
-#player_profile_screen .matches .row .td_map .map_name {
+#player_profile_content .matches .row .td_map .map_name {
     position:relative;
     font-family:var(--mont-font);
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.6);
     text-transform:uppercase;
 }
 
-#player_profile_screen .matches .row .td_datetime {  }
-#player_profile_screen .matches .row .td_mode     {  }
-#player_profile_screen .matches .row .td_map      {  }
-#player_profile_screen .matches .row .td_length   {  }
-#player_profile_screen .matches .row .td_kda      {  }
-#player_profile_screen .matches .row .td_result   {  
+#player_profile_content .matches .row .td_datetime {  }
+#player_profile_content .matches .row .td_mode     {  }
+#player_profile_content .matches .row .td_map      {  }
+#player_profile_content .matches .row .td_length   {  }
+#player_profile_content .matches .row .td_kda      {  }
+#player_profile_content .matches .row .td_result   {  
     font-family:var(--mont-font);
 }
-#player_profile_screen .matches .row .td_result.win {
+#player_profile_content .matches .row .td_result.win {
     font-weight:bold;
 }
 
 
 
-#player_profile_screen .stats {}
+#player_profile_content .stats {}
 
-#player_profile_screen .stats .no_stats {
+#player_profile_content .stats .no_stats {
     text-align: center;
     padding-top: 4vh;
     padding-bottom: 4vh;
@@ -13393,7 +13483,7 @@ h2 {
     background-color:rgba(255,255,255,0.1);
 }
 
-#player_profile_screen .stats .control_bar {
+#player_profile_content .stats .control_bar {
     display:flex;
     flex-direction:row;
     align-items:center;
@@ -13403,24 +13493,24 @@ h2 {
     height:5vh;
     padding:0 2vh;
 }
-#player_profile_screen .stats .control_bar .select_cont {
+#player_profile_content .stats .control_bar .select_cont {
     display:flex;
     flex-direction:row;
     align-items:center;
 }
-#player_profile_screen .stats .control_bar .select_cont .label {
+#player_profile_content .stats .control_bar .select_cont .label {
     font-size:1.4vh;
     text-transform:uppercase;
     margin-right:1vh;
 }
-#player_profile_screen .stats .control_bar .select_cont .select-field {
+#player_profile_content .stats .control_bar .select_cont .select-field {
     width:24vh;
     margin-right:2vh;
 }
-#player_profile_screen .stats .control_bar .separator {
+#player_profile_content .stats .control_bar .separator {
     flex:1;
 }
-#player_profile_screen .stats .control_bar .compare_input {
+#player_profile_content .stats .control_bar .compare_input {
     display:flex;
     align-items:center;
     height: 3.4vh;
@@ -13429,7 +13519,7 @@ h2 {
     margin-right:0.4vh;
     padding:0 1vh;
 }
-#player_profile_screen .stats .control_bar .compare_input input {
+#player_profile_content .stats .control_bar .compare_input input {
     border:none;
     line-height: 1.8vh;
     font-size: 1.4vh;
@@ -13437,12 +13527,12 @@ h2 {
     color: rgba(255, 255, 255, 1);
     width:14vh;
 }
-#player_profile_screen .stats .control_bar .db-btn {}
-#player_profile_screen .stats .control_bar .db-btn.compare_self {
+#player_profile_content .stats .control_bar .db-btn {}
+#player_profile_content .stats .control_bar .db-btn.compare_self {
     margin-left:0.4vh;
     padding:0 1.5vh;
 }
-#player_profile_screen .stats .control_bar .db-btn.compare_self .self_icon {
+#player_profile_content .stats .control_bar .db-btn.compare_self .self_icon {
     width:1.6vh;
     height:1.6vh;
     background-image:url(/html/images/icons/fa/user.svg);
@@ -13451,10 +13541,10 @@ h2 {
     background-repeat:no-repeat;
 }
 
-#player_profile_screen .stats .control_bar .compare_
+#player_profile_content .stats .control_bar .compare_
 
-#player_profile_screen .stats .stats_cont {}
-#player_profile_screen .stats .stats_cont .stats_header {
+#player_profile_content .stats .stats_cont {}
+#player_profile_content .stats .stats_cont .stats_header {
     display:flex;
     flex-direction:row;
     height:4vh;
@@ -13462,7 +13552,7 @@ h2 {
     background-color: rgba(46, 46, 46, 0.65);
     border-bottom:1px solid rgba(255, 255, 255, 0.05);
 }
-#player_profile_screen .stats .stats_cont .stats_header .label {
+#player_profile_content .stats .stats_cont .stats_header .label {
     height:100%;
     width: calc(100% / (var(--column_count) + 1.5));
     display:flex;
@@ -13473,32 +13563,32 @@ h2 {
     color: rgba(255, 255, 255, 0.8);
     font-fit-mode: shrink;
 }
-#player_profile_screen .stats .stats_cont .stats_header .label.main {
+#player_profile_content .stats .stats_cont .stats_header .label.main {
     flex:1;
 }
-#player_profile_screen .stats .stats_cont .stats_header .label.name {
+#player_profile_content .stats .stats_cont .stats_header .label.name {
     font-family:var(--mont-font);
     font-weight: bold;
     color: rgba(255, 255, 255, 1);
     font-size: 1.3vh;
 }
-#player_profile_screen .stats .scroll-outer {
+#player_profile_content .stats .scroll-outer {
     max-height:57vh;
 }
-#player_profile_screen .stats .scroll-outer .scroll-bar {
+#player_profile_content .stats .scroll-outer .scroll-bar {
     right: -2vh;
     width: 1.5vh;
 }
-#player_profile_screen .stats .scroll-inner {
+#player_profile_content .stats .scroll-inner {
     padding-right:0 !important;
     box-shadow: 0px 3vh 4vh -2vh rgba(0, 0, 0, 0.13) inset, 0px -3vh 4vh -2vh rgba(0, 0, 0, 0.13) inset;
 }
 
-#player_profile_screen .stats .stats_block {
+#player_profile_content .stats .stats_block {
     background-color: rgba(46, 46, 46, 0.6);
     padding:3vh 4vh;
 }
-#player_profile_screen .stats .stats_block .block_head {
+#player_profile_content .stats .stats_block .block_head {
     display:flex;
     flex-direction:row;
     justify-content:center;
@@ -13506,38 +13596,38 @@ h2 {
     width:100%;
     margin-bottom:1.4vh;
 }
-#player_profile_screen .stats .stats_block .block_head .line {
+#player_profile_content .stats .stats_block .block_head .line {
     height:1px;
     flex:1;
     background-color:rgba(255,255,255,0.1);
     margin:0 2vh;
 }
-#player_profile_screen .stats .stats_block .block_title {
+#player_profile_content .stats .stats_block .block_title {
     text-align:center;
     font-family:var(--mont-font);
     font-size:1.8vh;
     text-transform:uppercase;
     font-weight:bold;
 }
-#player_profile_screen .stats .stats_block .block_menu {
+#player_profile_content .stats .stats_block .block_menu {
     display:flex;
     flex-direction:row;
     justify-content:center;
     align-items:center;
 }
-#player_profile_screen .stats .stats_block .block_menu .option {
+#player_profile_content .stats .stats_block .block_menu .option {
     font-family:var(--main-font-medium);
     font-size:1.3vh;
     padding:0.6vh 1.6vh;
     background-color:rgba(255,255,255,0.1);
 }
-#player_profile_screen .stats .stats_block .block_menu.weapons .option { background-color:transparent; }
-#player_profile_screen .stats .stats_block .block_menu .option:hover { background-color:rgba(255,255,255,0.2); }
-#player_profile_screen .stats .stats_block .block_menu.weapons .option:hover { background-color:rgba(255,255,255,0.1); }
-#player_profile_screen .stats .stats_block .block_menu .option.selected { background-color:rgba(255,255,255,0.3); }
-#player_profile_screen .stats .stats_block .block_menu.weapons .option.selected { background-color:rgba(255,255,255,0.2); }
+#player_profile_content .stats .stats_block .block_menu.weapons .option { background-color:transparent; }
+#player_profile_content .stats .stats_block .block_menu .option:hover { background-color:rgba(255,255,255,0.2); }
+#player_profile_content .stats .stats_block .block_menu.weapons .option:hover { background-color:rgba(255,255,255,0.1); }
+#player_profile_content .stats .stats_block .block_menu .option.selected { background-color:rgba(255,255,255,0.3); }
+#player_profile_content .stats .stats_block .block_menu.weapons .option.selected { background-color:rgba(255,255,255,0.2); }
 
-#player_profile_screen .stats .stats_block .block_menu .option .wicon {
+#player_profile_content .stats .stats_block .block_menu .option .wicon {
     width:2vh;
     height:2vh;
     background-size:100%;
@@ -13546,9 +13636,9 @@ h2 {
     filter:brightness(1.3) drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
 }
 
-#player_profile_screen .stats .match_avg {}
-#player_profile_screen .stats .match_avg .table {}
-#player_profile_screen .stats .match_avg .table .row {
+#player_profile_content .stats .match_avg {}
+#player_profile_content .stats .match_avg .table {}
+#player_profile_content .stats .match_avg .table .row {
     display:flex;
     flex-direction:row;
     justify-content:left;
@@ -13556,15 +13646,15 @@ h2 {
     height:2.4vh;
     padding-left:0.4vh;
 }
-#player_profile_screen .stats .match_avg .table .row.odd { background-color:rgba(255,255,255,0.03); }
-#player_profile_screen .stats .match_avg .table .row.header {
+#player_profile_content .stats .match_avg .table .row.odd { background-color:rgba(255,255,255,0.03); }
+#player_profile_content .stats .match_avg .table .row.header {
     --col_count: 10;
     margin-bottom:0.4vh;
     height:2.4vh;
     text-transform:uppercase;
     font-weight:bold;
 }
-#player_profile_screen .stats .match_avg .table .row.header .wicon {
+#player_profile_content .stats .match_avg .table .row.header .wicon {
     width:2vh;
     height:2vh;
     background-size:100%;
@@ -13572,18 +13662,18 @@ h2 {
     background-repeat:no-repeat;
     filter:brightness(1.3) drop-shadow(1px 1px 1px rgba(0,0,0,0.5));
 }
-#player_profile_screen .stats .match_avg .table .row .cell {
+#player_profile_content .stats .match_avg .table .row .cell {
     display:flex;
     align-items:center;
     height:100%;
 }
-#player_profile_screen .stats .match_avg .table .row .cell.odd { background-color:rgba(255,255,255,0.02); }
-#player_profile_screen .stats .match_avg .table .row .cell.label { flex:1; }
-#player_profile_screen .stats .match_avg .table .row .cell.stat { width:calc(75vh / var(--col_count)); padding-left:0.8vh; }
+#player_profile_content .stats .match_avg .table .row .cell.odd { background-color:rgba(255,255,255,0.02); }
+#player_profile_content .stats .match_avg .table .row .cell.label { flex:1; }
+#player_profile_content .stats .match_avg .table .row .cell.stat { width:calc(75vh / var(--col_count)); padding-left:0.8vh; }
 
-#player_profile_screen .stats .main_details {}
-#player_profile_screen .stats .main_details .table {}
-#player_profile_screen .stats .main_details .table .row {
+#player_profile_content .stats .main_details {}
+#player_profile_content .stats .main_details .table {}
+#player_profile_content .stats .main_details .table .row {
     display:flex;
     flex-direction:row;
     justify-content:left;
@@ -13591,35 +13681,35 @@ h2 {
     height:2.4vh;
     padding-left:0.4vh;
 }
-#player_profile_screen .stats .main_details .table .row.odd { background-color:rgba(255,255,255,0.03); }
-#player_profile_screen .stats .main_details .table .row.header {
+#player_profile_content .stats .main_details .table .row.odd { background-color:rgba(255,255,255,0.03); }
+#player_profile_content .stats .main_details .table .row.header {
     height:2.4vh;
     text-transform:uppercase;
     font-weight:bold;
 }
-#player_profile_screen .stats .main_details .table .row.header .cell.stat_double.left { background-color:transparent; }
-#player_profile_screen .stats .main_details .table .row .cell { 
+#player_profile_content .stats .main_details .table .row.header .cell.stat_double.left { background-color:transparent; }
+#player_profile_content .stats .main_details .table .row .cell { 
     display:flex;
     align-items:center;
     height:100%;
     white-space:nowrap; 
 }
-#player_profile_screen .stats .main_details .table .row .cell.spacer { width: 4vh; }
-#player_profile_screen .stats .main_details .table .row .cell.dim { opacity:0.7; }
-#player_profile_screen .stats .main_details .table .row .cell.hl { font-weight:bold; }
-#player_profile_screen .stats .main_details .table .row .cell.label { flex:1; }
-#player_profile_screen .stats .main_details .table .row .cell.stat { width:18vh; }
-#player_profile_screen .stats .main_details .table .row .cell.stat_double { width:11vh; padding:0 0.8vh; }
-#player_profile_screen .stats .main_details .table .row .cell.stat_double.left { justify-content:flex-end; background-color:rgba(255,255,255,0.02); }
-#player_profile_screen .stats .main_details .table .row .cell.stat_double.name { color:#ade4ff; }
+#player_profile_content .stats .main_details .table .row .cell.spacer { width: 4vh; }
+#player_profile_content .stats .main_details .table .row .cell.dim { opacity:0.7; }
+#player_profile_content .stats .main_details .table .row .cell.hl { font-weight:bold; }
+#player_profile_content .stats .main_details .table .row .cell.label { flex:1; }
+#player_profile_content .stats .main_details .table .row .cell.stat { width:18vh; }
+#player_profile_content .stats .main_details .table .row .cell.stat_double { width:11vh; padding:0 0.8vh; }
+#player_profile_content .stats .main_details .table .row .cell.stat_double.left { justify-content:flex-end; background-color:rgba(255,255,255,0.02); }
+#player_profile_content .stats .main_details .table .row .cell.stat_double.name { color:#ade4ff; }
 
 
-#player_profile_screen .stats .stats_block.weapon_details { padding-bottom:4vh; }
-#player_profile_screen .stats .stats_block.weapon_details .block_head { margin-bottom:0.4vh; }
-#player_profile_screen .stats .stats_block.weapon_details .block_menu.weapons { margin-bottom:1.4vh; }
-#player_profile_screen .stats .weapon_details {}
-#player_profile_screen .stats .weapon_details .table {}
-#player_profile_screen .stats .weapon_details .table .row {
+#player_profile_content .stats .stats_block.weapon_details { padding-bottom:4vh; }
+#player_profile_content .stats .stats_block.weapon_details .block_head { margin-bottom:0.4vh; }
+#player_profile_content .stats .stats_block.weapon_details .block_menu.weapons { margin-bottom:1.4vh; }
+#player_profile_content .stats .weapon_details {}
+#player_profile_content .stats .weapon_details .table {}
+#player_profile_content .stats .weapon_details .table .row {
     display:flex;
     flex-direction:row;
     justify-content:left;
@@ -13627,30 +13717,30 @@ h2 {
     height:2.4vh;
     padding-left:0.4vh;
 }
-#player_profile_screen .stats .weapon_details .table .row.odd { background-color:rgba(255,255,255,0.03); }
-#player_profile_screen .stats .weapon_details .table .row.header {
+#player_profile_content .stats .weapon_details .table .row.odd { background-color:rgba(255,255,255,0.03); }
+#player_profile_content .stats .weapon_details .table .row.header {
     height:2.4vh;
     text-transform:uppercase;
     font-weight:bold;
 }
-#player_profile_screen .stats .weapon_details .table .row.header .cell.stat_double.left { background-color:transparent; }
-#player_profile_screen .stats .weapon_details .table .row .cell { 
+#player_profile_content .stats .weapon_details .table .row.header .cell.stat_double.left { background-color:transparent; }
+#player_profile_content .stats .weapon_details .table .row .cell { 
     display:flex;
     align-items:center;
     height:100%;
     white-space:nowrap; 
 }
-#player_profile_screen .stats .weapon_details .table .row .cell.spacer { width: 4vh; }
-#player_profile_screen .stats .weapon_details .table .row .cell.dim { opacity:0.7; }
-#player_profile_screen .stats .weapon_details .table .row .cell.hl { font-weight:bold; }
-#player_profile_screen .stats .weapon_details .table .row .cell.label { flex:1; }
-#player_profile_screen .stats .weapon_details .table .row .cell.stat { width:18vh; }
-#player_profile_screen .stats .weapon_details .table .row .cell.stat_double { width:11vh; padding:0 0.8vh; }
-#player_profile_screen .stats .weapon_details .table .row .cell.stat_double.left { justify-content:flex-end; background-color:rgba(255,255,255,0.02); }
-#player_profile_screen .stats .weapon_details .table .row .cell.stat_double.name { color:#ade4ff; }
+#player_profile_content .stats .weapon_details .table .row .cell.spacer { width: 4vh; }
+#player_profile_content .stats .weapon_details .table .row .cell.dim { opacity:0.7; }
+#player_profile_content .stats .weapon_details .table .row .cell.hl { font-weight:bold; }
+#player_profile_content .stats .weapon_details .table .row .cell.label { flex:1; }
+#player_profile_content .stats .weapon_details .table .row .cell.stat { width:18vh; }
+#player_profile_content .stats .weapon_details .table .row .cell.stat_double { width:11vh; padding:0 0.8vh; }
+#player_profile_content .stats .weapon_details .table .row .cell.stat_double.left { justify-content:flex-end; background-color:rgba(255,255,255,0.02); }
+#player_profile_content .stats .weapon_details .table .row .cell.stat_double.name { color:#ade4ff; }
 
 
-#player_profile_screen .achievements .achievement_head {
+#player_profile_content .achievements .achievement_head {
     background-color: rgba(46, 46, 46, 0.6);
     margin-bottom:1vh;
     padding:1.5vh;
@@ -13658,7 +13748,7 @@ h2 {
     font-family:var(--main-font-medium);
     opacity:0.8;
 }
-#player_profile_screen .achievements .coming_soon {
+#player_profile_content .achievements .coming_soon {
     height:20vh;
     display:flex;
     justify-content:center;
@@ -13669,17 +13759,17 @@ h2 {
     background-color: rgba(46, 46, 46, 0.6);
 }
 
-#player_profile_screen .achievements .scroll-outer {
+#player_profile_content .achievements .scroll-outer {
     max-height: 58vh;
 }
-#player_profile_screen .achievements .scroll-outer .scroll-bar {
+#player_profile_content .achievements .scroll-outer .scroll-bar {
     right: -2vh;
     width: 1.5vh;
 }
-#player_profile_screen .achievements .scroll-inner {
+#player_profile_content .achievements .scroll-inner {
     padding-right:0 !important;
 }
-#player_profile_screen .achievements .achievement {
+#player_profile_content .achievements .achievement {
     display:flex;
     flex-direction:row;
     align-items:center;
@@ -13690,16 +13780,16 @@ h2 {
     padding-right:1.5vh;
     background-color: rgba(46, 46, 46, 0.6);
 }
-#player_profile_screen .achievements .achievement.achieved {
+#player_profile_content .achievements .achievement.achieved {
     background-color:rgba(90, 113, 133, 0.85);
 }
 
-#player_profile_screen .achievements .achievement .next_reward {
+#player_profile_content .achievements .achievement .next_reward {
     width:8vh;
     height:8vh;
     /*background-color:#999999aa;*/
 }
-#player_profile_screen .achievements .achievement .body {
+#player_profile_content .achievements .achievement .body {
     display:flex;
     flex-direction: column;
     align-items:flex-start;
@@ -13708,42 +13798,42 @@ h2 {
     padding-bottom:1vh;
     padding-left:2vh;
 }
-#player_profile_screen .achievements .achievement .body .name {
+#player_profile_content .achievements .achievement .body .name {
     flex:1;
     font-size:1.4vh;
     font-family: var(--main-font-medium) ;
     font-weight: bold;
 }
-#player_profile_screen .achievements .achievement .body .progress_title {
+#player_profile_content .achievements .achievement .body .progress_title {
     margin-bottom:0.2vh;
 }
-#player_profile_screen .achievements .achievement .body .progress {
+#player_profile_content .achievements .achievement .body .progress {
     display:flex;
     flex-direction:row;
 }
-#player_profile_screen .achievements .achievement .body .progress .progress_bar {
+#player_profile_content .achievements .achievement .body .progress .progress_bar {
     width:30vh;
     height:1.5vh;
     background-color:rgba(0,0,0,0.2);
     margin-right:1.5vh;
 }
-#player_profile_screen .achievements .achievement .body .progress .progress_bar_inner {
+#player_profile_content .achievements .achievement .body .progress .progress_bar_inner {
     height:100%;
     width:40%;
     background-color:rgba(255,255,255,0.8);
 }
-#player_profile_screen .achievements .achievement .body .progress .progress_text {
+#player_profile_content .achievements .achievement .body .progress .progress_text {
     font-weight:bold;
 }
-#player_profile_screen .achievements .achievement .rewards {
+#player_profile_content .achievements .achievement .rewards {
     display:flex;
     flex-direction:row;
 }
 
-#player_profile_screen .achievements .achievement .rewards .reward {
+#player_profile_content .achievements .achievement .rewards .reward {
     position:relative;
 }
-#player_profile_screen .achievements .achievement .rewards .reward.achieved .achieved_icon {
+#player_profile_content .achievements .achievement .rewards .reward.achieved .achieved_icon {
     position:absolute;
     top:-0.5vh;
     right:0.2vh;
@@ -13756,31 +13846,30 @@ h2 {
     filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.8));
 }
 
-#player_profile_screen .achievements .achievement .rewards .reward .goal {
+#player_profile_content .achievements .achievement .rewards .reward .goal {
     text-align:center;
     font-weight:bold;
     font-size:1.2vh;
     margin:0.4vh 0.5vh 0 0.5vh;
     opacity:0.8;
 }
-#player_profile_screen .achievements .achievement .rewards .reward.achieved .goal {
+#player_profile_content .achievements .achievement .rewards .reward.achieved .goal {
     background-color:rgba(103, 149, 205, 0.7);
     opacity:1;
 }
-#player_profile_screen .achievements .achievement .rewards .reward .customization_item {
+#player_profile_content .achievements .achievement .rewards .reward .customization_item {
     width:6vh;
     height:6vh;
     margin:0 0.5vh 0 0.5vh;
 }
 #match_screen {
     display:none;
-    opacity:0;
     justify-content: center;
 }
 
 #match_screen .match {
     position:absolute;
-    top:14vh;
+    top:12vh;
     flex-direction:column;
     align-self:center;
     width: 100vh;
@@ -14101,14 +14190,13 @@ h2 {
     text-shadow: 0 0 5vh rgba(255, 255, 255, 0.6);
 }
 
-
+/*
 .aim_trainer_container {
     display:flex;
     flex-direction:column;
     color:#fff;
     width:calc(33px* var(--onevh) );
     margin-left:4vh;
-    margin-top:2vh;
 }
 
 .aim_trainer_container .title {
@@ -14152,6 +14240,7 @@ h2 {
     max-width:20vh;
     white-space:nowrap;
 }
+*/
 
 /*
  *  License center screen
@@ -14174,7 +14263,6 @@ h2 {
     display:none;
     flex-direction:column;
     align-self:center;
-    opacity:0;
     width: 100vh;
     max-width: 90vw;
 }
@@ -14331,7 +14419,6 @@ h2 {
     flex-direction:column;
     align-self:center;
     align-items: center;
-    opacity:0;
     width: 110vh;
     max-width: 90vw;
 }
@@ -14733,6 +14820,168 @@ h2 {
     width: 2.5vh;
     background-size: contain;
     margin-right: 0.5vh;
+}
+#aim_screen {
+    position:absolute;
+    top:15vh;
+    display:none;
+    flex-direction:column;
+    align-self:center;
+    width: 120vh;
+    max-width: 90vw;
+}
+
+
+#aim_screen .db-btn.back {
+    width:8vh;
+    height:3.4vh;
+    margin-bottom:1vh;
+    background-image: url(/html/images/icons/fa/angle-left.svg);
+    background-position: center;
+    background-repeat: no-repeat no-repeat;
+    background-size: 70%;
+}
+
+#aim_screen .aim_screen_content{
+    display: flex;
+    flex-direction: row;    
+    height: 60vh;    
+    background-color: rgba(46,46,46,0.5);
+}
+
+#aim_screen .scenario_list_wrapper{
+    width: 57vh;   
+    padding: 1vh 0 1vh 1vh; 
+}
+
+#aim_screen .scenario_information_wrapper{
+    width: 63vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 2vh;
+}
+
+#aim_screen .scenario_list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* placeholder styles */
+#aim_screen .scenario {
+    margin:1vh 0vh 0vh 1vh;
+    background-color:rgba(255,255,255,0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 17vh;
+    height: 21vh;
+}
+
+#aim_screen .scenario:hover {
+    background-color:rgba(255, 255, 255, 0.5);
+}
+
+#aim_screen .scenario.active{
+    background-color: var(--weaponColor);
+}
+
+#aim_screen .scenario .scenario_icon{
+    background-repeat: no-repeat;
+    background-image: var(--weaponIcon);
+    width: 9vh;
+    height: 9vh;
+    border-radius: 50%;
+    border: 0.4vh solid rgba(224,224,224,1);
+    background-color: rgba(0,0,0,0.2);
+    background-position: center;
+    background-size: 5vh;
+    margin: 2.4vh;
+}
+
+#aim_screen .scenario .scenario_title{
+    font-size:1.75vh;
+    text-transform: uppercase;
+    font-weight:900;
+    margin-bottom: 1vh;
+    text-align: center;
+}
+
+#aim_screen .scenario .scenario_weapon{
+    font-size:1.2vh;
+    text-transform: uppercase;
+    font-weight:500;
+    color: rgba(193,193,193,1);
+}
+
+#aim_screen #scenario_video_container{  
+    width: 59vh;
+    height: calc(59vh * (9/16));
+}
+
+#aim_screen .scenario_video{ 
+    width: 100%;
+    height: 100%;
+}
+
+#aim_screen .scenario_description_container{
+    display: flex;
+    flex-direction: column;
+}
+
+#aim_screen #scenario_description{
+    width: 100%;
+    font-size: 1.3vh;
+    line-height: 2.7vh;
+}
+
+#aim_screen .scenario_description_title_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1vh 0;
+}
+
+#aim_screen #scenario_description_title{
+    color: rgba(179, 209, 224, 1);
+    font-family: var(--main-font);
+    font-weight: 900;
+    font-size: 2.4vh;
+    margin-bottom: 0.2vh;
+    text-transform: uppercase;
+}
+
+#aim_screen .accent_line{
+    height: 0.2vh;
+    flex: 1;
+    margin-left: 2vh;
+    background-color: rgba(112, 112, 112, 0.14);
+}
+
+#aim_screen .scenario_play_button_wrapper{
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 0;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+#aim_screen #scenario_play_button{
+    padding: 1vh;
+    background-color:rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6vh;
+    width: 100%;
+    font-size:2vh;
+    text-transform: uppercase;
+    font-weight:bold;
+    background-color:#1f7fab;
+}
+
+#aim_screen #scenario_play_button:hover{
+    background-color:#2493c6;
 }
 .dragging-clone {
     /*

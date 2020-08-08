@@ -25,11 +25,18 @@ BEGIN TEMPLATE steal_progress
     DOUBLE progress
     progress = 0
 
-ON_UPDATE
 
-    IF game_data.game_mode != "macguffin" && !IN_EDITOR
-        discard
+ON_UPDATE
+   
+    IF !IN_EDITOR
+        IF game_data.game_mode != "macguffin" && game_data.game_mode != "ft"
+            discard
+        END IF
     END IF
+
+    //IF game_data.game_mode != "macguffin" && !IN_EDITOR
+    //    discard
+    //END IF
 
     IF IN_EDITOR
         COL_OUTPUT 1 clip_x -0.4

@@ -3,6 +3,8 @@ var hud_group = null;
 var hud_editor_group_map = {};
 var hud_editor_group_map_list = {};
 
+let hud_special_elements = ["chat", "editing_info", "minimap"];
+
 function init_hud_elements() {
     init_element_group();
     init_element_hp();
@@ -41,6 +43,8 @@ function init_hud_elements() {
     init_element_hint();
     init_element_players();
     init_element_team_name();
+    init_element_editing_info();
+    init_element_minimap();
 }
 
 function make_hud_in_element(container_id, editing_mode, spectating_hud) {
@@ -257,9 +261,9 @@ function make_hud_in_element(container_id, editing_mode, spectating_hud) {
             if (!new_element) continue;
 
             // Show the chat during the loading screen
-            if (hud.elements[i].t === "chat" && container_id === "real_hud") {
+            if (hud_special_elements.includes(hud.elements[i].t) && container_id === "real_hud") {
                 _id("hud_load_during_loading").appendChild(new_element);
-            } else if (hud.elements[i].t === "chat" && container_id === "spec_hud") {
+            } else if (hud_special_elements.includes(hud.elements[i].t) && container_id === "spec_hud") {
                 _id("spec_hud_load_during_loading").appendChild(new_element);
             } else {
                 if (hud.elements[i].gid > -1 && hud.elements[i].gid in hud_editor_group_map) {

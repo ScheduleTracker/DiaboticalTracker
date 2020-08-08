@@ -22,6 +22,17 @@ function renderPracticeCards() {
             //"tooltip": "practice",
             "state": 2,
         },
+        /*
+        {
+            "type": "aim",
+            "title": "aim_trainer",
+            "background": "aim",
+            "on_click": function() { open_aim(); },
+            "hover_button": "open",
+            //"tooltip": "practice",
+            "state": 2,
+        },
+        */
         /* Commented because it it was hidden before
         {
             "type": "licensecenter",
@@ -53,9 +64,4 @@ function practice_screen_reset_cards() {
             if (is_playing) video.play();
         }
     });
-}
-
-function practice_load_aim_trainer(scenario) {
-    console.log("load scenario", scenario);
-    //engine.call("", scenario);
 }
