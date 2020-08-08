@@ -1065,6 +1065,12 @@ models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_block\z05\z05_z_b
 models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_block\z05\z05_z_plaster_3.fbx		26176
 models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_boards-col.fbx		17520
 models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_boards.fbx		17232
+models\dynamic_props\medieval\med_base_walls\med_window_wall\med_window_wall.assets		585
+models\dynamic_props\medieval\med_base_walls\med_window_wall\med_window_wall.shader		546
+models\dynamic_props\medieval\med_base_walls\med_window_wall\wall_01_1.fbx		63296
+models\dynamic_props\medieval\med_base_walls\med_window_wall\wall_01_2.fbx		63296
+models\dynamic_props\medieval\med_base_walls\med_window_wall\wall_02_1.fbx		63296
+models\dynamic_props\medieval\med_base_walls\med_window_wall\wall_02_2.fbx		63296
 models\dynamic_props\medieval\med_boards_barricade\med_boards_barricade.assets		674
 models\dynamic_props\medieval\med_boards_barricade\med_boards_barricade.shader		438
 models\dynamic_props\medieval\med_boards_barricade\med_boards_barricade_01.dbm		12586

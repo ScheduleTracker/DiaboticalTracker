@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		6702
 scripts\base.enemy		543
-scripts\base.games		17807
+scripts\base.games		18764
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -48,7 +48,7 @@ scripts\particles\crossbow.particles		13546
 scripts\particles\death.particles		16143
 scripts\particles\debris_trail.particles		450
 scripts\particles\destruction.particles		2001
-scripts\particles\diabotical.particles		10660
+scripts\particles\diabotical.particles		12469
 scripts\particles\double_damage.particles		4668
 scripts\particles\double_damage_v2NOP.particles		10530
 scripts\particles\dust_big.particles		1508
@@ -229,7 +229,7 @@ scripts\trailerclips.movies-example		2569
 scripts\ui.sounds		117
 scripts\water_temple_materials.assets		876
 scripts\weapons\abilities.weapons		1291
-scripts\weapons\basic.weapons		20206
+scripts\weapons\basic.weapons		20204
 scripts\weapons\br.weapons		5927
 scripts\weapons\melee.weapons		814
 scripts\weapons\modes.weapons		0

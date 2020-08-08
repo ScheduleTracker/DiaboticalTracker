@@ -447,8 +447,8 @@ models\entities\green_armor\green_armor_vercol.fbx		87488
 models\entities\green_armor\particle.png.dds		131220
 models\entities\health\bubbles.png		23881
 models\entities\health\green_semi_trans.png		1010
-models\entities\health\hpt.assets		396
-models\entities\health\hpt.shader		7017
+models\entities\health\hpt.assets		473
+models\entities\health\hpt.shader		7912
 models\entities\health\hpt0.dbm		56344
 models\entities\health\hpt0.fbx		39104
 models\entities\health\hpt1.dbm		35956
@@ -499,6 +499,8 @@ models\entities\red_armor\red_armor_n.png.dds		349700
 models\entities\red_armor\red_armor_s.png.dds		349700
 models\entities\red_armor\red_armor_vercol.dbm		284505
 models\entities\red_armor\red_armor_vercol.fbx		176896
+models\entities\runes\med_rune.shader		551
+models\entities\runes\rune.fbx		27456
 models\entities\survival_pack\survival_pack.assets		339
 models\entities\survival_pack\survival_pack.dbm		282092
 models\entities\survival_pack\survival_pack.fbx		172640
