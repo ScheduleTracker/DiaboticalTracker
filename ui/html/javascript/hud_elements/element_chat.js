@@ -91,9 +91,7 @@ function set_chat(visible, team) {
             }
 
             for (let el of global_hud_references.chat_messages) {
-                // Remove any previously attached hide animations
-                anim_remove(el);
-                el.style.opacity = 1;
+                el.style.display = "flex";
             }
 
         } else {
@@ -246,14 +244,7 @@ function element_chat_setup() {
 
     chatinput.addEventListener("blur", function (event) {
         for (let el of global_hud_references.chat_messages) {
-            
-            anim_start({
-                element: el,
-                opacity: [1, 0],
-                delay: CHAT_MESSAGE_FADE_DELAY,
-                duration: CHAT_MESSAGE_FADE_DURATION,
-            });
-
+            el.style.display = "none";
         }
                 
         engine.call('set_chat_enabled', false);

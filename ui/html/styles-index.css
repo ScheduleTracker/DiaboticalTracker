@@ -9310,7 +9310,7 @@ h2 {
 #play_screen_customlist .tr.tr_password { width: 5vh; }
 #play_screen_customlist .tr.tr_title    { flex:1; justify-content:flex-start; }
 #play_screen_customlist .tr.tr_region   { width: 15vh; }
-#play_screen_customlist .tr.tr_mode     { width: 12vh; font-fit-mode:shrink; }
+#play_screen_customlist .tr.tr_mode     { width: 12vh; font-fit-mode:shrink; line-height:1.5vh; padding-top:0.4vh; padding-bottom:0.4vh; }
 #play_screen_customlist .tr.tr_settings { width: 8vh; }
 #play_screen_customlist .tr.tr_map      { width: 15vh; }
 #play_screen_customlist .tr.tr_players  { width: 10vh; }

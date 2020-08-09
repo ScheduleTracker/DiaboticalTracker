@@ -3037,6 +3037,13 @@ h2 {
     position:relative;
 }
 #rank_screen .placement_rank .rank_name_cont .rank_name {
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+    animation-name: placement_rank_in;
+    display:none;
+}
+#rank_screen .placement_rank .rank_name_cont .rank_name.visible { display:flex; }
+#rank_screen .placement_rank .rank_name_cont .rank_name > div {
     position:absolute;
     top:0;
     display:flex;
@@ -3048,12 +3055,7 @@ h2 {
     font-weight:bold;
     font-size:5vh;
     text-shadow:2px 2px 4px rgba(0,0,0,0.6);
-    animation-duration: 500ms;
-    animation-timing-function: ease-out;
-    animation-name: placement_rank_in;
-    display:none;
 }
-#rank_screen .placement_rank .rank_name_cont .rank_name.visible { display:flex; }
 #rank_screen .placement_rank .rank_name_cont .rank_name .name {}
 #rank_screen .placement_rank .rank_name_cont .rank_name .name-post {
     margin-left:3vh;

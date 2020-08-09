@@ -1008,14 +1008,14 @@ function init_debug_listeners() {
             mmr_updates = {
                 "from": {
                     "rating": 1547.7387406072,
-                    "rank_tier": 34,
+                    "rank_tier": 32,
                     "rank_position": null,
                     "cur_tier_req": 1610,
                     "next_tier_req": 1650
                 },
                 "to": {
                     "rating": 1500.6258831622672,
-                    "rank_tier": 33,
+                    "rank_tier": 31,
                     "rank_position": null,
                     "cur_tier_req": 1610,
                     "next_tier_req": 1650
@@ -1062,8 +1062,8 @@ function init_debug_listeners() {
                 },
                 "to": {
                     "rating": 1693,
-                    "rank_tier": 34,
-                    "rank_position": 1,
+                    "rank_tier": 31,
+                    "rank_position": null,
                     "cur_tier_req": 1610,
                     "next_tier_req": 1650,
                     "placement_matches": "1010111011"
