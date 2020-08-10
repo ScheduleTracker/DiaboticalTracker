@@ -490,7 +490,7 @@ pncr
     friendly_name PNCR
     description Point N'Click Rifle
 	
-	hit_radius 1 0
+	hit_radius 0 0
 
 	charge_animation 6
 	charge_animation_bonus true
