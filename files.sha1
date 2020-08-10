@@ -14,7 +14,7 @@ bf1e7122e51b8e42fdbaa1bd712314b0649f7927	RenoirCore.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-035af23dc966ef69769b151b17d8357d77b3bed2	anticheat/equ8.db
+905674cb288ebe2b59a5a854ec34486308a055cf	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -34,7 +34,7 @@ b14d054e8f787e22b352aefbec819b381a64010c	api-ms-win-crt-multibyte-l1-1-0.dll
 fdfaf759a360293687bd2838b7d9feb628edaf5b	api-ms-win-crt-string-l1-1-0.dll
 bc75462090e7b95a44c9d22ddec394da30d4b6e4	api-ms-win-crt-time-l1-1-0.dll
 fac4bdf44990b06c7a1c2ffed214ebd710264b3f	api-ms-win-crt-utility-l1-1-0.dll
-7a69eaf050351a40e1419e585b2ca6c5af73f19b	assimp-vc140-mt.dll
+c6f1830b2bfd2dbb4cdfb0227b5352f70a96417b	assimp-vc142-mt.dll
 71d145313e7f228742b57f8ee7c4bb08f86034b2	audio/ID_list.txt
 0d422e1b5d29f5258fe324f6efc9c89733acbc5e	audio/aa_default.sounds
 cc49d5bcb3edf822c294dbd8fd5408f9f5e51fbf	audio/aa_rolloffs.sounds
@@ -1576,7 +1576,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-d936aa9be73f30d1795d92186cb66e177102b531	diabotical.exe
+f54fcf8dfbb9d123d064a0d6bb965f5454b032fc	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
