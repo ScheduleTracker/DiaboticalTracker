@@ -43908,7 +43908,7 @@ Position and orientation string for the customization camera.
 Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
 60,-5,-10,-27,0
 lobby_customization_camera
-0.20.292
+0.20.293
  depth=
 TANGENT
 <><><><<>>><>>>>>> Initializing Vertex Shader 
