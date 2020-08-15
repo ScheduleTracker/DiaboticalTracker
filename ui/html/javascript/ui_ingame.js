@@ -129,6 +129,12 @@ let global_hud_references = {
     "game_report_chat_input": undefined,
 };
 
+// Current battlepass stored in the hud view for access in the game report
+var global_hud_battlepass_rewards = {};
+
+// Party leader status for use in the game report
+var bool_am_i_leader = true;
+
 var current_weapon_custom_crosshair_index = undefined; //currently held weapons custom crosshair index
 
 let currently_active_crosshair_index = undefined;
@@ -185,6 +191,60 @@ function set_hud_zoom_weapon_crosshair(settings_zoom_weapon_crosshair_index) {
     }
 
     currently_active_crosshair_zoom_index = settings_zoom_weapon_crosshair_index;
+}
+
+function handlePostMatchUpdates(data) {
+    //console.log("post-match-updates", _dump(data));
+    if (current_match.match_id == data.match_id) {
+        if ("mmr_updates" in data && data.mmr_updates.ranked) {
+            global_show_rank_change = true;
+            renderRankScreen(data.mmr_updates);
+
+            let mmr_data = data.mmr_updates;
+            if (mmr_data.mode in global_self.mmr) {
+                global_self.mmr[mmr_data.mode].rank_tier = mmr_data.to.rank_tier;
+                global_self.mmr[mmr_data.mode].rank_position = mmr_data.to.rank_position;
+            } else {
+                global_self.mmr[mmr_data.mode] = {
+                    "rating": null,
+                    "rank_tier": mmr_data.to.rank_tier,
+                    "rank_position": mmr_data.to.rank_position,
+                }
+            }
+
+            updateGameReportRank(mmr_data.mode);
+        }
+
+        // clear the previous progression update
+        clear_battle_pass_progression();
+
+        // Update game report with battle pass and achievement progression
+        if ("progression_updates" in data) {
+            
+            if ("achievement_rewards" in data.progression_updates) {
+                set_achievement_rewards(data.progression_updates.achievement_rewards);
+            } else {
+                set_achievement_rewards();
+            }
+
+            if ("battlepass_update" in data.progression_updates) {
+                set_battle_pass_rewards(data.progression_updates.battlepass_rewards);
+                set_battle_pass_progression(data.progression_updates.battlepass_update);
+            } else {
+                set_battle_pass_rewards();
+            }
+
+            // Add rewards to the progression update
+            set_progression_reward_unlocks();
+        }
+
+        if ("rematch_enabled" in data) {
+            global_game_report_rematch_enabled = data.rematch_enabled;
+        } else {
+            global_game_report_rematch_enabled = false;
+        }
+        game_report_reset_rematch_option();
+    }
 }
 
 window.addEventListener("load", function(){
@@ -245,7 +305,14 @@ window.addEventListener("load", function(){
 
     bind_event('view_data_received', function(string) {
         // data from another view received
-        console.log('view_data_received', string);
+        let data = parse_view_data(string);
+
+        if (data.action == "set-battlepass-rewards") {
+            global_hud_battlepass_rewards = data.data.rewards;
+        }
+
+        if (data.action == "party-leader") bool_am_i_leader = true;
+        if (data.action == "party-member") bool_am_i_leader = false;
     });
 
     bind_event('process_server_json_data', function (string) {
@@ -271,58 +338,7 @@ window.addEventListener("load", function(){
             if (json_data.action == "match-user-abandoned")           addServerChatMessage(localize_ext("match_user_abandoned", {"name": json_data.name}));
 
             if (json_data.action == "post-match-updates") {
-                //console.log("post-match-updates", _dump(json_data));
-
-                if (current_match.match_id == json_data.data.match_id) {
-                    if ("mmr_updates" in json_data.data && json_data.data.mmr_updates.ranked) {
-                        global_show_rank_change = true;
-                        renderRankScreen(json_data.data.mmr_updates);
-
-                        let mmr_data = json_data.data.mmr_updates;
-                        if (mmr_data.mode in global_self.mmr) {
-                            global_self.mmr[mmr_data.mode].rank_tier = mmr_data.to.rank_tier;
-                            global_self.mmr[mmr_data.mode].rank_position = mmr_data.to.rank_position;
-                        } else {
-                            global_self.mmr[mmr_data.mode] = {
-                                "rating": null,
-                                "rank_tier": mmr_data.to.rank_tier,
-                                "rank_position": mmr_data.to.rank_position,
-                            }
-                        }
-
-                        updateGameReportRank(mmr_data.mode);
-                    }
-
-                    // clear the previous progression update
-                    clear_battle_pass_progression();
-
-                    // Update game report with battle pass and achievement progression
-                    if ("progression_updates" in json_data.data) {
-                        
-                        if ("achievement_rewards" in json_data.data.progression_updates) {
-                            set_achievement_rewards(json_data.data.progression_updates.achievement_rewards);
-                        } else {
-                            set_achievement_rewards();
-                        }
-
-                        if ("battlepass_update" in json_data.data.progression_updates) {
-                            set_battle_pass_rewards(json_data.data.progression_updates.battlepass_rewards);
-                            set_battle_pass_progression(json_data.data.progression_updates.battlepass_update);
-                        } else {
-                            set_battle_pass_rewards();
-                        }
-
-                        // Add rewards to the progression update
-                        set_progression_reward_unlocks();
-                    }
-
-                    if ("rematch_enabled" in json_data.data) {
-                        global_game_report_rematch_enabled = json_data.data.rematch_enabled;
-                    } else {
-                        global_game_report_rematch_enabled = false;
-                    }
-                    game_report_reset_rematch_option();
-                }
+                handlePostMatchUpdates(json_data.data);
             }
 
             if (json_data.action == "rematch-status") {

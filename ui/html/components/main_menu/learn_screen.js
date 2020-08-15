@@ -56,7 +56,62 @@ function learn_screen_show_content(contentEl){ //used both for top bar and list 
 function learn_screen_initialize_tab_weapons() {
 
     var list = _id("learn_screen_item_list_weapons");
-    var infoContainer = _id("learn_screen_info_weapons");
+    var infoContainer = _id("learn_screen_info_weapons"); 
+
+
+    //wrappers contain information for weapons and weeballs respectively, so we hide/show depending on which sub tab we are in
+    var weaponInfoWrapper = _createElement("div")
+    weaponInfoWrapper.style.display = "flex";
+    weaponInfoWrapper.style.flexDirection = "column";  
+    var weeballInfoWrapper = _createElement("div")
+    weeballInfoWrapper.style.display = "none"; //default show weapons
+    weeballInfoWrapper.style.flexDirection = "column"; 
+
+    infoContainer.appendChild(weaponInfoWrapper);
+    infoContainer.appendChild(weeballInfoWrapper);
+
+    var weaponList = _createElement("div", "learn_screen_item_list");
+    var weeballList = _createElement("div", "learn_screen_item_list");
+    weeballList.style.display = "none"; //default show weapons
+
+    var listHeader = _createElement("div", "learn_screen_item_list_header");
+
+    var listWeaponButton = _createElement("div", ["learn_screen_item_list_header_button", "active"], "Weapons");  //"active" because default is to show weapons
+    listWeaponButton.addEventListener("click", function(){
+        weaponList.style.display = "flex";
+        listWeaponButton.classList.add("active");
+
+        weeballList.style.display = "none";
+        listWeeballButton.classList.remove("active");
+
+        weaponInfoWrapper.style.display = "flex";
+        weeballInfoWrapper.style.display = "none";
+
+        refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+        resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+    })
+    var listWeeballButton = _createElement("div", "learn_screen_item_list_header_button", "Weeballs");
+    listWeeballButton.addEventListener("click", function(){
+        weeballList.style.display = "flex";
+        listWeeballButton.classList.add("active");
+
+        weaponList.style.display = "none";
+        listWeaponButton.classList.remove("active");
+
+        weeballInfoWrapper.style.display = "flex";
+        weaponInfoWrapper.style.display = "none";
+
+        refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+        resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+    })
+
+    listHeader.appendChild(listWeaponButton);
+    listHeader.appendChild(listWeeballButton);
+
+    list.appendChild(listHeader);
+
+    list.appendChild(weaponList);
+    list.appendChild(weeballList);
 
     var relevantWeapons = {
         'weaponmelee':  {'script_key': 'sword',
@@ -190,11 +245,13 @@ function learn_screen_initialize_tab_weapons() {
                         'description': "Make any room a no-go zone by flooding it with grenades or conserve your ammunition and attempt to master their arcing, bouncing path. The Grenade Launcher is an excellent area denial tool which can be used to punish overly aggressive or careless opponents who push without thought."
                         }
     };
-    var relevantWeebles = ['weaponiw', 'weaponsw', 'weaponbw', 'weaponsmw', 'weaponhw', 'weaponkw'];
     
-    function generate_weapons_content(item, type){
+    function generate_weapons_content(item){
         var currentWeapon = relevantWeapons[item].script_key;
         if(!global_weapon_data.hasOwnProperty(currentWeapon)){return};
+
+        var entriesObject = relevantWeapons[item].entries;
+        var entriesList = weaponList;
         
         //create list item
         let listItem = _createElement("div","learn_screen_list_button", localize(global_item_name_map[item][1]).toUpperCase());
@@ -208,18 +265,8 @@ function learn_screen_initialize_tab_weapons() {
         
         let ammoInfoTextContainer = _createElement("div");
         
-        infoContainer.appendChild(infoItem);
+        weaponInfoWrapper.appendChild(infoItem);
         infoItem.style.display = "none";
-
-        if (type == 'weapon'){
-            var entriesObject = relevantWeapons[item].entries;
-        }
-        else if (type == 'weeball'){
-            var entriesObject = {
-                'a': '', 
-                'b': ''
-            };
-        }
 
         //Preprocess damage entries to handle cases with multiple damage ranges
         var updateDamage = false;
@@ -281,12 +328,6 @@ function learn_screen_initialize_tab_weapons() {
                 }
             }
             entriesObject = newEntriesObject;
-        }
-
-        if (global_weapon_data[currentWeapon].hasOwnProperty('shots_per_round')){
-            if(entriesObject.hasOwnProperty('damage')){
-                entriesObject
-            }
         }
 
         for (let label in entriesObject){
@@ -519,8 +560,9 @@ function learn_screen_initialize_tab_weapons() {
             learn_screen_highlight_button(listItem);
             learn_screen_show_content(infoItem);
             refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
         })
-        list.appendChild(listItem);
+        entriesList.appendChild(listItem);
 
         if(item == 'weaponmelee'){ //default screen is melee
             learn_screen_highlight_button(listItem);
@@ -528,9 +570,240 @@ function learn_screen_initialize_tab_weapons() {
         }
     }
 
+    var relevantWeeballs = {'weaponiw':{'script_key': 'implosive_weeble', //implosion
+                                        'weeball_image': '/html/images/entities/weaponiw.png.dds', 
+                                        'entries':{'damage': 'damage',
+                                                    'projectile_speed': 'speed',
+                                                    'splash_radius': 'splash_radius',
+                                                    'knockback':'ground_knockback',
+                                                    'cooldown':'',
+                                                    'respawn_time':''},
+                                        'description':"Activating twice in quick succession after detonating, the Implosion Weeball allows you to disrupt your enemies during fights by pulling them in the direction of the detonation. The closer somebody is to the centre of the implosion, the more strongly they will be pulled, meaning that the Implosion Weeball can also be purposefully used to propel yourself at great speed by throwing it close to your own feet.",
+                                        'skill':'13' //value in gamemode scripts
+                            }, 
+                        'weaponsw':{'script_key': 'slowfield_weeble', //slow
+                                    'weeball_image': '/html/images/entities/weaponsw.png.dds',
+                                    'entries':{'damage': 'damage',
+                                                'projectile_speed': 'speed',
+                                                'slow_effect': '50%',
+                                                'effect_radius': 'slowfield_radius',
+                                                'duration': 'slowfield_duration',
+                                                'cooldown':'',
+                                                'respawn_time':''},
+                                    'description':"The Slow Field Weeball creates a sphere in which time passes slowly, causing players to move slowly while caught inside of it and then instantly returning to normal speed upon exit. Use it to make choke points even more deadly for your opposition to attempt to move through, or in direct combat to slow opponents down and make them easy targets.",
+                                    'skill':'11'
+                            }, 
+                        'weaponbw':{'script_key': 'explosive_weeble', //explosive
+                                    'weeball_image': '/html/images/entities/weaponbw.png.dds', 
+                                    'entries':{'damage': 'damage',
+                                                'projectile_speed': 'speed',
+                                                'splash_radius': 'splash_radius',
+                                                'knockback':'ground_knockback',
+                                                'cooldown':'',
+                                                'respawn_time':''},
+                                    'description':"The Explosive Weeball creates an explosion with a large amount of knockback that can be used to send opponents flying, or to scale incredibly high vertical heights by jumping and throwing it at your own feet.",
+                                    'skill':'14'
+                            }, 
+                        'weaponsmw':{'script_key': 'smoke_weeble', //smoke
+                                    'weeball_image': '/html/images/entities/weaponsmw.png.dds', 
+                                    'entries':{'damage': 'damage',
+                                                'projectile_speed': 'speed',
+                                                'effect_radius': '',
+                                                'duration': '',
+                                                'cooldown':'',
+                                                'respawn_time':''},
+                                    'description':"Upon detonation the Smoke Weeball creates a screen of smoke that blocks lines of sight. Used tactically it can allow you to escape enemy fire and deny angles that would otherwise prove dangerous to cross.",
+                                    'skill':'12'
+                            },
+                        'weaponkw':{'script_key': 'knock_weeble', //knockback
+                                    'weeball_image': '/html/images/entities/weaponkw.png.dds', 
+                                    'entries':{'damage': 'damage',
+                                                'projectile_speed': 'speed',
+                                                'splash_radius': 'splash_radius',
+                                                'knockback':'ground_knockback',
+                                                'cooldown':''},
+                                    'description':"Due to its low cooldown, the Knockback Weeball provides a way of traversing maps very quickly where available. Use it to access otherwise unreachable areas or to knock your opponents up to set up easy shots.",
+                                    'skill':'15'
+                            },
+                        'weaponhw':{'script_key': 'healing_weeble', //healing
+                                    'weeball_image': '/html/images/entities/weaponhw.png.dds', 
+                                    'entries':{'heal_per_tick': '',
+                                                'heal_interval': '',
+                                                'heal_per_second': '',
+                                                'health_limit': '',
+                                                'projectile_speed': 'speed',
+                                                'effect_radius': '',
+                                                'duration': ''},
+                                    'description':"The Healing Weeball creates an area on the ground which will heal all allies who stand inside of it. Multiple Healing Weeballs will stack so co-ordinate with your teammates to quickly heal back to full before rejoining the battle."
+                            }
+                        };
+
+    function generate_weeballs_content(item){
+        let currentWeeball = relevantWeeballs[item].script_key;
+        if(!global_weapon_data.hasOwnProperty(currentWeeball)){return};
+
+        var entriesObject = relevantWeeballs[item].entries;
+        var entriesList = weeballList;
+
+        //create list item
+        let listItem = _createElement("div","learn_screen_list_button", localize(global_item_name_map[item][1]).toUpperCase());
+        listItem.style.setProperty("--itemIcon", "url(/html/" + global_item_name_map[item][2] + ")");
+        listItem.style.setProperty("--backgroundItemColor", hexToRGBA(global_item_name_map[item][0], 0.65));
+
+        //create info screens
+        let infoItem = _createElement("div", "learn_screen_weapon_item"); //each weapons own page
+
+        let weeballInfoContainer = _createElement("div");
+        
+        weeballInfoWrapper.appendChild(infoItem);
+        infoItem.style.display = "none";
+
+        listItem.addEventListener("click", function(){
+            learn_screen_highlight_button(listItem);
+            learn_screen_show_content(infoItem);
+            refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+        })
+        entriesList.appendChild(listItem);
+
+        //create descriptions
+        let weeballDescriptionContainer = _createElement("div", ["learn_screen_row_container", "description"]);
+
+        let infoWeeballRender = _createElement("div", "learn_screen_weapon_image");
+        infoWeeballRender.style.backgroundImage = "url(" + relevantWeeballs[item].weeball_image + ")";
+        weeballDescriptionContainer.appendChild(infoWeeballRender);
+
+        let weeballDescriptionTextContainer = _createElement("div", "learn_screen_weapon_info_description_text_container");
+        //let weaponDescriptionText = _createElement("div", "learn_screen_item_description", relevantWeapons[item].description);
+
+        let weeballDescriptionText = _createElement("div", "learn_screen_item_description");
+        weeballDescriptionText.innerHTML = relevantWeeballs[item].description;
+
+        let weeballTitleContainer = _createElement("div", ["learn_screen_row_container", "title"]);
+        let weeballTitle = _createElement("div", "learn_screen_weapon_title", localize(global_item_name_map[item][1]).toUpperCase());
+        let accentLine = _createElement("div", "learn_screen_weapon_accent_line");
+        weeballTitleContainer.appendChild(weeballTitle);
+        weeballTitleContainer.appendChild(accentLine);
+        
+        weeballDescriptionTextContainer.appendChild(weeballTitleContainer);
+        weeballDescriptionTextContainer.appendChild(weeballDescriptionText);
+
+        weeballDescriptionContainer.appendChild(weeballDescriptionTextContainer);
+
+        //Preprocess
+        var addAirKnockback = false;
+        var addSelfKnockback = false;
+
+        if (Object.keys(entriesObject).indexOf('knockback') >= 0){ //if we use knockback, check knockback variants to see if they are required
+            if (global_weapon_data[currentWeeball].hasOwnProperty('knockback')) { //air knockback
+                if(global_weapon_data[currentWeeball].ground_knockback != global_weapon_data[currentWeeball].knockback){
+                    addAirKnockback = true;
+                }
+            }
+            if (global_weapon_data[currentWeeball].hasOwnProperty('ground_knockback_self')) { //air knockback
+                if(global_weapon_data[currentWeeball].ground_knockback != global_weapon_data[currentWeeball].ground_knockback_self){
+                    addSelfKnockback = true;
+                }
+            }
+        }
+
+        if(addAirKnockback || addSelfKnockback) {
+            var newEntriesObject = {};
+            for (let key in entriesObject){
+                if (key == 'knockback'){
+                    newEntriesObject[key] = entriesObject[key];
+                    if (addAirKnockback){
+                        newEntriesObject['air_knockback'] = 'knockback';
+                    }
+                    if (addSelfKnockback){
+                        newEntriesObject['self_knockback'] = 'ground_knockback_self';
+                    }
+                }
+                else {
+                    newEntriesObject[key] = entriesObject[key];
+                }
+            }
+            entriesObject = newEntriesObject;
+        }
+
+        for (let label in entriesObject){
+            let infoRow = _createElement("div", "learn_screen_weapon_item_row");
+
+            let infoLabel = _createElement("div", "learn_screen_weapon_item_label");
+            let infoLabelText = _createElement("div", "text_container", localize("learn_screen_" + label)); //LOCALIZE THIS WHEN GAMEMODE SCREEN IS IN
+            infoLabel.appendChild(infoLabelText);
+
+            infoLabel.style.setProperty("--itemColor", hexToRGBA(global_item_name_map[item][0], 0.6));
+            //infoLabel.style.color = _backgroundFontColor(global_item_name_map[item][0]); just white seems to look better
+
+            let infoCell = _createElement("div", "learn_screen_weapon_item_cell");
+            let cellText = entriesObject[label];
+
+            if(global_weapon_data[currentWeeball].hasOwnProperty(entriesObject[label])) {
+                cellText = global_weapon_data[currentWeeball][entriesObject[label]];
+            }
+
+            if(label == 'cooldown' && global_gamemode_data.hasOwnProperty('skill' + relevantWeeballs[item].skill)){
+                cellText += global_gamemode_data['skill' + relevantWeeballs[item].skill].cooldown + 's';
+            }
+            else if(label == 'respawn_time'){
+                cellText += '60s ' + localize('learn_screen_after_use');
+            }
+            else if(label == 'projectile_speed'){
+                cellText = _clean_float(global_weapon_data[currentWeeball].speed) + ' ups';
+            }
+            else if(label == 'splash_radius'){
+                cellText += ' u';
+            }
+            else if(label == 'effect_radius'){
+                if(currentWeeball == 'smoke_weeble'){cellText += '320'} //value not present in scripts
+                else if(currentWeeball == 'healing_weeble'){cellText += '112'}; //value not present in scripts
+                cellText += ' u';
+            }
+            else if(label == 'duration'){
+                if(currentWeeball == 'smoke_weeble'){cellText += '8'} //value not present in scripts
+                else if(currentWeeball == 'healing_weeble'){cellText += '10'}; //value not present in scripts
+                cellText += 's';
+            }
+            else if(label == 'heal_per_tick'){
+                cellText += '5';
+            }
+            else if(label == 'heal_interval'){
+                cellText += '500ms';
+            }
+            else if(label == 'heal_per_second'){
+                cellText += '10';
+            }
+            else if(label == 'health_limit'){
+                cellText += '200';
+            }
+
+            let infoCellText = _createElement("div", "text_container", cellText);
+            infoCell.appendChild(infoCellText);
+
+            infoRow.appendChild(infoLabel);
+            infoRow.appendChild(infoCell);
+
+            weeballInfoContainer.appendChild(infoRow);
+        }
+
+        infoItem.appendChild(weeballDescriptionContainer);
+
+        infoItem.appendChild(weeballInfoContainer);
+
+        if(item == 'weaponiw'){ //default screen is implosion
+            learn_screen_highlight_button(listItem);
+            learn_screen_show_content(infoItem);
+        }
+    }
+
     for (const item of Object.keys(relevantWeapons)) {
-        generate_weapons_content(item, 'weapon');
-    }    
+        generate_weapons_content(item);
+    } 
+    
+    for (const item of Object.keys(relevantWeeballs)) {
+        generate_weeballs_content(item);
+    }
 }
 
 //Health and Armour Tab
@@ -695,31 +968,31 @@ function learn_screen_initialize_tab_powerups() {
 
     var relevantPowerups = {
         'survival':     {'powerupImage': '/html/images/entities/survival.png.dds',
-                        'entries':{'Initial Spawn': '1:00',
-                                    'Respawn Time': '120s',
-                                    'Initial Spawn (Brawl)': '1:00',
-                                    'Respawn Time (Brawl)': '240s',
-                                    'Duration': '30s'},
+                        'entries':{'initial_spawn': '1:00',
+                                    'respawn_time': '120s',
+                                    'initial_spawn_brawl': '1:00',
+                                    'respawn_time_brawl': '240s',
+                                    'duration': '30s'},
                         'description': 'When equipped with Siphonator you passively heal for 5 health every second and any damage you deal to enemies heals you for 50% of the damage dealt. Additionally, your friendly fire heals your teammates for 50% of weapon damage. <div>Seek out 1v1 confrontations safe in the knowledge that you can outlast your opponent, and pay attention to the health of your teammates, as a clutch heal can turn the tide of a fight.</div>'
                         }, 
         'vanguard':     {'powerupImage': '/html/images/entities/vanguard.png.dds',
-                        'entries':{'Initial Spawn': '1:00',
-                                    'Respawn Time': '120s',
-                                    'Initial Spawn (Brawl)': '1:00',
-                                    'Respawn Time (Brawl)': '240s',
-                                    'Duration': '30s'},
+                        'entries':{'initial_spawn': '1:00',
+                                    'respawn_time': '120s',
+                                    'initial_spawn_brawl': '1:00',
+                                    'respawn_time_brawl': '240s',
+                                    'duration': '30s'},
                         'description': 'A potent shield that protects its wielder from even the most ferocious of attacks, Vanguard reduces damage taken by 50% and mitigates all self damage. Group up with your allies and charge first into the breach, soaking up damage and carving a path for your team to take control.'
                         },  
         'tripledamage': {'powerupImage': '/html/images/entities/tripledamage.png.dds',
-                        'entries':{'Initial Spawn': '1:00',
-                                    'Respawn Time': '120s',
-                                    'Duration': '30s'},
+                        'entries':{'initial_spawn': '1:00',
+                                    'respawn_time': '120s',
+                                    'duration': '30s'},
                         'description': 'A triple damage boost to all of your weaponry provides a significant advantage in any fight you possess Vindicator. Out damage opponents even wielding the same weaponry and bring encounters to a rapid conclusion, so long as you can survive their focused efforts to take you down together.'
                         }, 
         'doubledamage': {'powerupImage': '/html/images/entities/doubledamage.png.dds', //Diabotical
-                        'entries':{'Initial Spawn (Brawl)': '3:00',
-                                    'Respawn Time (Brawl)': '240s',
-                                    'Duration': '30s'},
+                        'entries':{'initial_spawn_brawl': '3:00',
+                                    'respawn_time_brawl': '240s',
+                                    'duration': '30s'},
                         'description': 'Possessed by the incredible energies of Diabotical your attacks gain extra viciousness, with all damage you deal being quadrupled. Music blasts from your core fuelling a spree like no other as you crush all who cower before you. <div>Decimate the competition! But beware, for though it is true that while equipped with Diabotical you are the most dangerous force on the field, to the brave or simply unhinged, you are also the biggest target.</div>'
                         },
     };
@@ -742,6 +1015,7 @@ function learn_screen_initialize_tab_powerups() {
             learn_screen_highlight_button(listItem);
             learn_screen_show_content(infoItem);
             refreshScrollbar(_id("learn_screen_content_powerups").querySelector(".crosshair_scroll"));
+            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
         })
         list.appendChild(listItem);
 
@@ -783,11 +1057,14 @@ function learn_screen_initialize_tab_powerups() {
             let infoRow = _createElement("div", "learn_screen_powerup_item_row");
 
             let infoLabel = _createElement("div", "learn_screen_powerup_item_label");
-            let infoLabelText = _createElement("div", "text_container", label); //LOCALIZE THIS WHEN GAMEMODE SCREEN IS IN
+            let labelText = '';
+            if(label == 'initial_spawn_brawl'){labelText = localize("learn_screen_initial_spawn") + ' (' + localize('game_mode_brawl') + ')'}
+            else if(label == 'respawn_time_brawl'){labelText = localize("learn_screen_respawn_time") + ' (' + localize('game_mode_brawl') + ')'}
+            else{labelText = localize('learn_screen_' + label)}
+            let infoLabelText = _createElement("div", "text_container", labelText);
             infoLabel.appendChild(infoLabelText);
 
             infoLabel.style.setProperty("--itemColor", hexToRGBA(global_item_name_map[item][0], 0.6));
-            //infoLabel.style.color = _backgroundFontColor(global_item_name_map[item][0]); just white seems to look better
 
             let infoCell = _createElement("div", "learn_screen_powerup_item_cell");
             let cellText = entriesObject[label];
@@ -903,6 +1180,7 @@ function learn_screen_initialize_tab_gamemodes() {
             learn_screen_highlight_button(listItem);
             learn_screen_show_content(infoItem);
             refreshScrollbar(_id("learn_screen_content_gamemodes").querySelector(".crosshair_scroll"));
+            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
         })
         
         list.appendChild(listItem);

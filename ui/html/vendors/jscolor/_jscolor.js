@@ -1743,6 +1743,9 @@ var jsc = {
 			p.alpha.style.overflow = 'hidden';
 			p.alpha.style.width = THIS.sliderSize + 'px';
 			p.alpha.style.height = THIS.height + 'px';
+			p.alpha.style.backgroundImage = "url(/html/images/checkered_bg.png)";
+    		p.alpha.style.backgroundRepeat = "repeat";
+    		p.alpha.style.backgroundSize = (THIS.sliderSize * 0.66) + 'px';
 
 			// slider gradient
 			p.alphaGrad.draw(THIS.sliderSize, THIS.height, '#000000ff', '#00000000');

@@ -92,6 +92,8 @@ function init_custom_game_references() {
             _id("custom_play_create_lobby_button"),
             _id("custom_play_link_join_lobby_button"),
             _id("customlist_bottom"),
+            _id("region_select_btn_qp"),
+            _id("region_select_btn_ranked"),
         ]
     
         global_customSettingElements = {
@@ -821,6 +823,7 @@ function moveSlotToRightTeam(teamSize, numOfTeams) {
                 global_teamContainers[0].appendChild(global_gameSlotList[i]);
             } else {
                 _id("custom_no_team_slot").appendChild(global_gameSlotList[i]);
+                _empty(global_gameSlotList[i].firstElementChild);
             }
         }
     } else {
@@ -847,6 +850,7 @@ function moveSlotToRightTeam(teamSize, numOfTeams) {
                 global_teamContainers[9].appendChild(global_gameSlotList[i]);
             } else {
                 _id("custom_no_team_slot").appendChild(global_gameSlotList[i]);
+                _empty(global_gameSlotList[i].firstElementChild);
             }
         }
     }
@@ -992,6 +996,9 @@ function update_party_leader_status(leader) {
     if (bool_am_i_leader != leader) {
         leader_status_changed = true;
         bool_am_i_leader = leader;
+
+        if (bool_am_i_leader) send_view_data("hud", "string", "party-leader");
+        else send_view_data("hud", "string", "party-member");
     }
 
     if (bool_am_i_leader) {
@@ -1045,7 +1052,9 @@ function handle_lobby_event(data) {
     if (data.action == "lobby-start-error") {
         let msg = new DocumentFragment();
         msg.appendChild(_createElement("div", "", localize(data.msg)));
-        msg.appendChild(_createElement("div", "", data.blocking_users.join(", ")));
+        if (data.blocking_users) {
+            msg.appendChild(_createElement("div", "", data.blocking_users.join(", ")));
+        }
         queue_dialog_msg({
             //"title": localize("title_info"),
             "msg": msg,

@@ -33,7 +33,8 @@
     --rarity_4: #cfaa57;
     */
     /* New brighter colors */
-    --rarity_0: #6e708a;
+    /*--rarity_0: #6e708a;*/
+    --rarity_0: #9293a5;
     --rarity_1: #58ca4e;
     --rarity_2: #3e97d8;
     --rarity_3: #8956dc;
@@ -111,7 +112,7 @@ body, html {
 .db-btn {
     padding:0 2.5vh;
     font-size:1.3vh;
-    letter-spacing:0.1em;
+    letter-spacing:0.05em;
     font-weight:bold;
     text-transform:uppercase;
     height:3.4vh;
@@ -134,7 +135,6 @@ body, html {
 
 .db-btn.plain {
     background-color:rgba(255,255,255,0.2);
-    background-image:none;
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.10), 0px 0px 5px rgba(0, 0, 0, 0.15);
 }
 .db-btn.plain:hover  { background-color: rgba(255,255,255,0.3); }
@@ -142,7 +142,6 @@ body, html {
 
 .db-btn.normal {
     background-color:#2B2C34;
-    background-image:none;
     border:1px solid #484848;
     color:#A7A7A7;
 }
@@ -222,13 +221,14 @@ body, html {
     position:absolute;
     top:0.3vh;
     right:0.3vh;
-    background:#ff9430;
+    background:#ffff00;
     color:#111;
     text-transform:uppercase;
     font-family:var(--mont-font);
     font-weight:bold;
     font-size:1.5vh;
     padding:0.1vh 0.6vh;
+    border-radius:0.2vh;
 }
 .customization_item.flag .country_flag {
     width:6vh;
@@ -297,6 +297,13 @@ body, html {
     max-width:30vh;
     max-height:30vh;
     box-shadow:0 0.2vh 1vh rgba(0,0,0,0.5);
+}
+.customization_preview_image.country {
+    width:50%;
+    height:50%;
+    max-width:30vh;
+    max-height:30vh;
+    filter: drop-shadow(0 0.2vh 1vh rgba(0,0,0,0.5));
 }
 
 
@@ -2120,53 +2127,230 @@ h2 {
     background-color: #21212B;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-start;
     font-family: var(--mont-font);
     z-index:1;
 }
 
-#game_report_cont .head {
-    height:10vh;
-    background-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
-    width:110vh;
-    max-width:100vw;
+#game_report_cont .report_head {
+    height:18vh;
+    width:100%;
     display:flex;
     flex-direction:row;
-    margin-bottom:6vh;
+    justify-content:space-between;
     overflow-x:hidden;
     overflow-y:hidden;
-    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.45);
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.45);   
 }
-#game_report_cont .head .head_side {
-    width:15vh;
-}
-#game_report_cont .head .head_side.result_text {
+#game_report_cont .report_head .head_side.result_text {
     display:flex;
     justify-content: flex-start;
     align-items:center;
-    font-size:3vh;
+    font-size:5vh;
     font-weight:bold;
     text-transform: uppercase;
     font-style: italic;
+    margin-left:6vh;
 }
-#game_report_cont .head .head_side.mode_map_time {
+#game_report_cont .report_head .head_side.mode_map_time {
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:flex-end;
-    font-size:1.6vh;
+    margin-right:6vh;
+    
+    text-transform:uppercase;
+    font-size:2vh;
+    font-weight:bold;
 }
-#game_report_cont .head .head_side.mode_map_time .mode { white-space:nowrap; }
-#game_report_cont .head .head_side.mode_map_time .map { white-space:nowrap; }
-#game_report_cont .head .head_side.mode_map_time .time { white-space:nowrap; }
+#game_report_cont .report_head .head_side.mode_map_time .mode { white-space:nowrap; }
+#game_report_cont .report_head .head_side.mode_map_time .map { white-space:nowrap; }
+#game_report_cont .report_head .head_side.mode_map_time .time { white-space:nowrap; }
 
-#game_report_cont .head .head_center {
-    flex:1;
+#game_report_cont .report_top {
+    position:absolute;
+    top:0;
+    left:50%;
+    height:18vh;
+    transform:translateX(-50%);
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    height:100%;
 }
+#game_report_cont .report_top .countdown {
+    display:flex;
+    flex-direction:row;
+    align-items:bottom;
+    justify-content:flex-start;
+    align-items:center;
+    margin-bottom:1vh;
+}
+
+#game_report_cont .report_top .countdown .text {
+    font-size:2vh;
+    font-weight:bold;
+    opacity:0.8;
+    white-space:nowrap;
+    text-transform:uppercase;
+}
+#game_report_cont .report_top .countdown .value {
+    font-size:3vh;
+    font-weight:bold;
+    margin-left:1.5vh;
+    width:5vh;
+    text-align:left;
+}
+
+
+#game_report_cont .report_top .buttons {
+    display:flex;
+    flex-direction:row;
+}
+
+#game_report_cont .report_top .buttons .btn {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding:0 1vh;
+    margin:0 1vh;
+    min-width:23vh;
+    height:3.5vh;
+    text-align:center;
+    font-size:1.5vh;
+    font-weight:bold;
+    font-family:var(--mont-font);
+    text-transform:uppercase;
+    color:#fff;
+    background-color: rgb(42, 120, 165);
+    border:0.2vh solid transparent;
+}
+#game_report_cont .report_top .buttons .btn:hover {
+    background-color: rgb(67, 158, 211);
+}
+#game_report_cont .report_top .buttons .btn.requested { border:0.2vh solid #fff; }
+#game_report_cont .report_top .buttons .btn.accepted { border:0.2vh solid #fff; background-color: rgb(64, 177, 64); }
+
+#game_report_rematch_cont {
+    display:flex;
+    flex-direction:column;
+    margin-bottom:0.4vh;
+}
+#game_report_rematch_cont .btn {
+    margin-bottom:0.2vh;
+}
+
+#game_report_rematch_cont .rematch_state {
+    display:flex;
+    flex-direction:row;
+    height:1vh;
+    margin:0.4vh 1vh 0 1vh;
+}
+#game_report_rematch_cont .rematch_state .state {
+    display:flex;
+    margin:0 0.2vh;
+    flex:1;
+    height:100%;
+    background-color:rgba(0,0,0,0.3);
+}
+#game_report_rematch_cont .rematch_state .state.accepted {
+    background-color: rgb(77, 211, 77);
+}
+
+
+
+#game_report_cont .report_tabs {
+    display:flex;
+    flex-direction:row;
+    margin-bottom:4vh;
+}
+
+#game_report_cont .report_tabs .tab_cont {
+    min-width:24vh;
+    text-align:center;
+}
+
+#game_report_cont .report_tabs .tab {
+    font-size:2vh;
+    font-family:var(--main-font);
+    font-weight:bold;
+    line-height:5vh;
+    padding:0 1vh;
+    text-transform:uppercase;
+    white-space:nowrap;
+    color: rgba(255, 255, 255, 0.75);
+    transition-property: box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    box-shadow: 0px 0vh 0px 0px rgba(255, 255, 255, 1) inset;
+}
+
+#game_report_cont .report_tabs .tab:hover {
+    color: rgba(255, 255, 255, 1);
+}
+#game_report_cont .report_tabs .tab.active {
+    box-shadow: 0px -0.3vh 0px 0px rgba(255, 255, 255, 1) inset;
+    color: rgba(255, 255, 255, 1);
+}
+
+#report_mapvote .map_list {
+    --map_row_count: 3;
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    justify-content:center;
+    flex-wrap:wrap;
+    width:100%;
+    height:100%;
+    width:calc(var(--map_row_count) * 35vh);
+}
+#report_mapvote .map_list .map {
+    width: calc(16px* var(--onevh) *(16/9));
+    height: calc(16px* var(--onevh) );
+    margin: 0 1vh 2vh 1vh;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    box-shadow:0px 1px 1vh 0px rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);;
+}
+#report_mapvote .map_list .map.selected {
+    box-shadow: 0px 0px 0px 0.2vh rgba(255, 255, 255, 1);
+}
+#report_mapvote .map_list .map:hover {
+    filter: brightness(1.3);
+}
+#report_mapvote .map_list .map .name {
+    font-size: 1.6vh;
+    padding-left: 0.4vh;
+    padding-bottom:0.2vh;
+    background-image: linear-gradient(to top,rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.000000) 100%);
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    height: 4vh;
+    width: 100%;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-family:var(--mont-font);
+}
+#report_mapvote .map_list .map .vote_cont {
+    top:0.6vh;
+    left:0.6vh;
+    right:0.6vh;
+}
+#report_mapvote .map_list .map .vote_cont .vote {
+    width:1vh;
+    height:1vh;
+    margin-right:0.4vh;
+}
+
+
+/*
 #game_report_cont .head .head_center .winner {
     display:flex;
     flex-direction:column;
@@ -2211,26 +2395,73 @@ h2 {
     background-color:rgba(255,255,255,0.1);
     margin:0 2vh;
 }
+*/
 
-
-
-#game_report_cont .report_scoreboard {
-    flex:1;
+#game_report_cont .report_content {
     width:100vh;
     display:flex;
     flex-direction:column;
     justify-content: flex-start;
     align-items: center;
+
+    position:relative;
 }
-#game_report_cont .report_scoreboard .duel {
+#game_report_cont .report_content .content {
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    width:100%;
+}
+#game_report_cont .report_content .content.active {
+    display:flex;
+}
+
+#game_report_cont #report_stats.content {
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#report_scoreboard {
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+    max-height:50vh;
+}
+#report_scoreboard .duel {
     text-align:center;
     font-size:3vh;
 }
-#game_report_cont .report_scoreboard .team {
+#report_scoreboard .team {
     width:100%;
 }
-#game_report_cont .report_scoreboard .team .head_row {
+#report_scoreboard .team .team_inner {
+    display:flex;
+}
+#report_scoreboard .team .team_players {
+    flex:1;
+}
+#report_scoreboard .team .team_score {
+    padding-bottom:calc(4px* var(--zero-onevh-rounded));
+    display:flex;
+    width:10vh;
+    margin-left:0.4vh;
+}
+#report_scoreboard .team .team_score .team_score_inner {
     width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:3vh;
+    font-weight:bold;
+    background-color:rgba(0,0,0,0.1);
+    background-color: var(--team_color2);
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+}
+#report_scoreboard .team .head_row {
+    width:100%;
+    height:3vh;
     display:flex;
     flex-direction: row;
     align-items:center;
@@ -2239,69 +2470,101 @@ h2 {
     border-right-width:0.4vh;
     border-right-color:transparent;
 }
-#game_report_cont .report_scoreboard .team .player_row {
+#report_scoreboard .team .player_row {
     width:100%;
     display:flex;
     flex-direction: row;
     align-items:center;
     background-color:rgba(0,0,0,0.2);
-    height:calc((4px * var(--onevh)) + (5px * var(--zero-onevh-rounded)));
+    height:calc(3.8px * var(--onevh));
     border-right-style: solid;
-    border-right-width: 0.4vh;
+    border-right-width: calc(4px * var(--zero-onevh-rounded));
     border-right-color: var(--team_color2);
     margin-bottom:calc(4px * var(--zero-onevh-rounded));
+    position:relative;
 }
-#game_report_cont .report_scoreboard .team .player_row.self {
+#report_scoreboard .team .player_row.self {
     color:rgba(255, 255, 138, 1);
-    background-color:rgba(255,255,255,0.1);
+    /*background-color:rgba(255,255,255,0.1);*/
 }
-#game_report_cont .report_scoreboard .team .player_row.even {
+#report_scoreboard .team .player_row.even {
     background-color:rgba(0,0,0,0.1);
 }
-#game_report_cont .report_scoreboard .team .player_row.selected {
-    background-color:rgba(255,255,255,0.15);
+#report_scoreboard .team .player_row.selected {
+    /*background-color:rgba(255,255,255,0.15);*/
 }
-#game_report_cont .report_scoreboard .team .head_row .team_name {
+#report_scoreboard .team .player_row:hover {
+    background-color:rgba(255,255,255,0.1);
+}
+#report_scoreboard .team.winner .player_row {
+    background-image: linear-gradient(to left, var(--team_color2) 0%,transparent 40%);
+}
+#report_scoreboard .team .player_row .self_arrow {
+    width:3vh;
+    height:3vh;
+    position:absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%) translateX(-50%);
+    background-image:url(/html/images/icons/fa/caret-right.svg);
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+#report_scoreboard .team .head_row .team_name {
     flex:1;
     font-size:1.6vh;
     font-fit-mode:shrink;
     white-space:nowrap;
     opacity:0.8;
 }
-#game_report_cont .report_scoreboard .team .head_row .label {
+#report_scoreboard .team .head_row .label {
     width:9vh;
     text-align:center;
     opacity:0.8;
 }
-#game_report_cont .report_scoreboard .team .player_row .avatar {
-    width:calc((4px * var(--onevh)) + (5px * var(--zero-onevh-rounded)));
-    height:calc((4px * var(--onevh)) + (5px * var(--zero-onevh-rounded)));
+#report_scoreboard .team .head_row .label.rank {
+    width:7vh;
+}
+#report_scoreboard .team .head_row .label.kda {
+    width:12vh;
+}
+#report_scoreboard .team .head_row .label.best_w {
+    width:10vh;
+}
+#report_scoreboard .team .head_row .label.tscore {
+    width:10vh;
+    margin-left:0.4vh;
+}
+#report_scoreboard .team .player_row .avatar {
+    width:calc(3.8px * var(--onevh));
+    height:calc(3.8px * var(--onevh));
     background-color:rgba(0, 0, 0, 0.2);
     background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
 }
-#game_report_cont .report_scoreboard .team .player_row .name {
+#report_scoreboard .team .player_row .name {
     flex:1;
     margin-left:2vh;
     font-size:1.7vh;
     font-fit-mode:shrink;
     white-space:nowrap;
 }
-#game_report_cont .report_scoreboard .team .player_row .rank {
+#report_scoreboard .team .player_row .rank {
     display:flex;
     justify-content:center;
     align-items:center;
-    width:9vh;
+    width:7vh;
 }
-#game_report_cont .report_scoreboard .team .player_row .rank .rank_icon {
+#report_scoreboard .team .player_row .rank .rank_icon {
     width:3.6vh;
     height:3.6vh;
 }
-#game_report_cont .report_scoreboard .team .player_row .rank .rank_icon .position {
+#report_scoreboard .team .player_row .rank .rank_icon .position {
     display:none;
 }
-#game_report_cont .report_scoreboard .team .player_row .stat {
+#report_scoreboard .team .player_row .stat {
     width:9vh;
     height:100%;
     font-size:1.5vh;
@@ -2309,7 +2572,25 @@ h2 {
     align-items:center;
     justify-content:center;
 }
-#game_report_cont .report_scoreboard .team .player_row .stat .commend {
+#report_scoreboard .team .player_row .stat.kda {
+    width:4vh;
+    background-color:rgba(255,255,255,0.05);
+}
+#report_scoreboard .team .player_row .stat.best_w {
+    width:6vh;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+#report_scoreboard .team .player_row .stat.best_w.icon_cont {
+    width:4vh;
+}
+#report_scoreboard .team .player_row .stat.best_w .icon {
+    width:3vh;
+    height:3vh;
+    background-size:80%;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+#report_scoreboard .team .player_row .stat .commend {
     width:6vh;
     height:100%;
     background-image:url(/html/images/icons/fa/thumbs-up.svg);
@@ -2318,69 +2599,76 @@ h2 {
     background-position:center;
     opacity:0.6;
 }
-#game_report_cont .report_scoreboard .team .player_row .stat .commend:hover {
+#report_scoreboard .team .player_row .stat .commend:hover {
     opacity:1;
 }
-#game_report_cont .report_scoreboard .team .player_row .stat .commend.commended {
+#report_scoreboard .team .player_row .stat .commend.commended {
     background-image:url(/html/images/icons/fa/thumbs-up.svg?fill=#41e041);
     opacity:1;
 }
-#game_report_cont .report_scoreboard .separator {
-    height:2vh;
+#report_scoreboard .separator {
+    height:1.5vh;
     width:100%;
 }
 
-#game_report .report_scoreboard .scroll-bar {
+#report_scoreboard .scroll-bar {
     right: -2.2vh;
     width: 1.5vh;
 }
-#game_report .report_scoreboard .scroll-bar.scroll-bar-hidden {
+#report_scoreboard .scroll-thumb {
+    background-color:#36414d;
+}
+#report_scoreboard .scroll-bar.scroll-bar-hidden {
     opacity:0;
     width:0;
 }
-#report_scoreboard {
+#report_scoreboard_inner {
     width:100%;
     padding-right:0 !important;
+    padding-left:1vh;
 }
 
 
 
 
-#game_report_cont .bottom {
+#game_report_cont .report_bottom {
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
     height:20vh;
-    background-color:rgba(0,0,0,0.1);
+
     width:100%;
     display:flex;
     flex-direction:row;
     margin-top:2vh;
-    position:relative;
 }
-#game_report_cont .bottom .chat {
-    width:34vh;
+#game_report_cont .report_bottom .chat {
+    width:24%;
     height:100%;
     display:flex;
     flex-direction:column;
     font-family:var(--main-font-medium);
-    padding:1vh 0 1vh 1vh;
+    padding:1vh;
 }
-#game_report_cont .bottom .chat .chat_container {
+#game_report_cont .report_bottom .chat .chat_container {
     width:100%;
     flex:1;
     overflow-x:hidden;
     overflow-y:hidden;
-    padding:1vh;
+    padding:0.4vh 0.4vh 0.8vh 0.4vh;
     display:flex;
     align-items:flex-end;
     font-size:1.4vh;
 }
-#game_report_cont .bottom .chat .chat_container .chat_messages {
+#game_report_cont .report_bottom .chat .chat_container .chat_messages {
     display: flex;
     flex-direction: column;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
     width:100%;
 }
 
-#game_report_cont .bottom .chat .chat_input_cont {
+#game_report_cont .report_bottom .chat .chat_input_cont {
     display:flex;
 }
 #game_report_chat_input_mode {
@@ -2397,11 +2685,12 @@ h2 {
 #game_report_chat_input_mode:hover {
     background-color:rgba(255,255,255,0.1);
 }
-#game_report_cont .bottom .chat .chat_input_cont .chat_input {
+#game_report_cont .report_bottom .chat .chat_input_cont .chat_input {
     border:none;
     background: rgba(0,0,0,0.2);
     flex:1;
     font-size: 1.6vh;
+    font-family: var(--main-font-medium);
     line-height: 3vh;
 
     padding: 0.5vh 1vh;
@@ -2410,59 +2699,47 @@ h2 {
     color: white;
 }
 
-#game_report_cont .bottom .chat .chat_messages .chat_msg { display: flex; }
-#game_report_cont .bottom .chat .chat_messages .chat_playername {color: lightblue; }
-#game_report_cont .bottom .chat .chat_messages .chat_playername.self {color: #90e881; }
-#game_report_cont .bottom .chat .chat_messages .colon { margin-right:0.6vh; }
-#game_report_cont .bottom .chat .chat_messages .msg { flex:1; }
-#game_report_cont .bottom .chat .chat_messages .team_indicator,
-#game_report_cont .bottom .chat .chat_messages .team .msg { color:#45EAFF; }
+#game_report_cont .report_bottom .chat .chat_messages .chat_msg { display: flex; }
+#game_report_cont .report_bottom .chat .chat_messages .chat_playername {color: lightblue; }
+#game_report_cont .report_bottom .chat .chat_messages .chat_playername.self {color: #90e881; }
+#game_report_cont .report_bottom .chat .chat_messages .colon { margin-right:0.6vh; }
+#game_report_cont .report_bottom .chat .chat_messages .msg { flex:1; }
+#game_report_cont .report_bottom .chat .chat_messages .team_indicator,
+#game_report_cont .report_bottom .chat .chat_messages .team .msg { color:#45EAFF; }
 
 
 
 
 
 
-#game_report_cont .bottom .container {
-    flex:1;
-    position:relative;
+#report_stats .title {
+    font-weight:bold;
+    font-family:var(--mont-font);
+    font-size:2.4vh;
+    margin-bottom:2vh;
 }
-#game_report_cont .cont_box {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    display:none;
-    justify-content:center;
-    align-items:center;
-}
-#game_report_cont .cont_box.active {
-    display:flex;
-}
-
-#game_report_cont .cont_box .stats {
+#report_stats .stats {
     display:flex;
     flex-direction:row;
     align-items:center;
 }
 
-#game_report_cont .cont_box .stats .legend {
+#report_stats .stats .legend {
     margin-right:2vh;
     text-align:right;
     color:rgba(255,255,255,0.6);
     font-size:1.05vh;
 }
-#game_report_cont .cont_box .stats .legend .placeholder {
+#report_stats .stats .legend .placeholder {
     height:3vh;
 }
-#game_report_cont .cont_box .stats .legend .label {
+#report_stats .stats .legend .label {
     height: 2vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#game_report_cont .cont_box .stats .weapon {
+#report_stats .stats .weapon {
     /*background-color:rgba(0,0,0,0.3);*/
     background-color:rgba(15, 15, 28, 0.2);
     margin-right:calc(4px * var(--zero-onevh-rounded));
@@ -2470,7 +2747,7 @@ h2 {
     padding:1vh 0.5vh;
     text-align:center;
 }
-#game_report_cont .cont_box .stats .weapon .icon {
+#report_stats .stats .weapon .icon {
     width:2vh;
     height:2vh;
     background-size:100%;
@@ -2479,7 +2756,7 @@ h2 {
     margin-bottom:1vh;
     filter: brightness(1.2);
 }
-#game_report_cont .cont_box .stats .weapon .stat {
+#report_stats .stats .weapon .stat {
     height: 2vh;
     display: flex;
     justify-content: center;
@@ -2487,131 +2764,50 @@ h2 {
 }
 
 
-#game_report_cont .bottom .menu {
+#game_report_cont .report_bottom .menu {
     position:relative;
-    width:30vh;
+    width:24%;
     display:flex;
     flex-direction:column;
     height:100%;
-    align-items:center;
-    justify-content:center;
-    padding-right:8vh;
+    align-items:flex-end;
+    justify-content:flex-end;
+    padding-right:6vh;
+    padding-bottom:3vh;
 }
 
-#game_report_cont .bottom .menu .btn {
-    width:100%;
+#game_report_cont .report_bottom .menu .btn {
+    width:16vh;
     text-align:center;
     font-size:1.6vh;
     padding:0.6vh 0;
     background-color:rgba(255,255,255,0.05);
     margin-bottom:0.4vh;
 }
-#game_report_cont .bottom .menu .btn.quit {
+#game_report_cont .report_bottom .menu .btn.quit {
     margin-top:2vh;
 }
-#game_report_cont .bottom .menu .btn:hover {
+#game_report_cont .report_bottom .menu .btn:hover {
     background-color:rgba(255,255,255,0.15);
 }
-#game_report_cont .bottom .menu .btn:active {
+#game_report_cont .report_bottom .menu .btn:active {
     background-color:rgba(255,255,255,0.2);
 }
-#game_report_cont .bottom .menu .btn.active {
+#game_report_cont .report_bottom .menu .btn.active {
     background-color:rgba(255,255,255,0.3);
 }
 
 
-
-#game_report_cont .cont_box .map_vote_cont {
-
-}
-
-#game_report_cont .cont_box .map_vote_cont .title {
-    font-size:1.6vh;
-    font-weight:bold;
-    margin-bottom:0.8vh;
-}
-
-#game_report_cont .cont_box .map_vote_cont .map_list {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:flex-start;
-}
-#game_report_cont .cont_box .map_vote_cont .map_list .map {
-    width: calc(12px* var(--onevh) *(16/9));
-    height: calc(12px* var(--onevh) );
-    margin-right:1vh;
-    background-size:cover;
-    background-position:center;
-    position:relative;
-    box-shadow:0px 1px 1vh 0px rgba(0, 0, 0, 0.6);
-    background-color: rgba(0, 0, 0, 0.5);;
-}
-#game_report_cont .cont_box .map_vote_cont .map_list .map.selected {
-    box-shadow: 0px 0px 0px 0.2vh rgba(255, 255, 255, 1);
-}
-#game_report_cont .cont_box .map_vote_cont .map_list .map:hover {
-    filter: brightness(1.3);
-}
-#game_report_cont .cont_box .map_vote_cont .map_list .map .name {
-    font-size: 1.6vh;
-    padding-left: 0.4vh;
-    padding-bottom:0.2vh;
-    background-image: linear-gradient(to top,rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.000000) 100%);
-    background-color: transparent;
-    position: absolute;
-    bottom: 0;
-    height: 4vh;
-    width: 100%;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    font-family:var(--mont-font);
-}
-#game_report_cont .cont_box .map_vote_cont .map_list .map .vote_cont {
-    top:0.6vh;
-    left:0.6vh;
-    right:0.6vh;
-}
-#game_report_cont .cont_box .map_vote_cont .map_list .map .vote_cont .vote {
-    width:1vh;
-    height:1vh;
-    margin-right:0.4vh;
-}
-
-#game_report_cont .bottom .countdown {
-    display:flex;
-    flex-direction:row;
-    align-items:bottom;
-    justify-content:flex-start;
-    align-items:center;
-    margin-top:1vh;
-    position: absolute;
-    left:2vh;
-    top: -5vh;
-    width: 20vh;
-}
-
-#game_report_cont .bottom .countdown .text {
-    font-size:1.6vh;
-    font-weight:bold;
-    opacity:0.8;
-    white-space:nowrap;
-}
-#game_report_cont .bottom .countdown .value {
-    font-size:3vh;
-    font-weight:bold;
-    margin-left:1.2vh;
-    width:5vh;
-    text-align:center;
-}
-
-
 #game_report_progression {
+    flex:1;
+    position:relative;
+    display: flex;
     flex-direction:column;
-    padding:4vh;
+    justify-content: flex-start;
+    align-items: center;
+    width:100%;
+    padding-left:2vh;
+    padding-right:2vh;
 }
 
 #game_report_progression .progress_cont {
@@ -2619,7 +2815,6 @@ h2 {
     flex-direction:row;
     align-items:center;
     width:100%;
-    max-width:80vh;
 }
 #game_report_progression .progress_cont .bp_level_icon {
     width:6vh;
@@ -2641,65 +2836,50 @@ h2 {
     height:100%;
     border-radius:4px;
 }
-#game_report_progression .reward_cont_outer {
+#game_report_progression .rewards_cont {
     display:flex;
     flex-direction:row;
-    justify-content:center;
+    justify-content:flex-start;
+    align-items:flex-start;
     width:100%;
-    max-width:80vh;
+    padding:0 9vh;
 }
-#game_report_progression .reward_cont {
+#game_report_progression .rewards_block {
     display:flex;
     flex-direction:column;
-    align-items:center;
+    align-items:flex-start;
     justify-content:flex-start;
-    margin:0 2vh;
-    max-width:80vh;
 }
-#game_report_progression .reward_cont .title {
+#game_report_progression .rewards_block .title {
     font-size:1.4vh;
     margin-bottom:0.4vh;
 }
-
-#game_report_progression .reward_cont .reward_list {
-    height:8vh;
+#game_report_progression .rewards_block .rewards {
     display:flex;
-    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
 }
-#game_report_progression .reward_cont .reward_list .customization_item {
+#game_report_progression .rewards_block .rewards .customization_item {
     height:7vh;
     width:7vh;
+    margin-left:0;
+    margin-right:0.8vh;
 }
 
-
-
-#game_report_rematch_cont {
-    width: 100%;
-    display:flex;
-    flex-direction:column;
-    margin-bottom:0.4vh;
+#game_report_progression .db-btn {
+    margin-left:1vh;
 }
-#game_report_rematch_cont .btn {
-    margin-bottom:0.2vh;
-}
-#game_report_cont .bottom .menu #game_report_rematch_cont .btn.requested { background-color: rgb(42, 120, 165); }
-#game_report_cont .bottom .menu #game_report_rematch_cont .btn.accepted { background-color: rgb(64, 177, 64); }
 
-#game_report_rematch_cont .rematch_state {
-    display:flex;
-    flex-direction:row;
-    height:1vh;
-}
-#game_report_rematch_cont .rematch_state .state {
-    display:flex;
-    margin:0 0.2vh;
-    flex:1;
+#game_report_progression .separator {
+    margin:0 4vh;
+    width:0.2vh;
+    background-color:rgba(255, 255, 255, 0.25);
     height:100%;
-    background-color:rgba(0,0,0,0.3);
 }
-#game_report_rematch_cont .rematch_state .state.accepted {
-    background-color: rgb(77, 211, 77);
-}
+
+
+
+
 #join_menu {
     display:none;
     justify-content:center;
@@ -3403,7 +3583,7 @@ h2 {
     width: 19%;
     height: 19%;
     background-color: transparent;
-    background-image: url(/html/images/Spark.svg);
+    background-image: url(/html/images/spark.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -4420,7 +4600,7 @@ h2 {
 
 .scroll-thumb {
     background-color:#222222;
-    box-shadow:inset 0 0 0 1px rgba(255,255,255,0.3);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,0.2);
     width:100%;
     height:0;
     position:absolute;

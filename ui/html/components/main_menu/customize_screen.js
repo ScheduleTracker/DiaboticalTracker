@@ -35,6 +35,18 @@ class CustomizationType {
     }
 }
 
+let global_customization_button_map = {
+    /*
+    "profile": {
+        "category_count_div": <div reference>
+        "page_count_divs": {
+            "avatar_": <div reference>
+            "sticker_eyes": <div reference>
+        }
+    }
+    */
+}
+
 let global_customization_options_map = {
     "profile": [
         new CustomizationType("avatar", ""),
@@ -91,6 +103,43 @@ let global_customization_audio_types = {
 };
 
 function init_screen_customize() {
+
+    let menu = _id("customize_menu");
+
+    // Init lookup map for the new count divs
+    global_customization_button_map['profile'] = {
+        "category_count_div": menu.querySelector(".category.profile .new"),
+        "page_count_divs": {},
+    };
+    global_customization_button_map['sticker'] = {
+        "category_count_div": menu.querySelector(".category.sticker .new"),
+        "page_count_divs": {},
+    };
+    global_customization_button_map['character'] = {
+        "category_count_div": menu.querySelector(".category.character .new"),
+        "page_count_divs": {},
+    };
+    global_customization_button_map['music'] = {
+        "category_count_div": menu.querySelector(".category.music .new"),
+        "page_count_divs": {},
+    };
+    global_customization_button_map['emote'] = {
+        "category_count_div": menu.querySelector(".category.emote .new"),
+        "page_count_divs": {},
+    };
+    global_customization_button_map['spray'] = {
+        "category_count_div": menu.querySelector(".category.spray .new"),
+        "page_count_divs": {},
+    };
+    global_customization_button_map['weapon'] = {
+        "category_count_div": menu.querySelector(".category.weapon .new"),
+        "page_count_divs": {},
+    };
+    global_customization_button_map['weapon_attachment'] = {
+        "category_count_div": menu.querySelector(".category.weapon_attachment .new"),
+        "page_count_divs": {},
+    };
+
     
     // Create weapon and weapon attachment ctypes
     for (let type of ["weapon", "weapon_attachment"]) {
@@ -229,6 +278,8 @@ function load_user_customizations(cb) {
 
         customization_pre_render_categories(true);
 
+        customization_update_new_counts();
+
         if (typeof cb === "function") cb();
     });
 }
@@ -251,6 +302,76 @@ function unflattenCustomizations(data) {
     }
 
     return customizations;
+}
+
+/**
+ * Updates the unseen customization counts in the main menu and the customization tabs
+ */
+function customization_update_new_counts() {
+    // Update the counts for the sub menu in customization
+    for (let category in global_customization_button_map) {
+        if (global_customization_button_map[category].category_count_div) {
+            let new_count = customization_get_new_count_category(category);
+            global_customization_button_map[category].category_count_div.textContent = new_count;
+
+            if (new_count == 0) global_customization_button_map[category].category_count_div.style.display = "none";
+            else global_customization_button_map[category].category_count_div.style.display = "flex";
+        }
+    }
+
+    // Update the total count in the main menu
+    let total_count_div = _id("customize_new_count");
+    let total_count = customization_get_new_count_category();
+    if (total_count_div) {
+        total_count_div.textContent = total_count;
+        if (total_count == 0) total_count_div.style.display = "none";
+        else total_count_div.style.display = "flex";
+    }
+
+    // Update the count of a category if one is open
+    if (global_customization_active_category && global_customization_active_category in global_customization_options_map) {
+
+        for (let ctype of global_customization_options_map[global_customization_active_category]) {
+            if (!global_customization_button_map.hasOwnProperty(global_customization_active_category)) continue;
+            if (!global_customization_button_map[global_customization_active_category].page_count_divs.hasOwnProperty(ctype.page_id)) continue;
+
+            let new_count = customization_get_new_count(ctype);
+            let div = global_customization_button_map[global_customization_active_category].page_count_divs[ctype.page_id];
+            div.textContent = new_count;
+            if (new_count == 0) div.style.display = "none";
+            else div.style.display = "flex";
+        }
+    }
+}
+
+/**
+ * Get the count of unseen new customization items within a ctype
+ * @param {CustomizationType} ctype 
+ */
+function customization_get_new_count(ctype) {
+    let new_count = 0;
+    for (let c of global_customization_data) {
+        if (c.customization_type != global_customization_type_id_map[ctype.type]) continue;
+        if (c.customization_sub_type != ctype.sub_type) continue;
+        if (c.seen === false) new_count++;
+    }
+
+    return new_count;
+}
+
+/**
+ * Get the count of unseen new customization items in a category (customization tab) or the combined count
+ * @param {String} category can also be an empty string to get the combined count
+ */
+function customization_get_new_count_category(category) {
+    let new_count = 0;
+    for (let c of global_customization_data) {
+        if (!global_customization_type_map.hasOwnProperty(c.customization_type)) continue;
+        if (category && global_customization_type_map[c.customization_type].group != category) continue;
+        if (c.seen === false) new_count++;
+    }
+
+    return new_count;
 }
 
 /**
@@ -322,6 +443,9 @@ function add_user_customizations(customizations) {
     }
 
     customization_pre_render_categories(false);
+
+    // Update the unseen customization count indicator
+    customization_update_new_counts();
 }
 
 function customization_add_defaults(category, data) {
@@ -458,6 +582,23 @@ function customization_render_category(category, selected_ctype) {
 
     for (let ctype of ctypes) {
         let option = _createElement("div","option");
+        let option_inner = _createElement("div", "option_inner");
+        option.appendChild(option_inner);
+
+        // Unseen count indicator
+        let new_count = customization_get_new_count(ctype);
+        let new_div = _createElement("div", "new", new_count);
+        option.appendChild(new_div);
+        if (new_count == 0) new_div.style.display = "none";
+
+        if (!category in global_customization_button_map) {
+            global_customization_button_map[category] = {
+                "category_count_div": undefined,
+                "page_count_divs": {},
+            }
+        }
+        global_customization_button_map[category]["page_count_divs"][ctype.page_id] = new_div;
+
 
         if (category == "weapon" || category == "weapon_attachment") {
 
@@ -486,9 +627,9 @@ function customization_render_category(category, selected_ctype) {
                     option.style.backgroundImage = "url(../resources/asset_thumbnails/textures_customization_st_heart_pink_bow.png.dds)";
                     tooltip = true;
                 } else if (ctype.sub_type == "misc") {
-                    option.textContent = localize("customize_"+ctype.page_id);
+                    option_inner.textContent = localize("customize_"+ctype.page_id);
                 } else if (ctype.sub_type == "logos") {
-                    option.textContent = localize("customize_"+ctype.page_id);
+                    option_inner.textContent = localize("customize_"+ctype.page_id);
                 }
 
                 // Tooltip
@@ -497,13 +638,13 @@ function customization_render_category(category, selected_ctype) {
                     add_tooltip2_listeners(option);
                 }
             } else {
-                option.textContent = localize("customize_"+ctype.type);
+                option_inner.textContent = localize("customize_"+ctype.type);
             }
         } else {
             if (ctype.sub_type.length) {
-                option.textContent = localize("customize_"+ctype.page_id);
+                option_inner.textContent = localize("customize_"+ctype.page_id);
             } else {
-                option.textContent = localize("customize_"+ctype.type);
+                option_inner.textContent = localize("customize_"+ctype.type);
             }
         }
 
@@ -561,6 +702,13 @@ function customization_show_category(category, ctype) {
         global_customization_selected_attachment = get_current_customization_attachments(ctype.sub_type);
         if (global_customization_selected_attachment.attachment in global_customization_data_map) current_customization = global_customization_data_map[global_customization_selected_attachment.attachment];
         current_customization_id = create_attachment_customization_string(global_customization_selected_attachment);
+    } else if (global_customization_active_ctype.type == "country") {
+        current_customization = {
+            "customization_id": current_customization_id,
+            "customization_type": 10,
+            "customization_sub_type": null,
+            "rarity": 0,
+        };
     } else {
         if (current_customization_id in global_customization_data_map) current_customization = global_customization_data_map[current_customization_id];
     }
@@ -578,9 +726,10 @@ function customization_show_category(category, ctype) {
         show_customization_preview_scene("customize", ctype, current_customization_id, current_customization, global_customization_preview_area);
 
         _id("customize_screen_stickers").style.display = "none";
-        customize_set_tool("none");
     }
 
+    // Reset tool selection when changing category or sub category
+    customize_set_tool("none");
 
     cleanup_floating_containers();
 
@@ -912,6 +1061,13 @@ function customization_on_select(e) {
         global_customization_selected_attachment.attachment = e.currentTarget.dataset.id;
         if (global_customization_selected_attachment.attachment in global_customization_data_map) current_customization = global_customization_data_map[global_customization_selected_attachment.attachment];
         current_customization_id = create_attachment_customization_string(global_customization_selected_attachment);
+    } else if (global_customization_active_ctype.type == "country") {
+        current_customization = {
+            "customization_id": current_customization_id,
+            "customization_type": 10,
+            "customization_sub_type": null,
+            "rarity": 0,
+        };
     } else {
         if (current_customization_id in global_customization_data_map) current_customization = global_customization_data_map[current_customization_id];
     }
@@ -986,6 +1142,9 @@ function customization_on_select(e) {
 
         let new_div = e.currentTarget.querySelector(".new");
         if (new_div) _remove_node(new_div);
+
+        // Update the count indicators
+        customization_update_new_counts();
     }
 }
 
@@ -1290,7 +1449,12 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
 
         engine.call("on_show_customization_screen", false);
         global_customization_blur_active = true;
-        
+    
+    } else if (ctype.type == "country") {
+
+        engine.call("on_show_customization_screen", false);
+        global_customization_blur_active = true;
+
     } else {
 
         engine.call("on_show_customization_screen", false);
@@ -1298,13 +1462,17 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
 
     }
 
+    
+    engine.call("on_show_customization_screen", true);
+    engine.call("on_show_customization_screen_weapon");
+    if (ctype.type != "weapon" && ctype.type != "weapon_attachment") engine.call("weapon_customization_select_weapon", "none");
+
+    
     // Enabled / Disable the background blur
     set_blur(global_customization_blur_active);
 
     _empty(cont);
 
-    // Don't show a preview for country flags
-    if (ctype.type == "country") return;
 
     if (!customization.hasOwnProperty("customization_id")) {
         customization = {

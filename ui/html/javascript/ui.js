@@ -276,10 +276,13 @@ window.addEventListener("load", function(){
 
     bind_event('view_data_received', function(string) {
         // data from another view received
-        //console.log('view_data_received', string);
+        let data = parse_view_data(string);
 
-        if (string == "reset_own_profile_cache") {
+        if (data.action == "reset_own_profile_cache") {
             clear_profile_data_cache_id(global_self.user_id);
+        }
+        if (data.action == "open_battlepass_upgrade") {
+            open_battlepass_upgrade();
         }
     });
 
@@ -687,16 +690,16 @@ window.addEventListener("load", function(){
         $("#skill_selection_time").html(value);
     });
 */
+    let expand_search_timeout = null;
     bind_event('set_checkbox', function (variable, value) {
 
-        // Quickplay / Matchmaking screen checkboxes are handled a little different
-        if (variable.startsWith("lobby_search")) {
-            play_screen_update_cb(variable,value);
-            return;
-        }
 
         if (variable == "lobby_region_search_nearby") {
-            send_string(CLIENT_COMMAND_SET_PARTY_EXPAND_SEARCH, ""+value);
+            if (expand_search_timeout != null) clearTimeout(expand_search_timeout);
+            expand_search_timeout = setTimeout(() => {
+                send_string(CLIENT_COMMAND_SET_PARTY_EXPAND_SEARCH, ""+value);
+                expand_search_timeout = null;
+            },10);
         }
 
         if (variable.startsWith("lobby_custom_")) {
@@ -898,6 +901,11 @@ window.addEventListener("load", function(){
 
         if (variable == "lobby_region") {
             set_region_selection(true, value);
+        }
+
+        if (variable == "lobby_search") {
+            set_queue_selection(value);
+            return;
         }
 
         if (variable == "lobby_custom_datacenter") {
@@ -1218,7 +1226,7 @@ window.addEventListener("load", function(){
         init_hud_editor_elements();
 
         init_screen_learn();
-        init_screen_aim();
+        //init_screen_aim();
         init_screen_practice();
 
         engine.call("update_friends_list");
@@ -1312,7 +1320,7 @@ window.addEventListener("load", function(){
     setupMenuSoundListeners();
     setupVariousListeners();
 
-    init_debug_listeners();
+    init_notifications();
 
     set_masterserver_connection_state(false, true);
 
@@ -1370,6 +1378,9 @@ function set_masterserver_connection_state(connected, initial) {
 
             // Request battlepass data
             load_battlepass_data();
+
+            // Request battlepass rewards data
+            load_battlepass_rewards_data();
         });
 
         // Requeust queues
@@ -1503,7 +1514,6 @@ function parse_modes(modes) {
         global_queues[name] = {
             "i18n": i18n,
             "match_type": modes[name].type,
-            "variable": "lobby_search_"+name,
             "vs": vs,
             "queue_name": queue_name,
             "team_size": modes[name].players_per_team,
@@ -1978,62 +1988,6 @@ function settingsTwitchAccount(isLinked) {
                 isLinked ?
                 "https://www.diabotical.com/twitch/unlink" :
                 "https://www.diabotical.com/twitch/link");
-}
-
-function init_debug_listeners() {
-
-    // /devop ui_call test_battlepass_upgrade_notif
-    bind_event("test_battlepass_upgrade_notif", function() {
-        global_notifs.addNotification({
-            "notif_id": 181,
-            "notif_type": 0,
-            "from_user_id": null,
-            "message": null,
-            "items": []
-        });
-        load_notifications();
-    });
-
-    // /devop ui_call test_item_unlock_notif
-    bind_event("test_item_unlock_notif", function() {
-        global_notifs.addNotification({
-            "notif_id": 182,
-            "notif_type": 1,
-            "from_user_id": null,
-            "message": null,
-            "items": [
-                {
-                    "notif_id": 182,
-                    "customization_id": "av_smileyblue",
-                    "customization_type": 2,
-                    "customization_sub_type": "",
-                    "customization_set_id": null,
-                    "rarity": 0,
-                    "amount": 1
-                },
-                {
-                    "notif_id": 183,
-                    "customization_id": "av_smileyred",
-                    "customization_type": 2,
-                    "customization_sub_type": "",
-                    "customization_set_id": null,
-                    "rarity": 0,
-                    "amount": 1
-                },
-                {
-                    "notif_id": 184,
-                    "customization_id": "av_smileyorange",
-                    "customization_type": 2,
-                    "customization_sub_type": "",
-                    "customization_set_id": null,
-                    "rarity": 0,
-                    "amount": 1
-                }
-            ]
-        });
-        load_notifications();
-    });
-
 }
 
 function preload_image(url) {

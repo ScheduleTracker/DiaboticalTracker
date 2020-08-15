@@ -218,10 +218,11 @@ function stackTrace() {
 
 // Recursively removes all child nodes and then itself from the DOM
 function _remove_node(node){
-  while (node.hasChildNodes()) {
-    _remove_node(node.lastChild);
-  }
-  if (node.parentNode) node.parentNode.removeChild(node);
+    if (node === undefined || node === null) return;
+    while (node.hasChildNodes()) {
+        _remove_node(node.lastChild);
+    }
+    if (node.parentNode) node.parentNode.removeChild(node);
 }
 
 // Recursively removes all child nodes from the node
@@ -229,7 +230,7 @@ function _empty(node) {
     //while (node.firstChild) {
     //    node.removeChild(node.firstChild);
     //}
-    if (node === undefined) return;
+    if (node === undefined || node === null) return;
     while (node.hasChildNodes()) {
         _remove_node(node.lastChild);
     }
@@ -862,8 +863,39 @@ function getRankName(rank, position) {
 }
 
 // Views: "menu", "hud"
-function send_view_data(view, string) {
-    engine.call("send_view_data", view, string)
+function send_view_data(view, type, string) {
+    if (type == "string") {
+        engine.call("send_view_data", view, "s "+string);
+    } else if (type == "json") {
+        engine.call("send_view_data", view, "j "+JSON.stringify(string));
+    }
+}
+
+function parse_view_data(string) {
+    let action = '';
+    let data = {};
+    let char = string.charAt(0);
+
+    if (char === "s") {
+
+        // String
+        action = string.substring(2);
+
+    } else if (char === "j") {
+        
+        // JSON
+        let json = string.substring(2);
+        
+        try {
+            data = JSON.parse(json);
+            if (data.hasOwnProperty("action")) action = data.action;
+        } catch(e) {
+            console.error("Error parsing view data json", e.message, string);
+        }
+
+    }
+
+    return { "action": action, "data": data };
 }
 
 function sortPlayersByStats(a, b) {
@@ -886,6 +918,8 @@ function createCustomizationName(item) {
     let name = _createElement("div", "name");
     if (global_customization_type_map[item.customization_type].name == "currency") {
         name.textContent = localize_ext("count_coin", {"count": item.amount});
+    } else if (global_customization_type_map[item.customization_type].name == "country") {
+        name.textContent = localize_country(item.customization_id);
     } else if (item.customization_id.trim().length == 0) {
         name.textContent = localize("customization_default");
     } else {
@@ -912,16 +946,28 @@ function createCustomizationInfo(item, show_name) {
 function createCustomizationPreview(item) {
     let preview_image = _createElement("div", "customization_preview_image");
     if (global_customization_type_map[item.customization_type].name == "avatar") {
+
         if (item.customization_id == "default") return preview_image;
         preview_image.classList.add(global_customization_type_map[item.customization_type].name);
         preview_image.style.backgroundImage = "url("+_avatarUrl(item.customization_id)+")";
+
+    } else if (global_customization_type_map[item.customization_type].name == "country") {
+        
+        if (item.customization_id == "default") return preview_image;
+        preview_image.classList.add(global_customization_type_map[item.customization_type].name);
+        preview_image.style.backgroundImage = "url(/html/customization/flag/"+item.customization_id+".png.dds)";
+
     } else if (global_customization_type_map[item.customization_type].name == "currency") {
+
         preview_image.classList.add(global_customization_type_map[item.customization_type].name);
         preview_image.style.backgroundImage = "url(/html/images/icons/reborn_coin.png.dds)";
+
     } else if (global_customization_type_map[item.customization_type].name == "music") {
+
         //preview_image.style.backgroundImage = "url(/html/customization/music/mu_pu_placeholder.png.dds)"; // TEMP until we have proper images for each song?
         preview_image.classList.add(global_customization_type_map[item.customization_type].name);
         preview_image.style.backgroundImage = "url("+_musicImageUrl(item.customization_id)+")";
+
     }
     return preview_image;
 }

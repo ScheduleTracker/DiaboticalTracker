@@ -317,12 +317,15 @@ function renderMatchScreen(match) {
         if (type == "rounds") {
             if (player_count % 2) row.classList.add("odd");
 
+            let victory = '';
+            if (team && team.placement == 0) victory = " - "+localize("ingame_victory");
+            if (victory.length) row.classList.add("win");
+
             if (match.team_size > 1 || !p) {
-                let victory = '';
-                if (team && team.placement == 0) victory = " - "+localize("ingame_victory");
+
                 let name = _createElement("div", "name", team.name+victory);
-                if (victory.length) row.classList.add("win");
                 row.appendChild(name);
+
             } else {
                 let country = _createElement("div", "country");
                 row.appendChild(country);
@@ -333,7 +336,7 @@ function renderMatchScreen(match) {
                 let avatar = _createElement("div", "avatar");
                 avatar.style.backgroundImage = "url("+_avatarUrl(p.avatar)+")";
                 row.appendChild(avatar);
-                row.appendChild(_createElement("div", "name", p.name));
+                row.appendChild(_createElement("div", "name", p.name+victory));
             }
         }
 

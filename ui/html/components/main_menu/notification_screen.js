@@ -7,6 +7,60 @@
         - when a user gets the battlepass gifted
 */
 
+function init_notifications() {
+    // /devop ui_call test_battlepass_upgrade_notif
+    bind_event("test_battlepass_upgrade_notif", function() {
+        global_notifs.addNotification({
+            "notif_id": 181,
+            "notif_type": 0,
+            "from_user_id": null,
+            "message": null,
+            "items": []
+        });
+        load_notifications();
+    });
+
+    // /devop ui_call test_item_unlock_notif
+    bind_event("test_item_unlock_notif", function() {
+        global_notifs.addNotification({
+            "notif_id": 182,
+            "notif_type": 1,
+            "from_user_id": null,
+            "message": null,
+            "items": [
+                {
+                    "notif_id": 182,
+                    "customization_id": "av_smileyblue",
+                    "customization_type": 2,
+                    "customization_sub_type": "",
+                    "customization_set_id": null,
+                    "rarity": 0,
+                    "amount": 1
+                },
+                {
+                    "notif_id": 183,
+                    "customization_id": "av_smileyred",
+                    "customization_type": 2,
+                    "customization_sub_type": "",
+                    "customization_set_id": null,
+                    "rarity": 0,
+                    "amount": 1
+                },
+                {
+                    "notif_id": 184,
+                    "customization_id": "av_smileyorange",
+                    "customization_type": 2,
+                    "customization_sub_type": "",
+                    "customization_set_id": null,
+                    "rarity": 0,
+                    "amount": 1
+                }
+            ]
+        });
+        load_notifications();
+    });
+}
+
 function load_notifications() {
     let notif = global_notifs.getNotification();
     if (!notif) return;
@@ -109,7 +163,9 @@ function load_notifications() {
 
         // show 3d or 2d preview of item
         _empty(item_preview);
-        item_preview.appendChild(createCustomizationPreview(item));
+        //item_preview.appendChild(createCustomizationPreview(item));
+        let ctype = new CustomizationType(global_customization_type_map[item.customization_type].name, item.customization_sub_type);
+        show_customization_preview_scene("notification", ctype, item.customization_id, item, item_preview);
         
         // show customization info as the item description
         _empty(item_desc);

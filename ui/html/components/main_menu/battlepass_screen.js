@@ -39,6 +39,19 @@ function load_battlepass_data(cb) {
     });
 }
 
+function load_battlepass_rewards_data(cb) {
+    send_string(CLIENT_COMMAND_GET_BATTLEPASS_REWARDS, global_user_battlepass.battlepass_id, "battlepass-rewards", function(data) {
+        global_battlepass_rewards_cache[global_user_battlepass.battlepass_id] = format_battlepass_rewards(data.data);
+        
+        if (typeof cb === "function") cb(global_battlepass_rewards_cache[global_user_battlepass.battlepass_id]);
+
+        send_view_data("hud", "json", {
+            "action": "set-battlepass-rewards",
+            "rewards": global_battlepass_rewards_cache[global_user_battlepass.battlepass_id]
+        });
+    });
+}
+
 function load_battlepass() {
     //console.log("load_battlepass",_dump(global_user_battlepass));
 
@@ -51,42 +64,40 @@ function load_battlepass() {
     
     render_battlepass(global_user_battlepass);
 
+    // Show spinner while loading
+    let bottom = screen.querySelector(".battlepass_bottom");
+    bottom.style.filter = "opacity(0)";
+
     let bp_rewards = screen.querySelector(".battlepass_rewards");
+    _empty(bp_rewards);
+
+    let spinner_cont = screen.querySelector(".battlepass_bottom_spinner");
+    _empty(spinner_cont);
+    spinner_cont.appendChild(_createSpinner());
+    spinner_cont.style.display = "flex";
+
+    // hide previous reward
+    showRewardPreview(screen);
 
     if (global_user_battlepass.battlepass_id in global_battlepass_rewards_cache) {
-        let { pos, locked_count } = render_battlepass_rewards(screen, global_user_battlepass, global_battlepass_rewards_cache[global_user_battlepass.battlepass_id], showRewardPreview);
-        if (!global_scrollboosters['bp_rewards']) setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
-        else global_scrollboosters['bp_rewards'].setPosition({"x": pos, "y":0 });
-        render_battlepass_buttons(locked_count);
-    } else {
-
-        // Show spinner while loading
-        _empty(bp_rewards);
-        bp_rewards.appendChild(_createSpinner());
-
-        // Hide arrows during loading
-        _for_each_with_selector_in_parent(_id("battlepass_screen"), ".rewards_arrow", function(el) {
-            el.style.display = "none";
-        });
-
-        send_string(CLIENT_COMMAND_GET_BATTLEPASS_REWARDS, global_user_battlepass.battlepass_id, "battlepass-rewards", function(data) {
-            bp_rewards.style.filter = "opacity(0)";
-
-            global_battlepass_rewards_cache[global_user_battlepass.battlepass_id] = format_battlepass_rewards(data.data);
-            let { pos, locked_count } = render_battlepass_rewards(screen, global_user_battlepass, global_battlepass_rewards_cache[global_user_battlepass.battlepass_id], showRewardPreview);
-
-            if (global_scrollboosters['bp_rewards']) global_scrollboosters['bp_rewards'].destroy();
-            setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
-            req_anim_frame(() => {
-                anim_start({
-                    element: bp_rewards,
-                    opacity: [0, 1],
-                    duration: 200,
-                    easing: easing_functions.easeOutQuad,
-                });
-            },4);
-
+        setTimeout(() => {
+            let { pos, locked_count } = render_battlepass_rewards(screen, global_user_battlepass, global_battlepass_rewards_cache[global_user_battlepass.battlepass_id], showRewardPreview);            
+            if (!global_scrollboosters['bp_rewards']) setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
+            else global_scrollboosters['bp_rewards'].setPosition({"x": pos, "y":0 });
             render_battlepass_buttons(locked_count);
+
+            spinner_cont.style.display = "none";
+            anim_show(bottom);
+        }, 250);
+    } else {
+        load_battlepass_rewards_data((data) => {
+            let { pos, locked_count } = render_battlepass_rewards(screen, global_user_battlepass, global_battlepass_rewards_cache[global_user_battlepass.battlepass_id], showRewardPreview);            
+            if (!global_scrollboosters['bp_rewards']) setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
+            else global_scrollboosters['bp_rewards'].setPosition({"x": pos, "y":0 });
+            render_battlepass_buttons(locked_count);
+
+            spinner_cont.style.display = "none";
+            anim_show(bottom);
         });
     }
 }
@@ -704,6 +715,9 @@ function render_battlepass_rewards(cont, bp, rewards, select_cb) {
                 item_cont.classList.add("locked");
                 locked_count++;
             }
+            if (bp.battlepass.level < r.battlepass_reward_level) {
+                item_cont.classList.add("locked");
+            }
             if (bp.battlepass.level >= r.battlepass_reward_level && (bp.battlepass.owned || r.free)) {
                 let state = _createElement("div", ["state", "unlocked"]);
                 let checkmark = _createElement("div", "checkmark");
@@ -788,18 +802,20 @@ function showRewardPreview(cont, reward) {
     //console.log(_dump(reward));
 
     let preview_cont = cont.querySelector(".battlepass_reward_preview .reward_preview");
-    _empty(preview_cont);
-    
-    // Big Preview
-    preview_cont.appendChild(createCustomizationPreview(reward));
-
     let desc_cont = cont.querySelector(".battlepass_reward_preview .reward_info");
-    _empty(desc_cont);
-
     let reward_title = cont.querySelector(".battlepass_reward_preview .reward_title");
+    _empty(preview_cont);
+    _empty(desc_cont);
     _empty(reward_title);
 
+    if (reward == null) return;
+    
+    // Big Preview
+    //preview_cont.appendChild(createCustomizationPreview(reward));
     reward_title.appendChild(createCustomizationName(reward));
+    let ctype = new CustomizationType(global_customization_type_map[reward.customization_type].name, reward.customization_sub_type);
+    show_customization_preview_scene("battlepass_preview", ctype, reward.customization_id, reward, preview_cont);
+    
     
     let fragment = new DocumentFragment();
     fragment.appendChild(createCustomizationInfo(reward, false));

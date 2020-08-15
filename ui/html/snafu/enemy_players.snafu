@@ -679,8 +679,16 @@ ON_UPDATE
         IF dir
             solo_main_life_offset_y = 0
         END IF
+        
+        lives_mode = 0
+        IF game_data.game_mode == "ca"
+            lives_mode = 1
+        END IF
+        IF game_data.game_mode == "rocket_arena" || game_data.game_mode == "shaft_arena"
+            lives_mode = 1
+        END IF
 
-        IF game_data.game_mode == "ca" && sL
+        IF lives_mode && sL
 
             # ========================================
             # ARENA LIFE 2

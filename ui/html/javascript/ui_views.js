@@ -376,6 +376,13 @@ function _fade_out_if_not(selector, exception) {
     }
 }
 
+
+let flat_bg_scene_screens = [
+    "notification_screen",
+    "battlepass_screen",
+    "shop_screen",
+    //"player_profile_screen",
+];
 function switch_screens(dst, silent) {
     engine.call("show_draft", false);
 
@@ -417,6 +424,10 @@ function switch_screens(dst, silent) {
     // Customization screen view
     if (dst.id == "customize_screen") {
         //engine.call("on_show_customization_screen", true);
+    } else if (flat_bg_scene_screens.includes(dst.id)) {
+        engine.call("on_show_customization_screen", true);
+        engine.call("on_show_customization_screen_weapon");
+        engine.call("weapon_customization_select_weapon", "none");
     } else {
         engine.call("on_show_customization_screen", false);
         if (global_menu_page == "customize_screen") {
@@ -711,10 +722,8 @@ function open_battlepass() {
         } else {
             set_blur(true);
             historyPushState({"page": "battlepass_screen"});
+            switch_screens(_id("battlepass_screen"));
             load_battlepass();
-            req_anim_frame(() => {
-                switch_screens(_id("battlepass_screen"));
-            }, 2);
         }
 
     } else {

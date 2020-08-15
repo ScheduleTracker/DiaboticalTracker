@@ -1,6 +1,8 @@
 // global vars
 let global_queue_mode_checkboxes = [];
 let global_queue_groups = [];
+let global_queue_selection = {};
+let global_update_queue_modes_timeout = null;
 
 // on load
 function init_screen_play() {
@@ -25,6 +27,63 @@ function init_queues() {
     global_queue_mode_checkboxes = [];
     renderQuickPlayCards(global_queue_groups.filter(g => g.type == "quickplay"));
     renderRankedCards(global_queue_groups.filter(g => g.type == "ranked"));
+    engine.call("initialize_select_value", "lobby_search");
+    update_queue_modes_availability();
+}
+
+
+function set_queue_selection(json) {
+    global_queue_selection = {};
+    try {
+        global_queue_selection = JSON.parse(json);
+    } catch(e) {
+        console.error("ERROR parsing queue selection json", e.message);
+    }
+
+    for (let cb of global_queue_mode_checkboxes) {
+        if (cb.classList.contains("party_disabled")) continue;
+
+        let active = (cb.dataset.enabled == "true") ? 1 : 0;
+
+        let changed = false;
+        if (global_queue_selection.hasOwnProperty(cb.dataset.mode)) {
+            if (global_queue_selection[cb.dataset.mode] != active) {
+                changed = true;
+            }
+        } else {
+            global_queue_selection[cb.dataset.mode] = 1;
+            changed = true;
+        }
+
+        if (changed) {
+            let value = global_queue_selection[cb.dataset.mode];
+
+            cb.dataset.enabled = value == 1 ? "true" : "false";
+            (cb.dataset.enabled == "true") ? enable_mode_checkbox(cb) : disable_mode_checkbox(cb);
+        
+            if (bool_am_i_leader) {
+                // timeout in case user clicked on the card and it changes selection of multiple modes at once, don't send an update for each individual mode
+                if (global_update_queue_modes_timeout != null) clearTimeout(global_update_queue_modes_timeout);
+                global_update_queue_modes_timeout = setTimeout(function() {
+                    update_queue_modes();
+                    global_update_queue_modes_timeout = null;
+                },50);
+            }
+
+        }
+    }
+
+    // cleanup unused queue settings
+    for (let queue in global_queue_selection) {
+        if (!global_queues.hasOwnProperty(queue)) delete global_queue_selection[queue];
+    }
+
+}
+function set_queue_enabled(mode, value) {
+    if (!global_queues.hasOwnProperty(mode)) return;
+
+    global_queue_selection[mode] = value ? 1 : 0;
+    update_variable("string", "lobby_search", JSON.stringify(global_queue_selection));
 }
 
 // For when no masterserver connection is available
@@ -378,12 +437,12 @@ let global_initial_region_selection = true;
 function set_region_selection(from_engine, regions) {
     global_server_selected_locations = regions.split(':');
 
-    _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".checkbox", function(el) {
+    _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".body .checkbox", function(el) {
         el.classList.remove("checkbox_enabled");
         el.firstElementChild.classList.remove("inner_checkbox_enabled");
     });
 
-    _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".small_checkbox", function(el) {
+    _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".body .small_checkbox", function(el) {
         if (global_server_selected_locations.includes(el.dataset.id)) {
             el.classList.add("checkbox_enabled");
             el.children[0].classList.add("inner_checkbox_enabled");
@@ -495,6 +554,19 @@ function renderQuickPlayCards(cards) {
     for (let card of cards) {
         container.appendChild(renderPlayCard(card));
     }
+
+    // Warmup card/button
+    container.appendChild(renderPlayCard({
+        "type": "warmup",
+        "title": "warmup",
+        "background": "brawl",
+        "on_click": function() { join_warmup(); },
+        "on_click_spinner": true,
+        "hover_button": "join",
+        //"tooltip": "practice",
+        "state": 2,
+    }));
+
     _for_each_with_class_in_parent(container, 'tooltip2', function(el) {
         add_tooltip2_listeners(el);
     });
@@ -540,6 +612,9 @@ function renderPlayCard(data) {
     let card_flex = _createElement("div", ["card_flex"]);
     card_flex.dataset.card_idx = play_card_index;
     card_flex.dataset.currently_active = "false";
+
+    // Make these cards smaller to make the center team one stand out
+    if (data.name == "qg_r_arena" || data.name == "qg_r_duel") card_flex.classList.add("small");
     
     let play_card_video = new PlayCardVideo(data.background);
     card_flex.appendChild(play_card_video.card);
@@ -598,7 +673,6 @@ function renderPlayCard(data) {
 
         let card_checkbox = _createElement("div", "card_checkbox");
         card_checkbox.dataset.mode = queue;
-        card_checkbox.dataset.variable = global_queues[queue].variable;
         card_checkbox.dataset.locked = (data.state == 1) ? true : false;
         card_checkbox.dataset.type = data.type;
 
@@ -701,6 +775,12 @@ function renderPlayCard(data) {
         }
     }
 
+    let card_spinner = null;
+    if (data.on_click_spinner) {
+        card_spinner = _createSpinner();
+        card_flex.appendChild(card_spinner);
+    }
+
     if (data.state > 1) {
         card_flex.addEventListener("mouseenter", function() {
             card_flex.classList.add("hover");
@@ -726,7 +806,21 @@ function renderPlayCard(data) {
             let first = true;
 
             if (data.state > 1 && data.on_click) {
-                data.on_click();
+                if (card_flex.classList.contains("onclickactive")) return;
+
+                let initial_delay = 0;
+                if (data.on_click_spinner && card_spinner != null) {
+                    initial_delay = 500;
+                    card_flex.classList.add("onclickactive");
+                    card_spinner.classList.add("active");
+                    setTimeout(function() {
+                        card_flex.classList.remove("onclickactive");
+                        card_spinner.classList.remove("active");
+                    }, 4000);
+                }
+                setTimeout(function() {
+                    data.on_click();
+                }, initial_delay);
             }
        
             for (let cb of card_checkboxes) {
@@ -736,10 +830,10 @@ function renderPlayCard(data) {
                 if (data.type == "quickplay" && global_mm_searching_quickplay) continue;
                 if (data.type == "ranked" && global_mm_searching_ranked) continue;
                   
-                let variable = cb.dataset.variable;
+                let mode = cb.dataset.mode;
 
                 if (first) {
-                    if (!variable) continue;
+                    if (!mode) continue;
                     let value = false;
                     let data_value = cb.dataset.enabled;
                     if (data_value && (data_value === "true" || data_value === true)) value = true;
@@ -749,14 +843,14 @@ function renderPlayCard(data) {
                     
                     (set_all_enabled) ? _play_cb_check() : _play_cb_uncheck();
                 }
-                
-                engine.call("set_bool_variable", variable, set_all_enabled);
+
+                set_queue_enabled(mode, set_all_enabled);
             }
         
         });
 
         for (let cb of card_checkboxes) {
-            let variable = cb.dataset.variable;
+            let mode = cb.dataset.mode;
             cb.addEventListener("click", function(ev) {
                 ev.stopPropagation();
                 if (cb.classList.contains("disabled")) return;
@@ -772,7 +866,7 @@ function renderPlayCard(data) {
 
                 (value) ? _play_cb_check() : _play_cb_uncheck();
 
-                engine.call("set_bool_variable", variable, value);
+                set_queue_enabled(mode, value);
             });
         }
 
@@ -893,30 +987,6 @@ function play_screen_reset_cards(type) {
     });
 }
 
-
-let global_update_queue_modes_timeout = null;
-function play_screen_update_cb(variable, value) {
-    for (let cb of global_queue_mode_checkboxes) {
-
-        if (cb.dataset.variable == variable) {
-            cb.dataset.enabled = value ? "true" : "false";
-            (cb.dataset.enabled == "true") ? enable_mode_checkbox(cb) : disable_mode_checkbox(cb);
-        
-            if (bool_am_i_leader) {
-                // timeout in case user clicked on the card and it changes selection of multiple modes at once, don't send an update for each individual mode
-                if (global_update_queue_modes_timeout != null) clearTimeout(global_update_queue_modes_timeout);
-                global_update_queue_modes_timeout = setTimeout(function() {
-                    update_queue_modes();
-                    global_update_queue_modes_timeout = null;
-                },50);
-            }
-
-            break;
-        }
-
-    }
-}
-
 function update_queue_modes() {
     let requested_modes = [];
 
@@ -934,7 +1004,7 @@ function update_queue_modes_availability() {
     for (let cb of global_queue_mode_checkboxes) {
         if (cb.classList.contains("disabled")) return;
 
-        let cb_times =  cb.querySelector(".checkbox_times");
+        let cb_times = cb.querySelector(".checkbox_times");
         if (global_party['valid-modes'].includes(cb.dataset.mode)) {
             cb.classList.remove("party_disabled");
             if (cb_times) cb_times.classList.remove("party_disabled");

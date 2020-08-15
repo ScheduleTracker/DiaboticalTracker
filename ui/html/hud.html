@@ -503,41 +503,58 @@
 
     <div id="game_report">
         <div id="game_report_cont">
-    <div class="head"></div>
-    <div class="report_scoreboard scroll-outer" data-sb-hide-empty="true">
-        <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-        <div id="report_scoreboard" class="scroll-inner"></div>
+    <div class="report_head">
+        <div class="head_side result_text"></div>
+        <div class="head_side mode_map_time"></div>
     </div>
-    <div class="bottom">
+    <div class="report_top">
+        <div class="countdown">
+            <div class="text"></div>
+            <div id="game_report_countdown" class="value"></div>
+        </div>
+
+        <div class="buttons">
+            <div id="game_report_requeue" class="btn mouseover-sound4 click-sound requeue i18n" data-i18n="requeue_now" onclick="game_report_requeue()">REQUEUE NOW</div>
+            <div id="game_report_rematch_cont">
+                <div class="btn mouseover-sound4 click-sound rematch i18n" data-i18n="request_rematch" onclick="game_report_request_rematch()">Request rematch</div>
+                <div class="rematch_state"></div>
+            </div>
+        </div>
+    </div>
+    <div class="report_tabs">
+        <div class="tab_cont" id="report_tab_mapvote">
+            <div class="tab" onclick="game_report_open_tab(this, 'mapvote')">Map Vote</div>
+        </div>
+        <div class="tab_cont" id="report_tab_scoreboard">
+            <div class="tab" onclick="game_report_open_tab(this, 'scoreboard')">Scoreboard</div>
+        </div>
+        <div class="tab_cont" id="report_tab_stats">
+            <div class="tab" onclick="game_report_open_tab(this, 'stats')">Stats</div>
+        </div>
+    </div>
+    <div class="report_content">
+        <div id="report_mapvote" class="content"></div>
+        <div id="report_scoreboard" class="content scroll-outer" data-sb-hide-empty="true">
+            <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+            <div id="report_scoreboard_inner" class="scroll-inner"></div>
+        </div>
+        <div id="report_stats" class="content"></div>
+    </div>
+    <div class="report_bottom">
         <div class="chat">
             <div class="chat_container">
                 <div class="chat_messages"></div>
             </div>
             <div class="chat_input_cont">
                 <div id="game_report_chat_input_mode" class="i18n" data-i18n="settings_controls_chat">Chat</div>
-                <input class="chat_input" />
+                <input id="game_report_chat_input" class="chat_input" />
             </div>
         </div>
         
-        <div class="container">
-            <div id="game_report_progression" class="cont_box"></div>
-            <div id="game_report_map_vote" class="cont_box"></div>
-            <div id="game_report_stats" class="cont_box"></div>
-        </div>
+        <div id="game_report_progression"></div>
 
         <div class="menu">
-            <div class="btn i18n mouseover-sound4 progress" onclick="game_report_show_progression(true)" data-i18n="report_progression">Progression</div>
-            <div class="btn i18n mouseover-sound4 map_vote" onclick="game_report_show_map_vote(true)" data-i18n="report_map_vote">Map Vote</div>
-            <div class="btn i18n mouseover-sound4 stats"    onclick="game_report_show_stats(true)" data-i18n="report_stats">Statistics</div>
-            <div id="game_report_rematch_cont">
-                <div class="btn i18n mouseover-sound4 click-sound rematch" onclick="game_report_request_rematch()">Request rematch</div>
-                <div class="rematch_state"></div>
-            </div>
             <div class="btn i18n mouseover-sound4 click-sound quit" onclick="button_game_over_quit()" data-i18n="ingame_menu_section_leavematch">Leave Match</div>
-            <div class="countdown">
-                <div class="text"></div>
-                <div id="game_report_countdown" class="value"></div>
-            </div>
         </div>
     </div>
 </div>

@@ -40,23 +40,56 @@ function init_element_chat() {
 }
 
 // Catch any extra keypresses sent within 1ms of the chat keybind being pressed to avoid the bind char from ending up in the input field
-var global_chat_double_key_fix_timeout = undefined;
-var global_chat_double_key_fix_active = false;
+//var global_chat_double_key_fix_timeout = undefined;
+//var global_chat_double_key_fix_active = false;
 var global_team_chat_active = false;
 
-// Show the chat prompt and recent chat messages
-function set_chat(visible, team) {
 
+function move_open_chat_to_report() {
+    let main_chat_cont = _id("ingame_chat_prompt");
+    let main_chat_input = _id("ingame_chat_input");
+    let game_report_input = _id("game_report_chat_input");
+
+    // Copy active chat into gamereport and focus it
+    if (global_main_chat_active) {
+        game_report_input.focus();
+        game_report_input.value = main_chat_input.value;
+        game_report_input.selectionStart = game_report_input.selectionEnd = game_report_input.value.length;
+
+        if (global_team_chat_active) _id("game_report_chat_input_mode").textContent = localize("settings_controls_teamchat_short");
+        else _id("game_report_chat_input_mode").textContent = localize("settings_controls_chat");
+    }
+
+    // Hide main chat
+    main_chat_cont.classList.remove("active");
+    main_chat_input.value = "";
+    global_main_chat_active = false;
+
+    for (let el of global_hud_references.chat_container) {
+        el.children[0].style.visibility = "visible";
+        el.children[1].style.visibility = "hidden";
+    }
+}
+
+// Show the chat prompt and recent chat messages
+let global_main_chat_active = false;
+function set_chat(visible, team) {
+    global_main_chat_active = visible;
+
+    /*
     if (global_chat_double_key_fix_timeout) {
         clearTimeout(global_chat_double_key_fix_timeout);
         global_chat_double_key_fix_timeout = undefined;
     }
+    */
 
     if (visible) {
+        /*
         global_chat_double_key_fix_active = true;
         global_chat_double_key_fix_timeout = setTimeout(function() {
             global_chat_double_key_fix_active = false;
         },1);
+        */
         global_team_chat_active = team;
     }
 
@@ -184,17 +217,22 @@ function element_chat_setup() {
     if (GAMEFACE_VIEW === 'menu') return;
     
     let chatinput = _id("ingame_chat_input");
+    /*
     chatinput.addEventListener("keypress", function(event) {
+    
         if (global_chat_double_key_fix_active) {
             event.preventDefault();
             return false;
         }
     });
+    */
     chatinput.addEventListener("keydown", function (event) {
+        /*
         if (global_chat_double_key_fix_active) {
             event.preventDefault();
             return false;
         }
+        */
 
         // Escape
         if (event.keyCode == 27) { 
@@ -242,13 +280,6 @@ function element_chat_setup() {
         }
     });
 
-    chatinput.addEventListener("blur", function (event) {
-        for (let el of global_hud_references.chat_messages) {
-            el.style.display = "none";
-        }
-                
-        engine.call('set_chat_enabled', false);
-    });
 
     var report_chatinput = _get_first_with_class_in_parent(_id("game_report_cont"), "chat_input");
     var report_chatmode = _id("game_report_chat_input_mode");

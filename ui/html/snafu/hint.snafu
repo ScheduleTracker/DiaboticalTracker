@@ -4,17 +4,21 @@ BEGIN TEMPLATE hint
     DOUBLE icon_size
     icon_size = fontSize * 1.5
 
+    DOUBLE gap_size
+    gap_size = fontSize * 0.5
+
     COL_OUTPUT 0 font font
     COL_OUTPUT 0 align pivot
     COL_OUTPUT 0 shadow 1
     COL_OUTPUT 0 color "#ffffff"
-    COL_OUTPUT 0 indent 1
     COL_OUTPUT 0 height icon_size
 
-    COL_OUTPUT 1 width icon_size
-    COL_OUTPUT 1 height icon_size
-    COL_OUTPUT 1 image_width icon_size
-    COL_OUTPUT 1 image_height icon_size
+    COL_OUTPUT 1 width gap_size
+
+    COL_OUTPUT 2 width icon_size
+    COL_OUTPUT 2 height icon_size
+    COL_OUTPUT 2 image_width icon_size
+    COL_OUTPUT 2 image_height icon_size
 
     STRING hint_key
 
@@ -37,11 +41,11 @@ ON_UPDATE
         hint_key = "hint_" & game_data.hint
         OUTPUT 0 0 LVALUE hint_key
 
-        OUTPUT 0 1 image game_data.hint_image 
+        OUTPUT 0 2 image game_data.hint_image 
         IF game_data.hint_image == "images/item_macguffin.svg"
-            OUTPUT 0 1 image_color game_data.hint_team_color
+            OUTPUT 0 2 image_color game_data.hint_team_color
         ELSE
-            OUTPUT 0 1 hue game_data.hint_team_color
+            OUTPUT 0 2 hue game_data.hint_team_color
         END IF
     END IF
 

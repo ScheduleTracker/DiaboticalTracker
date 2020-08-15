@@ -632,6 +632,7 @@ function send_string(command, string, returnaction, cb) {
 
 function button_game_over_quit() {
     engine.call("game_over_quit");
+    send_string(CLIENT_COMMAND_DISCONNECTED);
 }
 
 function renderCustomizationInner(type_id, id, lazy) {
@@ -879,11 +880,11 @@ function hud_version_check(hud, hud_type) {
                     "lc":"#32323c",
                     "mc":"#4b4b4b",
                     "hc":"#645a5a",
-                    "oc":"#FFFFFF",
-                    "ot":0.1,
+                    "oc":"#00000040",
+                    "ot":1,
                     "tlo":1,
                     "ci":1,
-                    "stll":1,
+                    "stll":0.333,
                     "opo":0.5
                 });
             }

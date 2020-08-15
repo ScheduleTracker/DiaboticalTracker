@@ -35,6 +35,7 @@ const CLIENT_COMMAND_DISMISS_RECONNECT = 83;
 const CLIENT_COMMAND_SELECT_MAP = 84;
 const CLIENT_COMMAND_GET_RANKED_MMRS = 85;
 const CLIENT_COMMAND_GET_SINGLE_RANKED_MMR = 86;
+const CLIENT_COMMAND_REQUEUE = 87;
 const CLIENT_COMMAND_GET_NOTIFICATIONS = 89;
 const CLIENT_COMMAND_DEL_NOTIFICATION = 90;
 const CLIENT_COMMAND_GET_QUEUES = 92;
@@ -465,7 +466,6 @@ let global_queues = {
     /* data coming from the MS
     "<queue_name>": {
         "i18n": "game_mode_<mode_name>",
-        "variable": "lobby_search_<queue_name>",
         "vs": "5v5/FFA/Instagib X etc.",
         "queue_name": localize(i18n)+" "+vs,
         "team_size": 5,

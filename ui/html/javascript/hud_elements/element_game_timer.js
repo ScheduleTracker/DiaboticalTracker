@@ -14,7 +14,7 @@ function init_element_game_timer() {
         defaultFontSize,
         defaultFontFamily,
         defaultColor,
-        {"inputType": "toggle", "type": "countdown", "text": "Countdown"},
+        //{"inputType": "toggle", "type": "countdown", "text": "Countdown"},
         {"inputType": "toggle", "type": "shadow", "text": "Text Shadow"},
         //{"inputType": "toggle", "type": "analog", "text": "Analog"},
         //{"inputType": "toggle", "type": "hideMin", "text": "Hide Minute Hand"},

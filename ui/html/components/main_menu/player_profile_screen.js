@@ -547,16 +547,22 @@ function player_profile_render_main(data) {
         let placement = -1;
         for (let t of match.teams) {
             if (t.team_idx == match.user_team_idx) {
-                placement = t.placement;
-                if (placement == 0) {
+                if (match.hasOwnProperty("finished") && match.finished == false) {
+                    result = localize("match_forfeit");
+                } else if (t.placement == 0) {
                     result = localize("match_win");
-                } else if (placement == 254) {
+                    placement = t.placement;
+                } else if (t.placement == 254) {
                     result = localize("match_forfeit");
                 } else {
+                    placement = t.placement;
                     result = (t.placement + 1) +".";
                 }
             }
         }
+
+        console.log("result", result);
+        console.log("placement", placement);
 
         let head = _createElement("div", "last_match_head");
         let label = _createElement("div", "label");
@@ -648,16 +654,18 @@ function player_profile_render_matches(data) {
         let m = data.matches.data[i];
 
         let result_text = '';
-        if (m.team_placement == 254) {
+        let placement = -1;
+        if (m.hasOwnProperty("finished") && m.finished == false) {
+            result_text = localize("match_forfeit");
+        } else if (m.team_placement == 0) {
+            placement = 0;
+            result_text = localize("match_win");
+        } else if (m.team_placement == 254) {
             result_text = localize("match_forfeit");
         } else {
-            if (m.team_placement == 0) {
-                result_text = localize("match_win");
-            } else {
-                result_text = (m.team_placement + 1) + ".";
-            }
+            placement = m.team_placement;
+            result_text = (m.team_placement + 1) + ".";
         }
-
 
         let match_row = _createElement("div", "row");
         match_row.dataset.matchId = m.match_id;
@@ -666,7 +674,7 @@ function player_profile_render_matches(data) {
         }
         match_row.addEventListener("mouseenter", _play_mouseover4);
         match_row.addEventListener("click", player_profile_on_match_select);
-        if (m.team_placement == 0) match_row.classList.add("win");
+        if (placement == 0) match_row.classList.add("win");
 
         let th_map = _createElement("div", ["td", "td_map"]);
         let map_gradient = _createElement("div", "map_gradient");
@@ -696,7 +704,7 @@ function player_profile_render_matches(data) {
         match_row.appendChild(th_kda);
 
         let th_result = _createElement("div", ["td", "td_result"], result_text);
-        if (m.team_placement == 0) th_result.classList.add("win");
+        if (placement == 0) th_result.classList.add("win");
         match_row.appendChild(th_result);
 
         scroll_inner.appendChild(match_row);
@@ -1705,7 +1713,9 @@ function player_profile_render_achievements(data) {
             }
             reward.appendChild(item);
 
-            reward.appendChild(_createElement("div", "goal", _format_number(ach.goal)));
+            let goal_cont = _createElement("div", "goal_cont");
+            goal_cont.appendChild(_createElement("div", "goal", _format_number(ach.goal)));
+            reward.appendChild(goal_cont);
 
             if (ach.achieved_ts != null) {
                 reward.classList.add("achieved");

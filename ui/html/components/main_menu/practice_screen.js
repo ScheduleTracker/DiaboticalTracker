@@ -18,11 +18,12 @@ function renderPracticeCards() {
             "title": "game_mode_practice_range",
             "background": "practice",
             "on_click": function() { practice_start_match('practice_range'); },
+            "on_click_spinner": true,
             "hover_button": "play",
             //"tooltip": "practice",
             "state": 2,
         },
-        /*
+        /*        
         {
             "type": "aim",
             "title": "aim_trainer",
@@ -32,7 +33,7 @@ function renderPracticeCards() {
             //"tooltip": "practice",
             "state": 2,
         },
-        */
+        */        
         /* Commented because it it was hidden before
         {
             "type": "licensecenter",

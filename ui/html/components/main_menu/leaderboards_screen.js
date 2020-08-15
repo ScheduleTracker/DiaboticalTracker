@@ -37,15 +37,36 @@ function init_screen_leaderboards() {
     let mode_filter = _id("leaderboards_screen_filter_gamemode");
     _empty(mode_filter);
 
+    let esports_modes = [];
+    let arena_modes = [];
     for (let mode in global_queues) {
         if ("leaderboard" in global_queues[mode] && global_queues[mode].leaderboard == true) {
-            let opt = _createElement("div");
-            opt.dataset.value = mode;
-            opt.textContent = global_queues[mode].queue_name;
-
-            if (mode == global_leaderboards_data.game_mode) opt.dataset.selected = 1;
-            mode_filter.appendChild(opt);
+            if (mode.startsWith("r_ca") || mode.startsWith("r_rocket_arena") || mode.startsWith("r_shaft_arena")) {
+                arena_modes.push(mode);
+            } else {
+                esports_modes.push(mode);
+            }
         }
+    }
+
+    if (esports_modes.length) mode_filter.appendChild(_createElement("div", "select-category", localize("esports")));
+    for (let mode of esports_modes) {
+        let opt = _createElement("div");
+        opt.dataset.value = mode;
+        opt.textContent = global_queues[mode].queue_name;
+
+        if (mode == global_leaderboards_data.game_mode) opt.dataset.selected = 1;
+        mode_filter.appendChild(opt);
+    }
+
+    if (esports_modes.length) mode_filter.appendChild(_createElement("div", "select-category", localize("game_mode_arena")));
+    for (let mode of arena_modes) {
+        let opt = _createElement("div");
+        opt.dataset.value = mode;
+        opt.textContent = global_queues[mode].queue_name;
+
+        if (mode == global_leaderboards_data.game_mode) opt.dataset.selected = 1;
+        mode_filter.appendChild(opt);
     }
 
     ui_setup_select(mode_filter, function(opt, field) {
