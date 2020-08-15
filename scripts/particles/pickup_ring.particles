@@ -24,9 +24,11 @@ pickup_ring_1
 	rotation_start 0 0
 	rotation_end 0 0
 	turbulence 400 5
+	range 0
 } 
 
 pickup_ring
 {
 	subsystem pickup_ring_1
+	range 0
 }

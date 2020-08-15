@@ -58,12 +58,10 @@ game default
 	
 	setting game_camera_offset 0
 	setting game_camera_hor_offset 0
-	setting game_player_view_height 26
 	setting game_player_col_radius_hor 15
 	setting game_player_col_radius_ver_bottom 24
 	setting game_model 0
-	setting game_player_hitbox_height 61
-    setting game_player_hitbox_hover_offset -0.25
+	setting game_player_hitbox_height 57
 	setting game_lifesteal 0
 	setting game_life_count 0
 
@@ -143,14 +141,15 @@ game default
 	setting phy_ramp_down_speed 0
 	setting phy_strafe_mode 1
 	setting phy_triple_jump 0
-	
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
+	setting net_server_hitscan 1
+	settomg net_max_backwards_reconciliation_ping 0.12
 
 }
 
 game edit
 {
+	setting net_server_hitscan 0
+	settomg net_max_backwards_reconciliation_ping 0
 	setting game_enable_items 1
 	setting game_self_damage 0
 	setting game_friendly_fire 0
@@ -178,6 +177,8 @@ game edit
 
 game practice
 {
+	setting net_server_hitscan 0
+	setting net_max_backwards_reconciliation_ping 0
 	setting game_warmup_time 0
 	setting game_draft_time 0
 	setting game_countdown 0
@@ -228,7 +229,7 @@ game warmup
 	map b_furnace
 	map b_refinery
 	map b_wellspring
-    map b_test_map
+    map b_toya_fortress
 	map b_alchemy
 	map b_oxide
 	map b_icefall
@@ -267,7 +268,7 @@ game brawl
 	map b_furnace
 	map b_refinery
 	map b_wellspring
-	map b_test_map
+	map b_toya_fortress
 	map b_alchemy
 	map b_oxide
 	map b_icefall
@@ -381,7 +382,7 @@ game rocket_arena
 	
 	setting game_self_damage 0
 	setting game_wipe_out_mode 1
-	setting game_lifesteal 0.5
+	setting game_lifesteal 0
 	
 	setting game_friendly_fire 0
 	
@@ -479,7 +480,7 @@ game ffa
 	map b_furnace
 	map b_refinery
 	map b_wellspring
-	map b_test_map
+	map b_toya_fortress
 	map b_alchemy
 	map b_oxide
 	map b_icefall
@@ -641,6 +642,7 @@ game extinction
 	setting game_score_limit 4
 	setting game_life_count 3
 	setting game_weapon_respawn_time 5
+	setting game_round_countdown 10
 	
 
 	map tdm_icefall

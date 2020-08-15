@@ -290,7 +290,7 @@ rocket_launcher
 	weapon_tag rl
 	color df1f2d
  	//group 3
-	speed 1000
+	speed 1050
  	rate 800
   	damage 100
 	min_splash_damage 10
@@ -311,9 +311,9 @@ rocket_launcher
 	charge_animation 6
 	
   	splash_radius 125
-	knockback 100
+	knockback 105
 	knockback_self 110
-	ground_knockback 70
+	ground_knockback 80
 	ground_knockback_self 110
 	center_of_mass_offset 0
 	center_of_mass_offset_self 0
