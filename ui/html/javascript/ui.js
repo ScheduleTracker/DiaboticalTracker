@@ -621,7 +621,7 @@ window.addEventListener("load", function(){
             } else {
             //if ([5,6,7,8].includes(value)) {
                 if ([7,12,14,30,31,32,34,35].includes(value)) {
-                    send_string(CLIENT_COMMAND_DISCONNECTED);
+                    send_string(CLIENT_COMMAND_DISCONNECTED, "unexpected-disconnection");
                 }
                 queue_dialog_msg({
                     "title": localize("title_error"),

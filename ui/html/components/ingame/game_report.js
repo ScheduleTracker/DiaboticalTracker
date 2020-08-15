@@ -776,6 +776,8 @@ function renderMapVote(snafu_data) {
         for (let map of maps) {
             if (map != snafu_data["game_data.map"]) valid_maps.push(map);
         }
+    } else {
+        valid_maps = maps;
     }
 
     if (valid_maps.length > 6) {
