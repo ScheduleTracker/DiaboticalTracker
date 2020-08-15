@@ -1191,6 +1191,7 @@ models\props\Shop\barber\barber.dbm		60060
 models\props\Shop\barber\barber.fbx		84992
 models\props\Shop\barber\barber.shader		364
 models\props\Shop\barber\barber_d.png.dds		349700
+models\props\Shop\barber\barber_d.tx		373914
 models\props\Shop\barber\barber_n.png.dds		349700
 models\props\Shop\barber\barber_s.png.dds		349700
 models\props\Shop\chocolate.dbm		2779
@@ -1205,6 +1206,7 @@ models\props\Shop\fridge\fridge.dbm		59731
 models\props\Shop\fridge\fridge.fbx		52144
 models\props\Shop\fridge\fridge.shader		1498
 models\props\Shop\fridge\fridge_d.png.dds		349700
+models\props\Shop\fridge\fridge_d.tx		198237
 models\props\Shop\fridge\fridge_n.png.dds		349700
 models\props\Shop\fridge\fridge_nostickers.dbm		61491
 models\props\Shop\fridge\fridge_nostickers.fbx		50944

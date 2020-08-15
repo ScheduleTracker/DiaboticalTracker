@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		6702
 scripts\base.enemy		543
-scripts\base.games		18764
+scripts\base.games		18885
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -94,7 +94,7 @@ scripts\particles\mgsg.particles		1540
 scripts\particles\misc.particles		2474
 scripts\particles\pickup_mg.particles		1339
 scripts\particles\pickup_rg.particles		1338
-scripts\particles\pickup_ring.particles		476
+scripts\particles\pickup_ring.particles		496
 scripts\particles\pickup_rl.particles		1344
 scripts\particles\pickup_sg.particles		1355
 scripts\particles\plasma.particles		1514

@@ -612,10 +612,12 @@ models\theme\rubble\stone_rubble\rubble_grey_n.png.dds		1398276
 models\theme\rubble\stone_rubble\rubble_grey_s.png.dds		1398276
 models\theme\rubble\stone_rubble\rubbles.assets		1277
 models\theme\rubble\stone_rubble\rubbles.shader		3720
-models\theme\simple\textures\colors\black.png		124
+models\theme\simple\textures\colors\black.png.dds		516
 models\theme\simple\textures\colors\colors.assets		159
-models\theme\simple\textures\colors\colors.shader		478
-models\theme\simple\textures\colors\white.png		139
+models\theme\simple\textures\colors\colors.shader		1059
+models\theme\simple\textures\colors\red.png.dds		516
+models\theme\simple\textures\colors\white.png.dds		516
+models\theme\simple\textures\colors\yellow.png.dds		516
 models\theme\snow\decals\snow\decal_snow01_bottom.png.dds		349700
 models\theme\snow\decals\snow\decal_snow01_round.png.dds		1398276
 models\theme\snow\decals\snow\snow_decals.assets		253

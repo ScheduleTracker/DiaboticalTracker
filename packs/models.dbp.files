@@ -219,8 +219,6 @@ models\editpad_original.fbx		596992
 models\eggbot.ani		247
 models\eggbot.dbm		4002921
 models\eggbot.fbx		2756896
-models\eggbot_body.dbm		5962207
-models\eggbot_body.fbx		5578256
 models\eggbot_default.ani		514
 models\eggbot_default.dbm		1535660
 models\eggbot_default.fbx		4125853
@@ -1016,16 +1014,16 @@ models\meele_weapons\arm_glove\arm_glove_i.png.dds		699192
 models\meele_weapons\arm_glove\arm_glove_n.png.dds		1398260
 models\meele_weapons\arm_glove\arm_glove_s.png.dds		1398276
 models\meele_weapons\arm_glove\Creator Omar Chaouch.txt		27
-models\meele_weapons\axe01\axe01.assets		125
-models\meele_weapons\axe01\axe01.dbm		88154
-models\meele_weapons\axe01\axe01.fbx		72720
-models\meele_weapons\axe01\axe01.shader		381
-models\meele_weapons\axe01\axe01_d.png.dds		1398276
-models\meele_weapons\axe01\axe01_i.png.dds		524416
-models\meele_weapons\axe01\axe01_n.png.dds		1048724
-models\meele_weapons\axe01\axe01_s.png.dds		1398276
-models\meele_weapons\axe01\axe01_tb.dbm		178314
-models\meele_weapons\axe01\axe01_tb.fbx		154032
+models\meele_weapons\axe01_do_not_use\axe01.assets		125
+models\meele_weapons\axe01_do_not_use\axe01.dbm		88154
+models\meele_weapons\axe01_do_not_use\axe01.fbx		72720
+models\meele_weapons\axe01_do_not_use\axe01.shader		381
+models\meele_weapons\axe01_do_not_use\axe01_d.png.dds		1398276
+models\meele_weapons\axe01_do_not_use\axe01_i.png.dds		524416
+models\meele_weapons\axe01_do_not_use\axe01_n.png.dds		1048724
+models\meele_weapons\axe01_do_not_use\axe01_s.png.dds		1398276
+models\meele_weapons\axe01_do_not_use\axe01_tb.dbm		178314
+models\meele_weapons\axe01_do_not_use\axe01_tb.fbx		154032
 models\meele_weapons\ballhammer\ballhammer.assets		150
 models\meele_weapons\ballhammer\ballhammer.dbm		20742
 models\meele_weapons\ballhammer\ballhammer.fbx		31072
@@ -1454,7 +1452,7 @@ models\nature\trees\tree_leaf_c.png		98705
 models\nature\trees\tree_leaf_n.png		79989
 models\nature\trees\tree_leaf_orange_d.png		115100
 models\nature\trees\trees.assets		1842
-models\nature\trees\trees.shader		18745
+models\nature\trees\trees.shader		19122
 models\nature\trees\treestem01_d.png.dds		349700
 models\nature\trees\treestem01_n.png.dds		87556
 models\nature\vines_leaves\bush01.dbm		34787
@@ -1867,6 +1865,7 @@ models\weapon_mg.dbm		1930514
 models\weapon_mg.fbx		662240
 models\weapon_sword.ani		362
 models\weapon_sword.dbm		1004841
+models\weapon_sword.fbm\chockhammer_d.png		3705367
 models\weapon_sword.fbx		4552272
 models\weapon_teslasword.dbm		2799051
 models\weapon_teslasword.fbx		2454816
