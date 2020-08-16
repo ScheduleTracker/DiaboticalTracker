@@ -2607,7 +2607,7 @@ h2 {
     opacity:1;
 }
 #report_scoreboard .separator {
-    height:1.5vh;
+    height:1vh;
     width:100%;
 }
 
@@ -2649,7 +2649,7 @@ h2 {
     display:flex;
     flex-direction:column;
     font-family:var(--main-font-medium);
-    padding:1vh;
+    padding:0.6vh 1vh 3vh 6vh;
 }
 #game_report_cont .report_bottom .chat .chat_container {
     width:100%;

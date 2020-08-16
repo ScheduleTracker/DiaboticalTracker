@@ -489,21 +489,22 @@ function player_profile_render_main(data) {
 
     if (most_played) {
         let most_played_mode = _createElement("div", "most_played_mode");
-    
-        let icon = _createElement("div", "icon");
-        icon.style.backgroundImage = "url("+global_game_mode_map[most_played.match_mode].icon+"?s=8)";
-        most_played_mode.appendChild(icon);
-        
-        let desc = _createElement("div", "desc");
-        let label = _createElement("div", "label");
-        label.innerHTML = localize("player_profile_label_most_played_mode");
-        desc.appendChild(label);
+        cont.appendChild(most_played_mode);
 
+        let most_played_head = _createElement("div", "box_head");
+        most_played_mode.appendChild(most_played_head);
+        most_played_head.appendChild(_createElement("div", "label", localize("player_profile_label_most_played_mode")));
+
+        let most_played_cont = _createElement("div", "box_cont");
+        most_played_mode.appendChild(most_played_cont);
+    
+        let icon = _createElement("div", "mode_icon");
+        icon.style.backgroundImage = "url("+global_game_mode_map[most_played.match_mode].icon+"?s=8)";
+        most_played_cont.appendChild(icon);
+        
         let mode_name = _createElement("div", "mode_name");
         mode_name.innerHTML = localize(global_game_mode_map[most_played.match_mode].i18n);
-        desc.appendChild(mode_name);
-
-        most_played_mode.appendChild(desc);
+        most_played_cont.appendChild(mode_name);
 
         let stats_list = ["games", "wins", "kdr", "time_played"];
         let stats = _createElement("div", "stats");
@@ -512,29 +513,29 @@ function player_profile_render_main(data) {
         for (let i=0; i<stats_list.length; i++) {
             let stat_div = _createElement("div", "stat");
             let stat_label = _createElement("div", "stat_label");
-            if (stats_list[i] == "games")       stat_label.innerHTML = localize("player_profile_label_games");
-            if (stats_list[i] == "wins")        stat_label.innerHTML = localize("player_profile_label_wins");
-            if (stats_list[i] == "kdr")         stat_label.innerHTML = localize("player_profile_label_kdr");
-            if (stats_list[i] == "time_played") stat_label.innerHTML = localize("player_profile_label_time_played");
+            if (stats_list[i] == "games")       stat_label.textContent = localize("player_profile_label_games");
+            if (stats_list[i] == "wins")        stat_label.textContent = localize("player_profile_label_wins");
+            if (stats_list[i] == "kdr")         stat_label.textContent = localize("player_profile_label_kdr");
+            if (stats_list[i] == "time_played") stat_label.textContent = localize("player_profile_label_time_played");
             stat_div.appendChild(stat_label);
 
             let stat_value = _createElement("div", "stat_value");
-            if (stats_list[i] == "games")       stat_value.innerHTML = most_played.match_count;
-            if (stats_list[i] == "wins")        stat_value.innerHTML = most_played.match_won;
-            if (stats_list[i] == "kdr")         stat_value.innerHTML = (most_played.deaths == 0) ? most_played.frags : _round((most_played.frags / most_played.deaths),1);
-            if (stats_list[i] == "time_played") stat_value.innerHTML = _seconds_to_string(most_played.time_played);
+            if (stats_list[i] == "games")       stat_value.textContent = most_played.match_count;
+            if (stats_list[i] == "wins")        stat_value.textContent = most_played.match_won;
+            if (stats_list[i] == "kdr")         stat_value.textContent = (most_played.deaths == 0) ? most_played.frags : _round((most_played.frags / most_played.deaths),1);
+            if (stats_list[i] == "time_played") stat_value.textContent = _seconds_to_string(most_played.time_played);
             stat_div.appendChild(stat_value);
             if (i < 2) row1.appendChild(stat_div);
             else row2.appendChild(stat_div);
         }
         stats.appendChild(row1);
         stats.appendChild(row2);
-        most_played_mode.appendChild(stats);
-        cont.appendChild(most_played_mode);
+        most_played_cont.appendChild(stats);
     }
     
 
     if ("match" in data.last_match.data) {
+        console.log(_dump(data.last_match.data));
         let last_match = _createElement("div", "last_match");
         last_match.dataset.matchId = data.last_match.data.match.match_id;
         last_match.addEventListener("mouseenter", _play_mouseover4);
@@ -561,60 +562,67 @@ function player_profile_render_main(data) {
             }
         }
 
-        console.log("result", result);
-        console.log("placement", placement);
+        let last_match_head = _createElement("div", "box_head");
+        last_match.appendChild(last_match_head);
+        last_match_head.appendChild(_createElement("div", "label", localize("player_profile_label_last_match")));
+        last_match_head.appendChild(_createElement("div", "time", localize_ext("time_ago", { "time": _seconds_to_string(seconds_since)})));
 
-        let head = _createElement("div", "last_match_head");
-        let label = _createElement("div", "label");
-        label.innerHTML = localize("player_profile_label_last_match");
-        head.appendChild(label);
-
-        let time = _createElement("div", "time");
-        time.textContent = localize_ext("time_ago", {
-            "time": _seconds_to_string(seconds_since)
-        });
-        head.appendChild(time);
-
-        last_match.appendChild(head);
-
-        let last_match_cont = _createElement("div", "cont");
+        let last_match_cont = _createElement("div", "box_cont");
+        last_match.appendChild(last_match_cont);
 
         let mode_icon = _createElement("div", "mode_icon");
         mode_icon.style.backgroundImage = "url("+global_game_mode_map[match.match_mode].icon+"?s=8)";
         last_match_cont.appendChild(mode_icon);
 
-        let match_summary = _createElement("div", "match_summary");
-        last_match_cont.appendChild(match_summary);
+        let mode_name = _createElement("div", "mode_name");
+        mode_name.innerHTML = localize(global_game_mode_map[most_played.match_mode].i18n);
+        last_match_cont.appendChild(mode_name);
 
+        let avg_acc = 0;
+        if (match.hasOwnProperty("stats") && match.stats.hasOwnProperty(GLOBAL_ABBR.STATS_KEY_WEAPONS)) {
+            let sf = 0;
+            let sh = 0;
+            for (let w of match.stats[GLOBAL_ABBR.STATS_KEY_WEAPONS]) {
+                if (w.hasOwnProperty(GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED)) sf += w[GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED];
+                if (w.hasOwnProperty(GLOBAL_ABBR.STATS_KEY_SHOTS_HIT)) sh += w[GLOBAL_ABBR.STATS_KEY_SHOTS_HIT];
+            }
+
+            if (sf > 0) {
+                avg_acc = Math.round(sh / sf * 100);
+            }
+        }
+
+        let stats_list = ["kda", "acc", "match_time", "result"];
+        let stats = _createElement("div", "stats");
         let row1 = _createElement("div", "row");
         let row2 = _createElement("div", "row");
-        match_summary.appendChild(row1);
-        match_summary.appendChild(row2);
+        for (let i=0; i<stats_list.length; i++) {
+            let stat_div = _createElement("div", "stat");
+            let stat_label = _createElement("div", "stat_label");
+            //if (stats_list[i] == "time")       stat_label.textContent = localize("player_profile_label_date");
+            if (stats_list[i] == "kda")        stat_label.textContent = localize("player_profile_label_kda");
+            if (stats_list[i] == "acc")        stat_label.textContent = localize("player_profile_label_accuracy");
+            if (stats_list[i] == "match_time") stat_label.textContent = localize("player_profile_label_length");
+            if (stats_list[i] == "result")     stat_label.textContent = localize("player_profile_label_result");
+            stat_div.appendChild(stat_label);
 
-        let mode_name = _createElement("div", ["desc_label", "mode_name"]);
-        mode_name.innerHTML = localize(global_game_mode_map[match.match_mode].i18n);
-        row1.appendChild(mode_name);
-
-        let match_time = _createElement("div", "match_time");
-        match_time.innerHTML = _seconds_to_digital(match.match_time);
-        row1.appendChild(match_time);
-
-        let kda_label = _createElement("div", ["desc_label", "kda"]);
-        kda_label.innerHTML = localize("player_profile_label_kda");
-        row2.appendChild(kda_label);
-
-        let kda_values = _createElement("div", "kda_values");
-        if (match.stats) {
-            kda_values.innerHTML = match.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]+" / "+match.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]+" / "+match.stats[GLOBAL_ABBR.STATS_KEY_ASSISTS];
+            let stat_value = _createElement("div", "stat_value");
+            //if (stats_list[i] == "time")       stat_value.textContent = localize_ext("time_ago", { "time": _seconds_to_string(seconds_since)});
+            if (stats_list[i] == "kda")        stat_value.textContent = match.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]+" / "+match.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]+" / "+match.stats[GLOBAL_ABBR.STATS_KEY_ASSISTS];
+            if (stats_list[i] == "acc")        stat_value.textContent = avg_acc + "%";
+            if (stats_list[i] == "match_time") stat_value.textContent = _seconds_to_digital(match.match_time);
+            if (stats_list[i] == "result") {
+                stat_value.textContent = result;
+                stat_value.classList.add("result");
+                if (placement == 0) stat_value.classList.add("win");
+            }
+            stat_div.appendChild(stat_value);
+            if (i < 2) row1.appendChild(stat_div);
+            else row2.appendChild(stat_div);
         }
-        row2.appendChild(kda_values);
-
-        let match_result = _createElement("div", "match_result");
-        if (placement == 0) match_result.classList.add("win");
-        match_result.innerHTML = result;
-        last_match_cont.appendChild(match_result);
-
-        last_match.appendChild(last_match_cont);
+        stats.appendChild(row1);
+        stats.appendChild(row2);
+        last_match_cont.appendChild(stats);
         
         cont.appendChild(last_match);
     }

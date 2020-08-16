@@ -48,7 +48,6 @@ function init_hud_screen_game_report() {
 
         handlePostMatchUpdates({
             "match_id": "ca54136b-c868-43fd-8769-2dfc52dcdb2c",
-            /*
             "mmr_updates": {
                 "from": {
                     "rating": 1541.7686720394,
@@ -69,7 +68,6 @@ function init_hud_screen_game_report() {
                 "placement_match": 0,
                 "ranked": true
             },
-            */
             "progression_updates": {
                 "achievement_rewards": [],
                 "challenges": [

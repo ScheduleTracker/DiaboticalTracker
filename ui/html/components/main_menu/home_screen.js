@@ -56,8 +56,8 @@ function update_motd({ uid, slugs, data }) {
   const motdSubtitle = motdView.querySelector(".subtitle");
 
   motdView.dataset.uid = uid;
-  motdTitle.innerHTML = getMultiParagraphFromCMS(title);
-  motdSubtitle.innerHTML = getMultiParagraphFromCMS(subtitle);
+  motdTitle.textContent = getMultiParagraphFromCMS(title);
+  motdSubtitle.textContent = getMultiParagraphFromCMS(subtitle);
   //motdView.querySelector(".body").innerHTML = textClamp(getMultiParagraphFromCMS((body));
   //motdView.querySelector(".body").innerHTML = getMultiParagraphFromCMS(body);
 

@@ -636,6 +636,9 @@ function _seconds_to_string(seconds) {
     let numhours = Math.floor(((seconds % 31536000) % 86400) / 3600);
     let numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
     //let numseconds = (((seconds % 31536000) % 86400) % 3600) % 60;
+    
+    // don't show minutes anymore if timespan is more than 1 day and 1 hour
+    if (seconds > 90000) return ((numyears > 0) ? numyears + "y ":"") + ((numdays > 0) ? numdays + "d ":"") + ((numhours > 0) ? numhours + "h ":"");
     return ((numyears > 0) ? numyears + "y ":"") + ((numdays > 0) ? numdays + "d ":"") + ((numhours > 0) ? numhours + "h ":"") + ((numminutes > 0) ? numminutes + "m ":"0m");
 }
 

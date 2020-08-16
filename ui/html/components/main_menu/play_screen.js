@@ -635,7 +635,10 @@ function renderPlayCard(data) {
     card_top.appendChild(card_best_rank);
     if (data.type == "ranked") {
         let top_links = _createElement("div", "card_top_links");
-        let link_leaderboards = _createElement("div", "link", localize("menu_title_leaderboards"));
+        let link_leaderboards = _createElement("div", "link");
+        let link_icon = _createElement("div", ["icon", "leaderboard"]);
+        link_leaderboards.appendChild(link_icon);
+        link_leaderboards.appendChild(_createElement("div", "title", localize("menu_title_leaderboards")));
         _addButtonSounds(link_leaderboards, 1);
         link_leaderboards.addEventListener("click", function(ev) {
             ev.stopPropagation();
@@ -644,6 +647,14 @@ function renderPlayCard(data) {
             } else {
                 open_leaderboards();
             }
+        });
+        link_leaderboards.addEventListener("mouseenter", function() {
+            link_leaderboards.classList.add("hover");
+            link_icon.classList.add("hover");
+        });
+        link_leaderboards.addEventListener("mouseleave", function() {
+            link_leaderboards.classList.remove("hover");
+            link_icon.classList.remove("hover");
         });
         top_links.appendChild(link_leaderboards);
         card_top.appendChild(top_links);

@@ -349,6 +349,7 @@ body, html {
     color:#ffffff;
     background-color:rgba(0, 0, 0, 0.02);
     box-shadow:-1px 2px 12px 2px rgba(0, 0, 0, 0.3) inset;
+    background-image:linear-gradient(to top,rgba(255, 255, 255, 0.095) 0%, rgba(0, 0, 0, 0) 100%);
 }
 #main_menu_buttons > .main_menu_button.hidden {
     display:none;
@@ -417,6 +418,7 @@ body, html {
 .main_menu_icon.hl_button {
     background-color:rgba(0,0,0,0.02);
     box-shadow:-1px 2px 12px 2px rgba(0, 0, 0, 0.3) inset;
+    background-image:linear-gradient(to top,rgba(255, 255, 255, 0.095) 0%, rgba(0, 0, 0, 0) 100%);
 }
 .main_menu_icon .icon {
     width:100%;
@@ -6598,6 +6600,7 @@ h2 {
     align-items:center;
     justify-content:center;
     background-color:rgba(14,14,14, 0.98);
+    box-shadow: 0px 2px 27px 0px rgba(0, 0, 0, 0.55);
 }
 #party_box .party_member {
     display: flex;
@@ -6910,7 +6913,8 @@ h2 {
   width: 40vh;
   align-items: flex-end;
   background-color: rgba(26, 27, 31, 1);
-  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.6);
+  /*box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.6);*/
+  box-shadow: 0px 2px 27px 0px rgba(0, 0, 0, 0.55);
   transition-duration: 200ms;
   transition-timing-function: ease;
   filter: brightness(1);
@@ -6925,7 +6929,6 @@ h2 {
 
 #home_screen_motd_window .title {
   color: #eee;
-  text-shadow: 0px 0px 20px rgb(148, 149, 126);
   animation: fadeInLeft 0.8s ease;
 }
 
@@ -6957,7 +6960,7 @@ h2 {
 }
 
 #home_screen h1 {
-    font-size: 2.25rem;
+  font-size:2.6vh;
   margin: 1rem 0 0 0;
   font-weight: bold;
   text-transform: uppercase;
@@ -6983,7 +6986,8 @@ h2 {
 #home_screen_challenges_cont {
   width:40vh;
   margin-top:2vh;
-  box-shadow: 0px 2px 2vh 0px rgba(0, 0, 0, 0.5);
+  /*box-shadow: 0px 2px 2vh 0px rgba(0, 0, 0, 0.5);*/
+  box-shadow: 0px 2px 27px 0px rgba(0, 0, 0, 0.55);
 
   display:none;
 }
@@ -6995,7 +6999,7 @@ h2 {
   font-size:1.3vh;
   font-weight:bold;
   text-transform:uppercase;
-  padding:0 1.6vh;
+  padding:0 2rem;
   background-color: rgba(26, 27, 31, 1);
 }
 #home_screen_challenges {
@@ -8117,16 +8121,38 @@ h2 {
 .play_cards_container .card_top .card_top_links {
     display:flex;
     flex-direction:row;
-    font-size:1.25vh;
+    text-shadow: 0 0 0 transparent;
+    filter:drop-shadow(2px 2px 6px rgba(0,0,0,0.6));
 }
 .play_cards_container .card_top .card_top_links .link {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
     color:#ccc;
     padding:1vh;
+}
+.play_cards_container .card_top .card_top_links .link.hover {
+    color:#fff;
+}
+.play_cards_container .card_top .card_top_links .link .icon {
+    width:1.25vh;
+    height:1.25vh;
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    margin-right:0.5vh;
+}
+.play_cards_container .card_top .card_top_links .link .icon.leaderboard {
+    background-image: url(/html/images/icons/fa/trophy.svg?fill=#ccc);
+}
+.play_cards_container .card_top .card_top_links .link .icon.leaderboard.hover {
+    background-image: url(/html/images/icons/fa/trophy.svg?fill=#fff);
+}
+.play_cards_container .card_top .card_top_links .link .title {
+    font-size:1.25vh;
+    line-height:1.25vh;
     font-family: var(--main-font-medium);
     font-weight:normal;
-}
-.play_cards_container .card_top .card_top_links .link:hover {
-    color:#fff;
 }
 .play_cards_container .card_top .card_best_rank {
     position:absolute;
@@ -9809,8 +9835,8 @@ h2 {
     position:absolute;
     top:0.4vh;
     right:0.4vh;
+    bottom:0.4vh;
     width:2.4vh;
-    height:2.4vh;
     background-image:url(/html/images/icons/fa/sync-alt.svg);
     background-size:55%;
     background-repeat:no-repeat;
@@ -13176,8 +13202,8 @@ h2 {
     font-fit-mode:shrink;
 }
 #player_profile_screen .head .flag {
-    height:3vh;
-    width:3vh;
+    height:2.5vh;
+    width:2.5vh;
 }
 #player_profile_screen .head .separator {
     flex:1;
@@ -13280,13 +13306,81 @@ h2 {
 #player_profile_content .profile {
     width:50vh;
 }
+
+#player_profile_content .profile .box_head {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:0.8vh 2vh;
+    font-size:1.2vh;
+    font-weight:bold;
+}
+#player_profile_content .profile .box_head .label {
+    text-transform:uppercase;
+}
+#player_profile_content .profile .box_head .time {
+    font-weight:normal;
+    opacity:0.8;
+}
+#player_profile_content .profile .box_cont {
+    padding:1vh;
+}
+#player_profile_content .profile .box_cont .mode_icon {
+    width:8vh;
+    height:8vh;
+    margin:1vh 2vh 1vh 1vh;
+    background-repeat:no-repeat;
+    background-size:8vh;
+    background-position:center;
+}
+#player_profile_content .profile .stats {
+    width:21vh;
+}
+#player_profile_content .profile .stats .row {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+}
+#player_profile_content .profile .stats .stat {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:50%;
+    padding:0.5vh 0;
+}
+#player_profile_content .profile .stats .stat .stat_label {
+    color:rgba(173, 228, 255, 1);
+    text-transform:uppercase;
+    font-size:0.95vh;
+    font-weight:bold;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom:0.2vh;
+}
+#player_profile_content .profile .stats .stat .stat_value {
+    color:#fff;
+    font-size:1.7vh;
+    font-family:var(--mont-font);
+    white-space:nowrap;
+}
+#player_profile_content .profile .stats .stat .stat_value.result {
+    text-transform:uppercase;
+    font-weight:bold;
+}
+#player_profile_content .profile .stats .stat .stat_value.result.win {
+    color:#53e853;
+}
+
 #player_profile_content .profile .summary_top {
     display:flex;
     flex-direction:row;
     background-color:rgba(46, 46, 46, 0.4);
     border:1px solid rgba(52, 52, 52, 0.1);
     margin-bottom:1vh;
-    height:5vh;
+    height:6vh;
 }
 #player_profile_content .profile .summary_top .stat {
     width:calc(100% / var(--stat_count));
@@ -13306,10 +13400,11 @@ h2 {
     font-size:0.95vh;
     font-weight:bold;
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom:0.2vh;
 }
 #player_profile_content .profile .summary_top .stat .value {
     color:#fff;
-    font-size:1.6vh;
+    font-size:1.7vh;
     font-family:var(--mont-font);
 }
 
@@ -13335,9 +13430,10 @@ h2 {
 #player_profile_content .profile .summary_featured .featured.last { margin-right:0; }
 
 #player_profile_content .profile .summary_featured .featured .label {
-    font-size:1vh;
+    font-size:1.2vh;
     text-transform: uppercase;
-    color:rgba(255,255,255,0.7);
+    color:#fff;
+    font-weight:bold;
     margin-bottom:1vh;
 }
 #player_profile_content .profile .summary_featured .featured .content {
@@ -13384,71 +13480,25 @@ h2 {
 }
 
 #player_profile_content .profile .most_played_mode {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    padding:1vh;
     background-color:rgba(46, 46, 46, 0.4);
     border:1px solid rgba(52, 52, 52, 0.1);
     margin-bottom:1vh;
 }
 
-#player_profile_content .profile .most_played_mode .icon {
-    width:8vh;
-    height:8vh;
-    margin:1vh;
-    margin-right:2vh;
-    background-repeat:no-repeat;
-    background-size:8vh;
-    background-position:center;
-}
-#player_profile_content .profile .most_played_mode .desc {
-    flex:1;
-}
-#player_profile_content .profile .most_played_mode .desc .label {
-    text-transform: uppercase;
-    font-style:italic;
-    color:rgba(255,255,255,0.7);
-    margin-bottom:0.4vh;
-    font-size:1.3vh;
-}
-#player_profile_content .profile .most_played_mode .desc .mode_name {
-    font-weight:bold;
-    color:#fff;
-    text-transform:uppercase;
-    font-size:1.3vh;
-}
-#player_profile_content .profile .most_played_mode .stats {
-    width:21vh;
-}
-#player_profile_content .profile .most_played_mode .stats .row {
+#player_profile_content .profile .most_played_mode .box_cont {
     display:flex;
     flex-direction:row;
-    justify-content:center;
     align-items:center;
-}
-#player_profile_content .profile .most_played_mode .stats .stat {
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    width:50%;
-    padding:0.5vh 0;
-}
-#player_profile_content .profile .most_played_mode .stats .stat .stat_label {
-    color:rgba(255, 255, 255, 0.7);
-    text-transform:uppercase;
-    font-size:0.95vh;
-    font-weight:bold;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom:0.2vh;
-}
-#player_profile_content .profile .most_played_mode .stats .stat .stat_value {
-    color:#fff;
-    font-size:1.5vh;
-    font-family:var(--mont-font);
 }
 
+#player_profile_content .profile .most_played_mode .mode_name {
+    flex:1;
+    font-weight:bold;
+    color:#fff;
+    text-transform:uppercase;
+    font-size:2vh;
+    font-fit-mode:shrink;
+}
 
 #player_profile_content .profile .last_match {
     background-color:rgba(46, 46, 46, 0.4);
@@ -13458,70 +13508,25 @@ h2 {
     box-shadow:0 0 0 2px rgba(255,255,255,0.8);
 }
 
-#player_profile_content .profile .last_match .last_match_head {
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    padding:0.8vh 2vh;
-    color:rgba(255,255,255,0.7);
-    background-color:rgba(0,0,0,0.1);
-}
-
-#player_profile_content .profile .last_match .last_match_head .label {
-    text-transform:uppercase;
-}
-
-#player_profile_content .profile .last_match .cont {
+#player_profile_content .profile .last_match .box_cont {
     display:flex;
     flex-direction:row;
     align-items:center;
 }
-#player_profile_content .profile .last_match .cont .mode_icon {
-    width:8vh;
-    height:8vh;
-    margin:2vh;
-    background-repeat:no-repeat;
-    background-size:8vh;
-    background-position:center;
-}
 
-#player_profile_content .profile .last_match .cont .match_summary {
+#player_profile_content .profile .last_match .box_cont .mode_name {
     flex:1;
-}
-#player_profile_content .profile .last_match .cont .match_summary .row {
-    display:flex;
-    flex-direction:row;
-    margin:0.5vh 0;
-    align-items:center;
-    font-size:1.3vh;
-}
-#player_profile_content .profile .last_match .cont .match_summary .row .desc_label {
-    min-width:10vh;
-    text-transform:uppercase;
-    padding-right:1vh;
-}
-#player_profile_content .profile .last_match .cont .match_summary .row .desc_label.kda {
-    color:rgba(255,255,255,0.7);
-}
-#player_profile_content .profile .last_match .cont .match_summary .row .kda_values {
-    font-size:1.6vh;
-}
-
-#player_profile_content .profile .last_match .cont .match_result {
-    width:14vh;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    text-transform: uppercase;
+    margin-right:1vh;
+    font-size: 2vh;
     height:3vh;
-    text-align:center;
-    text-transform:uppercase;
-    font-weight:bold;
-    font-size:2.4vh;
-    font-family:var(--mont-font);
-    font-fit-mode:shrink;
+    display:flex;
+    align-items: center;
+    white-space:nowrap;
+    font-fit-mode: shrink;
 }
-#player_profile_content .profile .last_match .cont .match_result.win {
-    color:#53e853;
-}
-#player_profile_content .profile .last_match .cont .match_result.loss {}
-
 
 #player_profile_content .matches {
     font-size:1.2vh;
@@ -13566,7 +13571,9 @@ h2 {
     display:flex;
     justify-content:center;
     align-items:center;
-    color:rgba(255,255,255,0.8);
+    color:#fff;
+    font-size:1.2vh;
+    font-weight:bold;
 }
 #player_profile_content .matches .row {
     display:flex;
