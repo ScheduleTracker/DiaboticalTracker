@@ -430,7 +430,7 @@ game wipeout
 	map wo_refinery
 	map wo_wellspring
 	map wo_crystal_cove
-	map wo_test_map
+	map wo_toya_fortress
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
