@@ -13496,6 +13496,7 @@ h2 {
     font-weight:bold;
     color:#fff;
     text-transform:uppercase;
+    margin-right:1vh;
     font-size:2vh;
     font-fit-mode:shrink;
 }
@@ -13517,14 +13518,10 @@ h2 {
 #player_profile_content .profile .last_match .box_cont .mode_name {
     flex:1;
     font-weight: bold;
-    color: rgba(255, 255, 255, 1);
+    color:#fff;
     text-transform: uppercase;
     margin-right:1vh;
     font-size: 2vh;
-    height:3vh;
-    display:flex;
-    align-items: center;
-    white-space:nowrap;
     font-fit-mode: shrink;
 }
 

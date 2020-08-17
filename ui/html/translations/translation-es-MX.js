@@ -131,7 +131,7 @@ var TRANSLATION_es_MX =
     "ingame_menu_section_main": "Principal",
     "ingame_menu_section_vote": "Votar",
     "ingame_menu_section_players": "Jugadores",
-    "ingame_menu_section_leavematch": "Abandonar Partida",
+    "ingame_menu_section_leavematch": "Abandonar",
     "ingame_menu_return_to_match": "Volver a la Partida",
     "ingame_menu_match_settings": "Ajustes de la Partida",
     "ingame_menu_spectate": "Unirse como Espectador",

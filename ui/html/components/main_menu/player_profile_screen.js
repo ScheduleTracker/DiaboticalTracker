@@ -317,7 +317,7 @@ function player_profile_render_head(data, simple) {
 
     if (data.name) {
         let name = _createElement("div", "name");
-        name.innerHTML = data.name;
+        name.textContent = data.name;
         head.appendChild(name);
     }
 
@@ -402,19 +402,19 @@ function player_profile_render_main(data) {
         }
 
         let summary_stat_label = _createElement("div", "label");
-        if (stats[i] == "games")       summary_stat_label.innerHTML = localize("player_profile_label_games");
-        if (stats[i] == "wins")        summary_stat_label.innerHTML = localize("player_profile_label_wins");
-        if (stats[i] == "time_played") summary_stat_label.innerHTML = localize("player_profile_label_time_played");
-        if (stats[i] == "level")       summary_stat_label.innerHTML = localize("player_profile_label_account_level");
-        if (stats[i] == "commends")    summary_stat_label.innerHTML = localize("player_profile_label_commends");
+        if (stats[i] == "games")       summary_stat_label.textContent = localize("player_profile_label_games");
+        if (stats[i] == "wins")        summary_stat_label.textContent = localize("player_profile_label_wins");
+        if (stats[i] == "time_played") summary_stat_label.textContent = localize("player_profile_label_time_played");
+        if (stats[i] == "level")       summary_stat_label.textContent = localize("player_profile_label_account_level");
+        if (stats[i] == "commends")    summary_stat_label.textContent = localize("player_profile_label_commends");
         summary_stat.appendChild(summary_stat_label);
 
         let summary_stat_value = _createElement("div", "value");
-        if (stats[i] == "games")       summary_stat_value.innerHTML = alltime_combined.match_count;
-        if (stats[i] == "wins")        summary_stat_value.innerHTML = alltime_combined.match_won;
-        if (stats[i] == "time_played") summary_stat_value.innerHTML = _seconds_to_string(alltime_combined.time_played);
-        if (stats[i] == "level")       summary_stat_value.innerHTML = data.main.data.level;
-        if (stats[i] == "commends")    summary_stat_value.innerHTML = alltime_combined.commends;
+        if (stats[i] == "games")       summary_stat_value.textContent = alltime_combined.match_count;
+        if (stats[i] == "wins")        summary_stat_value.textContent = alltime_combined.match_won;
+        if (stats[i] == "time_played") summary_stat_value.textContent = _seconds_to_string(alltime_combined.time_played);
+        if (stats[i] == "level")       summary_stat_value.textContent = data.main.data.level;
+        if (stats[i] == "commends")    summary_stat_value.textContent = alltime_combined.commends;
         summary_stat.appendChild(summary_stat_value);
 
         summary_top.appendChild(summary_stat);
@@ -441,9 +441,9 @@ function player_profile_render_main(data) {
         if (i == 0) featured.classList.add("first");
         if (i == featured_topics.length - 1) featured.classList.add("last");
         let label = _createElement("div", "label");
-        if (featured_topics[i] == "rank")       label.innerHTML = localize("player_profile_label_highest_rank");
-        if (featured_topics[i] == "battlepass") label.innerHTML = localize("battlepass");
-        if (featured_topics[i] == "trophies")   label.innerHTML = localize("player_profile_label_trophies");
+        if (featured_topics[i] == "rank")       label.textContent = localize("player_profile_label_highest_rank");
+        if (featured_topics[i] == "battlepass") label.textContent = localize("battlepass");
+        if (featured_topics[i] == "trophies")   label.textContent = localize("player_profile_label_trophies");
         featured.appendChild(label);
 
         let content = _createElement("div", "content");
@@ -471,7 +471,7 @@ function player_profile_render_main(data) {
             if (data.main.data.active_battlepass_id) {
                 // render battlepass
                 let level_icon = _createElement("div", "bp_level_icon");
-                level_icon.innerHTML = data.main.data.battlepass_level;
+                level_icon.textContent = data.main.data.battlepass_level;
                 if (data.main.data.battlepass_owned) {
                     level_icon.classList.add("paid");
                 }
@@ -503,7 +503,7 @@ function player_profile_render_main(data) {
         most_played_cont.appendChild(icon);
         
         let mode_name = _createElement("div", "mode_name");
-        mode_name.innerHTML = localize(global_game_mode_map[most_played.match_mode].i18n);
+        mode_name.textContent = localize(global_game_mode_map[most_played.match_mode].i18n);
         most_played_cont.appendChild(mode_name);
 
         let stats_list = ["games", "wins", "kdr", "time_played"];
@@ -535,7 +535,6 @@ function player_profile_render_main(data) {
     
 
     if ("match" in data.last_match.data) {
-        console.log(_dump(data.last_match.data));
         let last_match = _createElement("div", "last_match");
         last_match.dataset.matchId = data.last_match.data.match.match_id;
         last_match.addEventListener("mouseenter", _play_mouseover4);
@@ -575,7 +574,7 @@ function player_profile_render_main(data) {
         last_match_cont.appendChild(mode_icon);
 
         let mode_name = _createElement("div", "mode_name");
-        mode_name.innerHTML = localize(global_game_mode_map[most_played.match_mode].i18n);
+        mode_name.textContent = localize(global_game_mode_map[match.match_mode].i18n);
         last_match_cont.appendChild(mode_name);
 
         let avg_acc = 0;
