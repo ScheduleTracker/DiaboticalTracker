@@ -340,7 +340,8 @@ models\weapons\melee\broadsword\broadsword_d.png.dds		5592548
 models\weapons\melee\broadsword\broadsword_n.png.dds		1398260
 models\weapons\melee\broadsword\broadsword_s.png.dds		1398260
 models\weapons\melee\broadsword\Creator Omar Chaouch.txt		27
-models\weapons\melee\broadsword\weapon_broadsword.fbx		286768
+models\weapons\melee\broadsword\weapon_broadsword.dbm		489203
+models\weapons\melee\broadsword\weapon_broadsword.fbx		348416
 models\weapons\melee\chockhammer\chockhammer.ani		362
 models\weapons\melee\chockhammer\chockhammer.assets		155
 models\weapons\melee\chockhammer\chockhammer.dbm		301373
@@ -367,8 +368,8 @@ models\weapons\melee\cutter\cutter_i.png		3150
 models\weapons\melee\cutter\cutter_n.png.dds		1398260
 models\weapons\melee\cutter\cutter_s.png.dds		1398260
 models\weapons\melee\cutter\weapon_cutter.ani		362
-models\weapons\melee\cutter\weapon_cutter.dbm		142490
-models\weapons\melee\cutter\weapon_cutter.fbx		153552
+models\weapons\melee\cutter\weapon_cutter.dbm		240371
+models\weapons\melee\cutter\weapon_cutter.fbx		272192
 models\weapons\melee\emphammer\Creator Omar Chaouch.txt		27
 models\weapons\melee\emphammer\emphammer.assets		145
 models\weapons\melee\emphammer\emphammer.shader		1675
@@ -390,8 +391,8 @@ models\weapons\melee\mazer\mazer_i.png.dds		699184
 models\weapons\melee\mazer\mazer_n.png.dds		1398260
 models\weapons\melee\mazer\mazer_s.png.dds		1398260
 models\weapons\melee\mazer\weapon_mazer.ani		362
-models\weapons\melee\mazer\weapon_mazer.dbm		183186
-models\weapons\melee\mazer\weapon_mazer.fbx		159888
+models\weapons\melee\mazer\weapon_mazer.dbm		280667
+models\weapons\melee\mazer\weapon_mazer.fbx		277456
 models\weapons\melee\shields\shield_01\shield_01_d.png.dds		349700
 models\weapons\melee\shields\shield_01\shield_01_i.png.dds		174904
 models\weapons\melee\shields\shield_01\shield_01_n.png.dds		1398260
@@ -407,6 +408,8 @@ models\weapons\melee\sonar_hammer\sonar_hammer_i.png.dds		1398260
 models\weapons\melee\sonar_hammer\sonar_hammer_n.png.dds		1398260
 models\weapons\melee\sonar_hammer\sonar_hammer_s.png.dds		1398260
 models\weapons\melee\sonar_hammer\sonarhammer_rig.ma		837912
+models\weapons\melee\sonar_hammer\weapon_sonar_hammer.dbm		435674
+models\weapons\melee\sonar_hammer\weapon_sonar_hammer.fbx		1202224
 models\weapons\melee\stonehammer\amethyst\stonehammer_d.png		1068316
 models\weapons\melee\stonehammer\Creator Omar Chaouch.txt		27
 models\weapons\melee\stonehammer\Jade\stonehammer_d.png		1065972
