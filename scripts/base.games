@@ -27,6 +27,7 @@ game default
 	setting game_stable_armor 100
 	setting game_max_armor 200
 	setting game_medium_armor 150
+	setting game_unlimited_ammo 0
 	
 	setting game_self_damage 1
 	setting game_wipe_out_mode 0
@@ -233,6 +234,7 @@ game aim_pncr_flickshots
     setting game_maximum_respawn_time_ms 0
     setting game_minimum_respawn_time_ms 0
     setting game_bot_respawn_time_ms 1450
+    setting game_unlimited_ammo 1
 	setting phy_fly 0
     map aim1_obstacles
 
@@ -252,6 +254,7 @@ game aim_mac_flickshots
     setting game_maximum_respawn_time_ms 0
     setting game_minimum_respawn_time_ms 0
     setting game_bot_respawn_time_ms 50
+    setting game_unlimited_ammo 1
 	setting phy_fly 0
     map aim1_obstacles
 
@@ -272,6 +275,7 @@ game aim_shaft_close
     setting game_minimum_respawn_time_ms 0
     setting game_bot_respawn_time_ms 0
     setting game_bot_dodge_desired_distance 80
+    setting game_unlimited_ammo 1
 	setting phy_fly 0
     map aim_shaft
 
@@ -292,6 +296,7 @@ game aim_shaft_mid
     setting game_minimum_respawn_time_ms 0
     setting game_bot_respawn_time_ms 0
     setting game_bot_dodge_desired_distance 180
+    setting game_unlimited_ammo 1
 	setting phy_fly 0
     map aim_shaft
 
@@ -312,6 +317,7 @@ game aim_shaft_far
     setting game_minimum_respawn_time_ms 0
     setting game_bot_respawn_time_ms 0
     setting game_bot_dodge_desired_distance 280
+    setting game_unlimited_ammo 1
 	setting phy_fly 0
     map aim_shaft
 
