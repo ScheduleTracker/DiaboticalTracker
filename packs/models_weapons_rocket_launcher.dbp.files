@@ -51,12 +51,10 @@ models\weapons\rocket_launcher\deathray\rl_s.png.dds		1398276
 models\weapons\rocket_launcher\deathray\weapons_3p.shader		1660
 models\weapons\rocket_launcher\deathray\weapons_carry.shader		1032
 models\weapons\rocket_launcher\deathray\weapons_preview.shader		1593
-models\weapons\rocket_launcher\dragons_breath\rl_d.png		3606020
-models\weapons\rocket_launcher\dragons_breath\rl_n.png		1610000
-models\weapons\rocket_launcher\dragons_breath\rl_s.png		832209
-models\weapons\rocket_launcher\dragons_breath\weapons_3p.shader		1714
-models\weapons\rocket_launcher\dragons_breath\weapons_carry.shader		1068
-models\weapons\rocket_launcher\dragons_breath\weapons_preview.shader		1647
+models\weapons\rocket_launcher\digital_camo\rl_d.png.dds		5592548
+models\weapons\rocket_launcher\digital_camo\weapons_3p.shader		1664
+models\weapons\rocket_launcher\digital_camo\weapons_carry.shader		1040
+models\weapons\rocket_launcher\digital_camo\weapons_preview.shader		1597
 models\weapons\rocket_launcher\electric\rl_d.png.dds		5592580
 models\weapons\rocket_launcher\electric\rl_s.png.dds		1398276
 models\weapons\rocket_launcher\electric\weapons_3p.shader		1652

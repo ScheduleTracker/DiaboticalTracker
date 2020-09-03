@@ -9,11 +9,6 @@ models\armort2.dbm		30546
 models\armort2.fbx		38976
 models\armort3.dbm		30546
 models\armort3.fbx		38976
-models\attachments\bobbleheads\bobblehead.dbm		41281
-models\attachments\bobbleheads\bobblehead.fbx		51632
-models\attachments\bobbleheads\bobblehead.mtl		121
-models\attachments\bobbleheads\bobblehead.obj		126656
-models\attachments\bobbleheads\bobblehead_party.fbx		53984
 models\backup_eggbot2\eggbot_lowerbody.dbm		1803956
 models\backup_eggbot2\eggbot_lowerbody.fbx		1646544
 models\backup_eggbot2\eggbot_rightarm.dbm		1188693
@@ -286,11 +281,11 @@ models\eggbot_destruction\destruction_part8.fbx		31040
 models\eggbot_destruction\destruction_part9.fbx		29328
 models\eggbot_destruction\eggbot_destruction.assets		188
 models\eggbot_destruction\eggbot_destruction.shader		36042
-models\eggbot_destruction\eggbot_destruction_c.png		66708
-models\eggbot_destruction\eggbot_destruction_d.png		896176
-models\eggbot_destruction\eggbot_destruction_n.png		1634904
+models\eggbot_destruction\eggbot_destruction_c.png.dds		699192
+models\eggbot_destruction\eggbot_destruction_d.png.dds		1398276
+models\eggbot_destruction\eggbot_destruction_n.png.dds		1398276
 models\eggbot_destruction\eggbot_destruction_preview.fbx		607104
-models\eggbot_destruction\eggbot_destruction_s.png		1034784
+models\eggbot_destruction\eggbot_destruction_s.png.dds		1398276
 models\eggbot_destruction\part15 (1).fbx		31408
 models\eggbot_destruction\part15 (10).fbx		26080
 models\eggbot_destruction\part15 (11).fbx		28848
@@ -415,10 +410,10 @@ models\entities\diabotical\diabotical.fbx		497904
 models\entities\diabotical\diabotical.shader		411
 models\entities\diabotical\diabotical_crown.dbm		53847
 models\entities\diabotical\diabotical_crown.fbx		57712
-models\entities\diabotical\diabotical_d.png		145189
-models\entities\diabotical\diabotical_i.png		2157
-models\entities\diabotical\diabotical_n.png		733751
-models\entities\diabotical\diabotical_s.png		96879
+models\entities\diabotical\diabotical_d.png.dds		349700
+models\entities\diabotical\diabotical_i.png.dds		174904
+models\entities\diabotical\diabotical_n.png.dds		1398276
+models\entities\diabotical\diabotical_s.png.dds		349700
 models\entities\diabotical\old\doubledamage.dbm		116138
 models\entities\diabotical\old\doubledamage.fbx		87744
 models\entities\diabotical\old\doubledamage_d.png.dds		349700
@@ -444,7 +439,7 @@ models\entities\green_armor\green_armor_vercol.dbm		141637
 models\entities\green_armor\green_armor_vercol.fbx		87488
 models\entities\green_armor\particle.png.dds		131220
 models\entities\health\bubbles.png		23881
-models\entities\health\green_semi_trans.png		1010
+models\entities\health\green_semi_trans.png.dds		5636
 models\entities\health\hpt.assets		473
 models\entities\health\hpt.shader		7912
 models\entities\health\hpt0.dbm		56344
@@ -592,8 +587,8 @@ models\entities\yellow_armor\yellow_armor_n.png.dds		262292
 models\entities\yellow_armor\yellow_armor_s.png.dds		262292
 models\entities\yellow_armor\yellow_armor_vercol.dbm		154795
 models\entities\yellow_armor\yellow_armor_vercol.fbx		104160
-models\experiments\bark01_bottom.png		575646
-models\experiments\branch01.png		966712
+models\experiments\bark01_bottom.png.dds		699220
+models\experiments\branch01.png.dds		1200500
 models\experiments\bush.png.dds		349700
 models\experiments\bush01.dbm		6441
 models\experiments\bush01.fbx		38224
@@ -923,7 +918,7 @@ models\experiments\env_trees\SM_Spurce_Winter.dbm		51578
 models\experiments\env_trees\SM_Spurce_Winter.FBX		100144
 models\experiments\env_trees_textures\T_Leaves_gree_BaseColorn_merged.png		1157788
 models\experiments\env_trees_textures\T_Tree_Brown_BaseColor_01.png		1991696
-models\experiments\foliage.png		179280
+models\experiments\foliage.png.dds		174932
 models\experiments\grass.dbm		4552
 models\experiments\grass.fbx		30272
 models\experiments\grass.png.dds		349700
@@ -934,16 +929,16 @@ models\experiments\grass11.fbx		77952
 models\experiments\grass11_vercol.fbx		86400
 models\experiments\grass2.dbm		24136
 models\experiments\grass2.fbx		35440
-models\experiments\grass2.png		103623
+models\experiments\grass2.png.dds		349700
 models\experiments\grass3.dbm		161224
 models\experiments\grass3.fbx		84080
-models\experiments\grass3.png		84296
+models\experiments\grass3.png.dds		349700
 models\experiments\grass4.dbm		481096
 models\experiments\grass4.fbx		196176
-models\experiments\grass4.png		99286
+models\experiments\grass4.png.dds		699220
 models\experiments\grass5.dbm		161224
 models\experiments\grass5.fbx		84128
-models\experiments\grass5.png		74595
+models\experiments\grass5.png.dds		349700
 models\experiments\grass6.dbm		161224
 models\experiments\grass6.fbx		84128
 models\experiments\grass7.dbm		481096
@@ -953,13 +948,13 @@ models\experiments\grass8.fbx		196272
 models\experiments\grass9.dbm		6232
 models\experiments\grass9.fbx		30656
 models\experiments\grass9.png.dds		174932
-models\experiments\moss_d.png		53153
-models\experiments\moss_n.png		21139
-models\experiments\mushroom01.png		993777
-models\experiments\mushroom2.png		978157
-models\experiments\pinetree02.png		1136867
-models\experiments\rock_a.png		1487672
-models\experiments\rock_a_d.png		1454134
+models\experiments\moss_d.png.dds		87556
+models\experiments\moss_n.png.dds		22020
+models\experiments\mushroom01.png.dds		1398276
+models\experiments\mushroom2.png.dds		1398276
+models\experiments\pinetree02.png.dds		1388020
+models\experiments\rock_a.png.dds		1398276
+models\experiments\rock_a_d.png.dds		1398276
 models\experiments\ter.png.dds		1398260
 models\experiments\ter.svg		2879006
 models\experiments\ter_grass2_d.png.dds		1398276
@@ -973,7 +968,7 @@ models\experiments\terrain.assets		86
 models\experiments\terrain.shader		9879
 models\experiments\traj.dbm		400933
 models\experiments\traj.fbx		172896
-models\experiments\tree_leaf.png		130855
+models\experiments\tree_leaf.png.dds		349700
 models\experiments\tree_leaf2.dbm		244583
 models\experiments\tree_leaf2.fbx		147472
 models\flag.dbm		132910
@@ -1005,6 +1000,7 @@ models\matsphere.fbx		103952
 models\MediumArmorPickup.dbm		43489
 models\MediumArmorPickup.fbx		45952
 models\meele_weapons\all_melees.ma		9097750
+models\meele_weapons\arm_glove\arm_glove.ani		362
 models\meele_weapons\arm_glove\arm_glove.assets		145
 models\meele_weapons\arm_glove\arm_glove.dbm		261561
 models\meele_weapons\arm_glove\arm_glove.fbx		158000
@@ -1014,6 +1010,7 @@ models\meele_weapons\arm_glove\arm_glove_i.png.dds		699192
 models\meele_weapons\arm_glove\arm_glove_n.png.dds		1398260
 models\meele_weapons\arm_glove\arm_glove_s.png.dds		1398276
 models\meele_weapons\arm_glove\Creator Omar Chaouch.txt		27
+models\meele_weapons\axe01_do_not_use\axe01.ani		362
 models\meele_weapons\axe01_do_not_use\axe01.assets		125
 models\meele_weapons\axe01_do_not_use\axe01.dbm		88154
 models\meele_weapons\axe01_do_not_use\axe01.fbx		72720
@@ -1024,15 +1021,17 @@ models\meele_weapons\axe01_do_not_use\axe01_n.png.dds		1048724
 models\meele_weapons\axe01_do_not_use\axe01_s.png.dds		1398276
 models\meele_weapons\axe01_do_not_use\axe01_tb.dbm		178314
 models\meele_weapons\axe01_do_not_use\axe01_tb.fbx		154032
+models\meele_weapons\ballhammer\ballhammer.ani		362
 models\meele_weapons\ballhammer\ballhammer.assets		150
 models\meele_weapons\ballhammer\ballhammer.dbm		20742
 models\meele_weapons\ballhammer\ballhammer.fbx		31072
-models\meele_weapons\ballhammer\ballhammer.shader		401
+models\meele_weapons\ballhammer\ballhammer.shader		397
 models\meele_weapons\ballhammer\ballhammer_d.png.dds		1398260
 models\meele_weapons\ballhammer\ballhammer_i.png		3150
 models\meele_weapons\ballhammer\ballhammer_n.png.dds		1398260
 models\meele_weapons\ballhammer\ballhammer_s.png.dds		1398276
 models\meele_weapons\ballhammer\Creator Omar Chaouch.txt		27
+models\meele_weapons\boltbat\boltbat.ani		362
 models\meele_weapons\boltbat\boltbat.assets		135
 models\meele_weapons\boltbat\boltbat.dbm		115511
 models\meele_weapons\boltbat\boltbat.fbx		81168
@@ -1042,6 +1041,7 @@ models\meele_weapons\boltbat\boltbat_i.png		3150
 models\meele_weapons\boltbat\boltbat_n.png.dds		1398260
 models\meele_weapons\boltbat\boltbat_s.png.dds		1398276
 models\meele_weapons\boltbat\Creator Omar Chaouch.txt		27
+models\meele_weapons\broadsword\broadsword.ani		362
 models\meele_weapons\broadsword\broadsword.dbm		245527
 models\meele_weapons\broadsword\broadsword.fbx		151232
 models\meele_weapons\broadsword\broadsword_d.png.dds		1398260
@@ -1050,6 +1050,7 @@ models\meele_weapons\broadsword\broadsword_s.png.dds		1398276
 models\meele_weapons\broadsword\Creator Omar Chaouch.txt		27
 models\meele_weapons\broadsword\cutter.assets		150
 models\meele_weapons\broadsword\cutter.shader		401
+models\meele_weapons\chockhammer\chockhammer.ani		362
 models\meele_weapons\chockhammer\chockhammer.assets		155
 models\meele_weapons\chockhammer\chockhammer.dbm		301373
 models\meele_weapons\chockhammer\chockhammer.fbx		183280
@@ -1060,6 +1061,7 @@ models\meele_weapons\chockhammer\chockhammer_n.png.dds		1398260
 models\meele_weapons\chockhammer\chockhammer_s.png.dds		1398260
 models\meele_weapons\chockhammer\Creator Omar Chaouch.txt		27
 models\meele_weapons\cutter\Creator Omar Chaouch.txt		27
+models\meele_weapons\cutter\cutter.ani		362
 models\meele_weapons\cutter\cutter.assets		130
 models\meele_weapons\cutter\cutter.dbm		60004
 models\meele_weapons\cutter\cutter.fbx		55824
@@ -1069,6 +1071,7 @@ models\meele_weapons\cutter\cutter_i.png		3150
 models\meele_weapons\cutter\cutter_n.png.dds		1398260
 models\meele_weapons\cutter\cutter_s.png.dds		1398276
 models\meele_weapons\emphammer\Creator Omar Chaouch.txt		27
+models\meele_weapons\emphammer\emphammer.ani		362
 models\meele_weapons\emphammer\emphammer.assets		145
 models\meele_weapons\emphammer\emphammer.dbm		604587
 models\meele_weapons\emphammer\emphammer.fbx		332224
@@ -1077,6 +1080,7 @@ models\meele_weapons\emphammer\emphammer_d.png.dds		1398260
 models\meele_weapons\emphammer\emphammer_i.png.dds		699192
 models\meele_weapons\emphammer\emphammer_n.png.dds		1398260
 models\meele_weapons\emphammer\emphammer_s.png.dds		1398276
+models\meele_weapons\hammer01\hammer01.ani		362
 models\meele_weapons\hammer01\hammer01.assets		140
 models\meele_weapons\hammer01\hammer01.dbm		94418
 models\meele_weapons\hammer01\hammer01.fbx		57296
@@ -1085,6 +1089,7 @@ models\meele_weapons\hammer01\hammer01_d.png.dds		1398260
 models\meele_weapons\hammer01\hammer01_n.png.dds		1398260
 models\meele_weapons\hammer01\hammer01_s.png.dds		1398276
 models\meele_weapons\mazer\Creator Omar Chaouch.txt		27
+models\meele_weapons\mazer\mazer.ani		362
 models\meele_weapons\mazer\mazer.assets		125
 models\meele_weapons\mazer\mazer.dbm		109301
 models\meele_weapons\mazer\mazer.fbx		88176
@@ -1098,19 +1103,20 @@ models\meele_weapons\shields\shield_01\shield_01_i.png.dds		174904
 models\meele_weapons\shields\shield_01\shield_01_n.png.dds		1398260
 models\meele_weapons\shields\shield_01\shield_01_s.png.dds		1398276
 models\meele_weapons\sonar_hammer\Creator Omar Chaouch.txt		27
+models\meele_weapons\sonar_hammer\sonar_hammer.ani		362
 models\meele_weapons\sonar_hammer\sonar_hammer.assets		160
-models\meele_weapons\sonar_hammer\sonar_hammer.dbm		212723
-models\meele_weapons\sonar_hammer\sonar_hammer.fbx		126144
+models\meele_weapons\sonar_hammer\sonar_hammer.dbm		435674
+models\meele_weapons\sonar_hammer\sonar_hammer.fbx		1202224
 models\meele_weapons\sonar_hammer\sonar_hammer.shader		469
 models\meele_weapons\sonar_hammer\sonar_hammer_d.png.dds		1398260
 models\meele_weapons\sonar_hammer\sonar_hammer_i.png.dds		1398260
 models\meele_weapons\sonar_hammer\sonar_hammer_n.png.dds		1398260
 models\meele_weapons\sonar_hammer\sonar_hammer_s.png.dds		1398276
-models\meele_weapons\sonar_hammer\sonarhammer_rig.ma		837912
 models\meele_weapons\stonehammer\amethyst\stonehammer_d.png		1068316
 models\meele_weapons\stonehammer\Creator Omar Chaouch.txt		27
 models\meele_weapons\stonehammer\Jade\stonehammer_d.png		1065972
 models\meele_weapons\stonehammer\sapphire\stonehammer_d.png		1089307
+models\meele_weapons\stonehammer\stonehammer.ani		362
 models\meele_weapons\stonehammer\stonehammer.assets		155
 models\meele_weapons\stonehammer\stonehammer.dbm		136035
 models\meele_weapons\stonehammer\stonehammer.fbx		109904
@@ -1120,6 +1126,7 @@ models\meele_weapons\stonehammer\stonehammer_n.png.dds		1398260
 models\meele_weapons\stonehammer\stonehammer_rig.ma		639395
 models\meele_weapons\stonehammer\stonehammer_s.png.dds		1398276
 models\meele_weapons\tesla_sword\Creator Omar Chaouch.txt		27
+models\meele_weapons\tesla_sword\tesla_sword.ani		362
 models\meele_weapons\tesla_sword\tesla_sword.assets		155
 models\meele_weapons\tesla_sword\tesla_sword.dbm		551506
 models\meele_weapons\tesla_sword\tesla_sword.fbx		383056
@@ -1189,7 +1196,7 @@ models\nature\flowers\flower.dbm		2368
 models\nature\flowers\flower.fbx		27200
 models\nature\flowers\flower2_d.png.dds		1398276
 models\nature\flowers\flower_d.png.dds		1398276
-models\nature\flowers\flowers.assets		271
+models\nature\flowers\flowers.assets		303
 models\nature\flowers\flowers.shader		1170
 models\nature\grass_patches\grass_patch_01_vercol-col.fbx		26880
 models\nature\grass_patches\grass_patch_01_vercol.dbm		16202
@@ -1219,9 +1226,9 @@ models\nature\grass_patches\grass_patches.assets		3555
 models\nature\grass_patches\grass_patches.shader		14891
 models\nature\grass_patches\grass_patches_d.png.dds		1398260
 models\nature\grass_patches\grass_patches_d2.dds		349700
-models\nature\grass_patches\grass_patches_d2.png		169548
+models\nature\grass_patches\grass_patches_d2.png.dds		349700
 models\nature\grass_patches\grass_patches_d3.dds		349700
-models\nature\grass_patches\grass_patches_d3.png		145140
+models\nature\grass_patches\grass_patches_d3.png.dds		349700
 models\nature\grass_patches\grass_patches_red_d.png.dds		1398276
 models\nature\grass_patches\grass_patches_yellow_d.png.dds		1398276
 models\nature\grass_patches\red\grass_patch_long_red_01_vercol-col.fbx		26896
@@ -1287,7 +1294,7 @@ models\nature\grasscards\grasscards01.fbx		25776
 models\nature\grasscards\grasscards02.dbm		3693
 models\nature\grasscards\grasscards02.fbx		20032
 models\nature\grasscards\grasscards_d.png.dds		5592580
-models\nature\ivy_vines\ivy_d.png		266605
+models\nature\ivy_vines\ivy_d.png.dds		349700
 models\nature\ivy_vines\ivy_vines.assets		6597
 models\nature\ivy_vines\ivy_vines.shader		15443
 models\nature\ivy_vines\ivy_vines_01.fbx		32320
@@ -1348,9 +1355,9 @@ models\nature\palm_date\palm_date_06-col.obj		8052
 models\nature\palm_date\palm_date_06.fbx		163184
 models\nature\palm_date\palm_date_07-col.obj		3186
 models\nature\palm_date\palm_date_07.fbx		142208
-models\nature\palm_date\palm_date_d.png		1191987
-models\nature\palm_date\palm_date_n.png		1239600
-models\nature\palm_date\palm_fronds.png		285899
+models\nature\palm_date\palm_date_d.png.dds		1398276
+models\nature\palm_date\palm_date_n.png.dds		1398276
+models\nature\palm_date\palm_fronds.png.dds		349700
 models\nature\palm_date\palm_fronds_01-col.obj		1553
 models\nature\palm_date\palm_fronds_01.fbx		37104
 models\nature\palm_date\palm_fronds_02-col.obj		1553
@@ -1361,7 +1368,7 @@ models\nature\palm_date\palm_fronds_04-col.obj		1553
 models\nature\palm_date\palm_fronds_04.fbx		28192
 models\nature\palm_date\palm_fronds_05-col.obj		1553
 models\nature\palm_date\palm_fronds_05.fbx		45152
-models\nature\prickly_pear_cactus\cactus_pricks.png		6574
+models\nature\prickly_pear_cactus\cactus_pricks.png.dds		5636
 models\nature\prickly_pear_cactus\nature_mdn.assets		1996
 models\nature\prickly_pear_cactus\nature_mdn.shader		7672
 models\nature\prickly_pear_cactus\prickly_pear_cactus_01.fbx		148864
@@ -1370,8 +1377,8 @@ models\nature\prickly_pear_cactus\prickly_pear_cactus_03.fbx		341488
 models\nature\prickly_pear_cactus\prickly_pear_cactus_04.fbx		111456
 models\nature\prickly_pear_cactus\prickly_pear_cactus_05.fbx		95312
 models\nature\prickly_pear_cactus\prickly_pear_cactus_06.fbx		101312
-models\nature\prickly_pear_cactus\prickly_pear_cactus_d.png		56849
-models\nature\prickly_pear_cactus\prickly_pear_cactus_n.png		78172
+models\nature\prickly_pear_cactus\prickly_pear_cactus_d.png.dds		87556
+models\nature\prickly_pear_cactus\prickly_pear_cactus_n.png.dds		87556
 models\nature\stone_boulders\stone_boulder_01-col.obj		12722
 models\nature\stone_boulders\stone_boulder_01.dbm		26456
 models\nature\stone_boulders\stone_boulder_01.fbx		38528
@@ -1448,9 +1455,9 @@ models\nature\trees\tree02_vercol-col.fbx		49760
 models\nature\trees\tree02_vercol.dbm		141010
 models\nature\trees\tree02_vercol.fbx		137008
 models\nature\trees\tree_leaf.png.dds		349700
-models\nature\trees\tree_leaf_c.png		98705
-models\nature\trees\tree_leaf_n.png		79989
-models\nature\trees\tree_leaf_orange_d.png		115100
+models\nature\trees\tree_leaf_c.png.dds		349700
+models\nature\trees\tree_leaf_n.png.dds		349700
+models\nature\trees\tree_leaf_orange_d.png.dds		349700
 models\nature\trees\trees.assets		1842
 models\nature\trees\trees.shader		19122
 models\nature\trees\treestem01_d.png.dds		349700
@@ -1526,7 +1533,7 @@ models\part8.dbm		63992
 models\part8.obj		182707
 models\part9.dbm		19160
 models\part9.obj		57010
-models\particle_lightning.png		39604
+models\particle_lightning.png.dds		262372
 models\particle_sheet3.png		1464485
 models\particles\debris_01.dbm		5343
 models\particles\debris_01.fbx		19696
@@ -1851,6 +1858,20 @@ models\tripledamage.dbm		175550
 models\tripledamage.fbx		124832
 models\wave.dbm		757441
 models\wave.fbx		3488672
+models\weapon_attachments\bobbleheads\bobblehead.dbm		41281
+models\weapon_attachments\bobbleheads\bobblehead.fbx		51632
+models\weapon_attachments\bobbleheads\bobblehead.mtl		121
+models\weapon_attachments\bobbleheads\bobblehead.obj		126656
+models\weapon_attachments\bobbleheads\wa_bobblehead_igniter\bobblehead_igniter_d.png.dds		87556
+models\weapon_attachments\bobbleheads\wa_bobblehead_lil_skull\bobblehead_lil_skull_d.png.dds		87556
+models\weapon_attachments\bobbleheads\wa_bobblehead_partybot\bobblehead_partybot.fbx		53984
+models\weapon_attachments\bobbleheads\wa_bobblehead_partybot\bobblehead_partybot_d.png.dds		87556
+models\weapon_attachments\bobbleheads\wa_bobblehead_smileyyellow\bobblehead_smileyyellow_d.png.dds		87556
+models\weapon_attachments\stat_tracks\base\stat_track.fbx		39248
+models\weapon_attachments\stat_tracks\base\stat_track.shader		631
+models\weapon_attachments\stat_tracks\base\stat_tracker_d.png		149246
+models\weapon_attachments\stat_tracks\base\stat_tracker_n.png		224074
+models\weapon_attachments\stat_tracks\base\stat_tracker_s.png		119416
 models\weapon_g_explosive_1p.dbm		227115
 models\weapon_g_explosive_1p.fbx		160832
 models\weapon_g_implode_1p.dbm		330099
@@ -1944,11 +1965,6 @@ models\weaponrl.ani		387
 models\weaponrl.dbm		2719692
 models\weaponrl.fbm\rl_d.png		1984821
 models\weaponrl.fbx		1831680
-models\weapons_attachments\stat_tracks\base\stat_track.fbx		39248
-models\weapons_attachments\stat_tracks\base\stat_track.shader		634
-models\weapons_attachments\stat_tracks\base\stat_tracker_d.png		149246
-models\weapons_attachments\stat_tracks\base\stat_tracker_n.png		224074
-models\weapons_attachments\stat_tracks\base\stat_tracker_s.png		119416
 models\weaponsdsg.ani		1002
 models\weaponsdsg.dbm		3864526
 models\weaponsdsg.fbx		2945504

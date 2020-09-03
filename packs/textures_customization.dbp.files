@@ -1,5 +1,5 @@
-textures\customization\customization.assets		43349
-textures\customization\customization.shader		167348
+textures\customization\customization.assets		43326
+textures\customization\customization.shader		170746
 textures\customization\sp\aristocrat_weeball.png.dds		349700
 textures\customization\sp\armor.png.dds		1398276
 textures\customization\sp\birdfight.png.dds		1398276
@@ -71,6 +71,7 @@ textures\customization\sp\weeballons.png.dds		349700
 textures\customization\sp\white_rose.png.dds		349700
 textures\customization\sp\winning.png.dds		349700
 textures\customization\sp\wtf.png.dds		1398276
+textures\customization\sp\you_tried_award.png.dds		349700
 textures\customization\st\3d_glasses.png.dds		349700
 textures\customization\st\3d_glasses.png.metadata		18
 textures\customization\st\4_leaf_clover.png.dds		349700
@@ -451,6 +452,16 @@ textures\customization\st\gas_mask.png.dds		349700
 textures\customization\st\gas_mask.png.metadata		18
 textures\customization\st\gear.png.dds		349700
 textures\customization\st\gear.png.metadata		18
+textures\customization\st\get_1000_pncr_frags.png.dds		349700
+textures\customization\st\get_1000_pncr_frags.png.metadata		18
+textures\customization\st\get_1000_rl_frags.png.dds		349700
+textures\customization\st\get_1000_rl_frags.png.metadata		18
+textures\customization\st\get_1000_shaft_frags.png.dds		349700
+textures\customization\st\get_1000_shaft_frags.png.metadata		18
+textures\customization\st\get_100_melee_frags.png.dds		349700
+textures\customization\st\get_100_melee_frags.png.metadata		18
+textures\customization\st\get_50000_frags.png.dds		349700
+textures\customization\st\get_50000_frags.png.metadata		18
 textures\customization\st\glossy_lips_mouth.png.dds		349700
 textures\customization\st\glossy_lips_mouth.png.metadata		18
 textures\customization\st\glowing_eye.png.dds		349700
@@ -519,6 +530,8 @@ textures\customization\st\hypnotizing_eye.png.dds		349700
 textures\customization\st\hypnotizing_eye.png.metadata		18
 textures\customization\st\implosion_weeball_eye.png.dds		349700
 textures\customization\st\implosion_weeball_eye.png.metadata		18
+textures\customization\st\inflict_500000_damage.png.dds		349700
+textures\customization\st\inflict_500000_damage.png.metadata		18
 textures\customization\st\inquisitive_eye.png.dds		349700
 textures\customization\st\inquisitive_eye.png.metadata		16
 textures\customization\st\inspired_eye.png.dds		349700
@@ -633,6 +646,12 @@ textures\customization\st\pixely_weeball.png.dds		349700
 textures\customization\st\pixely_weeball.png.metadata		17
 textures\customization\st\planet.png.dds		1398276
 textures\customization\st\planet.png.metadata		17
+textures\customization\st\play_1000_quick_play_games.png.dds		349700
+textures\customization\st\play_1000_quick_play_games.png.metadata		18
+textures\customization\st\play_1000_ranked_games.png.dds		349700
+textures\customization\st\play_1000_ranked_games.png.metadata		18
+textures\customization\st\play_2500_games.png.dds		349700
+textures\customization\st\play_2500_games.png.metadata		18
 textures\customization\st\pointy_ear.png.dds		349700
 textures\customization\st\pointy_ear.png.metadata		19
 textures\customization\st\pomp_auburn_hair.png.dds		349700
@@ -933,6 +952,8 @@ textures\customization\st\wide_nose.png.dds		349700
 textures\customization\st\wide_nose.png.metadata		18
 textures\customization\st\wide_open_eye.png.dds		349700
 textures\customization\st\wide_open_eye.png.metadata		17
+textures\customization\st\win_1000_games.png.dds		349700
+textures\customization\st\win_1000_games.png.metadata		18
 textures\customization\st\winged_goatee.png.dds		349700
 textures\customization\st\winged_goatee.png.metadata		18
 textures\customization\st\worn_out_heart.png.dds		349700
@@ -943,7 +964,5 @@ textures\customization\st\yellow_red_medal_ribbon.png.dds		349700
 textures\customization\st\yellow_red_medal_ribbon.png.metadata		18
 textures\customization\st\yin_and_yang.png.dds		349700
 textures\customization\st\yin_and_yang.png.metadata		18
-textures\customization\st\you_tried_award.png.dds		349700
-textures\customization\st\you_tried_award.png.metadata		18
 textures\customization\st\zipper_teeth_mouth.png.dds		349700
 textures\customization\st\zipper_teeth_mouth.png.metadata		19

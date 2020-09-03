@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		6702
 scripts\base.enemy		543
-scripts\base.games		18890
+scripts\base.games		22313
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -12,15 +12,15 @@ scripts\castle_dynamic.assets		4115
 scripts\castle_materials.assets		1596
 scripts\castle_static.assets		3575
 scripts\ctf.movies-example		145
-scripts\decals.assets		5365
-scripts\dynamic_industrial.assets		71613
+scripts\decals.assets		4776
+scripts\dynamic_industrial.assets		71627
 scripts\dynamic_temple.assets		26277
 scripts\effects.atlas		7676
-scripts\entities.assets		8119
+scripts\entities.assets		8163
 scripts\fragclips.movies-example		1485
 scripts\heal.particles		743
 scripts\industry_materials.assets		3053
-scripts\industry_materials_depreciated.assets		2966
+scripts\industry_materials_depreciated.assets		2993
 scripts\materials.assets		6904
 scripts\movie.movies-example		1091
 scripts\nightmap.movies-example		417
@@ -66,7 +66,7 @@ scripts\particles\flak_particles.particles		10521
 scripts\particles\ghost.particles		3927
 scripts\particles\gl_bullet.particles		9198
 scripts\particles\gl_impact.particles		8122
-scripts\particles\gl_impact_v2.particles		13412
+scripts\particles\gl_impact_v2.particles		13421
 scripts\particles\gl_muzzle.particles		4460
 scripts\particles\heal.particles		10097
 scripts\particles\heal_simple.particles		1164
@@ -78,7 +78,7 @@ scripts\particles\hrl_bullet.particles		2396
 scripts\particles\hrl_impact.particles		5366
 scripts\particles\hrl_muzzle.particles		7783
 scripts\particles\hrl_muzzle_v2.particles		7767
-scripts\particles\implode.particles		9399
+scripts\particles\implode.particles		9410
 scripts\particles\inca.particles		10337
 scripts\particles\jumppad1.particles		2389
 scripts\particles\lg.particles		2620
@@ -100,7 +100,7 @@ scripts\particles\pickup_sg.particles		1355
 scripts\particles\plasma.particles		1514
 scripts\particles\plasma_bullet.particles		6394
 scripts\particles\plasma_decorative.particles		3558
-scripts\particles\plasma_impact.particles		9236
+scripts\particles\plasma_impact.particles		9246
 scripts\particles\plasma_muzzle.particles		12713
 scripts\particles\pncr_decorative.particles		6773
 scripts\particles\pncr_impact.particles		590
@@ -113,7 +113,7 @@ scripts\particles\rg_impact.particles		6965
 scripts\particles\rg_muzzle.particles		0
 scripts\particles\rl_bullet.particles		5830
 scripts\particles\rl_impact.particles		9334
-scripts\particles\rl_impact_v2.particles		11325
+scripts\particles\rl_impact_v2.particles		11336
 scripts\particles\rl_muzzle.particles		2836
 scripts\particles\rl_muzzle_v2.particles		12074
 scripts\particles\rocket.particles		0
@@ -129,7 +129,7 @@ scripts\particles\shaft_impact.particles		1371
 scripts\particles\shaft_muzzle.particles		1370
 scripts\particles\shaft_particles.particles		15211
 scripts\particles\shield_broken.particles		2794
-scripts\particles\slow_weeble_impact.particles		3758
+scripts\particles\slow_weeble_impact.particles		3768
 scripts\particles\smoke.particles		995
 scripts\particles\smoke_weeble.particles		3347
 scripts\particles\spawn.particles		4765
@@ -176,10 +176,10 @@ scripts\shaders\container.shader		1320
 scripts\shaders\core.shader		2989
 scripts\shaders\ct_dev.shader		887
 scripts\shaders\ctf.shader		6783
-scripts\shaders\decals.shader		26718
+scripts\shaders\decals.shader		24890
 scripts\shaders\decals_gameplay.shader		4555
 scripts\shaders\destruction.shader		1283
-scripts\shaders\dynamic_props.shader		74882
+scripts\shaders\dynamic_props.shader		74884
 scripts\shaders\dynamic_props_temple.shader		15570
 scripts\shaders\eggbot_destruction.shader		373
 scripts\shaders\erad_environment.shader		2413
@@ -229,7 +229,7 @@ scripts\trailerclips.movies-example		2569
 scripts\ui.sounds		117
 scripts\water_temple_materials.assets		876
 scripts\weapons\abilities.weapons		1291
-scripts\weapons\basic.weapons		20204
+scripts\weapons\basic.weapons		20207
 scripts\weapons\br.weapons		5927
 scripts\weapons\melee.weapons		814
 scripts\weapons\modes.weapons		0

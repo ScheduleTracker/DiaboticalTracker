@@ -3,8 +3,8 @@ textures\cubemaps\default_envmap.dds		8388916
 textures\cubemaps\default_envmap_3.dds		8388916
 textures\cubemaps\default_skybox.dds		8388916
 textures\cubemaps\desert_envmap.dds		8388916
-textures\cubemaps\night_cross.png		2493588
-textures\cubemaps\sky_cross.png		2549471
+textures\cubemaps\night_cross.png.dds		16777396
+textures\cubemaps\sky_cross.png.dds		16777396
 textures\cubemaps\skybox_dawn.dds		8388916
 textures\cubemaps\skybox_night.dds		8388916
 textures\cubemaps\skybox_night3.dds		8388916

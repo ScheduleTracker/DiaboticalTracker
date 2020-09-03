@@ -40,7 +40,7 @@ models\weapons\shaft\carbon_fiber\shaft_s.png.dds		1398276
 models\weapons\shaft\carbon_fiber\weapons_3p.shader		1199
 models\weapons\shaft\carbon_fiber\weapons_carry.shader		668
 models\weapons\shaft\carbon_fiber\weapons_preview.shader		1209
-models\weapons\shaft\cartoon\shaft_d.png.dds		5592580
+models\weapons\shaft\cartoon\shaft_d.png.dds		5592548
 models\weapons\shaft\cartoon\shaft_n.png.dds		1398276
 models\weapons\shaft\cartoon\shaft_s.png.dds		1398276
 models\weapons\shaft\cartoon\weapons_3p.shader		1159
@@ -51,7 +51,7 @@ models\weapons\shaft\checkers\shaft_s.png		831254
 models\weapons\shaft\checkers\weapons_3p.shader		1159
 models\weapons\shaft\checkers\weapons_carry.shader		644
 models\weapons\shaft\checkers\weapons_preview.shader		1169
-models\weapons\shaft\crystalize\shaft_d.png.dds		5592580
+models\weapons\shaft\crystalize\shaft_d.png.dds		5592548
 models\weapons\shaft\crystalize\shaft_n.png.dds		1398276
 models\weapons\shaft\crystalize\shaft_s.png.dds		1398276
 models\weapons\shaft\crystalize\weapons_3p.shader		1183
@@ -144,7 +144,7 @@ models\weapons\shaft\separator\shaft_s.png.dds		1398276
 models\weapons\shaft\separator\weapons_3p.shader		1175
 models\weapons\shaft\separator\weapons_carry.shader		653
 models\weapons\shaft\separator\weapons_preview.shader		1185
-models\weapons\shaft\stripes\shaft_d.png.dds		5592580
+models\weapons\shaft\stripes\shaft_d.png.dds		5592548
 models\weapons\shaft\stripes\shaft_n.png.dds		1398276
 models\weapons\shaft\stripes\shaft_s.png.dds		1398276
 models\weapons\shaft\stripes\weapons_3p.shader		1159

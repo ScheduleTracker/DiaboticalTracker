@@ -6,14 +6,14 @@ textures\nature_textures\concreteslab\concreteslab_n.png		2608292
 textures\nature_textures\concreteslab\concreteslab_paint_d.png		3159976
 textures\nature_textures\concreteslab\concreteslab_s.png.dds		5592580
 textures\nature_textures\grass_01\grass01_d.png.dds		349700
-textures\nature_textures\grass_01\grass01_n.png		290138
+textures\nature_textures\grass_01\grass01_n.png.dds		349700
 textures\nature_textures\grass_02\grass02_d.png.dds		5592580
 textures\nature_textures\grass_02\grass02_n.png.dds		5592580
 textures\nature_textures\grass_03\grass03_d.png.dds		5592580
 textures\nature_textures\grass_04\grass04_d.png.dds		5592580
 textures\nature_textures\mudground\mudground_d.png.dds		5592580
 textures\nature_textures\mudground\mudground_n.png		5160437
-textures\nature_textures\nature_materials.assets		673
+textures\nature_textures\nature_materials.assets		595
 textures\nature_textures\nature_materials.shader		2881
 textures\nature_textures\rockcliff01\rockcliff01_d.png.dds		5592580
 textures\nature_textures\rockcliff01\rockcliff01_n.png.dds		5592580
