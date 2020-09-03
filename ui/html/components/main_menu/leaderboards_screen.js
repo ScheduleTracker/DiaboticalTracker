@@ -97,15 +97,13 @@ function load_leaderboard(mode) {
     }
     let params_all = { 
         "mode": global_leaderboards_data.game_mode, 
-        //"season": global_competitive_season.comp_season_id, 
-        "season": 1,
+        "season": global_competitive_season.comp_season_id, 
         //"limit": global_leaderboards_data['max_per_page'] + 1,
         "offset": (global_leaderboards_data['page'] - 1) * global_leaderboards_data['max_per_page'],
     };
     let params_self = {
         "mode": global_leaderboards_data.game_mode, 
-        //"season": global_competitive_season.comp_season_id, 
-        "season": 1,
+        "season": global_competitive_season.comp_season_id, 
     };
 
     let page_requested = global_leaderboards_data['page'];
