@@ -713,6 +713,7 @@ subsystem gl_explode_spark
 		subsystem gl_explode_flash02 0 1.1
 	subsystem gl_explode_flash03 0 1.1
 subsystem gl_explode_flash04 0 1.1
+range 0
 }
 
 

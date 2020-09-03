@@ -180,6 +180,7 @@ plasma_impact_tier_1
 	//subsystem tier_1_plasma_impact_light
 
     //subsystem tier_1_plasma_distortion
+	range 0
 	
 }
 

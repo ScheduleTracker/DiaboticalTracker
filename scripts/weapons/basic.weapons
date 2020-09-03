@@ -45,7 +45,7 @@ blaster
   	ground_knockback 17.5
 	ground_knockback_self 20
 
-	hit_radius 1.5
+	hit_radius 2 0
 	
 	combo_rate	machinegun 100
 	combo_rate  super_shotgun 100
@@ -133,7 +133,7 @@ super_shotgun
 	impact_particles_distance_delay 0.12
 	independent_upgrade_model true
 	
-	hit_radius 1.5 0
+	hit_radius 1.5 3
 	
 	category 2
 	bind_group 2
@@ -207,7 +207,7 @@ shaft
 	category 4
 	bind_group 4
 
-	hit_radius 2.2 0
+	hit_radius 2.5 1
 
 	knockback 9.6
 	ground_knockback 9
@@ -290,11 +290,11 @@ rocket_launcher
 	weapon_tag rl
 	color df1f2d
  	//group 3
-	speed 1050
+	speed 1000
  	rate 800
   	damage 100
-	min_splash_damage 10
-	splash_damage 84
+	min_splash_damage 5
+	splash_damage 99
 	splash_hemisphere_offset 20
     splash_hemisphere_offset_damage_multiplier 0.30
 	default_ammo_pickup_ammo 5
@@ -303,7 +303,7 @@ rocket_launcher
 	//target_indicator true
 	category 3
 	bind_group 3
-	hit_radius 1
+	hit_radius 2 0
     
     friendly_name Rocket Launcher
     description A rocket launcher.
@@ -490,7 +490,7 @@ pncr
     friendly_name PNCR
     description Point N'Click Rifle
 	
-	hit_radius 0 0
+	hit_radius 1.5 1
 
 	charge_animation 6
 	charge_animation_bonus true

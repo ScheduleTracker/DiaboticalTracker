@@ -666,11 +666,11 @@ listed true
 
 ////////////////////////////////////////////////////////
 
-
+//not working
 asset coveyor_belt
 {
   dynamic true
-listed true
+listed false
   //xmin ymin zmin xmax ymax zmax
   dynamic_dimensions 1 1 2 1 1 inf
   dynamic_default_size 1 1 6

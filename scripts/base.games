@@ -7,6 +7,7 @@ game default
 	setting game_initial_item_time 0
 	setting game_truce_time 0
 	setting game_team_mode 0
+	setting game_aim_mode 0
 	setting game_draft_time 0
     setting game_rounds 1
 	setting game_tide_bonus 0
@@ -146,6 +147,18 @@ game default
 
 }
 
+game tutorial
+{
+	setting net_server_hitscan 0
+	setting net_max_backwards_reconciliation_ping 0
+	setting game_countdown 0
+    setting game_self_damage 0
+	setting game_unlimited_ammo 1
+	setting phy_fly 0
+	
+	map tutorial
+}
+
 game edit
 {
 	setting net_server_hitscan 0
@@ -207,13 +220,111 @@ game practice
 	weapon explosive_weeble 999
 }
 
+game aim_pncr_flickshots
+{
+	setting net_server_hitscan 0
+	setting net_max_backwards_reconciliation_ping 0
+	setting game_aim_mode 1
+    setting game_initial_item_time 0
+    setting game_truce_time 0
+    setting game_hp 1
+    setting game_time_limit 60
+    setting game_spawn_random_chance 1
+    setting game_maximum_respawn_time_ms 0
+    setting game_minimum_respawn_time_ms 0
+    setting game_bot_respawn_time_ms 1450
+	setting phy_fly 0
+    map aim1_obstacles
+
+    weapon pncr 999
+}
+
+game aim_mac_flickshots
+{
+	setting net_server_hitscan 0
+	setting net_max_backwards_reconciliation_ping 0
+	setting game_aim_mode 1
+    setting game_initial_item_time 0
+    setting game_truce_time 0
+    setting game_hp 1
+    setting game_time_limit 60
+    setting game_spawn_random_chance 1
+    setting game_maximum_respawn_time_ms 0
+    setting game_minimum_respawn_time_ms 0
+    setting game_bot_respawn_time_ms 50
+	setting phy_fly 0
+    map aim1_obstacles
+
+    weapon machinegun 999
+}
+
+game aim_shaft_close
+{
+	setting net_server_hitscan 0
+	setting net_max_backwards_reconciliation_ping 0
+	setting game_aim_mode 1
+    setting game_initial_item_time 0
+    setting game_truce_time 0
+    setting game_hp 300
+    setting game_time_limit 60
+    setting game_spawn_random_chance 1
+    setting game_maximum_respawn_time_ms 0
+    setting game_minimum_respawn_time_ms 0
+    setting game_bot_respawn_time_ms 0
+    setting game_bot_dodge_desired_distance 80
+	setting phy_fly 0
+    map aim_shaft
+
+    weapon shaft 999
+}
+
+game aim_shaft_mid
+{
+	setting net_server_hitscan 0
+	setting net_max_backwards_reconciliation_ping 0
+	setting game_aim_mode 1
+    setting game_initial_item_time 0
+    setting game_truce_time 0
+    setting game_hp 300
+    setting game_time_limit 60
+    setting game_spawn_random_chance 1
+    setting game_maximum_respawn_time_ms 0
+    setting game_minimum_respawn_time_ms 0
+    setting game_bot_respawn_time_ms 0
+    setting game_bot_dodge_desired_distance 180
+	setting phy_fly 0
+    map aim_shaft
+
+    weapon shaft 999
+}
+
+game aim_shaft_far
+{
+	setting net_server_hitscan 0
+	setting net_max_backwards_reconciliation_ping 0
+	setting game_aim_mode 1
+    setting game_initial_item_time 0
+    setting game_truce_time 0
+    setting game_hp 300
+    setting game_time_limit 60
+    setting game_spawn_random_chance 1
+    setting game_maximum_respawn_time_ms 0
+    setting game_minimum_respawn_time_ms 0
+    setting game_bot_respawn_time_ms 0
+    setting game_bot_dodge_desired_distance 280
+	setting phy_fly 0
+    map aim_shaft
+
+    weapon shaft 999
+}
+
 game warmup
 {
 	setting game_team_mode 1
 	setting game_friendly_fire 0
 	setting game_weapon_respawn_time 2
-	setting game_hp 125
-	setting game_stable_hp 100
+	setting game_hp 150
+	setting game_stable_hp 150
     setting game_ghost_limit_hp 125
 	setting game_max_hp 200
 
@@ -504,6 +615,7 @@ game ctf
 	
 	map ctf_cathedral
 	map ctf_dojo
+	map ctf_quarry
 
 	
 	weapon sword 999
@@ -544,7 +656,7 @@ game instagib
 	map wo_refinery
 	map wo_wellspring
 	map wo_crystal_cove
-	map wo_test_map
+	map wo_toya_fortress
 
 
 	weapon sword 999
@@ -564,7 +676,7 @@ game instagib_brawl
 	map wo_refinery
 	map wo_wellspring
 	map wo_crystal_cove
-	map wo_test_map
+	map wo_toya_fortress
 
 
 	weapon sword 999
@@ -587,6 +699,7 @@ game ghosthunt
 	map ig_egg-plant
 	map ig_stronghold
 	map ig_terminal
+	map ig_apollo
 
 
 	weapon sword 999
@@ -629,6 +742,7 @@ game tdm
 
 	map tdm_icefall
 	map tdm_oxide
+	map tdm_alchemy
 	
 	weapon sword 999
 	weapon machinegun 100
@@ -651,6 +765,32 @@ game extinction
 	
 	weapon sword 999
 	weapon machinegun 100
+}
+
+game race
+{
+    setting game_hp 100
+	setting game_friendly_fire 0
+	setting game_warmup_time 0
+	setting game_countdown 0
+	setting game_time_limit 0
+	setting game_frag_limit 0
+	setting game_self_damage 0
+	setting game_unlimited_ammo 1
+	
+	map tt_frostrun
+	map tt_foundry
+	map tt_rwc
+	map tt_temple_escape
+	map tt_cathedral
+	map tt_dojo 
+	map tt_quarry
+	map tt_titans_crossing
+	map tt_qunai_peaks
+	map tt_cliffside_canyons
+	
+	
+	weapon sword 999
 }
 
 // DONT CHANGE ID NUMBERS ASSIGNED TO  SKILLS!

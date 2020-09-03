@@ -182,5 +182,6 @@ slow_weeble_impact
 	subsystem slow_weeble_dots_02_2
 	 subsystem  slow_weeble_impact_light
 	subsystem slow_weeble_end_pulse
+	range 0
 		
 }

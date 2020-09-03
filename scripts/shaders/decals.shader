@@ -302,19 +302,6 @@ jazz
 	}
 }
 
-flyer_1
-{
-	{
-		map textures/decals/flyer_1.png
-		map textures/flat_normal.png
-		map textures/black.png
-		vertex_shader tilestatic.vs.cso 111 NGT
-		vertex_shader_param inverse
-		vertex_shader_param camera
-		pixel_shader tiledecal.ps.cso
-	}
-}
-
 
 gaspachelor_graffiti
 {
@@ -746,33 +733,9 @@ diabotical_graffiti
 	}
 }
 
-graffiti_mario
 
-{
-	{
-		map textures/decals/mario.png
-		map textures/flat_normal.png
-		map textures/black.png
-		vertex_shader tilestatic.vs.cso 111 NGT
-		vertex_shader_param inverse
-		vertex_shader_param camera
-		pixel_shader tiledecal.ps.cso
-	}
-}
 
-graffiti_mario2
 
-{
-	{
-		map textures/decals/mario_2.png
-		map textures/flat_normal.png
-		map textures/black.png
-		vertex_shader tilestatic.vs.cso 111 NGT
-		vertex_shader_param inverse
-		vertex_shader_param camera
-		pixel_shader tiledecal.ps.cso
-	}
-}
 
 graffiti_placeholder1
 
@@ -844,33 +807,6 @@ graffiti_placeholder5
 	}
 }
 
-graffiti_mario3
-
-{
-	{
-		map textures/decals/mario_3.png
-		map textures/flat_normal.png
-		map textures/black.png
-		vertex_shader tilestatic.vs.cso 111 NGT
-		vertex_shader_param inverse
-		vertex_shader_param camera
-		pixel_shader tiledecal.ps.cso
-	}
-}
-
-graffiti_mario4
-
-{
-	{
-		map textures/decals/mario_4.png
-		map textures/flat_normal.png
-		map textures/black.png
-		vertex_shader tilestatic.vs.cso 111 NGT
-		vertex_shader_param inverse
-		vertex_shader_param camera
-		pixel_shader tiledecal.ps.cso
-	}
-}
 
 //-------------symbols
 
@@ -1160,39 +1096,11 @@ dignitas_quote
 	}
 }
 
-dignitas
-
-{
-	{
-		map textures/decals/dignitas.png
-		map textures/flat_normal.png
-		map textures/black.png
-		vertex_shader tilestatic.vs.cso 111 NGT
-		vertex_shader_param inverse
-		vertex_shader_param camera
-		pixel_shader tiledecal.ps.cso
-	}
-}
-
 dignitas_banner
 
 {
 	{
 		map textures/decals/dignitas_banner.png
-		map textures/flat_normal.png
-		map textures/black.png
-		vertex_shader tilestatic.vs.cso 111 NGT
-		vertex_shader_param inverse
-		vertex_shader_param camera
-		pixel_shader tiledecal.ps.cso
-	}
-}
-
-kawaii_quote
-
-{
-	{
-		map textures/decals/kawaii_quote.png
 		map textures/flat_normal.png
 		map textures/black.png
 		vertex_shader tilestatic.vs.cso 111 NGT

@@ -503,4 +503,5 @@ implode_impact
 	subsystem implosion_impact_light
 	subsystem implode_lines_constant
 		subsystem implode_lines_constant2
+		range 0
 }

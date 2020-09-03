@@ -103,11 +103,12 @@ asset metalwall_heat02
   material metalwall_heat02
 }
 
-asset metalwall_heat02_color
-{
-  type surface_material
-  material metalwall_heat02_color
-}
+//not available
+//asset metalwall_heat02_color
+//{
+//  type surface_material
+//  material metalwall_heat02_color
+//}
 
 asset metalwall_heat03
 {

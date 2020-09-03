@@ -596,6 +596,7 @@ rl_impact_v2
 		// subsystem rl_smoke_impact_2 0 0.7
 	
 		//subsystem rl_floor_smoke_impact_center_2 0 0.7
+		range 0
 		
 	
 

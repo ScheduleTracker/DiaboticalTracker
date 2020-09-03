@@ -96,18 +96,6 @@ asset tag_1
   type decal
 }
 
-asset billboard_cutie
-{
-  listed true
-  type decal
-}
-
-asset RomeroRocket
-{
-  listed true
-  type decal
-}
-
 asset decal
 {
   listed true
@@ -149,13 +137,6 @@ asset dirt
 }
 
 asset chillbot_graffiti
-{
-  listed true
-  type decal
-}
-
-asset flyer_1
-
 {
   listed true
   type decal
@@ -309,42 +290,7 @@ asset pre_paint3
   type decal
 }
 
-asset pre_paint4
-
-{
-  listed true
-  type decal
-}
-
 graff_tag_diabotical
-
-{
-  listed true
-  type decal
-}
-
-asset graffiti_mario
-
-{
-  listed true
-  type decal
-}
-
-asset graffiti_mario2
-
-{
-  listed true
-  type decal
-}
-
-asset graffiti_mario3
-
-{
-  listed true
-  type decal
-}
-
-asset graffiti_mario4
 
 {
   listed true
@@ -490,21 +436,7 @@ asset dignitas_quote
   type decal
 }
 
-asset dignitas
-
-{
-  listed true
-  type decal
-}
-
 asset dignitas_banner
-
-{
-  listed true
-  type decal
-}
-
-asset kawaii_quote
 
 {
   listed true

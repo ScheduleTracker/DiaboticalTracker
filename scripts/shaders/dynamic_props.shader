@@ -2752,7 +2752,7 @@ props/industrial/cleanpipe_corner
  	}
 }
 
-dynamic_props/modern/dp_floor_plating01_tile1
+dynamic_props/industry/dp_floor_plating01_tile1
 
 {
  	{

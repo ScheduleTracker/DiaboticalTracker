@@ -416,28 +416,14 @@ asset base_team_0
 {
   listed true
   type entity
-  command multi /add base_team_0; /resize !last 400 180 400; /set !last team 0; /forsel move %1 +0 +80 +0
-}
-
-asset base_team_0_minor
-{
-  listed true
-  type entity
-  command multi /add base_team_0_minor; /resize !last 240 180 240; /set !last team 0; /set !last minor true; /forsel move %1 +0 +80 +0
+  command multi /add base_team_0; /resize !last 400 180 400; /set !last team 0; /forsel move %1 +0 +80 +0; /add prop_theme_macguffin_props; /set !last model theme/macguffin/props/dropzones/mcg_prop_dropzone_well_closed; /resize !last 1.1 0.5 1.1; /forsel move %1 +0 +-20.8 +0; /set !last clip noclip; /set !last color 88d3ff
 }
 
 asset base_team_1
 {
   listed true
   type entity
-  command multi /add base_team_1; /resize !last 400 180 400; /set !last team 1; /forsel move %1 +0 +80 +0
-}
-
-asset base_team_1_minor
-{
-  listed true
-  type entity
-  command multi /add base_team_1_minor; /resize !last 240 180 240; /set !last team 1; /set !last minor true; /forsel move %1 +0 +80 +0
+  command multi /add base_team_1; /resize !last 400 180 400; /set !last team 1; /forsel move %1 +0 +80 +0; /add prop_theme_macguffin_props; /set !last model theme/macguffin/props/dropzones/mcg_prop_dropzone_smelting_closed; /resize !last 1.1 0.5 1.1; /forsel move %1 +0 +-20.8 +0; /set !last clip noclip; /set !last color ff9671
 }
 
 asset thumbnail
