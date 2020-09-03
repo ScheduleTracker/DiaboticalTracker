@@ -428,6 +428,9 @@ function add_user_customizations(customizations) {
         // Skip any customizations that we should already have
         if (c.customization_id in global_customization_data_map) continue;
 
+        // If we didn't send the "seen" property -> default it to false
+        if (!c.hasOwnProperty("seen")) c.seen = false;
+
         global_customization_data.push(c);
         global_customization_data_map[c.customization_id] = c;
 
