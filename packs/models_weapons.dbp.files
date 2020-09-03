@@ -340,6 +340,7 @@ models\weapons\melee\broadsword\broadsword_d.png.dds		5592548
 models\weapons\melee\broadsword\broadsword_n.png.dds		1398260
 models\weapons\melee\broadsword\broadsword_s.png.dds		1398260
 models\weapons\melee\broadsword\Creator Omar Chaouch.txt		27
+models\weapons\melee\broadsword\weapon_broadsword.ani		362
 models\weapons\melee\broadsword\weapon_broadsword.dbm		489203
 models\weapons\melee\broadsword\weapon_broadsword.fbx		348416
 models\weapons\melee\chockhammer\chockhammer.ani		362
@@ -402,12 +403,13 @@ models\weapons\melee\sonar_hammer\sonar_hammer.ani		362
 models\weapons\melee\sonar_hammer\sonar_hammer.assets		160
 models\weapons\melee\sonar_hammer\sonar_hammer.dbm		435674
 models\weapons\melee\sonar_hammer\sonar_hammer.fbx		1202224
-models\weapons\melee\sonar_hammer\sonar_hammer.shader		1760
+models\weapons\melee\sonar_hammer\sonar_hammer.shader		1747
 models\weapons\melee\sonar_hammer\sonar_hammer_d.png.dds		5592548
 models\weapons\melee\sonar_hammer\sonar_hammer_i.png.dds		1398260
 models\weapons\melee\sonar_hammer\sonar_hammer_n.png.dds		1398260
 models\weapons\melee\sonar_hammer\sonar_hammer_s.png.dds		1398260
 models\weapons\melee\sonar_hammer\sonarhammer_rig.ma		837912
+models\weapons\melee\sonar_hammer\weapon_sonar_hammer.ani		362
 models\weapons\melee\sonar_hammer\weapon_sonar_hammer.dbm		435674
 models\weapons\melee\sonar_hammer\weapon_sonar_hammer.fbx		1202224
 models\weapons\melee\stonehammer\amethyst\stonehammer_d.png		1068316
