@@ -35,10 +35,16 @@
     /* New brighter colors */
     /*--rarity_0: #6e708a;*/
     --rarity_0: #9293a5;
-    --rarity_1: #58ca4e;
+    --rarity_1: #5cc353;
     --rarity_2: #3e97d8;
     --rarity_3: #8956dc;
     --rarity_4: #ffcc5a;
+
+    --rarity_dark_0: #53545d;
+    --rarity_dark_1: #367730;
+    --rarity_dark_2: #235579;
+    --rarity_dark_3: #553588;
+    --rarity_dark_4: #917335;
 
     --bp_color:#e7ba5d;
     --bp_color_hover:#eeb74a;
@@ -234,29 +240,60 @@ body, html {
     width:6vh;
     height:5vh;
 }
-.customization_item .customization_preview {
+.customization_preview {
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+.customization_preview .backdrop {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size:90%;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+.customization_preview .backdrop.hidden {
+    background-image:none !important;
+}
+.customization_preview.spray .backdrop {
+    background-image: url(/html/images/backgrounds/spray_wall.png.dds);
+    filter: drop-shadow(0.3vh 0.3vh 0 rgba(0, 0, 0, 0.3));
+}
+.customization_preview .image {
+    position:relative;
     width:100%;
     height:100%;
     background-size:80%;
     background-position:center;
     background-repeat:no-repeat;
 }
-.customization_item .customization_preview.sticker { }
-.customization_item .customization_preview.weapon { 
+.customization_preview.shell .image {
+    background-size:90%;
+}
+.customization_preview.spray .image {
+    background-size:65%;
+}
+.customization_preview.sticker .image { }
+.customization_preview.weapon .image { 
     background-size:95%;
 }
-.customization_item .customization_preview.avatar {
+.customization_preview.avatar .image {
     width:80%;
     height:80%;
     background-size:100%;
     box-shadow:0 0 0 3px rgba(255, 255, 255, 0.1);
 }
-
-/* TEMP until we have music images */
-.customization_item .customization_preview.music {
+.customization_preview.currency .image {
+    filter:drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+.customization_preview.music .image {
     position:relative;
 }
-.customization_item .customization_preview.music .music_title {
+.customization_preview.music .music_title {
     font-fit-mode:shrink;
 
     position:absolute;
@@ -276,13 +313,21 @@ body, html {
 /*
  *  Customization preview image (e.g. Avatars)
  */
+.preview_container {
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 .customization_preview_image {
     width:70%;
     height:70%;
     background-repeat:no-repeat;
     background-size:contain;
     background-position: center;
-    pointer-events:none;
+    position:relative;
+    /*pointer-events:none;*/
     
 }
 .customization_preview_image.currency {
@@ -298,6 +343,38 @@ body, html {
     max-height:30vh;
     box-shadow:0 0.2vh 1vh rgba(0,0,0,0.5);
 }
+.customization_preview_image.sticker {
+    max-width:20vh;
+    max-height:20vh;
+}
+.customization_preview_image.spray {
+    max-width:35vh;
+    max-height:35vh;
+    position:relative;
+}
+.customization_preview_image.spray .backdrop {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    /*background-color:rgba(0,0,0,0.2);*/
+    background-image:url(/html/images/backgrounds/spray_wall.png.dds);
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position: center;
+    filter:drop-shadow(1vh 1vh 0 rgba(0, 0, 0, 0.3));
+}
+.customization_preview_image.spray .image {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    background-size:75%;
+    background-position: center;
+}
 .customization_preview_image.country {
     width:50%;
     height:50%;
@@ -305,6 +382,26 @@ body, html {
     max-height:30vh;
     filter: drop-shadow(0 0.2vh 1vh rgba(0,0,0,0.5));
 }
+.customization_preview_image .music_controls {
+    position:absolute;
+    bottom:2vh;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+}
+.customization_preview_image .music_controls .db-btn {
+    margin:0 1vh;
+    background-size:60%;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-width: 10vh;
+}
+
+.customization_preview_image .music_controls .music_play_button { background-image:url(/html/images/icons/fa/play.svg); }
+.customization_preview_image .music_controls .music_pause_button { background-image:url(/html/images/icons/fa/pause.svg); }
 
 
 /*
@@ -3142,7 +3239,7 @@ h2 {
 #rank_screen .rank_progression .progress_cont .progress .unit {
     margin-left:0.8vh;
     font-size:4vh;
-    color:gold;
+    color:rgba(255, 215, 0, 1);;
 }
 #rank_screen .rank_progression .progress_cont .progress .unit.points {
     color:rgb(65, 214, 19);

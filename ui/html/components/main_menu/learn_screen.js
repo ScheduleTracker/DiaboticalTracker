@@ -87,8 +87,8 @@ function learn_screen_initialize_tab_weapons() {
         weaponInfoWrapper.style.display = "flex";
         weeballInfoWrapper.style.display = "none";
 
-        refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
-        resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+        refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
+        resetScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
     })
     var listWeeballButton = _createElement("div", "learn_screen_item_list_header_button", "Weeballs");
     listWeeballButton.addEventListener("click", function(){
@@ -101,8 +101,8 @@ function learn_screen_initialize_tab_weapons() {
         weeballInfoWrapper.style.display = "flex";
         weaponInfoWrapper.style.display = "none";
 
-        refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
-        resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+        refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
+        resetScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
     })
 
     listHeader.appendChild(listWeaponButton);
@@ -559,8 +559,8 @@ function learn_screen_initialize_tab_weapons() {
         listItem.addEventListener("click", function(){
             learn_screen_highlight_button(listItem);
             learn_screen_show_content(infoItem);
-            refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
-            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+            refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
+            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
         })
         entriesList.appendChild(listItem);
 
@@ -661,8 +661,8 @@ function learn_screen_initialize_tab_weapons() {
         listItem.addEventListener("click", function(){
             learn_screen_highlight_button(listItem);
             learn_screen_show_content(infoItem);
-            refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
-            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+            refreshScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
+            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
         })
         entriesList.appendChild(listItem);
 
@@ -1014,8 +1014,8 @@ function learn_screen_initialize_tab_powerups() {
         listItem.addEventListener("click", function(){
             learn_screen_highlight_button(listItem);
             learn_screen_show_content(infoItem);
-            refreshScrollbar(_id("learn_screen_content_powerups").querySelector(".crosshair_scroll"));
-            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+            refreshScrollbar(_id("learn_screen_content_powerups").querySelector(".scroll-outer"));
+            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
         })
         list.appendChild(listItem);
 
@@ -1093,6 +1093,7 @@ function learn_screen_initialize_tab_gamemodes() {
     var infoContainer = _id("learn_screen_info_gamemodes");
 
     var relevantGamemodes = {
+        /*
         'brawl':    {   'entries':['spawn_health_armor',
                                     'stable_health_armor',                                    
                                     'weapon_respawn_time',
@@ -1101,7 +1102,7 @@ function learn_screen_initialize_tab_gamemodes() {
                                     'powerup_drop',
                                     'health_armor_gained_on_powerup'],
                         'description': 'Brawl is a frag score based mode between multiple teams where you start with all weapons and try to out frag your opponents.<div>Gain the edge over your opponents by taking the powerups that spawn throughout the match. At 1:00 and every 240s after, two utility powerups will spawn on the map at the same time, and at 3:00 and every 240s after, Diabotical will spawn in the centre of the map.</div><div>In Brawl you will gain health and armor upon taking a powerup.</div>'
-                    },
+                    },*/
         'ffa':    {   'entries':['spawn_health_armor',
                         'stable_health_armor',                                    
                         'weapon_respawn_time',
@@ -1122,7 +1123,7 @@ function learn_screen_initialize_tab_gamemodes() {
                                     'stable_health_armor',
                                     'self_damage',
                                     'starting_weapons'],
-                        'description': "Arena is a round based mode played in compact arenas where each player has 2 lives per round and spawns with a full loadout, when a round ends players move on to a different arena.<div>There are also weapon specific versions of arena in which you test your skills with a single weapon.</div>"
+                        'description': "Arena is a round based mode played in compact arenas where each player has 2 lives per round and spawns with a full loadout. When a round ends players move on to a different arena.<div>There are also weapon specific versions of arena in which you test your skills with a single weapon.</div>"
         },                   
         'macguffin':{   'entries':['spawn_health_armor',
                                     'stable_health_armor',
@@ -1135,6 +1136,7 @@ function learn_screen_initialize_tab_gamemodes() {
                         'description': 'MacGuffin is a round based mode where the objective is to bring the MacGuffin to your base to generate 100 coins for your team to win, while preventing your opponents from stealing it to achieve the same goal.<div>At the start of the round you will be assigned one of two bases, and the next round you will swap bases with your opponents. If the game goes to a third round both bases will be open and set once a team captures the MacGuffin at the base of their choice.</div>',
                         'description_extended': 'Co-ordinate with your team by timing your attacks together and stealing the MacGuffin by standing on the enemy point, and throwing it to each other as you attempt to cross the map to return to your base.<div>The MacGuffin will also generate up to 10 coins while being held by players, which will be deposited upon capture, so a slow and careful approach can also yield great rewards.'
                     },
+        /*
         'tdm':      {   'entries':['spawn_health_armor',
                                     'stable_health_armor',
                                     'weapon_respawn_time',       
@@ -1142,15 +1144,15 @@ function learn_screen_initialize_tab_gamemodes() {
                                     'starting_weapons',
                                     'powerup_drop'],
                         'description': "Team Deathmatch is a frag score based mode fought between two teams. Fight for control over the map and its resources to gain the upper hand over your enemies, or use your instincts to outsmart and out position stacked opponents.<div>Once the time limit has been reached, the game ends if the frag difference is greater than 10. However if the scores are within 10 frags of each other, a frag limit of 10 frags is added to the leading team's score and a team must reach this limit to be victorious."
-                    },
+                    },*/
         'extinction':{   'entries':['spawn_health_armor',
                                     'stable_health_armor',
                                     'weapon_respawn_time',       
                                     'self_damage',
                                     'starting_weapons',
                                     'powerup_drop'],
-                        'description': "Extinction is a round based mode where players start with 3 lives each, and the team who loses all of their lives loses the round. If you're out of lives, don't give up yet! You'll still keep spawning if one player on your team has lives remaining. In this ghost state, roam the map and protect your surviving teammates, or chase down your enemies and eliminate them, focusing on those with lives remaining. But be careful as not only do ghosts have a longer respawn time, but will also drop an orb on death that will reveal the location of their life leader if picked up by an enemy.",
-                        'description_extended': "If the player with the most lives on your team has more lives than anybody on the enemy team, your team's ghosts will have less spawn health based on the difference. Each round the powerup that spawns changes, cycling between Vindicator, Vanguard and Siphonator for that round."
+                        'description': "Extinction is a round based mode where players start with 3 lives each, and the team who loses all of their lives loses the round. If you're out of lives, don't give up yet! You'll still keep spawning if one player on your team has lives remaining. In this ghost state roam the map and protect your surviving teammates, or chase down your enemies and eliminate them, focusing on those with lives remaining. But be careful as ghosts have a longer respawn time.",
+                        'description_extended': "If the player with the most lives on your team has more lives than anybody on the enemy team, your team's ghosts will have less spawn health based on the difference and will drop an orb on death that reveals the life leader's location if picked up by an enemy.<div>Each round the powerup that spawns changes, cycling between Vindicator, Vanguard and Siphonator for that round.</div>"
                     },
         'duel':      {   'entries':['spawn_health_armor',
                                     'stable_health_armor',
@@ -1179,15 +1181,14 @@ function learn_screen_initialize_tab_gamemodes() {
         listItem.addEventListener("click", function(){
             learn_screen_highlight_button(listItem);
             learn_screen_show_content(infoItem);
-            refreshScrollbar(_id("learn_screen_content_gamemodes").querySelector(".crosshair_scroll"));
-            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".crosshair_scroll"));
+            refreshScrollbar(_id("learn_screen_content_gamemodes").querySelector(".scroll-outer"));
+            resetScrollbar(_id("learn_screen_content_weapons").querySelector(".scroll-outer"));
         })
         
         list.appendChild(listItem);
     
 
-        if(item == 'brawl'){ 
-            //default screen is macguffin
+        if(item == 'ffa'){ //default screen is ffa            
             learn_screen_highlight_button(listItem);
             learn_screen_show_content(infoItem);
         }

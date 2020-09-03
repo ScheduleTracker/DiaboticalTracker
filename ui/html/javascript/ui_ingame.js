@@ -135,7 +135,7 @@ var global_hud_battlepass_rewards = {};
 // Party leader status for use in the game report
 var bool_am_i_leader = true;
 
-var current_weapon_custom_crosshair_index = undefined; //currently held weapons custom crosshair index
+var currently_held_weapon_index = undefined; //currently held weapons index
 
 let currently_active_crosshair_index = undefined;
 
@@ -313,6 +313,7 @@ window.addEventListener("load", function(){
 
         if (data.action == "party-leader") bool_am_i_leader = true;
         if (data.action == "party-member") bool_am_i_leader = false;
+        if (data.action == "aim-restart") on_aim_report_restart();
     });
 
     bind_event('process_server_json_data', function (string) {
@@ -336,6 +337,7 @@ window.addEventListener("load", function(){
             if (json_data.action == "match-user-reconnect-msg")       addServerChatMessage(localize_ext("match_penalty_msg", {"count": Number(json_data.minutes)}));
             if (json_data.action == "match-no-penalty-abandon")       addServerChatMessage(localize("match_penalty_removed_msg"));
             if (json_data.action == "match-user-abandoned")           addServerChatMessage(localize_ext("match_user_abandoned", {"name": json_data.name}));
+            if (json_data.action == "match-auto-balance")             addServerChatMessage(localize("match_auto_balance_teams"));
 
             if (json_data.action == "post-match-updates") {
                 handlePostMatchUpdates(json_data.data);
@@ -923,7 +925,7 @@ window.addEventListener("load", function(){
     });
 
     bind_event('set_hud_weapon', function (settings_weapon_crosshair_index, settings_zoom_weapon_crosshair_index, weapon_index) {
-        current_weapon_custom_crosshair_index = weapon_index;
+        currently_held_weapon_index = weapon_index;
         set_hud_weapon_crosshair(settings_weapon_crosshair_index);
         set_hud_zoom_weapon_crosshair(settings_zoom_weapon_crosshair_index);
     });

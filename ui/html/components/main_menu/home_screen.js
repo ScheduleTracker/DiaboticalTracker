@@ -40,6 +40,9 @@ function init_screen_home() {
     if(event.currentTarget.dataset.uid)
        engine.call('open_browser', `https://www.diabotical.com/news#${event.currentTarget.dataset.uid}`);
    });
+
+   // Load the variable to show/hide the home screen tutorial button
+   engine.call("initialize_checkbox_value", "lobby_tutorial_launched");
 }
 
 function update_motd({ uid, slugs, data }) {
@@ -101,6 +104,26 @@ function render_home_challenges() {
 }
 function show_home_challenges() {
   anim_show(_id("home_screen_challenges_cont"), 350, "block");
+}
+
+function home_screen_load_tutorial() {
+  home_screen_update_tutorial_played();
+  engine.call("load_tutorial");
+}
+
+function home_screen_update_tutorial_played() {
+  update_variable("bool", "lobby_tutorial_launched", true);
+  setTimeout(function() {
+    _id("home_screen_load_tutorial").style.display = "none";
+  }, 1000);
+}
+
+function home_screen_show_hide_tutorial_button(hide) {
+  if (hide === false) {
+    _id("home_screen_load_tutorial").style.display = "flex";
+  } else {
+    _id("home_screen_load_tutorial").style.display = "none";
+  }
 }
 
 /*

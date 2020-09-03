@@ -29,7 +29,15 @@ function init_notifications() {
             "message": null,
             "items": [
                 {
-                    "notif_id": 182,
+                    "customization_id":"se_vic",
+                    "customization_type":11,
+                    "customization_sub_type":"",
+                    "customization_set_id":null,
+                    "rarity":3,
+                    "amount":1,
+                    "seen":false
+                },
+                {
                     "customization_id": "av_smileyblue",
                     "customization_type": 2,
                     "customization_sub_type": "",
@@ -38,16 +46,30 @@ function init_notifications() {
                     "amount": 1
                 },
                 {
-                    "notif_id": 183,
-                    "customization_id": "av_smileyred",
-                    "customization_type": 2,
+                    "customization_id": "we_pncr_deathray",
+                    "customization_type": 6,
+                    "customization_sub_type": "pncr",
+                    "customization_set_id": null,
+                    "rarity": 2,
+                    "amount": 1
+                },
+                {
+                    "customization_id": "se_vic",
+                    "customization_type": 11,
+                    "customization_sub_type": "",
+                    "customization_set_id": null,
+                    "rarity": 2,
+                    "amount": 1
+                },
+                {
+                    "customization_id": "mu_pu_happy",
+                    "customization_type": 3,
                     "customization_sub_type": "",
                     "customization_set_id": null,
                     "rarity": 0,
                     "amount": 1
                 },
                 {
-                    "notif_id": 184,
                     "customization_id": "av_smileyorange",
                     "customization_type": 2,
                     "customization_sub_type": "",
@@ -65,11 +87,11 @@ function load_notifications() {
     let notif = global_notifs.getNotification();
     if (!notif) return;
 
-    // Hide the menu
-    let menu = _id("lobby_container");
-    anim_hide(menu, 100);
+    // Open notifications first, this sets the background scene to empty
+    open_notifications();
 
-    console.log(_dump(notif), _dump(global_user_battlepass));
+    //console.log(_dump(notif), _dump(global_user_battlepass));
+
     let content = _createElement("div", "notif_content");
 
     let title = '';
@@ -161,6 +183,9 @@ function load_notifications() {
     function render_item(item) {
         if (!item) return;
 
+        // Stop any audio previews
+        _pause_music_preview();
+
         // show 3d or 2d preview of item
         _empty(item_preview);
         //item_preview.appendChild(createCustomizationPreview(item));
@@ -198,24 +223,20 @@ function load_notifications() {
 
         send_string(CLIENT_COMMAND_DEL_NOTIFICATION, notif.notif_id);
 
+        // notification screen doesn't add a history entry, so this should move us back to the previously active page
+        historyOnPopState(global_history.current());
+
         if (global_notifs.getNotificationCount() > 0) {
-            // load the next notification
-            load_notifications();
-        } else {
-            // Show the menu again
-            anim_show(menu, 100);
-
-            // notification screen doesn't add a history entry, so this should move us back to the previously active page
-            historyOnPopState(global_history.current());
-
+            // load the next notification if there is one
+            setTimeout(() => {
+                load_notifications();
+            }, 750);
         }
     }
 
     let notif_screen = _id("notification_screen");
     _empty(notif_screen);
     notif_screen.appendChild(content);
-
-    open_notifications();
 
     if (notif_video != null) {
         delayed_anim = setTimeout(function() {

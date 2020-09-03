@@ -6,6 +6,10 @@ function practice_start_match(type) {
     if (type == "practice_range") {
         engine.call("load_practice_range");
     }
+    if (type == "tutorial") {
+        home_screen_update_tutorial_played();
+        engine.call("load_tutorial");
+    }
 }
 
 function renderPracticeCards() {
@@ -13,6 +17,16 @@ function renderPracticeCards() {
     let container = screen.querySelector(".play_cards_container");
 
     let cards = [
+        {
+            "type": "tutorial",
+            "title": "game_mode_tutorial",
+            "background": "rocket",
+            "on_click": function() { practice_start_match('tutorial'); },
+            "on_click_spinner": true,
+            "hover_button": "play",
+            //"tooltip": "practice",
+            "state": 2,
+        },
         {
             "type": "practice",
             "title": "game_mode_practice_range",
@@ -23,7 +37,6 @@ function renderPracticeCards() {
             //"tooltip": "practice",
             "state": 2,
         },
-        /*        
         {
             "type": "aim",
             "title": "aim_trainer",
@@ -33,7 +46,6 @@ function renderPracticeCards() {
             //"tooltip": "practice",
             "state": 2,
         },
-        */        
         /* Commented because it it was hidden before
         {
             "type": "licensecenter",

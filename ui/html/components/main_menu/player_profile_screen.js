@@ -52,6 +52,29 @@ function player_profile_load_page(page) {
     load_player_profile("player_profile_screen", page, global_current_player_profile_user_id);
 }
 
+function player_profile_set_eggbot_preview(customizations) {
+    engine.call("on_show_customization_screen", true);
+    engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.eggbot_profile);
+    engine.call("reset_locker_agent_rotation");
+    if ("shell" in customizations) {
+        engine.call("set_preview_shell", customizations.shell);
+    } else {
+        engine.call("set_preview_shell", "");
+    }
+
+    if ("sticker" in customizations) {
+        engine.call("set_player_decals_override", true, customizations.sticker);
+    } else {
+        engine.call("set_player_decals_override", true, "");
+    }
+
+    if ("color" in customizations) {
+        engine.call("set_player_color_override", true, customizations.color);
+    } else {
+        engine.call("set_player_color_override", true, "cccccc");
+    }
+}
+
 let global_profile_nav = undefined;
 function load_player_profile(origin, page, id) {
     // Render & show empty page
@@ -74,8 +97,17 @@ function load_player_profile(origin, page, id) {
 
     let cont = _id("player_profile_content");
 
-    // Check if the new page is the same as the old, don't do anything
-    if (global_current_player_profile_user_id == id && global_current_player_profile_page == page && id in global_profile_data_cache) return;
+    // If the page has already been loaded, just make sure the eggbot preview gets updated again
+    if (global_current_player_profile_user_id == id && global_current_player_profile_page == page && id in global_profile_data_cache) {
+        if (page == "profile") {
+            if (_check_nested(global_profile_data_cache[id], "main", "data", "customizations")) {
+                player_profile_set_eggbot_preview(global_profile_data_cache[id].main.data.customizations);
+            } else {
+                player_profile_set_eggbot_preview({});
+            }
+        }
+        return;
+    }
 
     // Check if the new user id is different from the previous
     if (global_current_player_profile_user_id != id) {
@@ -127,6 +159,8 @@ function load_player_profile(origin, page, id) {
 
     cont.appendChild(page_cont);
 
+    engine.call("on_show_customization_screen", true);
+    engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
 
     // Fetch the requested data from the API
     let requests = [];
@@ -355,6 +389,16 @@ function player_profile_render_head(data, simple) {
 // MAIN PROFILE
 function player_profile_render_main(data) {
 
+    //console.log("main profile data", _dump(data));
+
+    if (global_current_player_profile_page == "profile") {
+        if (_check_nested(data, "main", "data", "customizations")) {
+            player_profile_set_eggbot_preview(data.main.data.customizations);
+        } else {
+            player_profile_set_eggbot_preview({});
+        }
+    }
+
     let alltime_combined = {
         "match_count": 0,
         "match_won": 0,
@@ -423,7 +467,7 @@ function player_profile_render_main(data) {
 
 
     //let featured_topics = ["rank", "battlepass", "trophies"];
-    let featured_topics = ["rank"];
+    let featured_topics = ["rank", "battlepass"];
     let summary_featured = _createElement("div", "summary_featured");
     
 
@@ -448,6 +492,12 @@ function player_profile_render_main(data) {
 
         let content = _createElement("div", "content");
         if (featured_topics[i] == "rank") {
+            featured.classList.add("rank");
+            featured.addEventListener("mouseenter", _play_mouseover4);
+            featured.addEventListener("click", function() {
+                open_user_ratings_modal(data.main.data.name, global_current_player_profile_user_id);
+            });
+
             if (highest_rank) {
                 // render rank with mode name and games played
                 content.appendChild(renderRankIcon(highest_rank_data.rank_tier, highest_rank_data.rank_position));
@@ -607,7 +657,7 @@ function player_profile_render_main(data) {
 
             let stat_value = _createElement("div", "stat_value");
             //if (stats_list[i] == "time")       stat_value.textContent = localize_ext("time_ago", { "time": _seconds_to_string(seconds_since)});
-            if (stats_list[i] == "kda")        stat_value.textContent = match.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]+" / "+match.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]+" / "+match.stats[GLOBAL_ABBR.STATS_KEY_ASSISTS];
+            if (stats_list[i] == "kda")        stat_value.textContent = match.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]+"/"+match.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]+"/"+match.stats[GLOBAL_ABBR.STATS_KEY_ASSISTS];
             if (stats_list[i] == "acc")        stat_value.textContent = avg_acc + "%";
             if (stats_list[i] == "match_time") stat_value.textContent = _seconds_to_digital(match.match_time);
             if (stats_list[i] == "result") {
@@ -627,6 +677,103 @@ function player_profile_render_main(data) {
     }
 
     return cont;
+}
+
+function open_user_ratings_modal(name, user_id) {
+
+    let fragment = new DocumentFragment();
+    let cont = _createElement("div", "user_ratings");
+    cont.appendChild(_createElement("div", "title", localize_ext("player_profile_ranks_title", {"name": name})));
+    let rating_cont = _createElement("div", "ratings");
+    cont.appendChild(rating_cont);
+    fragment.appendChild(cont);
+
+    let buttons = _createElement("div", "generic_modal_dialog_action");
+    let close = _createElement("div", "dialog_button", localize("modal_close"));
+    close.addEventListener("click", function() {
+        closeBasicModal();
+    });
+    buttons.appendChild(close);
+    fragment.appendChild(buttons);
+
+    if (!_check_nested(global_profile_data_cache, user_id, "mmrs")) {
+        rating_cont.appendChild(_createSpinner());
+        api_request("GET", "/users/"+user_id+"/ratings", {}, function(data) {
+            _empty(rating_cont);
+            if (data.hasOwnProperty("ratings")) {
+                if (!global_profile_data_cache.hasOwnProperty(user_id)) global_profile_data_cache[user_id] = {};
+                global_profile_data_cache[user_id]["mmrs"] = data.ratings;
+
+                rating_cont.appendChild(render_user_ratings_content(global_profile_data_cache[user_id].mmrs));                
+            } else {
+                rating_cont.appendChild(render_user_ratings_content([]));
+            }
+        });
+    } else {
+        rating_cont.appendChild(render_user_ratings_content(global_profile_data_cache[user_id].mmrs));
+    }
+
+    openBasicModal(fragment);
+}
+
+function render_user_ratings_content(ratings) {
+    let rating_lookup = {};
+    for (let r of ratings) {
+        rating_lookup[r.mode_name] = r;
+    }
+
+    let esports_queues = [];
+    let team_queues = [];
+    let arena_queues = [];
+    for (let mode in global_queues) {
+        if ("ranked" in global_queues[mode] && global_queues[mode].ranked == true) {
+            if (mode.startsWith("r_ca") || mode.startsWith("r_rocket_arena") || mode.startsWith("r_shaft_arena")) {
+                arena_queues.push(mode);
+            } else if (mode.startsWith("r_wo") || mode.startsWith("r_macguffin")) {
+                team_queues.push(mode);
+            } else {
+                esports_queues.push(mode);
+            }
+        }
+    }
+
+    let fragment = new DocumentFragment();
+
+    for (let cat of ["esports", "team", "arena"]) {
+        let queues = [];
+        if (cat == "esports") queues = esports_queues;
+        if (cat == "team") queues = team_queues;
+        if (cat == "arena") queues = arena_queues;
+
+        for (let queue of queues) {
+            let rating = _createElement("div", "rating");
+            rating.appendChild(_createElement("div", "mode_name", global_queues[queue].queue_name));
+
+            if (queue in rating_lookup && rating_lookup[queue].rank_tier !== null) {
+                console.log("rating for ",queue, _dump(rating_lookup[queue]));
+                rating.appendChild(renderRankIcon(rating_lookup[queue].rank_tier, rating_lookup[queue].rank_position));
+                let rank_name = _createElement("div", "rank_name");
+                rank_name.appendChild(getRankName(rating_lookup[queue].rank_tier, rating_lookup[queue].rank_position));
+                rating.appendChild(rank_name);
+
+                if (rating_lookup[queue].hasOwnProperty("rating")) {
+                    let skill_rating_cont = _createElement("div", "skill_rating_cont");
+                    skill_rating_cont.appendChild(_createElement("div", "skill_rating", Math.floor(rating_lookup[queue].rating)));
+                    skill_rating_cont.appendChild(_createElement("div", "unit", "SR"));
+                    rating.appendChild(skill_rating_cont);
+                }
+            } else {
+                rating.appendChild(renderRankIcon(0, null, global_queues[queue].team_size));
+                let rank_name = _createElement("div", "rank_name");
+                rank_name.appendChild(_createElement("div", "", localize("rank_unranked")));
+                rating.appendChild(rank_name);
+            }
+
+            fragment.appendChild(rating);
+        }
+    }
+
+    return fragment;
 }
 
 // ====================================================
@@ -1654,6 +1801,7 @@ function player_profile_render_achievements(data) {
         let progress_val = 0;
         let progress_perc = 0;
         let next_reward = {};
+        let next_ach_idx = 0;
         for (let ach of achievements[achievement_id]) {
             if (ach.achieved_ts == null) {
                 goal_val = ach.goal;
@@ -1662,6 +1810,7 @@ function player_profile_render_achievements(data) {
                 if (goal_val > 0) progress_perc = (progress_val / goal_val) * 100;
                 break;
             }
+            next_ach_idx++;
         }
         progress_perc = _clamp(progress_perc, 0, 100);
 
@@ -1677,7 +1826,7 @@ function player_profile_render_achievements(data) {
 
             next_reward_unlock.classList.add("rarity_bg_"+next_reward.rarity);
 
-            next_reward_unlock.appendChild(renderCustomizationInner(next_reward.customization_type, next_reward.customization_id, false));
+            next_reward_unlock.appendChild(renderCustomizationInner("player_profile", next_reward.customization_type, next_reward.customization_id, next_reward.amount, false));
         }
         achievement.appendChild(next_reward_unlock);
 
@@ -1688,8 +1837,9 @@ function player_profile_render_achievements(data) {
         achievement.appendChild(rewards);
 
 
-        body.appendChild(_createElement("div", "name", localize("achievement_"+achievement_id)));
-        body.appendChild(_createElement("div", "progress_title", localize("progress")));
+        body.appendChild(_createElement("div", "name", localize("achievement_title_"+next_ach_idx+"_"+achievement_id)));
+        body.appendChild(_createElement("div", "desc", localize("achievement_"+achievement_id)));
+        //body.appendChild(_createElement("div", "progress_title", localize("progress")));
         let progress = _createElement("div", "progress");
         let progress_bar = _createElement("div", "progress_bar");
         let progress_bar_inner = _createElement("div", "progress_bar_inner");
@@ -1716,7 +1866,7 @@ function player_profile_render_achievements(data) {
 
                 item.classList.add("rarity_bg_"+ach.rarity);
 
-                item.appendChild(renderCustomizationInner(ach.customization_type, ach.customization_id, false));
+                item.appendChild(renderCustomizationInner("player_profile", ach.customization_type, ach.customization_id, ach.amount, false));
             }
             reward.appendChild(item);
 

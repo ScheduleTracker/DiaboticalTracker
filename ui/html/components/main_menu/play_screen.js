@@ -557,6 +557,7 @@ function renderQuickPlayCards(cards) {
 
     // Warmup card/button
     container.appendChild(renderPlayCard({
+        "name": "warmup",
         "type": "warmup",
         "title": "warmup",
         "background": "brawl",
@@ -604,6 +605,7 @@ function renderRankedCards(cards) {
 let play_card_index = 0;
 let play_card_lookup = {}; 
 let play_card_checkboxes = {};
+let global_small_play_cards = ["qg_r_arena", "qg_r_solo", "qg_qp_arcade", "warmup"];
 function renderPlayCard(data) {
     //console.log("renderPlayCard", _dump(data));
 
@@ -614,7 +616,7 @@ function renderPlayCard(data) {
     card_flex.dataset.currently_active = "false";
 
     // Make these cards smaller to make the center team one stand out
-    if (data.name == "qg_r_arena" || data.name == "qg_r_duel") card_flex.classList.add("small");
+    if (global_small_play_cards.includes(data.name)) card_flex.classList.add("small");
     
     let play_card_video = new PlayCardVideo(data.background);
     card_flex.appendChild(play_card_video.card);

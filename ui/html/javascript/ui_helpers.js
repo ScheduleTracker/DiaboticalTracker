@@ -201,8 +201,10 @@ function _format_number(number, type, options) {
                 return `€${formatted}`;
             case 'GBP':
                 return `£${formatted}`;
+            case 'USD':
+                return `$${formatted}`;    
             default:
-                return `${formatted}$`
+                return `${formatted} ${options.currency_code}`
         }
     } else {
         let tmp = numeral(number);
@@ -333,6 +335,10 @@ function _mapUrl(map) {
 }
 function _stickerUrl(sticker) {
     if (sticker) return "/resources/asset_thumbnails/textures_customization_" + sticker + ".png.dds";
+    return "";
+}
+function _sprayUrl(spray) {
+    if (spray) return "/resources/asset_thumbnails/textures_customization_" + spray + ".png.dds";
     return "";
 }
 function _musicImageUrl(id) {
@@ -636,10 +642,10 @@ function _seconds_to_string(seconds) {
     let numhours = Math.floor(((seconds % 31536000) % 86400) / 3600);
     let numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
     //let numseconds = (((seconds % 31536000) % 86400) % 3600) % 60;
-    
+
     // don't show minutes anymore if timespan is more than 1 day and 1 hour
-    if (seconds > 90000) return ((numyears > 0) ? numyears + "y ":"") + ((numdays > 0) ? numdays + "d ":"") + ((numhours > 0) ? numhours + "h ":"");
-    return ((numyears > 0) ? numyears + "y ":"") + ((numdays > 0) ? numdays + "d ":"") + ((numhours > 0) ? numhours + "h ":"") + ((numminutes > 0) ? numminutes + "m ":"0m");
+    if (seconds > 90000) return ((numyears > 0) ? numyears + "y ":"") + ((numdays > 0) ? numdays + "d ":"") + ((numhours > 0) ? numhours + "h":"");
+    return ((numyears > 0) ? numyears + "y ":"") + ((numdays > 0) ? numdays + "d ":"") + ((numhours > 0) ? numhours + "h ":"") + ((numminutes > 0) ? numminutes + "m":"0m");
 }
 
 function _time_until(seconds) {
@@ -922,7 +928,8 @@ function createCustomizationName(item) {
     if (global_customization_type_map[item.customization_type].name == "currency") {
         name.textContent = localize_ext("count_coin", {"count": item.amount});
     } else if (global_customization_type_map[item.customization_type].name == "country") {
-        name.textContent = localize_country(item.customization_id);
+        if (!item || item.customization_id.trim().length == 0) name.textContent = localize("customization_default");
+        else name.textContent = localize_country(item.customization_id);
     } else if (item.customization_id.trim().length == 0) {
         name.textContent = localize("customization_default");
     } else {
@@ -932,12 +939,18 @@ function createCustomizationName(item) {
     return name;
 }
 function createCustomizationInfo(item, show_name) {
+
+    let item_type = localize(global_customization_type_map[item.customization_type].i18n);
+    if (item.customization_type == global_customization_type_id_map["weapon"] && item.customization_sub_type && item.customization_sub_type.length && "weapon"+item.customization_sub_type in global_item_name_map) {
+        item_type += " - "+localize(global_item_name_map["weapon"+item.customization_sub_type][1]);
+    } 
+
     let customization_info = _createElement("div", ["customization_info", "rarity_bg_"+item.rarity]);
     let div_type = _createElement("div", "type");
     customization_info.appendChild(div_type);
     div_type.appendChild(_createElement("div", "rarity", localize(global_rarity_map[item.rarity].i18n)));
     div_type.appendChild(_createElement("div", "separator", "/"));
-    div_type.appendChild(_createElement("div", "item_type", localize(global_customization_type_map[item.customization_type].i18n)));
+    div_type.appendChild(_createElement("div", "item_type", item_type));
     customization_info.appendChild(div_type);
     if (show_name === undefined || show_name === true) {
         customization_info.appendChild(createCustomizationName(item));
@@ -971,8 +984,48 @@ function createCustomizationPreview(item) {
         preview_image.classList.add(global_customization_type_map[item.customization_type].name);
         preview_image.style.backgroundImage = "url("+_musicImageUrl(item.customization_id)+")";
 
+        let music_controls = _createElement("div", "music_controls");
+        preview_image.appendChild(music_controls);
+        let play_button = _createElement("div", ["db-btn", "plain", "music_play_button"]);
+        music_controls.appendChild(play_button);
+        let pause_button = _createElement("div", ["db-btn", "plain", "music_pause_button"]);
+        music_controls.appendChild(pause_button);
+
+        _addButtonSounds(play_button, 1);
+        _addButtonSounds(pause_button, 1);
+
+        play_button.addEventListener("click", () => _play_music_preview(item.customization_id));
+        pause_button.addEventListener("click", _pause_music_preview);
+
+    } else if (global_customization_type_map[item.customization_type].name == "spray") {
+
+        preview_image.classList.add(global_customization_type_map[item.customization_type].name);
+        preview_image.appendChild(_createElement("div", "backdrop"));
+        let image = _createElement("div", "image");
+        image.style.backgroundImage = "url("+_sprayUrl(item.customization_id)+")";
+        preview_image.appendChild(image);
+
+    } else if (global_customization_type_map[item.customization_type].name == "sticker") {
+
+        preview_image.classList.add(global_customization_type_map[item.customization_type].name);
+        preview_image.style.backgroundImage = "url("+_stickerUrl(item.customization_id)+")";
+
     }
     return preview_image;
+}
+
+let customization_audio_playing = '';
+function _play_music_preview(id) {
+    _pause_music_preview();
+    
+    customization_audio_playing = id;
+    engine.call("ui_sound_tracked", customization_audio_playing);
+    engine.call("set_music_post_volume", 0);
+}
+function _pause_music_preview() {
+    if (customization_audio_playing.length) engine.call("ui_stop_sound", customization_audio_playing);
+    engine.call("set_music_post_volume", 1);
+    customization_audio_playing = "";
 }
 
 function _load_lazy_all(parent) {

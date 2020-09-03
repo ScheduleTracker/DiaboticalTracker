@@ -147,8 +147,9 @@ function ingame_menu_join_match() {
 }
 
 function ingame_menu_aim_restart() {
-    // Restart aim map call
-    //engine.call("");
+    // Restart aim map call in the hud view
+    send_view_data("hud", "json", { "action": "aim-restart" });
+    ingame_menu_close_menu();
 }
 
 function ingame_report_user(user_id, name) {

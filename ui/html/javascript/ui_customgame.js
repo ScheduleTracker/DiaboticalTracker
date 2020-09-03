@@ -107,6 +107,7 @@ function init_custom_game_references() {
             "team_count":                _id("custom_game_setting_team_count"),
             "team_size":                 _id("custom_game_setting_team_size"),
             "continuous":                _id("custom_game_setting_continuous"),
+            "auto_balance":              _id("custom_game_setting_auto_balance"),
             "intro":                     _id("custom_game_setting_intro"),
             "team_switching":            _id("custom_game_setting_team_switching"),
             "physics":                   _id("custom_game_setting_physics"),
@@ -223,6 +224,9 @@ function init_screen_custom() {
     ui_setup_select(global_customSettingElements["score_limit"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["continuous"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["intro"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["auto_balance"], function() {
+        if (bool_am_i_host) custom_game_settings_changed();
+    });
     ui_setup_select(global_customSettingElements["team_switching"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["physics"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["ready_percentage"], custom_update_variable_if_host);
@@ -1147,9 +1151,11 @@ function reset_lobby_settings() {
     engine.call("initialize_select_value", "lobby_custom_ready_percentage");
 
     // Reset variable-less options back to their defaults
+    global_customSettingElements["auto_balance"].dataset.value = "1";
+    update_select(global_customSettingElements["auto_balance"]);
     global_customSettingElements["model"].dataset.value = "0";
     update_select(global_customSettingElements["model"]);
-    global_customSettingElements["netcode"].dataset.value = "0";
+    global_customSettingElements["netcode"].dataset.value = "2";
     update_select(global_customSettingElements["netcode"]);
     global_customSettingElements["spawn_farthest_chance"].dataset.value = "0";
     update_select(global_customSettingElements["spawn_farthest_chance"]);
@@ -1176,9 +1182,11 @@ function lobby_reset_settings_default() {
     update_variable("string", "lobby_custom_ready_percentage", "1");
     update_variable("string", "lobby_custom_commands", "");
 
+    global_customSettingElements["auto_balance"].dataset.value = "1";
+    update_select(global_customSettingElements["auto_balance"]);
     global_customSettingElements["model"].dataset.value = "0";
     update_select(global_customSettingElements["model"]);
-    global_customSettingElements["netcode"].dataset.value = "0";
+    global_customSettingElements["netcode"].dataset.value = "2";
     update_select(global_customSettingElements["netcode"]);
     global_customSettingElements["spawn_farthest_chance"].dataset.value = "0";
     update_select(global_customSettingElements["spawn_farthest_chance"]);
@@ -1296,6 +1304,7 @@ function get_lobby_settings() {
 		team_count:     team_count,
         team_size:      parseInt(global_customSettingElements["team_size"].dataset.value),
         continuous:     parseInt(global_customSettingElements["continuous"].dataset.value),
+        auto_balance:   parseInt(global_customSettingElements["auto_balance"].dataset.value),
         intro:          parseInt(global_customSettingElements["intro"].dataset.value),
         team_switching: parseInt(global_customSettingElements["team_switching"].dataset.value),
 		physics:        parseInt(global_customSettingElements["physics"].dataset.value),
@@ -1414,6 +1423,18 @@ function update_custom_game_visibility() {
             global_customTeamNames[i].value = custom_teamNames[i];
         }
     }
+
+    update_custom_game_continuous();
+}
+
+function update_custom_game_continuous() {
+    if (bool_am_i_host) {
+        if (global_customSettingElements["continuous"].dataset.value == "1") {
+            global_customSettingElements["auto_balance"].classList.remove("disabled");
+        } else {
+            global_customSettingElements["auto_balance"].classList.add("disabled");
+        }
+    }
 }
 
 let custom_lobby_local_var_update = false;
@@ -1496,6 +1517,11 @@ function update_custom_game_settings(settings, init) {
     if (parseInt(global_customSettingElements["continuous"].dataset.value) != settings.continuous) {
         global_customSettingElements["continuous"].dataset.value = settings.continuous;
         update_select(global_customSettingElements["continuous"]);
+    }
+
+    if (parseInt(global_customSettingElements["auto_balance"].dataset.value) != settings.auto_balance) {
+        global_customSettingElements["auto_balance"].dataset.value = settings.auto_balance;
+        update_select(global_customSettingElements["auto_balance"]);
     }
 
     if (parseInt(global_customSettingElements["intro"].dataset.value) != settings.intro) {
@@ -1599,15 +1625,24 @@ function update_custom_game_settings(settings, init) {
     }
 
     if (global_customSettingElements["map"].dataset.value != settings.map) {
-        global_lobby_selected_map = settings.map;
-        global_customSettingElements["map"].dataset.value = settings.map;
-        _html(global_customSettingElements["map"], "<div>"+_format_map_name(settings.map)+"</div>");
-        global_customSettingElements["map"].style.backgroundImage = "url('map_thumbnails/" + settings.map + ".png')";
+        if (settings.map) {
+            global_lobby_selected_map = settings.map;
+            global_customSettingElements["map"].dataset.value = settings.map;
+            _html(global_customSettingElements["map"], "<div>"+_format_map_name(settings.map)+"</div>");
+            global_customSettingElements["map"].style.backgroundImage = "url('map_thumbnails/" + settings.map + ".png')";
+        } else {
+            global_lobby_selected_map = "";
+            global_customSettingElements["map"].dataset.value = "";
+            _html(global_customSettingElements["map"], "<div>"+_format_map_name("")+"</div>");
+            global_customSettingElements["map"].style.backgroundImage = "none";
+        }
     }
 
     for (let t=0; t<settings.colors.length && t<settings.team_count; t++) {
         teamColorChanged(t, settings.colors[t]);
     }
+
+    update_custom_game_continuous();
 }
 
 function update_custom_command(key, value) {

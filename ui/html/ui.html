@@ -432,16 +432,18 @@
 
         </div>
         <div class="main">
+            <!--
             <div class="sections">
                 <div class="section mouseover-sound4 click-sound i18n selected" data-id="main" data-i18n="ingame_menu_section_main" onclick="ingame_menu_open_section(event)">Main</div>
-                <!--<div class="section mouseover-sound4 click-sound i18n" data-id="vote" data-i18n="ingame_menu_section_vote" onclick="ingame_menu_open_section(event)">Vote</div>-->
+                <div class="section mouseover-sound4 click-sound i18n" data-id="vote" data-i18n="ingame_menu_section_vote" onclick="ingame_menu_open_section(event)">Vote</div>
                 <div class="section mouseover-sound4 click-sound i18n" data-id="players" data-i18n="ingame_menu_section_players" onclick="ingame_menu_open_section(event)">Players</div>
                 <div class="separator"></div>
                 <div class="section mouseover-sound4 click-sound leave i18n" data-i18n="ingame_menu_section_leavematch" onclick="open_modal_screen('disconnect_dialog_modal_screen')">Leave Match</div>
             </div>
+            -->
             <div class="content">
-
-                <div id="ingame_menu_section_match" class="content_section active">
+                <!--
+                <div id="ingame_menu_section_match" class="content_section">
                     <div class="half flex_1">
                         <div class="title i18n" data-i18n="ingame_menu_match_settings">Match Settings</div>
                         <div class="settings_list">
@@ -556,6 +558,138 @@
                         </div>
                     </div>
                 </div>
+                -->
+                <div id="ingame_menu_section_combined" class="content_section active">
+
+                    <div class="content_section_players">
+
+                        <div class="team_list_section">
+                            <!-- 'Players' if team size = 1-->
+                            <div class="team_name_row" data-bind-if="{{menu_game_data.team_size}} == 1">
+                                <div class="team_name i18n" data-i18n="ingame_menu_section_players"></div>
+                                <div class="join">
+                                    <div class="join_btn i18n" data-bind-if="{{menu_game_data.own_team_id}} == -1" data-i18n="ingame_menu_join" onclick="ingame_menu_join_match()">Join</div>
+                                </div>
+                            </div>
+                            <div id="ingame_menu_player_list_scrollbar" class="scroll-outer" data-sb-hide-empty="true">
+                                <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+                                <div class="scroll-inner player_scroll" style="height:auto; max-height:55vh;">
+                                    <div class="team_list">
+                                        <div class="team" data-bind-for="team_iter:sort_game_data_teams({{menu_game_data.teams}}, 'id')">
+                                            <div class="cont" data-bind-class-toggle="solo:{{menu_game_data.team_size}} == 1">
+                                                <div class="team_name_row" data-bind-if="{{menu_game_data.team_size}} > 1">
+                                                    <div class="team_name" data-bind-i18n="'team_with_idx:'+({{team_iter.team_id}} + 1)"></div>
+                                                    <div class="join">
+                                                        <div class="join_btn" data-bind-if="{{team_iter.team_id}} != {{menu_game_data.own_team_id}}" data-bind-i18n="'ingame_menu_join:'+{{team_iter.team_id}}" data-bind-click="ingame_menu_join_team({{team_iter.team_id}})">Join</div>
+                                                    </div>
+                                                </div>
+                                                <div class="player" data-bind-for="player_iter:{{team_iter.players}}" data-bind-dataset="'user_id:'+{{player_iter.user_id}}" data-scrollbar="ingame_menu_player_list_scrollbar">
+                                                    <div class="name" data-bind-value="{{player_iter.name}}"></div>
+                                                    <div class="voice_status" data-bind-if="global_self.user_id != {{player_iter.user_id}}" data-bind-class-toggle="muted:{{player_iter.voip_muted}}"></div>
+                                                    <div class="btn" data-bind-if="global_self.user_id != {{player_iter.user_id}}" data-bind-click="ingame_toggle_mute({{player_iter.user_id}}, {{player_iter.voip_muted}})" data-bind-i18n="'toggle_mute:'+{{player_iter.voip_muted}}">Toggle Mute</div>
+                                                    <div class="btn" data-bind-if="global_self.user_id != {{player_iter.user_id}}" data-bind-click="ingame_open_profile({{player_iter.user_id}})" data-bind-i18n="'profile:'+{{player_iter.voip_muted}}">Profile</div>
+                                                    <div class="separator" data-bind-if="global_self.user_id != {{player_iter.user_id}}"></div>
+                                                    <div class="btn" data-bind-if="global_self.user_id != {{player_iter.user_id}}" data-bind-click="ingame_report_user({{player_iter.user_id}}, {{player_iter.name}})" data-bind-i18n="'report:'+{{player_iter.user_id}}">Report</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                  
+    
+                        <div class="team">
+                            <div class="cont spectator_list_section" data-bind-if="{{menu_game_data.game_mode}}.substr(0,3) != 'aim'">
+                                <div class="team_name_row">
+                                    <div class="team_name" data-bind-i18n="'spectators:'+{{menu_game_data.spectators}}.length">Spectators</div>
+                                    <div class="join">
+                                        <div class="join_btn" data-bind-if="{{menu_game_data.own_team_id}} != -1"data-bind-i18n="'ingame_menu_spectate:'+{{menu_game_data.team_switching}}" data-bind-if="{{menu_game_data.team_switching}} == 2" onclick="ingame_menu_spectate()">Spectate</div>
+                                    </div>
+                                </div>
+                                <div class="spectator_list_container">
+                                    <div id="ingame_menu_spectator_list_scrollbar" class="scroll-outer" data-sb-hide-empty="true">
+                                        <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+                                        <div class="scroll-inner player_scroll" style="height:auto; max-height:15vh;">
+                                            <div class="team_list">
+                                                <div class="player" data-bind-for="player_iter:{{menu_game_data.spectators}}" data-bind-dataset="'user_id:'+{{player_iter.user_id}}" data-scrollbar="ingame_menu_spectator_list_scrollbar">
+                                                    <div class="name" data-bind-value="{{player_iter.name}}"></div>
+                                                    <div class="voice_status" data-bind-if="global_self.user_id != {{player_iter.user_id}}" data-bind-class-toggle="muted:{{player_iter.voip_muted}}"></div>
+                                                    <div class="btn" data-bind-if="global_self.user_id != {{player_iter.user_id}}" data-bind-click="ingame_toggle_mute({{player_iter.user_id}}, {{player_iter.voip_muted}})" data-bind-i18n="'toggle_mute:'+{{player_iter.voip_muted}}">Toggle Mute</div>
+                                                    <div class="btn" data-bind-if="global_self.user_id != {{player_iter.user_id}}" data-bind-click="ingame_open_profile({{player_iter.user_id}})" data-bind-i18n="'profile:'+{{player_iter.voip_muted}}">Profile</div>
+                                                    <div class="separator" data-bind-if="global_self.user_id != {{player_iter.user_id}}"></div>
+                                                    <div class="btn" data-bind-if="global_self.user_id != {{player_iter.user_id}}" data-bind-click="ingame_report_user({{player_iter.user_id}}, {{player_iter.name}})" data-bind-i18n="'report:'+{{player_iter.user_id}}">Report</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="content_section_settings">
+                        <div class="title i18n" data-i18n="ingame_menu_match_settings">Match Settings</div>
+                        <div class="settings_list">
+                            
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_game_settings_mode">Mode</div>
+                                <div class="value" data-bind-value="_format_game_mode({{menu_game_data.game_mode}})"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_game_settings_map">Map</div>
+                                <div class="value" data-bind-value="_format_map_name({{menu_game_data.map}})"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name" data-bind-if="!{{menu_game_data.round_mode}}" data-bind-i18n="'custom_game_settings_score_limit:'+{{menu_game_data.round_mode}}">Score Limit</div>
+                                <div class="name" data-bind-if="{{menu_game_data.round_mode}}" data-bind-i18n="'custom_game_settings_round_limit:'+{{menu_game_data.round_mode}}">Round Limit</div>
+                                <div class="value" data-bind-value="_format_scorelimit({{menu_game_data.score_limit}})"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_game_settings_duration">Duration</div>
+                                <div class="value" data-bind-value="_format_timelimit({{menu_game_data.time_limit}})"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_game_settings_team_size">Team Size</div>
+                                <div class="value" data-bind-value="{{menu_game_data.team_size}}"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_game_settings_teams">Team Count</div>
+                                <div class="value" data-bind-value="{{menu_game_data.team_count}}"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_settings_team_switching">Team Switching</div>
+                                <div class="value" data-bind-value="_format_team_switching({{menu_game_data.team_switching}})"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_settings_instagib">Instagib</div>
+                                <div class="value" data-bind-value="_format_instagib({{menu_game_data.instagib}})"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_settings_physics">Physics</div>
+                                <div class="value" data-bind-value="_format_physics({{menu_game_data.physics}})"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_settings_continuous">Continuous</div>
+                                <div class="value" data-bind-value="_format_continuous({{menu_game_data.continuous}})"></div>
+                            </div>
+                            <div class="server_setting">
+                                <div class="name i18n" data-i18n="custom_game_settings_datacenter">Datacenter</div>
+                                <div class="value" data-bind-value="_format_datacenter({{menu_game_data.location}})"></div>
+                            </div>
+                        </div>
+
+                        <div class="return_leave_container">
+                            <div class="leave_match mouseover-sound4 click-sound i18n" data-i18n="ingame_menu_section_leavematch" onclick="open_modal_screen('disconnect_dialog_modal_screen')">Leave Match</div>
+
+                            <div class="return_to_match mouseover-sound4 click-sound i18n" data-i18n="ingame_menu_return_to_match" onclick="ingame_menu_close_menu()">Return to Match</div>
+                        
+                            <div class="restart_match" data-bind-i18n="'aim_report_restart:'+{{menu_game_data.game_mode}}" data-bind-if="{{menu_game_data.game_mode}}.substr(0,3) == 'aim'" onclick="ingame_menu_aim_restart()">Restart</div>
+                        </div>                        
+
+                    </div>                 
+
+                </div>
 
             </div>
         </div>
@@ -563,22 +697,28 @@
 </div>
 
             <div id="home_screen">
+  <div id="home_screen_left">
     <div id="home_screen_motd_window" class="mouseover-sound4 click-sound">
-    <div id="home_screen_motd_background"></div>
-    <div id="home_screen_motd_container">
-      <div class="content">
-        <h1 class="title"></h1>
-        <h2 class="subtitle"></h2 id="home_screen_motd_subtitle">
-        <div class="body_container">
-          <p class="body"></p>
+      <div id="home_screen_motd_background"></div>
+      <div id="home_screen_motd_container">
+        <div class="content">
+          <h1 class="title"></h1>
+          <h2 class="subtitle"></h2 id="home_screen_motd_subtitle">
+          <div class="body_container">
+            <p class="body"></p>
+          </div>
         </div>
       </div>
     </div>
+
+    <div id="home_screen_challenges_cont">
+      <div class="head i18n" data-i18n="daily_challenges">Daily Challenges</div>
+      <div id="home_screen_challenges" class="challenge_list"></div>
+    </div>
   </div>
 
-  <div id="home_screen_challenges_cont">
-    <div class="head i18n" data-i18n="daily_challenges">Daily Challenges</div>
-    <div id="home_screen_challenges" class="challenge_list"></div>   
+  <div id="home_screen_load_tutorial" style="display:none;">
+      <div class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_button_play_tutorial" onclick="home_screen_load_tutorial();">Play the tutorial</div>
   </div>
 <!--
   <div style="display: flex; flex-direction:column;">
@@ -806,7 +946,7 @@
                             
                             <div class="controls_row">
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_tag">Tag</div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_spray">Spray</div>
                                     <div class="controls_value" data-db-binding="tag" data-db-binding-mode="game"></div>
                                 </div>
                                 <div class="controls_pair">
@@ -1234,71 +1374,59 @@
                         <div onclick="settings_combat_update(0)" id="combat_panel_weapon_0" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="settings_default">Default Settings</div>
                             <img src="/html/images/weapon_all.svg">
-                            <div class="combat_name i18n active" data-i18n="settings_default">Default Settings</div>
                         </div>
                         <div onclick="settings_combat_update(2)" id="combat_panel_weapon_2" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_melee">Melee</div>
                             <img src="/html/images/weapon_melee.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_melee">Melee</div>
                         </div>
                         <div onclick="settings_combat_update(3)" id="combat_panel_weapon_3" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_machinegun">Machinegun</div>
                             <img src="/html/images/weapon_mac.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_machinegun">Machinegun</div>
                         </div>
                         <div onclick="settings_combat_update(4)" id="combat_panel_weapon_4" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_blaster">Blaster</div>
                             <img src="/html/images/weapon_bl.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_blaster">Blaster</div>
                         </div>
                         <div onclick="settings_combat_update(5)" id="combat_panel_weapon_5" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_super_shotgun">Super Shotgun</div>
                             <img src="/html/images/weapon_sg.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_super_shotgun">Super Shotgun</div>
                         </div>
                         <div onclick="settings_combat_update(6)" id="combat_panel_weapon_6" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_rocket_launcher">Rocket Launcher</div>
                             <img src="/html/images/weapon_rl.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_rocket_launcher">Rocket Launcher</div>
                         </div>
                         <div onclick="settings_combat_update(7)" id="combat_panel_weapon_7" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_shaft">Shaft</div>
                             <img src="/html/images/weapon_shaft.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_shaft">Shaft</div>
                         </div>
                         <div onclick="settings_combat_update(8)" id="combat_panel_weapon_8" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_crossbow_pncr">Crossbow / P'n'CR</div>
                             <img src="/html/images/weapon_pncr.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_crossbow_pncr">Crossbow / P'n'CR</div>
                         </div>
                         <div onclick="settings_combat_update(10)" id="combat_panel_weapon_10" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_grenade_launcher">Grenade Launcher</div>
                             <img src="/html/images/weapon_gl.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_grenade_launcher">Grenade Launcher</div>
                         </div>
                         <!--
                         <div onclick="settings_combat_update(11)" id="combat_panel_weapon_11" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_w9">Weapon 9</div>
                             <img src="/html/images/weapon_w9.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_w9">Weapon 9</div>
                         </div>
                         <div onclick="settings_combat_update(12)" id="combat_panel_weapon_12" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_minigun">Minigun</div>
                             <img src="/html/images/weapon_mg.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_minigun">Minigun</div>
                         </div>
                         <div onclick="settings_combat_update(14)" id="combat_panel_weapon_14" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_healing_weeball">Healing Weeball</div>
                             <img src="/html/images/weapon_hw.svg">
-                            <div class="combat_name i18n" data-i18n="weapon_healing_weeball">Healing Weeball</div>
                         </div>
                         -->
                         <div onclick="settings_combat_update(1)" id="combat_panel_weapon_1" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="tool_editpad">Editpad</div>
                             <img src="/html/images/weapon_editpad.svg">
-                            <div class="combat_name i18n" data-i18n="tool_editpad">Editpad</div>
                         </div>
                     </div>
+                    <div id="combat_panel_header_title">Default settings</div>
                 </div>
 
                 <div id="settings_screen_combat_content">
@@ -1873,8 +2001,9 @@
                             </div>
                         </div>
 
+                        <div style="height:3vh;"></div>
                         <!--
-                        <div class="setting" style="margin-top:3vh;">
+                        <div class="setting">
                             <div class="label i18n" data-i18n="settings_sound_voip_mode">Voice Chat mode</div>
                             <div class="ctrl">
                                 <div class="setting_select">
@@ -1886,6 +2015,13 @@
                             </div>
                         </div>
                         -->
+
+                        <div class="setting btn">
+                            <div class="label i18n" data-i18n="settings_sound_reinitialize_msg">Reinitialize audio using the current Windows default audio device</div>
+                            <div class="ctrl">
+                                <div class="db-btn i18n" data-i18n="settings_sound_reinitialize_button" onclick="engine.call('sound_restart')">Reinitialize audio</div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -2363,11 +2499,12 @@
     <div class="coin_shop_container">
         <div class="header">
             <div class="db-btn plain back click-sound mouseover-sound4" onclick="historyBack()"></div>
-            <div class="title">Coins</div>
+            <div class="title i18n" data-i18n="shop_coins">Coins</div>
         </div>
         <div id="coin_shop_options">
             
         </div>
+        <div class="coin_shop_disclaimer i18n" data-i18n="shop_coin_pack_disclaimer"></div>
     </div>
 </div>
 
@@ -2588,7 +2725,7 @@
 
         <div id="learn_screen_item_list_weapons"></div>
 
-        <div class="crosshair_scroll scroll-outer theme_learn" style="flex: 1 0 0;" data-sb-hide-empty="true">
+        <div class="scroll-outer theme_learn" style="flex: 1 0 0;" data-sb-hide-empty="true">
             <div class="scroll-bar"><div class="scroll-thumb"></div></div>
             <div class="scroll-inner">
 
@@ -2608,7 +2745,7 @@
 
         <div id="learn_screen_item_list_gamemodes" class="learn_screen_item_list"></div>
 
-        <div class="crosshair_scroll scroll-outer theme_learn" style="flex: 1 0 0;" data-sb-hide-empty="true">
+        <div class="scroll-outer theme_learn" style="flex: 1 0 0;" data-sb-hide-empty="true">
             <div class="scroll-bar"><div class="scroll-thumb"></div></div>
             <div class="scroll-inner">
 
@@ -2624,7 +2761,7 @@
         <div id="learn_screen_item_list_powerups" class="learn_screen_item_list">
         </div>
 
-        <div class="crosshair_scroll scroll-outer theme_learn" style="flex: 1 0 0;" data-sb-hide-empty="true">
+        <div class="scroll-outer theme_learn" style="flex: 1 0 0;" data-sb-hide-empty="true">
             <div class="scroll-bar"><div class="scroll-thumb"></div></div>
             <div class="scroll-inner">
 
@@ -3251,16 +3388,16 @@
             <div class="label i18n" data-i18n="customize_group_sticker">Sticker</div>
             <div class="new"></div>
         </div>
-<!--
+
         <div class="category mouseover-sound4 click-sound character" onclick="customization_load_category(this, 'character')">
             <div class="label i18n" data-i18n="customize_group_character">Character</div>
             <div class="new"></div>
         </div>
--->
+<!--
         <div class="category locked character">
             <div class="label i18n" data-i18n="customize_group_character">Character</div><div class="locked"></div>
         </div>
-
+-->
         <div class="category mouseover-sound4 click-sound weapon" onclick="customization_load_category(this, 'weapon')">
             <div class="label i18n" data-i18n="customize_group_weapon">Weapons</div>
             <div class="new"></div>
@@ -3271,16 +3408,18 @@
             <div class="locked"></div>
             <div class="new"></div>
         </div>
-
+-->
+<!--
         <div class="category mouseover-sound4 click-sound weapon_attachment" onclick="customization_load_category(this, 'weapon_attachment')">
             <div class="label i18n" data-i18n="customize_group_weapon_attachment">Weapon Attachments</div>
             <div class="new"></div>
         </div>
+-->
         <div class="category mouseover-sound4 click-sound spray" onclick="customization_load_category(this, 'spray')">
             <div class="label i18n" data-i18n="customize_group_spray">Sprays</div>
             <div class="new"></div>
         </div>
--->
+<!--
         <div class="category locked weapon_attachment">
             <div class="label i18n" data-i18n="customize_group_weapon_attachment">Weapon Attachments</div>
             <div class="locked"></div>
@@ -3291,7 +3430,7 @@
             <div class="locked"></div>
             <div class="new"></div>
         </div>
-
+-->
         <div class="category mouseover-sound4 click-sound music" onclick="customization_load_category(this, 'music')">
             <div class="label i18n" data-i18n="customize_group_music">Music</div>
             <div class="new"></div>
@@ -3315,12 +3454,18 @@
             <div class="scroll-bar"><div class="scroll-thumb"></div></div>
             <div id="customization_window_content_inner" class="scroll-inner"></div>
         </div>
+
+        <div id="customization_details" class="details">
+
+        </div>
+        
         <div id="customization_bottom" class="bottom">
             <div id="customization_bottom_color">
                 <div>
                     <div class="label i18n" data-i18n="color">Color</div>
                     <div class="mouseover-sound4 click-sound">
-                        <input id="character_color" data-variable="game_skin_color" class="jscolor color-picker-new" data-finechange="1">
+                        <!--<input id="character_color" data-variable="game_skin_color" class="jscolor color-picker-new" data-finechange="1">-->
+                        <input id="character_color" class="jscolor_manual">
                     </div>
                 </div>
 
@@ -3334,10 +3479,6 @@
             </div>
             <div id="customization_bottom_equip">
                 <div id="customization_equip_button" class="db-btn mouseover-sound4 click-sound i18n" data-i18n="menu_button_equip" onclick="equip_customize_selection()">Equip selection</div>
-            </div>
-            <div id="customization_bottom_music">
-                <div id="customization_music_play_button" class="db-btn mouseover-sound4 click-sound play" onclick="customize_play_selected_music()"></div>
-                <div id="customization_music_pause_button" class="db-btn mouseover-sound4 click-sound pause" onclick="customize_pause_selected_music()"></div>
             </div>
         </div>
     </div>
@@ -3521,19 +3662,6 @@
     </div>
 </div>
 
-            <div id="battlepass_upgrade_screen">
-    <div class="options">
-        <div class="option">
-            <div class="title">Battle Pass</div>
-            <div id="battlepass_buy_basic" class="db-btn upgrade click-sound mouseover-sound4"></div>
-        </div>
-        <div class="option">
-            <div class="title">Battle Pass Bundle</div>
-            <div id="battlepass_buy_bundle"class="db-btn upgrade click-sound mouseover-sound4"></div>
-        </div>
-    </div>
-</div>
-
             <div id="gift_screen">
     
 </div>
@@ -3596,9 +3724,9 @@
             <div id="mm_ingame" class="main_menu_button click-sound mouseover-sound2 hidden" onclick='open_ingame_menu(false)' data-bind-class-toggle="visible:{{application_data.in_match}}"><div class="inner i18n" data-i18n="menu_top_match">Match</div></div>
             <div id="mm_play" class="main_menu_button click-sound mouseover-sound2" onclick='open_play()'><div class="inner i18n" data-i18n="menu_top_play">Play</div></div>
             <div id="mm_practice" class="main_menu_button click-sound mouseover-sound2" onclick='open_practice()'><div class="inner i18n" data-i18n="menu_top_practice">Practice</div></div>
-            <div id="mm_customize" class="main_menu_button click-sound mouseover-sound2" onclick='open_customization()'><div class="inner i18n" data-i18n="menu_top_locker">Locker</div><div id="customize_new_count" class="new"></div></div>
             <div id="mm_learn_big" class="main_menu_button click-sound mouseover-sound2 learn_menu_button" onclick='open_learn()'><div class="inner i18n" data-i18n="menu_top_learn">Learn</div></div>
-            <div id="mm_shop" class="main_menu_button click-sound mouseover-sound2" onclick='open_shop()' style="display:none;"><div class="inner i18n" data-i18n="menu_top_shop">Shop</div></div>
+            <div id="mm_customize" class="main_menu_button click-sound mouseover-sound2" onclick='open_customization()'><div class="inner i18n" data-i18n="menu_top_locker">Locker</div><div id="customize_new_count" class="new"></div></div>
+            <div id="mm_shop" class="main_menu_button click-sound mouseover-sound2" onclick='open_shop()'><div class="inner i18n" data-i18n="menu_top_shop">Shop</div></div>
         </div>
 
         <div id="main_menu_icons">
@@ -3609,19 +3737,18 @@
                     <div class="icon"></div>
                 </div>
             </div>
-        <!--
+
             <div id="mm_watch" onclick='open_watch()' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
                 <span data-i18n="menu_top_watch" class="tip_inner i18n">Watch</span>
                 <div class="icon"></div>
             </div>
-        -->
 
             <div id="mm_learn" onclick='open_learn()' class="main_menu_icon left mouseover-sound2 click-sound tooltip learn_menu_button">
                 <span data-i18n="menu_top_learn" class="tip_inner i18n">Learn</span>
                 <div class="icon"></div>
             </div>
 
-            <div id="mm_create" onclick='open_create()' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
+            <div id="mm_create" onclick='open_create()' class="main_menu_icon left mouseover-sound2 click-sound tooltip" style="display:none;">
                 <span data-i18n="menu_top_create" class="tip_inner i18n">Create</span>
                 <div class="icon"></div>
             </div>
@@ -3637,8 +3764,14 @@
                 <div class="icon"></div>
             </div>
         -->
+        <!-- Profile link with stats icon and "Stats" title
             <div id="mm_stats" onclick='open_player_profile("own")' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
                 <span data-i18n="menu_top_stats" class="tip_inner i18n">Stats</span>
+                <div class="icon"></div>
+            </div>
+            -->
+            <div id="mm_profile" onclick='open_player_profile("own")' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
+                <span data-i18n="menu_top_profile" class="tip_inner i18n">Profile</span>
                 <div class="icon"></div>
             </div>
 
@@ -3654,7 +3787,6 @@
 
         <div id="menu_background_bottom">
             <div class="menu_bottom_battlepass">
-                <div class="menu_bottom_triangle"></div>
                 <div class="menu_bottom_battlepass_daily tooltip2" data-msg-html-id="daily_challenges" style="display:none;">
                     <div class="daily_challenges_state"></div>
                 </div>
@@ -3810,7 +3942,14 @@
     </div>
 </div>
 
-            <div id="wallet" class="bottom_button wallet tooltip mouseover-sound2 click-sound" onclick="open_coin_shop()" style="display:none;">
+            <!-- Legal screen button
+            <div id="open_legal_button" class="bottom_button click-sound mouseover-sound2 tooltip" data-i18n="menu_open_lobby" onclick='open_modal_screen("legal_information_modal_screen")'>
+                <span class="tip_inner top">Legal</span>
+                <div class="icon"></div>
+            </div>
+            -->
+
+            <div id="wallet" class="bottom_button wallet tooltip mouseover-sound2 click-sound" onclick="open_coin_shop()">
                 <span class="tip_inner top i18n" data-i18n="shop_get_coins">Get Coins</span>
                 <div class="icon reborn-coin"></div>
                 <div class="value">0</div>
@@ -3822,7 +3961,47 @@
         <div id="masterserver_warning"><img src="/html/images/icons/fa/exclamation-triangle.svg"> &nbsp; <span data-i18n="not_connected_to_master" class="i18n">Not connected to masterserver (Reconnecting...)</span></div>
         <div id="connecting_masterserver"><span data-i18n="connecting_to_master" class="i18n">Connecting to masterserver...</span></div>
 
-        <!-- MODAL DIALOGS -->
+    </div>
+
+    <!-- FULLSCREEN... SCREENS -->
+    <div id="screens_container_full">
+
+        <div id="notification_screen">
+    
+</div>
+
+        <div id="battlepass_upgrade_screen">
+    <div id="battlepass_upgrade_background"></div>
+    <div id="battlepass_upgrade_icon"></div>
+    <div id="battlepass_upgrade_buttons">
+        <div class="options">
+            <div id="battlepass_upgrade_buy_basic" class="option">
+                <div class="title i18n" data-i18n="shop_battlepass">Battle Pass</div>
+                <div id="battlepass_buy_basic" class="db-btn upgrade click-sound mouseover-sound4"></div>
+            </div>
+            <div id="battlepass_upgrade_buy_bundle"class="option">
+                <div class="title i18n" data-i18n="shop_battlepass_bundle">Battle Pass Bundle</div>
+                <div class="desc">
+                    <div class="text i18n" data-i18n="battlepass_bundle_levels">Battle Pass + 25 Levels</div>
+                    <div class="reduced">-40%</div>
+                </div>
+                <div id="battlepass_buy_bundle"class="db-btn upgrade click-sound mouseover-sound4"></div>
+            </div>
+        </div>
+
+        <div class="side_options">
+            <div class="inspect db-btn plain i18n" data-i18n="menu_top_shop" onclick="open_shop();">Shop</div>
+            <div class="inspect db-btn upgrade i18n" data-i18n="battlepass_inspect" onclick="open_battlepass();">Inspect Battle Pass</div>
+            <div class="inspect db-btn plain i18n" data-i18n="menu_button_back" onclick="historyBack();">Back</div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <!-- MODAL DIALOGS -->
+    <div id="modal_dialogs">
+        
         <div id="battlepass_rewards_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div class="battlepass_reward_preview">
@@ -3931,12 +4110,12 @@
                         </div>
                     </div>
 
-                    <div id="custom_setting_physics" class="custom_game_setting" style="display:none;">
+                    <div id="custom_setting_physics" class="custom_game_setting">
                         <span class="setting_title i18n" data-i18n="custom_settings_physics">Physics</span>
                         <div class="setting_content">
                             <div id=custom_game_setting_physics class="select-field" data-variable="lobby_custom_physics" data-theme="modal">
                                 <div data-value="0" class="i18n" data-i18n="custom_settings_physics_diabotical">Diabotical</div>
-                                <!--<div data-value="1" class="i18n" data-i18n="custom_settings_physics_race">Race</div>-->
+                                <div data-value="1" class="i18n" data-i18n="custom_settings_physics_race">Race</div>
                                 <!--
                                 <div class="select-category" class="i18n" data-i18n="custom_settings_physics_title_main">Signature Movement</div>
                                 
@@ -3971,6 +4150,16 @@
                             <div id=custom_game_setting_continuous class="select-field" data-variable="lobby_custom_continuous" data-theme="modal">
                                 <div data-value="1" class="i18n" data-i18n="custom_settings_continuous_matches">Continuous Matches</div>
                                 <div data-value="0" class="i18n" data-i18n="custom_settings_one_match">One Match</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="custom_setting_auto_balance" class="custom_game_setting">
+                        <span class="setting_title i18n" data-i18n="custom_settings_auto_balance">Auto balance teams on match start</span>
+                        <div class="setting_content">
+                            <div id=custom_game_setting_auto_balance class="select-field" data-theme="modal">
+                                <div data-value="1" class="i18n" data-i18n="enabled" data-selected="1">Enabled</div>
+                                <div data-value="0" class="i18n" data-i18n="disabled">Disabled</div>
                             </div>
                         </div>
                     </div>
@@ -4084,7 +4273,7 @@
 
                     <div class="custom_setting_block">
 
-                        <div class="custom_setting_label" data-i18n="custom_settings_spawn_logic">Spawn Logic</div>
+                        <div class="custom_setting_label i18n" data-i18n="custom_settings_spawn_logic">Spawn Logic</div>
 
                         <div id="custom_setting_spawn_farthest_chance" class="custom_game_setting">
                             <span class="setting_title i18n" data-i18n="custom_settings_spawn_farthest_chance">Farthest spawn strategy chance</span>
@@ -4600,8 +4789,8 @@
         
         <!-- jsrender templates used to generate and append to options fields-->
 
-<div id="crosshair_canvas_editor_screen" class="settings_modal">
-    <div class="settings_modal_dialog">
+<div id="crosshair_canvas_editor_screen" class="settings_modal" onclick="close_modal_screen(event);">
+    <div class="settings_modal_dialog" onclick="event.stopPropagation();">
         <div>
             <div class="modal_dialog_title i18n" data-i18n="settings_crosshair_editor">
                 Crosshair Editor
@@ -4656,15 +4845,15 @@
                 </div>
             </div>
             <div class="dialog-button-row">
-                <div class="button i18n" onclick="closeEditorScreen(false)" data-i18n="modal_close">Close</div>
+                <div class="button i18n" onclick="closeCrosshairEditorScreen(false)" data-i18n="modal_close">Close</div>
             </div>
         </div>
     </div>
 </div>
 
 <!--zoom-->
-<div id="crosshair_canvas_zoom_editor_screen" class="settings_modal">
-    <div class="settings_modal_dialog">
+<div id="crosshair_canvas_zoom_editor_screen" class="settings_modal" onclick="close_modal_screen(event);">
+    <div class="settings_modal_dialog" onclick="event.stopPropagation();">
         <div>
             <div class="modal_dialog_title i18n" data-i18n="settings_zoom_crosshair_editor">
                 Zoom Crosshair Editor
@@ -4719,7 +4908,7 @@
                 </div>
             </div>
             <div class="dialog-button-row">
-                <div class="button i18n" onclick="closeEditorScreen(true)" data-i18n="modal_close">Close</div>
+                <div class="button i18n" onclick="closeCrosshairEditorScreen(true)" data-i18n="modal_close">Close</div>
             </div>
         </div>
     </div>
@@ -5243,14 +5432,36 @@
             </div>
         </div>
 
-    </div>
-
-    <!-- FULLSCREEN... SCREENS -->
-    <div id="screens_container_full">
-
-        <div id="notification_screen">
-    
+        <div id="legal_information_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
+            <div class="generic_modal_dialog" style="padding: 3vh; position: relative;" onclick="event.stopPropagation();">
+                <div class="generic_modal_dialog_container">
+                    <div class="generic_modal_dialog_header">Diabotical Legal Information</div>
+                    <div id="legal_information_tab_row">
+                        <div id="eula_button" class="legal_tab click-sound" onclick="change_legal_tab(this, 'eula_content')">EULA</div>
+                        <div id="third_party_software_button" class="legal_tab click-sound" onclick="change_legal_tab(this, 'third_party_software_content')">Third Party Software</div>
+                    </div>
+                    <div class="legal_information_content">
+                        <div id="legal_information_scroll" class="scroll-outer" data-sb-hide-empty="false">
+                            <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+                            <div class="scroll-inner">
+                                <div id="legal_information_container">
+                                    <!-- Separate file for each tab -->
+                                    <div id="eula_content" class="legal_information_content_container">
+    End user license agreement.
 </div>
+                                    <div id="third_party_software_content" class="legal_information_content_container">
+    Third party software.
+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="close-button-row">
+                    <div class="button i18n" onclick="close_modal_screen_by_selector('legal_information_modal_screen')" data-i18n="modal_close">Close</div>
+                </div>              
+            </div>
+        </div>
 
     </div>
 
@@ -6292,6 +6503,7 @@
     <script src="components/main_menu/watch_screen.js"></script>
     <script src="components/main_menu/learn_screen.js"></script>
     <script src="components/main_menu/aim_screen.js"></script>
+    <script src="components/main_menu/legal_screen.js"></script>
     <script src="javascript/ui_customgame.js"></script>
 
     <script src="javascript/ui_dragging.js"></script>

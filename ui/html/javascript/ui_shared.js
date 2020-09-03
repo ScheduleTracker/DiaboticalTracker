@@ -104,8 +104,17 @@ class DatasetHandler {
     init(element, value) {
         let data = value.split(":");
         if (data.length == 2) { element.dataset[data[0]] = data[1]; }
+        //updating scrollbars in ingame menu
+        if(element.hasAttribute('data-scrollbar')){
+            refreshScrollbar(_id(element.getAttribute('data-scrollbar')));
+        }
     }
-    deinit(element) {}
+    deinit(element) {
+        //updating scrollbars in ingame menu
+        if(element.hasAttribute('data-scrollbar')){
+            refreshScrollbar(_id(element.getAttribute('data-scrollbar')));
+        }
+    }
     update(element, value) {
         let data = value.split(":");
         if (data.length == 2) { element.dataset[data[0]] = data[1]; }
@@ -212,10 +221,14 @@ function init_shared() {
         if(GAMEFACE_VIEW === 'hud'){
             if (weapon_index == 0 || isUsed == 1){ //draw crosshairs and add them to containers only if they are used (index 0 always used)
                 let zoom_key = zoom ? 'zoom' : 'normal';
-                if(!canvasCrosshairMap[zoom_key].default.hasOwnProperty(weapon_index)){
+                if(!canvasCrosshairMap[zoom_key].default.hasOwnProperty(weapon_index)){                    
                     createLiveCrosshairCanvas(zoom_key, weapon_index); //create container if it does not already exist
                     let set_crosshair_function = zoom ? set_hud_zoom_weapon_crosshair : set_hud_weapon_crosshair;
-                    if(weapon_index == current_weapon_custom_crosshair_index){ //If we're in game and on this weapon, swap crosshair immediately (default -> custom)
+                    if(weapon_index == currently_held_weapon_index){ //If we're in game and on this weapon, swap crosshair immediately (default -> custom)
+                        set_crosshair_function(weapon_index);
+                    }
+                    //WORKAROUND for pncr having different weapon index and crosshair index (crossbow = 8, pncr = 9, combined crosshair = 8)
+                    else if(currently_held_weapon_index == 9 && weapon_index == 8){
                         set_crosshair_function(weapon_index);
                     }
                 }
@@ -227,7 +240,11 @@ function init_shared() {
                 if (canvasCrosshairMap[zoom_key].default.hasOwnProperty(weapon_index)){ //remove elements that are not used
                     removeLiveCrosshairCanvas(zoom_key, weapon_index);
                     let set_crosshair_function = zoom ? set_hud_zoom_weapon_crosshair : set_hud_weapon_crosshair;
-                    if(weapon_index == current_weapon_custom_crosshair_index){ //If we're in game and on this weapon, swap crosshair immediately (custom -> default)
+                    if(weapon_index == currently_held_weapon_index){ //If we're in game and on this weapon, swap crosshair immediately (custom -> default)
+                        set_crosshair_function(0);
+                    }
+                    //WORKAROUND for pncr having different weapon index and crosshair index (crossbow = 8, pncr = 9, combined crosshair = 8)
+                    else if(currently_held_weapon_index == 9 && weapon_index == 8){
                         set_crosshair_function(0);
                     }
                 }
@@ -635,7 +652,17 @@ function button_game_over_quit() {
     send_string(CLIENT_COMMAND_DISCONNECTED);
 }
 
-function renderCustomizationInner(type_id, id, lazy) {
+function renderCustomizationInner(screen, type_id, id, amount, lazy) {
+    /* screen:
+    "game_report"
+    "battlepass"
+    "customize"
+    "player_profile"
+    "shop_item"
+    "shop"
+    "watch"
+    */
+
     let type_name = '';
     let img_path  = '';
     if (id) {
@@ -644,7 +671,7 @@ function renderCustomizationInner(type_id, id, lazy) {
             img_path  = global_customization_type_map[type_id].img_path + id + ".png.dds";
         }
         if (type_name == "sticker") img_path = _stickerUrl(id);
-        //if (type_name == "music") img_path = "/html/images/icons/fa/record-vinyl.svg?fill=#111"; // TEMP until we have proper images for each song?
+        if (type_name == "spray") img_path = _sprayUrl(id);
         if (type_name == "music") img_path = _musicImageUrl(id);
         if (type_name == "currency") img_path = "/html/images/icons/reborn_coin.png.dds";
     } else {
@@ -652,24 +679,48 @@ function renderCustomizationInner(type_id, id, lazy) {
     }
 
     let inner = _createElement("div", ["customization_preview", type_name]);
+
+    let backdrop = _createElement("div", "backdrop");
+    inner.appendChild(backdrop);
+
+    let image = _createElement("div", "image");
+    inner.appendChild(image);
+
     if (lazy) {
-        _add_lazy_load(inner, "bg", img_path);
+        _add_lazy_load(image, "bg", img_path);
     } else {
-        inner.style.backgroundImage = "url("+img_path+")";
+        image.style.backgroundImage = "url("+img_path+")";
     }
 
-    if (type_name == "music") {
-        // TEMP until we have proper images for each song?
-        let title = _createElement("div", "music_title", localize("customization_"+id));
-        inner.appendChild(title);
+    if (screen == "customize") {
+        if (type_name == "music") {
+            let title = _createElement("div", "music_title", localize("customization_"+id));
+            inner.appendChild(title);
+        }
+    }
+
+    if (screen !== "shop") {
+        if (amount > 1) {
+            if (type_name == "weapon_attachment") amount = amount+"x";
+            inner.appendChild(_createElement("div", "amount", amount));
+        }
     }
 
     return inner;
 }
 
+function renderShopBattlePassInner(id) {
+    let inner = _createElement("div", "battlepass_preview");
+    if (id in global_battlepass_data) {
+        inner.style.backgroundImage = "url("+global_battlepass_data[id]["shop-image"]+")";
+    }
+    
+    return inner;
+}
+
 function renderCustomizationPackInner(id) {
     let inner = _createElement("div", ["customization_preview", "pack"]);
-    inner.style.backgroundImage = "url(/html/customization_pack/"+id+".png.dds)";
+    inner.style.backgroundImage = "url(/html/customization_pack/"+id+".png)";
     
     return inner;
 }

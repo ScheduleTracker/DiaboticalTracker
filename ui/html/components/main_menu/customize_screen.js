@@ -1,9 +1,10 @@
 let global_default_powerup_music = 'mu_pu_devilish';
-let global_default_spray = 'sp_smileyblue';
+let global_default_spray = 'sp_play_nice';
 
 let global_customization_preview_area = undefined;
 let global_customization_active_category = undefined;
 let global_customization_active_ctype = undefined;
+let global_customization_prev_type = undefined; // type that was active before the current one
 let global_customization_selected = undefined;
 let global_customization_selected_attachment = {
     "stattracker": "disabled",
@@ -54,7 +55,8 @@ let global_customization_options_map = {
     ],
     "character": [
         new CustomizationType("shell", ""),
-        new CustomizationType("shoes", ""),
+        new CustomizationType("shoes", "l"),
+        new CustomizationType("shoes", "r"),
     ],
     "sticker": [
         //new CustomizationType("sticker", ""),
@@ -76,11 +78,11 @@ let global_customization_options_map = {
         new CustomizationType("spray", ""),
     ],
     "weapon": [
-        //new CustomizationType("weapon", "melee"),
-        // weapon options are added dynamically
+        new CustomizationType("weapon", "melee"),
+        // weapon options are added dynamically (line ~145)
     ],
     "weapon_attachment": [
-        //new CustomizationType("weapon_attachment", "melee"),
+        new CustomizationType("weapon_attachment", "melee"),
         // weapon options are added dynamically
     ],
 };
@@ -145,7 +147,7 @@ function init_screen_customize() {
     for (let type of ["weapon", "weapon_attachment"]) {
         for (let wid of global_weapons_with_skins) {
 
-            // TEMPORARILY HIDE MELEE because its entirely white and offscreen
+            // Skip the melee because its added manually
             if (wid == 0) continue;
 
             let ctype = new CustomizationType(
@@ -198,40 +200,15 @@ function init_screen_customize() {
         }
     });
 
-    let last_decals_rotation_position = {};
-    let decals_rotation_dragging = false;
-    //let last_weapon_rotation_position = {};
-    //let weapon_rotation_dragging = false;
 
     global_customization_preview_area.addEventListener("mousedown", function(e) {
-        if (e.button == 2) {
-            decals_rotation_dragging = true;
-        } else if (e.button == 1) {
+        if (e.button == 1) {
             engine.call("start_mmb_dragging");
         }
     });
-
-    document.addEventListener("mouseup", function() {
-        decals_rotation_dragging = false;
-        weapon_rotation_dragging = false;
-    });
-
     global_customization_preview_area.addEventListener("mousemove", function(e) {
-        if (decals_rotation_dragging) {
-            if (typeof (last_decals_rotation_position.x) !== 'undefined') {
-                var dx = e.clientX - last_decals_rotation_position.x;
-                var dy = last_decals_rotation_position.y - e.clientY;
-                engine.call("add_decals_model_rotation", dx, dy);
-            }
-        }
         engine.call("set_decals_cursor", e.clientX, e.clientY);
-
-        last_decals_rotation_position = {
-            x: e.clientX,
-            y: e.clientY
-        };
     });
-
     global_customization_preview_area.addEventListener("mouseenter", function(e) {
         engine.call("skins_eggbot_hovered", true);
     });
@@ -245,9 +222,30 @@ function init_screen_customize() {
         }
     });
 
-    // Set the initial view to eggbot screen
-    engine.call("on_show_customization_screen_eggbot");
+
+    // Setup the shell color picker
+    let color_picker = _id("character_color");
+
+    character_jscolor_picker = new jscolor(color_picker, null, null, false);
+    character_jscolor_picker.onFineChange = function() { update_variable("string", "game_skin_color", color_picker.value); };
+
+    color_picker.onchange = function() { update_variable("string", "game_skin_color", color_picker.value); };
+    color_picker.addEventListener("keydown", function(e) { e.stopPropagation(); });
+    
+    engine.call("initialize_color_value", "game_skin_color");
 }
+
+let character_jscolor_picker = undefined;
+let client_buffered_set_color_timeout = null;
+function customization_set_shell_color(color) {
+    if (client_buffered_set_color_timeout != null) clearTimeout(client_buffered_set_color_timeout);
+    client_buffered_set_color_timeout = setTimeout(function() {
+        send_string(CLIENT_COMMAND_SET_COLOR, color);
+        clear_profile_data_cache_id(global_self.user_id);
+        client_buffered_set_color_timeout = null;
+    }, 500);
+}
+
 
 function load_user_info(cb) {
     api_request("GET", "/user", {}, function(data) {
@@ -279,6 +277,14 @@ function load_user_customizations(cb) {
         customization_pre_render_categories(true);
 
         customization_update_new_counts();
+
+        for (let page_id in customize_saved_page) {
+            if (global_customization_active_ctype && page_id == global_customization_active_ctype.page_id) {
+                customize_saved_page[page_id].style.display = "flex";
+            } else {
+                customize_saved_page[page_id].style.display = "none";
+            }
+        }
 
         if (typeof cb === "function") cb();
     });
@@ -387,6 +393,11 @@ function update_customization_options(type_options) {
         if (!(type_group in global_customization_options_map)) global_customization_options_map[type_group] = [];
 
         for (let sub_type in type_options[type_id]) {
+            if (type_name == "shoes" && sub_type.length == 0) continue;
+            if (type_name == "music" && sub_type.length == 0) continue;
+            if (type_name == "weapons" && sub_type.length == 0) continue;
+            if (type_name == "weapon_attachment" && sub_type.length == 0) continue;
+
             if (!global_customization_options_map[type_group].length) {
                 global_customization_options_map[type_group].push(new CustomizationType(type_name, sub_type));
             } else {
@@ -465,20 +476,30 @@ function customization_add_defaults(category, data) {
     return data;
 }
 
-let global_set_stickers_from_server = true;
+let global_set_customizations_from_server = true;
 /**
  * Sets client customizations coming from the MS
  * @param {Object} data MS client data object
  * @param {Boolean} init if its the first time being called or not after connecting to the MS
  */
+let hexColorRegex = /^#?([0-9A-F]{3}){1,2}$/i;
 function set_customize_data(data) {
 
+    global_set_customizations_from_server = true;
+
     // Set Character Stickers
-    global_set_stickers_from_server = true;
     if (data.customizations && data.customizations.sticker) update_variable("string", "game_decals", data.customizations.sticker);
     else update_variable("string", "game_decals", "");
-    global_set_stickers_from_server = false;
 
+    // Set Character Color
+    if (data.customizations && data.customizations.color && hexColorRegex.test(data.customizations.color)) {
+        update_variable("string", "game_skin_color", data.customizations.color);
+        let color_picker = _id("character_color");
+        if (color_picker) color_picker.value = data.customizations.color;
+        if (character_jscolor_picker) character_jscolor_picker.importColor();
+    }
+
+    global_set_customizations_from_server = false;
 }
 
 // Create all the customization item lists and cache them
@@ -508,6 +529,8 @@ function customization_load_category(btn, category, ctype) {
         btn.classList.add("selected");
     }
 
+    if (global_customization_active_ctype) global_customization_prev_type = global_customization_active_ctype.type;
+
     customization_render_category(category, ctype);
     customization_show_category(category, global_customization_active_ctype);
 
@@ -532,20 +555,12 @@ function customization_render_category(category, selected_ctype) {
         global_customization_active_ctype = ctypes[0];
     }
 
-    let group = '';
-    if (global_customization_active_ctype.type in global_customization_type_id_map) {
-        if (global_customization_type_id_map[global_customization_active_ctype.type] in global_customization_type_map) {
-            group = global_customization_type_map[global_customization_type_id_map[global_customization_active_ctype.type]].group;
-        }
-    }
-
     let cont = _id("customize_content");
 
     let menu = cont.querySelector(".menu");
     let bottom = _id("customization_bottom");
     let bottom_color = _id("customization_bottom_color");
     let bottom_equip = _id("customization_bottom_equip");
-    let bottom_music = _id("customization_bottom_music");
     
     let show_bottom = false;
 
@@ -561,13 +576,6 @@ function customization_render_category(category, selected_ctype) {
         show_bottom = true;
     } else {
         bottom_equip.style.display = "none";
-    }
-
-    if (global_customization_active_ctype.type in global_customization_audio_types && global_customization_audio_types[global_customization_active_ctype.type]) {
-        bottom_music.style.display = "flex";
-        show_bottom = true;
-    } else {
-        bottom_music.style.display = "none";
     }
 
     if (show_bottom) bottom.style.display = "flex";
@@ -641,6 +649,8 @@ function customization_render_category(category, selected_ctype) {
                 option_inner.textContent = localize("customize_"+ctype.type);
             }
         } else {
+            if (ctype.type == "shoes" && ctype.sub_type.length == 0) continue;
+
             if (ctype.sub_type.length) {
                 option_inner.textContent = localize("customize_"+ctype.page_id);
             } else {
@@ -668,6 +678,8 @@ function customization_render_category(category, selected_ctype) {
         let prev = menu.querySelector(".active");
         if (prev) prev.classList.remove("active");
         option.classList.add("active");
+
+        if (global_customization_active_ctype) global_customization_prev_type = global_customization_active_ctype.type;
         global_customization_active_ctype = ctype;
         customization_show_category(category, ctype);
     }
@@ -687,7 +699,7 @@ function customization_show_category(category, ctype) {
     reset_customization_previews();
 
     // Stop any audio previews
-    customize_pause_selected_music();
+    _pause_music_preview();
 
     let cont = _id("customization_window_content_inner");
 
@@ -713,20 +725,21 @@ function customization_show_category(category, ctype) {
         if (current_customization_id in global_customization_data_map) current_customization = global_customization_data_map[current_customization_id];
     }
 
+    render_customization_details(global_customization_active_ctype, current_customization_id);
+
     if (ctype.type == "sticker") {
-        // Since this is the editor we don't actually want to show a big preview of the sticker but the eggbot to place the sticker on
-        engine.call("on_show_customization_screen", true);
-        engine.call("on_show_customization_screen_eggbot");
-
-        _empty(global_customization_preview_area);
+        if (global_customization_prev_type != global_customization_active_ctype.type) {
+            engine.call("on_show_customization_screen", true);
+            engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.eggbot_locker);
+            engine.call("reset_locker_agent_rotation");
+        }
         _id("customize_screen_stickers").style.display = "flex";
-        set_blur(false);
     } else {
-        // Show big 2D or 3D Preview
-        show_customization_preview_scene("customize", ctype, current_customization_id, current_customization, global_customization_preview_area);
-
         _id("customize_screen_stickers").style.display = "none";
     }
+
+    // Show big 2D or 3D Preview
+    show_customization_preview_scene("customize", ctype, current_customization_id, current_customization, global_customization_preview_area);
 
     // Reset tool selection when changing category or sub category
     customize_set_tool("none");
@@ -773,15 +786,15 @@ function reset_customization_category_selection(content, current_customization_i
         for (let i=0; i<content.children.length; i++) {
             if (!content.children[i].classList.contains("customization_item")) continue;
 
-            if (content.children[i].classList.contains("selected"))         content.children[i].classList.remove("selected");
-            if (content.children[i].classList.contains("active"))           content.children[i].classList.remove("active");
-            if (content.children[i].dataset.id == current_customization_id) content.children[i].classList.add("selected");
+            if (content.children[i].classList.contains("active_item"))      set_customization_inactive(content.children[i]);
+            if (content.children[i].classList.contains("preview"))          content.children[i].classList.remove("preview");
+            if (content.children[i].dataset.id == current_customization_id) set_customization_active(content.children[i]);
         }
     }
 }
 
 /**
- * Reset the character 3d previews from the on_show_customization_screen_eggbot view back to the actual selection
+ * Reset the character 3d previews of the eggbot back to the actual selection
  */
 function reset_customization_previews() {
     // Shell
@@ -789,10 +802,15 @@ function reset_customization_previews() {
     engine.call("set_preview_shell", current_shell);
     reset_customization_category_selection(customize_saved_page["shell_"], current_shell);
 
-    // Shoes
-    let current_shoes = get_current_customization(new CustomizationType("shoes", ""));
-    engine.call("set_preview_shoes", current_shoes);
-    reset_customization_category_selection(customize_saved_page["shoes_"], current_shoes);
+    // Shoe Left
+    let current_shoe_l = get_current_customization(new CustomizationType("shoes", "l"));
+    engine.call("set_preview_shoe", "l", current_shoe_l);
+    reset_customization_category_selection(customize_saved_page["shoes_l"], current_shoe_l);
+
+    // Shoe Right
+    let current_shoe_r = get_current_customization(new CustomizationType("shoes", "r"));
+    engine.call("set_preview_shoe", "r", current_shoe_r);
+    reset_customization_category_selection(customize_saved_page["shoes_r"], current_shoe_r);
 }
 
 /**
@@ -817,6 +835,7 @@ function get_customization_category_content_data(ctype, match_empty_sub_group) {
     let data = global_customization_data.filter(function(c) {
         if (c.customization_type == global_customization_type_id_map[ctype.type]) {
             if (ctype.sub_type.length) {
+                if (ctype.type == "weapon_attachment" && ctype.sub_type == "melee" && c.customization_sub_type.length == 0) return false;
                 if (ctype.sub_type == c.customization_sub_type || (c.customization_sub_type.length == 0 && match_empty_sub_group === true)) return true;
             } else {
                 return true;  
@@ -825,9 +844,22 @@ function get_customization_category_content_data(ctype, match_empty_sub_group) {
         return false;
     });
 
-    data.sort(customization_sort_func);
+    let duplicate_tracker = {};
+    let filtered_data = [];
+    for (let c of data) {
+        if (duplicate_tracker.hasOwnProperty(c.customization_id)) {
+            if (c.seen == false) duplicate_tracker[c.customization_id] = c;
+            continue;
+        }
 
-    return data;
+        duplicate_tracker[c.customization_id] = c;
+    }
+
+    for (let c_id in duplicate_tracker) filtered_data.push(duplicate_tracker[c_id]);
+
+    filtered_data.sort(customization_sort_func);
+
+    return filtered_data;
 }
 function customization_sort_func(a, b) {
     if (a.rarity > b.rarity) return -1;
@@ -847,31 +879,37 @@ function customization_render_category_content(cont, ctype) {
 
     let get_empty_sub_group = false;
     if (ctype.type == "weapon_attachment") get_empty_sub_group = true;
+    if (ctype.type == "shoes") get_empty_sub_group = true;
     let data = get_customization_category_content_data(ctype, get_empty_sub_group);
     
     let fragment = _createElement("div",["customization_type_items", ctype.type]);
     fragment.appendChild(_createElement("div", "separator"));
 
     // Default disable button
-    let disable = _createElement("div", ["customization_item", "disable"]);
+    let disable = _createElement("div", ["customization_item", "disable", "rarity_bg_0"]);
     disable.addEventListener("click", customization_on_select);
     disable.dataset.id = "";
     _addButtonSounds(disable, 1);
+    disable.appendChild(_createElement("div", "times"));
 
     let option_count = 0;
     let default_sel = "";
 
     if (ctype.type == "country") {
-        if (!global_self.data.customizations.country) disable.classList.add("selected");
+        if (!global_self.data.customizations.country) set_customization_active(disable);
         fragment.appendChild(disable);
         data = GLOBAL_AVAILABLE_COUNTRY_FLAGS;
         option_count++;
     } else if (ctype.type == "weapon_attachment") {
+        let stat_tracker_seen = true;
         let stat_tracker = false;
+        let stat_tracker_id = '';
         if (data && data.length) {
             for (let c of data) {
                 if (c.customization_id.endsWith("_stattracker")) {
+                    stat_tracker_seen = c.seen;
                     stat_tracker = true;
+                    stat_tracker_id = c.customization_id;
                     break;
                 }
             }
@@ -885,7 +923,23 @@ function customization_render_category_content(cont, ctype) {
             let stat_tracker_select = _createElement("div", "select-field");
             stat_tracker_select.dataset.theme = "customize";
             stat_tracker_cont.appendChild(stat_tracker_select);
+
+            // Show a "new" indicator on the stattracker if it hadn't been clicked on before
+            if (!stat_tracker_seen) {
+                let new_div = _createElement("div", "new", "!");
+                stat_tracker_cont.appendChild(new_div);
+                stat_tracker_select.dataset.new = 1;
+                stat_tracker_select.addEventListener("click", function() {
+                    api_request("POST", "/user/customization/"+stat_tracker_id+"/seen");
+                    global_customization_data_map[stat_tracker_id].seen = true;
             
+                    _remove_node(new_div);
+            
+                    // Update the count indicators
+                    customization_update_new_counts();
+                });
+            }
+
             for (let stat of ["disabled",  "frags", "dmg_done"]) {
                 let short = stat;
                 if (stat == "frags") short = GLOBAL_ABBR.STATS_KEY_FRAGS;
@@ -910,7 +964,7 @@ function customization_render_category_content(cont, ctype) {
             fragment.appendChild(stat_tracker_cont);
         }
 
-        if (selected.attachment == "") disable.classList.add("selected"); 
+        if (selected.attachment == "") set_customization_active(disable); 
         fragment.appendChild(disable);
         option_count++;
 
@@ -928,37 +982,13 @@ function customization_render_category_content(cont, ctype) {
     } else if (ctype.type in global_customization_disable_types && global_customization_disable_types[ctype.type]) {
 
         let customization = get_current_customization(ctype);
-        if (!customization || customization.trim().length == 0) disable.classList.add("selected");
+        if (!customization || customization.trim().length == 0) set_customization_active(disable);
         fragment.appendChild(disable);
         option_count++;
 
     }
-
-    /*
-    if (ctype.type == "avatar") {
-        if (!global_self.data.customizations.avatar) disable.classList.add("selected");
-        fragment.appendChild(disable);
-        option_count++;
-    }
-    if (ctype.type == "shell") {
-        if (!global_self.data.customizations.shell) disable.classList.add("selected");
-        fragment.appendChild(disable);
-        option_count++;
-    }
-    if (ctype.type == "shoes") {
-        if (!global_self.data.customizations.shoes) disable.classList.add("selected");
-        fragment.appendChild(disable);
-        option_count++;
-    }
-    if (ctype.type == "weapon") {
-        if (current_customization == "") disable.classList.add("selected"); 
-        fragment.appendChild(disable);
-        option_count++;
-    }
-    */
 
     if (data && data.length) {
-        let duplicate_tracker = {};
         for (let c of data) {
 
             let item = _createElement("div", "customization_item");
@@ -967,10 +997,11 @@ function customization_render_category_content(cont, ctype) {
 
             // FLAGS 
             if (ctype.type == "country") {
-                if (c == global_self.data.customizations.country) { item.classList.add("selected"); }
+                if (c == global_self.data.customizations.country) { set_customization_active(item); }
 
                 item.classList.add("flag");
                 item.classList.add("rarity_bg_0");
+                item.style.setProperty("--rarity", "var(--rarity_dark_0)");
                 item.dataset.id = c;
 
                 let inner = _createElement("div", "country_flag");
@@ -981,15 +1012,7 @@ function customization_render_category_content(cont, ctype) {
                 add_tooltip2_listeners(item);
             } else {
                 if (ctype.type == "weapon_attachment" && c.customization_id.endsWith("_stattracker")) continue;
-                if (c.customization_id in duplicate_tracker) continue;
-                duplicate_tracker[c.customization_id] = true;
                 
-                if (!("seen" in c) || c.seen == false) {
-                    let new_div = _createElement("div", "new", "!");
-                    item.appendChild(new_div);
-                    item.dataset.new = 1;
-                }
-
                 item.dataset.msgHtmlId = "customization_item";
                 item.dataset.id = c.customization_id;
                 item.dataset.type = c.customization_type;
@@ -998,14 +1021,22 @@ function customization_render_category_content(cont, ctype) {
 
                 item.classList.add(ctype.type);
                 item.classList.add("rarity_bg_"+c.rarity);
+                item.style.setProperty("--rarity", "var(--rarity_dark_"+c.rarity+")");
 
-                item.appendChild(renderCustomizationInner(c.customization_type, c.customization_id, true));
+                item.appendChild(renderCustomizationInner("customize", c.customization_type, c.customization_id, c.amount, true));
+
+                if (!("seen" in c) || c.seen == false) {
+                    let new_div = _createElement("div", "new", "!");
+                    item.appendChild(new_div);
+                    item.dataset.new = 1;
+                }
+
             }
 
             // Add selected class for types that don't require an equip confirmation
-            if (ctype.type == "avatar" && c.customization_id == global_self.data.customizations.avatar) item.classList.add("selected");
-            if (ctype.type == "music" && ctype.sub_type == "pu" && c.customization_id == default_sel) item.classList.add("selected");
-            if (ctype.type == "spray" && c.customization_id == default_sel) item.classList.add("selected");
+            if (ctype.type == "avatar" && c.customization_id == global_self.data.customizations.avatar) set_customization_active(item);
+            if (ctype.type == "music" && ctype.sub_type == "pu" && c.customization_id == default_sel) set_customization_active(item);
+            if (ctype.type == "spray" && c.customization_id == default_sel) set_customization_active(item);
 
             fragment.appendChild(item);
             option_count++;
@@ -1035,13 +1066,11 @@ function customization_render_category_content(cont, ctype) {
  */
 function stattracker_on_select(opt, field) {
     global_customization_selected_attachment.stattracker = field.dataset.value;
-    let current_customization = {};
-    if (global_customization_selected_attachment.attachment in global_customization_data_map) current_customization = global_customization_data_map[global_customization_selected_attachment.attachment];
-    let current_customization_id = create_attachment_customization_string(global_customization_selected_attachment);
 
-    show_customization_preview_scene("customize", global_customization_active_ctype, current_customization_id, current_customization, global_customization_preview_area);
-
-    set_customization_equip_btn_state(global_customization_active_ctype);
+    // Send updated stattracker selection to the MS directly
+    let current_attachments = get_current_customization_attachments(global_customization_active_ctype.sub_type);
+    current_attachments.stattracker = field.dataset.value;
+    send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["weapon_attachment"]+":"+global_customization_active_ctype.sub_type+":"+create_attachment_customization_string(current_attachments));
 }
 
 /**
@@ -1051,16 +1080,25 @@ function stattracker_on_select(opt, field) {
 function customization_on_select(e) {
     if (!global_customization_active_ctype) return;
     
-    let prev = e.currentTarget.parentElement.querySelector(".selected");
-    let prev_active = e.currentTarget.parentElement.querySelector(".active");
+    let prev = e.currentTarget.parentElement.querySelector(".active_item");
+    let prev_active = e.currentTarget.parentElement.querySelector(".preview");
 
+    if (prev_active && prev_active === e.currentTarget) {
+        if (global_customization_active_ctype.type in global_customization_confirm_types) {
+            equip_customize_selection();
+        }
+        return;
+    }
 
     let current_customization_id = e.currentTarget.dataset.id;
     let current_customization = {};
+
     if (global_customization_active_ctype.type == "weapon_attachment") {
+
         global_customization_selected_attachment.attachment = e.currentTarget.dataset.id;
         if (global_customization_selected_attachment.attachment in global_customization_data_map) current_customization = global_customization_data_map[global_customization_selected_attachment.attachment];
         current_customization_id = create_attachment_customization_string(global_customization_selected_attachment);
+
     } else if (global_customization_active_ctype.type == "country") {
         current_customization = {
             "customization_id": current_customization_id,
@@ -1072,55 +1110,51 @@ function customization_on_select(e) {
         if (current_customization_id in global_customization_data_map) current_customization = global_customization_data_map[current_customization_id];
     }
 
-    if (global_customization_active_ctype.type == "sticker") {
-        // Since this is the editor we don't actually want to show a big preview of the sticker but the eggbot to place the sticker on
-        engine.call("on_show_customization_screen", true);
-        engine.call("on_show_customization_screen_eggbot");
-    } else {
-        // Show big 2D or 3D Preview
-        show_customization_preview_scene("customize", global_customization_active_ctype, current_customization_id, current_customization, global_customization_preview_area);
-    }
+    render_customization_details(global_customization_active_ctype, current_customization_id);
+
+    // Show big 2D or 3D Preview
+    show_customization_preview_scene("customize", global_customization_active_ctype, current_customization_id, current_customization, global_customization_preview_area);
 
     // Flag
     if (global_customization_active_ctype.type == "country") {
-        if (prev) prev.classList.remove("selected");
-        e.currentTarget.classList.add("selected");
+        if (prev) set_customization_inactive(prev);
+        set_customization_active(e.currentTarget);
         send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["country"]+"::"+e.currentTarget.dataset.id);
         clear_profile_data_cache_id(global_self.data.user_id);
     }
 
     // Avatar
     if (global_customization_active_ctype.type == "avatar") {
-        if (prev) prev.classList.remove("selected");
-        e.currentTarget.classList.add("selected");
+        if (prev) set_customization_inactive(prev);
+        set_customization_active(e.currentTarget);
         send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["avatar"]+"::"+e.currentTarget.dataset.id);
         clear_profile_data_cache_id(global_self.data.user_id);
     }
 
     // Sticker
     if (global_customization_active_ctype.type == "sticker") {
-        if (e.currentTarget.classList.contains("selected")) {
+        if (e.currentTarget.classList.contains("active_item")) {
             customize_set_tool("none", e.currentTarget);
-            e.currentTarget.classList.remove("selected");
+            set_customization_inactive(e.currentTarget);
             global_customize_selected_decal = undefined;
         } else {
-            if (prev) prev.classList.remove("selected");
+            if (prev) set_customization_inactive(prev);
             customize_set_tool("add_decal", e.currentTarget);
-            e.currentTarget.classList.add("selected");
+            set_customization_active(e.currentTarget);
         }
     }
 
     // Music
     if (global_customization_active_ctype.type == "music") {
-        if (prev) prev.classList.remove("selected");
-        e.currentTarget.classList.add("selected");
+        if (prev) set_customization_inactive(prev);
+        set_customization_active(e.currentTarget);
         send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["music"]+":"+global_customization_active_ctype.sub_type+":"+e.currentTarget.dataset.id);
     }
 
     // Spray
     if (global_customization_active_ctype.type == "spray") {
-        if (prev) prev.classList.remove("selected");
-        e.currentTarget.classList.add("selected");
+        if (prev) set_customization_inactive(prev);
+        set_customization_active(e.currentTarget);
         send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["spray"]+"::"+e.currentTarget.dataset.id);
     }
 
@@ -1129,8 +1163,8 @@ function customization_on_select(e) {
 
         global_customization_selected = e.currentTarget;
 
-        if (prev_active) prev_active.classList.remove("active");
-        if (!e.currentTarget.classList.contains("selected")) e.currentTarget.classList.add("active");
+        if (prev_active) prev_active.classList.remove("preview");
+        if (!e.currentTarget.classList.contains("active_item")) e.currentTarget.classList.add("preview");
 
         set_customization_equip_btn_state(global_customization_active_ctype);
     }
@@ -1149,6 +1183,80 @@ function customization_on_select(e) {
 }
 
 /**
+ * Render details or options for this specific customization item
+ * @param {CustomizationType} ctype
+ * @param {String} customization_id
+ */
+function render_customization_details(ctype, customization_id) {
+    
+    let cont = _id("customization_details");
+    _empty(cont);
+
+    if (ctype.type == "weapon_attachment") {
+
+        let attach = get_customization_attachments(customization_id);
+
+        let c = null;
+        if (attach.attachment in global_customization_data_map) c = global_customization_data_map[attach.attachment];
+        if (c === null) return;
+        
+        let wa_active_in = get_active_weapon_attachment_list(attach.attachment);
+        let remaining_count = c.amount;
+
+        // currently equipped on...
+        if (wa_active_in.length) {
+            remaining_count = c.amount - wa_active_in.length;
+            if (remaining_count < 0) remaining_count = 0;
+            
+            let equipped_cont = _createElement("div", "equipped_cont");
+            for (let w of wa_active_in) {
+                if (!global_item_name_map.hasOwnProperty("weapon"+w)) continue;
+
+                let weapon_line = _createElement("div", "weapon");
+                weapon_line.appendChild(_createElement("div", "name", localize(global_item_name_map["weapon"+w][1])));
+                let remove_btn = _createElement("div", ["db-btn", "plain", "remove"]);
+                weapon_line.appendChild(remove_btn);
+                equipped_cont.appendChild(weapon_line);
+
+                remove_btn.addEventListener("click", function() {
+                    // Remove attachment from this weapon
+                    let new_attach = get_current_customization_attachments(w);
+                    new_attach.attachment = "";
+                    send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["weapon_attachment"]+":"+w+":"+create_attachment_customization_string(new_attach));
+                });
+                // Tooltip
+                remove_btn.dataset.msg = localize("weapon_attachment_unequip");
+                add_tooltip2_listeners(remove_btn);
+            }
+            cont.appendChild(equipped_cont);
+        }
+
+        if (remaining_count > 0) cont.appendChild(_createElement("div", "desc", localize_ext("weapon_attachment_msg_count", {"count": remaining_count})));
+        else cont.appendChild(_createElement("div", "desc", localize("weapon_attachment_msg_negative")));
+    }
+}
+
+/**
+ * Get the remaining number of times a weapon attachment can be equipped on different weapons
+ * @param {String} attachment_string attachment string part of the weapon attachment, e.g. wa_bobblehead
+ */
+function get_remaining_wa_use_count(attachment_string) {
+    let c = null;
+    if (attachment_string in global_customization_data_map) c = global_customization_data_map[attachment_string];
+    if (c === null) return 0;
+
+    let wa_active_in = get_active_weapon_attachment_list(attachment_string);
+    let remaining_count = c.amount;
+
+    if (wa_active_in.length) {
+        remaining_count = c.amount - wa_active_in.length;
+        if (remaining_count < 0) remaining_count = 0;
+    }
+
+    return remaining_count;
+}
+
+/**
  * Updates the equip button state
  * @param {CustomizationType} ctype
  */
@@ -1158,7 +1266,14 @@ function set_customization_equip_btn_state(ctype) {
         if (current_item.attachment == global_customization_selected_attachment.attachment && current_item.stattracker == global_customization_selected_attachment.stattracker) {
             _id("customization_equip_button").classList.remove("active");
         } else {
-            _id("customization_equip_button").classList.add("active");
+            let remaining_count = 1;
+            if (global_customization_selected_attachment.attachment.length) remaining_count = get_remaining_wa_use_count(global_customization_selected_attachment.attachment);
+
+            if (remaining_count > 0) {
+                _id("customization_equip_button").classList.add("active");
+            } else {
+                _id("customization_equip_button").classList.remove("active");
+            }
         }
     } else {
         let current_item = get_current_customization(ctype);
@@ -1185,7 +1300,8 @@ function get_current_customization(ctype) {
         }
     }
 
-    if (!ret || ret.trim().length == 0) {
+    // Return the default selection of some types if nothing is selected
+    if ((ret && typeof ret == "object" && Object.keys(ret).length == 0) || (!ret || ret.trim().length == 0)) {
         if (ctype.type == "music" && ctype.sub_type == "pu") {
             return global_default_powerup_music;
         } else if (ctype.type == "spray") {
@@ -1205,6 +1321,25 @@ function get_current_customization_attachments(weapon) {
     if (_check_nested(global_self, "data", "customizations", "weapon_attachment", weapon)) string = global_self.data.customizations.weapon_attachment[weapon];
     
     return get_customization_attachments(string);
+}
+
+/**
+ * Get the list of weapons where this weapon attachment is currently in use
+ * @param {String} customization_id
+ */
+function get_active_weapon_attachment_list(customization_id) {
+    if (!customization_id) return [];
+    if (customization_id.trim().length == 0) return [];
+
+    let active_on_weapon_sub_types = [];
+    if (_check_nested(global_self, "data", "customizations", "weapon_attachment")) {
+        for (let weapon in global_self.data.customizations.weapon_attachment) {
+            let wa = global_self.data.customizations.weapon_attachment[weapon];
+            if (wa.includes(customization_id)) active_on_weapon_sub_types.push(weapon);
+        }
+    }
+
+    return active_on_weapon_sub_types;
 }
 
 /**
@@ -1252,9 +1387,14 @@ function equip_customize_selection() {
     } else {
         send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map[global_customization_active_ctype.type]+":"+global_customization_active_ctype.sub_type+":"+global_customization_selected.dataset.id);
 
-        global_customization_selected.classList.remove("active");
-        global_customization_selected.classList.add("selected");
+        let prev_active = global_customization_selected.parentElement.querySelector(".active_item");
+        if (prev_active) set_customization_inactive(prev_active);
+
+        global_customization_selected.classList.remove("preview");
+        set_customization_active(global_customization_selected);
         global_customization_selected = null;
+
+        clear_profile_data_cache_id(global_self.data.user_id);
     }
 
     // Set equip button inactive again
@@ -1278,6 +1418,20 @@ function customization_set_validated(customization) {
     if (reset_selection && cache_key in customize_saved_page) {
         if (type_name == "weapon_attachment") {
             reset_customization_category_selection(customize_saved_page[cache_key], get_customization_attachments(customization.id).attachment);
+
+            // Reset the attachment details and button state if they are currently visible
+            if (global_customization_active_ctype.type == type_name && global_customization_active_ctype.sub_type.length) {
+                if (global_customization_active_ctype.sub_type == customization.sub_type) {
+                    global_customization_selected_attachment = get_current_customization_attachments(global_customization_active_ctype.sub_type);
+                }
+
+                if (global_customization_selected_attachment.attachment.length) {
+                    render_customization_details(global_customization_active_ctype, create_attachment_customization_string(global_customization_selected_attachment));
+                } else {
+                    render_customization_details(global_customization_active_ctype, get_current_customization(global_customization_active_ctype));
+                }
+                set_customization_equip_btn_state(global_customization_active_ctype);
+            }
         } else {
             reset_customization_category_selection(customize_saved_page[cache_key], customization.id)
         }
@@ -1309,7 +1463,6 @@ function customize_set_tool(tool, element) {
     // tool:
     //  "select"
     //  "add_decal"
-    //  "add_shell" <- probably not functional/not used atm
     //  "none" disable everything
 
     engine.call("set_tool", tool);
@@ -1339,7 +1492,7 @@ function customize_set_tool(tool, element) {
         _id("select_tool_icon").classList.add("tool_selected");
 
         if (global_customize_selected_decal) {
-            global_customize_selected_decal.classList.remove("selected");
+            set_customization_inactive(global_customize_selected_decal);
             global_customize_selected_decal = undefined;
         }
     } else {
@@ -1347,33 +1500,69 @@ function customize_set_tool(tool, element) {
         anim_hide(_id("select_shortcuts"));
     }
 
-    if (tool == "add_shell") {}
-    
     engine.call("update_character_preview");
 }
 
-let customization_audio_playing = "";
-function customize_play_selected_music() {
-    // Pause in case another track is already playing
-    customize_pause_selected_music();
-
-    customization_audio_playing = get_current_customization(global_customization_active_ctype);
-    //customization_audio_playing = "music_db_markie_bytemaster";
-    engine.call("ui_sound_tracked", customization_audio_playing);
-    engine.call("set_music_post_volume", 0);
+function set_customization_inactive(el) {
+    if (!el) return;
+    el.classList.remove("active_item");
+    for (var i=0; i<el.childNodes.length; i++) {
+        if (el.childNodes[i].classList.contains("active_icon")) el.removeChild(el.childNodes[i]);
+    }
 }
-
-function customize_pause_selected_music() {
-    if (customization_audio_playing.length) engine.call("ui_stop_sound", customization_audio_playing);
-    engine.call("set_music_post_volume", 1);
-    customization_audio_playing = "";
+function set_customization_active(el) {
+    if (!el) return;
+    el.classList.add("active_item");
+    el.appendChild(_createElement("div", "active_icon"));
 }
 
 
+const ITEM_PREVIEW_CAMERAS = {
+    "eggbot_locker": 0,
+    "weapon_locker": 1,
+    "empty": 2,
+    "weapon_battlepass": 3,
+    "eggbot_battlepass": 4,
+    "eggbot_profile": 5,
+    "weapon_shop": 6,
+    "eggbot_shop": 7,
+    "weapon_notification": 8,
+    "eggbot_notification": 9,
+};
 
+let global_preview_rotate_setup = false;
+let global_preview_rotation_position = {};
+let global_preview_rotation_dragging = false;
+function setup_customization_preview_rotation_listeners(el) {
+    el.addEventListener("mousedown", function(e) {
+        if (e.button == 2) {
+            global_preview_rotation_dragging = true;
+        }
+    });
 
+    // Only add this listener once
+    if (!global_preview_rotate_setup) {
+        document.addEventListener("mouseup", function() {
+            global_preview_rotation_dragging = false;
+        });
+        global_preview_rotate_setup = true;
+    }
 
+    el.addEventListener("mousemove", function(e) {
+        if (global_preview_rotation_dragging) {
+            if (typeof (global_preview_rotation_position.x) !== 'undefined') {
+                var dx = e.clientX - global_preview_rotation_position.x;
+                var dy = global_preview_rotation_position.y - e.clientY;
+                engine.call("add_decals_model_rotation", dx, dy);
+            }
+        }
 
+        global_preview_rotation_position = {
+            x: e.clientX,
+            y: e.clientY
+        };
+    });
+}
 
 /** ===============================================================
  * SHOW Customization Preview Scene / Image
@@ -1387,89 +1576,114 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
 
     //console.log("show_customization_preview_scene", screen, id, _dump(ctype));
 
-    let show_desc = 0;
-    if (screen == "customize") show_desc = 1;
+    let show_desc = false;
+    if (screen == "customize") show_desc = true;
+
+    let show_2d_preview = true;
+    if (screen == "customize" && ctype.type == "sticker") {
+        show_2d_preview = false;
+        show_desc = false;
+    }
+
+    let weapon_camera = ITEM_PREVIEW_CAMERAS.weapon_locker;
+    let eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_locker;
+    if (screen == "battlepass") {
+        weapon_camera = ITEM_PREVIEW_CAMERAS.weapon_battlepass;
+        eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_battlepass;
+    } else if (screen == "player_profile") {
+        eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_profile;
+    } else if (screen == "shop_item") {
+        weapon_camera = ITEM_PREVIEW_CAMERAS.weapon_shop;
+        eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_shop;
+    } else if (screen == "notification") {
+        weapon_camera = ITEM_PREVIEW_CAMERAS.weapon_notification;
+        eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_notification;
+    }
 
     let show_name = true;
 
-    let fragment = new DocumentFragment();
+    let preview_container = _createElement("div", "preview_container");    
     
     if (ctype.type == "weapon") {
 
         // Show the background scene with the desired weapon
         engine.call("on_show_customization_screen", true);
-        engine.call("on_show_customization_screen_weapon");
+        engine.call("set_stage_map_camera", weapon_camera);
         engine.call("weapon_customization_select_weapon", ctype.sub_type);
         engine.call("set_preview_weapon_skin", ctype.sub_type, id);
-        global_customization_blur_active = false;
     
     } else if (ctype.type == "weapon_attachment") {
 
         // Show the background scene with the desired weapon + active skin
-        let active_skin_id = get_current_customization(new CustomizationType("weapon", ctype.sub_type));
-
         engine.call("on_show_customization_screen", true);
-        engine.call("on_show_customization_screen_weapon");
+        engine.call("set_stage_map_camera", weapon_camera);
         engine.call("weapon_customization_select_weapon", ctype.sub_type);
-        engine.call("set_preview_weapon_skin", ctype.sub_type, active_skin_id);
+        engine.call("set_preview_weapon_skin", ctype.sub_type, get_current_customization(new CustomizationType("weapon", ctype.sub_type)));
         engine.call("set_preview_weapon_attachment", ctype.sub_type, id);
-        global_customization_blur_active = false;
 
     } else if (ctype.type == "shell") {
 
         engine.call("on_show_customization_screen", true);
-        engine.call("on_show_customization_screen_eggbot");
+        engine.call("set_stage_map_camera", eggbot_camera);
         engine.call("set_preview_shell", id);
-        global_customization_blur_active = false;
+
+        setup_customization_preview_rotation_listeners(preview_container);
+        if (screen != "customize") engine.call("reset_locker_agent_rotation");
     
     } else if (ctype.type == "shoes") {
 
+        // Show the users active shell in the preview
+        let current_shell = get_current_customization(new CustomizationType("shell", ""));
+        engine.call("set_preview_shell", current_shell);
+
         engine.call("on_show_customization_screen", true);
-        engine.call("on_show_customization_screen_eggbot");
-        engine.call("set_preview_shoes", id);
-        global_customization_blur_active = false;
+        engine.call("set_stage_map_camera", eggbot_camera);
+        
+        if (screen == "customize") {
+            engine.call("set_preview_shoe", ctype.sub_type, id);
+        } else {
+            engine.call("set_preview_shoe", "l", id);
+            engine.call("set_preview_shoe", "r", id);
+        }
+
+        setup_customization_preview_rotation_listeners(preview_container);
+        if (screen != "customize") engine.call("reset_locker_agent_rotation");
     
     } else if (ctype.type == "music") {
         
-        engine.call("on_show_customization_screen", false);
-        global_customization_blur_active = true;
+        engine.call("on_show_customization_screen", true);
+        engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
     
     } else if (ctype.type == "sticker") {
 
         engine.call("on_show_customization_screen", true);
-        global_customization_blur_active = true;
+        if (screen != "customize") engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
+        else setup_customization_preview_rotation_listeners(preview_container);
 
     } else if (ctype.type == "avatar") {
 
-        engine.call("on_show_customization_screen", false);
-        global_customization_blur_active = true;
-        show_name = false;
+        engine.call("on_show_customization_screen", true);
+        engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
 
     } else if (ctype.type == "spray") {
 
-        engine.call("on_show_customization_screen", false);
-        global_customization_blur_active = true;
+        engine.call("on_show_customization_screen", true);
+        engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
     
     } else if (ctype.type == "country") {
 
-        engine.call("on_show_customization_screen", false);
-        global_customization_blur_active = true;
+        engine.call("on_show_customization_screen", true);
+        engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
 
     } else {
 
-        engine.call("on_show_customization_screen", false);
-        global_customization_blur_active = false;
+        engine.call("on_show_customization_screen", true);
+        engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
 
     }
 
-    
-    engine.call("on_show_customization_screen", true);
-    engine.call("on_show_customization_screen_weapon");
-    if (ctype.type != "weapon" && ctype.type != "weapon_attachment") engine.call("weapon_customization_select_weapon", "none");
-
-    
-    // Enabled / Disable the background blur
-    set_blur(global_customization_blur_active);
+    global_customization_blur_active = false;
+    set_blur(false);
 
     _empty(cont);
 
@@ -1489,11 +1703,11 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
         let customization_desc = _createElement("div", "customization_desc");
         customization_desc.style.setProperty("--item_rarity_color", "var(--rarity_"+customization.rarity+")");
         customization_desc.appendChild(createCustomizationInfo(customization, show_name));
-        fragment.appendChild(customization_desc);
+        preview_container.appendChild(customization_desc);
     }
 
-    fragment.appendChild(createCustomizationPreview(customization));
+    if (show_2d_preview) preview_container.appendChild(createCustomizationPreview(customization));
 
-    cont.appendChild(fragment);
+    cont.appendChild(preview_container);
 
 }

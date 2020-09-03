@@ -36,6 +36,7 @@ const CLIENT_COMMAND_SELECT_MAP = 84;
 const CLIENT_COMMAND_GET_RANKED_MMRS = 85;
 const CLIENT_COMMAND_GET_SINGLE_RANKED_MMR = 86;
 const CLIENT_COMMAND_REQUEUE = 87;
+const CLIENT_COMMAND_SET_COLOR = 88;
 const CLIENT_COMMAND_GET_NOTIFICATIONS = 89;
 const CLIENT_COMMAND_DEL_NOTIFICATION = 90;
 const CLIENT_COMMAND_GET_QUEUES = 92;
@@ -230,17 +231,22 @@ var global_region_map = {
     "online":{ "flag": "", "i18n": "datacenter_direct_online", "provider": "", "name": "Direct Connection - ONLINE" },
     "lan": { "flag": "",   "i18n": "datacenter_direct_lan", "provider": "", "name": "Direct Connection - LAN" },
     "ash": { "flag": "us", "i18n": "datacenter_ash", "provider": "i3D.net", "name": "Ashburn" },
+    "bue": { "flag": "ar", "i18n": "datacenter_bue", "provider": "i3D.net", "name": "Buenos Aires"},
     "chi": { "flag": "us", "i18n": "datacenter_chi", "provider": "i3D.net", "name": "Chicago" },
     "dal": { "flag": "us", "i18n": "datacenter_dal", "provider": "i3D.net", "name": "Dallas" },
     "dub": { "flag": "ae", "i18n": "datacenter_dub", "provider": "i3D.net", "name": "Dubai" },
     "fra": { "flag": "de", "i18n": "datacenter_fra", "provider": "i3D.net", "name": "Frankfurt" },
     "hon": { "flag": "hk", "i18n": "datacenter_hon", "provider": "i3D.net", "name": "Hong Kong" },
+    "ist": { "flag": "tr", "i18n": "datacenter_ist", "provider": "i3D.net", "name": "Istanbul"},
     "joh": { "flag": "za", "i18n": "datacenter_joh", "provider": "i3D.net", "name": "Johannesburg" },
     "los": { "flag": "us", "i18n": "datacenter_los", "provider": "i3D.net", "name": "Los Angeles" },
+    "mad": { "flag": "es", "i18n": "datacenter_mad", "provider": "i3D.net", "name": "Madrid" },
+    "mia": { "flag": "us", "i18n": "datacenter_mia", "provider": "i3D.net", "name": "Miami"},
     "mos": { "flag": "ru", "i18n": "datacenter_mos", "provider": "i3D.net", "name": "Moscow" },
     "mum": { "flag": "in", "i18n": "datacenter_mum", "provider": "i3D.net", "name": "Mumbai"},
     "par": { "flag": "fr", "i18n": "datacenter_par", "provider": "i3D.net", "name": "Paris" },
     "rot": { "flag": "nl", "i18n": "datacenter_rot", "provider": "i3D.net", "name": "Rotterdam" },
+    "san": { "flag": "cl", "i18n": "datacenter_san", "provider": "i3D.net", "name": "Santiago"},
     "sao": { "flag": "br", "i18n": "datacenter_sao", "provider": "i3D.net", "name": "São Paulo" },
     "sea": { "flag": "us", "i18n": "datacenter_sea", "provider": "i3D.net", "name": "Seattle" },
     "sin": { "flag": "sg", "i18n": "datacenter_sin", "provider": "i3D.net", "name": "Singapore" },
@@ -253,7 +259,7 @@ var global_region_map = {
 const CUSTOM_MULTI_TEAM_MODES = ["brawl","instagib","ghosthunt","ffa","race"];
 const CUSTOM_SOLO_MODES = ["duel","ffa"];
 const CUSTOM_ROUND_BASED_MODES = ["ca","shaft_arena","rocket_arena","wipeout","macguffin","extinction","bounty"];
-const CUSTOM_TIMELIMIT_ONLY_MODES = ["duel"];
+const CUSTOM_TIMELIMIT_ONLY_MODES = ["duel", "race"];
 
 const CUSTOM_FRAG_LIMITS = [1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 100, 150, 200, 250, 300, 500, 1000, 0];
 const CUSTOM_ROUND_LIMITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20];
@@ -376,7 +382,7 @@ var global_game_mode_map = {
         "i18n": "game_mode_race",
         "desc_i18n": "game_mode_desc_race",
         "announce": "announcer_common_gamemode_time_trials",
-        "enabled": false,
+        "enabled": true,
         "image": "arcade_loop.jpg",
         "icon": "/html/images/gamemodes/race.svg"
     },
@@ -521,40 +527,30 @@ var global_physics_map = {
 // battlepass season id -> data map
 var global_battlepass_data = {
     "test_bp": {
-        "level-image": "/html/images/icons/battlepass_level.png",
-
+        "shop-image": "",
+        "fullscreen-image": "",
         "title": "battlepass_1_title", // localize key
-        "description": "battlepass_1_description", // localize key
-        "tag": "battlepass_1_tag", // localize key
-        /*
-        "colors": {
-            "color": "#f77b2f",
-            "color_hover": "#ff8f4a",
-            "color_active": "#ff995a",
-            "gradient_1": "#CF601A",
-            "gradient_2": "#DD7534",
-        },
-        */
         "price_basic": 1000,   // gets updated by MS
         "price_bundle": 2800,  // gets updated by MS
+        "price_level": 100,    // !! has to match whats defined on the MS, does currently not get updated automatically
     },
-    "bp_season1": {
-        "level-image": "/html/images/icons/battlepass_2_level.png",
-
+    "bp_season_1": {
+        //"shop-image": "/html/customization/avatar/av_AT1_2.png.dds",
+        "shop-image": "/html/customization_pack/battlepass_season_1.png",
+        "fullscreen-image": "/html/images/backgrounds/battlepass_season_1.png",
+        "title": "battlepass_1_title", // localize key
+        "price_basic": 1000,   // gets updated by MS
+        "price_bundle": 2800,  // gets updated by MS
+        "price_level": 100,    // !! has to match whats defined on the MS, does currently not get updated automatically
+    },
+    "bp_season_2": {
+        //"shop-image": "/html/customization/avatar/av_AT1_2.png.dds",
+        "shop-image": "",
+        "fullscreen-image": "",
         "title": "battlepass_2_title", // localize key
-        "description": "battlepass_2_description", // localize key
-        "tag": "battlepass_2_tag", // localize key
-        /*
-        "colors": {
-            "color": "#0082d0",
-            "color_hover": "#0a8ada",
-            "color_active": "#0974b8",
-            "gradient_1": "#0082d0",
-            "gradient_2": "#0367a5",
-        },
-        */
         "price_basic": 1000,
         "price_bundle": 2800,
+        "price_level": 100,
     },
 };
 
@@ -588,7 +584,7 @@ var global_customization_type_id_map = {
     "shell": 11,
 };
 
-const customization_item_order = [11, 6, 7, 9, 4, 5, 3, 8, 2, 1, 10];
+const customization_item_order = [0, 11, 6, 7, 9, 4, 3, 5, 8, 2, 1, 10];
 
 var global_rarity_map = {
     "0": { "i18n": "rarity_common" },
@@ -602,7 +598,7 @@ var GLOBAL_AVAILABLE_COUNTRY_FLAGS = [
     "af","ax","al","dz","as","ad","ao","ai","ag","ar","am","aw","au","at","az","bs","bh","bd","bb","by","be","bz","bj","bm","bt","bo","ba","bw",
     "br","io","bn","bg","bf","bi","cv","kh","cm","ca","ky","cf","td","cl","cn","cx","cc","co","km","cg","cd","ck","cr","ci","hr","cu","cw","cz",
     "dk","dj","dm","do","ec","eg","sv","gq","er","ee","sz","et","fk","fj","fi","fr","pf","ga","gm","ge","de","gh","gi","gr","gl","gd","gu","gt",
-    "gg","gn","gw","ht","va","hn","hk","hu","is","in","id","ir","iq","ie","im","il","it","jm","jp","je","jo","kz","ke","ki","kp","kr","kw","kg",
+    "gg","gn","gw","gy","ht","va","hn","hk","hu","is","in","id","ir","iq","ie","im","il","it","jm","jp","je","jo","kz","ke","ki","kp","kr","kw","kg",
     "la","lv","lb","ls","lr","ly","li","lt","lu","mo","mg","mw","my","mv","ml","mt","mh","mq","mr","mu","mx","fm","md","mc","mn","me","ms","ma",
     "mz","mm","na","nr","np","nl","nz","ni","ne","ng","nu","nf","mk","no","om","pk","pw","ps","pa","pg","py","pe","ph","pl","pt","pr","qa","ro",
     "ru","rw","kn","lc","vc","ws","sm","st","sa","sn","rs","sc","sl","sg","sx","sk","si","sb","so","za","ss","es","lk","sd","sr","se","ch","sy",

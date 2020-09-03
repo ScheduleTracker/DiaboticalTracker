@@ -32,6 +32,7 @@ function update_party(data) {
             let set_initial_customizations = false;
             if (global_self.data == undefined) set_initial_customizations = true;
 
+            // Update all self data including set customizations, should probably be replaced in part with the data coming from the "set_client_info" event in customizations
             global_self.data = m;
             set_friend_list_avatar_self(m);
             set_customize_data(m, set_initial_customizations);

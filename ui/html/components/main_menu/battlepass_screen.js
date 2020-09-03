@@ -165,10 +165,9 @@ function battlepass_buy_levels_modal() {
         delete global_scrollbooster_bars["buy_levels"];
     }
 
-    //_empty()
-
     let buy_levels = 1;
-    let level_cost = 150; // 150 coins per level, var here is just for the ui, actual cost is defined on the MS (which should obviously match)
+    let level_cost = 100; 
+    if (global_battlepass_data.hasOwnProperty(global_user_battlepass.battlepass_id)) level_cost = global_battlepass_data[global_user_battlepass.battlepass_id].price_level;
 
     let rewards = global_battlepass_rewards_cache[global_user_battlepass.battlepass_id];
 
@@ -328,11 +327,7 @@ function battlepass_buy_levels_modal() {
             c_item.classList.add(global_customization_type_map[c.customization_type].name);
             c_item.classList.add("rarity_bg_"+c.rarity);
 
-            c_item.appendChild(renderCustomizationInner(c.customization_type, c.customization_id));
-
-            if (c.amount > 1) {
-                c_item.appendChild(_createElement("div", "amount", c.amount));
-            }
+            c_item.appendChild(renderCustomizationInner("battlepass", c.customization_type, c.customization_id, c.amount));
 
             level.appendChild(c_item);
         }
@@ -363,6 +358,11 @@ function battlepass_buy_levels_modal() {
         global_manual_modal_close_disabled = false;
 
         //console.log("purchase_levels_callback", _dump(data));
+        if (data === null) {
+            updateBasicModalContent(basicGenericModal(localize("title_error"), localize("shop_error_generic"), localize("modal_close")));
+            return;
+        }
+
         if (data.success == false) {
             updateBasicModalContent(basicGenericModal(localize("title_error"), localize("shop_error_"+data.reason), localize("modal_close")));
             engine.call("ui_sound", "ui_window_open");
@@ -702,21 +702,17 @@ function render_battlepass_rewards(cont, bp, rewards, select_cb) {
             let item = _createElement("div", ["customization_item", "image", "rarity_bg_"+r.rarity]);
             item_cont.appendChild(item);
 
-            let img = renderCustomizationInner(r.customization_type, r.customization_id);
+            let img = renderCustomizationInner("battlepass", r.customization_type, r.customization_id, r.amount);
             item.appendChild(img);
-
-            if (r.amount > 1) {
-                item.appendChild(_createElement("div", "amount", r.amount));
-            }
 
             if (bp.battlepass.level >= r.battlepass_reward_level && !bp.battlepass.owned && !r.free) {
                 let state = _createElement("div", ["state", "locked"]);
                 item_cont.appendChild(state);
-                item_cont.classList.add("locked");
+                img.classList.add("locked");
                 locked_count++;
             }
-            if (bp.battlepass.level < r.battlepass_reward_level) {
-                item_cont.classList.add("locked");
+            if (bp.battlepass.level < r.battlepass_reward_level && !r.free) {
+                img.classList.add("locked");
             }
             if (bp.battlepass.level >= r.battlepass_reward_level && (bp.battlepass.owned || r.free)) {
                 let state = _createElement("div", ["state", "unlocked"]);
@@ -735,19 +731,21 @@ function render_battlepass_rewards(cont, bp, rewards, select_cb) {
             
             item_cont.addEventListener("mouseenter", function() {
                 item_cont.classList.add("hover");
+                img.classList.add("hover");
                 if (!global_bp_scrolling) _play_mouseover4();
             });
             item_cont.addEventListener("mouseleave", function() {
                 item_cont.classList.remove("hover");
+                img.classList.remove("hover");
             });
             item_cont.addEventListener("click", function() {
                 _play_click1();
                 
-                _for_each_with_selector_in_parent(bp_rewards, ".customization_item_cont.selected", function(el) {
+                _for_each_with_selector_in_parent(bp_rewards, ".reward_level .selected", function(el) {
                     el.classList.remove("selected");
                 });
-
                 item_cont.classList.add("selected");
+                img.classList.add("selected");
 
                 select_cb(cont, r);
             });
@@ -801,6 +799,8 @@ function showRewardPreview(cont, reward) {
     //console.log(_dump(global_user_battlepass));
     //console.log(_dump(reward));
 
+    _pause_music_preview();
+
     let preview_cont = cont.querySelector(".battlepass_reward_preview .reward_preview");
     let desc_cont = cont.querySelector(".battlepass_reward_preview .reward_info");
     let reward_title = cont.querySelector(".battlepass_reward_preview .reward_title");
@@ -814,7 +814,7 @@ function showRewardPreview(cont, reward) {
     //preview_cont.appendChild(createCustomizationPreview(reward));
     reward_title.appendChild(createCustomizationName(reward));
     let ctype = new CustomizationType(global_customization_type_map[reward.customization_type].name, reward.customization_sub_type);
-    show_customization_preview_scene("battlepass_preview", ctype, reward.customization_id, reward, preview_cont);
+    show_customization_preview_scene("battlepass", ctype, reward.customization_id, reward, preview_cont);
     
     
     let fragment = new DocumentFragment();

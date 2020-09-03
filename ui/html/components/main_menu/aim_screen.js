@@ -2,10 +2,12 @@ function init_screen_aim() {
 
     //{'weapon':'', 'name':'', 'description':'', 'videoURL':''},
     //weapon refers to global_item_name_map name
-    let aim_scenarios = [{'name':'pncr_flickshots', 'title':'Flickshots', 'weapon':'weaponpncr', 'description': 'Flick flack click clack', 'videoURL':'/html/images/gamemode_cards/PRACTICE_intro.webm'},
-                        {'name':'shaft_close', 'title':'Close Tracking', 'weapon':'weaponshaft', 'description': 'Worlds best IQ test'},
-                        {'name':'shaft_mid', 'title':'Mid Tracking', 'weapon':'weaponshaft', 'description': 'Worlds best IQ test'},
-                        {'name':'shaft_far', 'title':'Far Tracking', 'weapon':'weaponshaft', 'description': 'Worlds best IQ test'},];
+    //name determines engine call on click "load_aim_" + name
+    let aim_scenarios = [{'name':'pncr_flickshots', 'title':'Flickshots', 'weapon':'weaponpncr', 'description': 'aim_pncr_flickshots_description', 'videoURL':'/html/images/aim_videos/aim_pncr_flickshots.webm'},
+                        {'name':'mac_flickshots', 'title':'Fast Flickshots', 'weapon':'weaponmac', 'description': 'aim_mac_flickshots_description', 'videoURL':'/html/images/aim_videos/aim_mac_flickshots.webm'},
+						{'name':'shaft_close', 'title':'Close Tracking', 'weapon':'weaponshaft', 'description': 'aim_shaft_close_description', 'videoURL':'/html/images/aim_videos/aim_shaft_close_tracking.webm'},
+                        {'name':'shaft_mid', 'title':'Mid Tracking', 'weapon':'weaponshaft', 'description': 'aim_shaft_mid_description', 'videoURL':'/html/images/aim_videos/aim_shaft_mid_tracking.webm'},
+                        {'name':'shaft_far', 'title':'Far Tracking', 'weapon':'weaponshaft', 'description': 'aim_shaft_far_description', 'videoURL':'/html/images/aim_videos/aim_shaft_far_tracking.webm'},];
 
     let scenario_list = _id("aim_screen_scenario_list");
 
@@ -29,7 +31,7 @@ function init_screen_aim() {
 
         let video_container = _id("scenario_video_container");
         let scenarioVideo = _createElement("video", "scenario_video");
-        scenarioVideo.src = scenario.hasOwnProperty('videoURL') ? scenario.videoURL : '/html/images/gamemode_cards/AIM_intro.webm';
+        scenarioVideo.src = scenario.hasOwnProperty('videoURL') ? scenario.videoURL : '/html/images/aim_videos/aim_pncr_flickshots.webm';
         scenarioVideo.loop = true;
         scenarioVideo.pause();
         scenarioVideo.style.display = "none";

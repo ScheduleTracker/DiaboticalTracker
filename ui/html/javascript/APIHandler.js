@@ -74,7 +74,7 @@ function apiHandler() {
                         callback(500, {});
                     }
 
-                    if ("statusCode" in data && data["statusCode"] !== 200) {
+                    if (data && "statusCode" in data && data["statusCode"] !== 200) {
                         callback(data["statusCode"], {});
                     } else {
                         callback(200, data);
@@ -114,7 +114,7 @@ function apiHandler() {
 
                     try {
                         let data = JSON.parse(xhr.response);
-                        if ("statusCode" in data && data["statusCode"] !== 200) {
+                        if (data && "statusCode" in data && data["statusCode"] !== 200) {
                             callback(data["statusCode"], {});
                         } else {
                             callback(200, data);

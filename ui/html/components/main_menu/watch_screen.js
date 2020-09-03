@@ -12,6 +12,11 @@ function init_watch_screen() {
 function render_twitch_reward_stream_list(streams) {
     let fragment = new DocumentFragment();
 
+    if (!streams || Object.keys(streams).length === 0) {
+        fragment.appendChild(_createElement("div", "no_streams", localize("twitch_no_streams_live")));
+        return fragment;
+    }
+
     for (let twitch_id of Object.keys(streams)) {
         const s = streams[twitch_id];
 
@@ -25,7 +30,7 @@ function render_twitch_reward_stream_list(streams) {
         let item = _createElement("div", ["customization_item", "rarity_bg_"+s.rarity]);
         reward.appendChild(item);
 
-        let img = renderCustomizationInner(s.customization_type, s.customization_id);
+        let img = renderCustomizationInner("watch", s.customization_type, s.customization_id, s.amount);
         item.appendChild(img);
 
         item.dataset.msgHtmlId = "customization_item";
@@ -55,9 +60,6 @@ function render_twitch_reward_stream_list(streams) {
         fragment.appendChild(_createElement("div", "spacer"));
     }
 
-    if (streams.length === 0) {
-        fragment.appendChild(_createElement("div", "no_streams", localize("twitch_no_streams_live")));
-    }
 
     return fragment;
 }

@@ -1,5 +1,24 @@
+function load_battlepass_upgrade() {
+    let bp_buttons = _id("battlepass_upgrade_buttons");
+    bp_buttons.style.display = "none";
+
+    let bp_icon = _id("battlepass_upgrade_icon");
+
+    // Hack: re-insert the element to reset the animation
+    var elm = bp_icon;
+    var newone = elm.cloneNode(true);
+    elm.parentNode.replaceChild(newone, elm);
+
+    setTimeout(function() {
+        anim_show(bp_buttons, 600);
+    }, 300);
+}
+
 function updateBattlepassUpgrade(bp) {
     if (!(bp.battlepass_id in global_battlepass_data)) return;
+
+    let background = _id("battlepass_upgrade_background");
+    if (global_battlepass_data[bp.battlepass_id]["fullscreen-image"].length) background.style.backgroundImage = "url("+global_battlepass_data[bp.battlepass_id]["fullscreen-image"]+")";
     
     if (bp && bp.price_basic) global_battlepass_data[bp.battlepass_id].price_basic = bp.price_basic;
     if (bp && bp.price_basic) global_battlepass_data[bp.battlepass_id].price_bundle = bp.price_bundle;
@@ -20,14 +39,23 @@ function updateBattlepassUpgrade(bp) {
     price_bundle_el.appendChild(_createElement("div", "value", _format_number(global_battlepass_data[bp.battlepass_id].price_bundle)));
     btn_bundle.appendChild(price_bundle_el);
 
-    btn_basic.addEventListener("click", function() {
+    let orig_bundle_price = global_battlepass_data[bp.battlepass_id].price_level * 25 + global_battlepass_data[bp.battlepass_id].price_basic;
+    let price_bundle_el_orig = _createElement("div", "orig_price");
+    price_bundle_el_orig.appendChild(_createElement("div", "value", _format_number(orig_bundle_price)));
+    price_bundle_el_orig.appendChild(_createElement("div", "strikethrough"));
+    btn_bundle.appendChild(price_bundle_el_orig);
+
+    let option_basic = _id("battlepass_upgrade_buy_basic");
+    let option_bundle = _id("battlepass_upgrade_buy_bundle");
+
+    option_basic.addEventListener("click", function() {
         if (global_self.private.coins >= global_battlepass_data[bp.battlepass_id].price_basic) {
             battlepass_buy_modal("basic");
         } else {
             genericModal(localize("shop_insufficient_funds"), localize("shop_error_insufficient_funds"), localize("menu_button_cancel"), undefined, localize("shop_get_coins"), open_coin_shop);
         }
     });
-    btn_bundle.addEventListener("click", function() {
+    option_bundle.addEventListener("click", function() {
         if (global_self.private.coins >= global_battlepass_data[bp.battlepass_id].price_bundle) {
             battlepass_buy_modal("bundle");
         } else {
@@ -37,8 +65,8 @@ function updateBattlepassUpgrade(bp) {
 
     function battlepass_buy_modal(type) {
         let summary = _createElement("div", "battlepass_purchase_summary");
-        if (type == "basic")  summary.appendChild(_createElement("div", "desc", "battle pass"));
-        if (type == "bundle") summary.appendChild(_createElement("div", "desc", "battle pass bundle"));
+        if (type == "basic")  summary.appendChild(_createElement("div", "desc", localize("shop_battlepass")));
+        if (type == "bundle") summary.appendChild(_createElement("div", "desc", localize("shop_battlepass_bundle")));
         summary.appendChild(_createElement("div", ["bp_level_icon", "paid"]));
         if (type == "basic")  summary.appendChild(price_basic_el.cloneNode(true));
         if (type == "bundle") summary.appendChild(price_bundle_el.cloneNode(true));
@@ -72,6 +100,11 @@ function updateBattlepassUpgrade(bp) {
         global_manual_modal_close_disabled = false;
 
         //console.log("battlepass_purchase_callback", _dump(data));
+        if (data === null) {
+            updateBasicModalContent(basicGenericModal(localize("title_error"), localize("shop_error_generic"), localize("modal_close")));
+            return;
+        }
+
         if (data.success == false) {
             updateBasicModalContent(basicGenericModal(localize("title_error"), localize("shop_error_"+data.reason), localize("modal_close")));
             return;

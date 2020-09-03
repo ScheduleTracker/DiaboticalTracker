@@ -2,6 +2,7 @@ const GAMEFACE = true;
 const GAMEFACE_VIEW = 'menu';
 
 var global_ms_connected = false;
+var global_ms_connected_count = 0;
 
 var global_ms = new MS();
 var global_variable = new VariableHandler();
@@ -25,7 +26,7 @@ var global_mm_start_ranked = false;
 var global_mm_start_quickplay = false;
 
 // currently open menu page
-var global_menu_page = "home";
+var global_menu_page = "home_screen";
 var global_play_menu_page = "play_screen_quickplay";
 
 // server region / datacenter info
@@ -262,18 +263,6 @@ window.addEventListener("load", function(){
         set_tool(tool);
     });
 
-    /*
-    bind_event("set_participant_slot_data", function (egs_id, user_name, avatar_id) {
-        console.log("?? What is this: set_participant_slot_data", egs_id, user_name);
-        _for_each_in_class("egs_id_" + egs_id, function(el) {  
-            _html(el, 
-                "<div class=avatar style=\"background-image:url('//app-data/avatar-by-egs-id/"+egs_id+".png');\"></div>"+
-                "<span class=player_name>" + user_name + "</span>"
-            );
-        });
-    });
-    */
-
     bind_event('view_data_received', function(string) {
         // data from another view received
         let data = parse_view_data(string);
@@ -461,13 +450,6 @@ window.addEventListener("load", function(){
 
     pre_load_setup_hud_editor_new();
 
-    /*
-    bind_event('set_avatar_options', function (code) {
-        $("#avatar_select").html(code);
-        $("#avatar_select").selectmenu("refresh");
-    });*/
-
-
     bind_event('set_hit_sound_options', function (code) {
         _id("setting_game_hit_sound").innerHTML = code;
         ui_setup_select(_id("setting_game_hit_sound"));
@@ -588,6 +570,7 @@ window.addEventListener("load", function(){
                     #define ERROR_BAD_MAP 12
                     #define ERROR_BANNED_WHILE_IN_GAME 13
                     #define REASON_SERVER_GAME_CANCELLED 14
+                    #define REASON_TUTORIAL_ENDED 15
                 30: Server disconnected us unexpectedly.
                 31: Abnormal connection error 1
                 32: Connection attempt failed.
@@ -601,7 +584,7 @@ window.addEventListener("load", function(){
                 [12:58 AM] FireFrog: 35 is your regular timeout
             */
             engine.call("echo","Disconnected from server, code:"+value);
-            if (value == 10) {
+            if (value == 10 || value == 15) {
                 // Check if state == 4 == GAME_STATE_ENDED
                 
                 /* commented for now because game_state isn't realibly set to 4 here when we get disconnected for some reason
@@ -638,61 +621,14 @@ window.addEventListener("load", function(){
         }
 
     });
-/*
-    bind_event('show_skill_selection', function (visible) {
-        if (visible) {
-            anim_show(_id("skill_selection"));
-        } else {
-            anim_hide(_id("skill_selection"));
-            //$("#score").hide();
-        }
-        window.draft_visible = visible;
-    });
 
-    bind_event('set_skill_selection_round', function (value) {
-        $("#skill_selection_round").html(parseInt(value) + 1);
-        if (value == 0) {
-            //$("#skill_container_0").droppable("option", "disabled", false);
-            //$("#skill_container_0").html("Drag an ability here");
-            //$("#skill_container_0").removeClass("skill_slot_locked");
-            //$("#skill_container_0").addClass("skill_slot_open");
-            //$("#skill_container_1").droppable("option", "disabled", true);
-            //$("#skill_container_1").html("");
-            //$("#skill_container_1").addClass("skill_slot_locked");
-            //$("#skill_container_1").removeClass("skill_slot_open");
-
-            $("#skill_container_0").addClass("skill_slot_open");
-            $("#skill_container_1").addClass("skill_slot_open");
-
-            $("#accept_skills_button").html("Warmup until next round");
-        } else if (value == 1) {
-            //$("#skill_container_0").droppable("option", "disabled", true);
-            //$("#skill_container_0").html("");
-            //$("#skill_container_0").addClass("skill_slot_locked");
-            //$("#skill_container_0").removeClass("skill_slot_open");
-            //$("#skill_container_1").droppable("option", "disabled", false);
-            //$("#skill_container_1").html("Drag an ability here");
-            //$("#skill_container_1").removeClass("skill_slot_locked");
-            //$("#skill_container_1").addClass("skill_slot_open");
-
-            if ($("#skill_container_0").data("skill") == -1) {
-                $("#skill_container_0").addClass("skill_slot_open");
-            }
-            if ($("#skill_container_1").data("skill") == -1) {
-                $("#skill_container_1").addClass("skill_slot_open");
-            }
-            $("#accept_skills_button").html("Lock in");
-        }
-        $("#accept_skills_button").addClass("button_disabled");
-    });
-
-    bind_event('set_skill_selection_round_time_remaining', function (value) {
-        $("#skill_selection_time").html(value);
-    });
-*/
     let expand_search_timeout = null;
     bind_event('set_checkbox', function (variable, value) {
 
+        if (variable == "lobby_tutorial_launched") {
+            home_screen_show_hide_tutorial_button(value);
+            return;
+        }
 
         if (variable == "lobby_region_search_nearby") {
             if (expand_search_timeout != null) clearTimeout(expand_search_timeout);
@@ -745,6 +681,16 @@ window.addEventListener("load", function(){
 
         ui_setup_select(_id("video_modes"));
     });
+
+    bind_event("set_shop_offers", function(data) {
+        try {
+            const dataOffers = JSON.parse(data);
+            handle_coin_offers_update(dataOffers.offers);
+            global_shop_is_rendered = false;
+        } catch (e) {
+            console.log("set_coin_offers: Error parsing JSON. err=" + e);
+        }
+    });   
 
     let auto_detect_video_mode_added = false;
     function add_auto_detect_video_mode() {
@@ -835,7 +781,7 @@ window.addEventListener("load", function(){
     });
 
     bind_event('set_select', function (variable, value) {
-        if (variable.startsWith("game_decals") && !global_set_stickers_from_server) {
+        if (variable.startsWith("game_decals") && !global_set_customizations_from_server) {
             send_string(CLIENT_COMMAND_SET_CUSTOMIZATION, global_customization_type_id_map["sticker"]+"::"+value);
             clear_profile_data_cache_id(global_self.data.user_id);
             return;
@@ -954,6 +900,12 @@ window.addEventListener("load", function(){
     });
 
     bind_event('set_color', function (variable, value) {
+
+        if (variable == "game_skin_color" &&  !global_set_customizations_from_server) {
+            customization_set_shell_color(value);
+            return;
+        }
+
         _for_each_with_class_in_parent(_id("main_menu"), "color-picker-new", function(el) {
             if (el.dataset.variable == variable) {
                                
@@ -1127,13 +1079,32 @@ window.addEventListener("load", function(){
                     "epic_token": data.epic_token
                 },
                 function (data) {
-                    if (data.coins) {                   
-                       queue_dialog_msg({
-                          "title": localize("toast_title_updated_wallet"),
-                          "msg": localize_ext("toast_msg_updated_wallet", { "count": data.coins })
-                       });
-                        global_self.private.coins = data.coins;
-                        update_wallet(global_self.private.coins);
+                    if (data.coins || data.items) {
+                        const content = update_after_purchase(data);
+                        if (content) {
+                            openBasicModal(basicGenericModal(localize("shop_purchase_success"),
+                                           content,
+                                           localize("modal_close")));
+                        }
+
+                        // Set shop and coin shop to not rendered so they get recreated next time they are opened
+                        global_shop_is_rendered = false;
+                        global_coin_shop_is_rendered = false;
+
+                        // Check if any of these pages are currently open and render them again
+                        if (global_menu_page == "shop_screen") {
+                            load_shop();
+                        } else if (global_menu_page == "coin_shop_screen") {
+                            load_coin_shop();
+                        } else if (global_menu_page == "shop_item_screen") {
+                            // load the same shop item again or fallback to the shop... just in case
+                            if (global_active_shop_item_group !== null && global_active_shop_item_group_index !== null) {
+                                render_shop_item(global_active_shop_item_group, global_active_shop_item_group_index);
+                            } else {
+                                open_shop();
+                            }
+                        }
+                        
                     } else {
                         queue_dialog_msg({
                             "title": localize("toast_title_wallet_error"),
@@ -1226,7 +1197,7 @@ window.addEventListener("load", function(){
         init_hud_editor_elements();
 
         init_screen_learn();
-        //init_screen_aim();
+        init_screen_aim();
         init_screen_practice();
 
         engine.call("update_friends_list");
@@ -1303,7 +1274,6 @@ window.addEventListener("load", function(){
 
     init_screen_ingame_menu();
     init_screen_home();
-    init_screen_coin_shop();
     init_screen_customize();
     init_screen_battlepass_list();
     init_screen_battlepass();
@@ -1312,6 +1282,7 @@ window.addEventListener("load", function(){
     init_screen_play();
     init_screen_custom();
     init_watch_screen();
+    init_legal();
 
     console.log("LOAD209");
 
@@ -1321,6 +1292,7 @@ window.addEventListener("load", function(){
     setupVariousListeners();
 
     init_notifications();
+    init_shop_item_debug_listeners();
 
     set_masterserver_connection_state(false, true);
 
@@ -1338,6 +1310,8 @@ function set_masterserver_connection_state(connected, initial) {
 
     if(connected) {
         console.log("POSTMSAUTH000");
+
+        global_ms_connected_count++;
 
         // =============================
         // Request data from MS and API
@@ -1370,21 +1344,30 @@ function set_masterserver_connection_state(connected, initial) {
                 }
             });
 
-            // Request the users customization item list
-            load_user_customizations();
+            // Only request these things the first time around to avoid any extra hickups when reconnecting during gameplay
+            if (global_ms_connected_count <= 1) {
+                // Request the users customization item list
+                load_user_customizations();
 
-            // Get the list of saved huds
-            load_user_hud_list();
+                // Get the list of saved huds
+                load_user_hud_list();
 
-            // Request battlepass data
-            load_battlepass_data();
+                // Request battlepass data
+                load_battlepass_data();
 
-            // Request battlepass rewards data
-            load_battlepass_rewards_data();
+                // Request battlepass rewards data
+                load_battlepass_rewards_data();
+
+                // Shop
+                load_shop_data();
+            }
         });
 
-        // Requeust queues
-        send_string(CLIENT_COMMAND_GET_QUEUES);
+        // Only request these things the first time around to avoid any extra hickups when reconnecting during gameplay
+        if (global_ms_connected_count <= 1) {
+            // Requeust queues
+            send_string(CLIENT_COMMAND_GET_QUEUES);
+        }
 
         // Request competitive season info
         send_string(CLIENT_COMMAND_GET_COMP_SEASON);
@@ -1631,6 +1614,8 @@ function anim_misc(timestamp) {
 }
 
 function open_modal_screen(id, cb) {
+    _id("modal_dialogs").style.display = "block";
+
     engine.call("ui_sound", "ui_window_open");
     engine.call("set_modal", true);
     anim_show(_id(id), 100, "flex", cb);
@@ -1668,6 +1653,7 @@ function close_modal_screen(e, selector, instant) {
         renderMatchList();
     }
 
+    _id("modal_dialogs").style.display = "none";
 }
 
 function close_modal_screen_by_selector(id, instant) {
@@ -1758,10 +1744,12 @@ function setupVariousListeners() {
         let label = menu_bottom_challenges.querySelector(".label");
         if (label) label.classList.remove("hover");
     });
+    /*
     menu_bottom_challenges.addEventListener("click", function() {
         engine.call("ui_sound", "ui_click1");
         open_battlepass();
     });
+    */
 
     /*
     _id("custom_lobby_join_link").querySelector(".copy").addEventListener("click", function() {
@@ -1976,6 +1964,10 @@ function updateBasicModalContent(content) {
 function openBasicModal(content) {
     updateBasicModalContent(content);
     open_modal_screen("basic_modal");
+
+    setTimeout(() => {
+        refreshScrollbars(_id("basic_modal"));
+    }, 100);
 }
 
 function closeBasicModal(instant) {

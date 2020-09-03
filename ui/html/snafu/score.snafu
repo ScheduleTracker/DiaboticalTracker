@@ -96,6 +96,11 @@ ON_UPDATE
     # ====================================
     # MAIN SCORE
 
+    IF game_data.game_mode == "race"
+        OUTPUT 0 0 font_size DOUBLE(fontSize / 1.5)
+    ELSE
+        OUTPUT 0 0 font_size fontSize
+    END IF
     OUTPUT 0 0 image bg_svg
     OUTPUT 0 0 image_width width
     OUTPUT 0 0 image_height height

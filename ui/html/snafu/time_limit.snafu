@@ -60,7 +60,9 @@ ON_UPDATE
     game_state_length = LENGTH game_state
     IF game_state_length > 0
         OUTPUT 0 0 LVALUE game_state
+        OUTPUT 0 0 value state_value
+    ELSE 
+        OUTPUT 0 0 value " "
     END IF
-    OUTPUT 0 0 value state_value
 
 END TEMPLATE

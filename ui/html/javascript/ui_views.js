@@ -68,6 +68,7 @@ function addCrosshairSelectHandler(crosshair_option) {
 
 function settings_combat_update(weapon) {
 
+    let weapon_title = _id("combat_panel_header_title");
     let weapon_settings = _id("custom_weapon_settings");
     let weapon_settings_checkboxes = _id("weapon_sheet").querySelectorAll('.settings_block_header .checkbox_component');
     if (weapon == 0) {
@@ -79,22 +80,25 @@ function settings_combat_update(weapon) {
         for (let i=0; i<weapon_settings_checkboxes.length; i++) {
             weapon_settings_checkboxes[i].classList.add("hidden");
         }
+
+        weapon_title.textContent = localize("settings_default");
     } else {
         for (let i=0; i<weapon_settings_checkboxes.length; i++) {
             weapon_settings_checkboxes[i].classList.remove("hidden");
         }
+        weapon_title.textContent = localize(global_item_name_map[global_weapon_idx_name_map[weapon]][1]);
     }
     
     let combat_header = _id("combat_panel_header");
     _for_each_with_class_in_parent(combat_header, 'button-weapon-selected', function(el) { el.classList.remove("button-weapon-selected"); });
     _for_each_with_class_in_parent(combat_header, 'img-weapon-selected', function(el) { el.classList.remove("img-weapon-selected"); });
-    _for_each_with_class_in_parent(combat_header, 'combat_name', function(el) { el.classList.remove("active"); });
+    //_for_each_with_class_in_parent(combat_header, 'combat_name', function(el) { el.classList.remove("active"); });
     _for_each_with_class_in_parent(combat_header, 'tip_inner', function(el) { el.classList.remove("hidden"); });
 
     let button = _id("combat_panel_weapon_"+weapon);
     button.classList.add("button-weapon-selected");
     _for_each_with_tag_in_parent(button, 'img', function(el) { el.classList.add("img-weapon-selected"); });
-    _for_each_with_class_in_parent(button, 'combat_name', function(el) { el.classList.add("active"); });
+    //_for_each_with_class_in_parent(button, 'combat_name', function(el) { el.classList.add("active"); });
     _for_each_with_class_in_parent(button, 'tip_inner', function(el) { el.classList.add("hidden"); });
 
 
@@ -378,13 +382,23 @@ function _fade_out_if_not(selector, exception) {
 
 
 let flat_bg_scene_screens = [
+    "coin_shop_screen",
     "notification_screen",
     "battlepass_screen",
     "shop_screen",
-    //"player_profile_screen",
+    "shop_item_screen",
+    "player_profile_screen",
 ];
+
+let fullscreen_screens = [
+    "notification_screen",
+    "battlepass_upgrade_screen",
+]
 function switch_screens(dst, silent) {
     engine.call("show_draft", false);
+
+    // Check if the screen actually needs changing
+    if (global_menu_page == dst.id) return false;
 
     setFullscreenSpinner(false);
     if (!silent) {
@@ -393,6 +407,19 @@ function switch_screens(dst, silent) {
 
     if (!['home_screen','play_panel'].includes(dst.id)) {
         set_party_box_visible(false);
+    }
+
+    let menu = _id("lobby_container");
+    let menu_display_computed = getComputedStyle(menu).display;
+    let menu_display_set = menu.style.display;
+    if (fullscreen_screens.includes(dst.id)) {
+        if ((menu_display_set != undefined && menu_display_set != "none") || menu_display_computed != "none") {
+            anim_hide(menu, 100);
+        }
+    } else {
+        if (menu_display_set == undefined && menu_display_set == "none" || menu_display_computed == "none") {
+            anim_show(menu, 100);
+        }
     }
 
     // Contained screens
@@ -423,24 +450,50 @@ function switch_screens(dst, silent) {
 
     // Customization screen view
     if (dst.id == "customize_screen") {
-        //engine.call("on_show_customization_screen", true);
+        engine.call("on_show_customization_screen", true);
+        engine.call("set_player_decals_override", false, "");
+        engine.call("set_player_color_override", false, "");
+    } else if (dst.id == "player_profile_screen") {
+        engine.call("on_show_customization_screen", true);
     } else if (flat_bg_scene_screens.includes(dst.id)) {
         engine.call("on_show_customization_screen", true);
-        engine.call("on_show_customization_screen_weapon");
-        engine.call("weapon_customization_select_weapon", "none");
+        engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
+        engine.call("set_player_decals_override", true, "");
+        engine.call("set_player_color_override", false, "");
     } else {
         engine.call("on_show_customization_screen", false);
+        engine.call("set_player_decals_override", false, "");
+        engine.call("set_player_color_override", false, "");
         if (global_menu_page == "customize_screen") {
             reset_customization_previews();
-            customize_pause_selected_music();
         }
     }
 
-    let changed = false;
-    if (global_menu_page != dst.id) {
-        global_menu_page = dst.id;
-        changed = true;
+    // Pause any preview music thats currently playing
+    _pause_music_preview();
+
+    if (dst.id == "battlepass_screen") {
+        let menu_bottom_bp = _id("menu_background_bottom").querySelector(".menu_bottom_battlepass_open");
+
+        if (menu_bottom_bp) {
+            menu_bottom_bp.classList.add("active");
+            let menu_bottom_label = menu_bottom_bp.querySelector(".menu_bottom_battlepass_label");
+            if (menu_bottom_label) menu_bottom_label.classList.add("active");
+            let menu_bottom_level_icon = menu_bottom_bp.querySelector(".bp_level_icon");
+            if (menu_bottom_level_icon) menu_bottom_level_icon.classList.add("active");
+        }
+    } else if (global_menu_page == "battlepass_screen" && dst.id != "battlepass_screen") {
+        let menu_bottom_bp = _id("menu_background_bottom").querySelector(".menu_bottom_battlepass_open");
+
+        if (menu_bottom_bp) {
+            menu_bottom_bp.classList.remove("active");
+            let menu_bottom_label = menu_bottom_bp.querySelector(".menu_bottom_battlepass_label");
+            if (menu_bottom_label) menu_bottom_label.classList.remove("active");
+            let menu_bottom_level_icon = menu_bottom_bp.querySelector(".bp_level_icon");
+            if (menu_bottom_level_icon) menu_bottom_level_icon.classList.remove("active");
+        }
     }
+
 
     if (dst.id == "settings_screen" && global_current_settings_section == "hud") {
         hud_editor_visible(true);
@@ -450,7 +503,9 @@ function switch_screens(dst, silent) {
     
     cleanup_floating_containers();
 
-    return changed;
+    global_menu_page = dst.id;
+
+    return true;
 }
 
 function play_menu_change_tab(tab, newPage) {
@@ -609,7 +664,7 @@ function open_license_center() {
 }
 
 function open_shop() {
-    set_blur(true);
+    set_blur(false);
     hl_button("mm_shop");
     historyPushState({"page": "shop_screen"});
     switch_screens(_id("shop_screen"));
@@ -637,6 +692,8 @@ function open_coin_shop() {
         historyPushState({"page": "coin_shop_screen"});
     }
     switch_screens(_id("coin_shop_screen"));
+
+    load_coin_shop();
 }
 
 function open_gift() {
@@ -677,8 +734,8 @@ function open_replays() {
 function open_player_profile(id, subpage) {
     let origin = global_menu_page;
 
-    set_blur(true);
-    hl_button("mm_stats");
+    set_blur(false);
+    hl_button("mm_profile");
     switch_screens(_id("player_profile_screen"));
 
     let load_subpage = "profile";
@@ -694,7 +751,7 @@ function open_match(match_id) {
     if (match_id == undefined) return;
 
     set_blur(true);
-    hl_button("mm_stats");
+    hl_button("mm_profile");
     switch_screens(_id("match_screen"));
 
     historyPushState({
@@ -756,6 +813,7 @@ function open_battlepass_upgrade() {
     set_blur(true);
     historyPushState({"page": "battlepass_upgrade_screen"});
     switch_screens(_id("battlepass_upgrade_screen"));
+    load_battlepass_upgrade();
 }
 
 function open_notifications() {
@@ -1013,17 +1071,6 @@ function open_customization(category, type) {
     switch_screens(_id("customize_screen"));
     hl_button("mm_customize");
 }
-
-/*
-function leave_skin_screen() {
-    $("#customize_screen").fadeOut(window.fade_time);
-
-    anim_show(_id("screens_container"), window.fade_time);
-    set_blur(true);
-
-    engine.call("on_show_customization_screen", false);
-}
-*/
 
 function delete_bindings(command, mode) {
     engine.call("delete_bindings", command, mode);
@@ -1696,15 +1743,12 @@ function generate_tooltip_queue_info(type) {
 }
 
 function generate_customization_item_info(id, type, rarity) {
-    let show_name = true;
-    //if (type == 1 || type == 2) show_name = false;
-    if (type == 2) show_name = false;
     let customization_info = createCustomizationInfo({
         "customization_id": id,
         "customization_type": type,
         "rarity": rarity,
-    }, show_name);
-    customization_info.style.maxWidth = "25vh";
+    }, true);
+    customization_info.style.maxWidth = "30vh";
     return customization_info;
 }
 

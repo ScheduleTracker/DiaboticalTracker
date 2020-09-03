@@ -1327,7 +1327,7 @@ function removeCrosshairScaleWarning(zoom, crosshair_definition){
     var scaleWarning = _id(zoom?"crosshair_canvas_zoom_preview_scale_warning":"crosshair_canvas_preview_scale_warning");
     scaleWarning.style.display = "none";
 }
-function closeEditorScreen(zoom){
+function closeCrosshairEditorScreen(zoom){
     zoom_suffix = zoom ? "_zoom":"";
     let layerContainer = _id("canvas_crosshair" + zoom_suffix + "_layer_container");
     let inputContainer = _id("canvas_crosshair" + zoom_suffix + "_paste_input_container");

@@ -38,35 +38,45 @@ function init_screen_leaderboards() {
     _empty(mode_filter);
 
     let esports_modes = [];
+    let team_modes = [];
     let arena_modes = [];
     for (let mode in global_queues) {
         if ("leaderboard" in global_queues[mode] && global_queues[mode].leaderboard == true) {
             if (mode.startsWith("r_ca") || mode.startsWith("r_rocket_arena") || mode.startsWith("r_shaft_arena")) {
                 arena_modes.push(mode);
+            } else if (mode.startsWith("r_wo") || mode.startsWith("r_macguffin")) {
+                team_modes.push(mode);
             } else {
                 esports_modes.push(mode);
             }
         }
     }
 
-    if (esports_modes.length) mode_filter.appendChild(_createElement("div", "select-category", localize("esports")));
-    for (let mode of esports_modes) {
-        let opt = _createElement("div");
-        opt.dataset.value = mode;
-        opt.textContent = global_queues[mode].queue_name;
+    for (let mode of ["esports", "team", "arena"]) {
+        let modes = [];
+        let name = "";
+        if (mode == "esports") {
+            modes = esports_modes;
+            name = localize("esports");
+        }
+        if (mode == "team") {
+            modes = team_modes;
+            name = localize("game_modes_team");
+        }
+        if (mode == "arena") {
+            modes = arena_modes;
+            name = localize("game_mode_arena");
+        }
 
-        if (mode == global_leaderboards_data.game_mode) opt.dataset.selected = 1;
-        mode_filter.appendChild(opt);
-    }
-
-    if (esports_modes.length) mode_filter.appendChild(_createElement("div", "select-category", localize("game_mode_arena")));
-    for (let mode of arena_modes) {
-        let opt = _createElement("div");
-        opt.dataset.value = mode;
-        opt.textContent = global_queues[mode].queue_name;
-
-        if (mode == global_leaderboards_data.game_mode) opt.dataset.selected = 1;
-        mode_filter.appendChild(opt);
+        if (modes.length) mode_filter.appendChild(_createElement("div", "select-category", name));
+        for (let mode of modes) {
+            let opt = _createElement("div");
+            opt.dataset.value = mode;
+            opt.textContent = global_queues[mode].queue_name;
+    
+            if (mode == global_leaderboards_data.game_mode) opt.dataset.selected = 1;
+            mode_filter.appendChild(opt);
+        }
     }
 
     ui_setup_select(mode_filter, function(opt, field) {

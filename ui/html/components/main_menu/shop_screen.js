@@ -1,5 +1,6 @@
 
 
+let global_shop_raw_data = null;
 let global_shop_is_rendered = false;
 let global_shop_ts_updated = undefined;
 let global_shop_id = 0;
@@ -9,21 +10,78 @@ let global_shop_data = {
     "normal": {},
 };
 
+let global_shop_is_loading = false;
+function load_shop_data(cb) {
+    // Check if a request was already sent
+    if (global_shop_is_loading) {
+        if (typeof cb == "function") cb(false);
+        return;
+    }
+
+    global_shop_is_loading = true;
+    api_request("GET", "/shop", {}, function(data) {
+        global_shop_raw_data = data;
+        global_shop_is_loading = false;
+
+        if (data.shop_id != global_shop_id) {
+            global_shop_ts_updated = new Date();
+            global_shop_id = data.shop_id;
+        }
+
+        if (typeof cb == "function") cb(true);
+    });
+}
+
+let global_shop_is_waiting = false;
 function load_shop() {
-    if (!global_shop_is_rendered) {
-        api_request("GET", "/shop", {}, prepare_shop);
-    } else {
+    let cont = _id("shop_screen").querySelector(".shop_group_container");
+
+    let fetch_shop = false;
+    if (global_shop_raw_data === null) {
+        fetch_shop = true;
+    }
+
+    // Check if the shop needs to be refetched due to the daily midnight (UTC) shop change
+    if (global_shop_is_rendered) {
         let now = new Date();
-        let assumed_shop_id = now.getUTCFullYear()+""+now.getUTCMonth()+""+now.getUTCDate();
+        const assumed_shop_id =
+            `${now.getUTCFullYear()}`.padStart(2, '0') +
+            `${now.getUTCMonth()}`.padStart(2, '0') +
+            `${now.getUTCDate()}`.padStart(2, '0');
         if (now.getUTCHours() < global_shop_ts_updated.getUTCHours() && assumed_shop_id != global_shop_id) {
-            api_request("GET", "/shop", {}, prepare_shop);
+            fetch_shop = true;
+            global_shop_is_rendered = false;
+        }
+    }
+
+    // The shop data is currently being requested
+    if (global_shop_is_loading) {
+        // Try again in 100ms
+        setTimeout(load_shop, 100);
+
+        // Show spinner while we wait
+        if (!global_shop_is_waiting) {
+            _empty(cont);
+            cont.appendChild(_createSpinner());    
+        }
+        global_shop_is_waiting = true;
+        return;
+    }
+
+    global_shop_is_waiting = false;
+
+    if (fetch_shop) {
+        load_shop_data(load_shop);
+    } else {
+        if (!global_shop_is_rendered) {
+            prepare_shop(global_shop_raw_data);
         }
     }
 }
 
-let global_item_shop_map = {};
 function prepare_shop(data) {
-    console.log("prepare_shop",_dump(data));
+    //console.log("prepare_shop",_dump(data));
+    //console.log(_dump(global_coin_shop_offers));
 
     // Array of category -> featured -> group -> item
     global_shop_data = {
@@ -40,7 +98,12 @@ function prepare_shop(data) {
             continue;
         }
 
-        global_item_shop_map[i.shop_item_id] = i;
+        if (i.eos_offer_id != null) {
+            if (!(i.eos_offer_id in global_coin_shop_offers)) continue;
+
+            // Skip the coin shop packs
+            //if (global_coin_item_packs.includes(i.eos_offer_id)) continue;
+        }
 
         let type = "notfeatured";
         if (i.item_featured) type = "featured";
@@ -59,10 +122,6 @@ function prepare_shop(data) {
     render_shop(global_shop_data);
 
     global_shop_is_rendered = true;
-    if (data.shop_id != global_shop_id) {
-        global_shop_ts_updated = new Date();
-        global_shop_id = data.shop_id;
-    }
 
     req_anim_frame(() => {    
         if (global_scrollboosters["shop"]) global_scrollboosters["shop"].updateMetrics();
@@ -129,18 +188,26 @@ function render_shop_category(category, data) {
 
         if (category == "normal") {
             if (type == "featured") title = localize("shop_group_title_featured_items");
-            if (type == "notfeatured") title = localize("shop_group_title_daily_items");
+            //if (type == "notfeatured") title = localize("shop_group_title_daily_items");
+            if (type == "notfeatured") title = localize("shop_group_title_todays_items");
             shop_group = _createElement("div", "shop_group");
-            shop_group.appendChild(render_shop_category_header(title, data[type].ts_end));
+            shop_group.appendChild(render_shop_category_header(category, title, data[type].ts_end));
             outer_container = _createElement("div", "outer_container");
         } else {
             if (!header_rendered) {
-                shop_group.appendChild(render_shop_category_header(title, data[type].ts_end));
+                shop_group.appendChild(render_shop_category_header(category, title, data[type].ts_end));
                 header_rendered = true;
             }
             if (outer_container == undefined) {
                 outer_container = _createElement("div", "outer_container");
             }
+        }
+
+        // Sort items within groups by item price descending
+        for (let group_idx in data[type]) {
+            if (data[type][group_idx] && data[type][group_idx].length) data[type][group_idx].sort(function(a, b) {
+                return b.item_price - a.item_price;
+            });
         }
 
         let container = _createElement("div", "container");
@@ -169,17 +236,17 @@ function render_shop_category(category, data) {
                 if (group_idx === "0") {
                     for (item of data[type][group_idx]) {
                         if (counter < max_per_row) {
-                            row1.appendChild(new ShopGroup([item]).container);
+                            row1.appendChild(new ShopGroup([item], "shop").container);
                         } else {
-                            row2.appendChild(new ShopGroup([item]).container);
+                            row2.appendChild(new ShopGroup([item], "shop").container);
                         }
                         counter++;
                     }
                 } else {
                     if (counter < max_per_row) {
-                        row1.appendChild(new ShopGroup(data[type][group_idx]).container);
+                        row1.appendChild(new ShopGroup(data[type][group_idx], "shop").container);
                     } else {
-                        row2.appendChild(new ShopGroup(data[type][group_idx]).container);
+                        row2.appendChild(new ShopGroup(data[type][group_idx], "shop").container);
                     }
                     counter++;
                 }
@@ -194,10 +261,10 @@ function render_shop_category(category, data) {
 
                 if (group_idx === "0") {
                     for (item of data[type][group_idx]) {
-                        container.appendChild(new ShopGroup([item]).container);
+                        container.appendChild(new ShopGroup([item], "shop").container);
                     }
                 } else {
-                    container.appendChild(new ShopGroup(data[type][group_idx]).container);
+                    container.appendChild(new ShopGroup(data[type][group_idx], "shop").container);
                 }
             }
 
@@ -216,15 +283,18 @@ function render_shop_category(category, data) {
     return fragment;
 }
 
-function render_shop_category_header(title, ts_end) {
+function render_shop_category_header(category, title, ts_end) {
     let header = _createElement("div", "header");
     header.appendChild(_createElement("div", "title", title));
-    let time_left = _createElement("div", "time_left");
-    time_left.appendChild(_createElement("div", "clock"));
-    let time = _createElement("div", "time");
-    time_left.appendChild(time);
-    global_shop_timers.push(new CountdownTimer(ts_end, time));
-    header.appendChild(time_left);
+    if (category == "normal") {
+        let time_left = _createElement("div", "time_left");
+        time_left.appendChild(_createElement("div", "clock"));
+    
+        let time = _createElement("div", "time");
+        time_left.appendChild(time);
+        global_shop_timers.push(new CountdownTimer(ts_end, time));
+        header.appendChild(time_left);
+    }
 
     return header;
 }
@@ -239,9 +309,45 @@ function shop_set_animation_state(running) {
     });
 }
 
+function is_shop_item_owned(item) {
+    let item_owned = false;
+
+    if (item.item_type == "b" || item.item_type == "B") {
+        if ("battlepass" in global_user_battlepass && global_user_battlepass.battlepass.owned == true) item_owned = true;
+    } else if (item.item_type == "c") {
+        // Customization Item
+        if (item.customization_id in global_customization_data_map) item_owned = true;
+    } else if (item.item_type == "p") {
+        // Customization Pack
+        if (item.customization_pack_name) {
+            // If the pack has a name, we check all containing items for ownership
+            let all_found = true;
+            for (let c of item.customizations) {
+                if (global_customization_type_map[c.customization_type].name == "currency") continue;
+                
+                if (!(c.customization_id in global_customization_data_map)) {
+                    all_found = false;
+                    break;
+                }
+            }
+            if (all_found) item_owned = true;
+        } else {
+            // If the pack does not have a name, we just check the main item
+            if (item.customizations && item.customizations.length) {
+                let items = _sort_customization_items(item.customizations);
+                let main_item = items[0];
+                if (main_item.customization_id in global_customization_data_map) item_owned = true;
+            }
+        }
+    }
+
+    return item_owned;
+}
+
 class ShopGroup {
-    constructor(data) {
+    constructor(data, screen) {
         this.data = data;
+        this.screen = screen;
 
         this.bg = undefined;
         this.bg_cont = undefined;
@@ -292,6 +398,7 @@ class ShopGroup {
 
     renderItemContainer(idx) {
         this.container = _createElement("div", "item_cont");
+        if (this.screen == "coin_shop") this.container.classList.add("coin_shop");
         if (this.data[idx].item_featured) this.container.classList.add("big");
 
         let shine_cont = _createElement("div", "shine_cont");
@@ -315,22 +422,28 @@ class ShopGroup {
         this.tag = _createElement("div", "tag");
         this.item_container.appendChild(this.tag);
 
-        let bottom = _createElement("div", "bottom");
+        this.icon = _createElement("div", "item_icon");
+        this.item_container.appendChild(this.icon);
+
+        this.bottom = _createElement("div", "bottom");
         this.name = _createElement("div","name");
-        bottom.appendChild(this.name);
+        this.bottom.appendChild(this.name);
+        this.extra = _createElement("div", "extra");
+        this.bottom.appendChild(this.extra);
         this.price_cont = _createElement("div","price_cont");
-        this.price_cont.appendChild(_createElement("div", ["icon", "reborn-coin"]));
+        this.price_coin_icon = _createElement("div", ["icon", "reborn-coin"])
+        this.price_cont.appendChild(this.price_coin_icon);
         this.price = _createElement("div","price");
         this.price_cont.appendChild(this.price);
-        bottom.appendChild(this.price_cont);
+        this.bottom.appendChild(this.price_cont);
 
         this.owned_cont = _createElement("div", "owned");
         this.owned_cont.appendChild(_createElement("div", "label", localize("shop_item_owned")));
         this.owned_cont.appendChild(_createElement("div", "icon"));
         this.owned_cont.style.display = "none";
-        bottom.appendChild(this.owned_cont);
+        this.bottom.appendChild(this.owned_cont);
 
-        this.item_container.appendChild(bottom);
+        this.item_container.appendChild(this.bottom);
 
         if (this.data.length > 1) {
             let counter_cont = _createElement("div", "counter_cont");
@@ -377,17 +490,29 @@ class ShopGroup {
     renderItem(idx) {
 
         _empty(this.bg);
+        _empty(this.icon);
 
-        let item_owned = false;
+        let item_owned = is_shop_item_owned(this.data[idx]);
+
+        this.container.classList.remove("battlepass");
 
         if (this.data[idx].item_type == "b" || this.data[idx].item_type == "B") {
+            // Battlepass
+            this.icon.appendChild(_createElement("div", ["bp_level_icon", "paid"]));
+
             // Battle Pass
             this.container.style.setProperty("--item_rarity_color", "var(--rarity_4)");
             if (this.data[idx].item_type == "b") this.name.textContent = localize("shop_battlepass");
             if (this.data[idx].item_type == "B") this.name.textContent = localize("shop_battlepass_bundle");
-            this.type.textContent = localize("shop_battlepass");
+            
+            if (this.data[idx].battlepass_id in global_battlepass_data) {
+                this.type.textContent = localize(global_battlepass_data[this.data[idx].battlepass_id].title);
+            }
 
-            if ("battlepass" in global_user_battlepass && global_user_battlepass.battlepass.owned == true) item_owned = true;
+            this.container.classList.add("battlepass");
+
+            this.bg.appendChild(renderShopBattlePassInner(this.data[idx].battlepass_id));
+
         } else if (this.data[idx].item_type == "c") {
             // Customization Item
 
@@ -397,9 +522,8 @@ class ShopGroup {
 
             let id = this.data[idx].customization_id;
             if (this.data[idx].shop_image) id = "shop_"+id;
-            this.bg.appendChild(renderCustomizationInner(this.data[idx].customization_type, id));
+            this.bg.appendChild(renderCustomizationInner("shop", this.data[idx].customization_type, id, 1));
 
-            if (this.data[idx].customization_id in global_customization_data_map) item_owned = true;
         } else if (this.data[idx].item_type == "p") {
             // Customization Pack
 
@@ -418,32 +542,31 @@ class ShopGroup {
                 this.name.textContent = localize("customization_pack_"+this.data[idx].customization_pack_name);
                 this.type.textContent = localize("customization_pack");
 
-                let all_found = true;
-                for (let c of this.data[idx].customizations) {
-                    if (global_customization_type_map[c.customization_type].name == "currency") continue;
-                    
-                    if (!(c.customization_id in global_customization_data_map)) {
-                        all_found = false;
-                        break;
-                    }
-                }
-                if (all_found) item_owned = true;
-
-                // TODO set customization pack image
-                // ...
-                // /html/customization_pack/test_pack.png.dds
+                // Customization pack image:
+                //   /html/customization_pack/<pack_id>.png.dds
                 this.bg.appendChild(renderCustomizationPackInner(this.data[idx].customization_pack_id));
 
             } else {
                 this.name.textContent = localize("customization_"+main_item.customization_id);
                 this.type.textContent = localize(global_customization_type_map[main_item.customization_type].i18n);
-                this.bg.appendChild(renderCustomizationInner(main_item.customization_type, main_item.customization_id));
-
-                if (main_item.customization_id in global_customization_data_map) item_owned = true;
+                this.bg.appendChild(renderCustomizationInner("shop", main_item.customization_type, main_item.customization_id, 1));
             }
+
+
+            // Check for currency
+            let coins = 0;
+            for (let c of this.data[idx].customizations) {
+                if (global_customization_type_map[c.customization_type].name != "currency") continue;
+                coins += c.amount;
+            }
+
+            if (coins > 0) {
+                this.extra.textContent = localize_ext("shop_pack_coins", {"count": coins});
+            }
+
         }
 
-        if (this.data[idx].item_tag !== null && this.data[idx].item_tag.length) {
+        if (this.data[idx].item_tag && this.data[idx].item_tag.length) {
             this.tag.textContent = localize(this.data[idx].item_tag);
             this.tag.style.display = "flex";
         } else {
@@ -458,7 +581,22 @@ class ShopGroup {
             this.owned_cont.style.display = "none";
         }
 
-        this.price.textContent = _format_number(this.data[idx].item_price);
+        if (this.data[idx].eos_offer_id != null && this.data[idx].eos_offer_id in global_coin_shop_offers) {
+            // Real money shop item
+            this.price.textContent = _format_number(global_coin_shop_offers[this.data[idx].eos_offer_id].current_price, "currency", {
+                currency_code: global_coin_shop_offers[this.data[idx].eos_offer_id].currency_code,
+                areCents: true
+            });
+            this.price_coin_icon.style.display = "none";
+            this.container.classList.add("fiat");
+            this.type.style.display = "none";
+        } else {
+            // Coin shop item
+            this.price.textContent = _format_number(this.data[idx].item_price);
+            this.price_coin_icon.style.display = "flex";
+            this.container.classList.remove("fiat");
+            this.type.style.display = "flex";
+        }
 
         if (this.data.length > 1) {
             this.counter.textContent = idx+1;
