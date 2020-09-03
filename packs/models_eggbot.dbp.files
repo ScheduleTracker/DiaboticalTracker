@@ -71,11 +71,11 @@ models\eggbot\cosmetics\shell\visor\visor_n.png.dds		349700
 models\eggbot\cosmetics\shell\visor\visor_s.png.dds		349700
 models\eggbot\cosmetics\shoes\benders\benders.assets		243
 models\eggbot\cosmetics\shoes\benders\benders.shader		843
-models\eggbot\cosmetics\shoes\benders\benders_d.png		180356
+models\eggbot\cosmetics\shoes\benders\benders_d.png.dds		1398260
 models\eggbot\cosmetics\shoes\benders\benders_left.fbx		76976
-models\eggbot\cosmetics\shoes\benders\benders_n.png		206525
+models\eggbot\cosmetics\shoes\benders\benders_n.png.dds		349700
 models\eggbot\cosmetics\shoes\benders\benders_right.fbx		76960
-models\eggbot\cosmetics\shoes\benders\benders_s.png		166073
+models\eggbot\cosmetics\shoes\benders\benders_s.png.dds		349700
 models\eggbot\cosmetics\shoes\empty\empty.shader		979
 models\eggbot\cosmetics\shoes\gelly\gelly.assets		231
 models\eggbot\cosmetics\shoes\gelly\gelly.shader		1982
