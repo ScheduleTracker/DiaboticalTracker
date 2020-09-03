@@ -44142,7 +44142,7 @@ Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
 Position and orientation string for the menu camera for 2-size parties.
 Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
 62,-21,-2,-22,-6
-0.20.329
+0.20.330
 GENERICDATA
 BLENDINDICES
 TEXCOORD
@@ -47367,7 +47367,6 @@ ffffff
 ?333333
 @333333
 l~~~~~~~~~~~~~~~~
-RSDSj%l
 C:\reborn\tracked\tmp_symbols_EVE_Release\diabotical.pdb
 .text
 .text$di
