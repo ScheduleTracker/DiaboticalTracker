@@ -120,8 +120,10 @@ function home_screen_update_tutorial_played() {
 
 function home_screen_show_hide_tutorial_button(hide) {
   // HACK hide the tutorial button temporarily
+  /*
   _id("home_screen_load_tutorial").style.display = "none";
   return;
+  */
 
   if (hide === false) {
     _id("home_screen_load_tutorial").style.display = "flex";

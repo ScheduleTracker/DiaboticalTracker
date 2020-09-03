@@ -17,7 +17,6 @@ function renderPracticeCards() {
     let container = screen.querySelector(".play_cards_container");
 
     let cards = [
-        /*
         {
             "type": "tutorial",
             "title": "game_mode_tutorial",
@@ -28,7 +27,6 @@ function renderPracticeCards() {
             //"tooltip": "practice",
             "state": 2,
         },
-        */
         {
             "type": "practice",
             "title": "game_mode_practice_range",
