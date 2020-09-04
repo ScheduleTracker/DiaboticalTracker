@@ -1353,10 +1353,7 @@ function set_masterserver_connection_state(connected, initial) {
                 load_user_hud_list();
 
                 // Request battlepass data
-                load_battlepass_data();
-
-                // Request battlepass rewards data
-                load_battlepass_rewards_data();
+                load_battlepass_data(load_battlepass_rewards_data);
 
                 // Shop
                 load_shop_data();

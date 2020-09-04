@@ -1062,6 +1062,9 @@ function set_progression_reward_unlocks() {
             }
         }
 
+        // Sort with rarity descending, so we always show the most highest rarity items that can be unlocked
+        unlockable_rewards.sort(function(a, b) { return b.rarity - a.rarity; });
+
         let max_unlockable = 5;
         if (unlocked_count > 0) {
             if (unlockable_rewards.length > 0) rewards_outer_cont.appendChild(_createElement("div", "separator"));
