@@ -53,7 +53,7 @@ models\theme\colliery\decals\colliery-decals.assets		95
 models\theme\colliery\decals\colliery-decals.shader		282
 models\theme\colliery\decals\ct_dirtbottom01_d.png		277042
 models\theme\colliery\dynamic_props\colliery-dynprops.assets		2712
-models\theme\colliery\dynamic_props\colliery-dynprops.shader		4471
+models\theme\colliery\dynamic_props\colliery-dynprops.shader		4467
 models\theme\colliery\dynamic_props\ct_corner_concave_6x6_01-col.fbx		86992
 models\theme\colliery\dynamic_props\ct_corner_concave_6x6_01.fbx		25792
 models\theme\colliery\dynamic_props\ct_corner_concave_6x6_02-col.fbx		86992
@@ -514,7 +514,7 @@ models\theme\outsidearea\props\large_boulders\large_boulder_05.fbx		48864
 models\theme\outsidearea\props\large_boulders\large_boulders.assets		1083
 models\theme\outsidearea\props\large_boulders\large_boulders.shader		2883
 models\theme\outsidearea\skyskraper\skyskraper.assets		390
-models\theme\outsidearea\skyskraper\skyskraper.shader		3502
+models\theme\outsidearea\skyskraper\skyskraper.shader		3478
 models\theme\outsidearea\skyskraper\skyskraper_01.fbx		225904
 models\theme\outsidearea\skyskraper\skyskraper_02.fbx		41360
 models\theme\outsidearea\texture\cliffside\cliffside_d.png.dds		1398276

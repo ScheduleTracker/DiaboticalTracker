@@ -19,7 +19,7 @@ maps\b_alchemy-h.png		473727
 maps\b_alchemy.rbe		30383525
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
-maps\b_crystal_cove.rbe		34961868
+maps\b_crystal_cove.rbe		34961326
 maps\b_furnace.rbe		43658576
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
@@ -33,7 +33,7 @@ maps\b_refinery-h.png		374324
 maps\b_refinery.rbe		37113788
 maps\b_sunken.rbe		19127862
 maps\b_test_map.rbe		33875614
-maps\b_toya_fortress.rbe		33882416
+maps\b_toya_fortress.rbe		33881146
 maps\b_wellspring .rbe		28680787
 maps\b_wellspring-b.png		11751
 maps\b_wellspring-h.png		241336
@@ -47,14 +47,14 @@ maps\ctf_dojo.rbe		41840980
 maps\ctf_quarry.rbe		51688851
 maps\duel_bioplant-b.png		6036
 maps\duel_bioplant-h.png		251674
-maps\duel_bioplant.rbe		11315441
+maps\duel_bioplant.rbe		11282569
 maps\duel_f1sks_house-b.png		62672
 maps\duel_f1sks_house-h.png		362082
 maps\duel_f1sks_house.rbe		16260320
 maps\duel_frontier-b.png		6336
 maps\duel_frontier-h.png		253612
 maps\duel_frontier.rbe		16263689
-maps\duel_kasbah.rbe		26359265
+maps\duel_kasbah.rbe		26359077
 maps\duel_outpost_dunia.rbe		17939160
 maps\duel_perilous.rbe		24795594
 maps\duel_skybreak.rbe		10921448
@@ -74,7 +74,7 @@ maps\ig_apollo.rbe		22039920
 maps\ig_coastline.rbe		41006663
 maps\ig_egg-plant-b.png		23044
 maps\ig_egg-plant-h.png		422319
-maps\ig_egg-plant.rbe		19840159
+maps\ig_egg-plant.rbe		19459558
 maps\ig_stronghold-b.png		2198
 maps\ig_stronghold-h.png		70045
 maps\ig_stronghold.rbe		37530350
@@ -146,13 +146,13 @@ maps\tutorial.rbe		17643551
 maps\weapon.rbe		285065
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
-maps\wo_crystal_cove.rbe		34952000
+maps\wo_crystal_cove.rbe		34950994
 maps\wo_furnace.rbe		43647904
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
 maps\wo_refinery.rbe		37099342
 maps\wo_test_map.rbe		33866557
-maps\wo_toya_fortress.rbe		33873359
+maps\wo_toya_fortress.rbe		33871667
 maps\wo_wellspring-b.png		11751
 maps\wo_wellspring-h.png		241336
 maps\wo_wellspring.rbe		28671476

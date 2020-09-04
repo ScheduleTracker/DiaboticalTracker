@@ -347,7 +347,7 @@ models\weapons\melee\chockhammer\chockhammer.ani		362
 models\weapons\melee\chockhammer\chockhammer.assets		155
 models\weapons\melee\chockhammer\chockhammer.dbm		301373
 models\weapons\melee\chockhammer\chockhammer.fbx		183280
-models\weapons\melee\chockhammer\chockhammer.shader		453
+models\weapons\melee\chockhammer\chockhammer.shader		451
 models\weapons\melee\chockhammer\chockhammer_d.png.dds		5592548
 models\weapons\melee\chockhammer\chockhammer_i.png.dds		699192
 models\weapons\melee\chockhammer\chockhammer_n.png.dds		1398260
@@ -436,7 +436,7 @@ models\weapons\melee\tesla_sword\weapon_teslasword.ani		362
 models\weapons\melee\tesla_sword\weapon_teslasword.dbm		2800916
 models\weapons\melee\tesla_sword\weapon_teslasword.fbx		2454816
 models\weapons\melee\weapons.shader		1137
-models\weapons\melee\weapons_3p.shader		1712
+models\weapons\melee\weapons_3p.shader		1696
 models\weapons\melee\weapons_carry.shader		3219
 models\weapons\melee\weapons_hologram.shader		428
 models\weapons\melee\weapons_preview.shader		1722
