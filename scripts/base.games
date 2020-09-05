@@ -635,7 +635,7 @@ game macguffin
 	setting game_friendly_fire 0
 	setting game_score_limit 2
 	setting game_spawn_farthest_threshold 4
-	setting game_round_countdown 15
+	setting game_round_countdown 12
 
         setting game_maximum_respawn_time_ms 2500
         setting game_minimum_respawn_time_ms 2500
@@ -762,7 +762,7 @@ game extinction
 	setting game_score_limit 4
 	setting game_life_count 3
 	setting game_weapon_respawn_time 5
-	setting game_round_countdown 10
+	setting game_round_countdown 12
 	
 
 	map tdm_icefall
