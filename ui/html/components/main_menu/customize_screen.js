@@ -497,12 +497,16 @@ function set_customize_data(data) {
     // Set Character Color
     if (data.customizations && data.customizations.color && hexColorRegex.test(data.customizations.color)) {
         update_variable("string", "game_skin_color", data.customizations.color);
-        let color_picker = _id("character_color");
-        if (color_picker) color_picker.value = data.customizations.color;
-        if (character_jscolor_picker) character_jscolor_picker.importColor();
+        customization_update_color_picker(data.customizations.color);
     }
 
     global_set_customizations_from_server = false;
+}
+
+function customization_update_color_picker(color) {
+    let color_picker = _id("character_color");
+    if (color_picker) color_picker.value = color;
+    if (character_jscolor_picker) character_jscolor_picker.importColor();
 }
 
 // Create all the customization item lists and cache them

@@ -655,12 +655,14 @@ function _time_until(seconds) {
 }
 
 function _seconds_to_minutes(seconds) {
-    let numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
+    //let numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60); <- remaining minutes in one hour only
+    let numminutes = Math.floor(seconds / 60);
     return localize_ext("count_minute", {"count": numminutes});
 }
 
 function _seconds_to_hours(seconds) {
-    let numhours = Math.floor(((seconds % 31536000) % 86400) / 3600);
+    //let numhours = Math.floor(((seconds % 31536000) % 86400) / 3600); <- remaining hours of 1 day only
+    let numhours = Math.floor(seconds / 60 / 60);
     return localize_ext("count_hour", {"count": numhours});
 }
 

@@ -900,9 +900,13 @@ window.addEventListener("load", function(){
     });
 
     bind_event('set_color', function (variable, value) {
-
-        if (variable == "game_skin_color" &&  !global_set_customizations_from_server) {
-            customization_set_shell_color(value);
+        if (variable == "game_skin_color") {
+            if (global_set_customizations_from_server) {
+                // Set the initial color
+                customization_update_color_picker(value);
+            } else {
+                customization_set_shell_color(value);
+            }
             return;
         }
 
