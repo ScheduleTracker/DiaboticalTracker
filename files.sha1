@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 c3483349f7c58f9baad9b3070ae3d375ee9f7642	anticheat/anticheat.x64.equ8.exe
 fe6ae932653d5ab7262211d446a6189cece767af	anticheat/client.x64.equ8.dll
-9d34a0219a9c21539dfc372181dd51c068e093b8	anticheat/equ8.db
+0f53c65a2723c1f748846c5281f67e518f81a095	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1592,7 +1592,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-afae19a75c2036ab48d836dd1a51d1687bff8578	diabotical.exe
+4b024636471c5d56dfdc1b423daf26677f3ff388	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1621,7 +1621,7 @@ c300bbad943e1dd3c1ff84a2ebf983640c466bca	packs/models_props_medieval.dbp
 c782befffe28597f53b988f1cf16791af746c405	packs/models_weapons_crossbow.dbp
 e3059f7e2e514982f6fd7c64671712dddd5645cf	packs/models_weapons_rocket_launcher.dbp
 576bcaf29e6e108be9b2c9f9abf755fbd63e52cf	packs/models_weapons_shaft.dbp
-692257dfd533061cf1708bf40c1dfcbaba408262	packs/scripts.dbp
+5ea025a4f0227d33596e67305992a8498733beeb	packs/scripts.dbp
 d1d609a77e67eca7180453abec87debdf223563d	packs/textures.dbp
 60458e22bcec528b9956cc2c02a3a8787b83bf97	packs/textures_cubemaps.dbp
 e4232c7f8ea3ca81fd57261b255135b2ab7943d3	packs/textures_customization.dbp
@@ -5840,6 +5840,8 @@ e9bf476236cdaafdaf9e82b77215a5ae8fb05eed	ui/html/customization/avatar/av_smileyr
 bd3736d24c71f9fdaae8dd107d044ade41c7930f	ui/html/customization/avatar/av_smileyteal.png.dds
 34693033aee300fc25bc7c111395fec9056f6de5	ui/html/customization/avatar/av_smileyyellow.png
 9a84032035af8d72a71dadff3f75397de0c8ad79	ui/html/customization/avatar/av_smileyyellow.png.dds
+4dfbf01b6a90954ba2c0dcc873a70242bf4b4c16	ui/html/customization/avatar/cfcd07f2-c859-4e90-86b9-0c1e1f9c7507.png
+cb64f669889d3adba43974be093155ac5c987b6a	ui/html/customization/avatar/cfcd07f2-c859-4e90-86b9-0c1e1f9c7507.png.dds
 886f2c83879e4f634f264cf41669198d08b42e44	ui/html/customization/flag/Source and License.txt
 494ba710f100143d334007b22dff7837e2a0807a	ui/html/customization/flag/ad.png
 69a2cf8eabad34e66ab7f0ea739d1590aae1c6b7	ui/html/customization/flag/ad.png.dds
