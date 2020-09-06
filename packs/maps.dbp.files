@@ -1,6 +1,6 @@
 maps\a_barrows_gate-b.png		23810
 maps\a_barrows_gate-h.png		216589
-maps\a_barrows_gate.rbe		29486450
+maps\a_barrows_gate.rbe		29482144
 maps\a_bazaar.rbe		24113142
 maps\a_heikam-b.png		24671
 maps\a_heikam-h.png		260623
@@ -20,7 +20,7 @@ maps\b_alchemy.rbe		30383525
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
 maps\b_crystal_cove.rbe		34961326
-maps\b_furnace.rbe		43658576
+maps\b_furnace.rbe		43544239
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
 maps\b_icefall.rbe		16919318
@@ -30,14 +30,14 @@ maps\b_marina.rbe		29019186
 maps\b_oxide.rbe		26097388
 maps\b_refinery-b.png		89398
 maps\b_refinery-h.png		374324
-maps\b_refinery.rbe		37113788
+maps\b_refinery.rbe		36983199
 maps\b_sunken.rbe		19127862
 maps\b_test_map.rbe		33875614
 maps\b_toya_fortress.rbe		33881146
 maps\b_wellspring .rbe		28680787
 maps\b_wellspring-b.png		11751
 maps\b_wellspring-h.png		241336
-maps\b_wellspring.rbe		28680635
+maps\b_wellspring.rbe		28608955
 maps\ctf_cathedral-b.png		3556
 maps\ctf_cathedral-h.png		11780
 maps\ctf_cathedral.rbe		52593890
@@ -114,6 +114,9 @@ maps\mg_marina.rbe		29020463
 maps\mg_sunken.rbe		19129199
 maps\practice.rbe		12866625
 maps\stage.rbe		610811
+maps\tdm_alchemy-b.png		2876
+maps\tdm_alchemy-h.png		473727
+maps\tdm_alchemy.rbe		30383525
 maps\tdm_icefall-b.png		3456
 maps\tdm_icefall-h.png		481103
 maps\tdm_icefall.rbe		16919358
@@ -142,17 +145,17 @@ maps\tt_qunai_peaks.rbe		33845415
 maps\tt_rwc.rbe		9443811
 maps\tt_temple_escape.rbe		34337889
 maps\tt_titans_crossing.rbe		5745442
-maps\tutorial.rbe		17643551
+maps\tutorial.rbe		17491294
 maps\weapon.rbe		285065
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
 maps\wo_crystal_cove.rbe		34950994
-maps\wo_furnace.rbe		43647904
+maps\wo_furnace.rbe		43533647
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
-maps\wo_refinery.rbe		37099342
+maps\wo_refinery.rbe		36962624
 maps\wo_test_map.rbe		33866557
 maps\wo_toya_fortress.rbe		33871667
 maps\wo_wellspring-b.png		11751
 maps\wo_wellspring-h.png		241336
-maps\wo_wellspring.rbe		28671476
+maps\wo_wellspring.rbe		28599372
