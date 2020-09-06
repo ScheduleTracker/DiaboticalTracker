@@ -998,6 +998,8 @@ var TRANSLATION_en =
 	"customization_av_AT1_21":"Starstruck",
 	"customization_av_AT1_1":"Fired Up",
 	"customization_av_AT1_24":"Partybot!",
+    "customization_pack_digital_camo_weapon_pack_half_1": "Digital Camo Weapon Pack 1/2",
+    "customization_pack_triker_weapon_pack_half_1": "Triker Weapon Pack 1/2",
     "customization_pack_tiger_weapon_pack": "Tiger Weapon Pack",
     "customization_pack_starter_pack": "Starter Pack",
     "customization_pack_standard_pack": "Standard Pack",
