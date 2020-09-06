@@ -473,6 +473,9 @@ window.addEventListener("load", function(){
         _id("aim_report").style.display = "none";
         _id("rank_screen").style.display = "none";
 
+        // clear the previous progression update
+        clear_battle_pass_progression();
+
         anim_show(game_hud_special, 0);
 
         // Clear the chat history

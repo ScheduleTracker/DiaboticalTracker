@@ -599,11 +599,11 @@
                         </div>                  
     
                         <div class="team">
-                            <div class="cont spectator_list_section" data-bind-if="{{menu_game_data.game_mode}}.substr(0,3) != 'aim'">
+                            <div class="cont spectator_list_section" data-bind-if="{{menu_game_data.game_mode}}.substr(0,3) != 'aim' && ({{menu_game_data.spectators}}.length > 0 || {{menu_game_data.team_switching}} == 2)">
                                 <div class="team_name_row">
                                     <div class="team_name" data-bind-i18n="'spectators:'+{{menu_game_data.spectators}}.length">Spectators</div>
                                     <div class="join">
-                                        <div class="join_btn" data-bind-if="{{menu_game_data.own_team_id}} != -1"data-bind-i18n="'ingame_menu_spectate:'+{{menu_game_data.team_switching}}" data-bind-if="{{menu_game_data.team_switching}} == 2" onclick="ingame_menu_spectate()">Spectate</div>
+                                        <div class="join_btn" data-bind-if="{{menu_game_data.own_team_id}} != -1 && {{menu_game_data.team_switching}} == 2" data-bind-i18n="'ingame_menu_spectate:'+{{menu_game_data.team_switching}}" onclick="ingame_menu_spectate()">Spectate</div>
                                     </div>
                                 </div>
                                 <div class="spectator_list_container">
