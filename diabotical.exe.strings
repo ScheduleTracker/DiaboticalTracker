@@ -44218,7 +44218,7 @@ Format: x,z,yaw (No spaces)
 110,15,120
 70,-10,140
 lobby_team_offset_3
-0.20.336b
+0.20.336c
  depth=
 TANGENT
 <><><><<>>><>>>>>> Initializing Vertex Shader 
@@ -47439,6 +47439,7 @@ ffffff
 ?333333
 @333333
 l~~~~~~~~~~~~~~~~
+RSDSA}E
 C:\reborn\tracked\tmp_symbols_EVE_Release\diabotical.pdb
 .text
 .text$di
