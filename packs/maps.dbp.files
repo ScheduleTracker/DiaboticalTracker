@@ -27,7 +27,7 @@ maps\b_icefall.rbe		16912775
 maps\b_marina-b.png		8774
 maps\b_marina-h.png		373884
 maps\b_marina.rbe		29019186
-maps\b_oxide.rbe		26097388
+maps\b_oxide.rbe		26096936
 maps\b_refinery-b.png		89398
 maps\b_refinery-h.png		374324
 maps\b_refinery.rbe		36141226
@@ -56,8 +56,8 @@ maps\duel_frontier-h.png		253612
 maps\duel_frontier.rbe		16263689
 maps\duel_kasbah.rbe		26359077
 maps\duel_outpost_dunia.rbe		17939160
-maps\duel_perilous.rbe		24795594
-maps\duel_skybreak.rbe		10921448
+maps\duel_perilous.rbe		24741321
+maps\duel_skybreak.rbe		10921066
 maps\example-b.png		2277
 maps\example-h.png		8528
 maps\example.rbe		5597243
@@ -120,7 +120,7 @@ maps\tdm_alchemy.rbe		30383525
 maps\tdm_icefall-b.png		3456
 maps\tdm_icefall-h.png		481103
 maps\tdm_icefall.rbe		16912835
-maps\tdm_oxide.rbe		26097963
+maps\tdm_oxide.rbe		26097511
 maps\template_islands-b.png		2198
 maps\template_islands-h.png		361693
 maps\template_islands.rbe		50859
@@ -145,7 +145,7 @@ maps\tt_qunai_peaks.rbe		33845415
 maps\tt_rwc.rbe		9443811
 maps\tt_temple_escape.rbe		34337889
 maps\tt_titans_crossing.rbe		5745442
-maps\tutorial.rbe		17491294
+maps\tutorial.rbe		17491657
 maps\weapon.rbe		285065
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
