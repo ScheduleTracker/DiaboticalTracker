@@ -2,6 +2,9 @@ maps\a_barrows_gate-b.png		23810
 maps\a_barrows_gate-h.png		216589
 maps\a_barrows_gate.rbe		29482144
 maps\a_bazaar.rbe		24113142
+maps\a_enclosure-b.png		12206
+maps\a_enclosure-h.png		390578
+maps\a_enclosure.rbe		15602829
 maps\a_heikam-b.png		24671
 maps\a_heikam-h.png		260623
 maps\a_heikam.rbe		32415275
@@ -81,6 +84,7 @@ maps\ig_stronghold.rbe		37530350
 maps\ig_terminal-b.png		18726
 maps\ig_terminal-h.png		339014
 maps\ig_terminal.rbe		33289684
+maps\iga_grainyard.rbe		8036424
 maps\menu.rbe		3008309
 maps\menu1-b.png		4036
 maps\menu1-h.png		128325
@@ -145,7 +149,7 @@ maps\tt_qunai_peaks.rbe		33845415
 maps\tt_rwc.rbe		9443811
 maps\tt_temple_escape.rbe		34337889
 maps\tt_titans_crossing.rbe		5745442
-maps\tutorial.rbe		17491657
+maps\tutorial.rbe		17490648
 maps\weapon.rbe		285065
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
