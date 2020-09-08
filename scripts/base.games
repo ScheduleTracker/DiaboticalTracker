@@ -480,6 +480,7 @@ game rocket_arena
 	map a_bazaar
 	map a_heikam
 	map a_junktion
+	map a_enclosure
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
