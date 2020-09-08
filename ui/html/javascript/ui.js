@@ -1838,6 +1838,11 @@ function setupVariousListeners() {
             anchorCaretPosition = null;
         });
     })();
+
+    // /devop ui_call open_profile <id>
+    bind_event("open_profile", function(id) {
+        open_player_profile(id);
+    });
 }
 
 

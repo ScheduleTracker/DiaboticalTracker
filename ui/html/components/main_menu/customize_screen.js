@@ -889,7 +889,12 @@ function customization_render_category_content(cont, ctype) {
     if (ctype.type == "shoes") get_empty_sub_group = true;
     let data = get_customization_category_content_data(ctype, get_empty_sub_group);
     
+    let lazy_load = false;
     let fragment = _createElement("div",["customization_type_items", ctype.type]);
+    if (!global_customization_active_ctype || global_customization_active_ctype.page_id !== ctype.page_id) {
+        fragment.style.display = "none";
+        lazy_load = true;
+    }
     fragment.appendChild(_createElement("div", "separator"));
 
     // Default disable button
@@ -1030,7 +1035,7 @@ function customization_render_category_content(cont, ctype) {
                 item.classList.add("rarity_bg_"+c.rarity);
                 item.style.setProperty("--rarity", "var(--rarity_dark_"+c.rarity+")");
 
-                item.appendChild(renderCustomizationInner("customize", c.customization_type, c.customization_id, c.amount, true));
+                item.appendChild(renderCustomizationInner("customize", c.customization_type, c.customization_id, c.amount, lazy_load));
 
                 if (!("seen" in c) || c.seen == false) {
                     let new_div = _createElement("div", "new", "!");

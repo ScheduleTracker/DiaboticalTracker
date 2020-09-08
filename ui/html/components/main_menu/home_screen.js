@@ -3,6 +3,7 @@ function init_screen_home() {
   let currentPost = 1;
   let modt_url = null;
 
+  /* News Post
   PrismicJS.getApi(apiEndpoint)
     .then(function(api) {
       return api.query(
@@ -35,6 +36,32 @@ function init_screen_home() {
         console.error("Error while calling CMS: ", err);
       }
     );
+    */
+
+  //PATCH NOTES
+  PrismicJS.getApi(apiEndpoint)
+    .then(function(api) {
+      return api.query(
+        PrismicJS.Predicates.at("document.type", "patch_note_ingame"),
+        {
+          orderings: "[document.last_publication_date desc]",
+          pageSize: 8
+        }
+      );
+    })
+    .then(
+      function(response) {
+        if (response.results.length > 0) {
+          for(let i=0; i<response.results.length; i++){
+            add_patch_notes(response.results[i].data);
+          }
+          refreshScrollbar(_id("home_screen_patch_notes_cont").querySelector(".scroll-outer"));
+        }
+      },
+      function(err) {
+        console.error("Error while calling CMS: ", err);
+      }
+    );
 
   _id("home_screen_motd_window").addEventListener("click", function(event) {
     if(event.currentTarget.dataset.uid)
@@ -43,6 +70,83 @@ function init_screen_home() {
 
    // Load the variable to show/hide the home screen tutorial button
    engine.call("initialize_checkbox_value", "lobby_tutorial_launched");
+}
+
+/*
+setTimeout(() => {  
+  update_motd({ uid: 'mocked', slugs: null, data: { title: [ { text:  'This is a title' } ], subtitle: [ { text: 'The subtitle' } ], background: null } });
+}, 3000);
+*/
+
+function add_patch_notes(patch_data){
+  _id("home_screen_patch_notes_cont").style.display = "flex";
+
+  let header_row = _createElement("div", "patch_header");
+  if(patch_data.patch_version && patch_data.patch_version.length){
+    let patch_version = _createElement("div", "patch_version", "Patch " + patch_data.patch_version[0].text);  
+    header_row.appendChild(patch_version);
+  }
+
+  if(patch_data.timestamp){
+    let patch_timestamp = new Date(patch_data.timestamp);
+    let patch_date = _createElement("div", "patch_date", patch_timestamp.toDateString());
+    header_row.appendChild(patch_date);
+  }
+
+  _id("home_screen_patch_notes_body").appendChild(header_row);
+
+  if(patch_data.patch_introduction && patch_data.patch_introduction.length){
+    var patch_introduction_text = patch_data.patch_introduction[0].text;
+
+    if(patch_introduction_text.length > 0) {
+      let patch_introduction = _createElement("div", "patch_section_notes")
+      patch_introduction.innerHTML = createLineBreaksFromString(patch_introduction_text);
+      _id("home_screen_patch_notes_body").appendChild(patch_introduction);
+    }
+  }
+
+  for(const section of patch_data.body){
+    if(section.patch_section_title && section.patch_section_title.length){
+      let title = _createElement("div", "patch_section_title", section.patch_section_title[0].text);
+      _id("home_screen_patch_notes_body").appendChild(title);
+    }  
+    let content = _createElement("div", "patch_section_notes");
+    let contentHTML = getPatchNoteListFromCMS(section.patch_section_notes);
+    content.innerHTML = contentHTML;
+    _id("home_screen_patch_notes_body").appendChild(content);
+  } 
+
+  if(patch_data.patch_outroduction && patch_data.patch_outroduction.length){
+    var patch_outroduction_text = patch_data.patch_outroduction[0].text;
+
+    if(patch_outroduction_text.length > 0) {
+      let patch_outroduction = _createElement("div", "patch_section_notes")
+      patch_outroduction.innerHTML = createLineBreaksFromString(patch_outroduction_text);
+      _id("home_screen_patch_notes_body").appendChild(patch_outroduction);
+    }
+  }
+}
+
+function getPatchNoteListFromCMS(patchNotesArray) {
+  if(patchNotesArray && patchNotesArray.length){
+    let list = ""
+    for (let note of patchNotesArray){
+      if (note.hasOwnProperty('text')){
+        list += "<div>\u2022 " + note.text + "</div>";
+      }
+    }
+    list += ""
+    return list;
+  }
+  else{
+    return "";
+  }
+}
+
+function createLineBreaksFromString(contentStr) {
+  let contentHTML = "";
+  contentStr.split("\n").forEach(paragraph => contentHTML += "<div>" + paragraph + "</div>");
+  return contentHTML;
 }
 
 function update_motd({ uid, slugs, data }) {

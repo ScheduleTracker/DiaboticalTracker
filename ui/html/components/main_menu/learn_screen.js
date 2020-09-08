@@ -131,7 +131,8 @@ function learn_screen_initialize_tab_weapons() {
                                     'knockback': 'ground_knockback',
                                     'starting_ammo': 'default_weapon_pickup_ammo',
                                     'ammo_pickup': 'default_ammo_pickup_ammo',
-                                    'max_ammo': 'max_ammo'
+                                    'max_ammo': 'max_ammo',
+                                    'ammo_respawn_time': ''
                                 },
                         'weapon_image': '/html/images/entities/weaponmac.png.dds',
                         'ammo_image': '/html/images/entities/ammomac.png.dds',
@@ -147,7 +148,8 @@ function learn_screen_initialize_tab_weapons() {
                                     'knockback': 'ground_knockback',
                                     'starting_ammo': 'default_weapon_pickup_ammo',
                                     'ammo_pickup': 'default_ammo_pickup_ammo',
-                                    'max_ammo': 'max_ammo'
+                                    'max_ammo': 'max_ammo',
+                                    'ammo_respawn_time': ''
                                 },
                         'weapon_image': '/html/images/entities/weaponbl.png.dds',
                         'ammo_image': '/html/images/entities/ammobl.png.dds',
@@ -162,7 +164,8 @@ function learn_screen_initialize_tab_weapons() {
                                     'knockback': 'ground_knockback',
                                     'starting_ammo': 'default_weapon_pickup_ammo',
                                     'ammo_pickup': 'default_ammo_pickup_ammo',
-                                    'max_ammo': 'max_ammo'
+                                    'max_ammo': 'max_ammo',
+                                    'ammo_respawn_time': ''
                                 },
                         'weapon_image': '/html/images/entities/weaponss.png.dds',
                         'ammo_image': '/html/images/entities/ammoss.png.dds',
@@ -178,7 +181,8 @@ function learn_screen_initialize_tab_weapons() {
                                     'knockback': 'ground_knockback',
                                     'starting_ammo': 'default_weapon_pickup_ammo',
                                     'ammo_pickup': 'default_ammo_pickup_ammo',
-                                    'max_ammo': 'max_ammo'
+                                    'max_ammo': 'max_ammo',
+                                    'ammo_respawn_time': ''
                                 },
                         'weapon_image': '/html/images/entities/weaponrl.png.dds',
                         'ammo_image': '/html/images/entities/ammorl.png.dds',
@@ -191,7 +195,8 @@ function learn_screen_initialize_tab_weapons() {
                                     'knockback': 'ground_knockback',
                                     'starting_ammo': 'default_weapon_pickup_ammo',
                                     'ammo_pickup': 'default_ammo_pickup_ammo',
-                                    'max_ammo': 'max_ammo'
+                                    'max_ammo': 'max_ammo',
+                                    'ammo_respawn_time': ''
                                 },
                         'weapon_image': '/html/images/entities/weaponshaft.png.dds',
                         'ammo_image': '/html/images/entities/ammoshaft.png.dds',
@@ -206,7 +211,8 @@ function learn_screen_initialize_tab_weapons() {
                                     'knockback': 'ground_knockback',
                                     'starting_ammo': 'default_weapon_pickup_ammo',
                                     'ammo_pickup': 'default_ammo_pickup_ammo',
-                                    'max_ammo': 'max_ammo'
+                                    'max_ammo': 'max_ammo',
+                                    'ammo_respawn_time': ''
                                 },
                         'weapon_image': '/html/images/entities/weaponcb.png.dds',
                         'ammo_image': '/html/images/entities/ammopncr.png.dds',
@@ -220,7 +226,8 @@ function learn_screen_initialize_tab_weapons() {
                                     'knockback': 'ground_knockback',
                                     'starting_ammo': 'default_weapon_pickup_ammo',
                                     'ammo_pickup': 'default_ammo_pickup_ammo',
-                                    'max_ammo': 'max_ammo'
+                                    'max_ammo': 'max_ammo',
+                                    'ammo_respawn_time': ''
                                 },
                         'weapon_image': '/html/images/entities/weaponpncr.png.dds',
                         'ammo_image': '/html/images/entities/ammopncr.png.dds',
@@ -238,7 +245,8 @@ function learn_screen_initialize_tab_weapons() {
                                     'fuse_time': 'duration',
                                     'starting_ammo': 'default_weapon_pickup_ammo',
                                     'ammo_pickup': 'default_ammo_pickup_ammo',
-                                    'max_ammo': 'max_ammo'
+                                    'max_ammo': 'max_ammo',
+                                    'ammo_respawn_time': ''
                                 },
                         'weapon_image': '/html/images/entities/weapongl.png.dds',
                         'ammo_image': '/html/images/entities/ammogl.png.dds',
@@ -401,11 +409,14 @@ function learn_screen_initialize_tab_weapons() {
                 let maxSplash = global_weapon_data[currentWeapon].hasOwnProperty('splash_damage') ? global_weapon_data[currentWeapon].splash_damage : global_weapon_data[currentWeapon].damage;
                 cellText = minSplash + " - " + maxSplash;
             }
+            else if(label == 'ammo_respawn_time'){
+                cellText = '25s';
+            }
 
             let infoCellText = _createElement("div", "text_container", cellText);
             infoCell.appendChild(infoCellText);
 
-            if(label == 'starting_ammo' || label == 'ammo_pickup' || label == 'max_ammo'){
+            if(label == 'starting_ammo' || label == 'ammo_pickup' || label == 'max_ammo' || label == 'ammo_respawn_time'){
                 ammoInfoTextContainer.appendChild(infoRow);
             }
             else {weaponInfoContainer.appendChild(infoRow);}

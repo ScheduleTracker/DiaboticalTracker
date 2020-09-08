@@ -30,7 +30,7 @@ ON_UPDATE
             limit_overtime = limit_overtime + game_data.tide_time_offset
 
             IF game_data.overtime_seconds
-                game_state = "ingame_message_overtime"
+                game_state = "ingame_message_overtime_time"
                 state_value = TIMESTAMP limit_overtime
             ELSE
 
@@ -60,8 +60,10 @@ ON_UPDATE
     game_state_length = LENGTH game_state
     IF game_state_length > 0
         OUTPUT 0 0 LVALUE game_state
+    ELSE
+        OUTPUT 0 0 LVALUE "empty"
     END IF
-    
+
     OUTPUT 0 0 value state_value
 
 END TEMPLATE

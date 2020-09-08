@@ -750,7 +750,6 @@ function render_user_ratings_content(ratings) {
             rating.appendChild(_createElement("div", "mode_name", global_queues[queue].queue_name));
 
             if (queue in rating_lookup && rating_lookup[queue].rank_tier !== null) {
-                console.log("rating for ",queue, _dump(rating_lookup[queue]));
                 rating.appendChild(renderRankIcon(rating_lookup[queue].rank_tier, rating_lookup[queue].rank_position));
                 let rank_name = _createElement("div", "rank_name");
                 rank_name.appendChild(getRankName(rating_lookup[queue].rank_tier, rating_lookup[queue].rank_position));
@@ -1801,14 +1800,23 @@ function player_profile_render_achievements(data) {
         let progress_val = 0;
         let progress_perc = 0;
         let next_reward = {};
+        let last_reward = {};
+        let last_goal = 0;
+        let last_ach_idx = 0;
         let next_ach_idx = 0;
+        let finished = true;
         for (let ach of achievements[achievement_id]) {
             if (ach.achieved_ts == null) {
+                finished = false;
                 goal_val = ach.goal;
                 next_reward = ach;
                 if (ach.progress != null) progress_val = ach.progress;
                 if (goal_val > 0) progress_perc = (progress_val / goal_val) * 100;
                 break;
+            } else {
+                last_reward = ach;
+                last_goal = ach.goal;
+                last_ach_idx = next_ach_idx;
             }
             next_ach_idx++;
         }
@@ -1816,19 +1824,28 @@ function player_profile_render_achievements(data) {
 
         let achievement = _createElement("div", "achievement");
 
-        let next_reward_unlock = _createElement("div", ["next_reward", "customization_item"]);
-        if (next_reward.customization_id) {
-            next_reward_unlock.dataset.msgHtmlId = "customization_item";
-            next_reward_unlock.dataset.id = next_reward.customization_id;
-            next_reward_unlock.dataset.type = next_reward.customization_type;
-            next_reward_unlock.dataset.rarity = next_reward.rarity;
-            add_tooltip2_listeners(next_reward_unlock);
+        if (finished) {
+            let finished_icon = _createElement("div", "finished");
+            achievement.appendChild(finished_icon);
+            next_ach_idx = last_ach_idx;
+            goal_val = last_goal;
+            progress_val = goal_val;
+            progress_perc = 100;
+        } else {
+            let next_reward_unlock = _createElement("div", ["next_reward", "customization_item"]);
+            if (next_reward.customization_id) {
+                next_reward_unlock.dataset.msgHtmlId = "customization_item";
+                next_reward_unlock.dataset.id = next_reward.customization_id;
+                next_reward_unlock.dataset.type = next_reward.customization_type;
+                next_reward_unlock.dataset.rarity = next_reward.rarity;
+                add_tooltip2_listeners(next_reward_unlock);
 
-            next_reward_unlock.classList.add("rarity_bg_"+next_reward.rarity);
+                next_reward_unlock.classList.add("rarity_bg_"+next_reward.rarity);
 
-            next_reward_unlock.appendChild(renderCustomizationInner("player_profile", next_reward.customization_type, next_reward.customization_id, next_reward.amount, false));
+                next_reward_unlock.appendChild(renderCustomizationInner("player_profile", next_reward.customization_type, next_reward.customization_id, next_reward.amount, false));
+            }
+            achievement.appendChild(next_reward_unlock);
         }
-        achievement.appendChild(next_reward_unlock);
 
         let body = _createElement("div", "body");
         achievement.appendChild(body);

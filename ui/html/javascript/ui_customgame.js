@@ -69,15 +69,20 @@ let global_party_leader_elements = [];
 
 function init_custom_modes() {
     // Add all the modes to the filter select list
-    let modes = Object.keys(global_game_mode_map);
+    let modes = [];
+    for (let mode in global_game_mode_map) modes.push(global_game_mode_map[mode]);
+    modes.sort(function(a,b) {
+        return a.name.localeCompare(b.name);
+    });
+
     for (let mode of modes) {
-        if (!global_game_mode_map[mode].enabled) continue;
-        if (!global_lobby_init_mode.length) global_lobby_init_mode = mode;
+        if (!mode.enabled) continue;
+        if (!global_lobby_init_mode.length) global_lobby_init_mode = mode.mode;
         
         let opt = _createElement("div", "i18n");
-        opt.dataset.i18n = global_game_mode_map[mode].i18n;
-        opt.dataset.value = mode;
-        opt.innerHTML = global_game_mode_map[mode].name;
+        opt.dataset.i18n = mode.i18n;
+        opt.dataset.value = mode.mode;
+        opt.textContent = localize(mode.i18n);
         _id("custom_game_setting_mode").appendChild(opt);
     }
 }

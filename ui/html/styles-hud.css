@@ -1627,7 +1627,7 @@ h2 {
     }
 }
 #game_over_victory {
-    font-size: 20vh;
+    font-size: 18vh;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1638,13 +1638,24 @@ h2 {
     font-style:italic;
 }
 #game_over_defeat {
-    font-size: 20vh;
+    font-size: 18vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
     text-shadow: 0 0 10vh #ff7070;
+    font-family:var(--mont-font);
+    font-style:italic;
+}
+#game_over_placement {
+    font-size: 16vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    text-shadow: 0 0 10vh #e0e0e0;
     font-family:var(--mont-font);
     font-style:italic;
 }

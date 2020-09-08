@@ -1219,27 +1219,81 @@ function play_tracked_sound(sound_key) {
     engine.call('ui_sound_tracked', sound_key);
 }
 
-function show_game_over(show, victory) {
-    //console.log("show_game_over", show);
+function show_game_over(show, placement, team_count) {
+    //console.log("show_game_over", show, placement, team_count);
+
     _id("game_over_screen").style.display = show ? 'block' : 'none';
+
+    let el_victory = _id("game_over_victory");
+    let el_defeat = _id("game_over_defeat");
+    let el_placement = _id("game_over_placement");
+
+    let sound = "";
+
     if (show) {
-        if (victory) {
-            _id("game_over_victory").style.display = "flex";
-            _id("game_over_defeat").style.display = "none";
+        let anim = "v";
+        if (team_count <= 2) {
+            if (placement == 0) {
+                el_victory.style.display = "flex";
+                el_defeat.style.display = "none";
+                el_placement.style.display = "none";
+                anim = "v";
+                sound = "announcer_common_game_win";
+            } else {
+                el_victory.style.display = "none";
+                el_defeat.style.display = "flex";
+                el_placement.style.display = "none";
+                anim = "d";
+                sound = "announcer_common_game_loss";
+            }
         } else {
-            _id("game_over_defeat").style.display = "flex";
-            _id("game_over_victory").style.display = "none";
+            if (placement == 0) {
+                el_victory.style.display = "flex";
+                el_defeat.style.display = "none";
+                el_placement.style.display = "none";
+                anim = "v";
+                sound = "announcer_common_game_win";
+            } else {
+                if (placement == 0)       { el_placement.textContent = localize("ingame_placement_1"); sound = "announcer_common_place_01"; }
+                else if (placement == 1)  { el_placement.textContent = localize("ingame_placement_2"); sound = "announcer_common_place_02"; }
+                else if (placement == 2)  { el_placement.textContent = localize("ingame_placement_3"); sound = "announcer_common_place_03"; }
+                else if (placement == 3)  { el_placement.textContent = localize("ingame_placement_4"); sound = "announcer_common_place_04"; }
+                else if (placement == 4)  { el_placement.textContent = localize("ingame_placement_5"); sound = "announcer_common_place_05"; }
+                else if (placement == 5)  { el_placement.textContent = localize("ingame_placement_6"); sound = "announcer_common_place_06"; }
+                else if (placement == 6)  { el_placement.textContent = localize("ingame_placement_7"); sound = "announcer_common_place_07"; }
+                else if (placement == 7)  { el_placement.textContent = localize("ingame_placement_8"); sound = "announcer_common_place_08"; }
+                else if (placement == 8)  { el_placement.textContent = localize("ingame_placement_9"); sound = "announcer_common_place_09"; }
+                else if (placement == 9)  { el_placement.textContent = localize("ingame_placement_10"); sound = "announcer_common_place_10"; }
+                else if (placement == 10) { el_placement.textContent = localize("ingame_placement_11"); sound = "announcer_common_place_11"; }
+                else if (placement == 11) { el_placement.textContent = localize("ingame_placement_12"); sound = "announcer_common_place_12"; }
+                else if (placement == 12) { el_placement.textContent = localize("ingame_placement_13"); sound = "announcer_common_game_loss"; }
+                else if (placement == 13) { el_placement.textContent = localize("ingame_placement_14"); sound = "announcer_common_game_loss"; }
+                else if (placement == 14) { el_placement.textContent = localize("ingame_placement_15"); sound = "announcer_common_game_loss"; }
+                else if (placement == 15) { el_placement.textContent = localize("ingame_placement_16"); sound = "announcer_common_game_loss"; }
+                else if (placement == 16) { el_placement.textContent = localize("ingame_placement_17"); sound = "announcer_common_game_loss"; }
+                else if (placement == 17) { el_placement.textContent = localize("ingame_placement_18"); sound = "announcer_common_game_loss"; }
+                else if (placement == 18) { el_placement.textContent = localize("ingame_placement_19"); sound = "announcer_common_game_loss"; }
+                else if (placement == 19) { el_placement.textContent = localize("ingame_placement_20"); sound = "announcer_common_game_loss"; }
+
+                el_victory.style.display = "none";
+                el_defeat.style.display = "none";
+                el_placement.style.display = "flex";
+                anim = "p";
+            }
+            
         }
+
+        if (sound.length) engine.call("ui_sound_queue", sound);
+
         setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
-        if (victory) {
-            play_anim("game_over_victory", "game_over_anim");
-            //_id("game_over_victory").style.display = "block";
-        } else {
-            play_anim("game_over_defeat", "game_over_anim");
-            //_id("game_over_defeat").style.display = "block";
-        }
+
+        if (anim == "v") play_anim("game_over_victory", "game_over_anim");
+        else if (anim == "d") play_anim("game_over_defeat", "game_over_anim");
+        else if (anim == "p") play_anim("game_over_placement", "game_over_anim");
+
     } else {
-        _id("game_over_defeat").style.display = "none";
-        _id("game_over_victory").style.display = "none";
+        el_victory.style.display = "none";
+        el_defeat.style.display = "none";
+        el_placement.style.display = "none";
     }
 }

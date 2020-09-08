@@ -7322,6 +7322,66 @@ h2 {
   transition-property: filter, box-shadow;
 }
 
+#home_screen_patch_notes_cont{
+  display: none;
+  position: relative;
+  height: 40vh;
+  width: 40vh;
+  background-color: rgba(26, 27, 31, 1);
+  box-shadow: 0px 2px 27px 0px rgba(0, 0, 0, 0.55);
+  font-family:var(--mont-font);
+  overflow: hidden;
+  flex-direction: column;
+}
+
+#home_screen_patch_notes_cont  .patch_notes_cont_header{
+  height: 6vh;
+  padding: 2vh 2vh;
+  font-size: 2vh;
+  display: flex;
+  align-items: center;
+}
+
+#home_screen_patch_notes_cont .patch_header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2.6vh;
+  background-color: rgb(17, 18, 20);
+  font-weight: 700;
+  font-size: 1.6vh;
+  margin-bottom: 0.4vh;
+}
+
+#home_screen_patch_notes_cont .patch_version{
+  margin-left: 1vh;
+  color: rgb(179, 209, 224);
+}
+
+#home_screen_patch_notes_cont .patch_date{
+  margin-right: 1vh;
+}
+
+#home_screen_patch_notes_cont .patch_section_title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2vh;
+  background-color: rgb(43, 44, 46);
+  font-weight: 500;
+  font-size: 1.4vh;
+  padding-top: 0.2vh;
+}
+
+#home_screen_patch_notes_cont .patch_section_notes{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(43, 44, 46);
+  padding: 0.4vh 0.8vh;
+  margin-bottom: 0.3vh;
+  font-size: 1.25vh;
+}
+
 #home_screen_motd_window * {
   color: #ccc;
 }
@@ -14713,6 +14773,14 @@ h2 {
     width:8vh;
     height:8vh;
     /*background-color:#999999aa;*/
+}
+#player_profile_content .achievements .achievement .finished {
+    width:8vh;
+    height:8vh;
+    background-image:url(/html/images/icons/fa/check.svg);
+    background-size:60%;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 #player_profile_content .achievements .achievement .body {
     display:flex;
