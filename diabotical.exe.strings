@@ -44253,7 +44253,7 @@ game_player_hitbox_height
 Lobby custom games user setting.
 game_player_hitbox_width
 game_player_model_bottom
-0.20.340
+0.20.340b
 <><><><<>>><>>>>>> Initializing Vertex Shader 
 POSITION
  depth=
@@ -47477,7 +47477,7 @@ ffffff
 ?333333
 @333333
 l~~~~~~~~~~~~~~~~
-RSDS>$
+RSDSN
 C:\reborn\tracked\tmp_symbols_EVE_Release\diabotical.pdb
 .text
 .text$di
