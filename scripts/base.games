@@ -707,6 +707,7 @@ game ghosthunt
 	map ig_stronghold
 	map ig_terminal
 	map ig_apollo
+	map ig_malkas_tomb
 
 
 	weapon sword 999
