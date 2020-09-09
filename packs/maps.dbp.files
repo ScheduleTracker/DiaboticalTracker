@@ -50,7 +50,7 @@ maps\ctf_dojo.rbe		41840980
 maps\ctf_quarry.rbe		51688851
 maps\duel_bioplant-b.png		6036
 maps\duel_bioplant-h.png		251674
-maps\duel_bioplant.rbe		11282569
+maps\duel_bioplant.rbe		11286297
 maps\duel_f1sks_house-b.png		62672
 maps\duel_f1sks_house-h.png		362082
 maps\duel_f1sks_house.rbe		16260320
@@ -59,8 +59,8 @@ maps\duel_frontier-h.png		253612
 maps\duel_frontier.rbe		16263689
 maps\duel_kasbah.rbe		26359077
 maps\duel_outpost_dunia.rbe		17939160
-maps\duel_perilous.rbe		24741321
-maps\duel_skybreak.rbe		10921066
+maps\duel_perilous.rbe		24740272
+maps\duel_skybreak.rbe		10921078
 maps\example-b.png		2277
 maps\example-h.png		8528
 maps\example.rbe		5597243
@@ -78,6 +78,9 @@ maps\ig_coastline.rbe		41006663
 maps\ig_egg-plant-b.png		23044
 maps\ig_egg-plant-h.png		422319
 maps\ig_egg-plant.rbe		19459558
+maps\ig_malkas_tomb-b.png		6970
+maps\ig_malkas_tomb-h.png		281707
+maps\ig_malkas_tomb.rbe		19396957
 maps\ig_stronghold-b.png		2198
 maps\ig_stronghold-h.png		70045
 maps\ig_stronghold.rbe		37530350
@@ -85,6 +88,7 @@ maps\ig_terminal-b.png		18726
 maps\ig_terminal-h.png		339014
 maps\ig_terminal.rbe		33289684
 maps\iga_grainyard.rbe		8036424
+maps\iga_temple.rbe		10839121
 maps\menu.rbe		3008309
 maps\menu1-b.png		4036
 maps\menu1-h.png		128325
@@ -162,4 +166,4 @@ maps\wo_test_map.rbe		33866557
 maps\wo_toya_fortress.rbe		33871667
 maps\wo_wellspring-b.png		11751
 maps\wo_wellspring-h.png		241336
-maps\wo_wellspring.rbe		28599372
+maps\wo_wellspring.rbe		28599836
