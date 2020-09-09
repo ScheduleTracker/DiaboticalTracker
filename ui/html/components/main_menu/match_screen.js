@@ -25,10 +25,16 @@ function renderMatchScreen(match) {
     match_cont.style.setProperty("--rstat_count", data.rounds);
 
     // Back button
+    let top = _createElement("div", "top");
+    match_cont.appendChild(top);
+
     let back = _createElement("div", ["db-btn", "plain", "back"]);
     _addButtonSounds(back, 2);
     back.addEventListener("click", historyBack);
-    match_cont.appendChild(back);
+    top.appendChild(back);
+
+    let match_id = _createElement("div", "match_id", match.match_id);
+    top.appendChild(match_id);
 
     // ====== //
     // HEADER //

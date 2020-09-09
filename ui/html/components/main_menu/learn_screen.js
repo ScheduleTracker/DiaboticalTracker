@@ -970,6 +970,9 @@ function learn_screen_initialize_tab_ha(){
     armorContainer.appendChild(armorImageRow);
     armorContainer.appendChild(armorImageRowNames);
     armorContainer.appendChild(armorImageRowAliases);
+
+    let armorExplanation = _createElement("div", "learn_screen_ha_explanation", localize("learn_screen_armor_explanation"));
+    armorContainer.appendChild(armorExplanation);
 }
 
 //Powerups Tab - for powerups we dont get any data from scripts so hardcode all info
@@ -984,7 +987,7 @@ function learn_screen_initialize_tab_powerups() {
                                     'initial_spawn_brawl': '1:00',
                                     'respawn_time_brawl': '240s',
                                     'duration': '30s'},
-                        'description': 'When equipped with Siphonator you passively heal for 5 health every second and any damage you deal to enemies heals you for 50% of the damage dealt. Additionally, your friendly fire heals your teammates for 50% of weapon damage. <div>Seek out 1v1 confrontations safe in the knowledge that you can outlast your opponent, and pay attention to the health of your teammates, as a clutch heal can turn the tide of a fight.</div>'
+                        'description': 'When equipped with Siphonator you passively heal for 5 health every second and any damage you deal to enemies heals you for 50% of the damage dealt. Additionally, your friendly fire heals your teammates for 50% of weapon damage, all up to a maximum of 150 health. <div>Seek out 1v1 confrontations safe in the knowledge that you can outlast your opponent, and pay attention to the health of your teammates, as a clutch heal can turn the tide of a fight.</div>'
                         }, 
         'vanguard':     {'powerupImage': '/html/images/entities/vanguard.png.dds',
                         'entries':{'initial_spawn': '1:00',

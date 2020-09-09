@@ -263,7 +263,7 @@ function render_leaderboard(first_pos, data, self) {
     let more_pages = false;
     if (data && data.length > global_leaderboards_data['max_per_page']) more_pages = true;
 
-    render_leaderboard_controls(more_pages);
+    render_leaderboard_controls(more_pages, self_rendered, self);
 
     leaderboards_table.appendChild(fragment);
 }
@@ -321,7 +321,7 @@ function leaderboard_on_row_click(e) {
 }
 
 let global_leaderboard_controls = undefined;
-function render_leaderboard_controls(more_pages) {
+function render_leaderboard_controls(more_pages, self_rendered, self) {
 
     if (global_leaderboards_data['page'] >= global_leaderboards_max_page) {
         more_pages = false;
@@ -350,6 +350,17 @@ function render_leaderboard_controls(more_pages) {
             global_leaderboard_controls["count"].classList.remove("hidden");
         }
         _html(global_leaderboard_controls["count"], global_leaderboards_data['page']);
+
+        if (global_leaderboard_controls.hasOwnProperty("go_to_self")) { 
+            if (self && self.hasOwnProperty("position") && self.position && !self_rendered) {
+                global_leaderboard_controls.go_to_self.dataset.position = self.position;
+                global_leaderboard_controls.go_to_self.classList.remove("hidden");
+            } else {
+                global_leaderboard_controls.go_to_self.dataset.position = -1;
+                global_leaderboard_controls.go_to_self.classList.add("hidden");
+            }
+        }
+
         return;
     }
 
@@ -403,5 +414,30 @@ function render_leaderboard_controls(more_pages) {
 
     if (global_leaderboards_data['page'] == 1 && !more_pages) page_count.classList.add("hidden");
 
+    cont.appendChild(_createElement("div", "bottom_left"));
     cont.appendChild(nav);
+
+    let bottom_right = _createElement("div", "bottom_right");
+    cont.appendChild(bottom_right);
+
+    let go_to_self = _createElement("div", ["db-btn"], localize("leaderboards_go_to_self"));
+    if (self && self.hasOwnProperty("position") && self.position && !self_rendered) {
+        go_to_self.dataset.position = self.position;
+        go_to_self.classList.remove("hidden");
+    } else {
+        go_to_self.dataset.position = -1;
+        go_to_self.classList.add("hidden");
+    }
+    go_to_self.addEventListener("click", function() {
+        let position = Number(go_to_self.dataset.position);
+        if (position <= 0) return;
+        if (position > 500) return;
+
+        global_leaderboards_data['page'] = Math.ceil(position / global_leaderboards_data.max_per_page);;
+        load_leaderboard();
+        render_leaderboard_controls(true);
+    });
+    global_leaderboard_controls["go_to_self"] = go_to_self;
+    _addButtonSounds(go_to_self, 1);
+    bottom_right.appendChild(go_to_self);
 }

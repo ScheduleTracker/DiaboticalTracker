@@ -1283,6 +1283,7 @@ function show_game_over(show, placement, team_count) {
             
         }
 
+        engine.call("sound_clear_queue");
         if (sound.length) engine.call("ui_sound_queue", sound);
 
         setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);

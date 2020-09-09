@@ -203,7 +203,11 @@ function update_server_location_selection() {
 
         region_head.appendChild(main_cb);
         region_head.appendChild(_createElement("div", "region_name", region));
-        region_head.appendChild(_createElement("div", "region_ping", "999 ms"));
+        region_head.appendChild(_createElement("div", ["region_ping", "first"], "999 ms"));
+        if (global_server_regions[region].length > 1) {
+            region_head.appendChild(_createElement("div", "ping_seperator", "-"));
+            region_head.appendChild(_createElement("div", ["region_ping", "second"], "999 ms"));
+        }
 
         let datacenters = _createElement("div", "datacenters");
         region_div.appendChild(datacenters);
@@ -352,7 +356,7 @@ function update_server_location_pings(data) {
         }
     });
 
-    _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".region_ping", function(el) {
+    _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".region_ping.first", function(el) {
         let region = el.closest(".region");
         if (region.dataset.region in region_pings) {
             let best = 999;
@@ -360,15 +364,31 @@ function update_server_location_pings(data) {
                 if (ping < best) best = ping;
             }
             el.textContent = best+" ms";
-             if (best < 45) {
-                el.style.color = global_ping_colors['green'];
-            } else if (best < 90) {
-                el.style.color = global_ping_colors['yellow'];
-            } else if (best < 130) {
-                el.style.color = global_ping_colors['orange'];
-            } else {
-                el.style.color = global_ping_colors['red'];
+            if (best < 45) el.style.color = global_ping_colors['green'];
+            else if (best < 90) el.style.color = global_ping_colors['yellow'];
+            else if (best < 130) el.style.color = global_ping_colors['orange'];
+            else el.style.color = global_ping_colors['red'];
+
+        } else {
+            el.textContent = "N/A";
+            el.style.color = global_ping_colors['red'];
+        }
+    });
+
+
+    _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".region_ping.second", function(el) {
+        let region = el.closest(".region");
+        if (region.dataset.region in region_pings) {
+            let worst = 0;
+            for (let ping of region_pings[region.dataset.region]) {
+                if (ping > worst) worst = ping;
             }
+            el.textContent = worst+" ms";
+            if (worst < 45) el.style.color = global_ping_colors['green'];
+            else if (worst < 90) el.style.color = global_ping_colors['yellow'];
+            else if (worst < 130) el.style.color = global_ping_colors['orange'];
+            else el.style.color = global_ping_colors['red'];
+            
         } else {
             el.textContent = "N/A";
             el.style.color = global_ping_colors['red'];
