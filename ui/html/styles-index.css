@@ -1800,7 +1800,7 @@ body, html {
     animation-play-state: running;
 }
 .region_select_modal .body {
-    width:80vh;
+    width:90vh;
     background-image: url(/html/images/worldmap_transparent.png);
     background-repeat: no-repeat no-repeat;
     background-position: center;
@@ -1814,7 +1814,7 @@ body, html {
 }
 .region_select_modal .region {
     width:33%;
-    padding:3vh 2vh;
+    padding:3vh 2vh 2vh 2vh;
     transition:background-color 0.15s ease;
 }
 .region_select_modal .empty-region {

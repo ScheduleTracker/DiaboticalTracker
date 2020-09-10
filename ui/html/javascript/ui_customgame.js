@@ -471,7 +471,7 @@ function set_lobby_custom_commands(value) {
 }
 
 function set_lobby_datacenter(value) {
-    if (value.trim().length == 0 || value.trim() == '""' || value.trim() == "''" || value == "lan") {
+    if (value.trim().length == 0 || value.trim() == '""' || value.trim() == "''") {
         let best_regions = get_best_regions_by_ping();
         if (best_regions.length) {
             update_variable("string", "lobby_custom_datacenter", best_regions[0]);
@@ -1156,7 +1156,11 @@ function reset_lobby_settings() {
     engine.call("initialize_select_value", "lobby_custom_ready_percentage");
 
     // Reset variable-less options back to their defaults
-    global_customSettingElements["auto_balance"].dataset.value = "1";
+    if (global_customSettingElements["visibility"].dataset.value == "0") {
+        global_customSettingElements["auto_balance"].dataset.value = "1";
+    } else {
+        global_customSettingElements["auto_balance"].dataset.value = "0";
+    }
     update_select(global_customSettingElements["auto_balance"]);
     global_customSettingElements["model"].dataset.value = "0";
     update_select(global_customSettingElements["model"]);
@@ -1187,7 +1191,11 @@ function lobby_reset_settings_default() {
     update_variable("string", "lobby_custom_ready_percentage", "1");
     update_variable("string", "lobby_custom_commands", "");
 
-    global_customSettingElements["auto_balance"].dataset.value = "1";
+    if (global_customSettingElements["visibility"].dataset.value == "0") {
+        global_customSettingElements["auto_balance"].dataset.value = "1";
+    } else {
+        global_customSettingElements["auto_balance"].dataset.value = "0";
+    }
     update_select(global_customSettingElements["auto_balance"]);
     global_customSettingElements["model"].dataset.value = "0";
     update_select(global_customSettingElements["model"]);

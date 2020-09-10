@@ -490,14 +490,19 @@ function set_region_selection(from_engine, regions) {
                 if (initial_server_locations_ready) {
                     clearInterval(interval);
                     let datacenters = get_best_regions_by_ping();
-
-                    // sort the locations by ping asc
-                    datacenters.sort(function(a, b) {
-                        if (!(a in global_server_locations)) return 1;
-                        if (!(b in global_server_locations)) return -1;
-                        return global_server_locations[a].ping - global_server_locations[b].ping;
-                    });
-                    send_string(CLIENT_COMMAND_SET_PARTY_LOCATIONS, datacenters.join(":"));
+                    if (datacenters.length) {
+                        // sort the locations by ping asc
+                        datacenters.sort(function(a, b) {
+                            if (!(a in global_server_locations)) return 1;
+                            if (!(b in global_server_locations)) return -1;
+                            return global_server_locations[a].ping - global_server_locations[b].ping;
+                        });
+                        send_string(CLIENT_COMMAND_SET_PARTY_LOCATIONS, datacenters.join(":"));
+                        update_variable("string", "lobby_region", datacenters.join(":"));
+                    } else {
+                        // Open Region selection if we couldn't find any good regions automatically
+                        open_modal_screen('region_select_modal_screen', null, 1000);
+                    }
                 }
 
                 // Abort if nothing happened within 5 seconds

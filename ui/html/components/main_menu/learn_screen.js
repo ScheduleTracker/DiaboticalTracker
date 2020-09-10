@@ -1140,6 +1140,7 @@ function learn_screen_initialize_tab_gamemodes() {
                         'description': "Arena is a round based mode played in compact arenas where each player has 2 lives per round and spawns with a full loadout. When a round ends players move on to a different arena.<div>There are also weapon specific versions of arena in which you test your skills with a single weapon.</div>"
         },                   
         'macguffin':{   'entries':['spawn_health_armor',
+                                    'spawn_health_armor_attacking_trailing',
                                     'stable_health_armor',
                                     'initial_macguffin_spawn',
                                     'macguffin_steal_time',
@@ -1268,6 +1269,14 @@ function learn_screen_initialize_tab_gamemodes() {
                 infoCell.appendChild(infoCellText);
                 infoRow.appendChild(infoCell);
             }
+            else if(entry == 'spawn_health_armor_attacking_trailing'){
+                if(item == 'macguffin'){
+                    let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
+                    let infoCellText = _createElement("div", "text_container", "125 / 25");
+                    infoCell.appendChild(infoCellText);
+                    infoRow.appendChild(infoCell);
+                }
+            }    
             else if(entry == 'stable_health_armor'){
                 let value_hp = global_gamemode_data[item].hasOwnProperty('game_stable_hp') ? global_gamemode_data[item].game_stable_hp : global_gamemode_data.default.game_stable_hp;
                 let value_armor = global_gamemode_data[item].hasOwnProperty('game_stable_armor') ? global_gamemode_data[item].game_stable_armor : global_gamemode_data.default.game_stable_armor;
@@ -1375,7 +1384,7 @@ function learn_screen_initialize_tab_gamemodes() {
                 let infoCellText = _createElement("div", "text_container", value);
                 infoCell.appendChild(infoCellText);
                 infoRow.appendChild(infoCell);
-            }              
+            }          
             
            
             gamemodeInfoContainer.appendChild(infoRow);

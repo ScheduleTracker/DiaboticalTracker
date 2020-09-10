@@ -1614,7 +1614,19 @@ function anim_misc(timestamp) {
     window.requestAnimationFrame(anim_misc);
 }
 
-function open_modal_screen(id, cb) {
+function open_modal_screen(id, cb, lock_modal) {
+    // Prevent modal from being closed for lock_modal time (or unlimited if -1)
+    if (lock_modal !== undefined) {
+        if (lock_modal == -1) {
+            global_manual_modal_close_disabled = true;
+        } else if (lock_modal > 0) {
+            global_manual_modal_close_disabled = true;
+            setTimeout(function() {
+                global_manual_modal_close_disabled = false;
+            }, lock_modal);
+        }
+    }
+
     _id("modal_dialogs").style.display = "block";
 
     engine.call("ui_sound", "ui_window_open");
@@ -1842,6 +1854,11 @@ function setupVariousListeners() {
     // /devop ui_call open_profile <id>
     bind_event("open_profile", function(id) {
         open_player_profile(id);
+    });
+
+    // /devop ui_call open_match <id>
+    bind_event("open_match", function(id) {
+        open_match(id);
     });
 }
 
