@@ -790,12 +790,14 @@ game race
 	map tt_foundry
 	map tt_rwc
 	map tt_temple_escape
-	map tt_cathedral
-	map tt_dojo 
-	map tt_quarry
-	map tt_titans_crossing
-	map tt_qunai_peaks
-	map tt_cliffside_canyons
+	map tt_zen
+	map tt_ctf_cathedral
+	map tt_ctf_dojo 
+	map tt_ctf_quarry
+	map tt_gr_titans_crossing
+	map tt_gr_qunai_peaks
+	map tt_gr_cliffside_canyons
+
 	
 	
 	weapon sword 999
