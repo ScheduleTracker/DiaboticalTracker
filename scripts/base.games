@@ -643,6 +643,8 @@ game macguffin
 
 	map mg_sunken
 	map mg_marina
+	map mg_test_1
+	map mg_test_2
 	
 
 	weapon sword 999
