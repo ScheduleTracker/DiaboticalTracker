@@ -89,7 +89,7 @@ maps\ig_terminal-b.png		18726
 maps\ig_terminal-h.png		339014
 maps\ig_terminal.rbe		33289684
 maps\iga_grainyard.rbe		8036424
-maps\iga_temple.rbe		10839121
+maps\iga_temple.rbe		13414657
 maps\menu.rbe		3008309
 maps\menu1-b.png		4036
 maps\menu1-h.png		128325
@@ -121,6 +121,10 @@ maps\mg_marina-b.png		8774
 maps\mg_marina-h.png		373884
 maps\mg_marina.rbe		29020463
 maps\mg_sunken.rbe		19129199
+maps\mg_test_1.rbe		9790573
+maps\mg_test_2-b.png		3764
+maps\mg_test_2-h.png		362276
+maps\mg_test_2.rbe		9602987
 maps\practice.rbe		12866625
 maps\stage.rbe		610811
 maps\tdm_alchemy-b.png		2876
