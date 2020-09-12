@@ -571,8 +571,8 @@ window.addEventListener("load", function(){
     });
 
     bind_event("server_log_message", function(key, value1, value2) {
-        if (key == "connected") {
-            addServerChatMessage(localize_ext("ingame_chat_msg_client_connected", {"name": value1}));
+        if (key == "connecting") {
+            addServerChatMessage(localize_ext("ingame_chat_msg_client_connecting", {"name": value1}));
         } else if (key == "disconnected") {
             addServerChatMessage(localize_ext("ingame_chat_msg_client_disconnected", {"name": value1}));
         } else if (key == "join_team") {

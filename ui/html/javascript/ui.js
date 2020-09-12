@@ -1362,6 +1362,8 @@ function set_masterserver_connection_state(connected, initial) {
                 // Shop
                 load_shop_data();
             }
+
+            console.log("POSTAPIAUTH100");
         });
 
         // Only request these things the first time around to avoid any extra hickups when reconnecting during gameplay

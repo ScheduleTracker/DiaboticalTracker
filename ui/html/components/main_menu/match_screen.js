@@ -34,6 +34,7 @@ function renderMatchScreen(match) {
     top.appendChild(back);
 
     let match_id = _createElement("div", "match_id", match.match_id);
+    match_id.addEventListener("click", function() { engine.call("copy_text", match.match_id); });
     top.appendChild(match_id);
 
     // ====== //
