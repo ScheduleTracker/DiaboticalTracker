@@ -144,7 +144,7 @@ game default
 	setting phy_strafe_mode 1
 	setting phy_triple_jump 0
 	setting net_server_hitscan 1
-	settomg net_max_backwards_reconciliation_ping 0.12
+	setting net_max_backwards_reconciliation_ping 0.12
 
 }
 
@@ -163,7 +163,7 @@ game tutorial
 game edit
 {
 	setting net_server_hitscan 0
-	settomg net_max_backwards_reconciliation_ping 0
+	setting net_max_backwards_reconciliation_ping 0
 	setting game_enable_items 1
 	setting game_self_damage 0
 	setting game_friendly_fire 0
