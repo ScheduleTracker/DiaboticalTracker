@@ -42,7 +42,7 @@ function init_screen_home() {
   PrismicJS.getApi(apiEndpoint)
     .then(function(api) {
       return api.query(
-        PrismicJS.Predicates.at("document.type", "patch_note_ingame"),
+        PrismicJS.Predicates.any("document.type", ["patch_note_ingame", "temp_ingame_announcement"]),
         {
           orderings: "[document.last_publication_date desc]",
           pageSize: 8
@@ -53,7 +53,12 @@ function init_screen_home() {
       function(response) {
         if (response.results.length > 0) {
           for(let i=0; i<response.results.length; i++){
-            add_patch_notes(response.results[i].data);
+            if(response.results[i].type == "patch_note_ingame"){
+              add_patch_notes(response.results[i].data);
+            }
+            else if(response.results[i].type == "temp_ingame_announcement"){
+              add_ingame_announcement(response.results[i].data);
+            }
           }
           refreshScrollbar(_id("home_screen_patch_notes_cont").querySelector(".scroll-outer"));
         }
@@ -77,6 +82,63 @@ setTimeout(() => {
   update_motd({ uid: 'mocked', slugs: null, data: { title: [ { text:  'This is a title' } ], subtitle: [ { text: 'The subtitle' } ], background: null } });
 }, 3000);
 */
+
+function add_ingame_announcement(announcement_data){
+  console.log(_dump(announcement_data));
+  _id("home_screen_patch_notes_cont").style.display = "flex";
+
+  let header_row = _createElement("div", "patch_header");
+  if(announcement_data.title && announcement_data.title.length){
+    let title = _createElement("div", "patch_version", announcement_data.title[0].text);  
+    header_row.appendChild(title);
+  }
+
+  if(announcement_data.timestamp){
+    let announcement_timestamp = new Date(announcement_data.timestamp);
+    let announcement_date = _createElement("div", "patch_date", announcement_timestamp.toDateString());
+    header_row.appendChild(announcement_date);
+  }
+
+  _id("home_screen_patch_notes_body").appendChild(header_row);
+
+  if(announcement_data.image.hasOwnProperty('url')){
+    let announcement_image = _createElement("div", "full_image");  
+    announcement_image.style.backgroundImage = `url("${announcement_data.image.url}")`;
+    announcement_image.style.paddingTop = (announcement_data.image.dimensions.height  / announcement_data.image.dimensions.width) * 100 + '%';
+    if(announcement_data.url.hasOwnProperty('url')){
+      announcement_image.addEventListener("click", function(){
+        engine.call('open_browser', announcement_data.url.url);
+      })
+    }
+    _id("home_screen_patch_notes_body").appendChild(announcement_image);
+  }
+
+  if(announcement_data.information && announcement_data.information.length){
+    var announcement_text = announcement_data.information[0].text;
+
+    if(announcement_text.length > 0) {
+      let announcement_body = _createElement("div", "patch_section_notes")
+      announcement_body.innerHTML = createLineBreaksFromString(announcement_text);
+      _id("home_screen_patch_notes_body").appendChild(announcement_body);
+    }
+  }
+}
+
+function insertPrismicSpan(text, spans){
+  let styledHTML = ""
+  if(spans.length){
+    if(spans[0].type == 'hyperlink'){
+      var startPos = spans[0].start;
+      var endPos = spans[0].end;
+      styledHTML = [text.slice(0, endPos), '</div>', text.slice(endPos)].join('');
+      styledHTML = [text.slice(0, startPos), '<div>', text.slice(startPos)].join('');
+    }
+  }
+  else{
+    styledHTML = text;
+  }
+  return styledHTML
+}
 
 function add_patch_notes(patch_data){
   _id("home_screen_patch_notes_cont").style.display = "flex";
@@ -105,15 +167,17 @@ function add_patch_notes(patch_data){
     }
   }
 
-  for(const section of patch_data.body){
-    if(section.patch_section_title && section.patch_section_title.length){
-      let title = _createElement("div", "patch_section_title", section.patch_section_title[0].text);
-      _id("home_screen_patch_notes_body").appendChild(title);
-    }  
-    let content = _createElement("div", "patch_section_notes");
-    let contentHTML = getPatchNoteListFromCMS(section.patch_section_notes);
-    content.innerHTML = contentHTML;
-    _id("home_screen_patch_notes_body").appendChild(content);
+  if(patch_data.body && patch_data.body.length){
+    for(const section of patch_data.body){
+      if(section.patch_section_title && section.patch_section_title.length){
+        let title = _createElement("div", "patch_section_title", section.patch_section_title[0].text);
+        _id("home_screen_patch_notes_body").appendChild(title);
+      }  
+      let content = _createElement("div", "patch_section_notes");
+      let contentHTML = getPatchNoteListFromCMS(section.patch_section_notes);
+      content.innerHTML = contentHTML;
+      _id("home_screen_patch_notes_body").appendChild(content);
+    }
   } 
 
   if(patch_data.patch_outroduction && patch_data.patch_outroduction.length){

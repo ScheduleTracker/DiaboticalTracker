@@ -228,9 +228,7 @@ function load_notifications() {
 
         if (global_notifs.getNotificationCount() > 0) {
             // load the next notification if there is one
-            setTimeout(() => {
-                load_notifications();
-            }, 750);
+            load_notifications();
         }
     }
 

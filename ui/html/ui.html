@@ -407,11 +407,6 @@
 <link href="/html/styles-index.css" rel="stylesheet"></head>
 
 <body style="display: none;">
-    <div id="main_logged_out">
-    <div class="logo"></div>
-    <div id="logout_reason" class="logged_out"></div>
-    <div class="quit db-btn plain mouseover-sound4 click-sound" onclick="engine.call('quit')">Quit</div>
-</div> 
     <div id="main_menu" >
     <div id="lobby_container">
 <!--
@@ -712,7 +707,7 @@
     </div>
 
     <div id="home_screen_patch_notes_cont">
-      <div class="home_head">Changelog</div>
+      <div class="home_head i18n" data-i18n="home_screen_announcements">Announcements</div>
       <div class="scroll-outer" style="flex: 1 0 0" data-sb-hide-empty="true">
         <div class="scroll-bar"><div class="scroll-thumb"></div></div>
         <div class="scroll-inner">                
@@ -5519,6 +5514,11 @@
     <div id="tooltip2"></div>
 </div>
  
+    <div id="main_logged_out">
+    <div class="logo"></div>
+    <div id="logout_reason" class="logged_out"></div>
+    <div class="quit db-btn plain mouseover-sound4 click-sound" onclick="engine.call('quit')">Quit</div>
+</div> 
     <div id=console>
     <div id=console_buffer_wrapper><div id=console_buffer></div></div>
     <div id=console_prompt_container><input tabindex="-1" id=console_prompt value=""></div>

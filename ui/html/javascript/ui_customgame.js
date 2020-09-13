@@ -218,6 +218,14 @@ function init_screen_custom() {
     ui_setup_select(global_customSettingElements["visibility"], function(opt, field) {
         if (bool_am_i_host) {
             update_variable("string", field.dataset.variable, opt.dataset.value);
+
+            if (opt.dataset.value == "0") {
+                global_customSettingElements["auto_balance"].dataset.value = "1";
+            } else {
+                global_customSettingElements["auto_balance"].dataset.value = "0";
+            }
+            update_select(global_customSettingElements["auto_balance"]);
+
             update_custom_game_visibility();
             custom_lobby_setting_updated(field.dataset.variable, opt.dataset.value);
         }
@@ -232,6 +240,14 @@ function init_screen_custom() {
     ui_setup_select(global_customSettingElements["auto_balance"], function() {
         if (bool_am_i_host) custom_game_settings_changed();
     });
+    // Select fields should already be initialized with the correct values at this point
+    if (global_customSettingElements["visibility"].dataset.value == "0") {
+        global_customSettingElements["auto_balance"].dataset.value = "1";
+    } else {
+        global_customSettingElements["auto_balance"].dataset.value = "0";
+    }
+    update_select(global_customSettingElements["auto_balance"]);
+
     ui_setup_select(global_customSettingElements["team_switching"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["physics"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["ready_percentage"], custom_update_variable_if_host);

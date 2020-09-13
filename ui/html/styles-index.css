@@ -7269,13 +7269,13 @@ h2 {
 #home_screen_left {
   position: absolute;
   left: 0;
-  top: 10vh; /* Top bar is 6vh high*/
+  top: 7vh; /* Top bar is 6vh high*/
   bottom: 0vh; /* Bottom bar is 4vh high */
   display: flex;
   flex-direction:column;
   justify-content: flex-start;
   align-items: center;
-  width: 40%;
+  width: 33%;
   max-width: 100vw;
 }
 
@@ -7343,7 +7343,7 @@ h2 {
 #home_screen_patch_notes_cont{
   display: none;
   position: relative;
-  height: 40vh;
+  height: 47vh;
   width: 40vh;
   background-color: rgba(26, 27, 31, 1);
   box-shadow: 0px 2px 27px 0px rgba(0, 0, 0, 0.55);
@@ -7374,11 +7374,10 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 2vh;
   background-color: rgb(43, 44, 46);
   font-weight: 500;
   font-size: 1.4vh;
-  padding-top: 0.2vh;
+  padding-top: 0.8vh;
 }
 
 #home_screen_patch_notes_cont .patch_section_notes{
@@ -7389,6 +7388,16 @@ h2 {
   margin-bottom: 0.3vh;
   font-size: 1.25vh;
   line-height: 1.6em;
+}
+
+#home_screen_patch_notes_cont .full_image{
+  width: 100%;
+  height: 0;
+  margin-top: 0.3vh; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgb(43, 44, 46);
 }
 
 #home_screen_motd_window * {
