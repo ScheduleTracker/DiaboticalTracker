@@ -60,7 +60,7 @@ maps\duel_frontier-h.png		253612
 maps\duel_frontier.rbe		16304753
 maps\duel_kasbah.rbe		26359001
 maps\duel_outpost_dunia.rbe		17971907
-maps\duel_perilous.rbe		24945706
+maps\duel_perilous.rbe		24945926
 maps\duel_skybreak.rbe		10922342
 maps\example-b.png		2277
 maps\example-h.png		8528
@@ -89,6 +89,7 @@ maps\ig_terminal-b.png		18726
 maps\ig_terminal-h.png		339014
 maps\ig_terminal.rbe		33299684
 maps\iga_grainyard.rbe		8036548
+maps\iga_strife.rbe		16397847
 maps\iga_temple.rbe		15024313
 maps\menu.rbe		3008333
 maps\menu1-b.png		4036
@@ -125,7 +126,7 @@ maps\mg_test_1.rbe		9813789
 maps\mg_test_2-b.png		3764
 maps\mg_test_2-h.png		362276
 maps\mg_test_2.rbe		9657009
-maps\practice.rbe		12966531
+maps\practice.rbe		12966237
 maps\stage.rbe		610815
 maps\tdm_alchemy-b.png		2876
 maps\tdm_alchemy-h.png		473727
@@ -169,7 +170,7 @@ maps\tt_quarry.rbe		51687292
 maps\tt_qunai_peaks-b.png		61830
 maps\tt_qunai_peaks-h.png		260521
 maps\tt_qunai_peaks.rbe		33845415
-maps\tt_rwc.rbe		9443902
+maps\tt_rwc.rbe		9443961
 maps\tt_temple_escape.rbe		34374845
 maps\tt_titans_crossing.rbe		5745442
 maps\tt_zen.rbe		13036405
