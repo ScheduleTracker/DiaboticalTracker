@@ -45,7 +45,7 @@ blaster
   	ground_knockback 17.5
 	ground_knockback_self 20
 
-	hit_radius 2 0
+	hit_radius 2.2 1
 	
 	combo_rate	machinegun 100
 	combo_rate  super_shotgun 100
@@ -127,13 +127,13 @@ super_shotgun
 	min_hits 2
 	bounce 0
 	spread_ring 0 6 6
-	knockback 4.5
-	ground_knockback 4.5
+	knockback 4.7
+	ground_knockback 4.7
 	parallel_knockback true
 	impact_particles_distance_delay 0.12
 	independent_upgrade_model true
 	
-	hit_radius 1.5 3
+	hit_radius 1.7 3
 	
 	category 2
 	bind_group 2
@@ -207,9 +207,9 @@ shaft
 	category 4
 	bind_group 4
 
-	hit_radius 2.5 1
+	hit_radius 2.6 1.1
 
-	knockback 9.6
+	knockback 9.9
 	ground_knockback 9
 	distance 768
 	default_ammo_pickup_ammo 50
@@ -294,7 +294,7 @@ rocket_launcher
  	rate 800
   	damage 100
 	min_splash_damage 5
-	splash_damage 95
+	splash_damage 92
 	splash_hemisphere_offset 20
     splash_hemisphere_offset_damage_multiplier 0.30
 	default_ammo_pickup_ammo 5
@@ -303,7 +303,8 @@ rocket_launcher
 	//target_indicator true
 	category 3
 	bind_group 3
-	hit_radius 2 0
+	
+	hit_radius 2 1
     
     friendly_name Rocket Launcher
     description A rocket launcher.
@@ -311,7 +312,7 @@ rocket_launcher
 	charge_animation 6
 	
   	splash_radius 125
-	knockback 105
+	knockback 100
 	knockback_self 115
 	ground_knockback 80
 	ground_knockback_self 115
@@ -591,7 +592,8 @@ machinegun
 	knockback 4
 	ground_knockback 4
     charge_animation 1
-	hit_radius 2 0
+	
+	hit_radius 2 1
 	
 //	combo_rate	machinegun 100
 	combo_rate  super_shotgun 50
@@ -671,7 +673,7 @@ grenade_launcher
 	max_ammo 25
 	target_indicator true
 	bind_group 7
-	hit_radius 1
+	hit_radius 2 1
 
 	gravity 450
 	gravity_pitch_offset 0.1
