@@ -1450,6 +1450,9 @@ function set_draft_visible(visible, data) {
     let countdown = 10;
     
     if (visible) {
+        // Close any open modal windows
+        goUpALevel();
+
         anim_show(_id("draft_screen_countdown"));
         _id("draft_screen_backbutton").style.display = "none";
 

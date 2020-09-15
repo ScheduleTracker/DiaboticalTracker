@@ -597,7 +597,7 @@ var global_rarity_map = {
 var GLOBAL_AVAILABLE_COUNTRY_FLAGS = [
     "af","ax","al","dz","as","ad","ao","ai","ag","ar","am","aw","au","at","az","bs","bh","bd","bb","by","be","bz","bj","bm","bt","bo","ba","bw",
     "br","io","bn","bg","bf","bi","cv","kh","cm","ca","ky","cf","td","cl","cn","cx","cc","co","km","cg","cd","ck","cr","ci","hr","cu","cw","cz",
-    "dk","dj","dm","do","ec","eg","sv","gq","er","ee","sz","et","fk","fj","fi","fr","pf","ga","gm","ge","de","gh","gi","gr","gl","gd","gu","gt",
+    "dk","dj","dm","do","ec","eg","sv","gq","er","ee","sz","et","fk","fj","fi","fo","fr","pf","ga","gm","ge","de","gh","gi","gr","gl","gd","gu","gt",
     "gg","gn","gw","gy","ht","va","hn","hk","hu","is","in","id","ir","iq","ie","im","il","it","jm","jp","je","jo","kz","ke","ki","kp","kr","kw","kg",
     "la","lv","lb","ls","lr","ly","li","lt","lu","mo","mg","mw","my","mv","ml","mt","mh","mq","mr","mu","mx","fm","md","mc","mn","me","ms","ma",
     "mz","mm","na","nr","np","nl","nz","ni","ne","ng","nu","nf","mk","no","om","pk","pw","ps","pa","pg","py","pe","ph","pl","pt","pr","qa","ro",

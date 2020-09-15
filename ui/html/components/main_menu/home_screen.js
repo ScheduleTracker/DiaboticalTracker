@@ -106,6 +106,8 @@ function add_ingame_announcement(announcement_data){
     announcement_image.style.backgroundImage = `url("${announcement_data.image.url}")`;
     announcement_image.style.paddingTop = (announcement_data.image.dimensions.height  / announcement_data.image.dimensions.width) * 100 + '%';
     if(announcement_data.url.hasOwnProperty('url')){
+      announcement_image.addEventListener("mousedown", _play_click1);
+      announcement_image.addEventListener("mouseenter", _play_mouseover2);
       announcement_image.addEventListener("click", function(){
         engine.call('open_browser', announcement_data.url.url);
       })

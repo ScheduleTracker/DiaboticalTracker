@@ -8,7 +8,7 @@ function load_match(match_id) {
 }
 
 function renderMatchScreen(match) {
-    //console.log(_dump(match));
+    console.log(_dump(match));
     let cont = _id("match_screen");
     _empty(cont);
     
@@ -230,7 +230,14 @@ function renderMatchScreen(match) {
             }
         }
 
+        // Render players that quit in ffa games
         if (ffa && data.teams[0].switched.length > 0 && 0 in data.switched_summary) {
+            let t = {
+                "placement": 254,
+                "name": "",
+                "team_idx": 254,
+                "score": 0,
+            };
             let team_cont = _createElement("div", "team");
             tab_cont.appendChild(team_cont);
             team_cont.appendChild(renderDataRow("summary", t, data.switched_summary[0], player_count, current_tab, data.weapons));

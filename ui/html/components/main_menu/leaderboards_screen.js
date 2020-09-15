@@ -86,7 +86,7 @@ function init_screen_leaderboards() {
     });
 }
 
-
+let global_leaderboard_last_req = null;
 function load_leaderboard(mode) {
     if (mode) {
         let mode_filter = _id("leaderboards_screen_filter_gamemode");
@@ -178,10 +178,15 @@ function load_leaderboard(mode) {
     if (global_request_leaderboard_timeout !== undefined) {
         clearTimeout(global_request_leaderboard_timeout);
     }
+    
+    let req_wait = 0;
+    if (global_leaderboard_last_req !== null && (Date.now() - global_leaderboard_last_req) < 200) req_wait = 200;
+    global_leaderboard_last_req = Date.now();
+
     global_request_leaderboard_timeout = setTimeout(() => {
         multi_req_handler("leaderboards_screen", requests, on_success, on_delay, on_timeout, on_pagechange);
         global_request_leaderboard_timeout = undefined;
-    }, 200);
+    }, req_wait);
 
     _empty(leaderboards_table);
     leaderboards_table.appendChild(_createSpinner());

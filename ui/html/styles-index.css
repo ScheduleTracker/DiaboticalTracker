@@ -7400,6 +7400,11 @@ h2 {
   background-color: rgb(43, 44, 46);
 }
 
+#home_screen_patch_notes_cont .full_image:hover{
+  box-shadow: inset 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+
 #home_screen_motd_window * {
   color: #ccc;
 }

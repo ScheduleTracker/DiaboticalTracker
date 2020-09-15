@@ -1229,9 +1229,11 @@ function show_game_over(show, placement, team_count) {
     let el_placement = _id("game_over_placement");
 
     let sound = "";
+    let music = "";
+    let anim = "";
 
     if (show) {
-        let anim = "v";
+        anim = "v";
         if (team_count <= 2) {
             if (placement == 0) {
                 el_victory.style.display = "flex";
@@ -1239,12 +1241,14 @@ function show_game_over(show, placement, team_count) {
                 el_placement.style.display = "none";
                 anim = "v";
                 sound = "announcer_common_game_win";
+                music = "music_victory";
             } else {
                 el_victory.style.display = "none";
                 el_defeat.style.display = "flex";
                 el_placement.style.display = "none";
                 anim = "d";
                 sound = "announcer_common_game_loss";
+                music = "music_defeat";
             }
         } else {
             if (placement == 0) {
@@ -1253,9 +1257,9 @@ function show_game_over(show, placement, team_count) {
                 el_placement.style.display = "none";
                 anim = "v";
                 sound = "announcer_common_game_win";
+                music = "music_victory";
             } else {
-                if (placement == 0)       { el_placement.textContent = localize("ingame_placement_1"); sound = "announcer_common_place_01"; }
-                else if (placement == 1)  { el_placement.textContent = localize("ingame_placement_2"); sound = "announcer_common_place_02"; }
+                if (placement == 1)       { el_placement.textContent = localize("ingame_placement_2"); sound = "announcer_common_place_02"; }
                 else if (placement == 2)  { el_placement.textContent = localize("ingame_placement_3"); sound = "announcer_common_place_03"; }
                 else if (placement == 3)  { el_placement.textContent = localize("ingame_placement_4"); sound = "announcer_common_place_04"; }
                 else if (placement == 4)  { el_placement.textContent = localize("ingame_placement_5"); sound = "announcer_common_place_05"; }
@@ -1279,12 +1283,15 @@ function show_game_over(show, placement, team_count) {
                 el_defeat.style.display = "none";
                 el_placement.style.display = "flex";
                 anim = "p";
+                music = "music_defeat";
             }
             
         }
 
         engine.call("sound_clear_queue");
         if (sound.length) setTimeout( function() { engine.call("ui_sound_queue", sound); }, 200);
+
+        if (music.length) engine.call("ui_sound", music);
 
         setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
 

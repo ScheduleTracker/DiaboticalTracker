@@ -88,7 +88,7 @@ function load_notifications() {
     if (!notif) return;
 
     // Open notifications first, this sets the background scene to empty
-    open_notifications();
+    if (global_menu_page != "notification_screen") open_notifications();
 
     //console.log(_dump(notif), _dump(global_user_battlepass));
 
@@ -223,12 +223,12 @@ function load_notifications() {
 
         send_string(CLIENT_COMMAND_DEL_NOTIFICATION, notif.notif_id);
 
-        // notification screen doesn't add a history entry, so this should move us back to the previously active page
-        historyOnPopState(global_history.current());
-
         if (global_notifs.getNotificationCount() > 0) {
             // load the next notification if there is one
             load_notifications();
+        } else {
+            // notification screen doesn't add a history entry, so this should move us back to the previously active page
+            historyOnPopState(global_history.current());
         }
     }
 
