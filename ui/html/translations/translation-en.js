@@ -1396,7 +1396,8 @@ var TRANSLATION_en =
 	"customization_av_AT1_30": "Serious Diabotical",
 	"customization_av_AT1_31": "Smoke Attack",
 	"customization_av_AT2_1": "Blast Off!",	
-	"customization_av_AT1_22": "Fighting Eggbot",	
+	"customization_av_AT1_22": "Fighting Eggbot",
+	"customization_av_AT3_3": "Pixely Implosion Hug",
 	//customization end Please keep these together so that they are easier to remove for the json
     "chat_spam_warning":"Message sent too quickly.",
     "chat_user_joined_party":"{name} has joined the party.",
@@ -2214,6 +2215,7 @@ var TRANSLATION_en =
     "battlepass_unlock_rewards_msg":"Upgrade now to unlock {count} {count, plural, one {reward} other {rewards}}!",
     "battlepass_unlocked_rewards":"Unlocked {count, plural, one {reward} other {rewards}}",
     "battlepass_unlock_item_msg":"Upgrade the Battle Pass to unlock this reward.",
+    "battlepass_unlock_disclaimer":"Buying a Season's Battle Pass is only possible during that Season. These rewards can only be obtained through this Season's Battle Pass, and once unlocked they become yours to keep and use whenever you choose.",
     "battlepass_item_level_requirement_msg":"Item requires Battle Pass level {level}.",
     "battlepass_free_item_level_requirement_msg":"Item requires Free Pass level {level}.",
     "battlepass_1_title": "Season 1",

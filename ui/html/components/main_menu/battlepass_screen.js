@@ -137,6 +137,10 @@ function render_battlepass_buttons(locked_count) {
         });
         fragment.appendChild(unlock_msg);
     }
+    if (global_user_battlepass.battlepass.owned == false) {
+        let unlock_disclaimer = _createElement("div", "unlock_disclaimer", localize("battlepass_unlock_disclaimer"));
+        fragment.appendChild(unlock_disclaimer);
+    }
 
     /*
     let btn_gift = _createElement("div", ["db-btn", "plain"], localize("battlepass_button_gift"));

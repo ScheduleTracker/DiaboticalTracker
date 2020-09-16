@@ -10372,6 +10372,11 @@ h2 {
     font-family:var(--main-font-medium);
     text-align:center;
 }
+#battlepass_buttons .unlock_disclaimer {
+    padding: 1vh;
+    text-align:center;
+    opacity:0.8;
+}
 
 
 #battlepass_daily_challenges {
