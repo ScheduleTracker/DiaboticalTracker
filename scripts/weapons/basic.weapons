@@ -68,7 +68,7 @@ blaster
   	
 	//muzzle_offset 4 -4 3	
 	//muzzle_offset 2.5 -3 0
-	muzzle_offset 8 -9 0
+	muzzle_offset 0 -5 0
     model weaponbl
     model_scale 0.06
     //model_position 2.5 -2.8 7
@@ -76,7 +76,7 @@ blaster
     model_position 2.5 -3.35 3.55
     model_camera_scale 0.6
     can_destroy 1
-    muzzle 10 -8 16
+    muzzle 0 0 0
     fov 30
 	
 	model_scale_third_person 1.1
@@ -86,6 +86,7 @@ blaster
         shot_particles empty_system
    	shot_particles_attached plasma_muzzle_tier_1
 	missile_particles plasma_bullet_tier_1
+	missile_particles_1p plasma_bullet_tier_1_1p
   	impact_particles plasma_impact_tier_1
 	
 	shot_sound bl_fire1 bl_fire2 bl_fire3 bl_fire4 bl_fire5
@@ -346,8 +347,8 @@ rocket_launcher
 	model_position 2.5 -3 3.28
 	model_camera_scale 0.5
 	can_destroy 1
-	muzzle 3 -4.5 20
-	muzzle_offset 2.5 -3 0
+	muzzle 0 0 0
+	muzzle_offset 0 0 0
 	fov 40
 	model_scale_third_person 1
 	model_position_third_person 0 4.5 4
@@ -432,7 +433,7 @@ crossbow
 
     //loop_animation true
   	
-	muzzle_offset 2.5 -3.22 0
+	muzzle_offset 0 0 0
 	
 	model weaponcb
 	model_scale 0.0625
@@ -445,7 +446,7 @@ crossbow
 
 	model_camera_scale 0.6
 	can_destroy 1
-	muzzle 10 -8 16
+	muzzle 0 0 0
 	fov 40
 	model_scale_third_person 1
 	model_position_third_person 3 2 12
@@ -717,7 +718,7 @@ grenade_launcher
 	model_pivot 0 -0.4 0
 	model_camera_scale 0.6
 	can_destroy 1
-	muzzle 3 -4.5 20
+	muzzle 0 0 0
 	fov 40
 	
 	model_scale_third_person 1.1

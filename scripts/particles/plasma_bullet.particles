@@ -108,6 +108,120 @@ plasma_bullet_tier_1
 
 }
 
+//Blaster 1p
+ tier_1_plasma_bullet_back_1p
+{
+    advance 1
+	delay 0.01
+	map particle_sheet3.png
+	geometry quad
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.2 0.2
+	// period 0.05
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 40
+	scale_end 40
+	//color_start 0.75 .25 2.5 1
+	color_start  0 2 4 1
+	color_end 0 2 4 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 4000 5000
+	range 0
+		angular_speed_start 12000
+} 
+
+ tier_1_plasma_bullet_circle_1p
+{
+    advance 1
+	delay 0.01
+	map particle_sheet5.png
+	geometry quad
+	region plasma_circle
+	blend alpha	
+	max_particles 6
+	max_emissions 0
+	lifetime 0.2 0.2
+	// period 0.05
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 31
+	scale_end 20
+	//color_start 0.75 .25 2.5 1
+	color_start  0.2 0.8 1.2
+	color_start 0.3 0.9 1.6	
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 4000 5000
+	range 0
+	angular_speed_start 12000
+} 
+
+ tier_1_plasma_ring_1p
+{
+	animation_speed 40
+    advance 1
+	delay 0.01
+	map plasma_ring.png
+	geometry quad
+	region plasma_ring
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.2 0.2
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 30 
+	scale_end 20
+	color_start  0 1 3 1
+	rotation_start 0 360
+	position 0 0 0
+	turbulence 4000 5000
+	range 0
+	angular_speed_start 12000 -12000
+} 
+ tier_1_plasma_ring_2_1p  tier_1_plasma_ring_1p
+{
+	region plasma_ring_2
+} 
+ tier_1_plasma_ring_3_1p  tier_1_plasma_ring_1p
+{
+	region plasma_ring_3
+} 
+ tier_1_plasma_ring_4_1p  tier_1_plasma_ring_1p
+{
+	region plasma_ring_4
+} 
+tier_1_plasma_bullet_light_1p base_light_impact_1p
+{
+	advance 0.05
+	lifetime 2 
+	system_light_radius 50	
+	system_light_intensity 4.5	
+	system_light_color 0.2 1.4  2
+	system_light_falloff 0
+	velocity 0 0 0
+}
+//SUBSYSTEM BULLET
+
+plasma_bullet_tier_1_1p
+{
+   	subsystem tier_1_plasma_bullet_back_1_1p
+	subsystem  tier_1_plasma_bullet_circle_1p
+	subsystem 	tier_1_plasma_ring_1p+tier_1_plasma_ring_2_1p+tier_1_plasma_ring_3_1p+tier_1_plasma_ring_4_1p
+	subsystem tier_1_plasma_bullet_light_1p
+	range 0
+
+}
+
 
 
 ///////////////////////////////-----------------TIER_2------------------------///////////////////////////////////

@@ -62,9 +62,9 @@ healing_weeble
 	model_rotation 186 10 -4
 	model_camera_scale 0.8
 	can_destroy 1
-	muzzle 2.6 -2.7 12
+	muzzle 0 0 0
 	fov 55
-	muzzle_offset 4 -5 0
+	muzzle_offset 0 0 0
 	
 	
 	shot_sound weeble_hw_fire1 weeble_hw_fire2 weeble_hw_fire3 weeble_hw_fire4 weeble_hw_fire5
@@ -145,9 +145,9 @@ pfx implode_weeble_filament slot_pfx_eye
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
 	can_destroy 1
-	muzzle 2.6 -2.7 12
+	muzzle 0 0 0
 	fov 55
-		muzzle_offset 4 -5 0
+		muzzle_offset 0 0 0
 	shot_sound weeble_iw_fire1 weeble_iw_fire2 weeble_iw_fire3 weeble_iw_fire4 weeble_iw_fire5
 	impact_sound iw_impact1
 	equip_sound iw_equip
@@ -220,9 +220,9 @@ slowfield_weeble
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
 	can_destroy 1
-	muzzle 2.6 -2.7 12
+	muzzle 0 0 0
 	fov 55
-	muzzle_offset 4 -5 0
+	muzzle_offset 0 0 0
 	
 	
 	shot_sound weeble_sw_fire1 weeble_sw_fire2 weeble_sw_fire3 weeble_sw_fire4 weeble_sw_fire5
@@ -314,9 +314,9 @@ explosive_weeble
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
 	can_destroy 1
-	muzzle 2.6 -2.7 12
+	muzzle 0 0 0
 	fov 55
-		muzzle_offset 4 -5 0
+		muzzle_offset 0 0 0
 		
 		
 	shot_sound weeble_bw_fire1 weeble_bw_fire2 weeble_bw_fire3 weeble_bw_fire4 weeble_bw_fire5
@@ -381,9 +381,9 @@ smoke_weeble
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
 	can_destroy 1
-	muzzle 2.6 -2.7 12
+	muzzle 0 0 0
 	fov 55
-	muzzle_offset 4 -5 0
+	muzzle_offset 0 0 0
 	
 	
 	shot_sound weeble_smw_fire1 weeble_smw_fire2 weeble_smw_fire3 weeble_smw_fire4 weeble_smw_fire5
@@ -457,9 +457,9 @@ knock_weeble
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
 	can_destroy 1
-	muzzle -2.6 -2.7 12
+	muzzle 0 0 0
 	fov 55
-	muzzle_offset -4 0 0
+	muzzle_offset 0 0 0
 		
 		
 	shot_sound weeble_bw_fire1 weeble_bw_fire2 weeble_bw_fire3 weeble_bw_fire4 weeble_bw_fire5
