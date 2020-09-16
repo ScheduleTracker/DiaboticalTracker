@@ -98,7 +98,7 @@ scripts\particles\pickup_ring.particles		496
 scripts\particles\pickup_rl.particles		1344
 scripts\particles\pickup_sg.particles		1355
 scripts\particles\plasma.particles		1514
-scripts\particles\plasma_bullet.particles		6394
+scripts\particles\plasma_bullet.particles		8620
 scripts\particles\plasma_decorative.particles		3558
 scripts\particles\plasma_impact.particles		9246
 scripts\particles\plasma_muzzle.particles		12713
@@ -229,10 +229,10 @@ scripts\trailerclips.movies-example		2569
 scripts\ui.sounds		117
 scripts\water_temple_materials.assets		876
 scripts\weapons\abilities.weapons		1291
-scripts\weapons\basic.weapons		20241
+scripts\weapons\basic.weapons		20265
 scripts\weapons\br.weapons		5927
 scripts\weapons\melee.weapons		814
 scripts\weapons\modes.weapons		0
-scripts\weapons\weebles.weapons		13903
+scripts\weapons\weebles.weapons		13860
 scripts\weapons\wmd.weapons		49
 scripts\zzmovie.movies-example		322
