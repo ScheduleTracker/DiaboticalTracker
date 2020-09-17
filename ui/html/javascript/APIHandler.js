@@ -179,7 +179,7 @@ function send_api_request(type, target, params, callback, secondtry) {
 
             if (apiHandler().auth_required == false || (secondtry !== undefined && secondtry)) {
                 // If this request doesn't require an auth token OR has already failed twice then stop trying again
-                engine.call("echo", "API Request failed, Auth Error");
+                engine.call("echo_error", "API_REQUEST_ERROR");
                 console.log("API Request failed, Auth Error", target, status);
                 if (typeof callback === "function") callback(null);
             } else {
@@ -193,21 +193,21 @@ function send_api_request(type, target, params, callback, secondtry) {
         } else if (status == 500) {
 
             // returned data couldn't be parsed, don't bother trying again
-            engine.call("echo", "API Request failed, Error 500");
+            engine.call("echo_error", "API_REQUEST_ERROR");
             console.log("API Request failed, Error 500");
             if (typeof callback === "function") callback(null);
 
         } else if (status == 408) {
 
             // request timed out
-            engine.call("echo", "API Request failed, Error 408");
+            engine.call("echo_error", "API_REQUEST_ERROR");
             console.log("API Request failed, Error 408");
             if (typeof callback === "function") callback(null);
 
         } else {
 
             // End point doesn't exist
-            engine.call("echo", "API Request failed, Error 4");
+            engine.call("echo_error", "API_REQUEST_ERROR");
             console.log("API Request failed, Error 4");
             if (typeof callback === "function") callback(null);
 

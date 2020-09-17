@@ -410,8 +410,6 @@
 #dialog_list .dialog .options .option.negative:active { background-color:rgb(235, 47, 47); }
 
 #dialog_list #dialog_sticky {
-    display: none;
-
     margin-bottom:1vh;
 }
 

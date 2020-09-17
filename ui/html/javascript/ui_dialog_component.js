@@ -22,11 +22,7 @@ function queue_dialog_msg(data) {
     }
     */
 
-    if ("dialog_type" in data && data.dialog_type == "sticky") {
-        show_sticky_dialog(data);
-    } else {
-        show_dialog(data);
-    }
+    show_dialog(data);
 }
 
 function show_dialog(data) {
@@ -98,14 +94,19 @@ function show_dialog(data) {
 
     engine.call('ui_sound', 'ui_notification1'); 
 
-    anim_show(global_dialog_list_ref, 100);
+    //anim_show(global_dialog_list_ref, 100);
 }
 
-function show_sticky_dialog(data) {
+let global_sticky_dialogs = {};
+function show_sticky_dialog(msg_key, data) {
+    if (msg_key) hide_sticky_dialog(msg_key);
+
     let cont = _id("dialog_sticky");
 
-    _empty(cont);
-    cont.appendChild(_createElement("div", "info"));
+    let dialog = _createElement("div", "dialog");
+    global_sticky_dialogs[msg_key] = dialog;
+
+    dialog.appendChild(_createElement("div", "info"));
 
     let desc = _createElement("div", "desc");
     if (data.title) desc.appendChild(_createElement("div", "title", data.title));
@@ -118,7 +119,7 @@ function show_sticky_dialog(data) {
         message.appendChild(data.msg);
     }
     desc.appendChild(message);
-    cont.appendChild(desc);
+    dialog.appendChild(desc);
 
     if ("options" in data && data.options.length) {
         let options = _createElement("div", "options");
@@ -131,14 +132,19 @@ function show_sticky_dialog(data) {
             if (o.hasOwnProperty("style")) option.classList.add(o.style);
             options.appendChild(option);
         }
-        cont.appendChild(options);
+        dialog.appendChild(options);
     }
 
+    cont.appendChild(dialog);
 
     engine.call('ui_sound', 'ui_notification1'); 
-    anim_show(cont, 100);
+    anim_show(dialog, 100);
 }
 
-function hide_sticky_dialog() {
-    anim_hide(_id("dialog_sticky"), 100);
+function hide_sticky_dialog(msg_key) {
+    if (msg_key && global_sticky_dialogs.hasOwnProperty(msg_key)) {
+        _remove_node(global_sticky_dialogs[msg_key]);
+    } else if (global_sticky_dialogs.hasOwnProperty("other")) {
+        _remove_node(global_sticky_dialogs["other"]);
+    }
 }

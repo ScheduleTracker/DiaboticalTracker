@@ -555,6 +555,10 @@ function renderElement(container_id, container_element, editing_mode, spectating
                 editing_mode,
                 spectating_hud
             );
+        let translate = new_element.querySelectorAll("[data-i18n]");
+        if (translate.length) {
+            for (let i=0; i<translate.length; i++) translate[i].textContent = localize(translate[i].dataset.i18n);
+        }
     } else {
         new_element.dataset.native = 1;
         return new_element;
@@ -637,12 +641,7 @@ function renderElement(container_id, container_element, editing_mode, spectating
 
     if (propertyIsValidForElement(hud_element, "font")) {
         if (hud.elements[idx].font != undefined && hud.elements[idx].font != "default") {
-            if (["zh_TW", "zh_CN", "ja", "ru"].includes(global_language)) {
-                new_element.style.fontFamily = "notosans";
-                new_element.style.fontWeight = "bold";
-            } else {
-                new_element.style.fontFamily = hud.elements[idx].font;
-            }
+            new_element.style.fontFamily = hud.elements[idx].font + ',notosans,notosans-jp,notosans-sc,notosans-tc';
         }
     }
 

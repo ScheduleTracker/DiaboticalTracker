@@ -386,7 +386,7 @@ window.addEventListener("load", function(){
             editing_hud_data = JSON.parse(jsonStr);
         } catch (err) {
             console.log("Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
-            engine.call("echo", "Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
+            engine.call("echo_error", "PARSE_HUD_ERROR");
         }
         if (type == HUD_PLAYING) {
             make_hud_in_element("real_hud", false, false);
@@ -404,7 +404,7 @@ window.addEventListener("load", function(){
             editing_hud_data = JSON.parse(jsonStr);
         } catch (err) {
             console.log("Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
-            engine.call("echo", "Unable to parse hud definition, definition string may have been too long  when it was saved and got cut off");
+            engine.call("echo_error", "PARSE_HUD_ERROR");
         }
 
         // Check hud version
@@ -420,7 +420,7 @@ window.addEventListener("load", function(){
             editing_hud_data = JSON.parse(jsonStr);
         } catch (err) {
             console.log("Unable to parse hud definition, definition string may have been too long when it was saved and got cut off");
-            engine.call("echo", "Unable to parse hud definition, definition string may have been too long  when it was saved and got cut off");
+            engine.call("echo_error", "PARSE_HUD_ERROR");
         }
 
         // Check hud version
@@ -1291,7 +1291,7 @@ function show_game_over(show, placement, team_count) {
         engine.call("sound_clear_queue");
         if (sound.length) setTimeout( function() { engine.call("ui_sound_queue", sound); }, 200);
 
-        //if (music.length) engine.call("ui_sound", music);
+        if (music.length) engine.call("ui_music", music);
 
         setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
 

@@ -529,17 +529,17 @@ window.addEventListener("load", function(){
 
     bind_event('cancellable_messagebox', function (msg_key) {
         if (msg_key == "egs_auth_error") {
-            show_sticky_dialog({
+            show_sticky_dialog(msg_key, {
                 "title": localize("egs_auth_error_title"),
                 "msg": localize("egs_auth_error_msg"),
             });
         } else {
-            show_sticky_dialog({"msg": localize(msg_key)});
+            show_sticky_dialog(msg_key, {"msg": localize(msg_key)});
         }
     });
 
-    bind_event('close_messagebox', function () {
-        hide_sticky_dialog();
+    bind_event('close_messagebox', function (msg_key) {
+        hide_sticky_dialog(msg_key);
 
         if (global_keybinding_active) {
             global_keybinding_active = false;
@@ -583,7 +583,7 @@ window.addEventListener("load", function(){
                 [12:58 AM] FireFrog: 30 should not happen either, if 30 happesn we should have an intentional code that I can show you
                 [12:58 AM] FireFrog: 35 is your regular timeout
             */
-            engine.call("echo","Disconnected from server, code:"+value);
+            engine.call("echo_error", "SERVER_DISCONNECTED");
             if (value == 10 || value == 15) {
                 // Check if state == 4 == GAME_STATE_ENDED
                 
@@ -1514,7 +1514,6 @@ function parse_modes(modes) {
 
 function handle_match_reconnect(data) {
     let dialog_object = {
-        //"dialog_type": "sticky",
         "duration": 120000,
         "title": localize("title_reconnect"),
         "msg": localize_ext("message_reconnect", {
@@ -2046,3 +2045,4 @@ function verify_script_data() { //backup if script_data.js is not present
         console.log("Using backup global_gamemode_data");
     }
 }
+
