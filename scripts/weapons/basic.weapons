@@ -208,7 +208,7 @@ shaft
 	category 4
 	bind_group 4
 
-	hit_radius 2.6 1.1
+	hit_radius 2.5 1.1
 
 	knockback 9.9
 	ground_knockback 9
