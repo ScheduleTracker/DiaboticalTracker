@@ -314,9 +314,9 @@ rocket_launcher
 	
   	splash_radius 125
 	knockback 100
-	knockback_self 115
+	knockback_self 113
 	ground_knockback 80
-	ground_knockback_self 115
+	ground_knockback_self 113
 	center_of_mass_offset 0
 	center_of_mass_offset_self 0
 		

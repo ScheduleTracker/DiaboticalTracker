@@ -73,6 +73,11 @@ game default
 	setting game_freeze_time 0
 	setting game_freeze_save_time 0
 	setting game_freeze_save_radius 0
+	
+	//PITFALL: Note "" is a special token that turns into empty string
+    //double quotes are not properly supported.
+    setting game_weapon_mode ""
+	//PITFALL: Note we must not use quotes here setting game_weapon_mode heyhey
 
 
     // lock out misc vestigial mechanics so it's not user cheatable, some of these should be removed from engine
@@ -650,47 +655,57 @@ game macguffin
 	weapon sword 999
 	weapon machinegun 100
 }
-
-//This game mode isn't used directly normally, it's used as a metatemplate when another
-//game mode has the instagib flag
-game instagib
+//
+//METAMODES
+//
+game pncr
 {	
-    //These two settings are only here for using the mode locally during testing, the dedicated
-	//server component currently sets this in response to the instagib flag being active.
-	setting game_full_charge 1
-	setting game_enable_items 1
-	setting game_self_damage 0
-
-	map wo_furnace
-	map wo_refinery
-	map wo_wellspring
-	map wo_crystal_cove
-	map wo_toya_fortress
-
-
-	weapon sword 999
-	weapon crossbow 999
-}
-
-//Another metamode
-game instagib_brawl
-{	
-    //These two settings are only here for using the mode locally during testing, the dedicated
-	//server component currently sets this in response to the instagib flag being active.
-	setting game_full_charge 1
-	setting game_enable_items 1
-	setting game_self_damage 0
-
-	map wo_furnace
-	map wo_refinery
-	map wo_wellspring
-	map wo_crystal_cove
-	map wo_toya_fortress
-
-
 	weapon sword 999
 	weapon pncr 999
 }
+game crossbow
+{	
+	weapon sword 999
+	weapon crossbow 999
+}
+game melee
+{	
+	weapon sword 999
+}
+game machinegun
+{	
+	weapon machinegun 999
+	weapon sword 999
+}
+game blaster
+{	
+	weapon blaster 999
+	weapon sword 999
+}
+game rocket_launcher
+{	
+	weapon rocket_launcher 999
+    weapon sword 999
+}
+game super_shotgun
+{	
+	weapon super_shotgun 999
+	weapon sword 999
+}
+game shaft
+{	
+	weapon shaft 999
+	weapon sword 999
+}
+game grenade_launcher
+{	
+	weapon grenade_launcher 999
+	weapon sword 999
+}
+
+//
+//METAMODES OVER
+//
 game ghosthunt
 {	
 	setting game_team_mode 1
@@ -715,6 +730,21 @@ game ghosthunt
 	weapon sword 999
 	weapon crossbow 999
 }
+
+game instagib_duel
+{
+    setting game_time_limit 300
+    setting game_full_charge 1
+    setting game_enable_items 0
+
+    map iga_strife
+    map iga_grainyard
+    map iga_temple
+
+	weapon sword 999
+	weapon pncr 999
+}
+
 
 game coinrun
 {	
