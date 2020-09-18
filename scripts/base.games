@@ -733,7 +733,8 @@ game ghosthunt
 
 game instagib_duel
 {
-    setting game_time_limit 300
+    setting game_time_limit 240
+	setting game_frag_limit 25
     setting game_full_charge 1
     setting game_enable_items 0
 
