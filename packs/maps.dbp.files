@@ -41,7 +41,7 @@ maps\b_toya_fortress.rbe		34156937
 maps\b_wellspring .rbe		28680787
 maps\b_wellspring-b.png		11751
 maps\b_wellspring-h.png		241336
-maps\b_wellspring.rbe		28682317
+maps\b_wellspring.rbe		28679195
 maps\ctf_cathedral-b.png		3556
 maps\ctf_cathedral-h.png		11780
 maps\ctf_cathedral.rbe		52665022
@@ -51,7 +51,7 @@ maps\ctf_dojo.rbe		41903980
 maps\ctf_quarry.rbe		51698193
 maps\duel_bioplant-b.png		6036
 maps\duel_bioplant-h.png		251674
-maps\duel_bioplant.rbe		11314348
+maps\duel_bioplant.rbe		9883461
 maps\duel_f1sks_house-b.png		62672
 maps\duel_f1sks_house-h.png		362082
 maps\duel_f1sks_house.rbe		16279586
@@ -187,4 +187,4 @@ maps\wo_test_map.rbe		33866557
 maps\wo_toya_fortress.rbe		34147478
 maps\wo_wellspring-b.png		11751
 maps\wo_wellspring-h.png		241336
-maps\wo_wellspring.rbe		28673098
+maps\wo_wellspring.rbe		28670276
