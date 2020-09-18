@@ -376,6 +376,16 @@ var global_game_mode_map = {
         "image": "arcade_loop.jpg",
         "icon": "/html/images/gamemodes/instagib.svg"
     },
+    "instagib_duel": {
+        "mode": "instagib_duel",
+        "name": "Instagib Duel",
+        "i18n": "game_mode_instagib_duel",
+        "desc_i18n": "game_mode_desc_instagib_duel",
+        "announce": "announcer_common_gamemode_instagib_duel",
+        "enabled": true,
+        "image": "arcade_loop.jpg",
+        "icon": "/html/images/gamemodes/instagib.svg"
+    },
     "race": {
         "mode": "race",
         "name": "Time Trials",

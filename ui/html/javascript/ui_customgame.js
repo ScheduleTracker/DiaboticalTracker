@@ -236,6 +236,7 @@ function init_screen_custom() {
     ui_setup_select(global_customSettingElements["time_limit"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["score_limit"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["continuous"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["instagib"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["intro"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["auto_balance"], function() {
         if (bool_am_i_host) custom_game_settings_changed();
@@ -277,9 +278,7 @@ function init_screen_custom() {
     }, 1000);
     
 
-    // Instagib setting is currently not saved in a variable across restarts
-    // logic here is independent of other checkboxes which are saved
-    // TODO ... we do seem to have a var for this though "lobby_custom_instagib" that seems to be unused?
+    // Checkbox logic here is independent of other checkboxes which are saved
     _for_each_in_class("checkbox_logic", function(el){
         el.addEventListener("click", function(){
             if (el.classList.contains("disabled")) return;
@@ -294,10 +293,6 @@ function init_screen_custom() {
                 el.classList.add("checkbox_enabled");
                 el.firstElementChild.classList.add("inner_checkbox_enabled");
                 engine.call('ui_sound', 'ui_check_box');
-            }
-
-            if (el.id == "custom_game_setting_instagib") {
-                custom_game_settings_changed();
             }
         });
     });
@@ -1332,6 +1327,7 @@ function get_lobby_settings() {
 		score_limit:    parseInt(global_customSettingElements["score_limit"].dataset.value),
 		team_count:     team_count,
         team_size:      parseInt(global_customSettingElements["team_size"].dataset.value),
+        instagib:       parseInt(global_customSettingElements["instagib"].dataset.value),
         continuous:     parseInt(global_customSettingElements["continuous"].dataset.value),
         auto_balance:   parseInt(global_customSettingElements["auto_balance"].dataset.value),
         intro:          parseInt(global_customSettingElements["intro"].dataset.value),
@@ -1348,11 +1344,11 @@ function get_lobby_settings() {
         spawn_random_chance:       Number(global_customSettingElements["spawn_random_chance"].dataset.value),
         spawn_safety_radius:       Number(global_customSettingElements["spawn_safety_radius"].value),
 
-        // float
+        // Float
         ready_percentage:  Number(global_customSettingElements["ready_percentage"].dataset.value),
 
-        // Boolean:
-        instagib:    (parseInt(global_customSettingElements["instagib"].dataset.enabled) == 1) ? true : false,
+        // Boolean example
+        //...:    (parseInt(global_customSettingElements["..."].dataset.enabled) == 1) ? true : false,
 
         // List of command key/value pairs
         commands: commands
@@ -1533,14 +1529,9 @@ function update_custom_game_settings(settings, init) {
         update_score = true;
     }
     
-    if(settings.instagib) {
-        global_customSettingElements["instagib"].dataset.enabled = 1;
-        global_customSettingElements["instagib"].classList.add("checkbox_enabled");
-        global_customSettingElements["instagib"].firstElementChild.classList.add("inner_checkbox_enabled");
-    } else {
-        global_customSettingElements["instagib"].dataset.enabled = 0;
-        global_customSettingElements["instagib"].classList.remove("checkbox_enabled");
-        global_customSettingElements["instagib"].firstElementChild.classList.remove("inner_checkbox_enabled");
+    if (parseInt(global_customSettingElements["instagib"].dataset.value) != settings.instagib) {
+        global_customSettingElements["instagib"].dataset.value = settings.instagib;
+        update_select(global_customSettingElements["instagib"]);
     }
 
     if (parseInt(global_customSettingElements["continuous"].dataset.value) != settings.continuous) {
