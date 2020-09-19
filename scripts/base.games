@@ -619,7 +619,7 @@ game ctf
 	setting game_team_mode 1
 	setting game_friendly_fire 0
 	setting game_weapon_respawn_time 2
-	setting game_frag_limit 5
+	setting game_score_limit 5
 	setting game_time_limit 960
 	setting game_self_damage 1
 	setting game_mercy_limit 8
@@ -734,9 +734,10 @@ game ghosthunt
 game instagib_duel
 {
     setting game_time_limit 240
-	setting game_frag_limit 25
+	setting game_score_limit 25
     setting game_full_charge 1
     setting game_enable_items 0
+	setting game_overtime 60
 
     map iga_strife
     map iga_grainyard
@@ -815,7 +816,7 @@ game race
 	setting game_warmup_time 0
 	setting game_countdown 0
 	setting game_time_limit 0
-	setting game_frag_limit 0
+	setting game_score_limit 0
 	setting game_self_damage 0
 	setting game_unlimited_ammo 1
 	

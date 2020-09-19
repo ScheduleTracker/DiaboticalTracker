@@ -210,7 +210,7 @@ shaft
 
 	hit_radius 2.5 1.1
 
-	knockback 9.9
+	knockback 10.4
 	ground_knockback 9
 	distance 768
 	default_ammo_pickup_ammo 50
