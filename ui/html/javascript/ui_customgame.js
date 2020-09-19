@@ -987,6 +987,7 @@ function handle_party_event(data) {
         global_party["role-reqs"] = data.data["role-reqs"];
         update_queue_mode_selection();
         update_role_selection();
+        update_warmup_buttons();
 
         if (global_lobby_id != data['lobby-id']) {
             send_json_data({"action": "lobby-status"});

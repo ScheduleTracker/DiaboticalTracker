@@ -588,9 +588,21 @@ function renderQuickPlayCards(cards) {
         "background": "brawl",
         "on_click": function() { join_warmup(); },
         "on_click_spinner": true,
-        "hover_button": "join",
+        //"hover_button": "join",
         //"tooltip": "practice",
         "state": 2,
+
+        "buttons": [
+            {
+                "text": localize("join"),
+                "on_click": function() { join_warmup(); }
+            },
+            {
+                "id": "warmup_party_join",
+                "text": localize("party_join"),
+                "on_click": function() { join_party_warmup(); }
+            },
+        ],
     }));
 
     _for_each_with_class_in_parent(container, 'tooltip2', function(el) {
@@ -626,6 +638,13 @@ function renderRankedCards(cards) {
     });
 }
 
+function update_warmup_buttons() {
+    let btn = _id("warmup_party_join");
+    if (btn) {
+        if (!bool_am_i_leader || global_party.size <= 1) btn.classList.add("hidden");
+        else btn.classList.remove("hidden");
+    }
+}
 
 let play_card_index = 0;
 let play_card_lookup = {}; 
@@ -686,15 +705,49 @@ function renderPlayCard(data) {
         top_links.appendChild(link_leaderboards);
         card_top.appendChild(top_links);
     }
+
+    if (data.type == "warmup") {
+        let top_desc = _createElement("div", "card_top_desc", localize("warmup_while_queuing"));
+        card_top.appendChild(top_desc);
+    }
+
+
     card_flex.appendChild(card_top);
 
     let card_bottom = _createElement("div", "card_bottom");
     card_flex.appendChild(card_bottom);
 
+    let card_texts = [];
     if (data.hover_button) {
         var card_text = _createElement("div","card_text");
         card_text.appendChild(_createElement("div", "card_play", localize(data.hover_button)));
         card_bottom.appendChild(card_text);
+        card_texts.push(card_text);
+    }
+
+    if (data.buttons && data.buttons.length) {
+        
+        for (let btn of data.buttons) {
+            let card_text = _createElement("div", "card_text");
+            card_text.appendChild(_createElement("div", "card_play", btn.text));
+            card_bottom.appendChild(card_text);
+            card_texts.push(card_text);
+
+            if (btn.hasOwnProperty("id")) {
+                card_text.id = btn.id;
+                if (btn.id == "warmup_party_join") {
+                    if (!bool_am_i_leader || global_party.size <= 1) card_text.classList.add("hidden");
+                }
+            }
+
+            if (btn.hasOwnProperty("on_click") && typeof btn.on_click == "function") {
+                card_text.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    card_click_spinner(btn.on_click);
+                });
+                _addButtonSounds(card_text, 1);
+            }
+        }
     }
 
     let card_checkboxes = [];
@@ -819,10 +872,28 @@ function renderPlayCard(data) {
         card_flex.appendChild(card_spinner);
     }
 
+    function card_click_spinner(cb) {
+        let initial_delay = 0;
+        if (data.on_click_spinner && card_spinner != null) {
+            initial_delay = 500;
+            card_flex.classList.add("onclickactive");
+            card_spinner.classList.add("active");
+            setTimeout(function() {
+                card_flex.classList.remove("onclickactive");
+                card_spinner.classList.remove("active");
+            }, 4000);
+        }
+        setTimeout(function() {
+            if (typeof cb == "function") cb();
+        }, initial_delay);
+    }
+
     if (data.state > 1) {
         card_flex.addEventListener("mouseenter", function() {
             card_flex.classList.add("hover");
-            if (data.hover_button && card_text) card_text.classList.add("hover");
+            if (card_texts.length) {
+                for (let card_text of card_texts) card_text.classList.add("hover");
+            }
             _play_mouseover4();
 
             if (card_flex.dataset.currently_active == "false") {
@@ -831,7 +902,9 @@ function renderPlayCard(data) {
         });
         card_flex.addEventListener("mouseleave", function() {
             card_flex.classList.remove("hover");
-            if (data.hover_button && card_text) card_text.classList.remove("hover");
+            if (card_texts.length) {
+                for (let card_text of card_texts) card_text.classList.remove("hover");
+            }
 
             if (card_flex.dataset.currently_active == "false") {
                 play_card_video.pause();
@@ -845,20 +918,7 @@ function renderPlayCard(data) {
 
             if (data.state > 1 && data.on_click) {
                 if (card_flex.classList.contains("onclickactive")) return;
-
-                let initial_delay = 0;
-                if (data.on_click_spinner && card_spinner != null) {
-                    initial_delay = 500;
-                    card_flex.classList.add("onclickactive");
-                    card_spinner.classList.add("active");
-                    setTimeout(function() {
-                        card_flex.classList.remove("onclickactive");
-                        card_spinner.classList.remove("active");
-                    }, 4000);
-                }
-                setTimeout(function() {
-                    data.on_click();
-                }, initial_delay);
+                card_click_spinner(data.on_click());
             }
        
             for (let cb of card_checkboxes) {
@@ -1578,5 +1638,8 @@ function showRankOverview() {
 }
 
 function join_warmup() {
-    send_string(CLIENT_COMMAND_JOIN_WARMUP);
+    send_string(CLIENT_COMMAND_JOIN_WARMUP, "s");
+}
+function join_party_warmup() {
+    send_string(CLIENT_COMMAND_JOIN_WARMUP, "p")
 }

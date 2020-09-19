@@ -8770,6 +8770,20 @@ h2 {
     border-top-left-radius:0.6vh;
     border-top-right-radius:0.6vh;
 }
+.play_cards_container .card_top .card_top_desc {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    text-shadow: 0 0 0 transparent;
+    filter:drop-shadow(2px 2px 6px rgba(0,0,0,0.6));
+    color:#ccc;
+    padding:1vh;
+    font-size: 1.25vh;
+    line-height: 1.25vh;
+    font-family: var(--main-font-medium);
+    font-weight: normal;
+}
 .play_cards_container .card_top .card_top_links {
     display:flex;
     flex-direction:row;
@@ -8839,9 +8853,16 @@ h2 {
     line-height: 2vh;
     opacity:0;
     transition:opacity 0.15s ease-in-out;
+    margin-top:0.2vh;
 }
 .play_cards_container .card_text.hover {
     opacity:1;
+}
+.play_cards_container .card_text:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+.play_cards_container .card_text.hidden {
+    display:none;
 }
 .play_cards_container .card_checkbox {
     border-radius:0.3vh;

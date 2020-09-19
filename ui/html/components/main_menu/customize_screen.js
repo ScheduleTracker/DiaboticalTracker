@@ -908,7 +908,7 @@ function customization_render_category_content(cont, ctype) {
     let default_sel = "";
 
     if (ctype.type == "country") {
-        if (!global_self.data.customizations.country) set_customization_active(disable);
+        if (!global_self.data || !global_self.data.customizations.country) set_customization_active(disable);
         fragment.appendChild(disable);
         data = GLOBAL_AVAILABLE_COUNTRY_FLAGS;
         option_count++;
@@ -1009,7 +1009,7 @@ function customization_render_category_content(cont, ctype) {
 
             // FLAGS 
             if (ctype.type == "country") {
-                if (c == global_self.data.customizations.country) { set_customization_active(item); }
+                if (global_self.data && c == global_self.data.customizations.country) { set_customization_active(item); }
 
                 item.classList.add("flag");
                 item.classList.add("rarity_bg_0");
@@ -1046,7 +1046,7 @@ function customization_render_category_content(cont, ctype) {
             }
 
             // Add selected class for types that don't require an equip confirmation
-            if (ctype.type == "avatar" && c.customization_id == global_self.data.customizations.avatar) set_customization_active(item);
+            if (ctype.type == "avatar" && global_self.data && c.customization_id == global_self.data.customizations.avatar) set_customization_active(item);
             if (ctype.type == "music" && ctype.sub_type == "pu" && c.customization_id == default_sel) set_customization_active(item);
             if (ctype.type == "spray" && c.customization_id == default_sel) set_customization_active(item);
 
