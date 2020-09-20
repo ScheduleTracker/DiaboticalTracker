@@ -295,7 +295,7 @@ rocket_launcher
  	rate 800
   	damage 100
 	min_splash_damage 5
-	splash_damage 92
+	splash_damage 94
 	splash_hemisphere_offset 20
     splash_hemisphere_offset_damage_multiplier 0.30
 	default_ammo_pickup_ammo 5
