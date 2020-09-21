@@ -31,6 +31,10 @@ ON_UPDATE
         game_time = TIMESTAMP game_data.time
     END IF
 
-    OUTPUT 0 0 value game_time
+    IF game_data.warmup
+        OUTPUT 0 0 value "00:00"
+    ELSE
+        OUTPUT 0 0 value game_time
+    END IF
 
 END TEMPLATE

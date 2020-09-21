@@ -1340,7 +1340,7 @@ function learn_screen_initialize_tab_gamemodes() {
             }
             else if(entry == 'self_damage'){
                 let self_damage = global_gamemode_data[item].hasOwnProperty('game_self_damage') ? global_gamemode_data[item].game_self_damage : global_gamemode_data.default.game_self_damage;
-                let value = self_damage == 0 ? "0%" : "50%";
+                let value = self_damage == 0 ? localize("disabled") : localize("enabled") + " (50%)";
                 let infoCell = _createElement("div", "learn_screen_gamemode_item_cell");
                 let infoCellText = _createElement("div", "text_container", value);
                 infoCell.appendChild(infoCellText);

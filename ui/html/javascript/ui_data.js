@@ -522,8 +522,8 @@ var global_general_card_data = {
 var global_physics_map = {
     "0":  { "i18n": "custom_settings_physics_diabotical" },
     "1":  { "i18n": "custom_settings_physics_race" },
+    "2":  { "i18n": "custom_settings_physics_vintage" },
     /*
-    "1":  { "i18n": "custom_settings_physics_vintage" },
     "2":  { "i18n": "custom_settings_physics_hybrid" },
     "3":  { "i18n": "custom_settings_physics_freestyle" },
     "10": { "i18n": "custom_settings_physics_classic" },
