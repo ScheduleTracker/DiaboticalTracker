@@ -71,9 +71,11 @@ blaster
 	muzzle_offset 0 -5 0
     model weaponbl
     model_scale 0.06
+	model_scale_centered 0.054
     //model_position 2.5 -2.8 7
     //model_rotation 169 -8.5  -8
     model_position 2.5 -3.35 3.55
+	model_position_centered 0 -3.15 3.7
     model_camera_scale 0.6
     can_destroy 1
     muzzle 0 0 0
@@ -167,6 +169,8 @@ super_shotgun
 	model_camera_scale 0.5
 	can_destroy 1
 	model_scale 0.075
+	model_scale_centered 0.0675
+	model_position_centered 0 -2.9 3.4
 	muzzle 2.6 -2.7 4.7
 	fov 40
 	
@@ -255,6 +259,9 @@ tracking_particles shaft_beam_particles
 	model weaponshaft
 	loop_animation true
 	model_scale 0.060
+	model_scale_centered 0.054
+	//model_position_centered 0 -2.5 3.5
+	model_position_centered 0 -4 5
 	model_position 2.5 -3 3.6
 	model_camera_scale 0.7
 	model_scale_third_person 0.9
@@ -344,7 +351,9 @@ rocket_launcher
 	
 	model weaponrl
 	model_scale 0.07
+	model_scale_centered 0.063
 	model_position 2.5 -3 3.28
+	model_position_centered 0 -4.1 5
 	model_camera_scale 0.5
 	can_destroy 1
 	muzzle 0 0 0
@@ -437,6 +446,8 @@ crossbow
 	
 	model weaponcb
 	model_scale 0.0625
+	model_scale_centered 0.05625
+	model_position_centered 0 -4 3
 	//model_position 2.5 -2.8 7
 	//model_rotation 169 -8.5  -8
 	//model_position 2.5 -3.22 3.52
@@ -529,8 +540,9 @@ pncr
 	
 	model weaponpncr
 	model_scale 0.055
+	model_scale_centered 0.0495
 	model_position 2.5 -3 2.35
-	model_position_centered 0 -3 2.48
+	model_position_centered 0 -3.4 3.1
 	model_scale_third_person 0.9
 	model_pivot 0 0.24 0
 	model_position_third_person 0 0 0
@@ -628,6 +640,8 @@ machinegun
 	//model_position 2.5 -3 6.6
 	model_position 2.25 -3 0.01
 	model_scale 0.11
+	model_scale_centered 0.099
+	model_position_centered 0 -2.68 0.02
 	//model_position 2.5 -3 2.35
 	//model_scale 0.11
 	model_pivot 0 -0.22 0
@@ -715,8 +729,9 @@ grenade_launcher
 	
 	model weapongl
 	model_scale 0.1
+	model_scale_centered 0.09
 	model_position 2.5 -3.15 3.15
-	model_position_centered 0 -3.3 3.15
+	model_position_centered 0 -3.1 3.35
 	model_pivot 0 -0.4 0
 	model_camera_scale 0.6
 	can_destroy 1
