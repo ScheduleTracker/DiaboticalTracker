@@ -530,6 +530,7 @@ pncr
 	model weaponpncr
 	model_scale 0.055
 	model_position 2.5 -3 2.35
+	model_position_centered 0 -3 2.48
 	model_scale_third_person 0.9
 	model_pivot 0 0.24 0
 	model_position_third_person 0 0 0
@@ -714,7 +715,8 @@ grenade_launcher
 	
 	model weapongl
 	model_scale 0.1
-	model_position 2.5 -3 3.15
+	model_position 2.5 -3.15 3.15
+	model_position_centered 0 -3.3 3.15
 	model_pivot 0 -0.4 0
 	model_camera_scale 0.6
 	can_destroy 1
