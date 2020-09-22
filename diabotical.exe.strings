@@ -2790,7 +2790,7 @@ L$HL;
 D$PL;
 D$@L;
 L$PM;
-Y%G*~
+Y%g*~
 D$hL;
 SUVWATAUAVAWH
 H;N(s I
@@ -3212,9 +3212,10 @@ L$(L9J
 (|$`H
 A_A^A\]
 )l$ E
-o5J)}
+o5j)}
 L$xH3
 )|$@v	
+W-"/}
 (|$@H
 UVWATAUAVAWH
 H9X s
@@ -3474,14 +3475,14 @@ A_A^A]A\_^]
 (D$@f
 UVWATAUAVAWH
 )D$@A
-W5Mi|
+W5mi|
 (L$@f
 <L+t$`M
 A_A^A]A\_^]
 (D$@f
 UVWATAUAVAWH
 )D$@A
-W5-d|
+W5Md|
 (L$@f
 <L+t$`M
 A_A^A]A\_^]
@@ -3552,6 +3553,7 @@ D$0HcH
 D$0HcH
 USVWH
 (|$pH
+testmodeH9
 8baseE
 D$@b&
 l$ AVH
@@ -3727,9 +3729,12 @@ L$PH3
 (t$0A
 (T$ D
 L$XH3
+(%#lz
 L$PH3
 )U@uN
 Y|$PA
+(%'4z
+(-7bz
 )\$pD
 (\$pD
 UWAVH
@@ -4084,8 +4089,8 @@ UAVAWH
 L9{8vhI
 L;C8r
 A_A^]
-Y%XOy
-\%!Ny
+Y%xOy
+\%ANy
 WAVAWH
  A_A^_
 UVWATAUAVAWH
@@ -4119,6 +4124,7 @@ t$ WATAUAVAWH
 UUUUUUU
 D$PI;
  A_A^A]A\_
+Y%69y
 D$ H;
 (t$0H
 UATAUAVAWH
@@ -4735,6 +4741,7 @@ T$ @2
 80|8A
 <0|XH
 T$ <0
+W54]v
 H;C@v
 H;C@v
 (t$@H
@@ -4957,7 +4964,6 @@ ExL;G
 d$ E3
 )D$pf
 (D$pf
-/5lbu
 A_A^A]A\_^]
 UVWATAUAVAWH
 A_A^A]A\_^]
@@ -5134,7 +5140,6 @@ t$0H+
 )t$PD
 YL$$D
 YL$4D
-Y%i|t
 (t$PD
 (|$@I
 WAVAWH
@@ -5257,7 +5262,7 @@ HcAtE3
 L$ UVWATAUAVAWH
 )t$p3
 )|$`L
-^5';t
+^5G;t
 D$4fA+
 nD$<D
 D$@fA+
@@ -5284,6 +5289,7 @@ D8<7u
 A_A^A]A\_]
 A_A^A]A\_]
 9st~YL
+W=8=t
 (|$ D
 HcS|H
 )t$0H
@@ -5631,7 +5637,7 @@ A_A^A]A\_^[]
 )t$@H
 (|$0H
 D$pE3
-X5Czr
+X5czr
 D$@e&
 \|$(E
 \D$0A
@@ -5742,6 +5748,8 @@ A_A^A]A\]
 |$ UATAUAVAWH
 8/t5L
 D$ E3
+W5";q
+W5<:q
 A_A^A]A\]
 t$ UH
 UATAUAVAWH
@@ -6172,8 +6180,7 @@ X UVWH
 UAVAWH
 A_A^]
 UATAUAVAWH
-T%uQn
-(-HQn
+(-hQn
 (L$@D
 (\$pD
 (d$`D
@@ -6197,7 +6204,7 @@ D$PI;
 )L$pD
 )\$PH
 )d$@D
-(5khn
+(5*6n
 (T$`A
 (d$@H
 L$ H3
@@ -6208,29 +6215,32 @@ L$HH3
 VWATAVAWH
 d$8E3
 L$8E3
+(="1n
 A_A^A\_^
 (t$ H
 UVWATAUAVAWH
 t$PE3
 L$PE3
-(=&'n
-(-;Wn
-(%!%n
-Y5n%n
-(=y$n
+(=F'n
+(-[Wn
+(%?&n
+(%A%n
+(%3&n
+(5"Tn
 A_A^A]A\_^]
 x UATAUAVAWH
 t$XE3
 L$XE3
-(5GKn
+(5gKn
 A_A^A]A\]
 p WAVAWH
 L$8E3
+(5%@n
 ^D$0f
 A_A^_
 UVWATAUAVAWH
 yxxxxxxxI
-(5]9n
+(5}9n
 D8%cD|
 d$ E3
 A_A^A]A\_^]
@@ -6291,10 +6301,8 @@ UWAVH
 T$(E3
 )L$@D
 (l$pA
-(-tnn
 D85ty
-Y= Pn
-^=xRn
+Y=@Pn
 (\$pH
 D8t$0
 UAVAWH
@@ -6438,14 +6446,14 @@ t$ UH
 )t$0H
 (|$ H
 UATAUAVAWH
-(-75m
+(-W5m
 )D$`D
 T$`H;
 l$ E3
 T$`H;
 )T$@fA
 )\$`fA
-(=%'m
+(=E'm
 )L$@D
 T$`H;
 )L$@D
@@ -6470,7 +6478,6 @@ l$ AVH
  A^_[
 VWAVH
 0A^_^
-]5eum
 tRD8-
 t&D8-m
 tSD8-m
@@ -6515,6 +6522,8 @@ UVWATAUAVAWH
 )D$0L
 `A_A^A]A\_^]
 l$ AVH
+T5:Zm
+T=/Zm
 L$`H3
 (D$pH
 UWAVH
@@ -6532,27 +6541,27 @@ L$8H3
 (|$@H
 x UATAUAVAWH
 |$pE3
-Y5D+m
+Y5d+m
 L$PI;
 D$XH;
 L$(A+
 L$`I;
 D$pH;
 L$@E+
-W5YGm
+W5yGm
 z8u6fA
 A_A^A]A\]
 VWAVH
 )D$PH
 )D$pH
-W5^Bm
+W5~Bm
 )t$0H
 (|$ H
 )D$0I
 X|$`I
 T$ vA
 D$8H;
-W%5>m
+W%U>m
 D$8H;
 L$8A+
 L$PH3
@@ -6656,7 +6665,6 @@ A_A^_[]
 (t$0H
 USVWI
 )t$pD
-X5jtl
 (|$`E3
 (t$pD
 zYuWL
@@ -6671,7 +6679,7 @@ UWATAUAWI
 A_A]A\_]
 UAUAWH
 )\$PL
-W=<{l
+W=\{l
 (L$pD
 (T$`D
 (\$PH
@@ -6682,13 +6690,12 @@ t$XHc
 (t$0H
 VWAVH
 L$hH3
-T5Vsl
-W5esl
+T5vsl
 (t$0H
 SVATAUAWH
 )t$`D
-/=+Ql
-/=eNl
+/=KQl
+\5,Tl
 (l$pL
 (t$`D
 (|$PI
@@ -6736,6 +6743,7 @@ t$PLct$ H
 UVWATAUAVAWH
 t$XIc
 D$hA9
+Y5'"l
 A_A^A]A\_^]
 z0*~ H
 |$`tDA
@@ -7348,13 +7356,12 @@ A_A^A]A\_^]
 D$pH;
 l$`H;
 |$ AUAVAWH
-Y%&?i
+Y%F?i
  A_A^A]
 R@H;WHt
 W@H;WHt
 W@H;WHt
 W@H;WHt(H
-Y-l;i
 (|$pH
 t$ UH
 D$PE3
@@ -7485,7 +7492,7 @@ D$XD;
 yxxxxxxx
 yxxxxxxxH
 D$ E3
-(5]Ah
+(5}Ah
 E@L9p s
 L;q s_H
 yxxxxxxx
@@ -7566,6 +7573,7 @@ USVWATAUAVAWH
 d$@L;
 D$PH;
 D$ E3
+(5'0g
 )D$pL
 A_A^A]A\_^[]
 G0H;G8t
@@ -7622,7 +7630,7 @@ D$XH;
 A_A^A]A\]
 x UATAUAVAWH
 L$hE3
-T%+Ff
+T%KFf
 |$hE3
 A_A^A]A\]
 @USVWAVH
@@ -8059,7 +8067,8 @@ x UATAUAVAWH
 E=MGu
 A_A^A]A\]
 ATAUH
-(=L1d
+(5&bd
+(=l1d
 UVWATAUAVAWH
 H9H s	
 D$ H9C r
@@ -8096,36 +8105,30 @@ WAVAWH
 @USVWATAUAVAWH
 oU@fD
 )u fD
-o%x~d
-o-l{d
-o%.{d
-o%exd
-o%vud
-o-	pd
-(5dxd
+o-+yd
+o%N{d
+o-)pd
 )u`fD
-Y%mxd
 oM fA
 oMPfA
-o-fVd
-o- Sd
-o%<Sd
-o5NJd
-o%nLd
+o-:]d
+o-%_d
+o-@Sd
+o%\Sd
+o5nJd
+o- Gd
+o%?Id
 )u fE
-o%IDd
-o-;Ad
-o%h>d
-o%|;d
-o-l1d
-o5`.d
-o-x+d
+o%iDd
+o-[Ad
+o5"Ad
+o-/6d
 A_A^A]A\_^[]
 @USVWATAUAVAWH
 )u fD
 )]PfD
-o-V#d
-o%[!d
+o-v#d
+o%{!d
 oM`fA
 )u0fD
 oM`fA
@@ -8171,7 +8174,7 @@ XD$ f
 (L$ f
 oD$Pf
 )t$0f
-o-I~c
+o-i~c
 XD$ f
 (t$0fA
 (L$ f
@@ -8196,7 +8199,6 @@ oD$`f
 oD$Pf
 D$PfD
 D$PD;
-o%umc
 oL$ f
 oT$@I
 oD$PD;
@@ -8210,15 +8212,17 @@ oD$`f
 oD$Pf
 oD$ f
 D$PD;
-o%Hfc
+o%hfc
+o-*fc
 oT$0fA
 oL$Pf
 )|$ f
+o-9^c
 (|$ f
 oD$`f
 oD$Pf
 )|$ f
-o-2[c
+o-R[c
 (|$ f
 oD$`f
 A_A^A]_[]
@@ -8227,12 +8231,10 @@ t$ A\][
 )|$0D
 (t$@H
 @USVWATAUAVAWH
-(55dc
-(=|Wc
+(5Udc
+(-=^c
 oE`fD
-o5rMc
-o=e]c
-(%/Vc
+(%OVc
 ou@fD
 ou@E;
 UPfff
@@ -8246,15 +8248,15 @@ o]@fD
 ]@fff
 A_A^A]A\_^[]
 @USVWATAUAVAWH
-o=[jb
+o={jb
 )E@fD
 M`tAD
-(=+Kb
+(=KKb
 (E@fA
 oEpfD
-o=a<b
+o-!;b
 o]PfA
-(%E(b
+(%e(b
 A_A^A]A\_^[]
 )L$`f
 )\$@D
@@ -8591,7 +8593,7 @@ CT$HL
 C5NUj
 t	D;=
 A_A^]
-Y-?o`
+Y-_o`
 UVWATAUAVAWH
 |$0Hc
 A_A^A]A\_^]
@@ -8620,15 +8622,15 @@ p WAVAWH
 )d$pH
 L$hH3
 A_A^_
-W=tb`
 )\$0D
-(5bZ`
+W=0b`
 (D$Pf
 L$@H3
 L$@H3
 UWATAVAWH
 (|$PE
 A_A^A\_]
+(=5M`
 L$xE3
 |$0E3
 VWATAVAWH
@@ -8645,6 +8647,7 @@ UVWAWH
 )l$pD
 )t$`Hc
 YD$@A
+W=9?`
 (|$PD
 (t$`D
 (l$pD
@@ -8908,7 +8911,7 @@ USVWATAUAVAWH
 |$tI+
 /D$`v
 T$DI;
-Y-\8_
+Y-|8_
 D$hHcH
 \$hE3
 A_A^A]A\_^[]
@@ -9073,11 +9076,12 @@ X%JSw
 t$ WH
 D$(H+
 L$xH3
-(=[<^
-(5O;^
-(5\9^
-(=%;^
-(=%;^
+(={<^
+(5o;^
+(5|9^
+(=E;^
+(5<;^
+(=E;^
 (|$pI
 z,u*H
 UAVAWH
@@ -9656,7 +9660,7 @@ D;R(}
 (t$`D
 (|$PL
 A^A]A\_[
-T%N)[
+T%n)[
 )t$PH
 (|$@D
 (D$0D
@@ -9755,7 +9759,7 @@ D9P(|
 D;A |
 D;I$|
 D;Q(}
-^=3:Z
+^=S:Z
 D9@$|
 u	D;B$}
 (|$ H
@@ -10335,7 +10339,7 @@ A^_^[]
 (D$@D
 (L$0D
 UATAUAVAWH
-(%&<V
+(%F<V
 (D$pf
 A_A^A]A\]
 (D$pf
@@ -10375,7 +10379,7 @@ L$ H3
 (l$PD
 (t$@D
 (|$0I
-(-\$V
+(-|$V
 L$0H3
 VWAVH
 H9\$ 
@@ -10536,7 +10540,6 @@ UVWATAUAVAWH
 (D$`f
 A_A^A]A\_^]
 )\$pA
-/=wlU
 (|$0D
 (l$PD
 (d$`D
@@ -10553,10 +10556,10 @@ A_A^A]A\]
 UVWATAUAVAWH
 |$aE8
 D$ E3
+Y5%_U
 u3D9@,u-H
 \@`fA
 \H`fD
-X=ySU
 D$ E3
 \D$pA
 \L$hH
@@ -10686,7 +10689,7 @@ t=A;G
 t=A;G
 H90t.
 {uOHcA
-Y5V(T
+Y5v(T
 WuJ9q
 HG@8pFtMH
 H;=[pe
@@ -10835,7 +10838,7 @@ L$0H3
 (D$ f
 (D$ f
 A_A^A]A\]
-T50MR
+T5PMR
 (|$PD
 (D$@D
 (L$0H
@@ -10843,6 +10846,8 @@ T50MR
 (L$@A
 (T$PA
 )L$@E
+T-4CR
+T%,DR
 UWATAVAWH
 L9%{6`
 A_A^A\_]
@@ -10852,19 +10857,15 @@ VWAVH
 T$(E3
 (D$0f
 (D$0f
-(%39R
-(-{7R
+(%S9R
 L$@H3
-(5g+R
+(=5,R
 L$pH3
-(-})R
-(=|*R
 L$pH3
-(-X&R
+(-x&R
 D$`E3
 L$pH3
-(5Y$R
-(=w%R
+(5y$R
 L$pH3
 |$ UATAUAVAWH
 tbD9%
@@ -11003,7 +11004,8 @@ CT$hH
 (D$Pf
 L$xI+
 CD$h3
-Y%MWR
+Y%mWR
+Y5>WR
 (D$Pf
 (D$Pf
 (D$Pf
@@ -11034,7 +11036,7 @@ D$T9D$X|
 D$\9D$`|
 A_A^A]A\]
 x AVH
-(5THR
+(5tHR
 Yd8(I
 Y\8(I
 t$ E3
@@ -11503,7 +11505,6 @@ SUVWATAUAVAWH
 (|$ H
 HA_A^A]A\_^][
 )t$0f
-o5~+P
 (D$ H
 (t$0H
 @UATAWH
@@ -11704,7 +11705,6 @@ A_A]A\_[]
 )t$@D
 )|$0M
 9xu'8A
-Y=usO
 (\$pL
 (d$`D
 (l$PD
@@ -11768,8 +11768,7 @@ VAVAWH
 )l$PE
 )t$@E
 )\$pE
-Y=hIO
-Y5\OO
+Y5|OO
 (|$0D
 (\$pD
 (t$@H
@@ -12033,7 +12032,7 @@ VUUUUUUUH
 t$PH+
 SWAUH
 PA]_[
-(5=|M
+(5]|M
 D$@E3
 UATAUAVAWH
 G0H+G(H
@@ -12219,24 +12218,24 @@ WAVAWH
 (|$PE
 A_A^_
 )D$`H
-^-KpM
+Y-/nM
+^-kpM
 @8s(t
 @8s<t
 \C fE
+X5&gM
 (|$PD
 (t$`D
 (l$pD
-:!-,_M
+:!-L_M
 UATAUAVAWH
-Y%RXM
+Y%rXM
 )D$pA
 u^9xx
 D$@ff
-(=<dM
-(=XcM
-Y5qIM
+(=\dM
+(=xcM
 A_A^A]A\]
-Y5{CM
 \$ UH
 )l$`D
 )t$PD
@@ -12273,7 +12272,7 @@ A_A^A]A\_^]
 |$ ff
 t fff
 UVWATAUAVAWH
-(%=(M
+(%](M
 8/u&H
 L$PH;
 D$HH+
@@ -12371,8 +12370,6 @@ A_A^A]A\]
 (l$pH
 )|$PL
 )l$pfE
-W-i{L
-Y%}]L
 H;=ccc
 (l$pD
 L$hH3
@@ -12380,6 +12377,7 @@ l$`@8
 (|$0H
 x UATAUAVAWH
 d$@fD
+W%4kL
 gfffffffH
 D8)t&fD
 XD7@f
@@ -12392,9 +12390,9 @@ gfffffffL
 zznul
 z8u6I
 z>u<I
-Y=z-L
+\=>-L
 )|$pfD
-\-\)L
+\-|)L
 UWATAVAWH
 (D$ f
 (D$ f
@@ -12570,9 +12568,8 @@ UWAVH
 x UATAUAVAWH
 D$ <1p
 A_A^A]A\]
-(=[OK
-(%5JK
-(=yGK
+(={OK
+(%UJK
 XD$pfA
 D$hfH
 :weapu
@@ -12778,7 +12775,7 @@ t$HfA
 t$HfA
 A_A^_^]
 t$HfA
-(--wJ
+(-MwJ
 x UATAUAVAWH
 L$SE2
 D$hL;
@@ -13773,7 +13770,6 @@ pA_A^A]A\_^]
 A^_^[]
 X UVWATAUAVAWH
 z?u=I
-^5f]D
 E8FEA
 A_A^A]A\_^]
 UATAUAVAWH
@@ -13781,26 +13777,27 @@ UATAUAVAWH
 YT$@A
 (l$@A
 Y\$@A
-\=x"D
-(5o7D
+(-%uC
 )\$@A
-Y-!iC
-(=5hC
+Y-AiC
+(=UhC
 Y\$@A
-(5UhC
+(5uhC
 YT$@A
-(=/hC
+(=OhC
 (d$@E
 YL$`D
-(-IdC
+(-=cC
+(-idC
 D$ E3
 D$ E3
 D$ E3
 D$ E3
-(55UC
-(=*TC
-(5CQC
+(5UUC
+(=JTC
+(5cQC
 D$pfE
+(=&LC
 A_A^A]A\]
 t$ E3
 UAVAWH
@@ -14148,11 +14145,11 @@ pA^_]
 x)D$ 
 x(D$ 
 @USVWATAUAVAW
-~o5<kB
-~o5xiB
-~o5 _B
-~o5];B
-~o59/B
+~o5 vB
+~o5\kB
+~o5@_B
+~o5};B
+~o5Y/B
 A_A^A]A\_^[]
 @USVWATAUAVAW
 UptMD
@@ -14175,7 +14172,7 @@ Ep9E@
 D9Mx|
 A_A^A]A\_^[]
 \$ UVWATAUAVAW
-~o=5xA
+~o=UxA
 A_A^A]A\_^]
 @SWATE3
 l$ A\_[
@@ -17032,7 +17029,7 @@ WAVAW
  A_A^_
 UVATAUAVAW
 8A_A^A]A\^]
-o%!=3
+o%A=3
 8A_A^A]A\^]
 |$ AUAVAW
 uLA9X
@@ -18164,6 +18161,7 @@ T$PE3
 A_A^A]A\_^]
 @SUVWATAUAVAW
 Hc\$8
+o-1~.
 \$pH;
 L9g(u
 L9g u
@@ -21729,7 +21727,7 @@ E9B@t
 WATAUAVAWE
 t$@A_A^A]A\_
 @UATAUAVAWH
-(5d? 
+o5(0 
 |$ H;
 t$ H;
 A_A^A]A\]
@@ -31233,29 +31231,29 @@ battle_data.have_item
 battle_data.have_item
 battle_data.powerup_color
 battle_data.powerup_color
-battle_data.powerup_image
 SKIPPP
 battle_data.powerup_image
+battle_data.powerup_image
 battle_data.item_charge
 battle_data.item_charge
 battle_data.item_keybind
 battle_data.item_keybind
-battle_data.item_color
-battle_data.item_color
-battle_data.item_name
-battle_data.item_name
-current_weapon_data.icon_url
-current_weapon_data.icon_url
-current_weapon_data.tag
-current_weapon_data.tag
-battle_data.is_editor_loaded
-battle_data.is_editor_loaded
-battle_data.is_item_countable
-battle_data.is_item_countable
-current_weapon_data.max_ammo
-current_weapon_data.max_ammo
-current_weapon_data.ammo
  CAP=
+battle_data.item_color
+battle_data.item_color
+battle_data.item_name
+battle_data.item_name
+current_weapon_data.icon_url
+current_weapon_data.icon_url
+current_weapon_data.tag
+current_weapon_data.tag
+battle_data.is_editor_loaded
+battle_data.is_editor_loaded
+battle_data.is_item_countable
+battle_data.is_item_countable
+current_weapon_data.max_ammo
+current_weapon_data.max_ammo
+current_weapon_data.ammo
 current_weapon_data.ammo
 current_weapon_data.key
 current_weapon_data.key
@@ -31278,44 +31276,43 @@ weapons_list
 weapons_list
 weapons_list
 weapons_list
-weapons_list
-max_ammo
 weapons_list
 max_ammo
 Size Y
 weapons_list
-weapons_list
-weapons_list
-current
-weapons_list
-current
-weapons_list
-accuracy
+max_ammo
 size_y
+weapons_list
+weapons_list
+weapons_list
+current
+weapons_list
+current
 weapons_list
 accuracy
 size_x
 weapons_list
-connecting_users
+accuracy
 Size X
+weapons_list
+connecting_users
+decal
+size_z
 connecting_users.count
 user_name
-size_z
+Size Z
 unlimited_ammo
 weapons_list
 unlimited_ammo
 weapons_list
 it.second.destructions
 it.first
-decal
-Size Z
+light
+noclip
 "MEMORY INSTANCE COUNT REPORT"
 MEMORY INSTANCE COUNT REPORT
 it.second.creations
 it.second.releases
-DDSTextureLoader
-light
-noclip
 DDSTextureLoader
 color
 Weapon
@@ -31326,8 +31323,11 @@ DDSTextureLoader
 Player
 DDSTextureLoader
 player
+DDSTextureLoader
+prop_*
 DXBC!
 SHEXt
+WICTextureLoader
 SHEX4K
 WICTextureLoader
 DXBCj
@@ -31338,8 +31338,6 @@ DirectXTex
 prop_*
 DirectXTK
 prop_*
-prop_*
-WICTextureLoader
 volume
 WICTextureLoader
 DBUG(
@@ -33657,12 +33655,15 @@ Loading lobby level - Start
 setting_it.second
 Peaks
 1.2.59
+testmode
+sound
+1.2.59
 default
 CURRENT CLASS: 
 "CLASS"
-PRESS [O]/[P] TO SWITCH CLASS
+BIND '/priv' AND '/priv next' TO SWITCH TEST CLASS
 setting_it.first
-sound
+light
 1.2.59
 POSTPROCESSING
 DEFERRED POST RENDER
@@ -35216,24 +35217,23 @@ Demo time:
  	single_missile_sound weeble_airbound1 weeble_airbound2 weeble_airbound3 weeble_airbound4 weeble_airbound5 weeble_airbound6 weeble_airbound7 
  	detached_shot_particles false 
  // File left empty for backwards compatibility. 
-light
-1.2.59
+sound
 DEPTH 0 REPORT
 "DEPTH 0 REPORT"
 sound
 Error 91243. Culling failed, thread pool not found.
-sound
+Alley
  occupied=
 node.children[i]->elements.size()
  elements=
  deep_elements=
 node.elements.size()
 grid.visit_count
-Alley
+Arena
 grid._levels
 grid.find_node_count
 CALLBACK
-Arena
+sound
 "CALLBACK"
 _culling_thread_count=
 ; turn = 
@@ -35241,9 +35241,9 @@ _culling_thread_count=
 HistoryBuffer::getPosition() Error NH901 (Over). player = 
 ; last_turn = 
 Test FAILED for request 
-sound
-Test PASSED for request 
 Plain
+Test PASSED for request 
+sound
 History buffer was not initialized
 HistoryBuffer::getPosition() Error NH903 (Invalid index). player = 
 ; last_turn = 
@@ -35287,7 +35287,7 @@ additional six characters expected to parse unicode surrogate pair.
 expecting another \u token to begin the second half of a unicode surrogate pair
 Missing ',' or ']' in array declaration
 Duplicate key: '
-sound
+logic
 Missing ',' or '}' in object declaration
 logic
 keylength >= 2^30
@@ -35360,18 +35360,18 @@ collectComments
 allowComments
 double out of Int range
 Value is not convertible to Int.
-logic
+Sound
 LargestInt out of Int range
 LargestUInt out of Int range
 Type is not convertible to string
-Sound
+logic
 in Json::Value::asCString(): requires stringValue
 assert json failed
 assert json failed
 assert json failed
 Null Value Passed to Value Constructor
 in Json::Value::setComment(): Comments must start with /
-logic
+sound
 assert json failed
 in Json::Value::resize(): requires arrayValue
 assert json failed
@@ -35386,16 +35386,16 @@ LargestInt out of UInt64 range
 LargestUInt out of Int64 range
 double out of Int64 range
 double out of UInt range
-sound
+logic
 Value is not convertible to UInt.
 LargestInt out of UInt range
 LargestUInt out of UInt range
 -Infinity
 Infinity
-logic
+color
 in Json::Value::getMemberNames(), value must be objectValue
 in Json::Value::find(key, end, found): requires objectValue or nullValue
-color
+angle
 in Json::Value::removeMember(): requires objectValue
 in Json::Value::resolveReference(): requires objectValue
 in Json::Value::resolveReference(key, end): requires objectValue
@@ -35405,46 +35405,46 @@ in Json::Value::operator[](int index) const: index cannot be negative
 1e+9999
 in Json::Value::operator[](int index): index cannot be negative
 -1e+9999
-angle
+sound
 commentStyle must be 'All' or 'None'
 precision
 dropNullPlaceholders
 useSpecialFloats
-sound
+color
 precisionType
 enableYAMLCompatibility
 indentation
 commentStyle
 commentStyle
 precision
+String
 precisionType
 dropNullPlaceholders
 useSpecialFloats
-color
+false
+Factor
 commentStyle
 enableYAMLCompatibility
 indentation
 precisionType must be 'significant' or 'decimal'
-false
-String
+TexV:
+_flipx
 significant
 decimal
 precisionType
 significant
 useSpecialFloats
-TexV:
-Factor
+TexU:
+_flipy
 precision
-_flipx
+_flipz
 enableYAMLCompatibility
 dropNullPlaceholders
 indentation
 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
-TexU:
-_flipy
-models\eggbot_destruction\destruction_part16.fbx
 delay
-_flipz
+models\eggbot_destruction\destruction_part16.fbx
+1.2.8
 "SKIPPP"
 1.2.8
 [kinetics] 
@@ -35454,20 +35454,19 @@ core_eggbot_destruction
 models\eggbot_destruction\destruction_part50.fbx
 1.2.8
 models\eggbot_destruction\destruction_part40.fbx
-1.2.8
-models\eggbot_destruction\destruction_part45.fbx
-Error
-models\eggbot_destruction\destruction_part30.fbx
 Error
 _flipy
-models\eggbot_destruction\destruction_part35.fbx
+models\eggbot_destruction\destruction_part45.fbx
 Error
 _flipx
-models\eggbot_destruction\destruction_part20.fbx
+models\eggbot_destruction\destruction_part30.fbx
+Error
 _flipz
-models\eggbot_destruction\destruction_part25.fbx
-%.2X-
+models\eggbot_destruction\destruction_part35.fbx
 multi_
+models\eggbot_destruction\destruction_part20.fbx
+%.2X-
+models\eggbot_destruction\destruction_part25.fbx
 destruction_pieces
 ambience_general_temple_inside
 hexahedron
@@ -35478,6 +35477,7 @@ Audio error 109234
 Audio error 823471: Unregistered thread
 search connections
 chunking
+%.2X-
 * Baking error: error 182736D. Map too small or malformed.
 grid lay-in
 "worker threads = "
@@ -35485,20 +35485,20 @@ grid lay-in
 worker threads = 
 threads::get_core_count()
  Result=
-%.2X-
+Value
 [AudioPath] C=
 textures/core/items/
 macguffin
-Value
+SLOW 
 textures/core/items/
 [LEVELS] Critical error 1701 creating minimap.
 minimap
 textures/core/items/
 textures/core/player_pin.png
 macguffin
-SLOW 
-position
  PRE=
+position
+event
 position_y
 general
 position_x
@@ -35506,43 +35506,42 @@ Position X
 rotation_y
 Rotation Y
 rotation
-event
+layer
+ srcm=
 Rotation X
 general
 position
-layer
- srcm=
+!auto
 rotation_x
 general
 position_z
 Position Z
 position
-!auto
+auto_
 Position Y
 general
 general
 general
 rotation
-auto_
+_pass
 Rotation Z
 general
 rotation
-_pass
 rotation_z
 general
 decal_*
 billboard_*
 light_*
 billboard
+models
 general
 general
 interaction
 Specifies what this prop will collide with.
 No clip
 Full clip
-models
-fullclip
 Name: 
+fullclip
 terrain
 terrain_*
 Forces a prop to cast shadows, useful when automation fails to detect that this prop should cast shadows.
@@ -35582,8 +35581,8 @@ Point light+Volume
 point_volume
 light_*
 light_*
-light_*
 Intensity acts as a multiplier on the color contribution. Defaults to 4.0.
+light_*
 intensity
 select
 Cubic Ambient Node
@@ -35603,8 +35602,8 @@ Distance at which the volume becomes invisible. Default: 2000
 light_*
 visibility_range
 Visibility range
-valleys
 Softness of the shadow's penumbra in spotlights. Valid range is 0.0 to 1.0
+valleys
 Valleys
 light_*
 Vis. Function
@@ -35627,8 +35626,8 @@ Sphere ambient node
 sound_*
 Main ambient (Unique)
 mirroring
-The minimum value of the visibility function from 0 to 1, default is 0 (full dark).
 light_*
+The minimum value of the visibility function from 0 to 1, default is 0 (full dark).
 visibility_function_min
 Vis. Minimum
 The speed of the visibility function, default is 1.0.
@@ -35643,12 +35642,12 @@ box_ambient_node
 Main reverb (Unique)
 ambient_node
 Box ambient node
+select
 Concert hall
 Auditorium
 Stone room
 Living room
 Bathroom
-select
 Padded cell
 Generic
 Stone corridor
@@ -35665,8 +35664,8 @@ global_*
 weapon
 shadow_color
 Shadow Color
-For ambient nodes, the fraction of the emitter volume that doesn't attenuate. Default: 0.8
 sound_*
+For ambient nodes, the fraction of the emitter volume that doesn't attenuate. Default: 0.8
 padding
 sound_*
 Radius of the sound emitter
@@ -35734,9 +35733,9 @@ rotation_x
 rotation_y
 position_y
 position_z
-<div class="entity_properties_columns">
 <div class="entity_properties_panel entity_properties_left_panel">
 position_x
+<div class="entity_properties_columns">
  entities
  selected
 volume_range
@@ -35765,6 +35764,7 @@ vertical_fog
 "></div>
 <div class=entity_property>
 </div><div class="entity_properties_panel entity_properties_right_panel">
+repeat
 <div class=entity_property_category>
 play_announcer_sound
 general
@@ -35772,6 +35772,7 @@ spawn_entity
 on_game_time
 entity_to_spawn
 <select id="color_accent_
+eggbot
 <option>No accent</option>
 <div class=dropper_tool onclick='on_dropper_tool()'></div>
  &nbsp; &nbsp;
@@ -35782,54 +35783,54 @@ entity_to_spawn
 "  value="
 <div class=entity_property_header>
 <div class=entity_property_value>
-repeat
+portal
 " data-expression="1" 
 " data-entity="
 tabIndex"
-eggbot
+deploy
 <div class=checkbox  class=detail_text_field data-property="
 " data-enabled="
-portal
+model
+damage
 " data-entity="
 </select>
-deploy
+bounce
 "><div></div></div>
 <option data-color="
 </option>
-damage
+portal
 <input type=text size=
 " data-entity="
 <input type=text size=
  ondblclick="this.setSelectionRange(0, this.value.length);"  value="
  class=detail_text_field data-property="
-model
-bounce
+speed
+unique
 tabIndex"
  ondblclick="this.setSelectionRange(0, this.value.length);"  value="
  class=detail_text_field data-property="
-speed
-portal
+burst
+muzzle
 <div data-value="
-unique
+freeze
  data-selected="1" 
 " data-entity="
 <div class="select-field detail_select_field" data-property="
 " value="
-muzzle
+spread
 </option>
-freeze
+weapon
 <select class='select_action' data-action="surface_accent">
 <option data-color="transparent" value="0">Unaccented</option>
 Material:
-burst
-spread
-<div class=entity_detail_header>
 light
 weapon
-Nothing is selected.
 <div class=entity_detail_header>
 decal
-weapon
+muzzle
+Nothing is selected.
+<div class=entity_detail_header>
+color
 <option data-color="
 </select>
 Error: Terrain blendmap metrics mismatch when undoing, dismissing this journal entry.
@@ -35837,8 +35838,6 @@ Error: Terrain metrics mismatch when undoing, dismissing this journal entry.
 mover_loop
 action_sound_start
 mover_start
-color
-muzzle
 end_timer
 start_timer
 momentum
@@ -35846,36 +35845,37 @@ melee_only
 action_sound_end
 mover_end
 action_sound_loop
+target
 Invalid cHRM blue point
 Invalid cHRM green point
  NQ: 
+target
 Invalid cHRM red point
 Invalid cHRM white point
 target
 Ignoring attempt to set chromaticity value exceeding 21474.83
 Ignoring attempt to set negative chromaticity value
  libpng version 1.2.59 - September 28, 2017
-libpng version 1.2.59 - September 28, 2017      Copyright (c) 1998-2002,2004,2006-2017 Glenn Randers-Pehrson      Copyright (c) 1996-1997 Andreas Dilger      Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.
 %d %s %d %02d:%02d:%02d +0000
-Unknown freer parameter in png_data_freer.
 Potential overflow in png_zalloc()
+libpng version 1.2.59 - September 28, 2017      Copyright (c) 1998-2002,2004,2006-2017 Glenn Randers-Pehrson      Copyright (c) 1996-1997 Andreas Dilger      Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.
+Unknown freer parameter in png_data_freer.
 Too many bytes for PNG signature.
-target
+pickup
 Invalid IHDR data
-target
+ranged
 Invalid filter method in IHDR
 Unknown filter method in IHDR
 MNG features are not allowed in a PNG datastream
-pickup
+melee
+-h.png
 Unknown compression method in IHDR
 Unknown interlace method in IHDR
-melee
-ranged
+-b.png
 Invalid color type/bit depth combination in IHDR
--h.png
+maps\
 Invalid color type in IHDR
 Invalid bit depth in IHDR
--b.png
 Invalid image height in IHDR
 Invalid image width in IHDR
 Image height exceeds user limit in IHDR
@@ -35883,7 +35883,6 @@ Image width exceeds user limit in IHDR
 Image height is zero in IHDR
 Image width is zero in IHDR
 Ignoring attempt to set cHRM RGB triangle with zero area
-maps\
 center
 libpng warning: %s
 libpng warning: %s
@@ -35896,12 +35895,13 @@ libpng error no. %s: %s
 0123456789ABCDEFOverflow in png_memset_check.
 Overflow in png_memcpy_check.
 Out of Memory!
-Application  is  running with png.c from libpng-%.20s
 Application uses deprecated png_read_init() and should be recompiled.
-Application was compiled with png.h from libpng-%.20s
+Application  is  running with png.c from libpng-%.20s
 The info struct allocated by application for reading is too small.
-1.0.6 or earlier
+Application was compiled with png.h from libpng-%.20s
 The png struct allocated by the application for reading is too small.
+1.0.6 or earlier
+dolly
 Unknown zlib error
 zlib version error
 zlib memory error
@@ -35917,26 +35917,25 @@ Invalid attempt to read row data
 PNG file corrupted by ASCII conversion
 Ignoring extra png_read_update_info() call; row buffer not reallocated
 Missing PLTE before IDAT
-dolly
-Missing IHDR before IDAT
 multi
-Missing PLTE before IDAT
-hulls
 Missing IHDR before IDAT
+hulls
+Missing PLTE before IDAT
 purge
+Missing IHDR before IDAT
+movie
 Not a PNG file
 Unknown zlib error
 zlib version error
 zlib memory error
 PURGED
 Image is too high to process with png_read_png()
-movie
+aaaaa
 Too many IDAT's found
 same structure.  Resetting write_data_fn to NULL.
 Read Error
 png_do_rgb_to_gray found nongray pixel
 It's an error to set both read_data_fn and write_data_fn in the 
-aaaaa
 Call to NULL read function
 Palette is NULL in indexed image
 Uninitialized row
@@ -35953,6 +35952,7 @@ Limiting gamma to 21474.83
 Ignoring invalid time value
 iTXt chunk not supported.
 Insufficient memory to store text
+agents
 Insufficient memory to process iCCP profile.
 Insufficient memory to process iCCP chunk.
 Invalid palette length
@@ -35963,12 +35963,11 @@ Insufficient memory for pCAL units.
 Insufficient memory for pCAL purpose.
 Image width is too large for this architecture
 Insufficient memory for hIST chunk data.
-agents
+count
 Invalid palette size, hIST allocation skipped.
 Setting gamma=0
 Setting negative gamma to zero
 keyword length must be 1 - 79 characters
-count
 Zero length keyword
 extra interior spaces removed from keyword
 leading spaces removed from keyword
@@ -35983,6 +35982,7 @@ Out of memory while processing sPLT chunk
 No memory for sPLT palettes.
 tRNS chunk has out-of-range samples for bit_depth
 Ignoring invalid num_trans value
+Attempted to set both read_data_fn and write_data_fn in
  0@P`p
 !1AQaq
 "2BRbr
@@ -35999,7 +35999,6 @@ $4DTdt
 -=M]m}
 .>N^n~
 /?O_o
-Attempted to set both read_data_fn and write_data_fn in
 Write Error
 Call to NULL write function
 the same structure.  Resetting read_data_fn to NULL.
@@ -36016,20 +36015,21 @@ Can't add Up filter after starting
 Unknown row filter for method 0
 zlib error
 png_write_info was never called before png_write_row.
-Application  is  running with png.c from libpng-%.20s
 Application uses deprecated png_write_init() and should be recompiled.
-Application was compiled with png.h from libpng-%.20s
+Application  is  running with png.c from libpng-%.20s
 The info struct allocated by the application for writing is too small.
-1.0.6 or earlier
+Application was compiled with png.h from libpng-%.20s
 The png struct allocated by the application for writing is too small.
+1.0.6 or earlier
+count
 Incompatible libpng version in application and library
 Application  is  running with png.c from libpng-%.20s
 Application was compiled with png.h from libpng-%.20s
 Only compression method 8 is supported by PNG
 Compression window is being reset to 512
+"C++"
 Only compression windows >= 256 supported by PNG
 Only compression windows <= 32k supported by PNG
-count
 Unknown custom filter method
 Unknown compression type %d
 zlib failed to initialize compressor
@@ -36037,12 +36037,11 @@ zlib failed to initialize compressor -- mem error
 zlib failed to initialize compressor -- stream error
 zlib failed to initialize compressor -- version error
 Invalid interlace type specified
-"C++"
+count
 Invalid filter type specified
 Invalid compression type specified
 Invalid image color type specified
 Invalid bit depth for RGBA image
-count
 Invalid bit depth for grayscale+alpha image
 Invalid bit depth for paletted image
 Invalid bit depth for RGB image
@@ -36050,13 +36049,13 @@ Invalid bit depth for grayscale image
 zlib error
 zlib error
 Can't write tRNS with an alpha channel
+Truncating profile to actual length in iCCP chunk
 Ignoring attempt to write 16-bit tRNS chunk when bit_depth is 8
 Ignoring attempt to write tRNS chunk out-of-range for bit_depth
 Invalid number of transparent colors specified
 Invalid sBIT depth specified
 Invalid sBIT depth specified
 Invalid sBIT depth specified
-Truncating profile to actual length in iCCP chunk
 Embedded profile length too large in iCCP chunk
 Embedded profile length in iCCP chunk is negative
 Unknown compression type in iCCP chunk
@@ -36074,14 +36073,14 @@ Unrecognized unit type for pHYs chunk
 Unrecognized equation type for pCAL chunk
 Unrecognized unit type for oFFs chunk
 Invalid number of histogram entries specified
-Invalid background palette index
 Ignoring attempt to write bKGD chunk out-of-range for bit_depth
 Ignoring attempt to write 16-bit bKGD chunk when bit_depth is 8
+Invalid background palette index
  (Omitting subsequent instaces of this message)
 Error event id=
 [FastLogger] Dumping...
-Calling GetAdaptersAddresses function with family = 
 Error loading UUID file. This usually means issues finding or accessing the application data folder (C:\Users\USER\AppData\Roaming) due to a faulty Windows update. As a workaround you can try setting an alternative home path with the --home flag
+Calling GetAdaptersAddresses function with family = 
 AF_INET
 AF_INET6
 AF_UNSPEC
@@ -36097,8 +36096,8 @@ a local ip=
 	No Unicast Addresses
 Access temporarily disabled.
 uuid.txt
-	Physical address: 
 Error writing UUID file. This usually means issues finding or accessing the application data folder (C:\Users\USER\AppData\Roaming) due to a faulty Windows update. As a workaround you can try setting an alternative home path with the --home flag
+	Physical address: 
 	Flags: %ld
 	Mtu: %lu
 	IfType: %ld
@@ -36156,35 +36155,37 @@ local ip adapter
 	Number of Multicast Addresses: %d
 	No Multicast Addresses
 break
+follow
 self_host
 audit
+ LINE.
 Starting remote init game (2)
 /game_mode 
 	Transmit link speed: %I64u
 	Receive link speed: %I64u
 	Number of IP Adapter Prefix entries: %d
-follow
 	Number of IP Adapter Prefix entries: 0
- LINE.
 Call to GetAdaptersAddresses failed with error: %d
 	No addresses were found for the requested parameters
 	Error: %s
 [Masterclient] Connection closed
+Parsed
 start_game()
 "start_game()"
 host_and_port
 host_and_port
 auth_key
+rapid1
 starting_game
 unknown
 Error: Locking because of anticheat error.
 [Masterclient] Connected to masterserver.
-Parsed
+decals
 Error: You've logged from elsewhere.
-Error: The masterserver refused connection because your client is outdated.
 Error: EGS verification failed.
-Error: The masterserver refused connection because you are banned.
 existing_match_found
+Error: The masterserver refused connection because your client is outdated.
+Error: The masterserver refused connection because you are banned.
 notification_message
 set_client_info
 GAME STARTED SIGNAL RECEIVED
@@ -36199,24 +36200,24 @@ Error: Failed creating connect BIO
 [masterclient] Connection attempt timed out. Restarting...
 [masterclient] Connection closed (client initiated)
 [masterclient] Connection closed.
-rapid1
 . Reconnecting...
-decals
 [masterclient] Connection error 
 AAA DISCONENCTED
 masterclient
 [masterclient] Reconnecting in 5 seconds...
 [masterclient] initialization error err=
+"done"
 unnamed-rule
 unnamed-rule
 unnamed-rule
 unnamed-rule
 Arguments
-Function
-"done"
-Variable
 rapid2
+Function
+jsoncp
+Variable
 Expression
+boom2
 [ExpEval] 
 [ExpEval] 
 unnamed-rule
@@ -36224,43 +36225,42 @@ unnamed-rule
 unnamed-rule
 unnamed-rule
 unnamed-rule
+[ExpEval] Bad Opcode
 HHHHH
 &&&&&&$$$$$$$$$$$$$$$$$$$$
 [ExpEval] Unknown function: 
 [ExpEval] Unknown variable: 
-[ExpEval] Bad Opcode
 [ExpEval] Bad pop exception.
 [ExpEval] Stack overflow exception.
 [ExpEval] Bad pop exception.
 [ExpEval] Stack overflow exception.
 Failed mapping buffer (263).
 Failed mapping buffer of size (745) err=
-jsoncp
+death
 Device removed reason (3472) =
 [membuffer] Error 12489.
-boom2
+ nor=
  Handle=
-death
 model_loading
 [MODEL LOADING] Model loaded from path and into cache: 
 Model load time 
 Model already exists in the cache while registering. Aborting model registration.
 register_model() handle=
- nor=
+"new"
 _rotatey90
 _rotatey180
 _rotatey270
  name = 
-"new"
 New node = 
 New mesh = 
+"new"
 blend_time
 no_interpolation
-"new"
 loop_action
 multilayer
 priority
 deformer
+"new"
 _rotatey90
 _rotatey270
 _rotatey180
@@ -36270,8 +36270,8 @@ _rotatey180
 @models2-upload-index-
 Generated cache for 
 , baked)
-"new"
 Error 8954912 m=
+nogun
  has incorrect extents. v=
 Error loading compressed DBM model. Malformed file (2).
 Error: Baked model 
@@ -36279,10 +36279,10 @@ Error loading compressed DBM VT_PNGT model. Malformed file.
 Error loading compressed DBM VT_PNGCT model. Malformed file. 
 Error loading compressed DBM VT_PNGTA model. Malformed file. 
 Error loading compressed DBM model. Layout not supported.
+import
 materials_from_load_model
 [Models] Error: 
-nogun
-import
+maps/
 default_model
 ?mat.name
  has fps=
@@ -36291,7 +36291,7 @@ _vercol
 Animation 
 ?mat.name
 *** THIS MODEL HAS MORE THAN 4 WEIGHTS IN A VERTEX
-maps/
+"new"
 Error: AABB calculation failed for model 
 Error 908234733. Invalid vertex source range when merging geometry (3). r=
 Error 761234682. Invalid vertex source range when merging geometry (3). r=
@@ -36301,7 +36301,6 @@ get_effect_for_mesh_index() C4
 particle_system
 Error 904561282. Invalid vertex source range when merging geometry (1). r=
 material
-"new"
 Loading model definitions
  nodes found.
 ===========
@@ -36327,6 +36326,7 @@ move_to_target
 #*1892+$
 %,3:;4-&
 '.5<=6/7>????????????????
+maps/
 add_decal
 character_editor_tool
 add_decal
@@ -36336,6 +36336,7 @@ game_decals
 "==================="
 ===================
 trace.penetration
+/save 
 trace.start.to_string()
 it.distance
 trace.end_position.to_string()
@@ -36345,14 +36346,13 @@ planecount++
 position.to_string()
 direction.to_string()
 trace.start_stuck
-/save 
+/edit 
 trace.coverage
 trace.stuck
 trace.end.to_string()
 trace.start.to_string()
 trace.end_position.to_string()
 trace.penetration
-/edit 
 it.distance
 planecount++
 it.normal.to_string()
@@ -36371,6 +36371,7 @@ min_damage_distance
 bounce_friction
 distance
 maps/
+ size=
 falloff
 hit_sound_min_pitch
 shots_per_round
@@ -36380,7 +36381,6 @@ enabled
 bounce_sound
 activation_sound
 maps/
- size=
 , table_turn = 
 , mantissa_delta = 
 , turn = 
@@ -36388,56 +36388,56 @@ hit_sound
 turn_delta = 
 healing
 slowfield
+update
 force_load
 gravity_pitch_offset
 revenge_cost
 slowfield_radius
-maps/
+sizes
 friendly_name
 missile_particles
-update
 missile_particles_1p
 animation_suffix
-sizes
-impact_particles
 maps/
+crunch
+impact_particles
+eggbot
 shot_particles
 tracking_particles
 missile_model
 missile_trail_particles
 [COMBAT] Parsing weapon script: 
-crunch
+clear
+output
 shot_particles_attached
 equip_particles_attached
-eggbot
+resize
 throw_animation
 max_damage_reward
-output
+draft2
 melee_reward
 melee_animation
 equip_sound
 low_ammo_sound
 impressive_reward
-resize
+draft1
 target_indicator
-clear
-draft2
+binds
+stress
 deploy_duration
 low_ammo_final_pitch
 implosive
-draft1
+madlad
 duration
-binds
-stress
 auto_shoot
 min_splash_damage
-madlad
 cylinder
+false
 min_hits
+false
 splash_damage
 inner_damage
 splash_hemisphere_offset
-false
 splash_hemisphere_offset_damage_multiplier
 loop_animation
 default_ammo
@@ -36445,15 +36445,14 @@ model_axis_x
 impact_particles_distance_delay
 low_ammo_threshold
 default_ammo_pickup_ammo
-false
 min_ammo_gain
 respawn_time
 equip_time
 combo_rate
+ SIZE=
 hitscan_bounce
 bonus_consecutive_damage
 Error: combo_rate requires 3 parameters.
- SIZE=
 status_animation
 upgrade_animation
 max_bonus_consecutive_damage_instances
@@ -36478,13 +36477,13 @@ model_position_centered
 ' requires 3 parameters: x, y and z.
 default_weapon_pickup_ammo
 max_ammo
+second
 multi_round_particles
 unlimited_ammo
 recoil_speed
 can_destroy
 time_damage
 Error: time_damage requires 2 parameters.
-second
 model_scale_centered
 model_camera_scale
 Warning: Keyword '
@@ -36534,8 +36533,8 @@ zoomed_speed
 center_of_mass_offset
 center_of_mass_offset_self
 activation_radius
-activation_delay
 freeze
+activation_delay
 charged_knockback_self_radius
 destroy_radius
 splash_radius
@@ -36548,6 +36547,7 @@ parent_tag
 Warning: Keyword '
 Warning: Keyword '
 ' lacks a value.
+check
  weapon definitions.
 [COMBAT] Found 
 [COMBAT] Parsing class script 
@@ -36581,9 +36581,9 @@ setting
 Warning: Keyword '
 Warning: Keyword '
 ' lacks a value.
-check
-[COMBAT] Loading combat scripts.
 arrow
+[COMBAT] Loading combat scripts.
+crash
 builtin.weapons
  class definitions.
 [COMBAT] Found 
@@ -36595,30 +36595,32 @@ Skipping loading of virtual weapon:
 behaviors::register_behavior_subclass() Error registering behavior.
 [PATHFINDING] Error: Could not find nearest poly to source.
 [PATHFINDING] Error: Could not find nearest poly to destination.
-crash
+model
 No creation function registered for bot subclass: 
 jumppad
 [NAVIGATION] navigation mesh not initialized in is_location_in_navigation_mesh().
 relative
-model
 vector_x
-jumppadfx
-vector_y
-vector_z
 update
+jumppadfx
+weapon
+vector_y
+weapon
+vector_z
+clear
+radial
 knocked_down
 pushed_back
 visibility_distance
-weapon
+radius
 jumppad
 pushed_back
-weapon
+radius
 chase_target
  Border: 
-clear
-radial
-MapBackups
 radius
+MapBackups
+!last
 Error saving backup to 
 ^ff0000File I/O error saving file.
 Host parameter missing.
@@ -36627,25 +36629,22 @@ Total blocks:
 ^ff0000Not currently editing a map.
 bake_map_failed
 baked_map
-radius
 connect
 saved_map
-radius
 File saved to 
 Command disabled
-!last
-set_block
 pivot
+center
+set_block
+block
 You taunt your foes.
 You greet your allies.
 Command disabled
-block
 ^ff0000Not currently editing a map.
 ^ff0000Not currently editing a map.
 ^ff0000File I/O error saving file.
 File saved to 
 ^ff0000* Error: Not in edit mode.
-center
 ^ffff00Command line usage:
 ^ff0000* Error: Missing parameters.
 ^ff0000* Error: missing parameters.
@@ -36666,14 +36665,14 @@ entity_move
 entity_move
 ^ff0000* Error: missing parameters.
 entity_move
+rename
 ^ff0000* Error: Wrong parameters.
+rename
 play_sound
 ^ff0000* Error: Missing parameters.
-rename
 ^ff0000* Error: Missing parameters.
 ^ff0000* Error: Missing parameters.
 127.0.0.1
-rename
 ^ff0000* Error: Missing parameters.
 slow_map
 paintui
@@ -36690,21 +36689,23 @@ Demo playback stopped.
 temple_islands
 ^ff0000* Error: Missing parameter.
 equ8codes
+ prop 
 log_net
 log_net_off
 (int)EQU8_ERR_STATUS_CLIENT_AGENT_PROTOCOL_MISMATCH
 (int)EQU8_ERR_STATUS_AGENT_TERMINATED
 (int)EQU8_ERR_STATUS_DRIVER_REQUIRE_REBOOT
 (int)EQU8_ERR_STATUS_SYSTEM_IN_TEST_SIGNING_MODE
- prop 
+ from 
 (int)EQU8_ERR_STATUS_BAD_API
 (int)EQU8_ERR_STATUS_DRIVER_START_FAILURE
- from 
+forsel
 testvoip
 model
 forsel
 "PURGED"
-forsel
+right
+extend
 "FORCED ENTITY UPDATE DONE"
 FORCED ENTITY UPDATE DONE
 extend
@@ -36717,13 +36718,13 @@ testlogger
 log_net
 caascascacs
 testmisc
-right
-extend
-remove_diagonals
 front
 reload
-equ8kick
+remove_diagonals
 envmap
+equ8kick
+multi
+record
 not started from launcher: Internal EQU8 failure err=600d0709
 (UINT)ret.voice
 snafu::model_to_json(snafu::DataContext_InGame, str)
@@ -36756,8 +36757,8 @@ rl_impact1
 ret == AUDIO_NULL_PLAY_HANDLE
 ret.playback_id
 C mem/si
-multi
-record
+reset
+locate
 t.get()
 a.,s,dasSD
 "C mem/si"
@@ -36767,65 +36768,64 @@ C memmp
 t.get()
 a.,s,dasSD
 "C memmp"
-locate
-game::level->get_audio_grid_distance(d, src, dst)
 export
 game::level->get_audio_grid_distance(d, src, dst)
 config
 game::level->get_audio_grid_distance(d, src, dst)
 rename
+game::level->get_audio_grid_distance(d, src, dst)
+(show)
 "C struti"
 C struti
-reset
-(show)
+dolly
+weapon
 a.,s,dasSD
 t.get()
 testgrid
-dolly
-weapon
-"C struti"
-C struti
 movie
 update
-game::level->get_audio_grid_distance(d, src, dst)
+"C struti"
+C struti
+radar
 resize
 game::level->get_audio_grid_distance(d, src, dst)
 rotate
+game::level->get_audio_grid_distance(d, src, dst)
+mirror
 misc_benchmark
 dump_files
 dump_tree
-mirror
-PATHFINDING TEST
-radar
 forsel
-00000000
+PATHFINDING TEST
 block
 extend
-game::level->get_audio_grid_distance(d, src, dst)
+00000000
+pause
 bar_up
+game::level->get_audio_grid_distance(d, src, dst)
 game::level->get_audio_grid_distance(d, src, dst)
 game::level->get_audio_grid_distance(d, src, dst)
 models/eggbot/shield/broken_shield.fbx
 broken_shield
 testshield
 testsha1
-pause
+ready
 reload_sounds_fast
 testsha512
 crypto::sha1_hex_obsolete("hey")
-ready
+usage
 benchmark1
 crypto::sha512_hex("hey")
 to_string 
-usage
-std::max 
 greet
+std::max 
+taunt
 to_string 
 clear_decals
 ((unsigned int)0) - (int)1
 std::max 
 testping
-taunt
+paste
 Decal string added to player 
 add_decals
 Decal overrides cleared
@@ -36835,7 +36835,7 @@ client_pause
 add_client
 ERROR: No last asset added detected.
 debug_ui
-paste
+label
 Querying UI memory usage...
 ui_memory
 client_resume
@@ -36848,7 +36848,6 @@ Report printed
 livereport
 SPAMMING LINE 
  OUT OF 
-label
 update_scores
 invalidate
 cameratest
@@ -36859,6 +36858,7 @@ testrapid
 testtostringi2
 benchmark_json
 "Parsed"
+grave
 base_speed
 reload_anims
 version_notes
@@ -36867,19 +36867,19 @@ test_variable_locking
 testdisconnect
 phy_jump_speedup
 IF $use_weapon_color>34 && asd>=43 THEN $color = current_weapon_data.color "AND A QUOTE"
-grave
 testsemantic
 it.value
 document.HasMember("asd")
 {"test":123}
 document["asd"].IsInt()
 document.HasMember("asd")
+attack
 disable_culling
 queue_play
 base_speed
 block_search
 base_speed
-attack
+pause
  coverage: 
 chunk->index_count
 "Testing..."
@@ -36890,9 +36890,8 @@ showcol
 brush_smaller
 brush_bigger
 plane d=
-pause
-it->position.to_string()
 scores
+it->position.to_string()
 weapon_pos
 "current"
 current
@@ -36910,36 +36909,36 @@ current
 cam_pair.first.to_string()
 cam_pair.first.to_string()
 "current"
+skill2
 it->position.to_string()
+space
 weapon_rot
 current
 it->rotation.to_string()
-skill2
 it->rotation.to_string()
-space
 "current"
 test_history_buffer
 records
 ^ff0000* Error: Not in edit mode.
+skill1
 Net info:
 connection_info
 on_connection
 Usage: devop import SOURCE_MAP ENTITY_PATTERN
 Error loading map 
 greet
-skill1
 cam_pair.second.to_string()
 camera_rot
 "current"
+ctrl-c
 current
 cam_pair.second.to_string()
 ^ff0000* Error: No block offset provided.
-ctrl-c
+ctrl-v
 Mirroring, updating entities
 translate_map
 base64_decode("==")
 =================
-ctrl-v
 base64_decode("===")
 Running mass command: 
 mass_command
@@ -36951,54 +36950,55 @@ test_base64
 ()/)(!/)(/&!(/+`9089234
 base64_decode(base64_encode("asd,823uy198u398"))
 ready
+insert
 asd,823uy198u398
 shift
+delete
 base64_decode("()/)(!/)(/&!(/+`9089234")
 paste
-insert
+bar_up
 base64_decode("=")
 base64_decode("")
-delete
 Changed 
-bar_up
- in key 
 num_2
+ in key 
+num_8
+attack
  in entity 
 mass_replace
 Not enough parameters.
 Error loading map 
 Updating file: 
  in map 
-num_8
-attack
-Loaded map file 
 right
 sprint
-Changed 
+Loaded map file 
 num_3
 skill1
- in key 
+Changed 
 num_4
 skill2
+ in key 
+num_6
+scores
  in entity 
 no command provided
 Queuing command: 
-scores
-Queuing command: 
 bounce
+Queuing command: 
 Queuing command: 
 Error: Could not load replacements file: 
 mass_replace_with_file
  in map 
-num_6
-Loaded map file 
 num_5
+Loaded map file 
+watch
 sizeof(int)
 sizeof(double)
 sizeof(float)
 asdasd1
 testjson
-watch
+slash
 sizeof(long)
 asdasd2
 root["asdasd1"].isArray()
@@ -37007,7 +37007,7 @@ Not enough parameters.
 Error loading map 
 Updating file: 
 sorted: 
-slash
+blank
 Error loading map 
 netclient::state.stage
 game_stage
@@ -37025,6 +37025,7 @@ asdasd3
 asdasd2
 root["asdasd2"].asString()
 particles
+NORMAL
 movie_mode
 root["asdasd2"]["asdasd3"].asString()
 menu_idle
@@ -37035,35 +37036,37 @@ it->particle_system->def.name
 test_expression
 test_fs
 (UINT)preview_agent->ghosts_particle_node
-blank
+Error
 NORMAL
 disable_ui
 ^ff0000* Error: Not in edit mode.
-NORMAL
 run_forward_right
 hide_ui
 test_grid
 disable_menu_view
+weapon
 toggle_ui
 Error
+pickup
 Debugging net for client 
+20ffff
 net_debug
-weapon
+25ff20
 saveterrain
 scene::_root->children.size()
 update_models
 update_models
 masterconnect
 partysize
-pickup
+ffee20
 ^ff0000* Error: Missing particle system name parameter
 ps_segment
 "update_models"
 test_effects
 ^ff0000* Error: Not in edit mode.
-20ffff
+ffff20
 run_forward_right
-25ff20
+ffee20
 eggbot_matrix
 ui_call
 trigger
@@ -37080,44 +37083,43 @@ ffee20
 material_names
 debug_animation
 get_stack
-ffff20
+#CLOSE
 env_props
-ffee20
+Window
 set_search_frustum
 set_search_raster
-ffee20
+Window
 platform::get_stack()
 testmath1
-#CLOSE
-announce
-Error
 Window
+announce
+decal
+Button
 stop_all_sounds
 algebra::aabb_overlap(v3(-100,-100,-100), v3(100,100,100), v3(50,50,50), v3(60,60,60), 0)
-algebra::aabb_overlap(v3(-100,-100,-100), v3(100,100,100), v3(50,50,150), v3(60,60,160), 0)
 texcount=
-Window
  textotal(b)=
+algebra::aabb_overlap(v3(-100,-100,-100), v3(100,100,100), v3(50,50,150), v3(60,60,160), 0)
 culldump
-decal
-Window
+: mc=
+Header
 png_total=
  dds_total=
  misc_total=
 updatetree (ms)=
-: mc=
-Button
-time_update_tree
 Type 
-Header
+Border
+time_update_tree
+Error
+#image
 setname
 friends
 v3(0,1,0)*v3(0,0.99,0.01)
-Border
+%.0f%%
 v3(0,1,0)*v3(0,1,0)
 v3(0,1,0)*v3(0,0,1)
 v3(0,1,0)*v3(0,0.45,0.45)
-#image
+%%.%df
 v3(0,1,0)*v3(0,-0.99,0.01)
 v3(0,1,0)*v3(0,-0.45,0.45)
 cos(DEG2RAD(-360))
@@ -37138,15 +37140,14 @@ geotools::plane_vs_cyl_intersection(v3(0,1,0), 10, v3(0,10.1,0), 5, 0.11)
 geotools::plane_vs_cyl_intersection(v3(0,1,0), 10, v3(0,10.1,0), 5, 0.09)
 geotools::plane_vs_cyl_intersection(v3(0,1,0), 10, v3(0,10.1,0), 5, 0.21)
 geotools::plane_vs_cyl_intersection(v3(0,1,0), 10, v3(0,10.1,0), 5, 0.19)
-%.0f%%
 testgeo2
-Error
-%%.%df
-cos(DEG2RAD(90))
 COLOR
-testgeo1
+cos(DEG2RAD(90))
 Xr4-.
+testgeo1
+.rgba
 cos(DEG2RAD(360))
+0..255
 cos(DEG2RAD(270))
 DXMATH mult
 t.get()
@@ -37162,22 +37163,22 @@ debug_decals
 p.normal.to_string()
 showbox
 flip_fast
-.rgba
-0..255
-testmatrix
-unfreeze
 skill
 _COL4F
+testmatrix
+unfreeze
+buy 2
+_COL3F
 forceconsole
 forceconsole
 particles::get_info()
 bigdump
 movetest
-buy 2
-_COL3F
+armor
+##Text
 decals::get_culling_stats()
 scene::get_debug_string()
-##Text
+%s: %d
 coui::get_gpu_memory_usage()
 audio::get_debug_info()
 implode(game::command_line_arguments, " ")
@@ -37187,38 +37188,38 @@ Assimp mult
 shadow update scheduled
 mrbugfixer
 fullscreen
-armor
-%s: %d
-game::recreate_device_resources()
+buy 1
 %s: %s
+game::recreate_device_resources()
+picker
 Device created.
 (size_t)direct3d::device_context
-buy 1
+buy 4
 picker
 disable_update
 terrain
 toggle_terrain
 fixdynamic
-buy 4
-picker
-(size_t)direct3d::device
 armor
 _COL4F
-Destroying device.
-recreate
+(size_t)direct3d::device
 buy 3
 _COL3F
-(size_t)direct3d::device_context
+Destroying device.
+recreate
 games
 %s: %d
-game::create_device()
-Creating device.
+(size_t)direct3d::device_context
 buy 6
 Popups
-game::destroy_device()
-(size_t)direct3d::device
+game::create_device()
+Creating device.
 buy 5
 Button
+game::destroy_device()
+(size_t)direct3d::device
+#MOVE
+%.0f%%
 algebra::catmull_rom_interpolate2(0, a, b, c, d).to_string()
 algebra::catmull_rom_interpolate2(-1, a, b, c, d).to_string()
 algebra::catmull_rom_interpolate2(2, a, b, c, d).to_string()
@@ -37226,15 +37227,14 @@ algebra::catmull_rom_interpolate2(1, a, b, c, d).to_string()
 algebra::catmull_rom_interpolate_timed(-1, a, ta, b, tb, c, tc, d, td).to_string()
 catmull3
 algebra::catmull_rom_interpolate_timed(1, a, ta, b, tb, c, tc, d, td).to_string()
-catmull
 algebra::catmull_rom_interpolate_timed(0, a, ta, b, tb, c, tc, d, td).to_string()
-#MOVE
-%.0f%%
+Orange
+catmull
 algebra::catmull_rom_interpolate(0, a, b, c, d).to_string()
 algebra::catmull_rom_interpolate(-1, a, b, c, d).to_string()
 catmull2
  %.*s
-Orange
+Hello!
 algebra::catmull_rom_interpolate(2, a, b, c, d).to_string()
 algebra::catmull_rom_interpolate(1, a, b, c, d).to_string()
  assets loaded.
@@ -37242,27 +37242,27 @@ Reloading assets...
 models\cylinderbot\cylinderbot.fbx
 ^ff0000* Error: Not in the editor.
 Depth
-Hello!
+Banana
 [Reloading assets] 
  on node 
-Banana
+Cherry
 marking 
 ##min
-Cherry
- on node 
 Yellow
+ on node 
+Header
 command_reload_tex
 Reloading node textures
 Visiting node
 Reloading tex, visiting 
 ##max
-Header
+Button
 nullifying 
 ##min
-Button
+main.c
 Current weapon: 
 ##max
-main.c
+Sailor
 what_weapon
 algebra::catmull_rom_interpolate_timed(2, a, ta, b, tb, c, tc, d, td).to_string()
 fixchat
@@ -37270,11 +37270,11 @@ try { document.getElementById('ember711').style.display = 'none'; } catch(err){}
 displacement
 listpanels
 M:000
-Sailor
+Images
 ^ff0000* Error: Missing parameters.
 cleanblocks
 Color
-Images
+_COL4F
 cylinderbot1
 models\cylinderbot\eggbot_body.fbx
 eggbot1
@@ -37282,26 +37282,26 @@ entity_move
 ^ff0000* Error: missing parameters.
 entity_move
 ^ff0000* Error: Not in edit mode.
-_COL4F
+_COL3F
 ^ff0000* Error: Missing numeric parameter.
 ^ff0000* Error: Missing numeric parameter.
 discover
 %0.3f
-_COL3F
+Layout
 ^ff0000* Error: Not in editing mode.
 command_mirror
 ^ff0000* Error: Not in edit mode.
 %0.3f
-Layout
+##Line
 * Missing text to say.
 ^C796FF> 
-##Line
+Tailor
 Reloading model textures
 %0.3f
-Tailor
+Banana
 * Missing text to say.
 ^96C7FF> 
-Banana
+Sailor
 Bsp info is currently disabled.
 Changelog disabled until beta.
 == CHANGELOG ==
@@ -37309,7 +37309,7 @@ Changelog disabled until beta.
 %0.3f
 Sailor
 ^ff0000* Error: Not in edit mode.
-Sailor
+Banana
 entity_move
 ^ff0000* Error: No entity by that name.
 entity_move
@@ -37324,68 +37324,68 @@ entity_move
 command_mirror
 ^ff0000* Error: Not in edit mode.
 %3.0f
-Banana
-^ff0000* Error: Not in edit mode.
-%3.0f
 HOP##2
 ^ff0000* Error: Not in edit mode.
+%3.0f
+Banana
+^ff0000* Error: Not in edit mode.
 Banana
 entity_move
 ^ff0000* Error: Not in edit mode.
-Banana
+HOP##1
 ^ff0000* Error: No entity by that name.
 ^ff0000* Error: Not in edit mode.
-HOP##1
+Groups
 ^ff0000* Error: missing parameters.
 ^ff0000* Error: Not in edit mode.
 %3.0f
-Groups
-^ff0000* Error: Not in edit mode.
 Lists:
-entity_del
 ^ff0000* Error: Not in edit mode.
 ACTION
-entity_move
-^ff0000* Error: No entity by that name.
-entity_move
-entity_move
-^ff0000* Error: missing parameters.
-entity_move
-^ff0000* Error: No entity by that name.
-^ff0000* Error: missing parameters.
-entity_move
+entity_del
 ^ff0000* Error: Not in edit mode.
 Center
 entity_move
+^ff0000* Error: No entity by that name.
+entity_move
+entity_move
+^ff0000* Error: missing parameters.
+entity_move
+^ff0000* Error: No entity by that name.
+^ff0000* Error: missing parameters.
+entity_move
+^ff0000* Error: Not in edit mode.
+##line
+entity_move
 explorer.exe
 /select,"
-##line
+Widget
 (material) 
 ^ffaa80
 explorer.exe
 /select,"
-Widget
+Banana
 ^ff0000* Error: Source and destination name are equal.
 ^ff0000* Error: Not in edit mode.
 %3.0f
-Banana
+Popups
 ^ff0000* Error: Could not find entity: 
 ^00ffff* Entity renamed to 
 ^ff0000* Error: Provided destination name is invalid.
 ^ff0000* Error: Not in edit mode.
-Popups
+Bottom
 ^ff0000* Error: Not enough parameters.
 ^00ffff
  has parameter 
 Match in entity 
 ##hsv
-Bottom
+<None>
  u. away: 
  replacements made.
 Found entity 
 Entity 
 ^ff0000* Error: Not in edit mode.
-<None>
+select
 replace
 ^ff0000* Error: Not enough paramters.
  matches found.
@@ -37399,34 +37399,34 @@ Replacement in entity
 select
 ^ff0000* Error: Not enough parameters.
 selectall
-select
+toggle
 ^ff0000* Error: Not in edit mode.
 toggle
 selectall
-toggle
-select_by_material
-^ff0000* Error: Not in edit mode.
 CTRL+M
 select_by_material
-##hex
+^ff0000* Error: Not in edit mode.
 Modals
+select_by_material
+##hex
+##edit
 ^ff0000* Error: Not in edit mode.
 false
-##edit
+Cancel
 ^ff0000* Error: Not in the editor.
 ^ff0000* Error: Not enough parameters.
 ^ff0000* Error: missing parameters.
 alpha
-Cancel
+Sailor
 ^ff0000* Error: Not in edit mode.
 Click
-Sailor
+Banana
 models\
 models\
 .assets
 ^ff0000* Error: invalid parameter.
 label
-Banana
+aaa1.c
 ^ff0000* Error: not in editing mode.
 ^ff0000* Error: missing parameters.
 Says a message through the game's chat.
@@ -37434,16 +37434,16 @@ Says a message through the game's chat.
 ^ff0000* Error: not in editing mode.
 You have ^00ffff
 combo
-aaa1.c
+Sailor
  ^ffffff
 Value
-Sailor
+%c%c%c
  powerjump charges remaining.
 ^ff0000* Error: missing parameters.
 game_physics
 ^ff0000* Error: unknown profile.
 Curve
-%c%c%c
+ccc1.c
 default
 game_physics
 ^ff0000* Error: not in editing mode.
@@ -37458,37 +37458,37 @@ Says a message through the game's chat to your team.
 teamsay
 Opens the console. You can bind this command to any key.
 Basic
-ccc1.c
+bbb1.c
 console
 Kill your own in-game character.
 Style
-bbb1.c
+SHIFT 
 Mapper aid. Rescales entities in the loaded map.
 Trees
-SHIFT 
+SUPER 
 entrescale
 Executes a list of commands separated by semicolon
 (Command list)
 Respawns.
-SUPER 
+Colors
 respawn
 Loads a map in single player training mode.
 (map name)
 Resets game without reloading the map.
 Reloads textures with names conforming to a provide pattern.
 (pattern)
-Colors
+Glyphs
 reload_tex
 Empties the material cache.
 reload_mats
 Reloads selected entities in the editor.
 Mango
-Glyphs
+glyphs
 reload_selection
 print
-glyphs
-Cinematics. Travels from an entity to targetted entities.
 Opaque
+Cinematics. Travels from an entity to targetted entities.
+Revert
 (duration) (easing: l/s) (Starting entity)
 Previews a sequence from a dolly-type movie definition.
 (movie name)
@@ -37496,31 +37496,31 @@ Select your team, e.g: /team red or /team blue.
 (red|blue|2-10)
 Loads a map for editing.
 Apple
-Revert
+Ctrl+O
 (map name)
 Basic
-Ctrl+O
+Ctrl+S
 Shows collision meshes.
 dev_collisions
 Starts demo recording.
 (record name)
 Stops demo recording or playback.
 Lines
-Ctrl+S
+More..
 Plays demo recording.
 (record name) [start time] [detached]
 Makes a sequence from a movie definition.
-More..
+Sailor
 (movie name)
 (Map editing) Reveals in explorer the asset definition for the selected prop.
 (Map editing) Opens the asset definition for the selected prop.
 (Map editing) Exports the current map to OBJ format.
 (name of file)
 The map will be exported to the "maps" folder. Use /gamedir to locate it.
-Sailor
+CTRL+Z
 (Map editing) Exports entity definitions to a text file.
 %d/%d
-CTRL+Z
+CTRL+C
 (name of file)
 Generates and open a configuration report document.
 The definition set will be exported to the "maps" folder. Use /gamedir to locate it.
@@ -37531,14 +37531,14 @@ This will open a html file with your default browser.
 The map will be saved to the "maps" folder. Use /gamedir to locate it.
 (Map editing) Renames a map entity.
 (current name) (new name)
-CTRL+C
+CTRL+V
 (Map editing) Mass finds or replaces entity properties.
 (entity name pattern) (property) (from value) [to value]
 The to value is optional, if not provided the command will just find.
 Editing command to make minimaps.
 Carves into a selected surface.
 Use '/discover' to enter discovery mode, then walk around the map to make the minimap. Use '/discover off' when you are done or '/discover clear' to start again.
-CTRL+V
+CTRL+Y
 Extrudes from a selected surface.
 (Map editing) Constructs the navigation mesh for AI in the map.
 If the show parameter is specified the navigation mesh will also be drawn.
@@ -37548,15 +37548,15 @@ navigation
 (Map editing) Selects a specific weapon by number, or in editing mode, sets a block by palette index.
 (Weapon or block number)
 Lines
-CTRL+Y
+CTRL+X
 weapon_specific
 Switches to next weapon.
 range
-CTRL+X
+Alt+F4
 weapon_prev
 Switches to next weapon.
 ##int
-Alt+F4
+Colors
 weapon_next
 (Map editing) Adds an entity at the cursor location.
 {entity name} [here]
@@ -37564,11 +37564,11 @@ weapon_next
 The entity name can only contains letters, numberic digits or underscores.Add here to add the entity in your current location.
 Leaves the current game.
 x=300
-Colors
+canvas
 disconnect
 (Map editing) Drops current weapon or swaps item.
 Combo
-canvas
+Revert
 (Map editing) Undoes an editing action.
 (Map editing) Redoes an undone editing action.
 refresh
@@ -37576,34 +37576,34 @@ refresh
 (Map editing) Forces an update of all entities.
 (Map editing) Resizes an entity.
 Apple
-Revert
+system
 (entity name) (width(x) height(y) depth(z))
 Provide only one numeric value to resize uniformly in all dimensions.
 (Map editing) Rotates an entity.
 x=300
-system
+notice
 (entity name) yaw(y) pitch(x) roll(z))
 You don't need to provide all three values.
 (Map editing) Moves you to an entity, location or translates you.
-notice
+Object
 (entity name/x y z/+x +y +z)
 You can provide an antity name or three coordinates.
 Prefix the coordinates with + to make them a relative translation.
 Suffix the coordinates with "b" to specify block coordinates. E.g: 1b = 32 units.
-Object
+ps_4_0
 (Map editing) Moves the camera to an entity location.
 (entity)
 (Map editing) Mirrors the +X half-slice of the map on its -X half-slice.
 x=150
-ps_4_0
+vs_4_0
 [radial]
 The pivot will be 0 unless an entity named 'pivot' exists, in which case its
 position will be used. Pass radial as a parameter to use radial symmetry.
 (Map editing) Adds a file to the scene from the clipboard.
 pastefile
-vs_4_0
-Requests that the server pauses/resumes the game.
  CUR: 
+Requests that the server pauses/resumes the game.
+deb_03
 (Map editing) Moves an entity to the cursor location.
 (entity name) ('here'/'center'/x y z/+x +y +z)
 Add 'here' at the end to move the entity to your feet instead of the cursor.
@@ -37615,9 +37615,9 @@ Suffix the coordinates with "b" to specify block coordinates. E.g: 1b = 32 units
 (key) {value}
 Omit the value to unset the property.
 (Map editing) Selects all blocks.
-deb_03
-selectall
 decal_
+selectall
+!depth
 (Map editing) Deselects any existing selection.
 deselect
 select_by_material
@@ -37628,40 +37628,40 @@ The id is the label that you see on the entity indicator.
  You can optionally use wildcards (*) to delete multiple entities.
 (Map editing) Sets the property of an entity.
 (entity id) (key) {value}
-!depth
+Empty!
 Omit the value to unset a property.
 (Map editing) Executes a command per selected entity.
 (command)
-Empty!
+pickup
 The token %1 will be replaced by the entity name.
 up/down/left/right
 (Map editing) Extend selection in one of the four cardinal directions based on camera perspective.
 Gives information about current selection.
 x=150
-pickup
+weapon
 Gameplay command: Switches your ready status.
 Utility command: Plays an audio sound.
 play_sound
 stop_sounds
 Utility command: Stops any sounds played through the command play_sound.
 (Map editing) Duplicates a slice of the map, pushing the map forward towards your plane of sight.
-weapon
+pickup
 slicepush
 (Map editing) Removes a slice of the map, pulling the map back towards your plane of sight.
 slicepull
-pickup
+weapon
 Shows the command line usage help of the game.
 Sets the block type for the current volume selection.
 (block type: Integer)
 set_block
-weapon
+avatar
 Gameplay command: Open in-game chat.
 Gameplay command: Open in-game team chat.
 avatar
 teamchat
 Editing command: Copy selected entities to the entity clipboard.
 Track
-avatar
+weapon
 Deprecated: Same than /copy, kept for backwards compatibility.
 copy_sel
 paste_sel
@@ -37680,10 +37680,10 @@ Loads a physics profile for testing.
 game_physics
 Scrolls the editing palette up.
 Scrolls the editing palette down.
-weapon
+avatar
 bar_down
 color
-avatar
+ranked
 Concedes the current game.
 Editing command: Copy selected entities to the entity clipboard.
 Editing command: Rotates map axially on Y 90-degrees.
@@ -37694,7 +37694,7 @@ Editing command: Remake all geometry labeling provenance from components (Slow f
 Bakes and saves current map.
 bakesave
 Combo
-ranked
+_color
 Gameplay command: Activate ability 2.
 exec_skill2
 Runs a user operation.
@@ -37703,7 +37703,7 @@ This hides some experimental utilities within.
 Bakes current map.
 Editing command.
 Close
-_color
+-b.png
 Shows current game version.
 version
 console
@@ -37712,22 +37712,21 @@ move_up
 control
 move_right
 move_left
--b.png
-move_back
 -h.png
+move_back
+weapon
 move_forward
 weapon 1
 Close
-weapon
+player
 screenshot
 eggbot_zoom_out1
 Close
-player
+noclip
 eggbot_zoom_in1
 /exec_skill2 
  ^ffffff
 Hello
-noclip
  deathball charges remaining.
 ^ffaa80You don't have any deathball charges.
 move_down
@@ -37757,11 +37756,11 @@ weapon 8
 CTRL 
 weapon 8
 child
+accent
 weapon 4
 Arrow
 weapon 3
 glyph
-accent
 weapon 7
 Alpha
 weapon 5
@@ -37773,27 +37772,29 @@ mouse_right
 Hello
 mouse_wheel_down
 Input
+color3
 weapon_next
 mouse_wheel_up
 move_up
 mouse_wheel_up
 mouse_wheel_down
 Value
-color3
+color2
 reload_selection
 child
-color2
 slicepush
 dotell editor_snap 0.01
 slicepull
+stairs
 weapon 6
 Combo
+target
 teamchat
 Check
-stairs
+accent
 pick prev
 Color
-target
+color3
 mouse_middle
 toggle hud_minimap
 toggle phy_fly
@@ -37803,7 +37804,7 @@ accent
 extend front
 bset offset_y_rel 1
 Clear
-color3
+color2
 bar_down
 Lines
 accent
@@ -37812,66 +37813,66 @@ bset offset_y_rel -1
 dotell editor_snap 0.25
 dotell editor_snap 0.05
 extend up
-color2
+holder
 dotell editor_snap 1.0
 extend left
 error
-accent
+radius
 extend down
 extend right
 op tool 4
-holder
+accent
 num_period
 move_left
-radius
+weapon
 move_forward
 move_right
 move_up
 move_back
-accent
+player
 multi /bset offset_x 0; /bset offset_y 0
 Close
-weapon
+noclip
 bset offset_x_rel -1
 op brush_bigger
 num_divide
 op brush_smaller
 fatal
-player
-op tool 1
-noclip
-num_minus
 camera
-op tool 0
+op tool 1
 accent
+num_minus
+length
+op tool 0
+volume
 num_multiply
 op tool 2
-length
+source
 num_return
 op tool 3
-volume
+source
 num_plus
 Clear
-source
+radius
 attack2
 move_down
 COLOR
-source
+reverb
 Fatal error initializing culling.
-radius
+height
 [CPU] AVX2 available. Using AVX2 extensions.
 [CPU] AVX2 not available. Using SSE41 extensions.
-reverb
+margin
 [CPU] AVX2 or SSE41 not available. Using SSE2 extensions.
-height
+shader
 culling.ppm
 ERROR 8712364323: A slow debugging feature is being used, this message should not appear on a production build. Please notify FireFrog.
 [CPU] AVX2 available. Using AVX2 extensions.
 [CPU] AVX2 not available. Using SSE41 extensions.
-margin
+radius
 [CPU] AVX2 nor SSE41 not available. Using SSE2 extensions.
 Fatal error initializing culling.
-shader
+radius
 toString(tproj[i])
 toString(tproj[i])
 culling.ppm
@@ -37880,64 +37881,66 @@ core_portal_decal
 radius
 decal normal:
 ERROR 7612462 (suppressed decal) 
-radius
+height
 decal normal:
 decal rpw normal:
-radius
+liquid
 models/skydome.fbx
-_LIGHT_DIRECTION
 Essential game assets were not found! (Did you forget to use the override script?) Shutting down...
 TEXCOORD
 error
 height
 GENERICDATA
+_LIGHT_DIRECTION
+SUM: 
+shader
 _LIGHT_COLOR
 TANGENT
 BINORMAL
-SUM: 
-liquid
-TEXCOORD
 prop_
-height
+damage
+TEXCOORD
+model
+system
 RENDER SKYBOX
 RENDER SKYBOX
 tile.vs.cso
 Critical error 451.
 COMPUTE LIGHTING
-model
-shader
-COMPUTE LIGHTING
 !none
-damage
-POSITION
+weapon
+COMPUTE LIGHTING
 haste
-system
+weapon
+POSITION
+party
+radius
 TANGENT
 BINORMAL
-party
-weapon
+spray
+sphere
 POSITION
 spray
-weapon
+global
 TEXCOORD
-spray
-radius
+party
+global
 tilesky.vs.cso
 tile.cs.cso
 tilediag.cs.cso
 POSITION
 party
-sphere
-TEXCOORD
-party
 global
+TEXCOORD
+music
+accent
 tileskyuv.vs.cso
 music
-global
+accent
 tilesky.ps.cso
 tileskyuv.ps.cso
 music
-global
+accent
 Critical Error 204
 Critical Error 201
 Critical Error 201
@@ -37954,75 +37957,75 @@ drawer::setup 3
 drawer::setup 4
 accent
 Error loading bitmap font 1.
-accent
+skybox
 Error loading bitmap font 1.
 drawer::setup 10
-music
-accent
+shell
+envmap
 drawer::setup 11
 shell
-accent
+  xmn=
 drawer::setup 10
-shell
-skybox
+shoes
+accent
 drawer::setup 11
 shoes
-envmap
-  xmn=
+EU Lut
+global
 Error loading bitmap font 1.
-accent
+attach
 Error loading bitmap font 2.
 %d %d
 rage_reward
 setting
 armort2
 weapon_mg
-EU Lut
+size_z
 minigun
 armort3
 description
 hud_icon
 shoes
-global
+size_y
 respawn_time
 key_hint
-shoes
-attach
-cooldown
 spray
-size_z
+size_x
+cooldown
+value
+unique
 duration
 value
-size_y
+volume
 small_cooldown
 charges
 category
-value
-size_x
+start
+ RAD: 
 weapon_pncr
 start
-unique
+* Key 
 weapon_df
-volume
+target
 defacer
 Cylinder height must be finite for TIQuery.
 imgui_log.txt
 imgui.ini
- RAD: 
+lut ok
 ##Menus
 ##Tooltip_%02d
 ##Popup_%08x
 ##Menu_%02d
 %*s%.*s
-* Key 
+weapon
 ##Tooltip_%02d
 #RESIZE
 #SCROLLY
 start
 target
 #SCROLLX
-start
-lut ok
+size=
+closed
 void_context
 window_context
 %s/%08X
@@ -38032,31 +38035,27 @@ Pos=%d,%d
 [Window][%s]
 Debug##Default
 1.53 WIP
-size=
 weapon
 Size=%f,%f
 Pos=%f,%f
-target
+opened
 Collapsed=%d
 Size=%d,%d
 SliderGrabActive
-closed
+ai_max
 ButtonActive
 ButtonHovered
 ScrollbarGrabActive
 ScrollbarGrabHovered
 SliderGrab
 CheckMark
-weapon
+ai_min
 SeparatorActive
 SeparatorHovered
-opened
 ResizeGripHovered
-ai_max
 ResizeGrip
 HeaderHovered
 Separator
-ai_min
 HeaderActive
 PopupBg
 FrameBg
@@ -38076,14 +38075,15 @@ Log To File
 Log To TTY
 Log To Clipboard
 PlotLinesHovered
+round
 PlotLines
+result
 PlotHistogramHovered
 PlotHistogram
 CloseButton
 ResizeGripActive
-round
+ gm=[
 CloseButtonActive
-result
 CloseButtonHovered
 LogButtons
 ModalWindowDarkening
@@ -38091,16 +38091,16 @@ TextSelectedBg
 Unknown
 DragDropTarget
 #SCROLLY
- gm=[
+round
 #SCROLLY
 round
 %d: %8.4g
-round
-%.0f deg
 CHU15
-%d: %8.4g
-%d: %8.4g
+%.0f deg
 CHU14
+%d: %8.4g
+%d: %8.4g
+CHU13
 (%d,%d,%d,%d)
 (%.3ff, %.3ff, %.3ff, %.3ff)
 Copy as..
@@ -38150,16 +38150,16 @@ B:%3.0f
 Current
 ##original
 Original
-CHU13
+CHU12
 columns
 #TreePush
 #TreePush
 context
 ##picker
-CHU12
+CHU11
 %02X%02X%02X
 %02X%02X%02X%02X
-CHU11
+CHU10
 ##ColorButton
 context
 context
@@ -38167,17 +38167,17 @@ context
 %%s: %s
 #SourceExtern
 %s: %.3f
-CHU10
+BMM10
 Open Popups Stack (%d)
  ChildMenu
 Active DrawLists (%d)
 Windows
 DrawList
-BMM10
-DrawList
 BMM14
-Basic state
+DrawList
 BMM13
+Basic state
+BMM12
 HoveredWindow: '%s'
  ChildWindow
 PopupID: %08x, Window: '%s'%s%s
@@ -38186,7 +38186,7 @@ Application average %.3f ms/frame (%.1f FPS)
 Show clipping rectangles when hovering an ImDrawCmd
 %d allocations
 ImGui %s
-BMM12
+BMM11
 ImGui Metrics
 ActiveIdWindow: '%s'
 NavWindow: '%s'
@@ -38197,14 +38197,14 @@ Double-click on title bar to collapse window.
 Click and drag on any empty space to move window.
 Click and drag on lower right corner to resize window
 (double-click to auto fit window to its contents).
-BMM11
+color
 Hold SHIFT or use mouse to select text.
 While editing text:
 CTRL+A or double-click to select all.
 CTRL+Left/Right to word jump.
 CTRL+Click on a slider or drag box to input value as text.
 TAB/SHIFT+TAB to cycle through keyboard editable fields.
-color
+delay
 Mouse Wheel to scroll.
 CTRL+Mouse Wheel to zoom window contents.
 Long text display
@@ -38217,7 +38217,7 @@ Simple layout
 Style Editor
 Metrics
 About Dear ImGui
-delay
+color
 Manipulating window titles
 Simple overlay
 Custom rendering
@@ -38232,9 +38232,9 @@ You can apply arithmetic operators +,*,/ on numerical values.
 Use +- to subtract.
 dear imgui says hello. (%s)
 1.53 WIP
-color
-Examples
 point
+Examples
+light
 By Omar Cornut and all dear imgui contributors.
 dear imgui, %s
 ImGui Demo
@@ -38243,11 +38243,11 @@ radio c
 I am a tooltip
 Hover over me
 checkbox
-light
+slide
 Thanks for clicking me!
 radio b
 radio a
-slide
+pivot
 I am a fancy tooltip
 - or me
 No menu
@@ -38261,7 +38261,7 @@ Window options
 Widgets
 The logging API redirects all text output so you can easily capture the content of a window or a block. Tree nodes can be automatically expanded. You can also call ImGui::LogText() to output directly to the log without a visual output.
 No close
-pivot
+layer
 No collapse
 Capture/Logging
 You can apply arithmetic operators +,*,/ on numerical values.
@@ -38280,7 +38280,7 @@ CTRL+Z,CTRL+Y undo/redo.
 ESCAPE to revert.
 input text
 %.06f ns
-layer
+angle
 drag float
 drag int
 Click and drag to edit value.
@@ -38288,7 +38288,7 @@ Hold SHIFT/ALT for faster/slower edit.
 Double-click or CTRL+click to input value.
 OOOOOOO
 QQQQQQQQQQ
-angle
+label
 LLLLLLL
 listbox
 (single select)
@@ -38302,18 +38302,18 @@ This is a more standard looking tree with selectable nodes.
 Click to select, CTRL+Click to toggle, click on arrows or double-click to open.
 blah blah
 Child %d
-label
-Child %d pressed
 shape
+Child %d pressed
+sound
 slider float
 ratio = %.3f
 slider log float
-sound
-drag small float
 scale
+drag small float
+alpha
 CTRL+click to input value.
 slider int
-alpha
+decal
 color 1
 slider angle
 color 2
@@ -38343,7 +38343,7 @@ Collapsing Headers
 Selectable Leaf %d
 Bullet point 2
 On multiple lines
-decal
+color
 Bullet point 1
 Bullet point 3 (two calls)
 IsItemHovered: %d
@@ -38356,7 +38356,7 @@ Hello.cpp
 Hello.h
 Rendering more text into the same block
 5. I am double clickable
-color
+scale
  2,345 bytes
 default
 Filtered Text Input
@@ -38364,10 +38364,10 @@ hexadecimal
 decimal
 Item %d
 In columns
-scale
+alpha
 %.0fx%.0f
 Below we are displaying the font texture (which is the only texture we have access to in this demo). Use the 'ImTextureID' type as storage to pass pointers or identifier to your own texture data. Hover the texture for a zoomed view!
-alpha
+color
 Max: (%.2f, %.2f)
 Min: (%.2f, %.2f)
 Kanjis: 
@@ -38384,14 +38384,14 @@ And now some textured buttons..
 Selectables
 Histogram
 Progress Bar
-color
+ocean
 Sample count
 With Options Menu
 With Half Alpha Preview
 Color widget:
 Right-click on the individual color widget to show options.
 With HDR
-ocean
+color
 Color/Picker Widgets
 With Alpha Preview
 Multi-line Text Input
@@ -38400,11 +38400,11 @@ password (clear)
 Display all characters as '*'.
 Disable clipboard cut and copy.
 Disable logging.
-color
-password
 scale
-no blank
+password
 haste
+no blank
+delay
 uppercase
 Password input
 "imgui" letters
@@ -38412,7 +38412,7 @@ avg 0.0
 Frame Times
 Histogram
 ##source
-delay
+model
 Read-only
 Animate
 Plots widgets
@@ -38422,7 +38422,7 @@ Palette
 Current
 ##previous
 Previous
-model
+logic
 With Side Preview
 With Alpha Bar
 ##RefColor
@@ -38445,17 +38445,17 @@ Click on the colored square to open a color picker.
 CTRL+click on individual component to input value.
 MyColor##2
 mypicker
-logic
+color
 after_
 mypicker
 color
 ##picker
-color
+haste
 MyColor##3
 MyColor##3b
-haste
-drag float2
 model
+drag float2
+ocean
 slider float2
 Multi-component Widgets
 range int (no bounds)
@@ -38465,7 +38465,7 @@ drag float3
 input int2
 drag int2
 slider int2
-ocean
+spawn
 MyColor##4
 User can right-click the picker to change mode.
 SetColorEditOptions() is designed to allow you to set boot-time default.
@@ -38490,24 +38490,24 @@ Uint8 + HSV
 Max: %.1f %%
 Range Widgets
 Vertical Sliders
-spawn
 sides
+GC-03
 Child regions
 slider int3
-GC-03
+GC-02
 input float4
 slider float3
 input int3
 drag int3
 drag int4
-GC-02
-slider int4
 GC-01
+slider int4
+cable
 drag float4
 input int4
 slider float4
 float##3
-cable
+model
 Align to right edge minus 100
 PushItemWidth(-100)
 float##2
@@ -38519,29 +38519,29 @@ float##5
 (Use ImGui::SameLine() to keep adding items to the right of the preceding item)
 Basic Horizontal Layout
 float##4
-model
+layer
 Align to right edge
 PushItemWidth(-1)
+movies
 %04d: scrollable region
 With border
-layer
+GC-11
+easing
 Without border
 Disable Mouse Wheel
-GC-11
-movies
-float##1
 GC-10
-easing
+float##1
+GC-09
 Half of window width.
 PushItemWidth(GetWindowWidth() * 0.5f)
 Widgets Width
 Fixed width.
 PushItemWidth(100)
-GC-09
+GC-04
 Normal buttons
 Corniflower
 Two items: Hello
-GC-04
+bevel
 More spacing: Hello
 Aligned
 Like this one
@@ -38553,7 +38553,7 @@ Three
 Hello
 World
 Selected
-bevel
+gloss
 Text Baseline Alignment
 Not Selected
 Hello
@@ -38563,51 +38563,51 @@ World
 Three
 (Using ImGui::BeginGroup()/EndGroup() to layout items. BeginGroup() basically locks the horizontal position. EndGroup() bundles the whole group so that you can use functions such as IsItemHovered() on it.)
 ##values
-gloss
-LEVERAGE
-BUZZWORD
-REACTION
 debug
 movie_
-First group hovered
+LEVERAGE
+BUZZWORD
+?REACTION
+light
+AFirst group hovered
 (Use SetScrollHere() or SetScrollFromPosY() to scroll to a given position.)
-Scrolling
-?Line = %.0f
-ABullet text
-CButton##3
+CScrolling
+Line = %.0f
+BBullet text
+u=Button##3
 Button##4
-BScroll To Pos
+Scroll To Pos
 ##pos_y
 Y = %.0f px
-u=Text aligned to Widget
+Text aligned to Widget
 TEST##2
 Widget##1
+patrol
 Hello
 World
-light
+!last
+pickup
 TEST##1
 Node##2
 Item %d..
 Item %d..
-patrol
 Button##2
-pickup
 Widget##3
 Widget##2
 Node##1
 Button##1
 On a per-widget basis we are occasionally clipping text CPU-side if it won't fit in its frame. Otherwise we are doing coarser clipping + passing a scissor rectangle to the renderer. The system is designed to try minimizing both execution and CPU/GPU rendering cost.
 Clipping
-!last
-Scroll from code
 pivot
+Scroll from code
+spawn
 scrolling
 %.0f/%.0f
 Haddock
 When a popup is active, it inhibits interacting with windows that are behind the popup. Clicking outside the popup closes it.
 ##dummy
 (Click and drag)
-spawn
+light
 Popups & Modal windows
 Line 1 hello
 Line 2 clip me!
@@ -38617,12 +38617,12 @@ Line %d
 You may want to explicitly specify content width by calling SetNextWindowContentWidth() before Begin().
 Line %d
 Horizontal scrolling for a window has to be enabled explicitly via the ImGuiWindowFlags_HorizontalScrollbar flag.
-light
-FizzBuzz
 close
+FizzBuzz
+armor
 scrolling
 Click me
-armor
+light
 Sub-menu
 light
 FilePopup
@@ -38638,22 +38638,22 @@ FilePopup
 item context menu
 Value = %.3f (<-- right-click here)
 Aquarium
-light
+color
 Pollock
 Mackerel
-color
-Select..
 cable
-Tilefish
+Select..
  and 
-Click me
+Tilefish
 start
-Sub-menu
+Click me
 layer
+Sub-menu
+movie
 I am a tooltip over a popup
 Tooltip here
 Toggle..
-movie
+dolly
 Add another modal..
 Stacked 2
 Stacked 2
@@ -38663,7 +38663,7 @@ Hello from Stacked The First
 Using style.Colors[ImGuiCol_ModalWindowDarkening] for darkening.
 Stacked 1
 Below we are testing adding menu items to a regular window. It's rather unusual but should work!
-dolly
+_bak_
 Menu item
 Menus inside a regular window
 Delete..
@@ -38672,7 +38672,6 @@ Edit name:
 Button: %s###Button
 Stacked 1
 Stacked modals..
-_bak_
 Delete?
 Delete?
 Don't ask me next time
@@ -38681,8 +38680,11 @@ This operation cannot be undone!
 Mixed items
 /path/two
 /path/one
+vs_4_0
 /path/three
 An extra line here.
+false
+ps_4_0
 Corniflower
 mycolumns3
 Without border:
@@ -38695,7 +38697,7 @@ Hovered
 mycolumns
 Tree within single cell
 NB: Tree node must be poped before ending the cell. There's no storage of state per-cell.
-vs_4_0
+weapon
 tree items
 Horizontal Scrolling
 Width %.2f
@@ -38710,7 +38712,6 @@ Filter usage:
   "-xxx"     hide lines containing "xxx"
 Bonjour
 Filtering
-ps_4_0
 Blah blah blah
 Category C
 word-wrapping
@@ -38722,8 +38723,7 @@ Category B
 horizontal
 Borders
 vertical
-false
-weapon
+%.17g
 Hello Left
 The quick brown fox jumps over the lazy dog.
 Hello Right
@@ -38733,7 +38733,6 @@ Mouse dbl-clicked:
 Mouse pos: <INVALID>
 Mouse pos: (%g, %g)
 b%d (%.02f secs)
-%.17g
 Mouse down:
 Keys pressed:
 %d (%.02f secs)
@@ -38742,30 +38741,30 @@ Mouse released:
 Keys down:
 Mouse wheel: %.1f
 ccc2.cpp
+256000
 hello, world
 bbb2.cpp
 aaa2.cpp
 WantTextInput: %d
-256000
 WantCaptureKeyboard: %d
 Keyboard & Mouse State
 WantMoveMouse: %d
 io.MouseDrawCursor
 Inputs & Focus
 WantCaptureMouse: %d
-Focus from code
-Focused & Hovered Test
 Request ImGui to render a mouse cursor for you in software. Note that a mouse cursor rendered via your application GPU rendering path will feel more laggy than hardware cursor, but will be more in sync with your other visuals.
 Some desktop applications may use both kinds of cursors (e.g. enable software cursor only when resizing/dragging something).
 Focus on 2
 Focus on 1
 Focus on 3
 4 (tab skip)
-embeddingchild
-Item with focus: <none>
+Focus from code
+Focused & Hovered Test
 Cursor & selection are preserved when refocusing last used item in code.
+embeddingchild
 Embed everything inside a child window (for additional testing)
 3 (tab skip)
+Item with focus: <none>
 Item with focus: %d
 Use TAB/SHIFT+TAB to cycle through keyboard editable fields.
 Tabbing
@@ -38774,8 +38773,8 @@ Holding me clears the
 the keyboard capture flag
 Hovering me sets the
 keyboard capture flag
-Your application can render a different mouse cursor based on what ImGui::GetMouseCursor() returns. If software cursor rendering (io.MouseDrawCursor) is set ImGui will draw the right cursor for you, otherwise your backend needs to handle it.
 Hover to see mouse cursors:
+Your application can render a different mouse cursor based on what ImGui::GetMouseCursor() returns. If software cursor rendering (io.MouseDrawCursor) is set ImGui will draw the right cursor for you, otherwise your backend needs to handle it.
 Classic
 Light
 Mouse cursor %d: %s
@@ -38789,22 +38788,23 @@ FrameRounding
 PopupBorder
 FrameBorder
 Colors##Selector
+Fonts##Selector
 - Load additional fonts with io.Fonts->AddFontFromFileTTF().
 - The font atlas is built when calling io.Fonts->GetTexDataAsXXXX() or io.Fonts->Build().
 - Read FAQ and documentation in extra_fonts/ for more details.
 - If you need to add/remove fonts at runtime (e.g. for DPI change), do it before calling NewFrame().
-Fonts##Selector
 This is another child window for testing IsWindowHovered() flags.
 You can use ImGui::GetMouseDragDelta(0) to query for the dragged amount on any widget.
 Dragging
 TextInput
+Drag Me
 IsWindowHovered() = %d
 IsWindowHovered(_AllowWhenBlockedByPopup) = %d
 IsWindowHovered(_AllowWhenBlockedByActiveItem) = %d
 IsWindowHovered(_ChildWindows) = %d
 IsWindowHovered(_ChildWindows|_RootWindow) = %d
 IsWindowHovered(_RootWindow) = %d
-Drag Me
+Mouse cursors
 IsWindowFocused() = %d
 IsWindowFocused(_ChildWindows) = %d
 IsWindowFocused(_ChildWindows|_RootWindow) = %d
@@ -38819,10 +38819,9 @@ IsMouseDragging(%d):
   w/ default threshold: %d,
   w/ zero threshold: %d
   w/ large threshold: %d
-Mouse cursors
+ItemInnerSpacing
 Raw (%.1f, %.1f), WithLockThresold (%.1f, %.1f), MouseDelta (%.1f, %.1f)
 12800
-ItemInnerSpacing
 TouchExtraPadding
 FramePadding
 ItemSpacing
@@ -38833,8 +38832,8 @@ WindowBorderSize
 204800
 IndentSpacing
 ScrollbarSize
-When disabling anti-aliasing lines, you'll probably want to disable borders in your style as well.
 Anti-aliased lines
+When disabling anti-aliasing lines, you'll probably want to disable borders in your style as well.
 Curve Tessellation Tolerance
 Anti-aliased fill
 Revert Ref
@@ -38846,16 +38845,16 @@ PopupRounding
 Global Alpha
 Settings
 ButtonTextAlign
+WindowTitleAlign
 Alignment applies when a button is larger than its text content.
 Alignment
 GrabRounding
-WindowTitleAlign
 ##output_type
 To Clipboard
 To TTY
+Only Modified Colors
 Tip: Left-click on colored square to open color picker,
 Right-click to open edit options menu.
-Only Modified Colors
 ImVec4* colors = ImGui::GetStyle().Colors;
 Export Unsaved
 colors[ImGuiCol_%s]%*s= ImVec4(%.2ff, %.2ff, %.2ff, %.2ff);
@@ -38871,13 +38870,13 @@ Fallback character: '%c' (%d)
 Ascent: %f, Descent: %f, Height: %f
 Input %d: '%s', Oversample: (%d,%d), PixelSnapH: %d
 Texture surface: %d pixels (approx) ~ %dx%d
-285.93
 The quick brown fox jumps over the lazy dog
 Note than the default embedded font is NOT meant to be scaled.
 Font are currently rendered into bitmaps at a given size at the time of building the atlas. You may oversample them to get some flexibility with scaling. You can also render at multiple sizes and select which one to use at runtime.
 (Glimmer of hope: the atlas system should hopefully be rewritten in the future to make scaling more natural and automatic.)
 Font scale
 Codepoint: U+%04X
+285.93
 U+%04X..U+%04X (%d %s)
 Pos: (%.2f,%.2f)->(%.2f,%.2f)
 AdvanceX: %.1f
@@ -38921,18 +38920,15 @@ Options
 Enabled
 Checked
 Disabled
-124.8
 Maybe
 Example: Custom rendering
 This window has a changing title.
-color
-808080
+124.8
 Primitives
-Same title as another window##2
-Animated title %c %d###AnimatedTitle
 This is window 2.
 My title is the same as window 1, but my identifier is unique.
-radius
+Same title as another window##2
+Animated title %c %d###AnimatedTitle
 Left-click and drag to add lines,
 Right-click to undo
 Canvas example
@@ -38941,21 +38937,24 @@ Example: Fixed Overlay
 800x200
 %*sHello, sailor! Making this line long enough for the example.
 Constraint
-"MPL0"
+color
+808080
 Bottom-right
 Bottom-left
 This is window 1.
 My title is the same as window 2, but my identifier is unique.
+radius
 Same title as another window##1
 Mouse Position: (%.1f,%.1f)
 Simple overlay
 in the corner of the screen.
 (right-click to change position)
 Top-right
+"MPL0"
 Top-left
 Example: Console
-MyObject %d
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+MyObject %d
 left pane
 MyObject: %d
 item view
@@ -38966,11 +38965,11 @@ Example: Log
 %i The quick brown fox jumps over the lazy dog
 %i The quick brown fox jumps over the lazy dog
 Example: Property editor
+Buffer contents: %d lines, %d bytes
 This example shows how you may implement a property editor using two columns.
 All objects/fields data are dummies here.
 Remember that in many simple cases, you can use ImGui::SameLine(xxx) to position
 your cursor horizontally instead of using the Columns() API.
-Buffer contents: %d lines, %d bytes
 %i The quick brown fox jumps over the lazy dog
 Add 1000 lines
 Printing unusually long amount of text.
@@ -38989,7 +38988,6 @@ struct PS_INPUT            {            float4 pos : SV_POSITION;            flo
 cbuffer vertexBuffer : register(b0)             {            float4x4 ProjectionMatrix;             };            struct VS_INPUT            {            float2 pos : POSITION;            float4 col : COLOR0;            float2 uv  : TEXCOORD0;            };                        struct PS_INPUT            {            float4 pos : SV_POSITION;            float4 col : COLOR0;            float2 uv  : TEXCOORD0;            };                        PS_INPUT main(VS_INPUT input)            {            PS_INPUT output;            output.pos = mul( ProjectionMatrix, float4(input.pos.xy, 0.f, 1.f));            output.col = input.col;            output.uv  = input.uv;            return output;            }
 IMGUI Initialized
 Error initializing IMGUI
-weapon
 Node count: 
 Another Window
 SPD 2ms
@@ -38997,7 +38995,6 @@ UPD 2ms
 Another Window-Graphs
 FULLSCREEN: 
 SLOWEST: 
-deb_01
 Another Window
 Another Window
 DT 10ms
@@ -39006,11 +39003,10 @@ DT 10ms
  thumbnails generated.
 (Conversion) Invalid image 
 material
-spawn
-7a874e
+weapon
 /bset surface_material 
 Error: Select a face to add the decal to.
-ff1c1c
+deb_01
 ui\resources\asset_thumbnails\
 Error loading editpad model.
 models\editpad.fbx
@@ -39028,60 +39024,61 @@ Error: Error loading env map image (2). tex=
 Error: Error resizing env map. err=
 textures\cubemaps\generated.dds
 textures\cubemaps
-f3f723
+7a874e
 /set global envmap generated
 Error: Error saving dds cube. err=
 Error: Error initializing cube from images. err=
-deb_02
+spawn
+ff1c1c
 Error: Error saving env map information. err=
 Error: Error compressing cubemap with DirectCompute. err=
-ffffff
+f3f723
 Error: Error generating mipmaps for cube. err=
 /bset footstep_sound 
 Screenshots
 Error: Error loading env map image(1). tex=
-ffffff
+deb_02
 tmp_envmap_
 !skybox
 !terrain_heightmap
 shadow_
 tilestatic.vs.cso
-23c841
+ffffff
 RELOADING TEX 
 survival
-ffa1ce
+ffffff
 tripledamage
 vanguard
-18c7ff
+23c841
 macguffin
-ff8800
+ffa1ce
 multipickup
 crystalt2
-8438f6
+18c7ff
 crystalt3
-right
-weapon
+ff8800
 crystalt1
-short
-armort
+8438f6
 doubledamage
 deathball
-haste
+right
 weapon
 reflect
 powerjump
+armort
 movement
-Error
+short
+weapon
 and underscores.
 ^ff0000* Error: Entity name can't be longer than 
-armort4
 ^ff0000* Error: Entity names can only contain alphanumeric characters
 and underscores.
+armort4
 armort2
 armort3
 armort1
 fft_512x512_c2c_2.cs.cso
-maps\
+haste
 fft_512x512_c2c.cs.cso
 user_id
 user_id
@@ -39103,12 +39100,12 @@ customizations
 rank_position
 rank_position
 rank_tier
-uionly
 rank_tier
 customizations
 customizations
 match_id
-maps\
+Error
+uionly
 user_id
 CUSTOMIZATION PARSING 
 CUSTOMIZATION PARSE SUCCESS
@@ -39133,40 +39130,40 @@ ANTICHEAT IDS PARSE SUCCESS
  assigned to player id 
 [Game state] Team 
 [Manifest] Team 
-input
+maps\
 height
  with user id 
 [Warning] (2) Did not find agent with runtime player id=
-debug
+maps\
 uimono
 country
 [Warning] (1) Did not find agent with runtime player id=
+[Warning] Unknown user 
 [Warning] Ignoring customization request due to unknown match id 
 uiaabb
 property
-width
+input
 uionly
-[Warning] Unknown user 
 [Error] customization json is not object
-uilog
+debug
 height
 [Warning] Not-implemented property 
  when performing customization update request.
 [Warning] (3) Did not find agent with runtime player id=
-nopfx
+width
 height
  when performing customization update request.
 [Warning] (2) Did not find agent with runtime player id=
-vsync
+uilog
 height
 sticker
 continuous
 physics
 location
-multi
+nopfx
 uimono
 ready_percentage
-debug
+vsync
 uiaabb
 authentication_mode
 match_id
@@ -39174,7 +39171,7 @@ multi
 models
 match_type
 min_start_teams_required
-nopfx
+debug
 CRC32=
 min_start_players_per_team
 team_size
@@ -39187,9 +39184,9 @@ PARSE SUCCESS
 server_host
 Anticheat ids list END
 PARSING 
-width
+multi
 it.first
-width
+nopfx
 it.second
 warmup_time
 player_count
@@ -39197,7 +39194,7 @@ time_limit
 score_limit
 width
 server_port
-uilog
+width
 clients
 clients
 clients
@@ -39213,7 +39210,7 @@ team_names
 (JSON) on Masterserver request. map/mode/match_id=
 START PARSED COMMANDS:
 map_list
-Error
+width
 spawn_logic
 lingering_time
 physics
@@ -39221,50 +39218,51 @@ test_command_it.first
 END PARSED COMMANDS:
 test_command_it.second
 "START PARSED COMMANDS:"
-Error
+uilog
 "applying custom setting from manifest:"
-packs
+Error
 applying custom setting from manifest:
 it.first
-melee
+Error
 it.second
 [masterclient] JSON error DFG13872
 [masterclient] JSON error D928737
-action
 defensive
+action
 macguffin
-bounty
+packs
 game_warmup_time
+melee
 game_team
+bounty
 game_score_limit
-stats
 game_max_players
-final
 game_time_limit
 chase_target
 guard_position
 Error initializing HBAO+
-state
+stats
 "Adjustement from"
 Adjustement from
-brawl
+final
 client_game_start_time
 "Adjust over"
 Adjust over
 "Adjustement to"
-warmup
+state
 Adjustement to
 client_game_start_time
 "Adjust under"
 Adjust under
+warmup
 Terrain object initialized with heightmap: 
 material
-score
+brawl
 core_ter
-teams
+score
 scale_y
 offset_y
-stats
+teams
 round_cycle
 MULTI-ENTITY 3
 tripledamage
@@ -39273,7 +39271,7 @@ MULTI-ENTITY updating em=
 cell_size
 chunk_size
 chunk_count
-color
+stats
 vanguard_runtime_instanced
 extinction_only
 round_cycle
@@ -39287,18 +39285,16 @@ made map geometry, grid
 updating 2d grid:
 made map geometry, indicator
 made map geometry
-Team 
+color
 make_geometry() chunks 
 make_geometry() bounds=
 Map has incorrect bounds, aborting construction.
 Warning 128376: No geometry to mesh, aborting level construction.
-brawl
+Team 
 Assertion Error 1713E d=
-Team=
-weapon
+brawl
 Assertion Error 1713D d=
-haste
-weapon
+Team=
 make_geometry all included
 MADE GEOMETRY
 made physical chunks
@@ -39307,24 +39303,27 @@ made map geometry, 0b
 made map geometry, 0a
 made map geometry, ambient grid
 made map geometry, audio occlusion
-fence
+weapon
 default
 default
 _accent
 Assertion Error 1713G d=
+haste
+weapon
 Assertion Error 1713F d=
-warmup
+fence
 @levels-_make_shadow_mega_mesh
 @levels-_make_shadow_mega_mesh
 @levels-_make_blocks_mega_mesh-normal
 @levels-_make_blocks_mega_mesh-index
 @levels-make_chunk_geometry-shadow
 !nomaterial
-round
+warmup
 !nomaterial
-haste
+round
 models\
 WARNING 1744: Expected empty parent node.
+haste
 models\
 models\
 max_distance
@@ -39348,8 +39347,6 @@ clip_max_x
 clip_min_z
 clip_min_y
 clip_min_x
-spawn
-weapon
 softness
 omni_volume
 directional_volume
@@ -39359,6 +39356,8 @@ cubic_ambient_node
 ambient_node
 clip_max_z
 clip_max_y
+spawn
+weapon
 rotation_z_timeline
 rotation_y_timeline
 rotation_x_timeline
@@ -39390,8 +39389,8 @@ billboard
 reflection
 visibility_timeline
 rotation_timeline
-Warning: Reverb instances limit of 4 exceeded. Ignoring reverb entity 
 padding
+Warning: Reverb instances limit of 4 exceeded. Ignoring reverb entity 
 padding
 padding
 terrain
@@ -39417,12 +39416,12 @@ vanguard
 activator
 trigger
 teleport
-BRE111
 jumppad
 hexahedron
-BRE222
 macguffin
+BRE111
 survival
+BRE222
 pickup_orb
 max_distance
 shallow_color
@@ -39443,11 +39442,11 @@ vanguard
 #ffffff0d
 doubledamage
 #ff891e94
-rotate
 tripledamage
 #ff27CCFF
 armort2
 #ffffff00
+rotate
 scroller
 float
 killplane
@@ -39456,18 +39455,15 @@ segments
 Error 128746. Tried to batch unsupported geometry format.  t=
 Error 2817346. hs=
 movement
-Size: 
 _hologram
 material
-Min: 
-color2
+Size: 
 default_cable
 link_next
-color2
 link_prev
-accent
+color2
 link_next
-accent
+color2
 EU Cleanup
 Error 1872342362. area type mismatch a=
 Error 092565916. area type mismatch a=
@@ -39479,41 +39475,41 @@ default_theme
 global_
 Error 89523784: skipping n=
 Error 89523711: skipping.
-action
+accent
 ERROR 7812346: Null material while registering mesh n=
 GC-05...08
-Max: 
-action
+Min: 
+accent
 auto_color
 extender_
-target
+action
 extender
- pos=
-target
+Max: 
+action
 skybox_rotation
 sky_model
-unique
+target
 color_input_high
-color
-unique
+ pos=
+target
 color_input_gamma
-global
+unique
 shadow_color
 reflectivity
 ambient_occlusion_power
 ambient_occlusion_radius
 color
-target
+unique
 EU Tree Insertion
-accent
+global
 ERROR 18245622: Expected precisely one material in 
 color
-color3
+target
 ERROR 70912346: Incorrect material properties 
 [Debug-Entity] 
  mesh_index : 
 EU Cube textures
-_mirr
+color
 accent
 textures/cubemaps/default_envmap.dds
 textures/cubemaps/
@@ -39521,17 +39517,17 @@ _mirr
 color3
 textures/cubemaps/default_skybox.dds
 textures/cubemaps/
-pivot
-color2
+_mirr
+accent
 EU Respawning
 EU Purge (Decals)
-accent
-EU Purge (Assets)
 color3
+EU Purge (Assets)
+color2
 EU Permanence
 EU Entities
 EU Global
-attach
+accent
  max_mesh_index : 
  mesh_effect : 
 NOT-FOUND
@@ -39540,8 +39536,8 @@ Error 901245612: Meshes used as props require flat hierarchy or results may be u
  submeshes_at_root=
 ERROR 35987: Invalid registree metrics: on 
 __shadow
-decal
-attach
+pivot
+color3
 force_shadows
 skip_shadows
 dynamic_shadows
@@ -39549,42 +39545,44 @@ EU Shadow vis
 EU Global view
 EU Ambient grid
 EU Groups
-volume
+attach
 EU Batching
 EU Sorting
 EU Gizmos
-bottom
+attach
 no_show
 Shadow 2
-light
-random
+decal
+volume
 UPDATING SHADOWS
-color
+light
 bottom
 UPDATE ENTITIES DONE
 cubic_ambient_node
-empty
-escape
+color
+random
 ambient_node
 Error: Entity to change is null.
-right
-/bind 
+empty
+bottom
 ambient
 __shadow
-theme
+right
 escape
 Error 81237621: Skipping shadow extraction for entity 
 terrain
 Shadow visibility
 /bind 
 @levels-_update_shadow_visibility
-editor
+escape
 @levels-_update_shadow_visibility
+/bind 
 Shadow Z
-solid
+theme
+editor
 rotation_z
 rotation_y
-debug
+solid
 * Entity 
  added.
 Scale: 
@@ -39600,12 +39598,12 @@ position_x
  deleted from entity 
 ^ffff00
 ^ffffff: ^00ffff
-style
+debug
 Error: Error loading lut texture (2). tex=
 Error: Error loading lut texture (1). tex=
 Error: Error loading lut texture (0). tex=
 textures\
-front
+style
 Ambient grid finished
 [Levels] Error 2 creating LUT grid.
 [Levels] Error 1 creating LUT grid.
@@ -39614,7 +39612,7 @@ Ambient released view
 Skipping ambient grid
 Ambient grid got box
 teleport
-style
+front
 jumppad
 Ambient grid made grid
 Ambient grid cleared
@@ -39625,19 +39623,18 @@ Ambient created texture
 Ambient released texture
 style
 EU Model cleanup
-front
+style
 EU Registration cleanup
 pickup_spawn
 pickup_spawn_hp
 pickup_spawn_armor
-right
-pickup_pre_spawn
 front
+pickup_pre_spawn
+right
 pickup_spawn_weapon
 Assertion error H246123: leaking pfx
 models/
 [MULTIEDIT] Error processing incoming chunk data.
-editor
 default
 [Navigation] Error loading from file: data too large.
 [Audio-Graph] 
@@ -39648,7 +39645,8 @@ WROTE PLANES
 "WRITING"
 WRITING
 planesets.size()
-place
+front
+editor
 post_initialize 02
 post_initialize 03
 post_initialize 04
@@ -39663,7 +39661,7 @@ tmp_visualization_areas.size()
 data.size()
 moving_entities.size()
 pickable_entities.size()
-right
+place
 entities_with_light.size()
 [Navigation] STEP 7.
 Navigation building error (5).
@@ -39697,7 +39695,7 @@ ms tricount=
 Navigation constructed in 
 Error: Navigation mesh cannot be build: wrong parameters.
 Could not build navmesh.
-game 
+right
 [Navigation] STEP 10.
 Navigation building error (11).
 [Navigation] STEP 11.
@@ -39711,7 +39709,7 @@ trace.coverage
 trace.end.to_string()
 to.to_string()
 from.to_string()
-shop 
+game 
 trace.start_stuck
 "moving entity checking"
 shop 
@@ -39738,9 +39736,8 @@ core_bbox_hl
 models\core\bbox.fbx
 core_outline_exterior
 core_outline_exterior_hl
-game 
+shop 
 textures\editor\light.png
-period
 textures\editor\light_selected.png
 textures\editor\multipickup.png
 ring_decal
@@ -39750,6 +39747,7 @@ RENDER LEVEL
 RENDER LEVEL
 RENDER TERRAIN
 RENDER TERRAIN
+set_editing_info
 Discovery mode enabled
 Walk around all accessible areas to create your minimap.
 Use the console command /discover off when you are done.
@@ -39757,26 +39755,26 @@ Use /discover clear to restart.
 Tip: Make sure to walk every stairs up at least once to
 register all the steps.
 game 
+period
+usemtl material_
+game 
 rshift
-set_editing_info
+ Min: 
 shop 
 return
-usemtl material_
 slash
 escape
- Min: 
-grave
-equals
-shift
 mtllib 
  Max: 
-comma
+grave
+equals
 hasmeshes
-minus
+shift
 Z ao slice: 
 Kd 1.000000 1.000000 1.000000
 Ka 1.000000 1.000000 1.000000
 newmtl material_0
+comma
 Ns 0.000000
 illum 1
 Tr 1.000000
@@ -39789,16 +39787,17 @@ element vertex
 format binary_big_endian 1.0
 format binary_little_endian 1.0
 format ascii 1.0
-right
+minus
 insert
 property uchar red
 property float z
+right
 delete
 property float y
 right
-scroll
 property float x
 num_6
+scroll
 property list uchar int vertex_indices
 element face 
 property uchar blue
@@ -39816,20 +39815,20 @@ line1_offset_a.to_string()
 line1_offset_b.to_string()
 );ctx.lineTo(
 ';ctx.moveTo(
-ctx.beginPath();ctx.lineWidth='2';ctx.strokeStyle='
 ' style='border:1px solid #000000;'></canvas><script>var c = document.getElementById('myCanvas');var ctx = c.getContext('2d');ctx.fillStyle = '#FF0000';
 num_8
 escape
+ctx.beginPath();ctx.lineWidth='2';ctx.strokeStyle='
 <canvas id='myCanvas' width='
 ' height='
 ';ctx.rect(
 );ctx.stroke();ctx.fillStyle='
 );ctx.stroke();
+make_ring(): Don't know how to do a ring with sizes 
 ctx.beginPath();ctx.lineWidth='2';ctx.strokeStyle='black';ctx.rect(
 px Arial';ctx.fillStyle='black';ctx.fillText("
 );ctx.fill();
 ctx.font = '
-make_ring(): Don't know how to do a ring with sizes 
 make_ring: inner size != outer size * 3
 make_quad_ring: unequal sizes.
 </script>
@@ -39841,34 +39840,33 @@ Loading replay...
 Replay loaded.
 127.0.0.1
 ^ff0000* Error: Parse demo error.
-NORMAL
 Replays
 ^ff0000* Error: Could not find replay file: 
 Closing demo (movies)
 sync_animation
 framerate
-toggle
 duration
 num_9
-unbind
+NORMAL
 pre_exec
 num_2
-dotell
+toggle
 post_exec
+^ff0000Error: Could not execute_deferred dolly track. Check provided dolly names are right.
 Sequences
+unbind
+/editor_layer 
 /editor_layer 
 Error: Wrong duration value. Aborting sequence 
 Error: No demo or dolly supplied, aborting sequence 
-^ff0000Error: Could not execute_deferred dolly track. Check provided dolly names are right.
-/editor_layer 
 The functionality to automate map loading for cinematics is not functioning currently. Let us know if you need it.
 Error: Error loading demo, aborting sequence 
 ocean_surf.ps.cso
 Error: No map supplied, and no map is loaded, aborting sequence 
 num_3
+dotell
 POSITION
 num_4
-</div>
 ocean_surf.vs.cso
 </div>
 ocean_surf_lq.ps.cso
@@ -39892,6 +39890,7 @@ projectile
 :anonymous
 Unable to append nodes: root is not an element or document
 No document element found
+</div>
 Error parsing end element tag
 Start-end tags mismatch
 <?xml version="1.0"
@@ -39957,32 +39956,32 @@ rcBuildPolyMesh: Out of memory 'nextVert' (%d).
 rcBuildPolyMesh: Out of memory 'mesh.polys' (%d).
 rcBuildPolyMesh: Out of memory 'mesh.regs' (%d).
 ctrl-
-dotell
 removeVertex: Out of memory 'tverts' (%d).
 removeVertex: Out of memory 'thole' (%d).
+dotell
 removeVertex: Out of memory 'harea' (%d).
-toggle
 removeVertex: Out of memory 'tris' (%d).
 blank
+toggle
 removeVertex: Out of memory 'pregs' (%d).
 removeVertex: Out of memory 'pareas' (%d).
 removeVertex: triangulate() returned bad results.
 removeVertex: Out of memory 'polys' (%d).
 removeVertex: Out of memory 'hole' (%d).
 blank
-toggle
 removeVertex: Out of memory 'hreg' (%d).
 blank
-unbind
+toggle
 canRemoveVertex: Out of memory 'edges' (%d).
 removeVertex: Out of memory 'edges' (%d).
-editor
+unbind
 rcCopyPolyMesh: Out of memory 'dst.flags' (%d).
 rcCopyPolyMesh: Out of memory 'dst.regs' (%d).
 rcCopyPolyMesh: Out of memory 'dst.areas' (%d).
 rcMergePolyMeshes: Out of memory 'vremap' (%d).
 rcMergePolyMeshes: Adjacency failed.
 rcMergePolyMeshes: Out of memory 'nextVert' (%d).
+editor
 rcMergePolyMeshes: Out of memory 'firstVert' (%d).
 rcCopyPolyMesh: Out of memory 'dst.verts' (%d).
 rcCopyPolyMesh: Out of memory 'dst.polys' (%d).
@@ -40071,8 +40070,8 @@ deathball
 Error
 eggbot1
 _load_models_once
-Press ^ffff00\[Return]^ffffff to open the console.
 Press ^ffff00\[Tab]^ffffff while on the console to navigate commands and variables.
+Press ^ffff00\[Return]^ffffff to open the console.
 models\cylinderbot\cylinderbot.fbx
 cylinderbot1
 Default model loaded.
@@ -40290,8 +40289,8 @@ offset =
 [T] Reset [Y] Copy to clipboard
 [Ctrl] Slower  [Shift] Faster
 stress_sound
-[Arrows] XY Move  [Home/End] Z move
 [PgDn/PgUp] Scale offset  [Ctrl+PgDn/Ctrl+PgUp] Scale  [Shift+PgDn] Move Y pivot
+[Arrows] XY Move  [Home/End] Z move
 EDITING WEAPON
 macguffin
 survival
@@ -40583,8 +40582,8 @@ hit_69
 #f8d309
 #7dd82b
 wipeout
-announcer_common_frag_pncr_3hits_rare
 Gameplay error. Could not create behavior for agent of. Behavior type= 
+announcer_common_frag_pncr_3hits_rare
 NCC.001
 NCC.00B
  seconds
@@ -40832,8 +40831,8 @@ link_prev
 link_prev
 link_next
 link_prev
- zcentered=
 Shadow vertex buffer has different size than visual vertex buffer.
+ zcentered=
 MIRROR started on 
  selected
 Entity 
@@ -40861,6 +40860,7 @@ MIRROR geometry made on
 no_show
 terrain
 directional
+groups
 directional
 groups
 spot_volume
@@ -40874,7 +40874,8 @@ occ.ps.cso
 Face limit of 
 No vertices loaded for component file: 
 Vertex limit of 
-groups
+pivot
+height
  exceeded loading block
 Group limit of 
  exceeded loading block
@@ -40884,10 +40885,8 @@ extrapolate
  is not recognized.
 Warning: location keyword 
 material
-pivot
-height
-left_back_bottom
 width
+left_back_bottom
 left_front_bottom
 right_back_bottom
 right_front_bottom
@@ -40958,17 +40957,17 @@ offset_y
 camera_hint
 animation evaluator _lower_bound
 animation evaluator _lower_bound
+false
 Nightly
 ^00ffff
 editor 
 Error 2178652 when saving binds.
-false
+ opr=
 // Mouse bindings
 ^ffff00
 ^ff0000* Error: The Escape key cannot be binded, you need that key to get to the menu -_-
 control
 rcontrol
- opr=
 Bindings.txt
 CloudSave
 CloudSave
@@ -40991,12 +40990,12 @@ editor
  (shop)
  (common)
  (editor)
- (editor)
 height
+ (editor)
+lvalue
  (game)
 num_multiply
 backslash
-lvalue
 control
 semicolon
 apostrophe
@@ -41019,18 +41018,18 @@ mouse_wheel_down
 mouse_extra_1
 mouse_extra_2
 rcontrol
+indent
 mouse_left
 mouse_middle
 mouse_right
 num_lock
-indent
+shadow
 num_divide
 num_return
-shadow
-it.first
 clip_y
-it.second.command
+it.first
 clip_x
+it.second.command
 textures/corefont.png
 flat_color.vs.cso
 @debugger
@@ -41045,11 +41044,11 @@ BLENDWEIGHT
 BINORMAL
 TANGENT
 TEXCOORD
- unzip 1.01 Copyright 1998-2004 Gilles Vollant - http://www.winimage.com/zLibDll
 Stop image sequence capturing.
+ unzip 1.01 Copyright 1998-2004 Gilles Vollant - http://www.winimage.com/zLibDll
+'. Use the command /homedir to open that folder.
 You can use this to create a bind that does nothing instead of using /unbind
 so that the engine doesn't use the freed key for a default binding on next run.
-'. Use the command /homedir to open that folder.
 sequence_stop
 You'll find the sequence at '%APPDATA%\
 Diabotical
@@ -41058,9 +41057,9 @@ Diabotical
 Captures an image sequence without the UI.
 (Framerate)
 Captures a screenshot without the UI.
+'. Use the command /homedir to open that folder.
 '. Use the command /homedir to open that folder. Framerate defaults to 60.
 sequence
-'. Use the command /homedir to open that folder.
 screenshot
 You'll find the screenshot at '%APPDATA%\
 Diabotical
@@ -41115,12 +41114,11 @@ For available commands press [Tab], for available actions type /actions.
 actions
 Opens the game log.
 Actions are special commands that can be binded,but cannot be executed through the command line.
-output
 '. Usually, notepad will be used to view it.
 The current log is located in '
 This is useful to make bindings with confirmation.
 Executes a command and informs the user about it in the console.
-string
+output
 (command)
 The script file name must contain no slashes and it will be first searched for in the game data folder.
 (Use the command /homedir to open the data folder.) If the file isn't located in the data folder,
@@ -41129,11 +41127,11 @@ The file name can have any extension, but if no extension exists, a '.cfg' exten
 Executes an external console script.
 (Script file name)
 ' for usage help.
-double
+string
 <div style='margin:6px;display: flex; flex-direction:column;'>
 <div style='color:magenta;margin-bottom:2px;'>
 <div style='display: flex; flex-direction:row;'>
-begin
+double
 <div style='color:lime;margin-bottom:2px;'>
 <div style='border-radius:2px;color: black;background-color: magenta;font-size:10px;font-weight:bold;padding:2px;'>Variables</div>
 Resets all bindings to default values.
@@ -41154,8 +41152,8 @@ Error: Command
  not allowed in a game.
 Camera position: 
 Battle position: 
-length
 Entity position: 
+begin
 [Console] 
 [CONSOLE] 
 [CONSOLE] 
@@ -41163,6 +41161,7 @@ Entity position:
 ^ff0000
 * Error
  (Type: 
+length
 , max: 
 ^ff88ff
  ^90ff70(Overriden by server, your local value is '
@@ -41180,11 +41179,9 @@ Total dedicated video memory:
 Total shared system memory: 
 PCI IDs (Vendor/Device/Subsystem/Revision): 
 . Pitch: 
-string
 Adapter name: 
 ^ffaa80Command executed: ^ffff00
 clamp
-double
 ^ff0000* Error: Missing script file name parameter
 ^ff0000* Error: Missing script file name parameter
 ^ff0000* Error: Script file not found: 
@@ -41194,7 +41191,7 @@ clear_console
 ^ff0000* Error: The supplied variable doesn't exist
 Type /help 'command' for help on a command or type it and press Tab again.
 * This variable is transient: it will reset to default on each game run.
-:root
+string
 ^ffaaff Current value: ^ffffff
  (Min: 
 To see available commands and variables, press the Tab key while on the console.
@@ -41204,24 +41201,25 @@ Quits the game immediately.
 bindreset
 Settings are only saved to disk when the game quits.
 ^ff0000* Error: Provide binds reset confirmation by typing '/bindreset confirm'.
-scale
+double
 confirm
 ^ffff00*** Press a key or button now ***
-False
-hasher
+:root
 bindreset
 ^ff0000* Error: Provide binds reset confirmation by typing '/bindreset confirm'.
-hasher
+scale
 ^ff0000* Error: Missing parameters.
 ^ff0000* Error: 
-begin
+False
+hasher
  is not a valid button.
 ^ff0000* Error: Missing parameters.
-begin
+hasher
 * Button ^ffff00
 begin
 ^ffffff is bound to command ^00ffff
 * Button ^ffff00
+begin
 ^ffffff is not bound.
 ^ff0000* Error: Missing particle system name parameter
 ^ffff00
@@ -41229,13 +41227,13 @@ begin
 empty dictionary
 %20s	[%s]
  (VS) not found.
-snafu
-weapon
+begin
 shaders\
-ghost
+snafu
 weapon
 *Error loading vertex shader 
 . Error=
+ghost
 weapon
 Could not load TGA texture file
 Reason given for DXGI_ERROR_DEVICE_REMOVED: 
@@ -41255,9 +41253,9 @@ weapon
  Error=
 FAILED CREATING INPUT LAYOUT
  (GS) not found.
-haste
 weapon
 shaders\
+haste
 weapon
 *Error loading geometry shader 
  (PS) not found.
@@ -41275,7 +41273,6 @@ Could not load WIC texture file:
 weapon
 Could not load DDS texture: 
 cubemaps
-armor
 weapon
 . Error=
 armor
@@ -41291,95 +41288,95 @@ Error 348726 (stencil not supported for given format)
 DX Error 
 weapon
 ** Creating depth buffer
+armor
 weapon
  creating dynamic texture of size 
  creating dynamic texture3d view
-ammorl
+weapon
  creating dynamic texture of size 
 DX Error 
-ammoss
+ammorl
  creating dynamic texture view
 default.png
 Could not create WIC texture: 
 create_dynamic_texture() invalid input
 Could not create WIC texture (2): 
 . Error=
-ammogl
+ammoss
 . Error=
-armor
-health
+ammogl
 Could not create WIC texture 2
 Failed conversion to R of texture 
 . Error=
+armor
 health
 Could not generate mipmaps for WIC texture file: 
 health
 . Error=
 health
 Failed conversion to R of texture
-ammobl
+health
 Loaded WIC texture 
 ** Could not find a valid video adapter.
- code=
+ammobl
 ** Filtering video modes
-black
-matrix
+ code=
 ** Listing video modes
 ** Error while enumerating monitors: 
 ** Error while listing video modes: 
 ** Error while creating DirectX factory: 
-rotate
+matrix
 ** Enumerating monitor: 
-white
-square
+black
+rotate
 DirectX Error 
  while create depth shader view (2).
 ** Creating DXGI factory
-scale
-stroke
+white
+square
 DirectX Error 
  while create depth shader view.
-skewX
+scale
+stroke
 ** Creating depth buffer shader resource view (2)
-yellow
 DirectX Error 9013 
  while creating depth stencil view.
 ** Creating depth buffer shader resource view
 DirectX Error 9013 
  while creating depth stencil view.
 ** Creating ro-depth buffer view
-skewY
-height
+skewX
+yellow
 (1634) DirectX Error 
  while creating depth texture.
 ** Creating depth buffer view
-** Creating device and swap chain
  You seem to be running Windows 7 so you are probably just missing the "Platform Update for Windows 7" (google it and obtain it from an official Microsoft Download Center).
 ** Misc error while creating DirectX device: 
 ** Device creation succeeded
+** Creating device and swap chain
+DXGI Error: Unsupported Device
+** Error while looking up video adapter description: 
 Your graphic drivers report no support for the minimum DirectX 11 hardware feature level that is required to run this game.
 If you are on a laptop with a hybrid graphics solution, try forcing your laptop to use the better card in your graphics settings configuration panel.
 If you are sure your graphics card supports at least DirectX 11 you may want to update your drivers.
-DXGI Error: Unsupported Device
 ** Device creation failure
 ** Error while storing adapter description: 
 video mode = 
 Refresh rate=
-** Error while looking up video adapter description: 
 ** Saving adapter name
 ** Reading adapter name
 ** Listing refresh rates
+skewY
+height
+** Error while obtaining display modes: 
 round
 repeat
-** Error while obtaining display modes: 
-miter
-offset
 Critical error 801. Present()
 present error fullscreen=
-height
+offset
 Device removed reason (3) =
 Critical error 801. Present() failed err=
-points
+height
 Total dedicated system memory: 
 [D3D] Critical error changing target metrics. Err=
 Total dedicated video memory: 
@@ -41392,20 +41389,20 @@ Could not initialize the compositioning geometry (2).
 white.ps.cso
  while getting backbuffer.
 ** Creating render target
-circle
+points
 DirectX Error 
 ** There was a Direct3D initialization error (E247). You probably have an older card but we may be able to add support, reach out to us.
-round
-offers
+miter
+circle
 ** Obtaining back buffer
 Warning 1287: Having to run in compatibility mode (You are probably in Windows 7)
-bevel
-online
+offers
 Uncommon condition: 
 Device removed reason (2) =
 Failed mapping buffer of size 
 Screenshots
 Null Vertex Buffer in set_buffers() name=
+online
 Error updating buffer: Size is null.
 Error updating buffer: Data is null.
 Failed mapping buffer.
@@ -41418,12 +41415,12 @@ Critical error 802. Present()
 Buffer creation failed
 Error 74234-D
 input_block_win_key
-Enables multithreaded input. Experimental and unstable. Requires restart. 0: Disabled. 1:Enabled
-style
-input_sleep
 input_multithreaded
+Enables multithreaded input. Experimental and unstable. Requires restart. 0: Disabled. 1:Enabled
+round
+input_sleep
 Causes the engine to capture Windows key presses. 0: Disabled. 1:Enabled
- pss=
+bevel
 hud_info
 hud_fps
 Shows Frames Per Second on screen. 0: Disabled. 1:Enabled. 2: Extra info.
@@ -41431,7 +41428,7 @@ Shows miscelaneous scene state information. 0: Disabled. 1:Enabled
 mouse_imperial
 video_glow_power
 Enable this to set mouse_circumference in inches. 0: Disabled. 1:Enabled
- vss=
+style
 sound_volume
 mouse_dpi
 Factor applied to all specular intensity.
@@ -41439,9 +41436,8 @@ video_ambient_occlusion_radius
 Glow effects power.
 Specifies your mouse DPI to make the mouse_circumference setting accurate.
 Ambient occlusion radius.
-binary
 video_specularity_factor
-green
+ pss=
 video_ambient_occlusion_power
 Gamma correction, 1.0 = default, higher values are brighter.
 Ambient occlusion intensity.
@@ -41449,23 +41445,23 @@ Enables the decorative physical simulation. 0: Default, 1: Inverted.
 video_gamma
 mouse_invert
 video_destruction
+binary
 Inverts mouse control vertically. 0: Default, 1: Inverted.
 input_deadkey_fix
-sound_height_threshold
 Throttles input polling to reduce CPU usage at the cost of ~750 microseconds of input latency. Not recommended. 0: No sleep. 1: 1ms sleep
 Enables console-key dead-key issues that happen on continental European keyboard layouts. 0: Disable fix. 1: Enable fix
+sound_height_threshold
 General sound volume. Valid range: 0-1. Default: 0.5.
 Threshold at which low/high sounds are played.
 General sound volume. Valid range: 0-1. Default: 0.5.
 sound_peak_volume
-deb_10
 sound_reverb_mode
-BASE B
 sound_peak_distance
 General sound volume. Valid range: 0-1.
 sound_wetness
-General sound volume. Valid range: 0-1.
 Announcer channel sound volume. This is modulated by the master volume. Valid range: 0-1.
+deb_10
+General sound volume. Valid range: 0-1.
 VOIP channel sound volume. This is modulated by the master volume. Valid range: 0-1.
 sound_announcer_volume
 sound_ambient_volume
@@ -41494,28 +41490,28 @@ video_max_fps
 Network smoothing upper threshold.
 net_interpolation
 Toggle binaural panning on/off. (requires game restart) 0: Disabled. 1: Enabled.
-width
-BASE A
+ vss=
+BASE B
 Relative degree of network smoothing in timesteps.
 Toggle music on/off. 0: Disabled. 1: Enabled.
 sound_binaural
 sound_attenuation
-deb_11
+BASE A
 sound_enable_music
 Determines how strongly sound attenuates with distance.
 sound_graph_occlusion_factor
 sound_occlusion_lopass_min
 sound_occlusion_parallel_factor
 sound_occlusion_light_max
-DEFEND
+deb_11
 sound_occlusion_light_factor
 sound_occlusion_max
 Strength of sound occlusion from geometry.
 sound_graph_multiplier
 Strength of sound occlusion from geometry.
 Distance scaling for purposes of doppler effect.
-slice
-ATTACK
+green
+DEFEND
 sound_occlusion_factor
 sound_doppler_strength
 sound_doppler_factor
@@ -41526,46 +41522,46 @@ sound_filtering_center
 Occlusion lowpass filtering cutoff frequency (Requires restart).
 Distance low pass filtering center frequency (Requires restart). Use a negative number to disable filtering
 Sound occlusion mode: 0 = Double sided, 1 = Single sided.
-style
-DEFEND
+width
+ATTACK
 sound_filtering_cutoff
 sound_reverb_occlusion_factor
 sound_occlusion_mode
 Strength of reverb sound occlusion from geometry.
-region
+DEFEND
 sound_occlusion_vertical_factor
 sound_vertical_factor
 sound_occlusion_lopass_taper_max
-width
-opaque
+slice
+region
 sound_listener_radius
 sound_occlusion_lopass_taper_min
-FALSE
-magnet
+style
+opaque
 sound_occlusion_lopass_max
 Enables or disables vertical synchronization. 0: Disabled, 1: Enabled.
 V-Sync can prevent tearing but will limit FPS to the display rate of the display.
-Other
-shader
+width
+magnet
 video_resolution
-ERROR
-thorus
+FALSE
+shader
 video_scene_max_cloud_size
 video_vsync
 Advanced rendering setting.
 video_scene_cloud_threshold
 Advanced rendering setting.
 Accepted values: 1 to 16
-period
+thorus
 Accepted values: 0 to 16
- SCU: 
+period
 video_scene_tree_bypass_level
 Accepted values: 2 or 3
-trees
- SUF: 
+Other
+ SCU: 
 video_scene_tree_divider
-hills
- IDC: 
+ERROR
+ SUF: 
 video_scene_tree_max_depth
 video_mode
 Video display mode.
@@ -41585,24 +41581,24 @@ Note this is different than the actual viewport resolution which is
 what's traditionally tweaked in games.
 If you want to change the viewport resolution, you can still use
 --width=X --height=Y on the command line.
- SC: 
+ IDC: 
 video_texture_quality
 Enables full-quality texturing. 0: Low quality. 1: High quality.
 Enables or disables antialias. 0: Disable. 1: Enable.
 Enables or disables high quality ocean. 0: Low quality. 1: High quality.
- AFC: 
+ SC: 
 video_antialias
 video_frame_buffering
 Sets the maximum number of frames that can be buffered.
 Higher values reduce stuttering at the cost of increased latency.
+ AFC: 
 video_ocean_quality
 video_low_latency
+video_shadow_mapping
 Enables or disables low latency mode. 0: Disable. 1: Enable.
 This setting lowers latency at a significant performance cost.
 Enables or disables glow effects. 0: Disable. 1: Enable.
--%s-%s
 Sets shadow mapping quality. 1: Low. 2: Medium. 3: High.
-video_shadow_mapping
 Enables or disables ambient occlusion. 0: Disable. 1: Enable.
 Ambient occlusion is a GPU-demanding rendering technique that approximates
 the shade at concavities caused by a reduced exposure to ambient
@@ -41628,7 +41624,8 @@ iniparser: cannot open %s
 %[^=] = "%[^"]"
 %-30s = %s
 %s = %s
-peaks
+trees
+-%s-%s
 [%s]=UNDEF
 [%s]=[%s]
 Error changing raw input registration enabled=
@@ -41636,12 +41633,12 @@ Thread 2 is running on processor
 , attempting to construct auto_material for 
 [DEBUG MATERIAL] Did not find material 
 Did not find material 
-[DEBUG MATERIAL] Found material definition, initing
 [DEBUG MATERIAL] Not found material definition and exact_match set to true, returning NULL
+[DEBUG MATERIAL] Found material definition, initing
 , attempting to construct auto_material for 
 auto_material
 [DEBUG MATERIAL] loading shader 
-haste
+hills
  no_cache=
 [DEBUG MATERIAL] Creating material
 [DEBUG MATERIAL] Returning from cache
@@ -41651,15 +41648,14 @@ vertex_shader
 Defines a bitmap texture as shader input.
 Warning: Texture 
 white.vs.cso
-Could not find default material template auto_material, material will be white for: 
 ) is unsafe to reload or doesn't exist, skipping.
+Could not find default material template auto_material, material will be white for: 
 white.ps.cso
 textures/
 [DEBUG MATERIAL] Could not find default material template auto_material, material will be white for: 
 textures/
 textures/
 textures/
-blend
 material_id
 !terrain_heightmap
 vertex_shader
@@ -41667,16 +41663,16 @@ lightingdiffuse
 fromvertex
 vertex_map
 identitylighting
-alpha
+peaks
 identity
-trail
+haste
 oneminusentity
 polygonoffset
 surfaceparm
 visible
 accent3
 forward_lighting
-smoke
+blend
 accent2
 accent1
 object_position
@@ -41686,17 +41682,16 @@ look_and_time
 pixel_shader_param
 engine_managed_params
 tileset1
-array
+alpha
 uv_style
-point
+trail
 vertex_shader_param
 shadow_pixel_shader
 pixel_shader
 uv_scale
-delay
-tiling
+smoke
 tile.vs.cso
-range
+array
 tiling
 geometry_shader
 shadow_vertex_shader
@@ -41705,7 +41700,7 @@ Warning: property '
 ', stage '
 ' is unrecognized.
 alphafunc
-eggbot
+tiling
 GL_SRC_ALPHA
 GL_ONE_MINUS_SRC_COLOR
 GL_ONE_MINUS_SRC_ALPHA
@@ -41717,28 +41712,26 @@ GL_ZERO
 GL_SRC_ALPHA
 GL_ONE_MINUS_DST_COLOR
 ambient_occlusion
-sh_x4s
+eggbot
 blendfunc
 read_only_no_buffer
 read_only
- PR: 
-player
+point
+sh_x4s
 culling
 tilemask.ps.cso
 [Effect-Validator] Material 
  at file 
-eggbot
  has more than 5 maps.
 [Effect-Validator] Material 
  at file 
-weapon
  at file 
-weapon
+player
  has less than 4 maps (missing map(s))
 [Effect-Validator] Warning DJ237 
-muzzle
+eggbot
  at file 
-shield
+weapon
  has more than 4 maps.
 tile.ps.cso
 effect parsing
@@ -41751,6 +41744,7 @@ Loading effect files (Old)
 Loading effect files (Old)
 [ EFFECTS ] 
  effects loaded. max_stages=
+ has less than 5 maps (missing map(s))
 %%TEMPLATE_NAME%%
     {
 		map textures/white.png
@@ -41758,54 +41752,55 @@ Loading effect files (Old)
 		map textures/white.png
 		vertex_shader tile.vs.cso 111 NGT
 		pixel_shader tile.ps.cso
-sh_x4s
- has less than 5 maps (missing map(s))
+weapon
 [Effect-Validator] Material 
 [Effect-Validator] Material 
  at file 
- PA: 
+delay
+muzzle
 feedback_bolt_ready
- SR: 
+range
+shield
 entity.last_mover_speed.to_string()
 entity.last_mover_angular_speed
 doublejump
 double_jump
 has_haste
+sh_x4s
 takeoff
 flagrun
 activator
- SU: 
+ PR: 
 teleportfx
 trigger
 teleport_entry
 teleport
- SC: 
+ PA: 
 jumppad
 vector_z
- SI: 
+ SR: 
 jumppadfx
 vector_x
- SD: 
+ SU: 
 vector_y
- MD: 
+ SC: 
 jumppad
 relative
- MC: 
+ SI: 
 jumppad
 teleport
-Win9x
+ SD: 
 trigger
 activator
 teleportfx
 teleport_entry
 teleport
-(LOG 
+ MD: 
+idle_floor
+idle_floor
+idle_floor
+ MC: 
 shield
-idle_floor
-idle_floor
-idle_floor
-(LOG 
-weapon
 water_surface
 water_leave
 water_submerge
@@ -41813,18 +41808,19 @@ water_enter
 default_pickup
 tripledamage
 survival
-flag_
+Win9x
+weapon
 vanguard
-Error
+(LOG 
 doubledamage
 armort3
 armort2
 footstep_
 footstep_
 double_jump
-flag_
+(LOG 
 doublejump
- - 0x
+flag_
 jump_still
 state.unique_item_counters.size()
 state.taken_entities.size()
@@ -41832,17 +41828,17 @@ state._player_scoreboard.size()
 state._team_scoreboard.size()
 state.round_weebles.size()
 state.team_base_locations.size()
- max=
+Error
 state.team_flag_locations.size()
- min=
+flag_
 state.team_colors.size()
-melee
+ - 0x
 state.team_scores.size()
-break
+ max=
 state.round_teams_info.size()
 state.agents.size()
 overtime
-spawn
+ min=
 round_countdown
 pre_countdown
 announcer_common_game_countdown
@@ -41854,12 +41850,13 @@ connect() cleaned
 connect() dcd
 Starting connection to 
 "CLEANING STATE"
-death
+melee
 NCC.00Z
 CLEANING STATE
 state.areas.size()
 NCC.00A
 state.respawnings.size()
+break
 state.healing_wards.size()
 state.rage_rewards.size()
 state.unique_weapons_owners.size()
@@ -41870,22 +41867,24 @@ announcer_common_powerup_td_pickup_team
 doubledamage
 announcer_common_powerup_db_pickup_team
 survival
+spawn
 announcer_common_powerup_siphonator_pickup
 announcer_common_powerup_haste_pickup
 vanguard
+death
 announcer_common_powerup_vg_pickup
 tripledamage
 announcer_common_powerup_td_pickup
 doubledamage
 announcer_common_powerup_db_pickup
 show_game_report
-Error
 _finish_play_of_the_game()
 _finish_play_of_the_game called, origin=
-audio
+Error
 vanguard
 game_over
 survival
+audio
 doubledamage
 tripledamage
 Client Stage=
@@ -41893,7 +41892,6 @@ announcer_common_game_start
 KEY_TYPE_MACGUFFIN_STEAL_PROGRESS
 "TEXT_FLAG_MAP_NAME"
 TEXT_FLAG_MAP_NAME
-models
 server_log_message
 ^00ffff
 connecting
@@ -41901,26 +41899,27 @@ connecting
 ^ffffff
 Known team for player 
 No known team for player 
+models
 survival
-maps\
 announcer_common_powerup_siphonator_pickup_enemy
 announcer_common_powerup_haste_pickup_enemy
 vanguard
+maps\
 announcer_common_powerup_vg_pickup_enemy
 tripledamage
 announcer_common_powerup_td_pickup_enemy
 doubledamage
 announcer_common_powerup_db_pickup_enemy
-packs
 survival
-mods\
 announcer_common_powerup_siphonator_pickup_team
 announcer_common_powerup_haste_pickup_team
 vanguard
+packs
 announcer_common_powerup_vg_pickup_team
 game_manifest
 chat_message
 item_picked_team
+mods\
 chat_message
 item_picked
 game_mode
@@ -41939,7 +41938,6 @@ siphonator_disabled
 siphonator_enabled
 ^808080
 [SERVER] 
-blocks
  renamed to 
 ^ffffff
 ^00ffff
@@ -41949,23 +41947,22 @@ name change notice
 ^ffffff
 ^00ffff
 name change notice
-audio
-models
 ENTITY RESPAWNS AS 
 ^3045ffBLUE FLAG
-models
+blocks
 ^ff0000RED FLAG
  has been returned.
 ^ffffff
 item_picked
 default_pickup
 You have been frozen! You'll blow up in 
-styles
+audio
+models
 You have been melted by 
-pitch
+models
 change_pause_state
  seconds.
- mins=
+styles
 </span> is now coaching you.
 <span class=target>
 rocketexplosion
@@ -41981,15 +41978,17 @@ announcer_common_powerup_td_countdown
 announcer_common_powerup_dd_pickup
 announcer_common_powerup_td_pickup
 eggbot_heal_tick
+pitch
+ mins=
 eggbot_heal_tick
 announcer_duel_golden_frag
-  xmn=
 claim_reward
 player_needs_confirmation_frag
 set_hud_rage_roll_result
 claim_reward
 score_drop
 Enemy incursion detected!
+  xmn=
 bolt_right
 bolt_left
 bolt_back
@@ -42053,20 +42052,17 @@ walk_right
 walk_back
 walk_right
 walk_left
-string
 walk_back_left
 walk_forward_left
 walk_forward_right
 run_right
+string
 run_back
-</td>
 run_back_right
 run_left
-</td>
 ^ffff00
 score_overtime
  is now in team 
-</td>
 ^ffffff
 weapon 
 stay_dead
@@ -42078,12 +42074,12 @@ announcer_common_frag_suicide
 announcer_common_frag_suicide_rare
 announcer_common_frag_environmental
 death_enemy
-u=self_frag
+self_frag
 </td>
 death_self
 suicide
 announcer_extinction_target_protect
-you_assisted
+u=you_assisted
 announcer_macguffin_base_defend
 ^00ff00
 announcer_macguffin_base_attack
@@ -42096,7 +42092,7 @@ announcer_ctf_score_enemy
 You made a capture!
 You have the flag!
 announcer_ctf_score_team
-</tr>
+</td>
 ^ffffff
 ^ffff00
 ^3045ffA FLAG
@@ -42105,12 +42101,13 @@ announcer_ctf_score_team
 ^ff0000B FLAG
 announcer_ctf_flag_pickup_enemy
 announcer_ctf_flag_pickup_player
-.html
+</td>
 announcer_ctf_flag_pickup_team
 announcer_ctf_flag_return_team
 announcer_ctf_flag_return_enemy
 heal_weeble_impact
 life_leader_ping
+</td>
 ping_enemy
 sp_play_nice
 ability_vampire_hit
@@ -42131,14 +42128,16 @@ announcer_macguffin_core_pickup_team
  has double damage!
 announcer_macguffin_core_pickup_enemy
 * Error: Your game version is outdated.
-"SENDING GREETING"
 You were disconnected but the map wasn't unloaded because you are editing.
 *** Disconnected from server. LowLevelCode=
 disconnected
 on_connected
  Reason=
+</tr>
 on_connected
+"SENDING GREETING"
 SENDING GREETING
+.html
 NameNotAvailable
 fire_3p
 * Connection to server established.
@@ -42169,11 +42168,11 @@ doubledamage
 survival
 tripledamage
 vanguard
--99999
 doubledamage
 macguffin
 ERROR: MACGUFFIN ALREADU TAKEN
 macguffin
+-99999
 MACGUFFIN TAKEN BY 
 flagrun
 provides
@@ -42215,9 +42214,9 @@ smb.vs.cso
 SHADOW-ERROR L=
 SHADOW-ERROR L=
 SHADOW-ERROR L=
-core_primitive_sphere_smoke_opaque
 Initializing shadows start
 Initializing shadows end
+core_primitive_sphere_smoke_opaque
 models\sphere3.fbx
 core_primitive_sphere_smoke
 models\sphere3.fbx
@@ -42250,8 +42249,8 @@ sizeof messages::MsgWeaponEvent
 sizeof messages::MsgEntityEvent
 sizeof messages::MsgProperty
 sizeof messages::MsgPosition
-netclient::net_client->GetMTUSize( netclient::net_client->GetSystemAddressFromGuid(netclient::server_peer))
 Error 19821283 couldn't allocate network connection.
+netclient::net_client->GetMTUSize( netclient::net_client->GetSystemAddressFromGuid(netclient::server_peer))
 diaboticle_animal_game
 127.0.0.1
 [UDPNET] Ping from 
@@ -42295,10 +42294,9 @@ ui\html\fonts\Roboto-Regular.ttf
 RELOAD0
 [snafu] Error loading BITMAP image: 
 [snafu] Error loading SVG image: 
-99999
 [snafu] Preloading 
 ui\html\
-0.001
+99999
 [snafu] Error creating image: 
 [snafu] Error loading image: 
  limit=
@@ -42319,7 +42317,7 @@ size_in_pixels
  has null size, rendering nothing.
 [snafu] Error: template not found (2).
 [snafu] 
-0.965
+0.001
 Doing static run for 
 [snafu] Error: template not found.
 [snafu] Error initializing snafu-d3d.
@@ -42343,8 +42341,9 @@ sans-bold
 minimap
 [Snafu] Error: Horizontal screen size is 0.
 elements
-51200
+0.965
 elements
+51200
 elements
 [Snafu] Error loading group definition 
 . Group doesn't have gid.
@@ -42388,10 +42387,10 @@ fontSize
 [snafu] Assertion error 93423df (Unknown nat var) t=
 [snafu] Assertion error 456X001 var=
 [snafu] Condition 
-[snafu] Warning: Table dimension V limit exceeded: clamping data.
 [snafu] Assertion error H129X6. Unknown variable 
-[snafu] Warning: Table dimension U limit exceeded: clamping data.
+[snafu] Warning: Table dimension V limit exceeded: clamping data.
 [snafu] Assertion error K22C3D12 (Unknown nat var) t=
+[snafu] Warning: Table dimension U limit exceeded: clamping data.
 [snafu] Assertion error FG213982 (Unknown sys var) t=
 [snafu] Assertion error 4239H78 t=
 bottom-right
@@ -42452,25 +42451,25 @@ Condition N-expression not supported:
 Condition N-expression not supported (HD23): 
 Condition N-expression not supported (TR9): 
 Condition N-expression not supported (TR8): 
+STRING: expected non-string token: 
 Error in first dimension. Operand should be Variable, String or Number
 Error parsing operands: 
-ffffff
 on_update
-STRING: 1 token expected (Note: don't assign while declaring): 
-STRING: expected non-string token: 
 STRING: error parsing operand: 
 STRING: expected variable-type token: 
+STRING: 1 token expected (Note: don't assign while declaring): 
 DOUBLE: 1 token expected (Note: don't assign while declaring): 
 DOUBLE: expected non-string token: 
 DOUBLE: error parsing operand: 
 DOUBLE: expected variable-type token: 
 INT: 1 token expected (Note: don't assign while declaring): 
 INT: expected non-string token: 
-000000
+ffffff
 INT: error parsing operand: 
 INT: expected variable-type token: 
 Not enough tokens for BEGIN CHUNK: 
 Error parsing destination variable for BEGIN TEXT: 
+000000
 Not enough tokens for HASH: 
 Error parsing operand for ECHO: 
 Not enough tokens for HASH: 
@@ -42481,18 +42480,16 @@ animation
 Can't assign into this left-value (H): 
 Error parsing variables (2) in: 
 Can't assign into this left-value (2): 
-Assignment procedure expression not supported (unsupported operator): 
 Assignment 4-tok-procedure function not supported: 
-Assignment 4-tok-procedure expression not supported, expected nonstring in t=2: 
-ffffff
+Assignment procedure expression not supported (unsupported operator): 
 Error parsing variables (3) in: 
-000000
+Assignment 4-tok-procedure expression not supported, expected nonstring in t=2: 
 Can't assign into this left-value (3): 
 grayscale
-ffffff
 timestamp
-000000
+ffffff
 saturate
+000000
 Error parsing variables in: 
 Can't assign into this left-value: 
 Not enough tokens for DEFAULT: 
@@ -42508,9 +42505,10 @@ Error 182736 expression
 000000
  doesn't have tokens
 Procedure expression not supported: 
-Error parsing variables (9) in: 
 Assignment procedure expression not supported (unsupported token count): 
 Assignment procedure expression not supported (operator is string): 
+Error parsing variables (9) in: 
+ffffff
 Can't assign into this left-value (9): 
 7-assignment procedure expression not supported (unsupported operator): 
 Assignment procedure expression not supported (operator is string): 
@@ -42519,7 +42517,7 @@ Error parsing variables (7) in:
 Can't assign into this left-value (7): 
 7-assignment procedure expression not supported (unsupported operator): 
 Assignment 4-tok-procedure expression not supported, expected nonstring in t=2: 
-ffffff
+000000
 Assignment 4-tok-procedure function not supported: 
 Error parsing variables (NEGATE) in: 
 Can't assign into this left-value (NEGATE): 
@@ -42528,42 +42526,43 @@ Can't assign into this left-value (SUBSTR):
 Error parsing variables (CLAMP) in: 
 Can't assign into this left-value (CLAMP): 
 Error parsing variables (H) in: 
-000000
+ffffff
 expr___
 :static_root
 Invalid keyframe statement: 
 Unknown keyframe property: 
 opacity
 keyframe
+000000
  -procedure False 
  -procedure True
-ff0000
  LogicEntry 
 error parsing procedure: 
 ff0000
 error missing parameter for FOR: 
 ff0000
 error parsing FOR token: 
-ffffff
+ff0000
 error parsing conditional part of expression: 
  Info: Loading animation 
-000000
+ffffff
  Info: Loading hasher 
  Info: Loading template 
 000000
  Not enough parameters for preload
 preload
  Not enough parameters for TRANSLATION: 
+000000
 translation
  Not enough parameters for INSTANCE: 
 instance
-ff0000
  Not enough parameters for font: 
-ff0000
 animation
 ff0000
 animation
+ff0000
 template
+ff0000
 template
  Error 249873: Failed loading script file 
  Info: Loaded script file 
@@ -42579,12 +42578,12 @@ score_deny
 item_flag
 images/item_flag.svg
 mode_pickup
-08a8ff
 #f8d206
 item_macguffin
 images/item_macguffin.svg
 mode_pickup
 macguffin
+08a8ff
 #ffff0d
 item_diabotical
 images/powerup_diabotical.svg
@@ -42714,11 +42713,11 @@ weaponst
 weapon_implosion_weeball
 images/weapon_iw.svg
 weaponiw
-0.0625
 #28cdcd
 weapon_slowfield_weeball
 images/weapon_sw.svg
 weaponsw
+0.0625
 #b4513b
 weapon_explosive_weeball
 images/weapon_bw.svg
@@ -42794,7 +42793,6 @@ Vertex buffer too small!
 POSITION
 TEXCOORD
 shaders/snfvs.cso
-0.0625
 shaders/snfps.cso
 Create Vertex Buffer
 [snafu] Assertion error 453123. Fatal error loading HUD UI.  f=
@@ -42807,6 +42805,7 @@ create tex
 %d%[%%, 	]%d%[%%, 	]%d
 viewBox
 preserveAspectRatio
+0.0625
 gradientUnits
 objectBoundingBox
 gradientTransform
@@ -42910,13 +42909,13 @@ Invalid offer data
 Query offer warning: 
 Query offer error: 
 Numer of offers: 
- type=
 Offer [
 friend_request_by_name_result
 Cannot get ECom interface
-NORMAL
+ type=
 Cannot get ECom interface
 COLOR
+NORMAL
 Account Id To String Error: 
 exchangecode
 SDK Version 
@@ -42927,14 +42926,13 @@ Initialized
 Setting Logging Callback ...
 Set Logging Callback Failed!
 Logging Callback Set
-Platform Create Failed!
 Client credentials are invalid, check clientid and clientsecret!
+Platform Create Failed!
 Initialization complete.
 Error: Can't Log In - EOS SDK Not Initialized!
 Error: Cannot get auth interface
 Initiating auth...
 USERNAME
-&quot;
 offline
 do_not_disturb
 extended_away
@@ -42950,8 +42948,9 @@ User presence Info retrieved - UserId:
   Rich Text: 
   Platform: 
 Copy user presence error.
-&apos;
+&quot;
 PresenceChangedCallbackFn
+&apos;
 Presence changed: 
 NotifyFriendsUpdateCallbackFn
 Pending...
@@ -43005,15 +43004,15 @@ models\experiments\ter.svg
 Could not load terrain entity file.
 inkscape:label
 ellipse
-. Will create a new one in its place.
 Warning: Current heightmap has different dimensions. It will be overwriten.
-Error: Error loading heightmap 
-Warning: Current blendmap has different dimensions. It will be overwriten.
 . Will create a new one in its place.
+Error: Error loading heightmap 
+. Will create a new one in its place.
+Warning: Current blendmap has different dimensions. It will be overwriten.
 Error: Error loading blendmap 
 Error: Empty height map bitmap. Path = 
-Terrain error: Wrong data metrics when generating heightmap texture.
 _heightmap_texture
+Terrain error: Wrong data metrics when generating heightmap texture.
 Terrain error: Error while creating heightmap texture.
 _blendmap_texture
 enable
@@ -43123,13 +43122,13 @@ queer
 Error 
 @particles-tube
 textures/
- AVG: 
 @particles-tube
 [Particles] Could not load mesh 
 gooks
  in system 
  does not have a PNGT format in system 
 , mesh format is 
+ AVG: 
  has empty data in system 
 [Particles] Mesh 
 @particles-normal-
@@ -43198,7 +43197,6 @@ fade_in_start
 scale_timeline
 fade_out
 scale_end
-<span>
 scale_start
 angular_speed_end
 angular_speed_start
@@ -43209,6 +43207,7 @@ color_accent
 ' on particle system '
 ' was ignored due to missing params.
 color_end
+<span>
 Warning: Keyword '
 ' on particle system '
 ' was ignored due to missing params.
@@ -43224,10 +43223,10 @@ particle.ps.cso
 particle.vs.cso
 particle.gs.cso
 perlin_speed
-emitter
 Warning: not enough parameters on system_light_position on particle system '
 light_radius
 perlin_scale
+emitter
 sync_group
 ellipsoid
 ellipse
@@ -43249,7 +43248,6 @@ billboard
 opacity
  UDC: 
  SC-SD: 
-event
 color.to_html_rgb()
 system_name
 get_info()
@@ -43263,6 +43261,7 @@ particle_tube.ps.cso
 particle_mesh.vs.cso
 particle_tube.vs.cso
 particle_oriented.gs.cso
+event
 particle.ps.cso
 particle.ps.cso
 particle.vs.cso
@@ -43307,13 +43306,11 @@ osver.dwPlatformId
 Timer resolution:
 Diabotical
 Error fetching timer resolution.
-TEAM 
 Diabotical
 GetLogicalProcessorInformation
 Diabotical
 kernel32
-event
-color1
+TEAM 
 slot_pfx_l_foot
 attachment
 slot_pfx_r_foot
@@ -43325,12 +43322,13 @@ eggbot/shell/
 models/eggbot/basic_shell/eggbot_shell.fbx
 eggbot_hologram
 sh_shoe01
-color2
+color1
 sh_benders
 sh_gelly
-deb_04
+event
+color2
 sh_shoe01
-insert
+deb_04
 models/core/player_ring_vercol.fbx
 player_ring_vercol
 player_ring_vercol
@@ -43342,10 +43340,10 @@ shell_FK_JNT
 slot_pfx_r_foot
 models\
 we_melee_
-delete
+insert
 \weapon_
 ready
-skill2
+delete
 models\weapons\melee\
 models\melee_shield.fbx
 melee_shield_3p
@@ -43353,7 +43351,7 @@ melee_shield_3p
 sh_benders
 sh_gelly
 skill
-skill3
+skill2
 mat_left_foot
 mat_right_foot
 attachment
@@ -43361,7 +43359,7 @@ models\eggbot\basic_shell\crown.fbx
 entities/flag
 models\entities\ctf_flag\ctf_flag_vercol.fbx
 crown.fbx
-editor
+skill3
 attachment
 entities/flag
 attachment
@@ -43373,7 +43371,7 @@ this->username
 (UINT)this->behavior
 history.getBufferSize()
 attached_particles.size()
-attack
+editor
 damage_effect_instances.size()
 decals.size()
 projectiles_touched.size()
@@ -43382,11 +43380,11 @@ battle_state.weapons_bought_during_death.size()
 battle_state.items_bought_during_death.size()
 battle_state.contacted_triggers.size()
 battle_state.weapon_states.size()
-skill1
+attack
 battle_state.inventory.size()
 battle_state.tags.size()
 accel
-editor
+skill1
 battle_state.current_skills.size()
 slash
 editor
@@ -43472,10 +43470,10 @@ pause
 editor
 Error 8493HD: Setting animation=
 taunt
-scores
+editor
  (loop)
 macguffin
-editor
+scores
 ] Anim: [
 editor
 macguffin
@@ -43554,28 +43552,28 @@ editor
 : No such setting.
 //Automatically generated on 
 Error saving settings to 
-attack
-Ini file loaded.
 editor
+Ini file loaded.
+attack
 Loading ini file at 
 <html><head><title>Reborn configuration report</title><style type='text/css'>body{ background-color : white; color : black; font-family: sans-serif;} body{padding: 3%;} body, html {width:100%}table {width:95.8%; table-layout: fixed}th{text-align: left; background-color : #222; color : white;} .altered{ background-color : #3366FF; color : white;} th, td {padding: 3px; word-wrap: break-word; } th, td { border-bottom: 1px solid #999;}</style></head><body>
 <table cellpadding=0 cellspacing=0><tr><th>Variable</th><th>Current value</th><th>Default value</th><th>Type</th><th>Range</th><th width='40%'>Description</th></tr>
 Registering on-exit settings-saving hook.
-ranked
+editor
 Loading settings from disk.
 <tr class='altered'>
 <td><nobr>
 &mdash;
 Settings.txt
 CloudSave
-</div>
+ranked
 </small></td>
 </nobr></td>
 <td><small>
 config_
 </table>
 alive
-TEAM A
+</div>
 </body></html>
 sky material loaded
 textures\smaaa2.dds
@@ -43596,43 +43594,43 @@ blv.ps.cso
 fsbl.ps.cso
 postcolor.ps.cso
 ready
-TEAM B
+TEAM A
 blho.ps.cso
 Mapping buffer on _render_displacement Errcode=
 Error 2 mapping bloom_buffer_data
-purple
+TEAM B
 fsblv.ps.cso
 fssm.ps.cso
 Error mapping postcolor buffer data
 Error mapping dimensions buffer.
 color
-orange
+purple
 Error mapping postcolor buffer data
 Error mapping bloom_buffer_data (3)
 @hud_minimap
 textures/core/player_pin.png
 hud_player_pin
 phy_speed
-</div>
+orange
 phy_speed_filtering_yank_power
 phy_speed_filtering_minimum.
 phy_speed_filtering_minimum
 phy_speed_start_boost
 phy_speed_start_boost_power
 phy_max_hor_speed
-Russia
+</div>
 phy_speed_start_boost_threshold
 phy_max_ground_speed
 Maximum horizontal speed.
-Warsaw
+Russia
 Base speed of the slide skill.
 phy_roll_speed
 Maximum speed on ground, on use if different than 0.
 phy_2nd_max_speed
-Sydney
+Warsaw
 2nd layer of physics acceleration.
 teams
-</div>
+Sydney
 phy_2nd_accel
 phy_2nd_friction
 color
@@ -43646,23 +43644,23 @@ Brake rate on ground.
 phy_lateral_speed_multiplier
 Corner clipping grace period after last landing.
 <div>
-Africa
+</div>
 phy_corner_clipping_time
 sword
-Dallas
+Africa
 phy_back_speed_multiplier
-Moscow
+Dallas
 Base player lateral speed multiplier.
 Inventory slots. 0 = Infinite.
 game_inventory_slots
 Base player back speed multiplier.
 phy_crouch_speed
 brawl
-decals
+Moscow
 Scaling factor of base speed while on air.
 phy_air_speed
 phy_speed_filtering_start
-</div>
+decals
 Base player speed while crouching.
 phy_speed_filtering_end.
 shaft
@@ -43679,7 +43677,7 @@ Sequence of multipliers to air accel in different directions.
 phy_fly
 Surface friction. 
 Valid range: 0 - 1000.
-region
+</div>
 phy_surface_friction
 Sprint mode. 0: Press-to-activate. 1:Auto.
 phy_sprint_mode
@@ -43696,20 +43694,20 @@ Defines whether a weapon uses custom settings. 0: No, use defaults. 1: Yes, over
 Defines whether a weapon uses custom settings. 0: No, use defaults. 1: Yes, override defaults.
 Maximum sprint velocity.
 green
-</div>
+region
 phy_sprint_max
 2nd layer of physics friction rate.
-]?phy_accel_ground
+phy_accel_ground
 <div>
 </div>
-@Rate of sprinting.
-5?phy_sprint_rate
+Rate of sprinting.
+phy_sprint_rate
 phy_accel_air
 Ground acceleration. 
 Valid range: 0 - 1000.
 Valid range: 0 - 1000.
 phy_lateral_only_accel_air
-@Air acceleration. 
+]?Air acceleration. 
 Valid range: 0 - 1000.
 </div>
 @phy_decel
@@ -43722,16 +43720,19 @@ Deceleration (in use when strafe_jumping is off).
 Valid range: 0 - 1000.
 skill
 </div>
-phy_accel_air_factor_limit
+@phy_accel_air_factor_limit
 Air acceleration minimum slowdown multiplier.
 phy_ground_boosting_max
 Multiplier of air acceleration when moving laterally. 
 Valid range: 0 - 1000.
 phy_air_speed_anisotropy
-phy_accel_air_minimum_factor
+skill
+</div>
+@phy_accel_air_minimum_factor
 Double jump is only allowed if the vertical speed is greater or equal than this value.
 phy_double_jump_threshold
-phy_step_up
+"DONE"
+?phy_step_up
 phy_ground_boosting_min
 phy_ground_boosting_factor
 phy_multi_jump_time
@@ -43742,27 +43743,27 @@ phy_jump_speedup
 Enables wall jumping. 0: Disabled 1: Enabled
 phy_wall_jumping
 game_zoom_mode
+phy_strafe_jumping
 Defines whether a weapon uses custom settings. 0: No, use defaults. 1: Yes, override defaults.
 game_custom_weapon_hit_sounds
 Strafe jumping multiplier, set to 0 to disable strafe jump. 0: Disabled. 1:100%. 1.5:150%, etc.
-phy_strafe_jumping
+Defines whether the zoom button is push-to-enable or a toggle. 0: Push to enable. 1: Toggle.
 phy_strafe_mode
 phy_strafe_cycles
-Defines whether the zoom button is push-to-enable or a toggle. 0: Push to enable. 1: Toggle.
-Enables or disables position smoothing. 0: Disabled. 1:Enabled.
 phy_smoothing
+game_landing_bob_enable
+Enables or disables position smoothing. 0: Disabled. 1:Enabled.
 Enables or disables auto jumping. 0: Disabled. 1:Enabled.
 phy_auto_jump
 Frequency of acceleration evaluation that affects strafe jumping feel.
-game_landing_bob_enable
-Enables or disables camera landing bob. 0: Disabled. 1:Enabled.
 phy_double_jump
 game_player_ring_mode
+Enables or disables camera landing bob. 0: Disabled. 1:Enabled.
 Crouching camera transition speed.
 game_crouch_transition_speed
+Duration of camera bob on landing.
 Enables or disables double-keypress jumping. 0: Disabled. 1:Enabled.
 game_double_jump_bob_offset
-Duration of camera bob on landing.
 game_landing_bob_time
 game_double_jump_bob_time
 Vertical distance travelled by the camera on double jump.
@@ -43794,13 +43795,13 @@ phy_air_steering_torque
 Death explosion intensity power.
 phy_death_explosion_intensity
 Air steering jumping power. 0 to disable.
-phy_haste_air_torque
 Degree of alpha jumping maneuravility while using Haste. 0 to disable.
+phy_haste_air_torque
 phy_roll_control
-Scaling factor of the physics system. This has no explicit effect on the physics outcome but it subtly alters how some metrics internally interact.
 phy_scale
 Duration of the slide skill.
 phy_roll_duration
+Scaling factor of the physics system. This has no explicit effect on the physics outcome but it subtly alters how some metrics internally interact.
 Degree of sliding maneuravility.
 Vertical distance travelled by the camera on landing.
 game_landing_bob_offset
@@ -43820,8 +43821,8 @@ phy_double_jump_impulse
 Bolt ability base speed.
 phy_bolt_base_speed
 Degree of alpha jumping strength.
-Bolt ability extra speed as a multiplier of the current horizontal speed.
 phy_bolt_extra_speed
+Bolt ability extra speed as a multiplier of the current horizontal speed.
 Agent camera view height.
 game_player_view_height
 game_player_crouch_offset
@@ -43857,20 +43858,20 @@ phy_slide_duration_max
 phy_slide_accel
 phy_slide_duration_gamma
 phy_blink_duration
-phy_vertical_smoothing_factor
-phy_blink_speed
 Strength of vertical smoothing factor for sudden changes in vertical position.
+phy_vertical_smoothing_factor
 Speed of the blink skill.
+phy_blink_speed
 Duration of the blink skill.
 Intensity of the blink pushback effect.
 phy_blink_pushback
 phy_bolt_cooldown
+Bolt ability pitch angle. Use 0 to use camera angle. Use 360 for actual 0 degrees.
 phy_bolt_pitch
 Bolt ability reactivation time.
-Extra air acceleration for Bolt.
-Bolt ability pitch angle. Use 0 to use camera angle. Use 360 for actual 0 degrees.
 phy_bolt_activation_time
 Bolt ability internal cooldown.
+Extra air acceleration for Bolt.
 phy_bolt_extra_accel
 phy_bolt_kinetic_energy
 Extra air acceleration time for Bolt.
@@ -43883,15 +43884,15 @@ game_model
 HP won't degenerate below this value (server variable).
 game_stable_hp
 Maximum player HP (server variable).
-game_ghost_limit_hp
 Ghosts dropped by enemies won't grant HP above this value (server variable).
+game_ghost_limit_hp
 game_freeze_time
 Armor won't degenerate below this value (server variable).
 game_stable_armor
 Time that it takes to be melted by a teammate in tag modes.
 game_freeze_save_time
-Enables or disables self damage with splash weapons.
 Time to death after freezing in tag modes, set to 0 to disable tag.
+Enables or disables self damage with splash weapons.
 game_self_damage
 game_damage_numbers
 Enables or disables invulnerability with double damage.
@@ -43940,8 +43941,8 @@ game_weapon_position
 Maximum player armor (server variable).
 game_max_armor
 Starting player armor (server variable).
-game_medium_armor
 Medium player armor (server variable). Only red armor goes above.
+game_medium_armor
 game_energy_rate
 Starting player energy (server variable).
 game_energy
@@ -44007,22 +44008,22 @@ hud_crosshair_size
 Sets default crosshair type.
 hud_crosshair_type
 Thickness of crosshair stroke.
-A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 hud_crosshair_color
+A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 hud_crosshair_size2
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 hud_crosshair_stroke
 hud_crosshair_stroke_width2
 Size of crosshair 2.
 game_spawn_farthest_chance
-game_spawn_farthest_foe_chance
-game_confirmation_frag
 Amount of top N farthest spawn to consider for the case of spawning using farthest logic
 game_spawn_safety_radius
 Weighted probability of selecting the 'farthest' spawning strategy.
 game_spawn_random_chance
-Enables confirmation frag mechanic. 0: Disabled, 1: Enabled
+game_spawn_farthest_foe_chance
+game_confirmation_frag
 Weighted probability of selecting the 'farthest from foe' spawning strategy.
+Enables confirmation frag mechanic. 0: Disabled, 1: Enabled
 Weighted probability of selecting the 'random' spawning strategy.
 Enables drop weapon. 0: Disabled, 1: Enabled
 game_enable_drop
@@ -44046,12 +44047,12 @@ hud_zoom_crosshair_size2
 Sets default crosshair 2 type.
 hud_zoom_crosshair_type2
 Thickness of crosshair stroke.
+hud_zoom_crosshair_stroke_width3
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 hud_zoom_crosshair_color2
 hud_zoom_crosshair_size3
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 hud_zoom_crosshair_stroke2
-hud_zoom_crosshair_stroke_width3
 Size of crosshair 3.
 Sets default crosshair 3 type.
 hud_zoom_crosshair_type3
@@ -44060,8 +44061,8 @@ Sets default crosshair 2 type.
 hud_crosshair_type2
 Thickness of crosshair stroke.
 hud_crosshair_stroke2
-hud_crosshair_color2
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
+hud_crosshair_color2
 hud_crosshair_size3
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 Thickness of crosshair stroke.
@@ -44074,8 +44075,8 @@ hud_crosshair_stroke3
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 Size of crosshair.
 hud_zoom_crosshair_size
-hud_zoom_crosshair_type
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
+hud_zoom_crosshair_type
 Thickness of crosshair stroke.
 hud_zoom_crosshair_stroke_width
 hud_zoom_crosshair_mask_aperture
@@ -44131,10 +44132,10 @@ Enables or disables the minimap. 0: Disable, 1: Enabled.
 hud_minimap
 Hit sound.
 default
-editor_lock_list
 A comma separated list of entity name tokens to lock matching entities.
-customization_song
+editor_lock_list
 liquid_ocean,prop_terrain_mountains_mou,prop_terrain_mountains_mou_1,prop_terrain_mountains_mou_2
+customization_song
 Runtime variable: currently selected decal.
 ui_current_decal
 ui_current_decal_size
@@ -44145,22 +44146,22 @@ game_mode
 Runtime variable: currently selected decal size.
 hud_definition
 game_weapon_mode
-{"default_hud":true,"version":1.3,"elements":[{"t":"item_picked","x":8,"y":5,"fontSize":"2.2","shadow":1,"icon":1,"owner":1,"pivot":"bottom-left","iconWidth":3.5,"gid":6,"name":1,"iconBackground":"#0000008D","font":"montserrat"},{"t":"chat","x":4,"y":78,"height":30,"width":50,"fontSize":"1.6","align":"left","color":"white","pivot":"bottom-left"},{"t":"hp_bar","x":8,"y":33,"width":23,"height":2.6,"color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"armor_bar","x":8,"y":67.5,"width":23,"height":2.6,"color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"hp","x":59,"y":32.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","shadow":1,"pivot":"right-edge","gid":6,"font":"montserrat"},{"t":"armor","x":59,"y":67.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","shadow":1,"pivot":"right-edge","hideIf0":"0","gid":6,"font":"montserrat"},{"t":"you_fragged","x":50,"y":66,"fontSize":"3","font":"veneer-italic","color":"white","pivot":"top-edge","align":"center"},{"t":"frag_feed","x":96,"y":3,"height":20,"width":30,"fontSize":"1.6","v_align":"flex-end","bottomUp":"0","direction":"bottom","pivot":"top-right","font":"montserrat-bold"},{"t":"game_timer","x":50,"y":6,"fontSize":"4.5","shadow":"1","color":"#FFFFFFFC","gid":5,"pivot":"top-edge","font":"roboto-bold"},{"t":"time_limit","x":50,"y":49.25,"fontSize":"1.5","font":"roboto-bold","shadow":"1","pivot":"top-edge","align":"center","gid":5,"color":"#FFFFFF"},{"t":"dodge","x":50,"y":61,"fontSize":"1.5","iSize":"5","mC":"#FFFFFF","icon_inactive_opacity":"0.2","bRadius":"0.8","cCode":"15","bWidth":"0","bgC":"#00000000","aT":"2","pivot":"center"},{"t":"item","x":50,"y":92,"fontSize":"1","iSize":"10","mC":"#FFFFFFC2","bRadius":"10","cCode":"15","bWidth":"3","bgC":"#00000063","pivot":"center","style":"default","iC":"custom","font":"roboto-bold","iCCustom":"#FFFFFF","name":1,"keybind":1,"iShadow":0,"flip":0},{"t":"weapons_list","gid":-1,"x":96,"y":77,"mode":"all","direction":"vertical reverse","wDirection":"horizontal","font":"montserrat","fontSize":"2","aWidth":"5.5","aPadding":"0","aAlign":"center","accShow":0,"accFontSize":"1","iHeight":"40","iWidth":"55","wSepWidth":"0.2","sepWidth":"24","cBitWidth":"0","keybindShow":1,"aKeybindShow":"0","aBarShow":0,"aBarWidth":"0.6","aBarWC":0,"iOpacityInactive":"1","aOpacityInactive":"1","iC":"custom","iCCustom":"#FFFFFFCC","iCActive":"weapon","iCActiveCustom":"#FFFFFF","iBGC":"custom","iBGCCustom":"#0000003D","iBGCActive":"custom","iBGCActiveCustom":"#00000094","aC":"custom","aCCustom":"#FFFFFFBF","aCActive":"custom","aCActiveCustom":"#FFFFFF","aBGC":"custom","aBGCCustom":"#00000012","aBGCActive":"weapon","aBGCActiveCustom":"#00000000","pivot":"bottom-right","iShadow":0},{"t":"powerup","gid":6,"x":72,"y":15,"fontSize":"2.5","iSize":"7","mC":"white","bRadius":"10","cCode":"15","bWidth":0.2,"bgC":"#24232188","iC":"custom","iCCustom":"#ffffff","style":"default","pivot":"top-edge","font":"roboto-bold","cP":"3"},{"t":"rect","gid":4,"pivot":"left-edge","x":57,"y":"50","width":"0.2","height":5,"bRadius":"0","cCode":"15","skewX":"0","skewY":"0","bgC":"custom","bgCCustom":"#FFFFFFAC","hide_dead":"1","bCCustom":"#FFFFFF"},{"t":"current_weapon_icon","gid":4,"x":100,"y":50,"width":5,"height":5,"weapon_fill":0,"fill":"#FFFFFF","pivot":"right-edge","shadow":1,"iconShadow":0,"size":"5"},{"t":"current_ammo","gid":4,"x":"42","y":"50","fontSize":"5","align":"center","aC":"custom","aCCustom":"#FFFFFF","threshold":"0.16","lowAC":"custom","lowACCustom":"#FF0000","font":"montserrat","shadow":1,"pivot":"right-edge"},{"t":"fps","gid":-1,"x":0,"y":0,"fontSize":"2","font":"montserrat-bold","pivot":"top-left","shadow":1,"color":"#FFFFFF"},{"t":"icon","gid":6,"x":64,"y":32.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#2CD86B","icon":"hp","shadow":"1","hide_dead":"1","iconShadow":1,"pivot":"right-edge"},{"t":"icon","gid":6,"x":64,"y":67.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#FFFFFF","icon":"armor","shadow":"1","hide_dead":"1","pivot":"right-edge","iconShadow":1},{"t":"coins","gid":-1,"x":50,"y":81,"fontSize":"4","color":"#ffffff","scaleOnPickup":"1","font":"montserrat-bold"},{"t":"player_name","gid":6,"x":7,"y":100,"fontSize":"3","pivot":"top-left","color":"#FFFFFF","shadow":1,"teamColor":1,"font":"montserrat-bold","vis":"s","pre":1,"uc":0},{"t":"score","gid":5,"x":11,"y":0,"width":"8","height":"5","fontSize":"3","team":"own","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-left","font":"montserrat-bold"},{"t":"score","gid":5,"x":89,"y":1,"width":"8","height":"5","fontSize":"3","team":"enemy","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-right","direction":"horizontal reverse","font":"montserrat-bold"},{"t":"own_players","gid":5,"x":9,"y":1,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-right"},{"t":"enemy_players","gid":5,"x":91,"y":0,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal reverse","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-left"},{"t":"steal_progress","gid":-1,"x":50,"y":25,"height":"2.4","width":"30"},{"t":"overtime_progress","gid":-1,"x":50,"y":21,"height":"2.4","width":"30","txt":"1"},{"t":"hint","gid":-1,"x":"50","y":"15","pivot":"center","fontSize":2,"font":"montserrat-bold"},{"t":"low_ammo_warning","gid":4,"x":"50","y":0,"fontSize":"2","color":"#ff0000","font":"montserrat-bold","threshold":0.16,"shadow":1,"uc":1},{"t":"voicechat","gid":-1,"x":3,"y":32,"fontSize":"2","font":"montserrat-bold","color":"#ffffff","pivot":"top-left","iC":"#00FF00"},{"t":"minimap","gid":-1,"x":1,"y":1,"pivot":"top-left","size":"30","lc":"#32323c","mc":"#4b4b4b","hc":"#645a5a","oc":"#FFFFFF","ot":0.1,"tlo":1,"ci":1,"stll":1,"opo":0.5},{"t":"teammates_alive","x":18.8,"y":62.5,"fontSize":"1.5","color":"#2CD86B","align":"center","shadow":1,"aliveText":"1","teamColor":"1","pivot":"top-edge","gid":5,"font":"roboto-bold"},{"t":"enemies_alive","x":80.4,"y":62.5,"fontSize":"1.5","color":"#c80f0f","align":"center","shadow":1,"aliveText":1,"pivot":"top-edge","teamColor":1,"gid":5,"font":"roboto-bold"}],"groups":[{"gid":4,"groupName":"Ammo","x":"96","y":"95","width":18,"height":10,"pivot":"bottom-right"},{"gid":5,"groupName":"Match Info","x":"50","y":4,"width":50,"height":10,"pivot":"top-edge"},{"gid":6,"groupName":"Health and Armor","x":"4","y":"95","width":60,"height":10,"pivot":"bottom-left"}],"misc":{"hudaspect":"default","fl":"1","film":"vML?1?vML?1","fovbkg":"depot"}}
 hud_definition_spec
-Machine generated string that stores the hud definition.
 {"default_hud":true,"version":1.3,"elements":[{"t":"item_picked","x":8,"y":5,"fontSize":"2.2","shadow":1,"icon":1,"owner":1,"pivot":"bottom-left","iconWidth":3.5,"gid":6,"name":1,"iconBackground":"#0000008D","font":"montserrat"},{"t":"chat","x":4,"y":78,"height":30,"width":50,"fontSize":"1.6","align":"left","color":"white","pivot":"bottom-left"},{"t":"hp_bar","x":8,"y":33,"width":23,"height":2.6,"color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"armor_bar","x":8,"y":67.5,"width":23,"height":2.6,"color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"hp","x":59,"y":32.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","shadow":1,"pivot":"right-edge","gid":6,"font":"montserrat"},{"t":"armor","x":59,"y":67.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","shadow":1,"pivot":"right-edge","hideIf0":"0","gid":6,"font":"montserrat"},{"t":"you_fragged","x":50,"y":66,"fontSize":"3","font":"veneer-italic","color":"white","pivot":"top-edge","align":"center"},{"t":"frag_feed","x":96,"y":3,"height":20,"width":30,"fontSize":"1.6","v_align":"flex-end","bottomUp":"0","direction":"bottom","pivot":"top-right","font":"montserrat-bold"},{"t":"game_timer","x":50,"y":6,"fontSize":"4.5","shadow":"1","color":"#FFFFFFFC","gid":5,"pivot":"top-edge","font":"roboto-bold"},{"t":"time_limit","x":50,"y":49.25,"fontSize":"1.5","font":"roboto-bold","shadow":"1","pivot":"top-edge","align":"center","gid":5,"color":"#FFFFFF"},{"t":"dodge","x":50,"y":61,"fontSize":"1.5","iSize":"5","mC":"#FFFFFF","icon_inactive_opacity":"0.2","bRadius":"0.8","cCode":"15","bWidth":"0","bgC":"#00000000","aT":"2","pivot":"center"},{"t":"item","x":50,"y":92,"fontSize":"1","iSize":"10","mC":"#FFFFFFC2","bRadius":"10","cCode":"15","bWidth":"3","bgC":"#00000063","pivot":"center","style":"default","iC":"custom","font":"roboto-bold","iCCustom":"#FFFFFF","name":1,"keybind":1,"iShadow":0,"flip":0},{"t":"weapons_list","gid":-1,"x":96,"y":77,"mode":"all","direction":"vertical reverse","wDirection":"horizontal","font":"montserrat","fontSize":"2","aWidth":"5.5","aPadding":"0","aAlign":"center","accShow":0,"accFontSize":"1","iHeight":"40","iWidth":"55","wSepWidth":"0.2","sepWidth":"24","cBitWidth":"0","keybindShow":1,"aKeybindShow":"0","aBarShow":0,"aBarWidth":"0.6","aBarWC":0,"iOpacityInactive":"1","aOpacityInactive":"1","iC":"custom","iCCustom":"#FFFFFFCC","iCActive":"weapon","iCActiveCustom":"#FFFFFF","iBGC":"custom","iBGCCustom":"#0000003D","iBGCActive":"custom","iBGCActiveCustom":"#00000094","aC":"custom","aCCustom":"#FFFFFFBF","aCActive":"custom","aCActiveCustom":"#FFFFFF","aBGC":"custom","aBGCCustom":"#00000012","aBGCActive":"weapon","aBGCActiveCustom":"#00000000","pivot":"bottom-right","iShadow":0},{"t":"powerup","gid":6,"x":72,"y":15,"fontSize":"2.5","iSize":"7","mC":"white","bRadius":"10","cCode":"15","bWidth":0.2,"bgC":"#24232188","iC":"custom","iCCustom":"#ffffff","style":"default","pivot":"top-edge","font":"roboto-bold","cP":"3"},{"t":"rect","gid":4,"pivot":"left-edge","x":57,"y":"50","width":"0.2","height":5,"bRadius":"0","cCode":"15","skewX":"0","skewY":"0","bgC":"custom","bgCCustom":"#FFFFFFAC","hide_dead":"1","bCCustom":"#FFFFFF"},{"t":"current_weapon_icon","gid":4,"x":100,"y":50,"width":5,"height":5,"weapon_fill":0,"fill":"#FFFFFF","pivot":"right-edge","shadow":1,"iconShadow":0,"size":"5"},{"t":"current_ammo","gid":4,"x":"42","y":"50","fontSize":"5","align":"center","aC":"custom","aCCustom":"#FFFFFF","threshold":"0.16","lowAC":"custom","lowACCustom":"#FF0000","font":"montserrat","shadow":1,"pivot":"right-edge"},{"t":"fps","gid":-1,"x":0,"y":0,"fontSize":"2","font":"montserrat-bold","pivot":"top-left","shadow":1,"color":"#FFFFFF"},{"t":"icon","gid":6,"x":64,"y":32.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#2CD86B","icon":"hp","shadow":"1","hide_dead":"1","iconShadow":1,"pivot":"right-edge"},{"t":"icon","gid":6,"x":64,"y":67.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#FFFFFF","icon":"armor","shadow":"1","hide_dead":"1","pivot":"right-edge","iconShadow":1},{"t":"coins","gid":-1,"x":50,"y":81,"fontSize":"4","color":"#ffffff","scaleOnPickup":"1","font":"montserrat-bold"},{"t":"player_name","gid":6,"x":7,"y":100,"fontSize":"3","pivot":"top-left","color":"#FFFFFF","shadow":1,"teamColor":1,"font":"montserrat-bold","vis":"s","pre":1,"uc":0},{"t":"score","gid":5,"x":11,"y":0,"width":"8","height":"5","fontSize":"3","team":"own","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-left","font":"montserrat-bold"},{"t":"score","gid":5,"x":89,"y":1,"width":"8","height":"5","fontSize":"3","team":"enemy","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-right","direction":"horizontal reverse","font":"montserrat-bold"},{"t":"own_players","gid":5,"x":9,"y":1,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-right"},{"t":"enemy_players","gid":5,"x":91,"y":0,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal reverse","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-left"},{"t":"steal_progress","gid":-1,"x":50,"y":25,"height":"2.4","width":"30"},{"t":"overtime_progress","gid":-1,"x":50,"y":21,"height":"2.4","width":"30","txt":"1"},{"t":"hint","gid":-1,"x":"50","y":"15","pivot":"center","fontSize":2,"font":"montserrat-bold"},{"t":"low_ammo_warning","gid":4,"x":"50","y":0,"fontSize":"2","color":"#ff0000","font":"montserrat-bold","threshold":0.16,"shadow":1,"uc":1},{"t":"voicechat","gid":-1,"x":3,"y":32,"fontSize":"2","font":"montserrat-bold","color":"#ffffff","pivot":"top-left","iC":"#00FF00"},{"t":"minimap","gid":-1,"x":1,"y":1,"pivot":"top-left","size":"30","lc":"#32323c","mc":"#4b4b4b","hc":"#645a5a","oc":"#FFFFFF","ot":0.1,"tlo":1,"ci":1,"stll":1,"opo":0.5},{"t":"teammates_alive","x":18.8,"y":62.5,"fontSize":"1.5","color":"#2CD86B","align":"center","shadow":1,"aliveText":"1","teamColor":"1","pivot":"top-edge","gid":5,"font":"roboto-bold"},{"t":"enemies_alive","x":80.4,"y":62.5,"fontSize":"1.5","color":"#c80f0f","align":"center","shadow":1,"aliveText":1,"pivot":"top-edge","teamColor":1,"gid":5,"font":"roboto-bold"}],"groups":[{"gid":4,"groupName":"Ammo","x":"96","y":"95","width":18,"height":10,"pivot":"bottom-right"},{"gid":5,"groupName":"Match Info","x":"50","y":4,"width":50,"height":10,"pivot":"top-edge"},{"gid":6,"groupName":"Health and Armor","x":"4","y":"95","width":60,"height":10,"pivot":"bottom-left"}],"misc":{"hudaspect":"default","fl":"1","film":"vML?1?vML?1","fovbkg":"depot"}}
+Machine generated string that stores the hud definition.
 game_weapon_definition
-Machine generated string that stores the weapon skin definition.
+{"default_hud":true,"version":1.3,"elements":[{"t":"item_picked","x":8,"y":5,"fontSize":"2.2","shadow":1,"icon":1,"owner":1,"pivot":"bottom-left","iconWidth":3.5,"gid":6,"name":1,"iconBackground":"#0000008D","font":"montserrat"},{"t":"chat","x":4,"y":78,"height":30,"width":50,"fontSize":"1.6","align":"left","color":"white","pivot":"bottom-left"},{"t":"hp_bar","x":8,"y":33,"width":23,"height":2.6,"color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"armor_bar","x":8,"y":67.5,"width":23,"height":2.6,"color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"hp","x":59,"y":32.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","shadow":1,"pivot":"right-edge","gid":6,"font":"montserrat"},{"t":"armor","x":59,"y":67.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","shadow":1,"pivot":"right-edge","hideIf0":"0","gid":6,"font":"montserrat"},{"t":"you_fragged","x":50,"y":66,"fontSize":"3","font":"veneer-italic","color":"white","pivot":"top-edge","align":"center"},{"t":"frag_feed","x":96,"y":3,"height":20,"width":30,"fontSize":"1.6","v_align":"flex-end","bottomUp":"0","direction":"bottom","pivot":"top-right","font":"montserrat-bold"},{"t":"game_timer","x":50,"y":6,"fontSize":"4.5","shadow":"1","color":"#FFFFFFFC","gid":5,"pivot":"top-edge","font":"roboto-bold"},{"t":"time_limit","x":50,"y":49.25,"fontSize":"1.5","font":"roboto-bold","shadow":"1","pivot":"top-edge","align":"center","gid":5,"color":"#FFFFFF"},{"t":"dodge","x":50,"y":61,"fontSize":"1.5","iSize":"5","mC":"#FFFFFF","icon_inactive_opacity":"0.2","bRadius":"0.8","cCode":"15","bWidth":"0","bgC":"#00000000","aT":"2","pivot":"center"},{"t":"item","x":50,"y":92,"fontSize":"1","iSize":"10","mC":"#FFFFFFC2","bRadius":"10","cCode":"15","bWidth":"3","bgC":"#00000063","pivot":"center","style":"default","iC":"custom","font":"roboto-bold","iCCustom":"#FFFFFF","name":1,"keybind":1,"iShadow":0,"flip":0},{"t":"weapons_list","gid":-1,"x":96,"y":77,"mode":"all","direction":"vertical reverse","wDirection":"horizontal","font":"montserrat","fontSize":"2","aWidth":"5.5","aPadding":"0","aAlign":"center","accShow":0,"accFontSize":"1","iHeight":"40","iWidth":"55","wSepWidth":"0.2","sepWidth":"24","cBitWidth":"0","keybindShow":1,"aKeybindShow":"0","aBarShow":0,"aBarWidth":"0.6","aBarWC":0,"iOpacityInactive":"1","aOpacityInactive":"1","iC":"custom","iCCustom":"#FFFFFFCC","iCActive":"weapon","iCActiveCustom":"#FFFFFF","iBGC":"custom","iBGCCustom":"#0000003D","iBGCActive":"custom","iBGCActiveCustom":"#00000094","aC":"custom","aCCustom":"#FFFFFFBF","aCActive":"custom","aCActiveCustom":"#FFFFFF","aBGC":"custom","aBGCCustom":"#00000012","aBGCActive":"weapon","aBGCActiveCustom":"#00000000","pivot":"bottom-right","iShadow":0},{"t":"powerup","gid":6,"x":72,"y":15,"fontSize":"2.5","iSize":"7","mC":"white","bRadius":"10","cCode":"15","bWidth":0.2,"bgC":"#24232188","iC":"custom","iCCustom":"#ffffff","style":"default","pivot":"top-edge","font":"roboto-bold","cP":"3"},{"t":"rect","gid":4,"pivot":"left-edge","x":57,"y":"50","width":"0.2","height":5,"bRadius":"0","cCode":"15","skewX":"0","skewY":"0","bgC":"custom","bgCCustom":"#FFFFFFAC","hide_dead":"1","bCCustom":"#FFFFFF"},{"t":"current_weapon_icon","gid":4,"x":100,"y":50,"width":5,"height":5,"weapon_fill":0,"fill":"#FFFFFF","pivot":"right-edge","shadow":1,"iconShadow":0,"size":"5"},{"t":"current_ammo","gid":4,"x":"42","y":"50","fontSize":"5","align":"center","aC":"custom","aCCustom":"#FFFFFF","threshold":"0.16","lowAC":"custom","lowACCustom":"#FF0000","font":"montserrat","shadow":1,"pivot":"right-edge"},{"t":"fps","gid":-1,"x":0,"y":0,"fontSize":"2","font":"montserrat-bold","pivot":"top-left","shadow":1,"color":"#FFFFFF"},{"t":"icon","gid":6,"x":64,"y":32.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#2CD86B","icon":"hp","shadow":"1","hide_dead":"1","iconShadow":1,"pivot":"right-edge"},{"t":"icon","gid":6,"x":64,"y":67.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#FFFFFF","icon":"armor","shadow":"1","hide_dead":"1","pivot":"right-edge","iconShadow":1},{"t":"coins","gid":-1,"x":50,"y":81,"fontSize":"4","color":"#ffffff","scaleOnPickup":"1","font":"montserrat-bold"},{"t":"player_name","gid":6,"x":7,"y":100,"fontSize":"3","pivot":"top-left","color":"#FFFFFF","shadow":1,"teamColor":1,"font":"montserrat-bold","vis":"s","pre":1,"uc":0},{"t":"score","gid":5,"x":11,"y":0,"width":"8","height":"5","fontSize":"3","team":"own","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-left","font":"montserrat-bold"},{"t":"score","gid":5,"x":89,"y":1,"width":"8","height":"5","fontSize":"3","team":"enemy","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-right","direction":"horizontal reverse","font":"montserrat-bold"},{"t":"own_players","gid":5,"x":9,"y":1,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-right"},{"t":"enemy_players","gid":5,"x":91,"y":0,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal reverse","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-left"},{"t":"steal_progress","gid":-1,"x":50,"y":25,"height":"2.4","width":"30"},{"t":"overtime_progress","gid":-1,"x":50,"y":21,"height":"2.4","width":"30","txt":"1"},{"t":"hint","gid":-1,"x":"50","y":"15","pivot":"center","fontSize":2,"font":"montserrat-bold"},{"t":"low_ammo_warning","gid":4,"x":"50","y":0,"fontSize":"2","color":"#ff0000","font":"montserrat-bold","threshold":0.16,"shadow":1,"uc":1},{"t":"voicechat","gid":-1,"x":3,"y":32,"fontSize":"2","font":"montserrat-bold","color":"#ffffff","pivot":"top-left","iC":"#00FF00"},{"t":"minimap","gid":-1,"x":1,"y":1,"pivot":"top-left","size":"30","lc":"#32323c","mc":"#4b4b4b","hc":"#645a5a","oc":"#FFFFFF","ot":0.1,"tlo":1,"ci":1,"stll":1,"opo":0.5},{"t":"teammates_alive","x":18.8,"y":62.5,"fontSize":"1.5","color":"#2CD86B","align":"center","shadow":1,"aliveText":"1","teamColor":"1","pivot":"top-edge","gid":5,"font":"roboto-bold"},{"t":"enemies_alive","x":80.4,"y":62.5,"fontSize":"1.5","color":"#c80f0f","align":"center","shadow":1,"aliveText":1,"pivot":"top-edge","teamColor":1,"gid":5,"font":"roboto-bold"}],"groups":[{"gid":4,"groupName":"Ammo","x":"96","y":"95","width":18,"height":10,"pivot":"bottom-right"},{"gid":5,"groupName":"Match Info","x":"50","y":4,"width":50,"height":10,"pivot":"top-edge"},{"gid":6,"groupName":"Health and Armor","x":"4","y":"95","width":60,"height":10,"pivot":"bottom-left"}],"misc":{"hudaspect":"default","fl":"1","film":"vML?1?vML?1","fovbkg":"depot"}}
 game_decals
-Machine generated string that stores the spectating hud definition.
+Machine generated string that stores the weapon skin definition.
 Hex color code for the player's skin.
+Machine generated string that stores the spectating hud definition.
 Active layer in the editor.
 editor_layer
-This machine-generated string stores the decal settings for the character.
 editor_edit_invisible
+This machine-generated string stores the decal settings for the character.
 editor_discovery_radius
-Editing setting: Set levels of undo. A value of 0 will disable undo functionality.
 editor_undo_levels
+Editing setting: Set levels of undo. A value of 0 will disable undo functionality.
 Editing toggle: allows to edit invisible objects.
 Makes wall sliding horizontal. 0: Disabled. 1:Enabled.
 phy_roll_horizontal
@@ -44172,12 +44173,12 @@ game_weapon_focal_distance
 Speed of weapon sway.
 Carried weapon translation from left to right.
 game_weapon_translation_x
-Enables or disables auto switch when running out of ammo. 0: Disabled; 1: Switch to previous
 game_auto_switch_ooa
+Enables or disables auto switch when running out of ammo. 0: Disabled; 1: Switch to previous
 This option has no effect in this build.
 game_team1_color_override
-game_force_enemy_colors
 Enables or disables forcing of enemy colors. Enable: 1. Disable: 0
+game_force_enemy_colors
 game_team2_color_override
 Hex color override code for team 1.
 Hex color override code for team 3.
@@ -44199,42 +44200,42 @@ dev_freeze
 dev_show_hidden_blocks
 Enables loading of new web surfaces. 0: Disabled. 1:Enabled.
 dev_web_support
+game_camera_offset
 Makes the block components smaller so you can see the boundaries.
 dev_explode
 (Not working) Enables showing of hidden blocks. 0: Disabled. 1:Enabled.
 Enables netcode debugging.
 dev_show_net
-game_camera_offset
 Shows enemy hitbox boundaries.
 dev_show_hitboxes
 game_camera_hor_offset
-Camera offset distance. Any value greater than 0 enables 3rd person.
 Camera yaw angle in degrees for 3rd person mode.
-game_camera_yaw
 Camera offset distance. Any value greater than 0 enables 3rd person.
+game_camera_yaw
 editor_drag_min_time
+Camera offset distance. Any value greater than 0 enables 3rd person.
 Editing prop snapping distance and terrain tool strength.
 editor_snap
 game_weapon_translation_z
 Carried weapon translation from top to bottom.
 game_weapon_translation_y
-Enables or disables on-screen editing gizmos. 0: Disabled. 1:Enabled.
 dev_gizmos
 Carried weapon translation from back to front.
 Enable shooting timing aid. 0: Disabled. 1:Enabled.
+Enables or disables on-screen editing gizmos. 0: Disabled. 1:Enabled.
 dev_time_shooting
 dev_debug_hit
-dev_debug_volumes
 Enables or disables volumetric lighting debugging. 0: Disabled. 1:Enabled.
+dev_debug_volumes
 Enables or disables sound debugging. 0: Disabled. 1:Enabled.
 dev_debug_sounds
-dev_debug_collision
 Enables or disables collision envelope display. 0: Disabled. 1:Enabled.
+dev_debug_collision
 dev_profile_snafu
 0: Disabled. 1:Enabled.
 dev_auto_load_scripts
-Enables or disables the coaching cursor. 0: Disabled. 1:Enabled.
 dev_enable_coaching
+Enables or disables the coaching cursor. 0: Disabled. 1:Enabled.
 0: Disabled. 1:Enabled.
 editor_tool
 Enables or disables gameplay testing mode while editing. 0: Disabled. 1:Enabled.
@@ -44438,7 +44439,7 @@ lobby_team_offset_3
 lobby_custom_physics
 Lobby custom games user setting.
 lobby_custom_instagib
-0.20.354
+0.20.354b
 GENERICDATA
 TEXCOORD
 BINORMAL
@@ -44564,18 +44565,18 @@ ui/html/asset_thumbnails
 )"><span class=shortcut>
 global_properties
 entity_details
-<div class=thumbnail_container id="drop_container_
 $(".droppable").droppable("destroy");$('#surface_palette').empty();var element = document.getElementById('surface_palette');element.innerHTML = '
-", ui.draggable.attr("id"));}});
+<div class=thumbnail_container id="drop_container_
 "><div class=thumbnail class=empty_thumbnail><span class=shortcut>
+", ui.draggable.attr("id"));}});
 "><div class=thumbnail style="background-image:url(
 )"  class=droppable id="drop_container_
-</span></div></div>
 <div class=thumbnail_container  onclick="palette_click(event, this, 
+</span></div></div>
 {name: '
 dynprop
-").droppable({drop: function(event, ui){message3("set_thumb", "
 $("#drop_container_
+").droppable({drop: function(event, ui){message3("set_thumb", "
 window.asset_data = [
 ', type: 'material' },
 announce
@@ -44735,8 +44736,8 @@ Error KJ289414. Incorrect mode:
 </span>
 ')"></span>
 move_left
-set_binding_list
 <span class=delete_bind_button onclick="event.stopPropagation(); delete_bindings('
+set_binding_list
 move_back
 move_up
 move_right
@@ -44884,9 +44885,9 @@ class='checkbox'><div>
  mods available.</div>
 EU-West
 EU-West
-update_modding_settings
 class='checkbox checkbox_enabled'><div class='inner_checkbox_enabled'>
 </div></div>
+update_modding_settings
 NA-Central
 NA-East
 NA-West
@@ -44912,7 +44913,6 @@ $('#skill_container_
 $('#skill_container_
 ").innerHTML = '
 document.getElementById("skill_draft_shortcut_
-skill
 $('#skill_container_
 ').dataset.skill=
 document.getElementById('skill_container_
@@ -45040,7 +45040,6 @@ opus_strerror(err)
 channel->incomingMessageNumber
 opus_strerror(err)
 failed to reset state bitrate: 
-"DONE"
 white
 Error
 Error 128 starting V.L. RC=
@@ -45155,7 +45154,6 @@ hook_activation
 static
 hook_launch_loop
 hook_shot
-error=
  hook 
   	//group 7 
  	speed 4000 
@@ -46813,6 +46811,7 @@ error=
  	single_missile_sound weeble_airbound1 weeble_airbound2 weeble_airbound3 weeble_airbound4 weeble_airbound5 weeble_airbound6 weeble_airbound7 
  	detached_shot_particles false 
  // File left empty for backwards compatibility. 
+error=
 [UI] Dumping returned web data because -uilog is enabled...
 code=
 elapsed=
@@ -46820,12 +46819,13 @@ elapsed=
 [UI] Error 871219127. Remote, async, stream requests are not implemented yet.
 text=
 [UI] Web query requested: 
-widget_editpad
-ui\hud\editpad_bg.png
 [UI] Error 95512941. Aborting resource requests is not implemented.
 [UI] Error 120948701. No local resource handler present.
+widget_editpad
+ui\hud\editpad_bg.png
 widget_editpad_bg
 >}?5?
+1.2.8
 Qkkbal
 wn>Jj
 Z* ,	
@@ -46849,13 +46849,12 @@ OZw3(?
 V_:X1:
 NJ2"v
 O*9y]
-1.2.8
 								
 save_size overflowed in pngpread
 save_size overflowed in pngpread
 Truncated compressed data in IDAT
-No IDAT data (internal error)
 Insufficient memory for save_buffer
+No IDAT data (internal error)
 Potential overflow of save_buffer
 Not enough compressed data
 save_buffer error
