@@ -36,9 +36,7 @@ maps\b_refinery-b.png		89398
 maps\b_refinery-h.png		374324
 maps\b_refinery.rbe		36205960
 maps\b_sunken.rbe		19144408
-maps\b_test_map.rbe		33875614
 maps\b_toya_fortress.rbe		33607885
-maps\b_wellspring .rbe		28680787
 maps\b_wellspring-b.png		11751
 maps\b_wellspring-h.png		241336
 maps\b_wellspring.rbe		28679195
@@ -101,12 +99,8 @@ maps\menu10.rbe		5834759
 maps\menu11-b.png		6456
 maps\menu11-h.png		253503
 maps\menu11.rbe		3239641
-maps\menu12-b.png		3456
-maps\menu12-h.png		481103
 maps\menu12.rbe		3517422
 maps\menu13.rbe		3892986
-maps\menu14-b.png		75169
-maps\menu14-h.png		445741
 maps\menu14.rbe		5206909
 maps\menu2.rbe		2605847
 maps\menu3.rbe		4411000
@@ -138,12 +132,6 @@ maps\tdm_oxide.rbe		26123903
 maps\template_islands-b.png		2198
 maps\template_islands-h.png		361693
 maps\template_islands.rbe		50867
-maps\tt_cathedral-b.png		3556
-maps\tt_cathedral-h.png		11780
-maps\tt_cathedral.rbe		52591376
-maps\tt_cliffside_canyons-b.png		63656
-maps\tt_cliffside_canyons-h.png		394826
-maps\tt_cliffside_canyons.rbe		20462687
 maps\tt_ctf_cathedral-b.png		3556
 maps\tt_ctf_cathedral-h.png		11780
 maps\tt_ctf_cathedral.rbe		52662028
@@ -151,9 +139,6 @@ maps\tt_ctf_dojo-b.png		9194
 maps\tt_ctf_dojo-h.png		376892
 maps\tt_ctf_dojo.rbe		41900166
 maps\tt_ctf_quarry.rbe		51696574
-maps\tt_dojo-b.png		9194
-maps\tt_dojo-h.png		376892
-maps\tt_dojo.rbe		41837506
 maps\tt_foundry-b.png		15235
 maps\tt_foundry-h.png		460380
 maps\tt_foundry.rbe		47900430
@@ -165,14 +150,8 @@ maps\tt_gr_qunai_peaks-b.png		61830
 maps\tt_gr_qunai_peaks-h.png		260521
 maps\tt_gr_qunai_peaks.rbe		33896816
 maps\tt_gr_titans_crossing.rbe		5775150
-maps\tt_p00nie_06.rbe		11316276
-maps\tt_quarry.rbe		51687292
-maps\tt_qunai_peaks-b.png		61830
-maps\tt_qunai_peaks-h.png		260521
-maps\tt_qunai_peaks.rbe		33845415
 maps\tt_rwc.rbe		9443961
 maps\tt_temple_escape.rbe		34374845
-maps\tt_titans_crossing.rbe		5745442
 maps\tt_zen.rbe		13036405
 maps\tutorial.rbe		17497598
 maps\weapon.rbe		285069
@@ -183,7 +162,6 @@ maps\wo_furnace.rbe		43131027
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
 maps\wo_refinery.rbe		36185825
-maps\wo_test_map.rbe		33866557
 maps\wo_toya_fortress.rbe		33598868
 maps\wo_wellspring-b.png		11751
 maps\wo_wellspring-h.png		241336
