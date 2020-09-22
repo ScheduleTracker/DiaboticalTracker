@@ -156,6 +156,7 @@ textures\core\items\doubledamage.png.dds		5636
 textures\core\items\doubledamage.png.premul.png		2238
 textures\core\items\flag.png.dds		5636
 textures\core\items\flag.png.premul.png		1471
+textures\core\items\haste.png.dds		5636
 textures\core\items\hpt0.png.dds		5636
 textures\core\items\hpt0.png.premul.png		3146
 textures\core\items\hpt1.png.dds		5636
@@ -170,6 +171,7 @@ textures\core\items\survival.png.dds		5636
 textures\core\items\survival.png.premul.png		2747
 textures\core\items\tripledamage.png.dds		5636
 textures\core\items\tripledamage.png.premul.png		2238
+textures\core\items\vanguard.png.dds		5636
 textures\core\items\weaponbw.png.dds		5636
 textures\core\items\weaponbw.png.premul.png		3810
 textures\core\items\weaponcb.png.dds		5636

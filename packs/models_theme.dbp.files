@@ -763,11 +763,14 @@ models\theme\snow\textures\snow\snow01_n.png.dds		1398276
 models\theme\snow\textures\snow\snow02_d.png.dds		1398276
 models\theme\snow\textures\snow\snow02_n.png.dds		1398276
 models\theme\snow\textures\snow\snow03_n.png.dds		1398276
-models\theme\snow\textures\snow\snow_mask.png.dds		699192
+models\theme\snow\textures\snow\snow_blend.png.dds		1398276
+models\theme\snow\textures\snow\snow_blend_x.png.dds		1398276
+models\theme\snow\textures\snow\snow_blend_y.png.dds		1398276
+models\theme\snow\textures\snow\snow_mask.png.dds		2796344
 models\theme\snow\textures\snow\snow_wall_bottom_mask.png.dds		2796344
 models\theme\snow\textures\snow\snow_wall_top_mask.png.dds		2796344
-models\theme\snow\textures\snow_medieval_textures.assets		1752
-models\theme\snow\textures\snow_medieval_textures.shader		8088
+models\theme\snow\textures\snow_medieval_textures.assets		2256
+models\theme\snow\textures\snow_medieval_textures.shader		10762
 models\theme\snow\textures\snow_textures.assets		1319
 models\theme\snow\textures\snow_textures.shader		5251
 models\theme\snow\textures\wood\wood01_504030_snow01_d.png.dds		5592580
