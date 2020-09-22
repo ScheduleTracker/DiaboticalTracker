@@ -115,7 +115,7 @@ var TRANSLATION_it =
     "ingame_message_overtime_time": "Overtime {time}",
     "ingame_message_overtime": "Tempo supplementare",
     "ingame_message_fight": "Combatti!",
-    "ingame_message_round": "Round {{round}}",
+    "ingame_message_round": "Round {round}",
     "ingame_message_warmup": "Riscaldamento",
     "ingame_message_golden_frag": "Eliminazione decisiva",
     "ingame_message_knockout_phase": "Al tappeto!",

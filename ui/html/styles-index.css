@@ -12017,7 +12017,7 @@ h2 {
 }
 .settings_block.padded {
     width: 100%;
-    padding-top:6vh;
+    padding-top:3vh;
 }
 .settings_block.column {
     flex-direction:column;
