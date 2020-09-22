@@ -738,6 +738,9 @@ game instagib_duel
     setting game_full_charge 1
     setting game_enable_items 0
 	setting game_overtime 60
+	setting game_team_mode 1
+	setting game_friendly_fire 0
+	setting game_hp 100
 
     map iga_strife
     map iga_grainyard
