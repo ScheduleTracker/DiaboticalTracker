@@ -406,7 +406,7 @@ var TRANSLATION_de =
     "settings_toggable_zoom": "Zoomen umschalten",
     "settings_advanced": "Erweitert",
     "settings_hit_sound": "Hit-Sound",
-    "settings_hit_sounds": "Enable hit sounds",
+    "settings_hit_sounds": "Hit-Sounds aktivieren",
     "settings_crit_sound": "Crit-Sound",
     "settings_frag_sound": "Frag-Sound",
     "settings_show_hitmarkers": "Zeige Hitmarker",

@@ -200,6 +200,29 @@ window.addEventListener("load", function(){
         _id("game_version").textContent = "v"+version;
     });
 
+    bind_event("set_extra_modes", function(json_mode_names) {
+        try {
+            let mode_names = JSON.parse(json_mode_names);
+
+            for (let mode of mode_names) {
+                global_game_mode_map[mode] = {
+                    "mode": mode,
+                    "name": localize("game_mode_"+mode),
+                    "i18n": "game_mode_"+mode,
+                    "desc_i18n": "game_mode_desc_"+mode,
+                    "announce": "announcer_common_gamemode_"+mode,
+                    "enabled": true,
+                    "image": "brawl_loop.jpg", // html/images/gamemode_cards/
+                    "icon": "/html/images/gamemodes/brawl.svg"
+                };
+            }
+
+            init_custom_modes();
+        } catch(e) {
+            console.log("ERROR parsing extra modes", e.message);
+        }
+    });
+
     bind_event("set_locations", function(json_loc_data) {
         try {
             data = JSON.parse(json_loc_data);

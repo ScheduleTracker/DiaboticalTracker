@@ -50,11 +50,11 @@
     --bp_color_hover:#eeb74a;
     --bp_color_active:#e9ac33;
 
-    --main-font: 'roboto', 'notosans', 'notosans-jp', 'notosans-sc', 'notosans-tc';
-    --main-font-light: 'robotolight', 'notosans', 'notosans-jp', 'notosans-sc', 'notosans-tc';
-    --main-font-medium: 'robotomedium', 'notosans', 'notosans-jp', 'notosans-sc', 'notosans-tc';
-    --noto-font: 'notosans', 'notosans-jp', 'notosans-sc', 'notosans-tc';
-    --mont-font: 'montserrat', 'roboto', 'notosans', 'notosans-jp', 'notosans-sc', 'notosans-tc';
+    --main-font: 'roboto', 'notosans', 'notosans-jp', 'notosans-kr', 'notosans-sc', 'notosans-tc';
+    --main-font-light: 'robotolight', 'notosans', 'notosans-jp', 'notosans-kr', 'notosans-sc', 'notosans-tc';
+    --main-font-medium: 'robotomedium', 'notosans', 'notosans-jp', 'notosans-kr', 'notosans-sc', 'notosans-tc';
+    --noto-font: 'notosans', 'notosans-jp', 'notosans-kr', 'notosans-sc', 'notosans-tc';
+    --mont-font: 'montserrat', 'roboto', 'notosans', 'notosans-jp', 'notosans-kr', 'notosans-sc', 'notosans-tc';
 
     box-sizing: border-box;
     -webkit-user-select: none;
@@ -1137,6 +1137,7 @@ h2 {
     justify-content: center;
     overflow: hidden;
 }
+#game_hud_special .hud.databound_set_invisible { display:none; }
 #game_hud {
     position: absolute;
 
@@ -1695,9 +1696,7 @@ h2 {
     align-items: flex-start;
     justify-content: flex-end;
     --chat_show_timestamp_while_ingame: none;
-    opacity:0;
 }
-.elem_chat .chat_container.active { opacity:1; }
 .elem_chat .chat_container .chat_temp_cont {
     position:absolute;
     top:0;

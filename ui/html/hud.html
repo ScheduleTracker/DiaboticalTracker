@@ -200,6 +200,34 @@
 }
 
 /*
+ *  notosans fallback for Korean
+ */
+@font-face {
+    font-family: "notosans-kr";
+    src: url("/html/fonts/NotoSansKR-Medium.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans-kr";
+    src: url("/html/fonts/NotoSansKR-Medium.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "notosans-kr";
+    src: url("/html/fonts/NotoSansKR-Bold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "notosans-kr";
+    src: url("/html/fonts/NotoSansKR-Bold.otf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/*
  *  Montserrat
  *  License: Open Font License http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web
  *  https://fonts.google.com/specimen/Montserrat
@@ -424,8 +452,8 @@
     </div>
 
     <div id="game_hud_special">
-        <div id="hud_load_during_loading" class="hud"></div>              
-        <div id="spec_hud_load_during_loading" class="hud"></div> 
+        <div id="hud_load_during_loading" class="hud" data-bind-class-toggle="databound_set_invisible:{{common_game_data.spectating}}"></div>              
+        <div id="spec_hud_load_during_loading" class="hud" data-bind-class-toggle="databound_set_invisible:!{{common_game_data.spectating}}"></div> 
     </div>
 
     <div id="game_hud">
@@ -760,47 +788,17 @@
     [[/if]]
 </script>
 
-<script id="hud_rect" type="text/x-jsrender">
-    [[if hudPreview]]
-        <div style="[[if bgC == "weapon"]]background-color:#df1f2d;[[/if]]"></div>
-    [[else]]
-        <div [[if hide_dead==1]]data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]] 
-             [[if bgC == "team"]]data-bind-style-background-color="{{game_data.own_team.color}}"[[/if]]
-             [[if bgC == "team_dark"]]data-bind-style-background-color="{{game_data.own_team.color_dark}}"[[/if]]
-             [[if bgC == "team_darker"]]data-bind-style-background-color="{{game_data.own_team.color_darker}}"[[/if]]
-             [[if bgC == "weapon"]]data-bind-style-background-color="{{current_weapon_data.color}}"[[/if]]>
-        </div>
-    [[/if]]
-</script>
 
 <script id="hud_you_fragged" type="text/x-jsrender">
     <div class="live [[:align]]"></div>
     <div class="editor"><span style="margin-right:0.4vh" class="i18n" data-i18n="ingame_you_fragged">Fragged</span><span style="color:white"> Mr. Eggbot</span></div>
 </script>
 
-<script id="hud_voicechat" type="text/x-jsrender">
-    [[if hudPreview]]
-        <div class="player">
-            <div class="row">
-                <div class="name">Mr. Eggbot</div>
-                <div class="mic_icon" style="background-image: url(/html/images/icons/fa/microphone.svg?fill=[[:iC]])"></div>
-            </div>
-        </div>
-    [[else]]
-        <div class="player" data-bind-for="player_iter:{{game_data.own_team.players}}">
-            <div class="row" data-bind-if="{{player_iter.voip_talking}}">
-                <div class="name" data-bind-value="{{player_iter.name}}"></div>
-                <div class="mic_icon" style="background-image: url(/html/images/icons/fa/microphone.svg?fill=[[:iC]])"></div>
-            </div>
-        </div>
-    [[/if]]
-</script>
-
-
-
+<!--<div class="stack_hp_overtip"      [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.min(100, 200-{{battle_data.self.hp}}) + '%'"[[/if]]></div>-->
+<!--
 <script id="hud_stack_bar" type="text/x-jsrender">
     <div class="ha_bar_container"        [[if !hudPreview]] data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]] style="background-color:rgba(0,0,0,0.3);transform: [[if rightToLeft==1]]scaleX(-1)[[/if]] [[if armorOnTop==1]]scaleY(-1)[[/if]];">
-      <!--<div class="stack_hp_overtip"      [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.min(100, 200-{{battle_data.self.hp}}) + '%'"[[/if]]></div>-->
+      
       <div class="stack_hp_overbase"     [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.max(  0, {{battle_data.self.hp}}-100) + '%'"[[/if]] style="background-color:[[:hpColour]]"></div>
       <div class="stack_hp_overbase"     [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.max(  0, {{battle_data.self.hp}}-100) + '%'"[[/if]] style="background-color:rgba(255,255,255,0.3)"></div>
       <div class="stack_hp_base"         [[if !hudPreview]] data-bind-style-width="Math.min({{battle_data.self.hp}},100) + '%'" [[/if]] style="--base_health_color_state:[[:hpColour]]"></div>
@@ -811,6 +809,7 @@
       <div class="stack_armor_over"      [[if !hudPreview]] data-bind-style-width="( Math.max(Math.min( {{battle_data.self.armor}} - 100 , {{battle_data.self.hp}}*2 - 100 ),0) / 2 ) + '%'" [[/if]]></div>
     </div>
 </script>
+-->
 
 <script id="hud_frag_feed" type="text/x-jsrender">
     <div class="fraglog_container">
@@ -828,7 +827,7 @@
 
 <script id="hud_chat" type="text/x-jsrender">
 
-    <div class="chat_container" [[if showTimestamp==1]]style="--chat_show_timestamp_while_ingame:flex;"[[/if]]  data-bind-class-toggle="active:[[if !hudSpectating]]![[/if]]{{common_game_data.spectating}}">
+    <div class="chat_container" [[if showTimestamp==1]]style="--chat_show_timestamp_while_ingame:flex;"[[/if]]>
         <div class="chat_temp_cont">
             <div class="chat_temp"></div>
         </div>
@@ -841,11 +840,6 @@
 
 </script>
 
-<script id="hud_icon" type="text/x-jsrender">
-    <div class="icon_cont" [[if hide_dead==1]]data-bind-if="{{common_game_data.self_alive}}"[[/if]]>
-        <img [[if iconShadow==1]]class="shadow"[[/if]] src="/html/images/hud_icon_[[:icon]].svg?fill=[[:fill]]&stroke=[[:stroke]]&stroke-width=[[:stroke_width]]">
-    </div>
-</script>
 
 <script id="hud_throttle" type="text/x-jsrender">
     [[if !(hidePercent==1)]]
@@ -1571,6 +1565,7 @@
     <script src="vendors/loc-icu/es.js"></script>
     <script src="vendors/loc-icu/fr.js"></script>
     <script src="vendors/loc-icu/it.js"></script>
+    <script src="vendors/loc-icu/ko.js"></script>
     <script src="vendors/loc-icu/ja.js"></script>
     <script src="vendors/loc-icu/pt.js"></script>
     <script src="vendors/loc-icu/ru.js"></script>
@@ -1587,6 +1582,7 @@
     <script src="translations/translation-fr.js"></script>
     <script src="translations/translation-pt-BR.js"></script>
     <script src="translations/translation-de.js"></script>
+    <script src="translations/translation-ko.js"></script>
 
     <script src="translations/countries_en.js"></script>
     <script src="translations/countries_cn.js"></script>
@@ -1598,6 +1594,7 @@
     <script src="translations/countries_fr.js"></script>
     <script src="translations/countries_br.js"></script>
     <script src="translations/countries_de.js"></script>
+    <script src="translations/countries_ko.js"></script>
 
     <script src="javascript/ui_data.js"></script>
     <script src="javascript/ui_helpers.js"></script>

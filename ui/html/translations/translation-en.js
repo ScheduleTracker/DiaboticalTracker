@@ -2072,6 +2072,7 @@ var TRANSLATION_en =
     "game_mode_bounty": "Bounty",
     "game_mode_ft": "Freeze Tag",
     "game_mode_ffa":"Free For All",
+    "game_mode_testmode": "Test Mode",
     "game_mode_practice_range":"Practice Range",
     "game_mode_tutorial": "Tutorial",
     "game_mode_license_center":"License Center",

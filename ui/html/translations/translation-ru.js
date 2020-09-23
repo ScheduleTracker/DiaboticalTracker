@@ -406,7 +406,7 @@ var TRANSLATION_ru =
     "settings_toggable_zoom": "Переключение зума вместо удержания",
     "settings_advanced": "Расширенные",
     "settings_hit_sound": "Звук при попадании",
-    "settings_hit_sounds": "Enable hit sounds",
+    "settings_hit_sounds": "Включить звуки при попадании",
     "settings_crit_sound": "Звук при критическом уроне",
     "settings_frag_sound": "Звук при фраге",
     "settings_show_hitmarkers": "Показывать маркеры попадания",

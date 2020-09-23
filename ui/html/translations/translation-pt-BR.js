@@ -406,7 +406,7 @@ var TRANSLATION_pt_BR =
     "settings_toggable_zoom": "Zoom",
     "settings_advanced": "Avançado",
     "settings_hit_sound": "Som de acerto",
-    "settings_hit_sounds": "Enable hit sounds",
+    "settings_hit_sounds": "Ativar sons de acerto",
     "settings_crit_sound": "Som de crítico",
     "settings_frag_sound": "Som de frag",
     "settings_show_hitmarkers": "Exibir marcadores de acerto",

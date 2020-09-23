@@ -493,7 +493,8 @@ function init_shared() {
             "es-mx": "es_MX",
             "fr": "fr",
             "pt-br": "pt_BR",
-            "de": "de"
+            "de": "de",
+            "ko": "ko",
         };
 
         global_language = "en";
@@ -539,6 +540,10 @@ function init_shared() {
             global_translations = TRANSLATION_de;
             global_countries = COUNTRIES_de;
             numeral.locale('de');
+        } else if (global_language == "ko") { 
+            global_translations = TRANSLATION_ko;
+            global_countries = COUNTRIES_ko;
+            numeral.locale('ko');
         } else { 
             global_translations = TRANSLATION_en;
             global_countries = COUNTRIES_en;
@@ -547,7 +552,7 @@ function init_shared() {
         }
 
         // change the main font variable in :root (documentElement) for some language to avoid baseline issues when mixed fonts are used
-        if (["zh_TW", "zh_CN", "ja"].includes(global_language)) {
+        if (["zh_TW", "zh_CN", "ja", "ko"].includes(global_language)) {
             let noto = getComputedStyle(document.documentElement).getPropertyValue('--noto-font');
             document.documentElement.style.setProperty('--main-font', noto);
         }
@@ -571,7 +576,8 @@ function init_shared() {
                         "es_MX",
                         "fr",
                         "pt_BR",
-                        "de"
+                        "de",
+                        "ko",
                     ]
                 },
                 resources: {
@@ -585,7 +591,8 @@ function init_shared() {
                     es_MX: { translation: TRANSLATION_es_MX },
                     fr:    { translation: TRANSLATION_fr },
                     pt_BR: { translation: TRANSLATION_pt_BR },
-                    de:    { translation: TRANSLATION_de }
+                    de:    { translation: TRANSLATION_de },
+                    ko:    { translation: TRANSLATION_ko },
                 },
                 saveMissing: true, 
                 parseMissingKeyHandler: function(key) {

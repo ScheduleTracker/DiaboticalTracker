@@ -75,6 +75,9 @@ function init_custom_modes() {
         return a.name.localeCompare(b.name);
     });
 
+    let mode_select = _id("custom_game_setting_mode");
+    _empty(mode_select);
+
     for (let mode of modes) {
         if (!mode.enabled) continue;
         if (!global_lobby_init_mode.length) global_lobby_init_mode = mode.mode;
@@ -83,8 +86,10 @@ function init_custom_modes() {
         opt.dataset.i18n = mode.i18n;
         opt.dataset.value = mode.mode;
         opt.textContent = localize(mode.i18n);
-        _id("custom_game_setting_mode").appendChild(opt);
+        mode_select.appendChild(opt);
     }
+
+    ui_setup_select(mode_select);
 }
 
 function init_custom_game_references() {
