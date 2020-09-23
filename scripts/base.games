@@ -655,57 +655,7 @@ game macguffin
 	weapon sword 999
 	weapon machinegun 100
 }
-//
-//METAMODES
-//
-game pncr
-{	
-	weapon sword 999
-	weapon pncr 999
-}
-game crossbow
-{	
-	weapon sword 999
-	weapon crossbow 999
-}
-game melee
-{	
-	weapon sword 999
-}
-game machinegun
-{	
-	weapon machinegun 999
-	weapon sword 999
-}
-game blaster
-{	
-	weapon blaster 999
-	weapon sword 999
-}
-game rocket_launcher
-{	
-	weapon rocket_launcher 999
-    weapon sword 999
-}
-game super_shotgun
-{	
-	weapon super_shotgun 999
-	weapon sword 999
-}
-game shaft
-{	
-	weapon shaft 999
-	weapon sword 999
-}
-game grenade_launcher
-{	
-	weapon grenade_launcher 999
-	weapon sword 999
-}
 
-//
-//METAMODES OVER
-//
 game ghosthunt
 {	
 	setting game_team_mode 1
@@ -1085,3 +1035,937 @@ skill 15
     category 1
     charges 1
 }
+
+//
+//METAMODES
+//
+game pncr
+{	
+	weapon sword 999
+	weapon pncr 10
+}
+game crossbow
+{	
+	weapon sword 999
+	weapon crossbow 15
+}
+game melee
+{	
+	weapon sword 999
+}
+game machinegun
+{	
+	weapon machinegun 100
+	weapon sword 999
+}
+game blaster
+{	
+	weapon blaster 75
+	weapon sword 999
+}
+game rocket_launcher
+{	
+	weapon rocket_launcher 10
+    weapon sword 999
+}
+game super_shotgun
+{	
+	weapon super_shotgun 15
+	weapon sword 999
+}
+game shaft
+{	
+	weapon shaft 100
+	weapon sword 999
+}
+game grenade_launcher
+{	
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon sword 999
+}
+game machinegun_blaster
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game rocket_launcher_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game crossbow_pncr_grenade_launcher
+{	
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game pncr_grenade_launcher
+{	
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaftpncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_shaft_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_blaster_rocket_launcher_shaft_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_super_shotgun_rocket_launcher_shaft_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr
+{	
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_shaft_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_rocket_launcher_shaft_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game super_shotgun_rocket_launcher_shaft_crossbow_pncr
+{	
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_blaster_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_shaft_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game rocket_launcher_shaft_crossbow_pncr
+{	
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_pncr
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_crossbow_pncr
+{	
+	weapon machinegun 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game shaft_crossbow_pncr
+{	
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_pncr
+{	
+	weapon machinegun 100
+	weapon pncr 10
+	weapon sword 999
+}
+game crossbow_pncr
+{	
+	weapon crossbow 15
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_crossbow
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_shaft_crossbow
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_blaster_rocket_launcher_shaft_crossbow
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_super_shotgun_rocket_launcher_shaft_crossbow
+{	
+	weapon machinegun 100
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game blaster_super_shotgun_rocket_launcher_shaft_crossbow
+{	
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_crossbow
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_blaster_shaft_crossbow
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_launcher_shaft_crossbow
+{	
+	weapon machinegun 100
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game super_shotgun_rocket_launcher_shaft_crossbow
+{	
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon sword 999
+}
+game machinegun_blaster_crossbow
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_shaft_crossbow
+{	
+	weapon machinegun 100
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game rocket_launcher_shaft_crossbow
+{	
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher_shaft
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_shaft
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon shaft 100
+	weapon sword 999
+}
+game machinegun_blaster_rocket_launcher_shaft
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon sword 999
+}
+game machinegun_super_shotgun_rocket_launcher_shaft
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon crossbow 15
+	weapon pncr 10
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game blaster_super_shotgun_rocket_launcher_shaft
+{	
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon sword 999
+}
+game machinegun_blaster_shaft
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon shaft 100
+	weapon sword 999
+}
+game machinegun_rocket_launcher_shaft
+{	
+	weapon machinegun 100
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon sword 999
+}
+game super_shotgun_rocket_launcher_shaft
+{	
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 100
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon sword 999
+}
+game machinegun_blaster_rocket_launcher
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game machinegun_super_shotgun_rocket_launcher
+{	
+	weapon machinegun 100
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun_rocket_launcher
+{	
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon sword 999
+}
+game machinegun_rocket_launcher
+{	
+	weapon machinegun 100
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game super_shotgun_rocket_launcher
+{	
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game machinegun_blaster_super_shotgun
+{	
+	weapon machinegun 100
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon sword 999
+}
+
+
+
+game machinegun_super_shotgun
+{	
+	weapon machinegun 100
+	weapon super_shotgun 15
+	weapon sword 999
+}
+game machinegun_shaft
+{	
+	weapon machinegun 100
+	weapon shaft 100
+	weapon sword 999
+}
+game machinegun_crossbow
+{	
+	weapon machinegun 100
+	weapon crossbow 15
+	weapon sword 999
+}
+game machinegun_pncr
+{	
+	weapon machinegun 100
+	weapon pncr 10
+	weapon sword 999
+}
+game machinegun_grenade_launcher
+{	
+	weapon machinegun 100
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game blaster_super_shotgun
+{	
+	weapon blaster 75
+	weapon super_shotgun 15
+	weapon sword 999
+}
+game blaster_rocket_launcher
+{	
+	weapon blaster 75
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game blaster_shaft
+{	
+	weapon blaster 75
+	weapon shaft 100
+	weapon sword 999
+}
+game blaster_crossbow
+{	
+	weapon blaster 75
+	weapon crossbow 15
+}
+game blaster_pncr
+{	
+	weapon blaster 75
+	weapon pncr 10
+	weapon sword 999
+}
+game blaster_grenade_launcher
+{	
+	weapon blaster 75
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+game super_shotgun_rocket_launcher
+{	
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon sword 999
+}
+game super_shotgun_shaft
+{	
+	weapon super_shotgun 15
+	weapon shaft 100
+	weapon sword 999
+}
+game super_shotgun_crossbow
+{	
+	weapon super_shotgun 15
+	weapon crossbow 15
+	weapon sword 999
+}
+game super_shotgun_pncr
+{	
+	weapon super_shotgun 15
+	weapon pncr 10
+	weapon sword 999
+}
+game super_shotgun_grenade_launcher
+{	
+	weapon super_shotgun 15
+	weapon grenade_launcher 10
+	weapon sword 999
+}
+
+//
+//METAMODES OVER
+//
