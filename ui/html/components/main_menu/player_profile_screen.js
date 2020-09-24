@@ -731,7 +731,7 @@ function render_user_ratings_content(ratings) {
 
             if (mode.startsWith("r_ca") || mode.startsWith("r_rocket_arena") || mode.startsWith("r_shaft_arena")) {
                 arena_queues.push(mode);
-            } else if (mode.startsWith("r_wo") || mode.startsWith("r_macguffin")) {
+            } else if (mode === "r_wo") {
                 team_queues.push(mode);
             } else {
                 esports_queues.push(mode);
@@ -924,6 +924,8 @@ function player_profile_render_stats(data) {
         ctrl_mode_select.appendChild(opt);
     }
     */
+
+    console.log(_dump(global_queues));
 
     let qp_queues = Object.keys(global_queues).filter(m => global_queues[m].match_type == MATCH_TYPE_QUICKPLAY);
     let r_queues = Object.keys(global_queues).filter(m => global_queues[m].match_type == MATCH_TYPE_RANKED);

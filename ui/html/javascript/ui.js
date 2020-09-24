@@ -1394,11 +1394,8 @@ function set_masterserver_connection_state(connected, initial) {
             console.log("POSTAPIAUTH100");
         });
 
-        // Only request these things the first time around to avoid any extra hickups when reconnecting during gameplay
-        if (global_ms_connected_count <= 1) {
-            // Requeust queues
-            send_string(CLIENT_COMMAND_GET_QUEUES);
-        }
+        // Requeust queues
+        send_string(CLIENT_COMMAND_GET_QUEUES);
 
         // Request competitive season info
         send_string(CLIENT_COMMAND_GET_COMP_SEASON);
@@ -1435,6 +1432,8 @@ function set_masterserver_connection_state(connected, initial) {
         console.log("POSTMSAUTH100");
 
     } else {
+
+        global_party.id = -1;
 
         // Show not connected indicator
         if (!initial) {

@@ -1,5 +1,5 @@
 let global_leaderboards_data = {
-    "game_mode": "r_team",
+    "game_mode": "r_macguffin",
     "friends_only": false,
     "page": 1,
     "max_per_page": 10
@@ -44,8 +44,8 @@ function init_screen_leaderboards() {
         if ("leaderboard" in global_queues[mode] && global_queues[mode].leaderboard == true) {
             if (mode.startsWith("r_ca") || mode.startsWith("r_rocket_arena") || mode.startsWith("r_shaft_arena")) {
                 arena_modes.push(mode);
-            } else if (mode.startsWith("r_wo") || mode.startsWith("r_macguffin")) {
-                team_modes.push(mode);
+            //} else if (global_queues[mode].team_size > 1) {
+            //    team_modes.push(mode);
             } else {
                 esports_modes.push(mode);
             }

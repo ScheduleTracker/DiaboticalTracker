@@ -992,13 +992,14 @@ function handle_party_event(data) {
 
         // Don't do anything if we haven't initialized the queue selection yet
         if (global_queue_selection === null) update_modes = false;
-        
         if (update_modes) {
             global_party["modes"] = data.data["modes"];
             global_party["roles"] = data.data["roles"];
             global_party["role-reqs"] = data.data["role-reqs"];
-            set_queue_modes();
-            update_role_selection();
+            if (!init) {
+                set_queue_modes();
+                update_role_selection();
+            }
         }
         update_warmup_buttons();
 

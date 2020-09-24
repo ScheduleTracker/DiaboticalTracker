@@ -39,6 +39,8 @@ function set_queue_selection(json) {
         console.error("ERROR parsing queue selection json", e.message);
     }
 
+    if (global_queue_selection === null) global_queue_selection = {};
+
     let something_changed = false;
     for (let cb of global_queue_mode_checkboxes) {
         if (cb.classList.contains("party_disabled")) continue;
