@@ -320,8 +320,8 @@ models\weapons\melee\ballhammer\ballhammer_n.png.dds		1398260
 models\weapons\melee\ballhammer\ballhammer_s.png.dds		1398260
 models\weapons\melee\ballhammer\Creator Omar Chaouch.txt		27
 models\weapons\melee\ballhammer\weapon_ballhammer.ani		362
-models\weapons\melee\ballhammer\weapon_ballhammer.dbm		128636
-models\weapons\melee\ballhammer\weapon_ballhammer.fbx		165360
+models\weapons\melee\ballhammer\weapon_ballhammer.dbm		155661
+models\weapons\melee\ballhammer\weapon_ballhammer.fbx		4222448
 models\weapons\melee\boltbat\boltbat.assets		135
 models\weapons\melee\boltbat\boltbat.shader		1611
 models\weapons\melee\boltbat\boltbat_d.png.dds		5592548
@@ -429,8 +429,8 @@ models\weapons\melee\tesla_sword\tesla_sword_i.png.dds		699184
 models\weapons\melee\tesla_sword\tesla_sword_n.png.dds		1398260
 models\weapons\melee\tesla_sword\tesla_sword_s.png.dds		1398260
 models\weapons\melee\tesla_sword\weapon_tesla_sword.ani		362
-models\weapons\melee\tesla_sword\weapon_tesla_sword.dbm		2800916
-models\weapons\melee\tesla_sword\weapon_tesla_sword.fbx		2454816
+models\weapons\melee\tesla_sword\weapon_tesla_sword.dbm		2410964
+models\weapons\melee\tesla_sword\weapon_tesla_sword.fbx		5714832
 models\weapons\melee\weapons.shader		1137
 models\weapons\melee\weapons_3p.shader		1696
 models\weapons\melee\weapons_carry.shader		3219
