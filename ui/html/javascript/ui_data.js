@@ -123,7 +123,7 @@ var global_item_name_map = {
     "ammorl":       ["#df1f2d", "ammo_rockets",                 "images/weapon_rl.svg",            "ammo"],
     "ammoss":       ["#9bc44d", "ammo_shotgun",                 "images/weapon_ss.svg",            "ammo"],
     "ammopncr":     ["#1fa8b6", "ammo_pncr",                    "images/weapon_pncr.svg",          "ammo"],
-    "ammomac":      ["#318c29", "ammo_machinegun",              "images/weapon_mac.svg",           "ammo"],
+    "ammomac":      ["#cc791d", "ammo_machinegun",              "images/weapon_mac.svg",           "ammo"],
     "ammogl":       ["#9d3329", "ammo_grenades",                "images/weapon_gl.svg",            "ammo"],
     "editpad":      ["#555555", "tool_editpad",                 "images/weapon_editpad.svg",       "special"],
 };

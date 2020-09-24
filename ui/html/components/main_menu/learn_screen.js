@@ -581,7 +581,7 @@ function learn_screen_initialize_tab_weapons() {
         }
     }
 
-    var relevantWeeballs = {'weaponiw':{'script_key': 'implosive_weeble', //implosion
+    var relevantWeeballs = {'weaponiw':{'script_key': 'implosive_weeball', //implosion
                                         'weeball_image': '/html/images/entities/weaponiw.png.dds', 
                                         'entries':{'damage': 'damage',
                                                     'projectile_speed': 'speed',
@@ -592,7 +592,7 @@ function learn_screen_initialize_tab_weapons() {
                                         'description':"Activating twice in quick succession after detonating, the Implosion Weeball allows you to disrupt your enemies during fights by pulling them in the direction of the detonation. The closer somebody is to the centre of the implosion, the more strongly they will be pulled, meaning that the Implosion Weeball can also be purposefully used to propel yourself at great speed by throwing it close to your own feet.",
                                         'skill':'13' //value in gamemode scripts
                             }, 
-                        'weaponsw':{'script_key': 'slowfield_weeble', //slow
+                        'weaponsw':{'script_key': 'slowfield_weeball', //slow
                                     'weeball_image': '/html/images/entities/weaponsw.png.dds',
                                     'entries':{'damage': 'damage',
                                                 'projectile_speed': 'speed',
@@ -604,7 +604,7 @@ function learn_screen_initialize_tab_weapons() {
                                     'description':"The Slow Field Weeball creates a sphere in which time passes slowly, causing players to move slowly while caught inside of it and then instantly returning to normal speed upon exit. Use it to make choke points even more deadly for your opposition to attempt to move through, or in direct combat to slow opponents down and make them easy targets.",
                                     'skill':'11'
                             }, 
-                        'weaponbw':{'script_key': 'explosive_weeble', //explosive
+                        'weaponbw':{'script_key': 'explosive_weeball', //explosive
                                     'weeball_image': '/html/images/entities/weaponbw.png.dds', 
                                     'entries':{'damage': 'damage',
                                                 'projectile_speed': 'speed',
@@ -615,7 +615,7 @@ function learn_screen_initialize_tab_weapons() {
                                     'description':"The Explosive Weeball creates an explosion with a large amount of knockback that can be used to send opponents flying, or to scale incredibly high vertical heights by jumping and throwing it at your own feet.",
                                     'skill':'14'
                             }, 
-                        'weaponsmw':{'script_key': 'smoke_weeble', //smoke
+                        'weaponsmw':{'script_key': 'smoke_weeball', //smoke
                                     'weeball_image': '/html/images/entities/weaponsmw.png.dds', 
                                     'entries':{'damage': 'damage',
                                                 'projectile_speed': 'speed',
@@ -626,7 +626,7 @@ function learn_screen_initialize_tab_weapons() {
                                     'description':"Upon detonation the Smoke Weeball creates a screen of smoke that blocks lines of sight. Used tactically it can allow you to escape enemy fire and deny angles that would otherwise prove dangerous to cross.",
                                     'skill':'12'
                             },
-                        'weaponkw':{'script_key': 'knock_weeble', //knockback
+                        'weaponkw':{'script_key': 'knock_weeball', //knockback
                                     'weeball_image': '/html/images/entities/weaponkw.png.dds', 
                                     'entries':{'damage': 'damage',
                                                 'projectile_speed': 'speed',
@@ -636,7 +636,7 @@ function learn_screen_initialize_tab_weapons() {
                                     'description':"Due to its low cooldown, the Knockback Weeball provides a way of traversing maps very quickly where available. Use it to access otherwise unreachable areas or to knock your opponents up to set up easy shots.",
                                     'skill':'15'
                             },
-                        'weaponhw':{'script_key': 'healing_weeble', //healing
+                        'weaponhw':{'script_key': 'healing_weeball', //healing
                                     'weeball_image': '/html/images/entities/weaponhw.png.dds', 
                                     'entries':{'heal_per_tick': '',
                                                 'heal_interval': '',
@@ -767,13 +767,13 @@ function learn_screen_initialize_tab_weapons() {
                 cellText += ' u';
             }
             else if(label == 'effect_radius'){
-                if(currentWeeball == 'smoke_weeble'){cellText += '320'} //value not present in scripts
-                else if(currentWeeball == 'healing_weeble'){cellText += '112'}; //value not present in scripts
+                if(currentWeeball == 'smoke_weeball'){cellText += '320'} //value not present in scripts
+                else if(currentWeeball == 'healing_weeball'){cellText += '112'}; //value not present in scripts
                 cellText += ' u';
             }
             else if(label == 'duration'){
-                if(currentWeeball == 'smoke_weeble'){cellText += '8'} //value not present in scripts
-                else if(currentWeeball == 'healing_weeble'){cellText += '10'}; //value not present in scripts
+                if(currentWeeball == 'smoke_weeball'){cellText += '8'} //value not present in scripts
+                else if(currentWeeball == 'healing_weeball'){cellText += '10'}; //value not present in scripts
                 cellText += 's';
             }
             else if(label == 'heal_per_tick'){
@@ -1308,7 +1308,7 @@ function learn_screen_initialize_tab_gamemodes() {
                     else if(weapon.startsWith('shaft')){var weapon_name_map_key = "weaponshaft"}
                     else if(weapon.startsWith('pncr')){var weapon_name_map_key = "weaponpncr"}
                     else if(weapon.startsWith('grenade_launcher')){var weapon_name_map_key = "weapongl"}
-                    else if(weapon.startsWith('healing_weeble')){var weapon_name_map_key = "weaponhw"}
+                    else if(weapon.startsWith('healing_weeball')){var weapon_name_map_key = "weaponhw"}
 
                     if(typeof weapon_name_map_key !== 'undefined'){
                         weaponIcon.style.backgroundImage = "url(/html/" + global_item_name_map[weapon_name_map_key][2] + "?fill=" +  global_item_name_map[weapon_name_map_key][0] + ")";

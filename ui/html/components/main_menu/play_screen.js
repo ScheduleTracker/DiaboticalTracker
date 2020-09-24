@@ -1,8 +1,7 @@
 // global vars
 let global_queue_mode_checkboxes = [];
 let global_queue_groups = [];
-let global_queue_selection = {};
-let global_update_queue_modes_timeout = null;
+let global_queue_selection = null;
 
 // on load
 function init_screen_play() {
@@ -40,6 +39,7 @@ function set_queue_selection(json) {
         console.error("ERROR parsing queue selection json", e.message);
     }
 
+    let something_changed = false;
     for (let cb of global_queue_mode_checkboxes) {
         if (cb.classList.contains("party_disabled")) continue;
 
@@ -56,20 +56,11 @@ function set_queue_selection(json) {
         }
 
         if (changed) {
+            something_changed = true;
             let value = global_queue_selection[cb.dataset.mode];
 
             cb.dataset.enabled = value == 1 ? "true" : "false";
             (cb.dataset.enabled == "true") ? enable_mode_checkbox(cb) : disable_mode_checkbox(cb);
-        
-            if (bool_am_i_leader) {
-                // timeout in case user clicked on the card and it changes selection of multiple modes at once, don't send an update for each individual mode
-                if (global_update_queue_modes_timeout != null) clearTimeout(global_update_queue_modes_timeout);
-                global_update_queue_modes_timeout = setTimeout(function() {
-                    update_queue_modes();
-                    global_update_queue_modes_timeout = null;
-                },50);
-            }
-
         }
     }
 
@@ -78,12 +69,34 @@ function set_queue_selection(json) {
         if (!global_queues.hasOwnProperty(queue)) delete global_queue_selection[queue];
     }
 
+    if (something_changed && bool_am_i_leader) {
+        update_queue_modes();
+    }
 }
 function set_queue_enabled(mode, value) {
     if (!global_queues.hasOwnProperty(mode)) return;
 
     global_queue_selection[mode] = value ? 1 : 0;
     update_variable("string", "lobby_search", JSON.stringify(global_queue_selection));
+}
+function set_queues_enabled(modes, value) {
+    for (let mode of modes) {
+        if (!global_queues.hasOwnProperty(mode)) continue;
+        global_queue_selection[mode] = value ? 1 : 0;
+    }
+    update_variable("string", "lobby_search", JSON.stringify(global_queue_selection));
+}
+function set_queue_modes() {    
+    for (let queue in global_queue_selection) {
+        if (global_party["modes"].includes(queue)) global_queue_selection[queue] = 1;
+        else global_queue_selection[queue] = 0;
+    }
+    for (let mode of global_party["modes"]) {
+        if (!global_queue_selection.hasOwnProperty(mode)) global_queue_selection[mode] = 1;
+    }
+    update_variable("string", "lobby_search", JSON.stringify(global_queue_selection));
+
+    update_queue_mode_selection();
 }
 
 // For when no masterserver connection is available
@@ -762,7 +775,17 @@ function renderPlayCard(data) {
             }
         }
 
+        let card_checkbox_outer = _createElement("div", "card_checkbox_outer");
+        card_bottom.appendChild(card_checkbox_outer);
+
         let card_checkbox = _createElement("div", "card_checkbox");
+        card_checkbox_outer.appendChild(card_checkbox);
+
+        card_checkbox_outer.addEventListener("click", function(e) {
+            e.stopPropagation();
+            card_checkbox.dispatchEvent(new Event("click"));
+        });
+
         card_checkbox.dataset.mode = queue;
         card_checkbox.dataset.locked = (data.state == 1) ? true : false;
         card_checkbox.dataset.type = data.type;
@@ -777,7 +800,6 @@ function renderPlayCard(data) {
             card_checkbox.classList.add("tooltip2");
         }
 
-        card_bottom.appendChild(card_checkbox);
         card_checkboxes.push(card_checkbox);
         global_queue_mode_checkboxes.push(card_checkbox);
 
@@ -921,6 +943,7 @@ function renderPlayCard(data) {
                 card_click_spinner(data.on_click());
             }
        
+            let modes = [];
             for (let cb of card_checkboxes) {
                 if (cb.classList.contains("disabled")) continue;
                 if (cb.classList.contains("party_disabled")) continue;
@@ -942,8 +965,10 @@ function renderPlayCard(data) {
                     (set_all_enabled) ? _play_cb_check() : _play_cb_uncheck();
                 }
 
-                set_queue_enabled(mode, set_all_enabled);
+                modes.push(mode);
             }
+
+            set_queues_enabled(modes, set_all_enabled);
         
         });
 
@@ -1085,7 +1110,9 @@ function play_screen_reset_cards(type) {
     });
 }
 
-function update_queue_modes() {
+let queue_mode_update_id = 0;
+let queue_mode_confirmed_update_id = 0;
+function update_queue_modes() {    
     let requested_modes = [];
 
     for (let cb of global_queue_mode_checkboxes) {
@@ -1094,8 +1121,9 @@ function update_queue_modes() {
         }
     }
 
-    //console.log("send party-set-modes",_dump(requested_modes));
-    send_json_data({"action": "party-set-modes", "modes": requested_modes });
+    queue_mode_update_id++;
+    send_json_data({"action": "party-set-modes", "modes": requested_modes, "update_id": queue_mode_update_id });
+    global_update_queue_modes_timeout = null;
 }
 
 function update_queue_modes_availability() {
@@ -1212,7 +1240,6 @@ function update_role_selection() {
 }
 
 function update_queue_mode_selection() {
-    if (global_update_queue_modes_timeout !== null) return;
 
     let qp_count = 0;
     let ranked_count = 0;

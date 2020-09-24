@@ -1080,3 +1080,13 @@ function _add_lazy_load(el, type, url) {
     el.dataset.lazyType = type;
     el.dataset.lazyUrl = url;
 }
+
+function rightward_greedy_two_way_split(str, separator){
+    var ret = [];
+    var tok_start = str.indexOf(separator);
+    if (tok_start != -1){
+        ret[0] = str.substring(0, tok_start);
+        ret[1] = str.substring(tok_start + separator.length);
+    }
+    return ret;
+}

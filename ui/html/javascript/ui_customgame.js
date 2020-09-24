@@ -89,7 +89,7 @@ function init_custom_modes() {
         mode_select.appendChild(opt);
     }
 
-    ui_setup_select(mode_select);
+    ui_setup_select(mode_select, custom_update_variable_if_host);
 }
 
 function init_custom_game_references() {
@@ -216,7 +216,7 @@ function init_screen_custom() {
     global_customSettingElements["commands"].addEventListener("blur", function() {
         global_customSettingElements["commands"].classList.remove("focused");
         if (bool_am_i_host) {
-            update_variable("string", "lobby_custom_commands", global_customSettingElements["commands"].value.replace(/[\s\n\r]+/g, '').trim());
+            update_variable("string", "lobby_custom_commands", global_customSettingElements["commands"].value.replace(/ +/g, ' ').replace(/[\n\r]+/g, '').trim());
             custom_game_settings_changed();
         }
     });
@@ -476,7 +476,7 @@ function set_lobby_custom_commands(value) {
             for (let c of commands_list) {
                 if (!c.trim().length) continue;
         
-                let pair = c.split(":");
+                let pair = rightward_greedy_two_way_split(c, ":");
                 if (pair.length != 2) continue;
         
                 commands_str += update_custom_command(pair[0], pair[1]);
@@ -987,11 +987,19 @@ function handle_party_event(data) {
             process_queue_msg("all", "stop");
         }
 
-        global_party["modes"] = data.data["modes"];
-        global_party["roles"] = data.data["roles"];
-        global_party["role-reqs"] = data.data["role-reqs"];
-        update_queue_mode_selection();
-        update_role_selection();
+        let update_modes = true;
+        if (bool_am_i_leader && queue_mode_confirmed_update_id < queue_mode_update_id) update_modes = false;
+
+        // Don't do anything if we haven't initialized the queue selection yet
+        if (global_queue_selection === null) update_modes = false;
+        
+        if (update_modes) {
+            global_party["modes"] = data.data["modes"];
+            global_party["roles"] = data.data["roles"];
+            global_party["role-reqs"] = data.data["role-reqs"];
+            set_queue_modes();
+            update_role_selection();
+        }
         update_warmup_buttons();
 
         if (global_lobby_id != data['lobby-id']) {
@@ -1002,10 +1010,15 @@ function handle_party_event(data) {
 
     } else if (data.action == "party-update-modes") {
 
+        if (bool_am_i_leader && data.update_id && data.update_id !== -1) {
+            if (queue_mode_confirmed_update_id < data.update_id) queue_mode_confirmed_update_id = data.update_id;
+            if (data.update_id < queue_mode_update_id) return;
+        }
+
         global_party["modes"] = data.data["modes"];
         global_party["roles"] = data.data["roles"];
         global_party["role-reqs"] = data.data["role-reqs"];
-        update_queue_mode_selection();
+        set_queue_modes();
         update_role_selection();
         return;
 
@@ -1304,7 +1317,7 @@ function get_lobby_settings() {
     for (let c of commands_list) {
         if (!c.trim().length) continue;
 
-        let pair = c.split(":");
+        let pair = rightward_greedy_two_way_split(c, ":");
         if (pair.length != 2) continue;
 
         commands.push({

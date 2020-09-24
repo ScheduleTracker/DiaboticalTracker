@@ -727,6 +727,8 @@ function render_user_ratings_content(ratings) {
     let arena_queues = [];
     for (let mode in global_queues) {
         if ("ranked" in global_queues[mode] && global_queues[mode].ranked == true) {
+            if (global_queues[mode].locked) continue;
+
             if (mode.startsWith("r_ca") || mode.startsWith("r_rocket_arena") || mode.startsWith("r_shaft_arena")) {
                 arena_queues.push(mode);
             } else if (mode.startsWith("r_wo") || mode.startsWith("r_macguffin")) {

@@ -200,6 +200,11 @@ window.addEventListener("load", function(){
         _id("game_version").textContent = "v"+version;
     });
 
+    bind_event("on_egs_authenticated", function() {
+        let msg_cont = _id("connecting_masterserver");
+        if (msg_cont) msg_cont.textContent = localize("connecting_to_master");
+    });
+
     bind_event("set_extra_modes", function(json_mode_names) {
         try {
             let mode_names = JSON.parse(json_mode_names);

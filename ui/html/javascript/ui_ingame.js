@@ -1293,7 +1293,10 @@ function show_game_over(show, placement, team_count) {
 
         if (music.length) engine.call("ui_music", music);
 
-        setTimeout( function () { start_animation("game_over_effect", 25, 15, 0, 0) }, 400);
+        setTimeout(function () { 
+            if (anim == "v") game_over_animation(true); 
+            else game_over_animation(false);
+        }, 400);
 
         if (anim == "v") play_anim("game_over_victory", "game_over_anim");
         else if (anim == "d") play_anim("game_over_defeat", "game_over_anim");

@@ -378,15 +378,18 @@ function anim_hide(element, duration = 200, cb){
 
 
 // Used for the Victory and Defeat animation, those could maybe be changed to using anim_start?
-function start_animation(element_id, framerate, framecount, x, y){
+function game_over_animation(win) {
+    let y = 0;
+    if (!win) y = 4;
+
     var anim = {
         animation_counter: 0,
         animation_last_time: performance.now(),
-        elem: _id(element_id),
-        anim_x: x,
+        elem: _id("game_over_effect"),
+        anim_x: 0,
         anim_y: y,
-        framerate: framerate,
-        framecount: framecount,
+        framerate: 30,
+        framecount: 10,
         callback:  function(){
             var now = performance.now();
             var dt = now - this.animation_last_time;
