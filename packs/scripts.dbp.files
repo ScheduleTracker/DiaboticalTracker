@@ -2,9 +2,9 @@ scripts\ambience.sounds		117
 scripts\atest.assets		248
 scripts\avatars.assets		79
 scripts\base.blocks		135
-scripts\base.classes		680
+scripts\base.classes		685
 scripts\base.enemy		543
-scripts\base.games		41218
+scripts\base.games		22860
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -233,6 +233,7 @@ scripts\weapons\basic.weapons		20833
 scripts\weapons\br.weapons		5927
 scripts\weapons\melee.weapons		814
 scripts\weapons\modes.weapons		0
+scripts\weapons\weeballs.weapons		13870
 scripts\weapons\weebles.weapons		13860
 scripts\weapons\wmd.weapons		49
 scripts\zzmovie.movies-example		322
