@@ -187,11 +187,11 @@ game edit
 	weapon crossbow 999
 	weapon pncr 999
 	weapon grenade_launcher 999
-	weapon healing_weeble 999
-	weapon smoke_weeble 999
-	weapon implosive_weeble 999
-   	weapon slowfield_weeble 999
-	weapon explosive_weeble 999
+	weapon healing_weeball 999
+	weapon smoke_weeball 999
+	weapon implosive_weeball 999
+   	weapon slowfield_weeball 999
+	weapon explosive_weeball 999
 }
 
 game practice
@@ -219,11 +219,11 @@ game practice
 	weapon crossbow 999
 	weapon pncr 999
 	weapon grenade_launcher 999
-	weapon healing_weeble 999
-	weapon smoke_weeble 999
-	weapon implosive_weeble 999
-   	weapon slowfield_weeble 999
-	weapon explosive_weeble 999
+	weapon healing_weeball 999
+	weapon smoke_weeball 999
+	weapon implosive_weeball 999
+   	weapon slowfield_weeball 999
+	weapon explosive_weeball 999
 }
 
 game aim_pncr_flickshots
@@ -436,7 +436,7 @@ game duel
 //	map ad_pr_01
 //	map ad_pr_03
 	
-//	weapon blaster 100
+//	weapon blaster 100 true
 //	weapon shelly 20
 
 //}
@@ -583,7 +583,7 @@ game wipeout
 	weapon shaft 200
 	weapon pncr 50
 	weapon grenade_launcher 5
-	weapon healing_weeble 1
+	weapon healing_weeball 1
 }
 
 game ffa
@@ -905,11 +905,11 @@ skill 6
 
 skill 7
 {
-    name Claim Weeble
-    description Claims your weeble
+    name Claim weeball
+    description Claims your weeball
     icon skill_bolt.png
     hud_icon skill_hud_bolt.png
-    tag claim_weeble
+    tag claim_weeball
     duration 0
     cooldown 0
     small_cooldown 0
@@ -924,7 +924,7 @@ skill 8
     description Slow
     icon skill_bolt.png
     hud_icon skill_hud_bolt.png
-    tag claim_weeble
+    tag claim_weeball
     duration 3
     cooldown 10
     small_cooldown 0
@@ -939,7 +939,7 @@ skill 9
     description Scan
     icon skill_bolt.png
     hud_icon skill_hud_bolt.png
-    tag claim_weeble
+    tag claim_weeball
     duration 3
     cooldown 10
     small_cooldown 0
@@ -950,11 +950,11 @@ skill 9
 
 skill 10
 {
-    name Knock Weeble
-    description Knock Weeble
+    name Knock weeball
+    description Knock weeball
     icon skill_bolt.png
     hud_icon skill_hud_bolt.png
-    tag knock_weeble
+    tag knock_weeball
     duration 0
     cooldown 45
     small_cooldown 0
@@ -964,11 +964,11 @@ skill 10
 }
 skill 11
 {
-    name Slow Weeble
-    description Slow Weeble
+    name Slow weeball
+    description Slow weeball
     icon skill_bolt.png
     hud_icon skill_hud_bolt.png
-    tag slow_weeble
+    tag slow_weeball
     duration 0
     cooldown 60
     small_cooldown 0
@@ -979,11 +979,11 @@ skill 11
 
 skill 12
 {
-    name Smoke Weeble
-    description Smoke Weeble
+    name Smoke weeball
+    description Smoke weeball
     icon skill_bolt.png
     hud_icon skill_hud_bolt.png
-    tag smoke_weeble
+    tag smoke_weeball
     duration 0
     cooldown 30
     small_cooldown 0
@@ -994,11 +994,11 @@ skill 12
 
 skill 13
 {
-    name Implosive Weeble
-    description Implosive Weeble
+    name Implosive weeball
+    description Implosive weeball
     icon skill_bolt.png
     hud_icon skill_hud_bolt.png
-    tag implosive_weeble
+    tag implosive_weeball
     duration 0
     cooldown 45
     small_cooldown 0
@@ -1009,11 +1009,11 @@ skill 13
 
 skill 14
 {
-    name Explosive Weeble
-    description Explosive Weeble
+    name Explosive weeball
+    description Explosive weeball
     icon skill_bolt.png
     hud_icon skill_hud_bolt.png
-    tag explosive_weeble
+    tag explosive_weeball
     duration 0
     cooldown 45
     small_cooldown 0
@@ -1023,11 +1023,11 @@ skill 14
 }
 skill 15
 {
-    name Knock Weeble
-    description Knock Weeble
+    name Knock weeball
+    description Knock weeball
     icon skill_bolt.png
     hud_icon skill_hud_bolt.png
-    tag instagib_knock_weeble
+    tag instagib_knock_weeball
     duration 0
     cooldown 1
     small_cooldown 0
@@ -1060,7 +1060,7 @@ game machinegun
 }
 game blaster
 {	
-	weapon blaster 75
+	weapon blaster 75 true
 	weapon sword 999
 }
 game rocket_launcher
@@ -1080,888 +1080,6 @@ game shaft
 }
 game grenade_launcher
 {	
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon sword 999
-}
-game machinegun_blaster
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game rocket_launcher_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game crossbow_pncr_grenade_launcher
-{	
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game pncr_grenade_launcher
-{	
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaftpncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_shaft_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_blaster_rocket_launcher_shaft_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_super_shotgun_rocket_launcher_shaft_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr
-{	
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_shaft_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_rocket_launcher_shaft_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game super_shotgun_rocket_launcher_shaft_crossbow_pncr
-{	
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_blaster_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_shaft_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game rocket_launcher_shaft_crossbow_pncr
-{	
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow_pncr_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_pncr
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_crossbow_pncr
-{	
-	weapon machinegun 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game shaft_crossbow_pncr
-{	
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_pncr
-{	
-	weapon machinegun 100
-	weapon pncr 10
-	weapon sword 999
-}
-game crossbow_pncr
-{	
-	weapon crossbow 15
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft_crossbow
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_crossbow
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_shaft_crossbow
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_blaster_rocket_launcher_shaft_crossbow
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_super_shotgun_rocket_launcher_shaft_crossbow
-{	
-	weapon machinegun 100
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game blaster_super_shotgun_rocket_launcher_shaft_crossbow
-{	
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_crossbow
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_blaster_shaft_crossbow
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_launcher_shaft_crossbow
-{	
-	weapon machinegun 100
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game super_shotgun_rocket_launcher_shaft_crossbow
-{	
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon sword 999
-}
-game machinegun_blaster_crossbow
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_shaft_crossbow
-{	
-	weapon machinegun 100
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game rocket_launcher_shaft_crossbow
-{	
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher_shaft
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_shaft
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon shaft 100
-	weapon sword 999
-}
-game machinegun_blaster_rocket_launcher_shaft
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon sword 999
-}
-game machinegun_super_shotgun_rocket_launcher_shaft
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon crossbow 15
-	weapon pncr 10
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game blaster_super_shotgun_rocket_launcher_shaft
-{	
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon sword 999
-}
-game machinegun_blaster_shaft
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon shaft 100
-	weapon sword 999
-}
-game machinegun_rocket_launcher_shaft
-{	
-	weapon machinegun 100
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon sword 999
-}
-game super_shotgun_rocket_launcher_shaft
-{	
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon shaft 100
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon sword 999
-}
-game machinegun_blaster_rocket_launcher
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game machinegun_super_shotgun_rocket_launcher
-{	
-	weapon machinegun 100
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun_rocket_launcher
-{	
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon sword 999
-}
-game machinegun_rocket_launcher
-{	
-	weapon machinegun 100
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game super_shotgun_rocket_launcher
-{	
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game machinegun_blaster_super_shotgun
-{	
-	weapon machinegun 100
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon sword 999
-}
-
-
-
-game machinegun_super_shotgun
-{	
-	weapon machinegun 100
-	weapon super_shotgun 15
-	weapon sword 999
-}
-game machinegun_shaft
-{	
-	weapon machinegun 100
-	weapon shaft 100
-	weapon sword 999
-}
-game machinegun_crossbow
-{	
-	weapon machinegun 100
-	weapon crossbow 15
-	weapon sword 999
-}
-game machinegun_pncr
-{	
-	weapon machinegun 100
-	weapon pncr 10
-	weapon sword 999
-}
-game machinegun_grenade_launcher
-{	
-	weapon machinegun 100
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game blaster_super_shotgun
-{	
-	weapon blaster 75
-	weapon super_shotgun 15
-	weapon sword 999
-}
-game blaster_rocket_launcher
-{	
-	weapon blaster 75
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game blaster_shaft
-{	
-	weapon blaster 75
-	weapon shaft 100
-	weapon sword 999
-}
-game blaster_crossbow
-{	
-	weapon blaster 75
-	weapon crossbow 15
-}
-game blaster_pncr
-{	
-	weapon blaster 75
-	weapon pncr 10
-	weapon sword 999
-}
-game blaster_grenade_launcher
-{	
-	weapon blaster 75
-	weapon grenade_launcher 10
-	weapon sword 999
-}
-game super_shotgun_rocket_launcher
-{	
-	weapon super_shotgun 15
-	weapon rocket_launcher 10
-	weapon sword 999
-}
-game super_shotgun_shaft
-{	
-	weapon super_shotgun 15
-	weapon shaft 100
-	weapon sword 999
-}
-game super_shotgun_crossbow
-{	
-	weapon super_shotgun 15
-	weapon crossbow 15
-	weapon sword 999
-}
-game super_shotgun_pncr
-{	
-	weapon super_shotgun 15
-	weapon pncr 10
-	weapon sword 999
-}
-game super_shotgun_grenade_launcher
-{	
-	weapon super_shotgun 15
 	weapon grenade_launcher 10
 	weapon sword 999
 }

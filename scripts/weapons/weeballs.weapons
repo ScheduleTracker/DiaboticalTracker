@@ -1,0 +1,474 @@
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------------------ INFO  --------------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+// 1. Blaster
+// 2. Void Cannon
+
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------------ HEALING -------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+healing_weeball
+{
+	//pfx slow_weeble_filament slot_pfx_slow_weeble_exhaust
+	//pfx slow_weeble_filament slot_particle_dial
+
+    //Healing weeble is actually in the super weapons category:
+    bind_group 8
+    color 67da80
+    weapon_tag hw
+ 	//group 3
+	unlimited_ammo false
+	speed 1100
+ 	rate 1000
+  	damage 0
+  	splash_radius 260
+	default_ammo_pickup_ammo 1
+	default_weapon_pickup_ammo 1
+	throwable true
+	throw_animation true
+	healing true
+    
+	center_of_mass_offset 20
+	
+    gravity_pitch_offset 0.05
+    
+	combo_rate	machinegun 50
+	combo_rate	shelly	50
+	combo_rate  shelly_spreader 50
+	combo_rate	defacer 50
+	combo_rate	rocket_launcher 50
+	combo_rate	pncr  50
+	combo_rate	void_cannon 50
+	combo_rate	grenade_launcher 50
+	
+//	bounce 10000
+//	bounce_friction 0.5
+//	duration 2500
+	gravity 200
+
+	shot_particles empty_system
+   	shot_particles_attached empty
+  	missile_particles gl_bullet_v2_green_heal
+	//Played by the engine currently, do not uncomment
+  	//impact_particles heal_weeble_impact
+	missile_trail_particles weeb_dynamic_trail_green_heal
+  	
+	model weaponhw
+	model_position 0.93727 -5.30881 3.85738
+        model_position_third_person 10 -60 -35
+	model_scale 0.1
+	model_rotation 186 10 -4
+	model_camera_scale 0.8
+	can_destroy 1
+	muzzle 0 0 0
+	fov 55
+	muzzle_offset 0 0 0
+	
+	
+	shot_sound weeble_hw_fire1 weeble_hw_fire2 weeble_hw_fire3 weeble_hw_fire4 weeble_hw_fire5
+	impact_sound hw_impact1
+	equip_sound hw_equip
+	out_of_ammo_sound gl_ooa
+	hit_sound hit_sound_hit1
+	hit_sound_min_pitch 0.75
+	single_missile_sound weeble_airbound_short1 weeble_airbound_short2 weeble_airbound_short3 weeble_airbound_short4 weeble_airbound_short5 weeble_airbound_short6 weeble_airbound_short7
+	
+	detached_shot_particles false
+}
+
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------------ I M P L O S I V E  -------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+implosive_weeball
+{
+pfx implode_weeble_filament slot_pfx_eye
+	//pfx bomb_weeble_fuse_filament slot_particle_fuse
+//    bind_group 8
+    color be2f83
+    weapon_tag iw
+ 	//group 3
+	unlimited_ammo false
+	speed 1100
+ 	rate 1000
+	throw_animation true
+  	damage 5
+	min_splash_damage 5
+  	knockback -250
+	ground_knockback -300
+	knockback_self -200
+	ground_knockback_self -200
+  	splash_radius 280
+	default_ammo_pickup_ammo 1
+	default_weapon_pickup_ammo 1
+	
+	center_of_mass_offset 20
+    
+    throwable true
+	
+	combo_rate	machinegun 50
+	combo_rate	shelly	50
+	combo_rate  shelly_spreader 50
+	combo_rate	defacer 50
+	combo_rate	rocket_launcher 50
+	combo_rate	pncr  50
+	combo_rate	void_cannon 50
+	combo_rate	grenade_launcher 1000
+    
+    gravity_pitch_offset 0.05
+	
+//	bounce 10000
+//	bounce_friction 0.5
+//	duration 2500
+	gravity 200
+	
+	shot_particles empty_system
+   	shot_particles_attached empty
+  	missile_particles gl_bullet_v2_purple
+  	impact_particles implode_impact
+	missile_trail_particles weeb_dynamic_trail_purple
+		
+		//DECALS
+		//decal decal_explosion 90 
+	decal decal_plasma 100 3 3.561 false 3
+		decal decal_plasma 175 3 3.561 false 3
+		decal decal_plasma 300 3 3.561 false 3
+		decal decal_glow_red 60 3 3.561 false 25
+	decal decal_glow 35 3 3.561 false 20
+  	
+	model weaponiw
+	model_position 1.93727 -5.30881 3.85738
+        model_position_third_person 10 -60 -35
+	model_scale 0.1
+	model_rotation 186 10 -4
+	model_camera_scale 0.5
+	can_destroy 1
+	muzzle 0 0 0
+	fov 55
+		muzzle_offset 0 0 0
+	shot_sound weeble_iw_fire1 weeble_iw_fire2 weeble_iw_fire3 weeble_iw_fire4 weeble_iw_fire5
+	impact_sound iw_impact1
+	equip_sound iw_equip
+	out_of_ammo_sound gl_ooa
+	hit_sound hit_sound_hit1
+	hit_sound_min_pitch 0.75
+	single_missile_sound weeble_airbound1 weeble_airbound2 weeble_airbound3 weeble_airbound4 weeble_airbound5 weeble_airbound6 weeble_airbound7
+
+        repeat 1
+        repeat_delay 1
+	
+	detached_shot_particles false
+}
+
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------------- S L O W   F I E L D  ----------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+slowfield_weeball
+{
+	//pfx slow_weeble_filament slot_pfx_slow_weeble_exhaust
+	//pfx slow_weeble_filament slot_particle_dial
+//    bind_group 8
+    color 28cdcd
+    weapon_tag sw
+ 	//group 3
+	unlimited_ammo false
+	speed 1100
+ 	rate 1000
+  	damage 5
+	min_splash_damage 5
+  	splash_radius 260
+	default_ammo_pickup_ammo 1
+	default_weapon_pickup_ammo 1
+	throwable true
+	throw_animation true
+    
+	center_of_mass_offset 20
+	
+    gravity_pitch_offset 0.05
+    
+	combo_rate	machinegun 50
+	combo_rate	shelly	50
+	combo_rate  shelly_spreader 50
+	combo_rate	defacer 50
+	combo_rate	rocket_launcher 50
+	combo_rate	pncr  50
+	combo_rate	void_cannon 50
+	combo_rate	grenade_launcher 1000
+	
+//	bounce 10000
+//	bounce_friction 0.5
+//	duration 2500
+	gravity 200
+
+	slowfield true	
+	slowfield_radius 220
+	slowfield_duration 5
+	
+	shot_particles empty_system
+   	shot_particles_attached empty
+  	missile_particles gl_bullet_v2_blue
+  	impact_particles slow_weeble_impact
+	missile_trail_particles weeb_dynamic_trail_blue
+  	
+	model weaponsw
+	model_position 1.93727 -5.30881 3.85738
+        model_position_third_person 10 -60 -35
+	model_scale 0.1
+	model_rotation 186 10 -4
+	model_camera_scale 0.5
+	can_destroy 1
+	muzzle 0 0 0
+	fov 55
+	muzzle_offset 0 0 0
+	
+	
+	shot_sound weeble_sw_fire1 weeble_sw_fire2 weeble_sw_fire3 weeble_sw_fire4 weeble_sw_fire5
+	impact_sound sw_impact1
+	equip_sound sw_equip
+	out_of_ammo_sound gl_ooa
+	hit_sound hit_sound_hit1
+	hit_sound_min_pitch 0.75
+	single_missile_sound weeble_airbound1 weeble_airbound2 weeble_airbound3 weeble_airbound4 weeble_airbound5 weeble_airbound6 weeble_airbound7
+	
+	detached_shot_particles false
+}
+
+//---------------------------------------------------------------------------------------------------------
+//----------------------------------------- P Y S C H  W E E B A L L  ----------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+//hitscan gun upon hitting the enemy, and causes a flash back where the enemy gets a cinematic of fake traumatic events for 2-3 seconds
+//While pysched the enemy is put into a bubble. its slightly Crowd control. could also be a weeble instead
+
+//---------------------------------------------------------------------------------------------------------
+//----------------------------------------- R E S P E C T  T H E  P A C O  W E E B A L L --------------------
+//---------------------------------------------------------------------------------------------------------
+
+//Teleports the enemy into a maze, where they have to find there way out in under 10 seconds, or they insta die.
+//can be a maze, or strafe jumping platforms (mini defrag map) - could also be a weeble
+
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------------ B O M B / E X P L O S I V E  -------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+explosive_weeball
+{
+
+	pfx bomb_weeble_fuse_filament slot_particle_fuse
+//    bind_group 8
+    color b4513b
+    weapon_tag bw
+ 	//group 3
+	unlimited_ammo false
+	speed 1100
+ 	rate 1000
+  	damage 5
+	min_splash_damage 5
+  	knockback 250
+	ground_knockback 250
+	knockback_self 200
+	ground_knockback_self 200
+  	splash_radius 240
+	default_ammo_pickup_ammo 1
+	default_weapon_pickup_ammo 1
+	throw_animation true
+	center_of_mass_offset 20
+	center_of_mass_offset_self 0
+    
+    throwable true
+	
+	combo_rate	machinegun 50
+	combo_rate	shelly	50
+	combo_rate  shelly_spreader 50
+	combo_rate	defacer 50
+	combo_rate	rocket_launcher 50
+	combo_rate	pncr  50
+	combo_rate	void_cannon 50
+	combo_rate	grenade_launcher 50
+    
+    gravity_pitch_offset 0.05
+	
+	gravity 200
+	
+	shot_particles empty_system
+   	shot_particles_attached empty
+  	missile_particles gl_bullet_v2
+  	impact_particles bomb_weeble_explosion
+	missile_trail_particles gl_bullet_dynamic_trail
+		
+		//DECALS
+		//decal decal_explosion 90 
+	decal decal_plasma 100 3 3.561 false 3
+		decal decal_plasma 175 3 3.561 false 3
+		decal decal_plasma 300 3 3.561 false 3
+		decal decal_glow_red 60 3 3.561 false 25
+	decal decal_glow 35 3 3.561 false 20
+  	
+	model weaponbw
+        model_position_third_person 10 -60 -35
+	model_position 1.93727 -5.30881 3.85738
+	model_scale 0.1
+	model_rotation 186 10 -4
+	model_camera_scale 0.5
+	can_destroy 1
+	muzzle 0 0 0
+	fov 55
+		muzzle_offset 0 0 0
+		
+		
+	shot_sound weeble_bw_fire1 weeble_bw_fire2 weeble_bw_fire3 weeble_bw_fire4 weeble_bw_fire5
+	impact_sound bw_impact1 bw_impact2 bw_impact3 bw_impact4 bw_impact5
+	equip_sound bw_equip
+	out_of_ammo_sound gl_ooa
+	hit_sound hit_sound_hit1
+	hit_sound_min_pitch 0.75
+	single_missile_sound weeble_airbound1 weeble_airbound2 weeble_airbound3 weeble_airbound4 weeble_airbound5 weeble_airbound6 weeble_airbound7
+	
+	detached_shot_particles false
+}
+
+smoke_weeball
+{
+	//pfx slow_weeble_filament slot_pfx_slow_weeble_exhaust
+	//pfx slow_weeble_filament slot_particle_dial
+//    bind_group 8
+    color 5a811e
+    weapon_tag smw
+ 	//group 3
+	unlimited_ammo false
+	speed 1100
+ 	rate 1000
+  	damage 5
+	min_splash_damage 5
+  	splash_radius 260
+	default_ammo_pickup_ammo 1
+	default_weapon_pickup_ammo 1
+	throwable true
+	throw_animation true
+    
+	center_of_mass_offset 20
+	
+    gravity_pitch_offset 0.05
+    
+	combo_rate	machinegun 50
+	combo_rate	shelly	50
+	combo_rate  shelly_spreader 50
+	combo_rate	defacer 50
+	combo_rate	rocket_launcher 50
+	combo_rate	pncr  50
+	combo_rate	void_cannon 50
+	combo_rate	grenade_launcher 50
+	
+//	bounce 10000
+//	bounce_friction 0.5
+//	duration 2500
+	gravity 200
+
+	shot_particles empty_system
+   	shot_particles_attached empty
+  	missile_particles gl_bullet_v2_green
+	//Played by the engine currently, do not uncomment
+  	impact_particles smoke_weeble_impact
+	missile_trail_particles weeb_dynamic_trail_green
+  	
+	model weaponsmw
+	model_position 1.93727 -5.30881 3.85738
+    model_position_third_person 10 -60 -35
+	model_scale 0.1
+	model_rotation 186 10 -4
+	model_camera_scale 0.5
+	can_destroy 1
+	muzzle 0 0 0
+	fov 55
+	muzzle_offset 0 0 0
+	
+	
+	shot_sound weeble_smw_fire1 weeble_smw_fire2 weeble_smw_fire3 weeble_smw_fire4 weeble_smw_fire5
+	impact_sound smw_impact1 smw_impact2 smw_impact3 smw_impact4
+	equip_sound smw_equip
+	out_of_ammo_sound gl_ooa
+	hit_sound hit_sound_hit1
+	hit_sound_min_pitch 0.75
+	single_missile_sound weeble_airbound1 weeble_airbound2 weeble_airbound3 weeble_airbound4 weeble_airbound5 weeble_airbound6 weeble_airbound7
+	
+	detached_shot_particles false
+}
+
+
+knock_weeball
+{
+
+	pfx bomb_weeble_fuse_filament slot_particle_fuse
+//  bind_group 8
+    color b4513b
+    weapon_tag kw
+ 	//group 3
+	unlimited_ammo false
+	speed 1100
+ 	rate 800
+  	damage 0
+  	knockback 175
+	knockback_self 140
+  	ground_knockback 175
+	ground_knockback_self 140
+  	splash_radius 240
+	default_ammo_pickup_ammo 1
+	default_weapon_pickup_ammo 1
+	throw_animation true
+	center_of_mass_offset 20
+	center_of_mass_offset_self 0
+    
+    throwable true
+	
+	combo_rate	machinegun 50
+	combo_rate	shelly	50
+	combo_rate  shelly_spreader 50
+	combo_rate	defacer 50
+	combo_rate	rocket_launcher 50
+	combo_rate	pncr  50
+	combo_rate	void_cannon 50
+	combo_rate	grenade_launcher 50
+    
+    gravity_pitch_offset 0.05
+	
+	gravity 200
+	
+	shot_particles empty_system
+   	shot_particles_attached empty
+  	missile_particles gl_bullet_v2
+  	impact_particles bomb_weeble_explosion
+	missile_trail_particles gl_bullet_dynamic_trail
+		
+		//DECALS
+		//decal decal_explosion 90 
+	decal decal_plasma 100 3 3.561 false 3
+		decal decal_plasma 175 3 3.561 false 3
+		decal decal_plasma 300 3 3.561 false 3
+		decal decal_glow_red 60 3 3.561 false 25
+	decal decal_glow 35 3 3.561 false 20
+  	
+	model weaponbw
+    model_position_third_person 10 -60 -35
+	model_position 1.93727 -5.30881 3.85738
+	model_scale 0.1
+	model_rotation 186 10 -4
+	model_camera_scale 0.5
+	can_destroy 1
+	muzzle 0 0 0
+	fov 55
+	muzzle_offset 0 0 0
+		
+		
+	shot_sound weeble_bw_fire1 weeble_bw_fire2 weeble_bw_fire3 weeble_bw_fire4 weeble_bw_fire5
+	impact_sound bw_impact1 bw_impact2 bw_impact3 bw_impact4 bw_impact5
+	equip_sound bw_equip
+	out_of_ammo_sound gl_ooa
+	hit_sound hit_sound_hit1
+	hit_sound_min_pitch 0.75
+	single_missile_sound weeble_airbound1 weeble_airbound2 weeble_airbound3 weeble_airbound4 weeble_airbound5 weeble_airbound6 weeble_airbound7
+	
+	detached_shot_particles false
+}

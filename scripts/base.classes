@@ -25,13 +25,13 @@ eggbot
 	//10
 	weapon minigun
 	weapon showtime
-	weapon healing_weeble	
-	weapon implosive_weeble
-	weapon slowfield_weeble
+	weapon healing_weeball
+	weapon implosive_weeball
+	weapon slowfield_weeball
 	//15
-	weapon explosive_weeble
-	weapon smoke_weeble
-    weapon knock_weeble
+	weapon explosive_weeball
+	weapon smoke_weeball
+    weapon knock_weeball
 	weapon hook
     
 
