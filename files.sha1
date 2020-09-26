@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-6b3bc04df3c5d78e30572c9bede4284837b687cd	anticheat/equ8.db
+762a25648011631d7dfde049533a78eba40463d3	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1599,7 +1599,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-815ae8cfcd7e39826a44c8e906719e5d80bd1938	diabotical.exe
+a9f5c1dd539fb78ec60bef2f2fa9a2979d6a57fd	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -8289,6 +8289,7 @@ d5a5256ae7110ffcc0196e6545f20212ee279b66	ui/html/map_thumbnails/tt_ctf_quarry.pn
 41d055e01fd30a19599c0f643553d91efca10934	ui/html/map_thumbnails/tt_gr_titans_crossing.png
 632842e469149cfb7edf5528ed269f4388f2321d	ui/html/map_thumbnails/tt_rwc.png
 dbd4603748d9a14eaf83c0c6ac5dc3e6c7a77f9c	ui/html/map_thumbnails/tt_temple_escape.png
+4e03d2df70fedc0ee0ef68c4224ad23c4278a450	ui/html/map_thumbnails/tt_ukiyo.png
 daaa3a6000241781adadb35eb0fd644c195f4806	ui/html/map_thumbnails/tt_zen.png
 82eb995c4d8aeba1acfefffbd88e1d5d8db9c08f	ui/html/map_thumbnails/wo_crystal_cove.png
 b3dd996042a759535c47e0ce836567ee7d071287	ui/html/map_thumbnails/wo_furnace.png
