@@ -790,6 +790,53 @@ game race
 	weapon sword 999
 }
 
+game ft
+{
+	map b_furnace
+	map b_refinery
+	map b_wellspring
+	map b_crystal_cove
+	map b_toya_fortress
+	map b_alchemy
+	map b_oxide
+	map b_icefall
+	map b_marina
+	map b_sunken
+		
+	setting game_truce_time 0
+	setting game_enable_items 1
+	setting game_team_mode 1
+   	setting game_rounds 10
+	setting game_score_limit 5
+	
+	setting game_hp 125
+	setting game_stable_hp 100
+    setting game_ghost_limit_hp 100
+	setting game_max_hp 200
+
+	setting game_armor 75
+	setting game_stable_armor 100
+	setting game_max_armor 200
+	
+	setting game_self_damage 0
+
+	setting game_freeze_time 10000000
+	setting game_freeze_save_time 3
+	setting game_freeze_save_radius 150
+	
+	setting game_friendly_fire 0
+	
+	weapon sword 999
+	weapon machinegun 50
+	weapon blaster 75 true
+	weapon super_shotgun 15
+	weapon rocket_launcher 10
+	weapon shaft 50
+	weapon pncr 5
+	weapon grenade_launcher 3
+	weapon healing_weeball 1
+}
+
 // DONT CHANGE ID NUMBERS ASSIGNED TO  SKILLS!
 
 skill 0
