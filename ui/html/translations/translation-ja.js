@@ -655,7 +655,7 @@ var TRANSLATION_ja =
     "game_mode_pickup": "ピックアップ",
     "game_mode_extinction": "エクスティンクション",
     "game_mode_bounty": "バウンティ",
-    "game_mode_ft": "凍り鬼",
+    "game_mode_ft": "Freeze Tag - Unfinished",
     "game_mode_ffa": "デスマッチ",
     "game_mode_practice_range": "射撃場",
     "game_mode_tutorial": " チュートリアル",

@@ -655,7 +655,7 @@ var TRANSLATION_pt_BR =
     "game_mode_pickup": "Coleta",
     "game_mode_extinction": "Extinção",
     "game_mode_bounty": "Recompensa",
-    "game_mode_ft": "Pega-pega Gelo",
+    "game_mode_ft": "Freeze Tag - Unfinished",
     "game_mode_ffa": "Todos Contra Todos",
     "game_mode_practice_range": "Campo de Treino",
     "game_mode_tutorial": "Tutorial",

@@ -1,5 +1,8 @@
 const GAMEFACE_VIEW = 'hud';
 
+// If the current view (hud in this case) is currently active or not
+var global_view_active = true;
+
 let global_hud_view_active = false;
 
 //This forces the browser to load in and cache the images
@@ -292,6 +295,10 @@ window.addEventListener("load", function(){
     //Generate crosshair canvases
     initializeCanvasCrosshairMaps();
 
+    bind_event('menu_enabled', function (enabled) {
+        global_view_active = enabled ? false : true;
+    });
+
     // NOTE: map_unloaded is also fired after "on_connected" but before "on_map_loaded"
     bind_event('map_unloaded', function() {
         global_hud_view_active = false;
@@ -347,7 +354,6 @@ window.addEventListener("load", function(){
                 game_report_handle_rematch_update(json_data);
             }
 
-
             if (json_data.action == "party-status") {
                 global_self.user_id = json_data['user-id'];
             }
@@ -365,6 +371,9 @@ window.addEventListener("load", function(){
                 }
             }
 
+            if (json_data.action == "inc-commend") {
+                newCommend(json_data.from);
+            }
         }
         if (type == "s") {
             let action = data.substr(0,data.indexOf(' '));

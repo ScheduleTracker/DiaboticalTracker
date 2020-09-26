@@ -1891,9 +1891,9 @@ body, html {
 
 #region_select_modal_screen .region_select_modal {
     position:absolute;
-    top:17vh;
+    top:50%;
     left:50%;
-    transform:translateX(-50%);
+    transform:translateX(-50%) translateY(-50%);
 }
 
 
@@ -2010,6 +2010,12 @@ body, html {
     align-items: center;
 }
 
+
+#commend_notif {
+    position:absolute;
+    bottom:7vh;
+    right:4vh;
+}
 /*
  *  Rules shared between both views
  */
@@ -2845,6 +2851,43 @@ h2 {
 #watermark.ingame {
     top:1vh;
     left:1vh;
+}
+
+
+#commend_notif {
+    position:absolute;
+
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+
+    background-color:#222;
+    padding:1vh;
+    border-radius:0.4vh;
+    box-shadow:0 0 0 2px rgba(255,255,255,0.4), 0px 2px 27px 0px rgba(0, 0, 0, 0.54);
+    display:none;
+}
+
+#commend_notif .icon {
+    width:4vh;
+    height:4vh;
+    background-image:url(/html/images/icons/fa/thumbs-up.svg?fill=#FFD700);
+    background-size:2.4vh;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+#commend_notif .text {
+    padding:0.4vh 1vh;
+    font-size:1.3vh;
+}
+#commend_notif .text .head {
+    margin-bottom:0.4vh;
+}
+#commend_notif .text .names {
+    padding-left:1vh;
+    font-weight:bold;
+    font-family:var(--main-font-medium);
 }
 
 

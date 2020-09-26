@@ -655,7 +655,7 @@ var TRANSLATION_ko =
     "game_mode_pickup": "픽업",
     "game_mode_extinction": "멸망전",
     "game_mode_bounty": "바운티",
-    "game_mode_ft": "얼음땡",
+    "game_mode_ft": "Freeze Tag - Unfinished",
     "game_mode_ffa": "난투",
     "game_mode_practice_range": "연습장",
     "game_mode_tutorial": "튜토리얼",

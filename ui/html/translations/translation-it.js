@@ -647,7 +647,7 @@ var TRANSLATION_it =
     "game_mode_pickup": "Raccolta",
     "game_mode_extinction": "Estinzione",
     "game_mode_bounty": "Taglia",
-    "game_mode_ft": "Freeze Tag",
+    "game_mode_ft": "Freeze Tag - Unfinished",
     "game_mode_ffa": "Tutti contro tutti",
     "game_mode_practice_range": "Campo d'allenamento",
     "game_mode_tutorial": "Tutorial",

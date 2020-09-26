@@ -1,6 +1,9 @@
 const GAMEFACE = true;
 const GAMEFACE_VIEW = 'menu';
 
+// If the current view (menu in this case) is currently active or not
+var global_view_active = true;
+
 var global_ms_connected = false;
 var global_ms_connected_count = 0;
 
@@ -404,6 +407,9 @@ window.addEventListener("load", function(){
                 case "set-customization":
                     customization_set_validated(json_data.customization);
                     break;
+                case "inc-commend":
+                    newCommend(json_data.from);
+                    break;
             }
 
             // Send to single use registered response handlers
@@ -508,6 +514,8 @@ window.addEventListener("load", function(){
 
     bind_event('menu_enabled', function (enabled) {
         console.log("menu_enabled", enabled, global_menu_page);
+
+        global_view_active = enabled;
 
         // main menu needs to be hidden, otherwise its visible when opening the console in the hud view
         _id("main_menu").style.display = enabled ? "flex" : "none";

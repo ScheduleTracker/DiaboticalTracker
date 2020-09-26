@@ -836,6 +836,43 @@ h2 {
 }
 
 
+#commend_notif {
+    position:absolute;
+
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+
+    background-color:#222;
+    padding:1vh;
+    border-radius:0.4vh;
+    box-shadow:0 0 0 2px rgba(255,255,255,0.4), 0px 2px 27px 0px rgba(0, 0, 0, 0.54);
+    display:none;
+}
+
+#commend_notif .icon {
+    width:4vh;
+    height:4vh;
+    background-image:url(/html/images/icons/fa/thumbs-up.svg?fill=#FFD700);
+    background-size:2.4vh;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+#commend_notif .text {
+    padding:0.4vh 1vh;
+    font-size:1.3vh;
+}
+#commend_notif .text .head {
+    margin-bottom:0.4vh;
+}
+#commend_notif .text .names {
+    padding-left:1vh;
+    font-weight:bold;
+    font-family:var(--main-font-medium);
+}
+
+
 /* ANIMATION */
 /*
 .flash {
@@ -1662,6 +1699,13 @@ h2 {
 }
 
 
+#commend_notif {
+    position:absolute;
+    bottom:7vh;
+    right:4vh;
+}
+
+
 /*
  *  ELEMENT: throttle
  */
@@ -2219,7 +2263,6 @@ h2 {
     display: none;
     /*background-image: url("/html/images/backgrounds/game_report.png");*/
     background-color:#000;
-    z-index:1;
 }
 
 #game_report_cont {
@@ -2236,7 +2279,6 @@ h2 {
     align-items:center;
     justify-content:flex-start;
     font-family: var(--mont-font);
-    z-index:1;
 }
 
 #game_report_cont .report_head {

@@ -655,7 +655,7 @@ var TRANSLATION_fr =
     "game_mode_pickup": "Pickup",
     "game_mode_extinction": "Extinction",
     "game_mode_bounty": "Prime",
-    "game_mode_ft": "Freeze Tag",
+    "game_mode_ft": "Freeze Tag - Unfinished",
     "game_mode_ffa": "Chacun pour soi",
     "game_mode_practice_range": "Champ de tir",
     "game_mode_tutorial": "Tutoriel",

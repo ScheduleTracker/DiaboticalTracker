@@ -1696,7 +1696,7 @@ function generate_tooltip_queue_info(type) {
         if (cb.parentElement == null) continue;
         
         if (cb.dataset.type == type && cb.dataset.mode.length && cb.dataset.enabled == "true") {
-            let group = cb.parentNode.parentNode.querySelector(".card_top .title").textContent;
+            let group = cb.parentNode.parentNode.parentNode.querySelector(".card_top .title").textContent;
             if (!(group in groups)) {
                 groups[group] = [];
             }

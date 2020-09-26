@@ -655,7 +655,7 @@ var TRANSLATION_es_MX =
     "game_mode_pickup": "Pickup",
     "game_mode_extinction": "Apagón",
     "game_mode_bounty": "Recompensa",
-    "game_mode_ft": "Freeze Tag",
+    "game_mode_ft": "Freeze Tag - Unfinished",
     "game_mode_ffa": "Combate",
     "game_mode_practice_range": "Campo de Pruebas",
     "game_mode_tutorial": "Tutorial",

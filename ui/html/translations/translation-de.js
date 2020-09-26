@@ -655,7 +655,7 @@ var TRANSLATION_de =
     "game_mode_pickup": "Pickup",
     "game_mode_extinction": "Extinction",
     "game_mode_bounty": "Kopfgeld",
-    "game_mode_ft": "Freeze Tag",
+    "game_mode_ft": "Freeze Tag - Unfinished",
     "game_mode_ffa": "Free For All",
     "game_mode_practice_range": "Trainingsbereich",
     "game_mode_tutorial": "Tutorial",

@@ -971,3 +971,34 @@ function update_hud_version(hud) {
         hud.version = global_hud_version;
     }
 }
+
+
+/*
+    Show "You were commended by:" list of names that can increase
+*/
+let global_commend_notif_active = false;
+let global_commend_notif_timer = null;
+function newCommend(name) {
+    let notif = _id("commend_notif");
+    let names = _id("commend_notif_names");
+
+    if (global_commend_notif_active) {
+        names.appendChild(_createElement("div", "", name));
+    } else {
+        _empty(names);
+        names.appendChild(_createElement("div", "", name));
+        anim_show(notif);
+
+        global_commend_notif_active = true;
+    }
+
+    if (global_view_active) engine.call("ui_sound", "score_pickup");
+
+    if (global_commend_notif_timer !== null) clearTimeout(global_commend_notif_timer);
+
+    global_commend_notif_timer = setTimeout(function() {
+        global_commend_notif_timer = null;
+        global_commend_notif_active = false;
+        anim_hide(notif);
+    }, 3000);
+}
