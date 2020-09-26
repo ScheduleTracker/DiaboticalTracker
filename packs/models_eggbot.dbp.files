@@ -92,14 +92,14 @@ models\eggbot\cosmetics\shoes\shoe01\shoe01_n.png.dds		349700
 models\eggbot\cosmetics\shoes\shoe01\shoe01_right.fbx		55568
 models\eggbot\cosmetics\shoes\shoe01\shoe01_s.png.dds		349700
 models\eggbot\cosmetics\shoes\shoe02\shoe02.assets		237
-models\eggbot\cosmetics\shoes\shoe02\shoe02.shader		867
+models\eggbot\cosmetics\shoes\shoe02\shoe02.shader		831
 models\eggbot\cosmetics\shoes\shoe02\shoe02_d.png		220068
 models\eggbot\cosmetics\shoes\shoe02\shoe02_left.fbx		66496
 models\eggbot\cosmetics\shoes\shoe02\shoe02_n.png		258949
 models\eggbot\cosmetics\shoes\shoe02\shoe02_right.fbx		66560
 models\eggbot\cosmetics\shoes\shoe02\shoe02_s.png		202326
 models\eggbot\cosmetics\shoes\shoe03\shoe03.assets		237
-models\eggbot\cosmetics\shoes\shoe03\shoe03.shader		867
+models\eggbot\cosmetics\shoes\shoe03\shoe03.shader		831
 models\eggbot\cosmetics\shoes\shoe03\shoe03_d.png		201912
 models\eggbot\cosmetics\shoes\shoe03\shoe03_left.fbx		92160
 models\eggbot\cosmetics\shoes\shoe03\shoe03_n.png		235249
@@ -122,10 +122,10 @@ models\eggbot\eggbot_body (Nicolai Marcher's conflicted copy 2020-02-29).dbm		23
 models\eggbot\eggbot_body (Vegard Fjogstad's conflicted copy 2020-02-12).dbm		25039672
 models\eggbot\eggbot_body (Vegard Fjogstad's conflicted copy 2020-02-12).fbx		21876416
 models\eggbot\eggbot_body.ani		3447
-models\eggbot\eggbot_body.dbm		29654392
+models\eggbot\eggbot_body.dbm		30034237
 models\eggbot\eggbot_body.fbm\eggbot_d.png		574974
 models\eggbot\eggbot_body.fbm\eggbot_n.png		1238962
-models\eggbot\eggbot_body.fbx		28097872
+models\eggbot\eggbot_body.fbx		28355232
 models\eggbot\eggbot_body_hollowed_out.dbm		74810
 models\eggbot\eggbot_body_hollowed_out.fbx		61216
 models\eggbot\eggbot_c.png.dds		2796328
