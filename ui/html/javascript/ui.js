@@ -409,6 +409,7 @@ window.addEventListener("load", function(){
                     break;
                 case "inc-commend":
                     newCommend(json_data.from);
+                    clear_profile_data_cache_id(global_self.data.user_id);
                     break;
             }
 
