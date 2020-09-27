@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-05e8b29db2e69aa5356b4ff6d091669acf2092da	anticheat/equ8.db
+887e94bea58ae917ff56329384150a59c293cab8	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1599,7 +1599,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-37ee09622f1f445d9f1a0271b8eeafa10301d1ab	diabotical.exe
+5a88401c33e36573d9a6b3185131991d92f316e9	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1610,11 +1610,11 @@ dae5eb35d59cdd8ad2059dc8e7c80b0bce793b86	libcurl.dll
 b51420f5acd33b7b0625fe9a1bd0c619a7791b08	manifest.rbd
 7952bec4fa818a443c7199e3bf46c680cc0b0c38	msvcp140.dll
 b00fb5dd258ddfcf7a757bbc0ae904c950ac50e3	packs/blocks.dbp
-8eac51952a6f3ca6792e6186dbefc396b1ce9fb5	packs/maps.dbp
+1eb72d65d6f33091e3e1612fdb3d25e7223f33c3	packs/maps.dbp
 8614b874d01f2df40ee447d4596b3b607e1232ac	packs/models.dbp
 e49d9bac8ca687de616618aa76a49890c57ba8d3	packs/models_dynamic_props.dbp
 fdb1aa37f6d88bc6810899ac12b88bcef7248921	packs/models_dynamic_props_industry.dbp
-3cd7e82f0790532684c357ea73098b10bfaf65cc	packs/models_eggbot.dbp
+b0e4dbc41b8b91ec51d24ff718365af8078eb50f	packs/models_eggbot.dbp
 17d7dcf0ab583d33a09eed64e4ee45df3cf3d79d	packs/models_props.dbp
 ffc92ba66faf3b23ada3c0a2212194da9d427a9c	packs/models_props_clouds.dbp
 8298aa7d0a703b31244a490bd48ef8eaa5518b1b	packs/models_props_industrial.dbp
@@ -1628,7 +1628,7 @@ d7fcda019e2fea2e8d9c69f41dc00a02755c2494	packs/models_weapons.dbp
 c782befffe28597f53b988f1cf16791af746c405	packs/models_weapons_crossbow.dbp
 e3059f7e2e514982f6fd7c64671712dddd5645cf	packs/models_weapons_rocket_launcher.dbp
 576bcaf29e6e108be9b2c9f9abf755fbd63e52cf	packs/models_weapons_shaft.dbp
-730be23d9f4f77a7f23fb2ae61b87a974dbbe2c9	packs/scripts.dbp
+ce622e23023bad963aed532d7bcf175333800bef	packs/scripts.dbp
 6f5336f4c2519ca2795fb2e0c951358c2b231e07	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 8bd4082fb7dbc0289a1f43d76e1476cee7d7a828	packs/textures_customization.dbp
@@ -8207,7 +8207,7 @@ c40464f28f894ae3e35568400655c1ac271d99de	ui/html/javascript/i18next.min.js
 5df25b56bef62c213aad4558dccbc00eb5bbd01e	ui/html/javascript/script_data.js
 8c8e0bc0b7ea99fedd7ae667834be60101867408	ui/html/javascript/spectrum.js
 a84138605e1dba56c8b44d59317d6a3af716f794	ui/html/javascript/spectrum_custom.js
-b494e540a9ae996c7fd8ba07470364f09e6d967d	ui/html/javascript/ui.js
+d3b1a45b9af8f711d2c37dd7105bbd08648884f2	ui/html/javascript/ui.js
 1e373f0163a4fb18abf55f7c7f9cd27c896b5836	ui/html/javascript/ui_anim.js
 aaa6b0c3cf1486d4b388b8557c05b1582be520ac	ui/html/javascript/ui_br.js
 6f63ec7b3774041f5b8f9f7a7e188f95e2cf7781	ui/html/javascript/ui_contextmenu.js
@@ -8602,14 +8602,14 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 4bf8dc93589fb97321e114e6c1c24b5ea49cc8d0	ui/html/translations/strings_play.json
 035ae0dba5edea5f8b59ef0f433f337cf44c76fe	ui/html/translations/translation-de.js
-37ec9a9a0011d4da5ca2dff1af54adb221507e50	ui/html/translations/translation-en.js
+373d54f0be66366536588102ecdd5ab0f53d7f45	ui/html/translations/translation-en.js
 55ca58e82e163bd824ac906fadd9238f98cf7b86	ui/html/translations/translation-es-ES.js
 ea5dfda8edc7a6036cfe45b44b6d98e7f8041f5d	ui/html/translations/translation-es-MX.js
 8a01470a9608ce9c8b5bffacb6b6f278bcbe2cfc	ui/html/translations/translation-fr.js
 7d07084bca145bf6a63f4c5e6f39f44b7250a548	ui/html/translations/translation-it.js
 8aa2a4e57a440917516a0e7e19d846fea707f89e	ui/html/translations/translation-ja.js
 b2a168b06844e6276ca0bdec24c6b9faa2ffae0f	ui/html/translations/translation-ko.js
-3257df39102e2f3d58bbac7004e749c0f8c14946	ui/html/translations/translation-pt-BR.js
+544430ff3b5126da100519afc768b7933c23fc7e	ui/html/translations/translation-pt-BR.js
 493fb83e7bb7b72e413a50521633c551815b9bc1	ui/html/translations/translation-ru.js
 d973b3351a6b315cd672470925e8084e3596a741	ui/html/translations/translation-zh-CN.js
 44b49e0cdd2ba214dc3c0f25fbb7ea092b827c6f	ui/html/translations/translation-zh-TW.js
