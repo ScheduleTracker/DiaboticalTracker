@@ -159,6 +159,7 @@ textures\core\items\macguffin.png.dds		5636
 textures\core\items\survival.png.dds		5636
 textures\core\items\tripledamage.png.dds		5636
 textures\core\items\vanguard.png.dds		5636
+textures\core\items\weaponbl.png.dds		5636
 textures\core\items\weaponbw.png.dds		5636
 textures\core\items\weaponcb.png.dds		5636
 textures\core\items\weapongl.png.dds		5636
@@ -166,6 +167,8 @@ textures\core\items\weaponhw.png.dds		5636
 textures\core\items\weaponiw.png.dds		5636
 textures\core\items\weaponmac.png.dds		5636
 textures\core\items\weaponpncr.png.dds		5636
+textures\core\items\weaponrl.png.dds		5636
+textures\core\items\weaponshaft.png.dds		5636
 textures\core\items\weaponsmw.png.dds		5636
 textures\core\items\weaponss.png.dds		5636
 textures\core\items\weaponsw.png.dds		5636
