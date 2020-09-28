@@ -1952,6 +1952,10 @@ h2 {
     line-height:100%;
     margin:0 0.4vh;
 }
+.elem_you_fragged .assist {
+    font-size: calc(0.8vh * var(--fontSize));
+}
+
 /*
 @keyframes you_fragged_fadein {
     from { opacity: 0; }
@@ -2547,11 +2551,17 @@ h2 {
 */
 
 #game_report_cont .report_content {
-    width:100vh;
+    width:65vw;
+    min-width:100vh;
+    max-width:90%;
     display:flex;
+    /*
     flex-direction:column;
     justify-content: flex-start;
     align-items: center;
+    */
+    align-items:flex-start;
+    justify-content:center;
 
     position:relative;
 }
@@ -2673,7 +2683,7 @@ h2 {
     opacity:0.8;
 }
 #report_scoreboard .team .head_row .label.rank {
-    width:7vh;
+    width:6vh;
 }
 #report_scoreboard .team .head_row .label.kda {
     width:12vh;
@@ -2696,7 +2706,7 @@ h2 {
 #report_scoreboard .team .player_row .name {
     flex:1;
     margin-left:2vh;
-    font-size:1.7vh;
+    font-size:1.6vh;
     font-fit-mode:shrink;
     white-space:nowrap;
 }
@@ -2704,7 +2714,7 @@ h2 {
     display:flex;
     justify-content:center;
     align-items:center;
-    width:7vh;
+    width:6vh;
 }
 #report_scoreboard .team .player_row .rank .rank_icon {
     width:3.6vh;

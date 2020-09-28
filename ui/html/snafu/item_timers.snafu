@@ -1,0 +1,100 @@
+BEGIN TEMPLATE item_timers
+    SETTING iterator entity_timings.count
+    SETTING item_direction item_direction
+    SETTING cell_direction cell_direction
+    SETTING align pivot
+    SETTING item_spacing 0.5
+    SETTING cell_spacing 0
+    DOUBLE size
+    STRING cell_direction
+    STRING item_direction
+
+    DOUBLE text_width
+    text_width = size * 1.7
+
+    DOUBLE text_size
+    text_size = size * 0.7
+
+    DOUBLE text_size_small
+    text_size_small = size * 0.5
+
+    DOUBLE bg_width
+    bg_width = size + text_width
+    
+    COL_OUTPUT 0 x 0
+    COL_OUTPUT 0 width bg_width
+    COL_OUTPUT 0 height size
+
+    COL_OUTPUT 1 image_width size
+    COL_OUTPUT 1 image_height size
+    COL_OUTPUT 1 width size
+    COL_OUTPUT 1 height size
+    COL_OUTPUT 1 x 0
+
+    COL_OUTPUT 2 font_size text_size
+    COL_OUTPUT 2 font font
+    COL_OUTPUT 2 indent 1
+    COL_OUTPUT 2 shadow 1
+    COL_OUTPUT 2 width text_width
+    COL_OUTPUT 2 height size
+    COL_OUTPUT 2 align "left-edge"
+    COL_OUTPUT 2 x size
+
+    IF cell_direction == "horizontal reverse"
+        COL_OUTPUT 2 align "right-edge"
+    END IF
+    IF cell_direction == "vertical"
+        COL_OUTPUT 2 align "center"
+        COL_OUTPUT 2 width size
+        COL_OUTPUT 2 font_size text_size_small
+    END IF
+    IF cell_direction == "vertical reverse"
+        COL_OUTPUT 2 align "center"
+        COL_OUTPUT 2 width size
+        COL_OUTPUT 2 font_size text_size_small
+    END IF
+
+ON_UPDATE
+
+    INT disc
+    disc = 1
+
+    IF IN_EDITOR
+        disc = 0
+    END IF
+
+    IF game_data.spectator
+        disc = 0
+    END IF
+
+    IF disc == 1
+        discard
+    END IF
+
+    # Team background color to indicate which base this item is in (CTF)
+    #OUTPUT IDX 0 fill ...
+    #OUTPUT IDX 0 opacity 0.3
+
+    DOUBLE icon_opacity
+    icon_opacity = 1
+
+    IF entity_timings[IDX].time_left > 0
+        icon_opacity = 0.4
+    END IF
+
+    IF IN_EDITOR
+        icon_opacity = 1
+    END IF
+
+    OUTPUT IDX 1 image entity_timings[IDX].icon
+    OUTPUT IDX 1 image_color entity_timings[IDX].color
+    OUTPUT IDX 1 opacity icon_opacity
+
+    IF entity_timings[IDX].time_left > 0
+        OUTPUT IDX 2 value entity_timings[IDX].time_left
+    END IF
+
+END TEMPLATE
+
+
+

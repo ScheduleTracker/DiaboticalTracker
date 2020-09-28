@@ -34,7 +34,7 @@ function init_element_you_fragged() {
             let show_assists = (el.dataset.ha == "1") ? false : true;
             if (type == "assist" && !show_assists) continue;
 
-            let line = document.createElement("div");
+            let line = _createElement("div", type);
 
             let text = '';
             if (type == "frag") text = localize("ingame_you_fragged");

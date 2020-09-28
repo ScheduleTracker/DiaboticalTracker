@@ -4236,6 +4236,10 @@ h2 {
     line-height:100%;
     margin:0 0.4vh;
 }
+.elem_you_fragged .assist {
+    font-size: calc(0.8vh * var(--fontSize));
+}
+
 /*
 @keyframes you_fragged_fadein {
     from { opacity: 0; }

@@ -26,6 +26,7 @@ function init_hud_elements() {
     init_element_flag();
     init_element_dodge();
     init_element_item();
+    init_element_item_timers();
     init_element_player_name();
     init_element_powerup();
     //init_element_g_meter();

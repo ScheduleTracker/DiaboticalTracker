@@ -56,17 +56,24 @@ BEGIN TEMPLATE own_players
     DOUBLE ready_offset_x
     ready_offset_x = height - ready_size
 
+    DOUBLE name_offset_x
+    name_offset_x = height + 0.2
+
+    DOUBLE name_size
+    name_size = height / 4
+
     DOUBLE hp_bar_offset_x
-    hp_bar_offset_x = height + 0.37
+    hp_bar_offset_x = height + 0.3
+    hp_bar_offset_x = hp_bar_offset_x + name_size
 
     DOUBLE armor_bar_offset_x
-    armor_bar_offset_x = hp_bar_offset_x + 0.68
+    armor_bar_offset_x = hp_bar_offset_x + 0.7
 
     DOUBLE item_image_size
     item_image_size = height * 0.8
 
     DOUBLE item_offset_x
-    item_offset_x = height + 2
+    item_offset_x = height + 3
 
     DOUBLE small_item_size
     small_item_size = height / 2
@@ -75,10 +82,12 @@ BEGIN TEMPLATE own_players
     small_item_image_size = small_item_size - 0.2
 
     DOUBLE lives_offset
-    lives_offset = height + 2
+    lives_offset = height + name_size
+    lives_offset = lives_offset + 1.8
 
     DOUBLE lives_offset_text
-    lives_offset_text = height + 2.2
+    lives_offset_text = height + name_size
+    lives_offset_text = lives_offset_text + 2
 
     DOUBLE lives_image_size
     lives_image_size = small_item_size * 0.7
@@ -135,6 +144,17 @@ BEGIN TEMPLATE own_players
         j = j + 1
 
         # ========================================
+        # PLAYER NAME
+        COL_OUTPUT j font "roboto-bold"
+        COL_OUTPUT j font_size name_size
+        COL_OUTPUT j shadow 1
+        COL_OUTPUT j height height
+        COL_OUTPUT j width name_size
+        COL_OUTPUT j x name_offset_x
+        COL_OUTPUT j align "center"
+        j = j + 1
+
+        # ========================================
         # HEALTH BAR
         COL_OUTPUT j width 0.68
         COL_OUTPUT j height height
@@ -165,7 +185,7 @@ BEGIN TEMPLATE own_players
         COL_OUTPUT j font "roboto-bold"
         COL_OUTPUT j shadow 1
         COL_OUTPUT j font_size 1.5
-        COL_OUTPUT j x height
+        COL_OUTPUT j x hp_bar_offset_x
         j = j + 1
 
     ELSE
@@ -346,6 +366,13 @@ ON_UPDATE
         IF game_data.game_stage != 1
             OUTPUT IDX j opacity 0            
         END IF
+        j = j + 1
+
+        # ========================================
+        # PLAYER NAME
+        STRING player_name
+        player_name = SUBSTR own_team_players[IDX].name 0 8
+        OUTPUT IDX j value player_name
         j = j + 1
 
         # ========================================
