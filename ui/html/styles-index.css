@@ -12016,6 +12016,15 @@ h2 {
 /*
  *  SETTINGS Common Layout
  */
+
+#settings_screen_more_settings {
+    margin:3vh 5vh 0vh 5vh;
+}
+
+#settings_screen_more_settings .settings_block {
+    padding:0;
+}
+
 .settings_block_header {
     display:flex;
     flex-direction:row;

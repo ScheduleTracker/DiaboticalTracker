@@ -1779,260 +1779,288 @@
             <!-- SETTINGS: MORE SETTINGS -->
             <div id="settings_screen_options">
                 <!--<div class="settings_panel_header_common"></div>-->
-                <div class="settings_block padded double">
-                    <div class="settings_block_double">
-                        <div class="settings_header i18n" data-i18n="settings_input">Input</div>
+                <div id="settings_screen_more_settings" class="scroll-outer theme_settings" data-sb-hide-empty="true">
+                    <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+                    <div class="scroll-inner">
 
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_invert_mouse">Invert mouse</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="mouse_invert"><div></div></div>
-                            </div>
-                        </div>
+                        <div class="settings_block double">
+                            <div class="settings_block_double">
+                                <div class="settings_header i18n" data-i18n="settings_input">Input</div>
 
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_multithreaded_input">Multithreaded input</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="input_multithreaded"><div></div></div>
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_capture_windows_key">Capture windows key</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="input_block_win_key"><div></div></div>
-                            </div>
-                        </div>
-                        
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_deadkey_fix">Euro-layout console dead-key fix.</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="input_deadkey_fix"><div></div></div>
-                            </div>
-                        </div>
-
-                        <div class="settings_header i18n" data-i18n="settings_gameplay" style="margin-top:2vh;">Gameplay</div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_auto_switch_weapon">Auto switch weapon on empty</div>
-                            <div class="ctrl">
-                                <div class="setting_select">                           
-                                    <div class="select-field" data-variable="game_auto_switch_ooa" data-theme="settings">
-                                        <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
-                                        <div data-value=1 class="i18n" data-i18n="enabled">Enabled</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_invert_mouse">Invert mouse</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="mouse_invert"><div></div></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="setting" style="display:none;">
-                            <div class="label i18n" data-i18n="settings_enable_direction_hints">Enable direction hints</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" id="enable_direction_hints"><div></div></div>
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_camera_bob">Camera bob</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="game_landing_bob_enable"><div></div></div>
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_show_damage_numbers">Show damage numbers</div>
-                            <div class="ctrl">
-                                <div class="setting_select wide">                           
-                                    <div class="select-field" data-variable="game_damage_numbers" data-theme="settings">
-                                        <div data-value=0 class="i18n" data-i18n="never">Never</div>
-                                        <div data-value=1 class="i18n" data-i18n="variable_damage_weapons">Variable Damage Weapons Only</div>
-                                        <div data-value=2 class="i18n" data-i18n="always">Always</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_multithreaded_input">Multithreaded input</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="input_multithreaded"><div></div></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_damage_number_values">Damage number values</div>
-                            <div class="ctrl">
-                                <div class="setting_select wide">                           
-                                    <div class="select-field" data-variable="game_show_actual_damage" data-theme="settings">
-                                        <div data-value=0 class="i18n" data-i18n="settings_damage_number_values_0">Show outgoing damage</div>
-                                        <div data-value=1 class="i18n" data-i18n="settings_damage_number_values_1">Show applied damage</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_capture_windows_key">Capture windows key</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="input_block_win_key"><div></div></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_hit_sounds">Enable hit sounds</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="game_hit_sounds"><div></div></div>
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_weapon_position">Weapon position</div>
-                            <div class="ctrl">
-                                <div class="setting_select wide">                           
-                                    <div class="select-field" data-variable="game_weapon_position" data-theme="settings">
-                                        <div data-value=0 class="i18n" data-i18n="default">Default</div>
-                                        <div data-value=1 class="i18n" data-i18n="centered">Centered</div>
+                                
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_deadkey_fix">Euro-layout console dead-key fix.</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="input_deadkey_fix"><div></div></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_reset_zoom_on_switch">Reset zoom toggle when switching weapons.</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="game_zoom_toggle_behavior"><div></div></div>
-                            </div>
-                        </div>
+                                <div class="settings_header i18n" data-i18n="settings_gameplay" style="margin-top:2vh;">Gameplay</div>
 
-                        <!--
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_hide_melee">Hide Melee from Weapon Inventory</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="game_hide_melee_from_list"><div></div></div>
-                            </div>
-                        </div>
-                        -->
-
-                        <div class="settings_header i18n" data-i18n="settings_network" style="margin-top:2vh;">Network</div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_downstream_tickrate">Downstream tickrate</div>
-                            <div class="ctrl">
-                                <div class="setting_select">                           
-                                    <div class="select-field" data-variable="net_tickrate_ratio" data-theme="settings">
-                                        <div data-value=1 class="i18n">125</div>
-                                        <div data-value=2 class="i18n">62.5 (default)</div>
-                                        <div data-value=3 class="i18n">41.66</div>
-                                        <div data-value=4 class="i18n">31.25</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_auto_switch_weapon">Auto switch weapon on empty</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select">                           
+                                            <div class="select-field" data-variable="game_auto_switch_ooa" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
+                                                <div data-value=1 class="i18n" data-i18n="enabled">Enabled</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <div class="setting" style="display:none;">
+                                    <div class="label i18n" data-i18n="settings_enable_direction_hints">Enable direction hints</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" id="enable_direction_hints"><div></div></div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_camera_bob">Camera bob</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_landing_bob_enable"><div></div></div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_show_damage_numbers">Show damage numbers</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_damage_numbers" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="never">Never</div>
+                                                <div data-value=1 class="i18n" data-i18n="variable_damage_weapons">Variable Damage Weapons Only</div>
+                                                <div data-value=2 class="i18n" data-i18n="always">Always</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_damage_number_values">Damage number values</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_show_actual_damage" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="settings_damage_number_values_0">Show outgoing damage</div>
+                                                <div data-value=1 class="i18n" data-i18n="settings_damage_number_values_1">Show applied damage</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_hit_sounds">Enable hit sounds</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_hit_sounds"><div></div></div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_weapon_position">Weapon position</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_weapon_position" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="default">Default</div>
+                                                <div data-value=1 class="i18n" data-i18n="centered">Centered</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_reset_zoom_on_switch">Reset zoom toggle when switching weapons.</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_zoom_toggle_behavior"><div></div></div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_weapon_waypoints">Weapon waypoints</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_weapon_waypoints" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
+                                                <div data-value=1 class="i18n" data-i18n="enabled">Enabled</div>
+                                                <div data-value=2 class="i18n" data-i18n="waypoints_not_owned">Only for not-owned weapons</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_waypoint_size">Waypoint size</div>
+                                    <div class="ctrl">
+                                        <div id="slider_sound_music_volume" class="range-slider" data-variable="game_waypoint_scale" data-min="0" data-max="1" data-step="0.01"></div>
+                                    </div>
+                                </div>
+                                
+                                <!--
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_hide_melee">Hide Melee from Weapon Inventory</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_hide_melee_from_list"><div></div></div>
+                                    </div>
+                                </div>
+                                -->
+
+                            </div>
+
+                            <div class="settings_block_double">
+                                <div class="settings_header i18n" data-i18n="settings_player_colors">Player colors</div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_force_enemy_colors">Force enemy colors</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_force_enemy_colors"><div></div></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_own_team_color_override">Own team color override</div>
+                                    <div class="ctrl">
+                                        <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
+                                                id=game_team1_color_override data-variable="game_team1_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_enemy_team_color_override">Enemy team color override</div>
+                                    <div class="ctrl">
+                                        <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
+                                                id=game_team2_color_override data-variable="game_team2_color_override"  data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_second_enemy_team_color_override">2nd enemy team color override</div>
+                                    <div class="ctrl">
+                                        <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
+                                                id=game_team3_color_override data-variable="game_team3_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E"/>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_third_team_color_override">3rd enemy team color override</div>
+                                    <div class="ctrl">
+                                        <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
+                                                id=game_team4_color_override data-variable="game_team4_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E"/>
+
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_forth_enemy_team_color_override">4th enemy team color override</div>
+                                    <div class="ctrl">
+                                        <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
+                                                id=game_team5_color_override data-variable="game_team5_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_fifth_enemy_team_color_override">5th enemy team color override</div>
+                                    <div class="ctrl">
+                                        <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
+                                                id=game_team6_color_override data-variable="game_team6_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_sixth_enemy_team_color_override">6th enemy team color override</div>
+                                    <div class="ctrl">
+                                        <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
+                                                id=game_team7_color_override data-variable="game_team7_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_seventh_enemy_team_color_override">7th enemy team color override</div>
+                                    <div class="ctrl">
+                                        <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
+                                                id=game_team8_color_override data-variable="game_team8_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
+                                    </div>
+                                </div>
+
+                                <div class="settings_header i18n" data-i18n="settings_connections" style="margin-top: 2vh;">Connections</div>
+        
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_connections_twitch">
+                                        Twitch
+                                    </div>
+                                    <div class="ctrl">
+                                        <div class="button i18n" id="settings_connections_twitch_link" data-i18n="settings_connections_twitch_link" onclick="settingsTwitchAccount(false)">
+                                            Link account
+                                        </div>
+                                        <div class="button i18n" id="settings_connections_twitch_unlink" data-i18n="settings_connections_twitch_unlink" onclick="settingsTwitchAccount(true)">
+                                            Unlink
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <!--
+                                <div class="settings_header i18n" data-i18n="settings_streaming" style="margin-top:2vh;">Streaming</div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_anonymize_decals">Anonymize decals</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_anonymize_decals"><div></div></div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_anonymize_name">Anonymize your name</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_anonymize_name"><div></div></div>
+                                    </div>
+                                </div>
+                            -->
+
+                                <div class="settings_header i18n" data-i18n="settings_network" style="margin-top:2vh;">Network</div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_downstream_tickrate">Downstream tickrate</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select">                           
+                                            <div class="select-field" data-variable="net_tickrate_ratio" data-theme="settings">
+                                                <div data-value=1 class="i18n">125</div>
+                                                <div data-value=2 class="i18n">62.5 (default)</div>
+                                                <div data-value=3 class="i18n">41.66</div>
+                                                <div data-value=4 class="i18n">31.25</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_lobby_search_nearby">Expand search to nearby locations</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="lobby_region_search_nearby"><div></div></div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_lobby_search_nearby">Expand search to nearby locations</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="lobby_region_search_nearby"><div></div></div>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <div class="settings_block_double">
-                        <div class="settings_header i18n" data-i18n="settings_player_colors">Player colors</div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_force_enemy_colors">Force enemy colors</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="game_force_enemy_colors"><div></div></div>
-                            </div>
-                        </div>
-                        
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_own_team_color_override">Own team color override</div>
-                            <div class="ctrl">
-                                <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
-                                        id=game_team1_color_override data-variable="game_team1_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_enemy_team_color_override">Enemy team color override</div>
-                            <div class="ctrl">
-                                <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
-                                        id=game_team2_color_override data-variable="game_team2_color_override"  data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_second_enemy_team_color_override">2nd enemy team color override</div>
-                            <div class="ctrl">
-                                <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
-                                        id=game_team3_color_override data-variable="game_team3_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E"/>
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_third_team_color_override">3rd enemy team color override</div>
-                            <div class="ctrl">
-                                <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
-                                        id=game_team4_color_override data-variable="game_team4_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E"/>
-
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_forth_enemy_team_color_override">4th enemy team color override</div>
-                            <div class="ctrl">
-                                <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
-                                        id=game_team5_color_override data-variable="game_team5_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_fifth_enemy_team_color_override">5th enemy team color override</div>
-                            <div class="ctrl">
-                                <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
-                                        id=game_team6_color_override data-variable="game_team6_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_sixth_enemy_team_color_override">6th enemy team color override</div>
-                            <div class="ctrl">
-                                <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
-                                        id=game_team7_color_override data-variable="game_team7_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_seventh_enemy_team_color_override">7th enemy team color override</div>
-                            <div class="ctrl">
-                                <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" 
-                                        id=game_team8_color_override data-variable="game_team8_color_override" data-presets="#08A8FF,#FFEC00,#FF8800,#18C7FF,#FFA1CE,#F3F723,#FF1C1C,#7A874E">
-                            </div>
-                        </div>
-
-                        <div class="settings_header i18n" data-i18n="settings_connections" style="margin-top: 2vh;">Connections</div>
-  
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_connections_twitch">
-                                Twitch
-                            </div>
-                            <div class="ctrl">
-                                <div class="button i18n" id="settings_connections_twitch_link" data-i18n="settings_connections_twitch_link" onclick="settingsTwitchAccount(false)">
-                                    Link account
-                                </div>
-                                <div class="button i18n" id="settings_connections_twitch_unlink" data-i18n="settings_connections_twitch_unlink" onclick="settingsTwitchAccount(true)">
-                                    Unlink
-                                </div>
-                            </div>
-                        </div>
-
-                    <!--
-                        <div class="settings_header i18n" data-i18n="settings_streaming" style="margin-top:2vh;">Streaming</div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_anonymize_decals">Anonymize decals</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="game_anonymize_decals"><div></div></div>
-                            </div>
-                        </div>
-
-                        <div class="setting">
-                            <div class="label i18n" data-i18n="settings_anonymize_name">Anonymize your name</div>
-                            <div class="ctrl">
-                                <div class="checkbox_component checkbox" data-variable="game_anonymize_name"><div></div></div>
-                            </div>
-                        </div>
-                    -->
-                    </div>
                 </div>
             </div>
 

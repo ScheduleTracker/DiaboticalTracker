@@ -376,6 +376,9 @@ ON_UPDATE
         STRING player_name
         player_name = SUBSTR enemy_team_players[IDX].name 0 8
         OUTPUT IDX j value player_name
+        IF !enemy_team_players[IDX].alive
+            OUTPUT IDX j opacity 0.6
+        END IF
         j = j + 1
 
         # ========================================

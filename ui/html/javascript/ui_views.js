@@ -965,7 +965,11 @@ function set_settings_section_visible(section, current_section) {
                 anim_show(el);
             } else {
                 if (getComputedStyle(el).display != "none") {
-                    anim_hide(el);
+                    anim_hide(el, 250, function() {
+                        if (section == "options") {
+                            resetScrollbar(_id("settings_screen_more_settings"));
+                        }
+                    });
                 }
             }
         }
