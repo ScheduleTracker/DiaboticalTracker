@@ -95,7 +95,10 @@ pfx implode_weeble_filament slot_pfx_eye
  	rate 1000
 	throw_animation true
   	damage 5
+	no_self_damage 1
 	min_splash_damage 5
+    team_damage 0
+    splash_team_damage 0
   	knockback -250
 	ground_knockback -300
 	knockback_self -200
@@ -178,7 +181,10 @@ slowfield_weeball
 	speed 1100
  	rate 1000
   	damage 5
+	no_self_damage 1
 	min_splash_damage 5
+    team_damage 0
+    splash_team_damage 0
   	splash_radius 260
 	default_ammo_pickup_ammo 1
 	default_weapon_pickup_ammo 1
@@ -266,7 +272,10 @@ explosive_weeball
 	speed 1100
  	rate 1000
   	damage 5
+	no_self_damage 1
 	min_splash_damage 5
+    team_damage 0
+    splash_team_damage 0
   	knockback 250
 	ground_knockback 250
 	knockback_self 200
@@ -342,7 +351,10 @@ smoke_weeball
 	speed 1100
  	rate 1000
   	damage 5
+	no_self_damage 1
 	min_splash_damage 5
+    team_damage 0
+    splash_team_damage 0
   	splash_radius 260
 	default_ammo_pickup_ammo 1
 	default_weapon_pickup_ammo 1

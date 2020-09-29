@@ -29,6 +29,7 @@ blaster
 	speed 2200
  	rate 100
 	damage 20
+	self_damage 8
 	default_ammo_pickup_ammo 50
 	default_weapon_pickup_ammo 75
 	max_ammo 150
@@ -303,6 +304,8 @@ rocket_launcher
   	damage 100
 	min_splash_damage 5
 	splash_damage 94
+	self_damage 47
+	//self_damage has been half of splash damage
 	splash_hemisphere_offset 20
     splash_hemisphere_offset_damage_multiplier 0.30
 	default_ammo_pickup_ammo 5
@@ -319,7 +322,7 @@ rocket_launcher
 	
 	charge_animation 6
 	
-  	splash_radius 125
+  	splash_radius 124
 	knockback 100
 	knockback_self 113
 	ground_knockback 80
@@ -681,6 +684,9 @@ grenade_launcher
  	rate 800
   	damage 100
 	splash_damage 90
+	self_damage 45
+	//self_damage has been half of splash damage
+	
 	bounce 24
 	duration 3000
 	splash_hemisphere_offset 20
