@@ -13295,14 +13295,21 @@ models\dynamic_props\production\teleporter_square\teleporter_square_n.png.dds		3
 models\dynamic_props\production\teleporter_square\teleporter_square_s.png.dds		349700
 models\dynamic_props\production\teleporter_square\teleporter_square_scroll_d.png.dds		349700
 models\dynamic_props\production\trims\glow_scroll.png		123188
+models\dynamic_props\production\trims\glow_scroll_orange.png		130790
+models\dynamic_props\production\trims\scrolling_glow _orange.assets		2231
+models\dynamic_props\production\trims\scrolling_glow _orange.shader		1693
 models\dynamic_props\production\trims\scrolling_glow.assets		1958
 models\dynamic_props\production\trims\scrolling_glow.shader		1637
+models\dynamic_props\production\trims\scrolling_glow_1_orange_vercol.fbx		44240
 models\dynamic_props\production\trims\scrolling_glow_1_vercol.dbm		11319
 models\dynamic_props\production\trims\scrolling_glow_1_vercol.fbx		44240
+models\dynamic_props\production\trims\scrolling_glow_2_orange_vercol.fbx		45504
 models\dynamic_props\production\trims\scrolling_glow_2_vercol.dbm		13579
 models\dynamic_props\production\trims\scrolling_glow_2_vercol.fbx		45504
+models\dynamic_props\production\trims\scrolling_glow_beam_orange_vercol.fbx		99344
 models\dynamic_props\production\trims\scrolling_glow_beam_vercol.dbm		37865
 models\dynamic_props\production\trims\scrolling_glow_beam_vercol.fbx		99344
+models\dynamic_props\production\trims\scrolling_glow_circle_orange_vercol.fbx		36208
 models\dynamic_props\production\trims\scrolling_glow_circle_vercol.dbm		35962
 models\dynamic_props\production\trims\scrolling_glow_circle_vercol.fbx		36208
 models\dynamic_props\production\trims\scrolling_glow_trim\mid_1_vercol.fbx		21744
@@ -13313,6 +13320,14 @@ models\dynamic_props\production\trims\scrolling_glow_trim\scrolling_glow.assets	
 models\dynamic_props\production\trims\scrolling_glow_trim\scrolling_glow.shader		1298
 models\dynamic_props\production\trims\scrolling_glow_trim\scrolling_glow_circle_half_trim_vercol.fbx		25296
 models\dynamic_props\production\trims\scrolling_glow_trim\scrolling_glow_circle_trim_vercol.fbx		31552
+models\dynamic_props\production\trims\scrolling_glow_trim_orange\mid_1_orange_vercol.fbx		21744
+models\dynamic_props\production\trims\scrolling_glow_trim_orange\mid_2_orange_vercol.fbx		21744
+models\dynamic_props\production\trims\scrolling_glow_trim_orange\mid_3_orange_vercol.fbx		21744
+models\dynamic_props\production\trims\scrolling_glow_trim_orange\mid_4_orange_vercol.fbx		21744
+models\dynamic_props\production\trims\scrolling_glow_trim_orange\scrolling_glow_circle_half_trim_orange_vercol.fbx		25296
+models\dynamic_props\production\trims\scrolling_glow_trim_orange\scrolling_glow_circle_trim_orange_vercol.fbx		31552
+models\dynamic_props\production\trims\scrolling_glow_trim_orange\scrolling_gloworange_.assets		690
+models\dynamic_props\production\trims\scrolling_glow_trim_orange\scrolling_gloworange_.shader		1361
 models\dynamic_props\production\trims\trim_01_c.png.dds		349700
 models\dynamic_props\production\trims\trim_01_d.png.dds		349700
 models\dynamic_props\production\trims\trim_01_i.png.dds		349700

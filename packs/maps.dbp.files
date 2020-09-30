@@ -27,10 +27,10 @@ maps\b_crystal_cove.rbe		34986693
 maps\b_furnace.rbe		43037084
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
-maps\b_icefall.rbe		16925916
+maps\b_icefall.rbe		16925834
 maps\b_marina-b.png		8774
 maps\b_marina-h.png		373884
-maps\b_marina.rbe		29007672
+maps\b_marina.rbe		29007512
 maps\b_oxide.rbe		26111469
 maps\b_refinery-b.png		89398
 maps\b_refinery-h.png		374324
@@ -114,7 +114,7 @@ maps\menu8.rbe		5119420
 maps\menu9.rbe		8306089
 maps\mg_marina-b.png		8774
 maps\mg_marina-h.png		373884
-maps\mg_marina.rbe		29008609
+maps\mg_marina.rbe		29008649
 maps\mg_sunken.rbe		18909153
 maps\mg_test_1.rbe		9813789
 maps\mg_test_2-b.png		3764
@@ -127,11 +127,11 @@ maps\tdm_alchemy-h.png		473727
 maps\tdm_alchemy.rbe		30487404
 maps\tdm_icefall-b.png		3456
 maps\tdm_icefall-h.png		481103
-maps\tdm_icefall.rbe		16925756
+maps\tdm_icefall.rbe		16926034
 maps\tdm_oxide.rbe		26111409
 maps\template_islands-b.png		2198
 maps\template_islands-h.png		361693
-maps\template_islands.rbe		50867
+maps\template_islands.rbe		50972
 maps\tt_ctf_cathedral-b.png		3556
 maps\tt_ctf_cathedral-h.png		11780
 maps\tt_ctf_cathedral.rbe		52662408

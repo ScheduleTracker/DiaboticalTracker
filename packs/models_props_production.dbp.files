@@ -208,6 +208,15 @@ models\props\production\holo_line\holo_line_d.png.dds		174948
 models\props\production\holo_line\holo_line_square_vercol-col.fbx		78368
 models\props\production\holo_line\holo_line_square_vercol.fbx		53568
 models\props\production\holo_line\holo_line_vercol.fbx		44000
+models\props\production\holo_line_orange\holo_finish_line_orange_vercol.fbx		48768
+models\props\production\holo_line_orange\holo_line_circle_orange_vercol-col.fbx		41200
+models\props\production\holo_line_orange\holo_line_circle_orange_vercol.fbx		69872
+models\props\production\holo_line_orange\holo_line_orange.assets		681
+models\props\production\holo_line_orange\holo_line_orange.shader		6257
+models\props\production\holo_line_orange\holo_line_orange_d.png		29891
+models\props\production\holo_line_orange\holo_line_orange_vercol.fbx		44000
+models\props\production\holo_line_orange\holo_line_square_orange_vercol-col.fbx		78368
+models\props\production\holo_line_orange\holo_line_square_orange_vercol.fbx		53568
 models\props\production\jumbotron\jumbotron_d.png.dds		1398260
 models\props\production\jumbotron\jumbotron_n.png.dds		1398260
 models\props\production\jumppad\jump_pad.png.dds		349700
