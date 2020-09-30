@@ -2122,6 +2122,7 @@ var TRANSLATION_en =
     "game_mode_desc_bounty":"",
     "game_mode_desc_ft":"",
     "game_mode_desc_ffa":"Free For All is a frag score based mode between multiple solo players where you pick up weapons and items to help you frag your opponents.",
+    "game_mode_desc_ffa_instagib": "Free For All but there are no item pickups and you spawn with a one shot instant frag Point and Click Rifle",
     "game_modes_arcade":"Arcade Modes",
     "game_modes_test":"Test Modes",
     "game_modes_team":"Team",

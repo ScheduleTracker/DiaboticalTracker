@@ -37,6 +37,7 @@ var global_server_regions_init = true;
 var global_server_regions = {};
 var global_server_locations = {};
 var global_server_selected_locations = [];
+var global_known_server_locations = [];
 
 var global_user_battlepass = {};
 var global_battlepass_list = [];
@@ -247,10 +248,14 @@ window.addEventListener("load", function(){
                     };
                 }
 
-                update_server_location_selection();
-                engine.call("initialize_select_value", "lobby_region");
+                // Create the modal with all the options
+                set_server_locations();
 
                 global_server_regions_init = false;
+
+                // Trigger pinging the server locations, this will call this same event again multiple times with update ping values
+                ping_server_locations();
+
             } else {
                 update_server_location_pings(data);
             }
@@ -882,8 +887,16 @@ window.addEventListener("load", function(){
             engine.call("on_custom_game_mode_changed", value, global_customSettingElements["map"].dataset.value || "");
         }
 
+        if (variable == "lobby_regions_known") {
+            if (value.length) global_known_server_locations = value.split(":");
+            else global_known_server_locations = [];
+            return;
+        }
+
         if (variable == "lobby_region") {
-            set_region_selection(true, value);
+            if (global_process_lobby_region_update) {
+                set_region_selection(true, value);
+            }
         }
 
         if (variable == "lobby_search") {
@@ -1280,6 +1293,9 @@ window.addEventListener("load", function(){
     });
 
     console.log("LOAD202");
+
+    // Initialize list of known datacenters
+    engine.call("initialize_select_value", "lobby_regions_known");
 
     // Initialize character sticker decals variable
     engine.call("initialize_select_value", "game_decals");

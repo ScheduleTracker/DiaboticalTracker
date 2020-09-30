@@ -975,7 +975,6 @@ function handle_party_event(data) {
         update_friendlist_party(data);
 
         if ((init || data.init == true) && bool_am_i_leader) {
-            global_send_region_selection = true;
             engine.call("initialize_select_value", "lobby_region");
         } else {            
             if ("locations" in data) {
@@ -1049,7 +1048,6 @@ function update_party_leader_status(leader) {
 
     // Change search_nearby and region selection in the party to the new leaders settings
     if (leader_status_changed && bool_am_i_leader) {
-        global_send_region_selection = true;
         engine.call("initialize_checkbox_value","lobby_region_search_nearby");
         engine.call("initialize_select_value","lobby_region");
     }

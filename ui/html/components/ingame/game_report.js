@@ -671,7 +671,7 @@ function create_game_report(game_status, snafu_data) {
     global_game_report_tab_switched = false;
     if (snafu_data["game_data.continuous"] == 1) {
         let time_to_mapvote = global_game_report_countdown / 2;
-        if (time_to_mapvote < 10 && global_game_report_countdown > 15) time_to_mapvote = 10;
+        if (global_game_report_countdown > 12) time_to_mapvote = global_game_report_countdown - 6;
 
         setTimeout(function() {
             console.log("auto switch to map vote", global_game_report_tab_switched);

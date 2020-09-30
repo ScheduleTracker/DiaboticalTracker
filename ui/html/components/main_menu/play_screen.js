@@ -189,8 +189,7 @@ function toggle_datacenter_visibility(btn) {
     }
 }
 
-function update_server_location_selection() {
-
+function set_server_locations() {
     let cont = document.querySelector("#region_select_modal_screen .body");
     _empty(cont);
 
@@ -228,6 +227,8 @@ function update_server_location_selection() {
         region_div.appendChild(datacenters);
 
         region_head.addEventListener("click", function() {
+            if (!bool_am_i_leader) return;
+
             if (main_cb.classList.contains("checkbox_enabled")) {
                 _play_cb_uncheck();
                 main_cb.classList.remove("checkbox_enabled");
@@ -248,6 +249,7 @@ function update_server_location_selection() {
                 }
             }
 
+            set_region_selection(false, get_selected_server_locations().join(":"));
             update_region_selection();
         });
 
@@ -283,6 +285,7 @@ function update_server_location_selection() {
                     engine.call('ui_sound', 'ui_check_box');
                 }
 
+                set_region_selection(false, get_selected_server_locations().join(":"));
                 update_region_selection();
             });
 
@@ -298,28 +301,31 @@ function update_server_location_selection() {
     let css_fix = document.createElement("div");
     css_fix.classList.add("empty-region");
     row.appendChild(css_fix);
-
-    refresh_datacenter_pings();
 }
 
 var global_datacenter_map = {};
 var initial_server_locations_ready = false;
-var initial_server_location_update = true;
+let global_server_location_ping_timeout = null;
 function update_server_location_pings(data) {
-    if (initial_server_location_update) {
-        initial_server_location_update = false;
+    // Update region selection in 2 second intervals during ping updates (3s for the first one)
+    if (global_server_location_ping_timeout === null) {
+        global_ping_update_in_progress = true;
 
-        // If we aren't ready after 2 seconds then just use what we got
-        setTimeout(function() {
+        let timeout = 1500;
+        if (!initial_server_locations_ready) timeout = 3000;
+
+        global_server_location_ping_timeout = setTimeout(function() {
             initial_server_locations_ready = true;
-        },2000);
+            global_ping_update_in_progress = false;
+            global_server_location_ping_timeout = null;
+
+            if (bool_am_i_leader) engine.call("initialize_select_value", "lobby_region");
+        }, timeout);
     }
 
     let map = {};
-    let valid_count = 0;
     for (let region of data) {
         map[region.code] = region;
-        if (region.ping > 0) valid_count++;
 
         global_server_locations[region.code] = {
             "name": region.location,
@@ -327,43 +333,38 @@ function update_server_location_pings(data) {
         };
     }
 
-
-    if (valid_count == data.length) {
-        if (global_ping_update_in_progress) update_region_selection();
-        global_ping_update_in_progress = false;
-        initial_server_locations_ready = true;
-    }
-
     let region_pings = {};
 
     _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".datacenter", function(el) {
+        let ping_val = -1;
         let ping = 'N/A';
         if (el.dataset.id in map) {
-            ping = map[el.dataset.id].ping;
-            if (ping == -1) {
+            ping_val = Number(map[el.dataset.id].ping);
+            if (ping_val == -1) {
                 ping = 'N/A';
             } else {
-                ping = Math.floor(Number(ping) * 1000);
+                ping_val = Math.floor(ping_val * 1000);
+                ping = ping_val + "ms";
             }
         }
 
         let region = el.closest(".region");
-        if (region && ping != 'N/A') {
+        if (region && ping_val != -1) {
             if (!(region.dataset.region in region_pings)) region_pings[region.dataset.region] = [];
-            region_pings[region.dataset.region].push(ping);
+            region_pings[region.dataset.region].push(ping_val);
         }
 
         let ping_el = el.querySelector('.ping');
         if (ping_el) {
-            ping_el.textContent = ping+" ms";
+            ping_el.textContent = ping;
         
-            if (ping == -1) {
+            if (ping_val == -1) {
                 ping_el.style.color = '#bcbcbc';
-            } else if (ping < 45) {
+            } else if (ping_val < 45) {
                 ping_el.style.color = global_ping_colors['green'];
-            } else if (ping < 90) {
+            } else if (ping_val < 90) {
                 ping_el.style.color = global_ping_colors['yellow'];
-            } else if (ping < 130) {
+            } else if (ping_val < 130) {
                 ping_el.style.color = global_ping_colors['orange'];
             } else {
                 ping_el.style.color = global_ping_colors['red'];
@@ -414,7 +415,7 @@ function update_server_location_pings(data) {
 }
 
 let global_ping_update_in_progress = false;
-function refresh_datacenter_pings() {
+function ping_server_locations() {
     let spinner = _id("region_select_modal_screen").querySelector(".top .refresh .inner");
 
     // Check if an update is already in progress
@@ -437,10 +438,10 @@ function refresh_datacenter_pings() {
             clearInterval(wait);
             spinner.classList.remove("active");
         }
-    },50);
+    },250);
 }
 
-function update_region_selection() {
+function get_selected_server_locations() {
     let datacenters = [];
     _for_each_with_selector_in_parent(_id("region_select_modal_screen"), ".small_checkbox", function(el) {
         if (el.classList.contains("checkbox_enabled")) {
@@ -456,8 +457,18 @@ function update_region_selection() {
         if (global_server_locations[b].ping == -1) return 1;
         return global_server_locations[a].ping - global_server_locations[b].ping;
     });
-    
-    engine.call("set_string_variable", "lobby_region", datacenters.join(':'));
+
+    return datacenters;
+}
+
+let global_process_lobby_region_update = true;
+function update_region_selection() {
+    let datacenters = get_selected_server_locations();
+
+    // Don't process the variable change after manually changing it (set_string_variable would otherwise trigger a value change callback, see set_select in ui.js for lobby_region)
+    global_process_lobby_region_update = false;
+    update_variable("string", "lobby_region", datacenters.join(":"));
+    global_process_lobby_region_update = true;
 
     if (bool_am_i_leader) {
         // send region info to MS
@@ -468,7 +479,7 @@ function update_region_selection() {
     engine.call("initialize_select_value", "lobby_custom_datacenter");
 }
 
-let global_initial_region_selection = true;
+let global_set_region_selection_waiting = false;
 function set_region_selection(from_engine, regions) {
     global_server_selected_locations = regions.split(':');
 
@@ -496,49 +507,79 @@ function set_region_selection(from_engine, regions) {
         }
     });
 
-    if (from_engine && global_send_region_selection) {
-        if (global_initial_region_selection && regions.trim().length == 0) {
+    if (from_engine) {
 
-            let start_ts = Date.now();
-            let interval = setInterval(function() {
+        if (!global_set_region_selection_waiting) {
+            global_set_region_selection_waiting = true;
+
+            if (!initial_server_locations_ready) {
+                let start_ts = Date.now();
                 // Wait for the intial pings to finish and then pick best regions
-                if (initial_server_locations_ready) {
-                    clearInterval(interval);
-                    let datacenters = get_best_regions_by_ping();
-                    if (datacenters.length) {
-                        // sort the locations by ping asc
-                        datacenters.sort(function(a, b) {
-                            if (!(a in global_server_locations)) return 1;
-                            if (!(b in global_server_locations)) return -1;
-                            return global_server_locations[a].ping - global_server_locations[b].ping;
-                        });
-                        send_string(CLIENT_COMMAND_SET_PARTY_LOCATIONS, datacenters.join(":"));
-                        update_variable("string", "lobby_region", datacenters.join(":"));
-                    } else {
-                        // Open Region selection if we couldn't find any good regions automatically
-                        open_modal_screen('region_select_modal_screen', null, 1000);
+                let interval = setInterval(function() {
+                    if (initial_server_locations_ready) {
+                        global_set_region_selection_waiting = false;
+                        clearInterval(interval);
+
+                        let datacenters = regions.split(":");
+                        if (regions.trim().length == 0) datacenters = get_best_regions_by_ping();
+
+                        for (let loc in global_server_locations) {
+                            if (!global_known_server_locations.includes(loc)) {
+                                // Skip regions without valid ping data
+                                if (Number(global_server_locations[loc].ping) < 0) continue;
+
+                                // Add new regions to the selection that have lower than 65ms ping
+                                if (!datacenters.includes(loc) && Number(global_server_locations[loc].ping) <= 0.065) datacenters.push(loc);
+                                global_known_server_locations.push(loc);
+                            }
+                        }
+                        update_variable("string", "lobby_regions_known", global_known_server_locations.join(":"));
+
+                        if (datacenters.length) {
+                            set_region_selection(false, datacenters.join(":"));
+                            update_region_selection();
+                        } else {
+                            // Open Region selection if we couldn't find any good regions automatically
+                            open_modal_screen('region_select_modal_screen', null, 1000);
+                        }
+                    }
+
+                    // Abort if nothing happened within 5 seconds
+                    if (Date.now() - start_ts > 5000) {
+                        clearInterval(interval);
+                    }
+                },100);
+
+            } else {
+
+                global_set_region_selection_waiting = false;
+
+                let datacenters = regions.split(":");
+                if (regions.trim().length == 0) datacenters = get_best_regions_by_ping();
+
+                for (let loc in global_server_locations) {
+                    if (!global_known_server_locations.includes(loc)) {
+                        // Skip regions without valid ping data
+                        if (Number(global_server_locations[loc].ping) < 0) continue;
+
+                        // Add new regions to the selection that have lower than 65ms ping
+                        if (!datacenters.includes(loc) && Number(global_server_locations[loc].ping) <= 0.065) datacenters.push(loc);
+                        global_known_server_locations.push(loc);
                     }
                 }
+                update_variable("string", "lobby_regions_known", global_known_server_locations.join(":"));
 
-                // Abort if nothing happened within 5 seconds
-                if (Date.now() - start_ts > 5000) {
-                    clearInterval(interval);
+                if (datacenters.length) {
+                    set_region_selection(false, datacenters.join(":"));
+                    update_region_selection();
+                } else {
+                    // Open Region selection if we couldn't find any good regions automatically
+                    open_modal_screen('region_select_modal_screen', null, 1000);
                 }
-            },100);    
-        } else {
-            // sort the locations by ping asc
-            let datacenters = regions.split(":");
-            datacenters.sort(function(a, b) {
-                if (!(a in global_server_locations)) return 1;
-                if (!(b in global_server_locations)) return -1;
-                return global_server_locations[a].ping - global_server_locations[b].ping;
-            });
-            send_string(CLIENT_COMMAND_SET_PARTY_LOCATIONS, datacenters.join(":"));
+            }
+
         }
 
-        if (global_initial_region_selection) global_initial_region_selection = false;
-
-        global_send_region_selection = false;
     }
 }
 
@@ -550,8 +591,8 @@ function get_best_regions_by_ping() {
     for (let region of regions) {
         if (global_datacenter_map[region].ping == -1 || global_datacenter_map[region].ping == "-1") continue;
 
-        // Add regions under 60ms
-        if (Number(global_datacenter_map[region].ping) >= 0 && Number(global_datacenter_map[region].ping) < 0.06) {
+        // Add regions up to 65ms
+        if (Number(global_datacenter_map[region].ping) >= 0 && Number(global_datacenter_map[region].ping) <= 0.065) {
             best_regions.push(region);
         }
     }
@@ -559,8 +600,8 @@ function get_best_regions_by_ping() {
         for (let region of regions) {
             if (global_datacenter_map[region].ping == -1 || global_datacenter_map[region].ping == "-1") continue;
 
-            // Add regions under 90ms
-            if (Number(global_datacenter_map[region].ping) >= 0 && Number(global_datacenter_map[region].ping) < 0.09) {
+            // Add regions up to 90ms
+            if (Number(global_datacenter_map[region].ping) >= 0 && Number(global_datacenter_map[region].ping) <= 0.09) {
                 best_regions.push(region);
             }
         }
@@ -569,8 +610,8 @@ function get_best_regions_by_ping() {
         for (let region of regions) {
             if (global_datacenter_map[region].ping == -1 || global_datacenter_map[region].ping == "-1") continue;
 
-            // Add regions under 120ms
-            if (Number(global_datacenter_map[region].ping) >= 0 && Number(global_datacenter_map[region].ping) < 0.12) {
+            // Add regions up to 120ms
+            if (Number(global_datacenter_map[region].ping) >= 0 && Number(global_datacenter_map[region].ping) <= 0.12) {
                 best_regions.push(region);
             }
         }
@@ -771,9 +812,16 @@ function renderPlayCard(data) {
         if (!(global_queues[queue])) continue;
 
         let match_modes = [];
+        let match_mode_names = [];
         if (global_queues[queue]) {
             for (let mode of global_queues[queue].modes) {
-                if (!match_modes.includes(mode.mode_name)) match_modes.push(mode.mode_name);
+                if (!match_mode_names.includes(mode.mode_name)) {
+                    match_mode_names.push(mode.mode_name);
+                    match_modes.push({
+                        "name": mode.mode_name,
+                        "instagib": mode.instagib
+                    });
+                }
             }
         }
 
@@ -792,13 +840,15 @@ function renderPlayCard(data) {
         card_checkbox.dataset.locked = (data.state == 1) ? true : false;
         card_checkbox.dataset.type = data.type;
 
-        if (match_modes.length > 1) {
+        if (match_mode_names.length > 1) {
             card_checkbox.dataset.msgHtmlId = "mode_description";
-            card_checkbox.dataset.match_mode = match_modes.join(":");
+            card_checkbox.dataset.match_mode = match_mode_names.join(":");
+            card_checkbox.dataset.instagib = 0;
             card_checkbox.classList.add("tooltip2");
-        } else if (match_modes.length == 1) {
+        } else if (match_mode_names.length == 1) {
             card_checkbox.dataset.msgHtmlId = "card_tooltip";
-            card_checkbox.dataset.match_mode = match_modes[0];
+            card_checkbox.dataset.match_mode = match_modes[0].name;
+            card_checkbox.dataset.instagib = match_modes[0].instagib;
             card_checkbox.classList.add("tooltip2");
         }
 

@@ -1639,7 +1639,7 @@ function generate_tt_content(el) {
 
     if (msg_id == "card_tooltip") {
         if (el.dataset.match_mode) {
-            return generate_card_info(el.dataset.match_mode);
+            return generate_card_info(el.dataset.match_mode, Number(el.dataset.instagib));
         } else {
             return;
         }
@@ -1676,11 +1676,18 @@ function generate_mode_info(mode) {
     return cont;
 }
 
-function generate_card_info(mode) {
+function generate_card_info(mode, instagib) {
     let cont = _createElement("div", "mode_description_cont");        
     let desc_cont = _createElement("div", "mode_description");
-    desc_cont.appendChild(_createElement("div", "title", localize(global_game_mode_map[mode].i18n)));
-    desc_cont.appendChild(_createElement("div", "desc", localize(global_game_mode_map[mode].desc_i18n)));
+
+    let title = localize(global_game_mode_map[mode].i18n);
+    if (instagib) title += " "+localize("game_mode_type_instagib");
+
+    let desc = localize(global_game_mode_map[mode].desc_i18n)
+    if (instagib) desc = localize(global_game_mode_map[mode].desc_instagib_i18n);
+
+    desc_cont.appendChild(_createElement("div", "title", title));
+    desc_cont.appendChild(_createElement("div", "desc", desc));
     cont.appendChild(desc_cont);
     return cont;
 }

@@ -473,6 +473,7 @@ var global_game_mode_map = {
         "name": "Free For All",
         "i18n": "game_mode_ffa",
         "desc_i18n": "game_mode_desc_ffa",
+        "desc_instagib_i18n": "game_mode_desc_ffa_instagib", // localization key for description of this mode  with the instagib modifier enabled
         "announce": "announcer_common_gamemode_ffa",
         "enabled": true,
         "image": "brawl_loop.jpg",
