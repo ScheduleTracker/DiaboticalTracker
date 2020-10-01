@@ -1685,6 +1685,11 @@ function open_modal_screen(id, cb, lock_modal) {
     engine.call("ui_sound", "ui_window_open");
     engine.call("set_modal", true);
     anim_show(_id(id), 100, "flex", cb);
+
+    if (id == "quit_dialog_modal_screen") {
+        cancel_search("quickplay");
+        cancel_search("ranked");
+    }
 }
 
 var global_manual_modal_close_disabled = false;

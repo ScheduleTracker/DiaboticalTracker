@@ -805,7 +805,7 @@ var TRANSLATION_en =
     "customization_av_fdd95687-9707-4c70-a23e-a6efcc1285b6": "RedmanSSBM Viewer",
     "customization_av_9f008da5-9eb5-4728-a3e5-1517bd1ecb4a": "QueQueQueQue Viewer",
     "customization_av_8c855f79-e897-4466-8375-0ed49a0fbeb1": "LawPlayBook Viewer",
-    "customization_av_bc54689e-88ca-4c18-b717-efb081067926": "ZRSAV Viewer",
+    "customization_av_bc54689e-88ca-4c18-b717-efb081067926": "DiaboticalSA Viewer",
     "customization_av_2890acca-681d-4a72-9001-b7b9fcef4976": "Duj2 Viewer",
     "customization_av_677596f7-ccea-4535-863a-346e6fae1de0": "xBioTV Viewer",
     "customization_av_9db0ba1a-1b67-490d-b077-8255708b3c96": "xiphosNL Viewer",
