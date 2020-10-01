@@ -7622,7 +7622,6 @@ A_A^A]A\_^[]
 x UATAUAVAWH
 ffffff
 L;C0w0H
-D$PD8x
 D$`H;
 A_A^A]A\]
 x UATAUAVAWH
@@ -7635,7 +7634,7 @@ D$(E3
 L$hH;
 A^_^[]
 UVWATAUAVAWH
-(5Ypg
+(59pg
 (D$@f
 (D$Pf
 (D$pf
@@ -8023,7 +8022,7 @@ D$0HcH
 D$0HcH
 D$0HcH
 p WATAUAVAWH
-(5aVe
+(5AVe
 )T$`3
 (\$p3
 YD$(A
@@ -8062,11 +8061,10 @@ t$ E3
 t$ E3
 t$ E3
 x UATAUAVAWH
-D8%=>v
-Y5Jne
-\5Hke
-\%afe
-(=Nue
+Y5*ne
+\5(ke
+\%Afe
+(=.ue
 A_A^A]A\]
 ATAUH
 UVWATAUAVAWH
@@ -8103,13 +8101,11 @@ WAVAWH
 (L$ D
 (t$PH
 @USVWATAUAVAWH
-(5$7e
-(%==e
-(=d0e
-o-i)e
+(=D0e
+o-I)e
+o%t*e
 oU@fD
-Y5r1e
-o%8!e
+Y5R1e
 )u fD
 )u`fD
 oM fA
@@ -8120,53 +8116,49 @@ A_A^A]A\_^[]
 )u fD
 )]PfD
 oM`fA
-o5!}d
-o--xd
-o--td
-o=1wd
-o5Bwd
-o-emd
-o5&gd
-o%Nld
-o%Njd
-(5dkd
+o-`zd
+o%{}d
+o=u{d
+o%{yd
+o5"wd
+o-Emd
+o-mid
+o-tld
+o%.ld
+o%.jd
+(5Dkd
+(=}dd
 )u0fD
-o-&_d
-o%1]d
-Y%[kd
+Y%;kd
 oM`fA
 oM fA
-o5QXd
-o-NPd
-o-#Sd
-o-=Kd
-o%XNd
-o-oGd
-o%)Gd
-o-t?d
-o%yBd
-o=s@d
-o%{>d
-o=	<d
-o-k4d
-o-92d
-o-].d
-o-l1d
-o%&1d
-o%*/d
+o51Xd
+o-.Pd
+o%8Nd
+o-sDd
+o-OGd
+o%	Gd
+o-T?d
+o%YBd
+o=S@d
+o%[>d
+o-K4d
+o-=.d
+o-L1d
+o-c'd
 A_A^A]A\_^[]
 )L$Pf
 )T$@D
 )\$0f
 )d$ fD
-o%P'd
+o%0'd
 (\$0D
 (T$@D
 (L$PD
 (|$pL
 @USVWATAUAVAWH
-(-U*d
-(5-$d
+(5p+d
+(-5*d
 A_A^A]A\_^[]
 @USWAUAVAWH
 )t$PD
@@ -8259,11 +8251,7 @@ ou@E;
 o]@fD
 ouPfD
 ouPE;
-(=,qc
 oEpfD
-o5;wc
-o->fc
-o%.bc
 o]@fD
 ]@fff
 A_A^A]A\_^[]
@@ -8278,21 +8266,20 @@ A_A^A]A\_^[]
 )\$@D
 )d$0f
 )l$ fD
-o-mpb
+o-Mpb
 (d$0D
 (\$@D
 (L$`D
 (l$ L
 @USVWATAUAVAWH
-o-_hb
+o-?hb
 M fff
-(5urb
-(-Mlb
+(5Urb
+(--lb
 A_A^A]A\_^[]
 @USWAVAWH
-o5'\b
 oD$0fA
-o5AOb
+o5!Ob
 )\$`A
 )D$0D
 (\$`f
@@ -8511,7 +8498,7 @@ HcL$XL
 A^A]^]
 \$ WH
 USWAUAVH
-W-z~a
+W-Z~a
 D8H9D9H
 	L:LE3
 t$$Ic
@@ -8608,13 +8595,14 @@ L$pI+
 CD$`3
 |$(E3
 ` UAVAWH
-t$ H95;
+t$ H95
 t$hE3
 L$8I+
 CD$(3
 CT$HL
 t	D;=
 A_A^]
+\%nhq
 UVWATAUAVAWH
 |$0Hc
 A_A^A]A\_^]
@@ -8650,7 +8638,7 @@ L$@H3
 UWATAVAWH
 (|$PE
 A_A^A\_]
-/%mwq
+/%Mwq
 L$xE3
 |$0E3
 VWATAVAWH
@@ -44806,7 +44794,7 @@ Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
 Offset of third eggbot in menu in relation to first one.
 Format: x,z,yaw (No spaces)
 70,-10,140
-0.20.363
+0.20.363b
 <><><><<>>><>>>>>> Initializing Vertex Shader 
  depth=
 BINORMAL
@@ -48300,9 +48288,8 @@ XJ.L N
 H ""2
 H6>sn
 `6ltn
-@2`&%
-`2 &%
-@b0$%
+`2@&%
+@bP$%
 N"P R
 d"f h
 @4Pj	
