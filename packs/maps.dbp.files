@@ -31,7 +31,7 @@ maps\b_icefall.rbe		16925834
 maps\b_marina-b.png		8774
 maps\b_marina-h.png		373884
 maps\b_marina.rbe		29007512
-maps\b_oxide.rbe		26111469
+maps\b_oxide.rbe		25125275
 maps\b_refinery-b.png		89398
 maps\b_refinery-h.png		374324
 maps\b_refinery.rbe		35815300
@@ -128,7 +128,7 @@ maps\tdm_alchemy.rbe		30487404
 maps\tdm_icefall-b.png		3456
 maps\tdm_icefall-h.png		481103
 maps\tdm_icefall.rbe		16926034
-maps\tdm_oxide.rbe		26111409
+maps\tdm_oxide.rbe		25125650
 maps\template_islands-b.png		2198
 maps\template_islands-h.png		361693
 maps\template_islands.rbe		50972
@@ -152,7 +152,7 @@ maps\tt_gr_qunai_peaks.rbe		33896816
 maps\tt_gr_titans_crossing.rbe		5775150
 maps\tt_rwc.rbe		9443961
 maps\tt_temple_escape.rbe		34374845
-maps\tt_ukiyo.rbe		31175930
+maps\tt_ukiyo.rbe		31142356
 maps\tt_zen.rbe		13036405
 maps\tutorial.rbe		17497598
 maps\weapon.rbe		285069
