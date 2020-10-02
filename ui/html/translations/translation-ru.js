@@ -687,7 +687,7 @@ var TRANSLATION_ru =
     "game_mode_desc_bounty": "",
     "game_mode_desc_ft": "",
     "game_mode_desc_ffa": "Free For All это режим, в котором несколько одиночных игроков собирают оружие и предметы, чтобы набрать наибольшее количество фрагов, убивая соперников.",
-    "game_mode_desc_ffa_instagib": "Free For All, но без подбираемых предметов, а вы появляетесь с убивающей одним выстрелом винтовкой Point and Click",
+    "game_mode_desc_ffa_instagib": "Free For All, но без подбираемых предметов, а вы появляетесь с убивающей одним выстрелом винтовкой Point and Click.",
     "game_modes_arcade": "Аркада",
     "game_modes_test": "Тестовые Режимы",
     "game_modes_team": "Командный бой",

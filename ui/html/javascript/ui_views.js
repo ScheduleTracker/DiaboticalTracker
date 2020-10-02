@@ -1625,10 +1625,6 @@ function generate_tt_content(el) {
         return generate_customization_item_info(el.dataset.id, el.dataset.type, el.dataset.rarity);
     }
 
-    if (msg_id == "custom_match_info") {
-        return generate_custom_match_info(el.dataset.sessionId);
-    }
-
     if (msg_id == "mode_description") {
         if (el.dataset.match_mode) {
             return generate_mode_info(el.dataset.match_mode);
@@ -1761,44 +1757,4 @@ function generate_customization_item_info(id, type, rarity) {
     }, true);
     customization_info.style.maxWidth = "30vh";
     return customization_info;
-}
-
-function generate_custom_match_info(session_id) {
-    let cont = _createElement("div", "custom_match_info");
-    let m = undefined;
-    if (global_custom_list_data && global_custom_list_data.length) {
-        for (let match of global_custom_list_data) {
-            if (match.session_id == session_id) {
-                m = match;
-            }
-        }
-    }
-    if (!m) return cont;
-
-    let commands = _createElement("div", ["value", "column"]);
-    for (let c of m.commands) {
-        commands.appendChild(_createElement("div", "", c.key+": "+c.value));
-    }
-
-    let left = _createElement("div", "left");
-    left.appendChild(_createElement("div", ["label"], localize("custom_game_settings_duration")));
-    left.appendChild(_createElement("div", ["label","even"], localize("custom_game_settings_score_limit")));
-    left.appendChild(_createElement("div", ["label"], localize("custom_game_settings_teams")));
-    left.appendChild(_createElement("div", ["label","even"], localize("custom_game_settings_team_size")));
-    left.appendChild(_createElement("div", ["label"], localize("custom_settings_instagib")));
-    left.appendChild(_createElement("div", ["label"], localize("custom_settings_physics")));
-    left.appendChild(_createElement("div", ["label"], localize("custom_settings_commands")));
-    cont.appendChild(left);
-
-    let right = _createElement("div","right");
-    right.appendChild(_createElement("div", ["value"], (m.time_limit == 0) ? localize("time_unlimited") : _seconds_to_digital(m.time_limit)));
-    right.appendChild(_createElement("div", ["value","even"], (m.score_limit == 0) ? localize("score_unlimited") : m.score_limit));
-    right.appendChild(_createElement("div", ["value"], m.team_count));
-    right.appendChild(_createElement("div", ["value","even"], m.team_size));
-    right.appendChild(_createElement("div", ["value"], (m.modifier_instagib) ? localize("enabled") : localize("disabled")));
-    right.appendChild(_createElement("div", ["value"], (m.modifier_physics in global_physics_map) ? localize(global_physics_map[m.modifier_physics].i18n) : localize("unknown")));
-    right.appendChild(commands);
-    cont.appendChild(right);
-
-    return cont;
 }

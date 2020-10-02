@@ -687,7 +687,7 @@ var TRANSLATION_de =
     "game_mode_desc_bounty": "",
     "game_mode_desc_ft": "",
     "game_mode_desc_ffa": "Free For All ist ein Modus, in dem mehrere einzelne Spieler versuchen, die meisten Frags zu erzielen; nimm Waffen und Gegenstände auf, die dir helfen, deine Gegner zu fraggen.",
-    "game_mode_desc_ffa_instagib": "Free For all, aber es gibt keine Item-Pickups und du spawnst mit einem Point and Click Rifle, das deine Gegner mit einem Schuss sofort fraggt",
+    "game_mode_desc_ffa_instagib": "Free For All, aber es gibt keine Item-Pickups und du spawnst mit einem Point and Click Rifle, das deine Gegner mit einem Schuss sofort fraggt.",
     "game_modes_arcade": "Arcade-Modi",
     "game_modes_test": "Test-Modi",
     "game_modes_team": "Team",

@@ -687,7 +687,7 @@ var TRANSLATION_es_ES =
     "game_mode_desc_bounty": "",
     "game_mode_desc_ft": "",
     "game_mode_desc_ffa": "Combate es un modo de puntos por frags entre jugadores individuales, donde debes encontrar armas y objetos que te ayuden a eliminar a tus oponentes.",
-    "game_mode_desc_ffa_instagib": "Combate contra todos pero sin objetos que recolectar, apareces con un Píncer que elimina instantáneamente con un solo tiro",
+    "game_mode_desc_ffa_instagib": "Combate contra todos pero sin objetos que recolectar, apareces con un Píncer que elimina instantáneamente con un solo tiro.",
     "game_modes_arcade": "Modos Arcade",
     "game_modes_test": "Modos de Prueba",
     "game_modes_team": "En Equipo",

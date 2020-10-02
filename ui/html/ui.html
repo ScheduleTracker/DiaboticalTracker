@@ -3406,76 +3406,45 @@
     </div>
 
     <div id="customlist_table_header">
-        <div class="tr tr_password"></div>
-
-        <div class="tr tr_title">
-            <!--<div class="sort"></div>-->
-            <div class="title i18n" data-i18n="customlist_table_head_title">Title</div>
-        </div>
-        <div class="tr tr_region">
-            <!--<div class="sort"></div>-->
-            <div class="title i18n" data-i18n="customlist_table_head_region">Region</div>
-        </div>
         <div class="tr tr_mode">
-            <!--<div class="sort"></div>-->
             <div class="title i18n" data-i18n="customlist_table_head_mode">Mode</div>
         </div>
-        <div class="tr tr_settings">
-            <div class="title i18n" data-i18n="customlist_table_head_settings">Settings</div>
-        </div>
-        <div class="tr tr_map">
-            <!--<div class="sort"></div>-->
-            <div class="title i18n" data-i18n="customlist_table_head_map">Map</div>
+        <div class="tr tr_title">
+            <div class="title i18n" data-i18n="customlist_table_head_title">Title</div>
         </div>
         <div class="tr tr_players">
-            <!--<div class="sort"></div>-->
             <div class="title i18n" data-i18n="customlist_table_head_players">Players</div>
         </div>
-
-        <div class="tr tr_status"></div>
-
         <div class="tr tr_latency">
-            <!--<div class="sort"></div>-->
             <div class="title i18n" data-i18n="customlist_table_head_latency">Latency</div>
         </div>
-    </div>
-
-    <div id="customlist_table" class="scroll-outer" data-sb-hide-empty="true">
-        <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-        <div id="customlist_table_content" class="scroll-inner">
-
-        <!-- Example html
-            <div class="row">
-                <div class="tr tr_password">
-                    <div class="icon_lock"></div>
-                </div>
-                <div class="tr tr_title">Brawl Game</div>
-                <div class="tr tr_region">
-                    <img src="/html/flags/se.png">
-                    <span>Stockholm</span>
-                </div>
-                <div class="tr tr_mode">Brawl</div>
-                <div class="tr tr_mods">
-                    <div class="mods_icon"></div>
-                </div>
-                <div class="tr tr_map">b_castle</div>
-                <div class="tr tr_players">8/10</div>
-                <div class="tr tr_status">
-                    <span class="live">LIVE</span>
-                </div>
-                <div class="tr tr_latency">
-                    <span class="ping_icon good"></span>
-                    <span class="ping">35ms</span>
-                </div>
-            </div>
-        -->
-
+        <div class="tr tr_preview">
+            <div class="title i18n" data-i18n="customlist_table_head_preview">Preview</div>
         </div>
     </div>
 
+    <div id="customlist_body">
+
+        <div class="customlist_left">
+            <div id="customlist_table" class="scroll-outer" data-sb-hide-empty="true">
+                <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+                <div id="customlist_table_content" class="scroll-inner">
+                    <!-- here be match rows -->
+                </div>
+            </div>
+        </div>
+
+        <div class="customlist_right">
+            <div id="customlist_match_placeholder" class="i18n" data-i18n="menu_select_match">Select Match</div>
+            <div id="customlist_match_preview"></div>
+        </div>
+    </div>
+
+    <!--
     <div id="customlist_bottom">
         <div id="custom_list_join_button" class="db-btn i18n click-sound mouseover-sound2 disabled" data-i18n="menu_join_game">Select Match</div>
     </div>
+    -->
 
 </div>
 

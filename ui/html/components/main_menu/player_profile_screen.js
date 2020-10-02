@@ -925,8 +925,6 @@ function player_profile_render_stats(data) {
     }
     */
 
-    console.log(_dump(global_queues));
-
     let qp_queues = Object.keys(global_queues).filter(m => global_queues[m].match_type == MATCH_TYPE_QUICKPLAY);
     let r_queues = Object.keys(global_queues).filter(m => global_queues[m].match_type == MATCH_TYPE_RANKED);
     

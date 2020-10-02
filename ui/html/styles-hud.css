@@ -591,36 +591,6 @@ body, html {
     text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.4);
 }
 
-/*
- *  Custom Match Info
- */
-.custom_match_info {
-    display:flex;
-    flex-direction:row;
-    align-items:flex-start;
-}
-
-.custom_match_info .value,
-.custom_match_info .label {
-    padding-left:1vh;
-    padding-right:1vh;
-    height:2vh;
-    display:flex;
-    align-items:center;
-}
-
-.custom_match_info .value.even,
-.custom_match_info .label.even {
-    background-color:rgba(255,255,255,0.05);
-}
-
-.custom_match_info .value.column {
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    height:auto;
-}
-
 
 /*
  *  Other styles

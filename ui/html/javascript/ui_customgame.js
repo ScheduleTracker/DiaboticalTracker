@@ -66,6 +66,7 @@ var global_lobby_selected_map = '';
 var global_lobby_init_mode = '';
 var global_lobby_admins = [];
 let global_party_leader_elements = [];
+let global_custom_datacenter_list = [];
 
 function init_custom_modes() {
     // Add all the modes to the filter select list
@@ -101,7 +102,6 @@ function init_custom_game_references() {
             //_id("ranked_play_warmup_alignment"),
             _id("custom_play_create_lobby_button"),
             _id("custom_play_link_join_lobby_button"),
-            _id("customlist_bottom"),
             _id("region_select_btn_qp"),
             _id("region_select_btn_ranked"),
         ]
@@ -302,50 +302,15 @@ function init_screen_custom() {
         });
     });
 
-    // Updates the datacenter selection list
-    bind_event('set_server_menu_content', function (code) {
-        let tmp = _createElement("div");
-        let fragment = new DocumentFragment();
-        tmp.innerHTML = code;
-
-        var locs = tmp.childNodes;
-        var locs_arr = [];
-        for (let i=0; i<locs.length; i++) {
-            if (locs[i].nodeType == 1) {
-                locs_arr.push(locs[i]);
-
-                if (locs[i].dataset.value.startsWith("ip_")) {
-                    global_self.lan_ip = locs[i].dataset.value.substring(3);
-                    locs[i].dataset.value = "lan";
-                    locs[i].textContent = "Direct/LAN";
-                }
-            }
+    
+    // Init the datacenter selection list
+    bind_event('set_server_menu_content', function (json_data) {
+        try {
+            global_custom_datacenter_list = JSON.parse(json_data);
+            custom_lobby_update_datacenters(global_custom_datacenter_list, true);
+        } catch(e) {
+            console.log("Error parsing server menue json_data", e.message);
         }
-
-        locs_arr.sort(function(a, b) { 
-            if (a.textContent.startsWith("Direct")) { return 1; }
-            if (b.textContent.startsWith("Direct")) { return -1; }
-            return a.textContent == b.textContent ? 0 : (a.textContent > b.textContent ? 1 : -1); 
-        });
-          
-        for (let i=0; i<locs_arr.length; i++) {
-            // Hide non functional LAN option for now
-            //if (locs_arr[i].textContent.startsWith("Direct")) continue;
-            fragment.appendChild(locs_arr[i]);
-        }
-
-        _empty(global_customSettingElements["location"]);
-        global_customSettingElements["location"].appendChild(fragment);
-
-        delete tmp;
-        delete fragment;
-
-        ui_setup_select(global_customSettingElements["location"], function(opt, field) {
-            if (bool_am_i_host) {
-                update_variable("string", field.dataset.variable, opt.dataset.value);
-                custom_game_settings_changed();
-            }
-        });
     });
 
     // Add color change listener
@@ -439,6 +404,60 @@ function init_screen_custom() {
     });
 }
 
+
+function custom_lobby_update_datacenters(data, init) {
+
+    /* Example entry sent
+    "server": string, example "mos", or "1.2.3.4"
+    "region": string, example "NA", empty when "official" is false
+    "location": string, example "Los Angeles", empty with "official" is false
+    "official": true/false
+    "detected": true/false, always false when "official is true"
+    */
+
+    data.sort(function(a, b) {
+        if (!a.official) return 1;
+        if (!b.official) return -1;
+        return a.region == b.region ? (a.location == b.location ? 1 : -1) : (a.region > b.region ? 1 : -1);
+    });
+    
+    let fragment = new DocumentFragment();
+    for (let dc of data) {
+        let name = '';
+        let value = '';
+        if (dc.official) {
+            name = dc.region+"/"+localize("datacenter_"+dc.server);
+            value = dc.server;
+        } else {
+            if (dc.server != "direct") {
+                name = "Direct/"+dc.server;
+                value = "ip_"+dc.server;
+            } else {
+                name = "Direct";
+                value = "direct";
+            }
+        }
+
+        let opt = _createElement("div", "", name);
+        opt.dataset.value = value;
+
+        fragment.appendChild(opt);
+    }
+
+    _empty(global_customSettingElements["location"]);
+    global_customSettingElements["location"].appendChild(fragment);
+
+    setup_select(global_customSettingElements["location"], function(opt, field){
+        if (bool_am_i_host) {
+            update_variable("string", field.dataset.variable, opt.dataset.value);
+            custom_game_settings_changed();
+        }
+    });
+
+    if (init) engine.call("initialize_select_value", "lobby_custom_datacenter");
+}
+
+
 function custom_update_variable_if_host(opt, field) {
     if (bool_am_i_host) {
         update_variable("string", field.dataset.variable, opt.dataset.value);
@@ -487,14 +506,14 @@ function set_lobby_custom_commands(value) {
 }
 
 function set_lobby_datacenter(value) {
-    if (value.trim().length == 0 || value.trim() == '""' || value.trim() == "''") {
+    if (bool_am_i_host && (value.trim().length == 0 || value.trim() == '""' || value.trim() == "''")) {
         let best_regions = get_best_regions_by_ping();
         if (best_regions.length) {
             update_variable("string", "lobby_custom_datacenter", best_regions[0]);
             value = best_regions[0];
         } else {
-            update_variable("string", "lobby_custom_datacenter", "lan");
-            value = "lan";
+            update_variable("string", "lobby_custom_datacenter", "");
+            value = "";
         }
     }
 
@@ -508,7 +527,7 @@ function set_lobby_datacenter(value) {
             }
         }
 
-        if (!found) value = "lan";
+        if (!found) value = "";
     }
 
     return value;
@@ -1332,7 +1351,6 @@ function get_lobby_settings() {
 		mode:       mode,
 		map:        global_customSettingElements["map"].dataset.value,
         datacenter: global_customSettingElements["location"].dataset.value,
-        lan_ip:     global_self.lan_ip,
 
         // Array of strings (hex color codes without hash):
         colors: colors,
@@ -1432,6 +1450,25 @@ function set_lobby_host(host) {
 
         _id("custom_game_password_set").querySelector(".edit_password").style.display = "none";
         _id("custom_lobby_join_link").style.display = "none";
+
+        // Update datacenter locations
+        let locs = [];
+        for (let dc of global_custom_datacenter_list) {
+            if (dc.official) locs.push(dc);
+        }
+        locs.push({
+            "server": "direct",
+            "region": "",
+            "location": "",
+            "official": false,
+            "detected": false,
+        })
+        custom_lobby_update_datacenters(locs, false);
+    }
+
+    if (became_host) {
+        // Update datacenter locations
+        custom_lobby_update_datacenters(global_custom_datacenter_list, true);
     }
 
     update_custom_game_visibility();
@@ -1513,7 +1550,11 @@ function update_custom_game_settings(settings, init) {
         update_mode = true;
     }
 
-    if (global_customSettingElements["location"].dataset.value != settings.datacenter) {
+    // Handle Direct connections differently if not host
+    if (settings.datacenter.startsWith("ip_") && !bool_am_i_host) {
+        global_customSettingElements["location"].dataset.value = "direct";
+        update_select(global_customSettingElements["location"]);
+    } else {
         global_customSettingElements["location"].dataset.value = settings.datacenter;
         update_select(global_customSettingElements["location"]);
     }
