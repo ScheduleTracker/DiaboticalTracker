@@ -405,7 +405,6 @@ crossbow
 	category 5
 	bind_group 5
 	
-	splash_radius 1
     no_self_damage 1
 	//center_of_mass_offset 20
 	//center_of_mass_offset_self 70
