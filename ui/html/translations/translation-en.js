@@ -2176,6 +2176,7 @@ var TRANSLATION_en =
     "custom_game_settings_visibility": "Visibility",
     "custom_game_settings_join_key":"Lobby Join Key",
     "custom_game_settings_customized":"Customized settings",
+    "datacenter_direct": "Direct Connection",
     "datacenter_direct_online": "Direct Connection - Online",
     "datacenter_direct_lan": "Direct Connection - LAN",
     "datacenter_ash": "Ashburn",

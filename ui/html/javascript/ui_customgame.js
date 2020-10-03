@@ -430,7 +430,7 @@ function custom_lobby_update_datacenters(data, init) {
             value = dc.server;
         } else {
             if (dc.server != "direct") {
-                name = "Direct/"+dc.server;
+                name = "Direct/"+(dc["public"]?"Public IP":dc.server)+" (UDP 32123)";
                 value = "ip_"+dc.server;
             } else {
                 name = "Direct";
@@ -1460,6 +1460,7 @@ function set_lobby_host(host) {
             "server": "direct",
             "region": "",
             "location": "",
+            "public": false,
             "official": false,
             "detected": false,
         })

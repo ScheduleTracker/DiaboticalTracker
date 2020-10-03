@@ -212,6 +212,15 @@ function set_game_report(json_game_status, json_snafu_data) {
         console.log("game_report json parse error");
     }
 
+    let report_top = _id("game_report_top");
+
+    if (snafu_data["game_data.location"] == "direct") {
+        snafu_data["game_data.continuous"] = 0;
+        report_top.classList.add("hidden");
+    } else {
+        report_top.classList.remove("hidden");
+    }
+
     let countdown_text = _id("game_report_cont").querySelector(".countdown .text");
     let re_buttons = _id("game_report_cont").querySelector(".buttons");
 

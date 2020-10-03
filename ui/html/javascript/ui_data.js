@@ -227,7 +227,10 @@ var global_ping_colors = {
     "red": "#ff2828"
 };
 
+
+// Important: always refer to "Nitrado" hosting as "Nitrado Enterprise"!
 var global_region_map = {
+    "direct":{ "flag": "", "i18n": "datacenter_direct", "provider": "",  "name": "Direct Connection" },
     "online":{ "flag": "", "i18n": "datacenter_direct_online", "provider": "",  "name": "Direct Connection - ONLINE" },
     "lan": { "flag": "",   "i18n": "datacenter_direct_lan", "provider": "",     "name": "Direct Connection - LAN" },
     "ash": { "flag": "us", "i18n": "datacenter_ash", "provider": "i3D.net",     "name": "Ashburn" },

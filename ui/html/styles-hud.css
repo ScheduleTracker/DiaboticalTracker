@@ -2301,6 +2301,10 @@ h2 {
     justify-content:center;
     align-items:center;
 }
+#game_report_cont .report_top.hidden {
+    visibility:hidden;
+    pointer-events: none;
+}
 #game_report_cont .report_top .countdown {
     display:flex;
     flex-direction:row;
