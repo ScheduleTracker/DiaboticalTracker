@@ -404,6 +404,9 @@ function init_screen_custom() {
     });
 }
 
+function _partial_anonymize(ip){
+   return ip.substring(0, ip.lastIndexOf("."))+".*";
+}
 
 function custom_lobby_update_datacenters(data, init) {
 
@@ -430,7 +433,10 @@ function custom_lobby_update_datacenters(data, init) {
             value = dc.server;
         } else {
             if (dc.server != "direct") {
-                name = "Direct/"+(dc["public"]?"Public IP":dc.server)+" (UDP 32123)";
+                //Let's not show the public IP for streamers, but even for non-public ones
+                //some of these may be public if this person has a modem, so at least partially
+                //anonymize those too.
+                name = "Direct/"+(dc["public"]?"Public IP":_partial_anonymize(dc.server))+" (UDP 32123)";
                 value = "ip_"+dc.server;
             } else {
                 name = "Direct";
