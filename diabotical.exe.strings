@@ -44814,7 +44814,7 @@ Lobby custom games user setting.
 lobby_custom_spawn_logic
 game_player_hitbox_height
 Lobby custom games user setting.
-0.20.365b
+0.20.365c
  depth=
 POSITION
 <><><><<>>><>>>>>> Initializing Vertex Shader 
@@ -48070,6 +48070,7 @@ ffffff
 ?333333
 @333333
 l~~~~~~~~~~~~~~~~
+RSDSP3
 C:\reborn\tracked\tmp_symbols_EVE_Release\diabotical.pdb
 .text
 .text$di
