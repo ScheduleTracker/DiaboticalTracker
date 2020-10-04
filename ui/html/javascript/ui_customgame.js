@@ -421,7 +421,7 @@ function custom_lobby_update_datacenters(data, init) {
     data.sort(function(a, b) {
         if (!a.official) return 1;
         if (!b.official) return -1;
-        return a.region == b.region ? (a.location == b.location ? 1 : -1) : (a.region > b.region ? 1 : -1);
+        return a.region == b.region ? (a.location == b.location ? (a.server == b.server ? 1 : -1) : -1) : (a.region > b.region ? 1 : -1);
     });
     
     let fragment = new DocumentFragment();

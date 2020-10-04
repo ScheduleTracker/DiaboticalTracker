@@ -1913,6 +1913,19 @@
                                         <div id="slider_sound_music_volume" class="range-slider" data-variable="game_waypoint_scale" data-min="0" data-max="1" data-step="0.01"></div>
                                     </div>
                                 </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_screenedge_ping_waypoints">Screen-edge ping waypoints</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_ping_waypoints" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
+                                                <div data-value=1 class="i18n" data-i18n="waypoints_ping_threat_type">Show only threat type</div>
+                                                <div data-value=2 class="i18n" data-i18n="show_all">Show all</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                                 <!--
                                 <div class="setting">
@@ -6473,168 +6486,165 @@
 
     <div id="preload_trick_container"></div>
 
-    <script src="javascript/cohtml.js"></script>
-    <script src="vendors/zepto.js"></script>
+    <script inline src="javascript/cohtml.js"></script>
+    <script inline src="vendors/zepto.js"></script>
 
-    <script src="vendors/scrollbooster/scrollbooster.js"></script>
-    <script src="vendors/jscolor/_jscolor.js"></script>
-    <script src="vendors/jsrender/jsrender.min.js"></script>
+    <script inline src="vendors/scrollbooster/scrollbooster.js"></script>
+    <script inline src="vendors/jscolor/_jscolor.js"></script>
+    <script inline src="vendors/jsrender/jsrender.min.js"></script>
 
-    <script src="vendors/chartjs/_Chart.bundle.js"></script>
-    <script src="vendors/prismic-javascript.min.js"></script>
-    <script src="vendors/fetch.umd.js"></script>
+    <script inline src="vendors/chartjs/_Chart.bundle.js"></script>
+    <script inline src="vendors/prismic-javascript.min.js"></script>
+    <script inline src="vendors/fetch.umd.js"></script>
 
-    <script src="vendors/numeral/numeral.min.js"></script>
-    <script src="vendors/numeral/locales.js"></script>
+    <script inline src="vendors/numeral/numeral.min.js"></script>
+    <script inline src="vendors/numeral/locales.js"></script>
 
-    <script src="javascript/moment.min.js"></script>
-    <script src="javascript/moment-timezone.min.js"></script>
-    <script src="javascript/humanize-duration.js"></script>
+    <script inline src="javascript/moment.min.js"></script>
+    <script inline src="javascript/moment-timezone.min.js"></script>
+    <script inline src="javascript/humanize-duration.js"></script>
 
     <NOPscript src="vendors/anime/anime.min.js"></NOPscript>
 
-    <script src="vendors/i18next.min.js"></script>
-    <script src="vendors/i18nextICU.min.js"></script>
-    <script src="vendors/loc-i18next/loc-i18next.js"></script>
-    <script src="vendors/loc-icu/de.js"></script>
-    <script src="vendors/loc-icu/en.js"></script>
-    <script src="vendors/loc-icu/es.js"></script>
-    <script src="vendors/loc-icu/fr.js"></script>
-    <script src="vendors/loc-icu/it.js"></script>
-    <script src="vendors/loc-icu/ko.js"></script>
-    <script src="vendors/loc-icu/ja.js"></script>
-    <script src="vendors/loc-icu/pt.js"></script>
-    <script src="vendors/loc-icu/ru.js"></script>
-    <script src="vendors/loc-icu/zh.js"></script>
+    <script inline src="vendors/i18next.min.js"></script>
+    <script inline src="vendors/i18nextICU.min.js"></script>
+    <script inline src="vendors/loc-i18next/loc-i18next.js"></script>
+    <script inline src="vendors/loc-icu/de.js"></script>
+    <script inline src="vendors/loc-icu/en.js"></script>
+    <script inline src="vendors/loc-icu/es.js"></script>
+    <script inline src="vendors/loc-icu/fr.js"></script>
+    <script inline src="vendors/loc-icu/it.js"></script>
+    <script inline src="vendors/loc-icu/ko.js"></script>
+    <script inline src="vendors/loc-icu/ja.js"></script>
+    <script inline src="vendors/loc-icu/pt.js"></script>
+    <script inline src="vendors/loc-icu/ru.js"></script>
+    <script inline src="vendors/loc-icu/zh.js"></script>
 
-    <script src="translations/translation-en.js"></script>
-    <script src="translations/translation-zh-TW.js"></script>
-    <script src="translations/translation-zh-CN.js"></script>
-    <script src="translations/translation-ja.js"></script>
-    <script src="translations/translation-it.js"></script>
-    <script src="translations/translation-ru.js"></script>
-    <script src="translations/translation-es-ES.js"></script>
-    <script src="translations/translation-es-MX.js"></script>
-    <script src="translations/translation-fr.js"></script>
-    <script src="translations/translation-pt-BR.js"></script>
-    <script src="translations/translation-de.js"></script>
-    <script src="translations/translation-ko.js"></script>
+    <script inline src="translations/translation-en.js"></script>
+    <script inline src="translations/translation-zh-TW.js"></script>
+    <script inline src="translations/translation-zh-CN.js"></script>
+    <script inline src="translations/translation-ja.js"></script>
+    <script inline src="translations/translation-it.js"></script>
+    <script inline src="translations/translation-ru.js"></script>
+    <script inline src="translations/translation-es-ES.js"></script>
+    <script inline src="translations/translation-es-MX.js"></script>
+    <script inline src="translations/translation-fr.js"></script>
+    <script inline src="translations/translation-pt-BR.js"></script>
+    <script inline src="translations/translation-de.js"></script>
+    <script inline src="translations/translation-ko.js"></script>
 
-    <script src="translations/countries_en.js"></script>
-    <script src="translations/countries_cn.js"></script>
-    <script src="translations/countries_tw.js"></script>
-    <script src="translations/countries_ja.js"></script>
-    <script src="translations/countries_it.js"></script>
-    <script src="translations/countries_ru.js"></script>
-    <script src="translations/countries_es.js"></script>
-    <script src="translations/countries_fr.js"></script>
-    <script src="translations/countries_br.js"></script>
-    <script src="translations/countries_de.js"></script>
-    <script src="translations/countries_ko.js"></script>
+    <script inline src="translations/countries_en.js"></script>
+    <script inline src="translations/countries_cn.js"></script>
+    <script inline src="translations/countries_tw.js"></script>
+    <script inline src="translations/countries_ja.js"></script>
+    <script inline src="translations/countries_it.js"></script>
+    <script inline src="translations/countries_ru.js"></script>
+    <script inline src="translations/countries_es.js"></script>
+    <script inline src="translations/countries_fr.js"></script>
+    <script inline src="translations/countries_br.js"></script>
+    <script inline src="translations/countries_de.js"></script>
+    <script inline src="translations/countries_ko.js"></script>
 
-    <script src="javascript/APIHandler.js"></script>
-    <script src="javascript/History.js"></script>
-    <script src="javascript/ui_ms.js"></script>
-    <script src="javascript/ui_variable.js"></script>
+    <script inline src="javascript/APIHandler.js"></script>
+    <script inline src="javascript/History.js"></script>
+    <script inline src="javascript/ui_ms.js"></script>
+    <script inline src="javascript/ui_variable.js"></script>
 
-    <script src="javascript/ui_data.js"></script>
-    <script src="javascript/ui_helpers.js"></script>
+    <script inline src="javascript/ui_data.js"></script>
+    <script inline src="javascript/ui_helpers.js"></script>
 
     <!-- MENU View main js-->
-    <script src="javascript/ui.js"></script>
-    <script src="javascript/ui_views.js"></script>
+    <script inline src="javascript/ui.js"></script>
+    <script inline src="javascript/ui_views.js"></script>
 
-    <script src="javascript/ui_shared.js"></script>
+    <script inline src="javascript/ui_shared.js"></script>
 
-    <script src="components/main_menu/ingame_menu.js"></script>
-    <script src="components/main_menu/friend_list.js"></script>
-    <script src="components/main_menu/party_box.js"></script>
-    <script src="components/main_menu/main_chat.js"></script>
-    <script src="components/main_menu/home_screen.js"></script>
-    <script src="components/main_menu/shop_screen.js"></script>
-    <script src="components/main_menu/shop_item_screen.js"></script>
-    <script src="components/main_menu/coin_shop_screen.js"></script>
-    <script src="components/main_menu/customize_screen.js"></script>
-    <script src="components/main_menu/battlepass_screen.js"></script>
-    <script src="components/main_menu/battlepass_list_screen.js"></script>
-    <script src="components/main_menu/battlepass_upgrade_screen.js"></script>
-    <script src="components/main_menu/notification_screen.js"></script>
-    <script src="components/main_menu/gift_screen.js"></script>
-    <script src="components/main_menu/create_screen.js"></script>
-    <script src="components/main_menu/leaderboards_screen.js"></script>
-    <script src="components/main_menu/player_profile_screen.js"></script>
-    <script src="components/main_menu/match_screen.js"></script>
-    <script src="components/main_menu/play_screen_customlist.js"></script>
-    <script src="components/main_menu/play_screen.js"></script>
-    <script src="components/main_menu/practice_screen.js"></script>
-    <script src="components/main_menu/watch_screen.js"></script>
-    <script src="components/main_menu/learn_screen.js"></script>
-    <script src="components/main_menu/aim_screen.js"></script>
-    <script src="components/main_menu/legal_screen.js"></script>
-    <script src="javascript/ui_customgame.js"></script>
+    <script inline src="components/main_menu/ingame_menu.js"></script>
+    <script inline src="components/main_menu/friend_list.js"></script>
+    <script inline src="components/main_menu/party_box.js"></script>
+    <script inline src="components/main_menu/main_chat.js"></script>
+    <script inline src="components/main_menu/home_screen.js"></script>
+    <script inline src="components/main_menu/shop_screen.js"></script>
+    <script inline src="components/main_menu/shop_item_screen.js"></script>
+    <script inline src="components/main_menu/coin_shop_screen.js"></script>
+    <script inline src="components/main_menu/customize_screen.js"></script>
+    <script inline src="components/main_menu/battlepass_screen.js"></script>
+    <script inline src="components/main_menu/battlepass_list_screen.js"></script>
+    <script inline src="components/main_menu/battlepass_upgrade_screen.js"></script>
+    <script inline src="components/main_menu/notification_screen.js"></script>
+    <script inline src="components/main_menu/gift_screen.js"></script>
+    <script inline src="components/main_menu/create_screen.js"></script>
+    <script inline src="components/main_menu/leaderboards_screen.js"></script>
+    <script inline src="components/main_menu/player_profile_screen.js"></script>
+    <script inline src="components/main_menu/match_screen.js"></script>
+    <script inline src="components/main_menu/play_screen_customlist.js"></script>
+    <script inline src="components/main_menu/play_screen.js"></script>
+    <script inline src="components/main_menu/practice_screen.js"></script>
+    <script inline src="components/main_menu/watch_screen.js"></script>
+    <script inline src="components/main_menu/learn_screen.js"></script>
+    <script inline src="components/main_menu/aim_screen.js"></script>
+    <script inline src="components/main_menu/legal_screen.js"></script>
+    <script inline src="javascript/ui_customgame.js"></script>
 
-    <script src="javascript/ui_dragging.js"></script>
-    <script src="javascript/ui_mouse.js"></script>
-    <script src="javascript/ui_fov.js"></script>
-    <script src="javascript/ui_anim.js"></script>
+    <script inline src="javascript/ui_dragging.js"></script>
+    <script inline src="javascript/ui_mouse.js"></script>
+    <script inline src="javascript/ui_fov.js"></script>
+    <script inline src="javascript/ui_anim.js"></script>
 
-    <script src="javascript/ui_dialog_component.js"></script>
-    <script src="javascript/ui_select_component.js"></script>
-    <script src="javascript/ui_slider_component.js"></script>
-    <script src="javascript/ui_scrollbar.js"></script>
-    <script src="javascript/ui_contextmenu.js"></script>
+    <script inline src="javascript/ui_dialog_component.js"></script>
+    <script inline src="javascript/ui_select_component.js"></script>
+    <script inline src="javascript/ui_slider_component.js"></script>
+    <script inline src="javascript/ui_scrollbar.js"></script>
+    <script inline src="javascript/ui_contextmenu.js"></script>
 
-    <script src="javascript/HUD_element.js"></script>
-    <script src="javascript/hud_override.js"></script>
-    <script src="javascript/ui_hud_creator.js"></script>
-    <script src="javascript/ui_hud_editor.js"></script>
-    <script src="javascript/ui_strafe.js"></script>
-    <script src="javascript/ui_crosshair_creator.js"></script>
-    <script src="javascript/script_data.js"></script> <!-- generated via script -->
+    <script inline src="javascript/HUD_element.js"></script>
+    <script inline src="javascript/ui_hud_creator.js"></script>
+    <script inline src="javascript/ui_hud_editor.js"></script>
+    <script inline src="javascript/ui_strafe.js"></script>
+    <script inline src="javascript/ui_crosshair_creator.js"></script>
+    <script inline src="javascript/script_data.js"></script> <!-- generated via script -->
 
-    <script src="javascript/hud_elements/element_group.js"></script>
+    <script inline src="javascript/hud_elements/element_group.js"></script>
 
-<script src="javascript/hud_elements/element_hp.js"></script>
-<script src="javascript/hud_elements/element_hp_bar.js"></script>
-<script src="javascript/hud_elements/element_armor.js"></script>
-<script src="javascript/hud_elements/element_armor_bar.js"></script>
-<script src="javascript/hud_elements/element_coins.js"></script>
-<script src="javascript/hud_elements/element_stack.js"></script>
-<script src="javascript/hud_elements/element_fps.js"></script>
-<script src="javascript/hud_elements/element_speed.js"></script>
-<script src="javascript/hud_elements/element_current_ammo.js"></script>
-<script src="javascript/hud_elements/element_low_ammo_warning.js"></script>
-<script src="javascript/hud_elements/element_weapon_list.js"></script>
-<script src="javascript/hud_elements/element_kill_feed.js"></script>
-<script src="javascript/hud_elements/element_game_timer.js"></script>
-<script src="javascript/hud_elements/element_time_limit.js"></script>
-<script src="javascript/hud_elements/element_round_mvp.js"></script>
-<script src="javascript/hud_elements/element_score.js"></script>
-<script src="javascript/hud_elements/element_team_scores.js"></script>
-<script src="javascript/hud_elements/element_flag.js"></script>
-<script src="javascript/hud_elements/element_dodge.js"></script>
-<script src="javascript/hud_elements/element_item.js"></script>
-<script src="javascript/hud_elements/element_item_timers.js"></script>
-<script src="javascript/hud_elements/element_player_name.js"></script>
-<script src="javascript/hud_elements/element_powerup.js"></script>
-<script src="javascript/hud_elements/element_g_meter.js"></script>
-<script src="javascript/hud_elements/element_misc_settings.js"></script>
-<script src="javascript/hud_elements/element_you_killed.js"></script>
-<script src="javascript/hud_elements/element_chat.js"></script>
-<script src="javascript/hud_elements/element_voicechat.js"></script>
-<script src="javascript/hud_elements/element_rect.js"></script>
-<script src="javascript/hud_elements/element_icon.js"></script>
-<script src="javascript/hud_elements/element_current_weapon_icon.js"></script>
-<script src="javascript/hud_elements/element_teammates_alive.js"></script>
-<script src="javascript/hud_elements/element_item_pickups.js"></script>
-<script src="javascript/hud_elements/element_team_pickups.js"></script>
-<script src="javascript/hud_elements/element_steal_progress.js"></script>
-<script src="javascript/hud_elements/element_overtime_progress.js"></script>
-<script src="javascript/hud_elements/element_hint.js"></script>
-<script src="javascript/hud_elements/element_players.js"></script>
-<script src="javascript/hud_elements/element_team_name.js"></script>
-<script src="javascript/hud_elements/element_editing_info.js"></script>
-<script src="javascript/hud_elements/element_minimap.js"></script>
+<script inline src="javascript/hud_elements/element_hp.js"></script>
+<script inline src="javascript/hud_elements/element_hp_bar.js"></script>
+<script inline src="javascript/hud_elements/element_armor.js"></script>
+<script inline src="javascript/hud_elements/element_armor_bar.js"></script>
+<script inline src="javascript/hud_elements/element_coins.js"></script>
+<script inline src="javascript/hud_elements/element_stack.js"></script>
+<script inline src="javascript/hud_elements/element_fps.js"></script>
+<script inline src="javascript/hud_elements/element_speed.js"></script>
+<script inline src="javascript/hud_elements/element_current_ammo.js"></script>
+<script inline src="javascript/hud_elements/element_low_ammo_warning.js"></script>
+<script inline src="javascript/hud_elements/element_weapon_list.js"></script>
+<script inline src="javascript/hud_elements/element_kill_feed.js"></script>
+<script inline src="javascript/hud_elements/element_game_timer.js"></script>
+<script inline src="javascript/hud_elements/element_time_limit.js"></script>
+<script inline src="javascript/hud_elements/element_round_mvp.js"></script>
+<script inline src="javascript/hud_elements/element_score.js"></script>
+<script inline src="javascript/hud_elements/element_flag.js"></script>
+<script inline src="javascript/hud_elements/element_dodge.js"></script>
+<script inline src="javascript/hud_elements/element_item.js"></script>
+<script inline src="javascript/hud_elements/element_item_timers.js"></script>
+<script inline src="javascript/hud_elements/element_player_name.js"></script>
+<script inline src="javascript/hud_elements/element_powerup.js"></script>
+<script inline src="javascript/hud_elements/element_g_meter.js"></script>
+<script inline src="javascript/hud_elements/element_you_killed.js"></script>
+<script inline src="javascript/hud_elements/element_chat.js"></script>
+<script inline src="javascript/hud_elements/element_voicechat.js"></script>
+<script inline src="javascript/hud_elements/element_rect.js"></script>
+<script inline src="javascript/hud_elements/element_icon.js"></script>
+<script inline src="javascript/hud_elements/element_current_weapon_icon.js"></script>
+<script inline src="javascript/hud_elements/element_teammates_alive.js"></script>
+<script inline src="javascript/hud_elements/element_item_pickups.js"></script>
+<script inline src="javascript/hud_elements/element_team_pickups.js"></script>
+<script inline src="javascript/hud_elements/element_steal_progress.js"></script>
+<script inline src="javascript/hud_elements/element_overtime_progress.js"></script>
+<script inline src="javascript/hud_elements/element_hint.js"></script>
+<script inline src="javascript/hud_elements/element_players.js"></script>
+<script inline src="javascript/hud_elements/element_team_name.js"></script>
+<script inline src="javascript/hud_elements/element_editing_info.js"></script>
+<script inline src="javascript/hud_elements/element_minimap.js"></script>
 
     <div id="watermark"></div>
 <script type="text/javascript" src="/html/index.bundle.js"></script></body>
