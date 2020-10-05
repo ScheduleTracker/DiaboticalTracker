@@ -963,6 +963,10 @@ function set_settings_section_visible(section, current_section) {
         if (el){
             if (section == current_section){
                 anim_show(el);
+                
+                if (section == "options") {
+                    refreshScrollbar(_id("settings_screen_more_settings"));
+                }
             } else {
                 if (getComputedStyle(el).display != "none") {
                     anim_hide(el, 250, function() {

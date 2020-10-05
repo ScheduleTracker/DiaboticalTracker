@@ -1434,7 +1434,11 @@
                             <img src="/html/images/weapon_shaft.svg">
                         </div>
                         <div onclick="settings_combat_update(8)" id="combat_panel_weapon_8" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
-                            <div class="tip_inner top i18n" data-i18n="weapon_crossbow_pncr">Crossbow / P'n'CR</div>
+                            <div class="tip_inner top i18n" data-i18n="weapon_crossbow">Crossbow</div>
+                            <img src="/html/images/weapon_cb.svg">
+                        </div>
+                        <div onclick="settings_combat_update(9)" id="combat_panel_weapon_9" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
+                            <div class="tip_inner top i18n" data-i18n="weapon_pncr">P'n'CR</div>
                             <img src="/html/images/weapon_pncr.svg">
                         </div>
                         <div onclick="settings_combat_update(10)" id="combat_panel_weapon_10" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
@@ -1844,31 +1848,6 @@
                                 </div>
 
                                 <div class="setting">
-                                    <div class="label i18n" data-i18n="settings_show_damage_numbers">Show damage numbers</div>
-                                    <div class="ctrl">
-                                        <div class="setting_select wide">                           
-                                            <div class="select-field" data-variable="game_damage_numbers" data-theme="settings">
-                                                <div data-value=0 class="i18n" data-i18n="never">Never</div>
-                                                <div data-value=1 class="i18n" data-i18n="variable_damage_weapons">Variable Damage Weapons Only</div>
-                                                <div data-value=2 class="i18n" data-i18n="always">Always</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="setting">
-                                    <div class="label i18n" data-i18n="settings_damage_number_values">Damage number values</div>
-                                    <div class="ctrl">
-                                        <div class="setting_select wide">                           
-                                            <div class="select-field" data-variable="game_show_actual_damage" data-theme="settings">
-                                                <div data-value=0 class="i18n" data-i18n="settings_damage_number_values_0">Show outgoing damage</div>
-                                                <div data-value=1 class="i18n" data-i18n="settings_damage_number_values_1">Show applied damage</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="setting">
                                     <div class="label i18n" data-i18n="settings_hit_sounds">Enable hit sounds</div>
                                     <div class="ctrl">
                                         <div class="checkbox_component checkbox" data-variable="game_hit_sounds"><div></div></div>
@@ -1894,6 +1873,61 @@
                                     </div>
                                 </div>
 
+                                <div class="settings_header i18n" data-i18n="settings_damage_numbers" style="margin-top:2vh;">Damage numbers</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_show_damage_numbers">Show damage numbers</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_damage_numbers" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="never">Never</div>
+                                                <div data-value=1 class="i18n" data-i18n="variable_damage_weapons">Variable Damage Weapons Only</div>
+                                                <div data-value=2 class="i18n" data-i18n="always">Always</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_damage_number_size">Damage number size</div>
+                                    <div class="ctrl">
+                                        <div id="slider_game_damage_numbers_scale" class="range-slider" data-variable="game_damage_numbers_scale" data-min="0" data-max="1" data-step="0.01"></div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_damage_number_colors">Damage number colors</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_damage_numbers_color_mode" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="settings_damage_number_color_custom">Custom color</div>
+                                                <div data-value=1 class="i18n" data-i18n="settings_damage_number_color_weapon">Use weapon color</div>
+                                                <div data-value=2 class="i18n" data-i18n="settings_damage_number_color_damage">Custom color to red damage gradient</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_custom_damage_number_color">Custom damage number color</div>
+                                    <div class="ctrl">
+                                        <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" data-variable="game_damage_numbers_color" data-alpha="true">
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_damage_number_values">Damage number values</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_show_actual_damage" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="settings_damage_number_values_0">Show outgoing damage</div>
+                                                <div data-value=1 class="i18n" data-i18n="settings_damage_number_values_1">Show applied damage</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="settings_header i18n" data-i18n="settings_waypoints" style="margin-top:2vh;">Waypoints</div>
                                 <div class="setting">
                                     <div class="label i18n" data-i18n="settings_weapon_waypoints">Weapon waypoints</div>
                                     <div class="ctrl">
@@ -1910,7 +1944,7 @@
                                 <div class="setting">
                                     <div class="label i18n" data-i18n="settings_waypoint_size">Waypoint size</div>
                                     <div class="ctrl">
-                                        <div id="slider_sound_music_volume" class="range-slider" data-variable="game_waypoint_scale" data-min="0" data-max="1" data-step="0.01"></div>
+                                        <div id="slider_game_waypoint_scale" class="range-slider" data-variable="game_waypoint_scale" data-min="0" data-max="1" data-step="0.01"></div>
                                     </div>
                                 </div>
 

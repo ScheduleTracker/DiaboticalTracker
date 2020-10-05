@@ -138,7 +138,7 @@ let global_weapon_idx_name_map = {
     5 : "weaponss",
     6 : "weaponrl",
     7 : "weaponshaft",
-    8 : "weaponcb_pncr",
+    8 : "weaponcb",
     9 : "weaponpncr",
     10: "weapongl",
     11: "weaponw9",
