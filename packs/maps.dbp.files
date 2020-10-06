@@ -23,7 +23,7 @@ maps\b_alchemy-h.png		473727
 maps\b_alchemy.rbe		30487364
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
-maps\b_crystal_cove.rbe		34986693
+maps\b_crystal_cove.rbe		34972836
 maps\b_furnace.rbe		43037084
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
@@ -49,7 +49,7 @@ maps\ctf_dojo.rbe		41894555
 maps\ctf_quarry.rbe		51569130
 maps\duel_bioplant-b.png		6036
 maps\duel_bioplant-h.png		251674
-maps\duel_bioplant.rbe		9883461
+maps\duel_bioplant.rbe		9877466
 maps\duel_f1sks_house-b.png		62672
 maps\duel_f1sks_house-h.png		362082
 maps\duel_f1sks_house.rbe		16279586
@@ -161,7 +161,7 @@ maps\tutorial.rbe		17497598
 maps\weapon.rbe		285069
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
-maps\wo_crystal_cove.rbe		34976685
+maps\wo_crystal_cove.rbe		34963128
 maps\wo_furnace.rbe		43026050
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
