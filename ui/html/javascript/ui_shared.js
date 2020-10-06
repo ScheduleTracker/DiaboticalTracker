@@ -227,10 +227,6 @@ function init_shared() {
                     if(weapon_index == currently_held_weapon_index){ //If we're in game and on this weapon, swap crosshair immediately (default -> custom)
                         set_crosshair_function(weapon_index);
                     }
-                    //WORKAROUND for pncr having different weapon index and crosshair index (crossbow = 8, pncr = 9, combined crosshair = 8)
-                    else if(currently_held_weapon_index == 9 && weapon_index == 8){
-                        set_crosshair_function(weapon_index);
-                    }
                 }
                 let crosshair_definition = cleanCrosshairDefinition(generateFullCrosshairDefinition(definition_string));
                 drawCrosshair(zoom, crosshair_definition, weapon_index);

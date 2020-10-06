@@ -416,6 +416,9 @@ window.addEventListener("load", function(){
                     newCommend(json_data.from);
                     clear_profile_data_cache_id(global_self.data.user_id);
                     break;
+                case "update-session-data":
+                    customlist_update_session_data(json_data.session_id, json_data.data)
+                    break;
             }
 
             // Send to single use registered response handlers

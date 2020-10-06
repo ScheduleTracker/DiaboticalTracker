@@ -10168,6 +10168,9 @@ h2 {
     justify-content:flex-start; 
     line-height: 1.5vh;
 }
+#play_screen_customlist .sub_row .title.bold {
+    font-weight:bold;
+}
 #play_screen_customlist .sub_row .region   { 
     display:flex;
     flex-direction:row;
@@ -10391,6 +10394,9 @@ h2 {
 }
 #customlist_match_preview .summary .name {
     font-size:1.8vh;
+}
+#customlist_match_preview .summary .name.bold {
+    font-weight:bold;
 }
 #customlist_match_preview .summary .state {
     display:flex;

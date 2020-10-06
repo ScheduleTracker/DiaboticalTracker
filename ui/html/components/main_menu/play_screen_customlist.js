@@ -118,67 +118,8 @@ function renderMatchList() {
         row.dataset.sessionId = match.session_id;
         if (global_custom_list_selected_match == match.session_id) row.classList.add("selected");
 
-        let map = _createElement("div", "match_map");
-        let map_gradient = _createElement("div", "map_gradient");
-        map_gradient.style.backgroundImage = 'url(map_thumbnails/'+match.map+'.png)';
-        map.appendChild(map_gradient);
-        map.appendChild(_createElement("div", "mode_name", localize(global_game_mode_map[match.mode].i18n)));
-        map.appendChild(_createElement("div", "map_name", _format_map_name(match.map)));
-        row.appendChild(map);
-
-
-        let row_block = _createElement("div", "row_block");
-        row.appendChild(row_block);
-        let sub_row_1 = _createElement("div", "sub_row");
-        row_block.appendChild(sub_row_1);
-        let sub_row_2 = _createElement("div", "sub_row");
-        row_block.appendChild(sub_row_2);
-
-        if ("password" in match && match.password) {
-            let tr_pass = _createElement("div", "password");
-            let lock = _createElement("div", "icon_lock");
-            tr_pass.appendChild(lock);
-            sub_row_1.appendChild(tr_pass);
-        }
-
-        let tr_title = _createElement("div", "title", match.name);
-        sub_row_1.appendChild(tr_title);
-        
-        let tr_region = _createElement("div", "region");
-        if (match.location in global_region_map) {
-            let flag = _createElement("img");
-            if (GLOBAL_AVAILABLE_COUNTRY_FLAGS.includes(global_region_map[match.location].flag)) {
-                flag.src = _flagUrl(global_region_map[match.location].flag);
-            }
-            let dc = _createElement("span", "", localize("datacenter_"+match.location.toLowerCase()));
-
-            tr_region.appendChild(flag);
-            tr_region.appendChild(dc);
-        }
-        sub_row_2.appendChild(tr_region);
-
-        let tr_players = _createElement("div", "players");
-        tr_players.innerHTML = match.client_count+"/"+(match.team_count * match.team_size);
-        row.appendChild(tr_players);
-
-        let ping_ms = global_server_locations[match.location].ping;
-        let ping_str = '';
-        if (ping_ms == -1) {
-            ping_str = 'N/A';
-        } else {
-            ping_ms = Math.floor(Number(ping_ms) * 1000);
-            ping_str = ping_ms+"ms";
-        }
-
-        let tr_latency = _createElement("div", "latency");
-        let ping_icon = _createElement("div", "ping_icon");
-        if (ping_ms < 40)  ping_icon.classList.add("good");
-        if (ping_ms > 120) ping_icon.classList.add("bad");
-        tr_latency.appendChild(ping_icon);
-        let ping = _createElement("div", "ping");
-        ping.textContent = ping_str;
-        tr_latency.appendChild(ping);
-        row.appendChild(tr_latency);
+        // Render the row content into the row
+        renderMatchListRow(match, row);
 
         fragment.appendChild(row);
 
@@ -188,12 +129,18 @@ function renderMatchList() {
 
             if (row.classList.contains("selected")) {
                 row.classList.remove("selected");
-                customListRenderMatchPreview(-1)
+
+                customListRenderMatchPreview(-1);
+                global_custom_list_selected_match = -1;
             } else {
                 let prev = list.querySelector(".row.selected");
                 if (prev) prev.classList.remove("selected");
                 row.classList.add("selected");
-                customListRenderMatchPreview(row.dataset.sessionId);
+
+                customListRenderMatchPreview(match.session_id);
+                global_custom_list_selected_match = match.session_id;
+
+                send_string(CLIENT_COMMAND_GET_MATCH_INFO, match.session_id);
             }
         });
     }
@@ -212,6 +159,74 @@ function renderMatchList() {
     resetScrollbar(outer_table);
 }
 
+function renderMatchListRow(match, row) {
+    let map = _createElement("div", "match_map");
+    let map_gradient = _createElement("div", "map_gradient");
+    map_gradient.style.backgroundImage = 'url(map_thumbnails/'+match.map+'.png)';
+    map.appendChild(map_gradient);
+    map.appendChild(_createElement("div", "mode_name", localize(global_game_mode_map[match.mode].i18n)));
+    map.appendChild(_createElement("div", "map_name", _format_map_name(match.map)));
+    row.appendChild(map);
+
+
+    let row_block = _createElement("div", "row_block");
+    row.appendChild(row_block);
+    let sub_row_1 = _createElement("div", "sub_row");
+    row_block.appendChild(sub_row_1);
+    let sub_row_2 = _createElement("div", "sub_row");
+    row_block.appendChild(sub_row_2);
+
+    if ("password" in match && match.password) {
+        let tr_pass = _createElement("div", "password");
+        let lock = _createElement("div", "icon_lock");
+        tr_pass.appendChild(lock);
+        sub_row_1.appendChild(tr_pass);
+    }
+
+    let tr_title = _createElement("div", "title", match.name);
+    if (match.match_type == MATCH_TYPE_QUICKPLAY) {
+        tr_title.classList.add("bold");
+        tr_title.textContent = localize("match_type_quickplay");
+    }
+    sub_row_1.appendChild(tr_title);
+    
+    let tr_region = _createElement("div", "region");
+    if (match.location in global_region_map) {
+        let flag = _createElement("img");
+        if (GLOBAL_AVAILABLE_COUNTRY_FLAGS.includes(global_region_map[match.location].flag)) {
+            flag.src = _flagUrl(global_region_map[match.location].flag);
+        }
+        let dc = _createElement("span", "", localize("datacenter_"+match.location.toLowerCase()));
+
+        tr_region.appendChild(flag);
+        tr_region.appendChild(dc);
+    }
+    sub_row_2.appendChild(tr_region);
+
+    let tr_players = _createElement("div", "players");
+    tr_players.innerHTML = match.client_count+"/"+(match.team_count * match.team_size);
+    row.appendChild(tr_players);
+
+    let ping_ms = global_server_locations[match.location].ping;
+    let ping_str = '';
+    if (ping_ms == -1) {
+        ping_str = 'N/A';
+    } else {
+        ping_ms = Math.floor(Number(ping_ms) * 1000);
+        ping_str = ping_ms+"ms";
+    }
+
+    let tr_latency = _createElement("div", "latency");
+    let ping_icon = _createElement("div", "ping_icon");
+    if (ping_ms < 40)  ping_icon.classList.add("good");
+    if (ping_ms > 120) ping_icon.classList.add("bad");
+    tr_latency.appendChild(ping_icon);
+    let ping = _createElement("div", "ping");
+    ping.textContent = ping_str;
+    tr_latency.appendChild(ping);
+    row.appendChild(tr_latency);
+}
+
 function customListRenderMatchPreview(session_id) {
     let preview_cont = _id("customlist_match_preview");
     let preview_placeholder = _id("customlist_match_placeholder");
@@ -220,7 +235,7 @@ function customListRenderMatchPreview(session_id) {
 
     if (session_id == -1) {
         preview_cont.style.display = "none";
-        preview_placeholder.style.display = "flex";        
+        preview_placeholder.style.display = "flex";
 
         return;
     }
@@ -253,9 +268,17 @@ function customListRenderMatchPreview(session_id) {
     preview_cont.appendChild(preview_map);
 
     // Match summary 
+    let name = m.name;
+    let qp = false;
+    if (m.match_type == MATCH_TYPE_QUICKPLAY) {
+        name = localize("match_type_quickplay");
+        qp = true;
+    }
     let preview_summary = _createElement("div", "summary");
     preview_cont.appendChild(preview_summary);
-    preview_summary.appendChild(_createElement("div", "name", m.name));
+    let name_div = _createElement("div", "name", name);
+    if (qp) name_div.classList.add("bold");
+    preview_summary.appendChild(name_div);
     let state = _createElement("div", "state");
     state.appendChild(_createElement("div", "state_label", localize("game_state")+":"));
     if (m.state == 0 || m.state == 1) {
@@ -377,4 +400,23 @@ function customlist_joinSession(session_id, password) {
     if (!session_id || session_id == -1) return;
     
     send_string(CLIENT_COMMAND_PARTY_JOIN_SESSION, session_id+" "+password);
+}
+
+function customlist_update_session_data(session_id, data) {
+    for (let i=0; i<global_custom_list_data.length; i++) {
+        if (global_custom_list_data[i].session_id == session_id) {
+            global_custom_list_data[i] = data;
+            break;
+        }
+    }
+
+    let match_row = _id("customlist_table_content").querySelector('.row[data-session-id="'+session_id+'"]');
+    if (match_row) {
+        _empty(match_row);
+        renderMatchListRow(data, match_row);
+    }
+
+    if (global_custom_list_selected_match == session_id) {
+        customListRenderMatchPreview(session_id)
+    }
 }

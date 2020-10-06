@@ -544,42 +544,16 @@ window.addEventListener("load", function(){
         //_id("game_loading_message").style.display = "block";
     });
 
-    bind_event("change_pause_state", function(paused, player_id) {
-        let name = false;
-        for (let i=0; i<game_data.teams.length; i++) {
-            for (let y=0; y<game_data.teams[i].players.length; y++) {
-                if (parseInt(game_data.teams[i].players[y].player_id) == player_id) {
-                    name = game_data.teams[i].players[y].name;
-                    break;
-                }
-            }
-            if (name) break;
-        }
-
-        if (!name) {
-            for (let y=0; y<game_data.spectators[i].length; y++) {
-                if (game_data.spectators[i].player_id == player_id) {
-                    name = game_data.spectators[i].name;
-                    break;
-                }
-            }
-        }
-
+    bind_event("change_pause_state", function(paused) {
         if (paused) {
             _id("paused_message").style.display = "flex";
-
-            if (name) addServerChatMessage(localize_ext("ingame_chat_msg_client_match_paused", {"name": name}));
-            else addServerChatMessage(localize("ingame_chat_msg_match_paused"));
-
         } else {
             _id("paused_message").style.display = "none";
-
-            if (name) addServerChatMessage(localize_ext("ingame_chat_msg_client_match_unpaused", {"name": name}));
-            else addServerChatMessage(localize("ingame_chat_msg_match_unpaused"));
         }
     });
 
     bind_event("server_log_message", function(key, value1, value2) {
+        console.log("server_log_message", key, value1, value2);
         if (key == "connecting") {
             addServerChatMessage(localize_ext("ingame_chat_msg_client_connecting", {"name": value1}));
         } else if (key == "disconnected") {
@@ -588,6 +562,16 @@ window.addEventListener("load", function(){
             addServerChatMessage(localize_ext("ingame_chat_msg_client_joined_team", {"name": value1, "team": value2}));
         } else if (key == "join_spec") {
             addServerChatMessage(localize_ext("ingame_chat_msg_client_joined_spec", {"name": value1}));
+        } else if (key == "pauses_left") {
+            let pauses_avail_after = parseInt(value1);
+            if (pauses_avail_after >= 0) addServerChatMessage(localize_ext("ingame_chat_msg_pauses_left", {"count": pauses_avail_after}));
+            else addServerChatMessage(localize("ingame_chat_msg_out_of_pauses"));
+        } else if (key == "paused") {
+            if (value1) addServerChatMessage(localize_ext("ingame_chat_msg_client_match_paused", {"name": value1}));
+            else addServerChatMessage(localize("ingame_chat_msg_match_paused"));
+        } else if (key == "unpaused") {
+            if (value1) addServerChatMessage(localize_ext("ingame_chat_msg_client_match_unpaused", {"name": value1}));
+            else addServerChatMessage(localize("ingame_chat_msg_match_unpaused"));
         }
     });
 
@@ -602,31 +586,6 @@ window.addEventListener("load", function(){
     });
 
     bind_event("show_game_over", show_game_over);
-
-    bind_event('set_respawn_timer', function (time_ms) {
-        //console.log("respawning in time_seconds " + time_ms);
-        /*
-        var el = _id("respawn_timer");
-        if (el) {
-            if (time_ms == -1) {
-                el.style.display = "none";
-            } else {
-                _html(el, Math.round(time_ms / 1000));
-                el.style.display = "flex";
-            }
-        }
-        */
-
-        if (!game_data.show_respawn_timers) return;
-
-        let seconds = Math.round(time_ms/1000);
-        if (seconds == 0) return;
-
-        let div = _createElement("div");
-        div.appendChild(_createElement("div", "text", localize("ingame_message_respawning_in")));
-        div.appendChild(_createElement("div", ["countdown", "medium"], seconds));
-        showAnnounce(div, 1, 1000, 1000);
-    });
 
     /* replaced by player_name hud element
     bind_event('following_state_changed', function (name, target_id, color) { // color currently not a thing yet, need frog
@@ -732,8 +691,73 @@ window.addEventListener("load", function(){
 
     });
 
+    bind_event('set_respawn_timer', function (time_ms) {        
+        let now = Date.now();
+        if (now - cur_announce_msg_ts <= 1000) {
+            if (cur_announce_msg == "round_countdown") return;
+            if (cur_announce_msg == "pre_countdown") return;
+            if (cur_announce_msg == "countdown") return;
+        }
 
-    
+        if (!game_data.show_respawn_timers) return;
+
+        let seconds = Math.round(time_ms/1000);
+        if (seconds <= 0) return;
+
+        announce_message("respawn_countdown", seconds);
+    });
+
+    bind_event('announce_message', announce_message);
+
+    let cur_announce_msg = '';
+    let cur_announce_msg_ts = Date.now();
+    function announce_message(key, value) {
+        console.log("announce_message", key, value);
+        if (key == "countdown") {
+            showAnnounce(value, 2, 1000, 0);
+        } else if (key == "round_countdown") {
+            let cont = _createElement("div");
+            cont.appendChild(_createElement("div", "text", localize("ingame_message_round_begins_in")));
+            cont.appendChild(_createElement("div", "countdown", value));
+            showAnnounce(cont, 1, 1000, 1000);
+        } else if (key == "respawn_countdown") {
+            let cont = _createElement("div");
+            cont.appendChild(_createElement("div", "text", localize("ingame_message_respawning_in")));
+            cont.appendChild(_createElement("div", ["countdown", "medium"], value));
+            showAnnounce(cont, 1, 1000, 1000);
+        } else if (key == "pre_countdown") {
+            let cont = _createElement("div");
+            cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_get_ready")));
+            cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_start_countdown", {"seconds": value })));
+            showAnnounce(cont, 0, value == 0?300:0, 1100);
+        } else if (key == "overtime") {
+            let cont = _createElement("div");
+            cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_overtime")));
+            cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_overtime_seconds", {"seconds": value })));
+            showAnnounce(cont, 1, 1000, 1000);
+        } else if (key == "score_overtime") {
+            let cont = _createElement("div");
+            cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_overtime")));
+            cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_overtime_fraglimit", {"score": value })));
+            showAnnounce(cont, 1, 1000, 1000);
+        } else if (key == "pause_resume") {
+            let cont = _createElement("div");
+            cont.appendChild(_createElement("div", "text", localize("ingame_message_match_resumes_in")));
+            cont.appendChild(_createElement("div", "countdown", value));
+            showAnnounce(cont, 1, 1000, 1000);
+        } else if (key == "fight") {
+            showAnnounce(localize("ingame_message_fight"), 2, 500, 900);
+        } else if (key == "saved_map") {
+            showAnnounce(localize_ext("editor_saved_map", {"name": value }), 0, 300, 2000);
+        } else if (key == "baked_map") {
+            showAnnounce(localize_ext("editor_baked_map", {"seconds": value/1000 }), 0, 300, 2000);
+        } else if (key == "bake_map_failed") {
+            showAnnounce(localize("editor_map_bake_failed"), 0, 300, 2000);
+        }
+
+        cur_announce_msg = key;
+        cur_announce_msg_ts = Date.now();
+    }
 
     function showAnnounce(text, large, fade_out_ms, duration_ms){
         if (!text) return;
@@ -762,45 +786,6 @@ window.addEventListener("load", function(){
             remove: true
         });
     };
-
-    bind_event('announce_message', function(key, value) {
-        if (key == "countdown") {
-            showAnnounce(value, 2, 1000, 0);
-        } else if (key == "round_countdown") {
-            let cont = _createElement("div");
-            cont.appendChild(_createElement("div", "text", localize("ingame_message_round_begins_in")));
-            cont.appendChild(_createElement("div", "countdown", value));
-            showAnnounce(cont, 1, 1000, 1000);
-        } else if (key == "respawn_countdown") {
-            let cont = _createElement("div");
-            cont.appendChild(_createElement("div", "text", localize("ingame_message_respawning_in")));
-            cont.appendChild(_createElement("div", ["countdown", "medium"], Math.round(value/1000)));
-            showAnnounce(cont, 1, 1000, 1000);
-        } else if (key == "pre_countdown") {
-            let cont = _createElement("div");
-            cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_get_ready")));
-            cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_start_countdown", {"seconds": value })));
-            showAnnounce(cont, 0, value == 0?300:0, 1100);
-        } else if (key == "overtime") {
-            let cont = _createElement("div");
-            cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_overtime")));
-            cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_overtime_seconds", {"seconds": value })));
-            showAnnounce(cont, 1, 1000, 1000);
-        } else if (key == "score_overtime") {
-            let cont = _createElement("div");
-            cont.appendChild(_createElement("div", ["text", "upper"], localize("ingame_message_overtime")));
-            cont.appendChild(_createElement("div", ["text", "small"], localize_ext("ingame_message_overtime_fraglimit", {"score": value })));
-            showAnnounce(cont, 1, 1000, 1000);
-        } else if (key == "fight") {
-            showAnnounce(localize("ingame_message_fight"), 2, 500, 900);
-        } else if (key == "saved_map") {
-            showAnnounce(localize_ext("editor_saved_map", {"name": value }), 0, 300, 2000);
-        } else if (key == "baked_map") {
-            showAnnounce(localize_ext("editor_baked_map", {"seconds": value/1000 }), 0, 300, 2000);
-        } else if (key == "bake_map_failed") {
-            showAnnounce(localize("editor_map_bake_failed"), 0, 300, 2000);
-        }
-    });
 
     bind_event('set_time', function (time, warmup, game_mode, round, extraDataJSON) {
 

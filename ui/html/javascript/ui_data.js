@@ -47,6 +47,7 @@ const CLIENT_COMMAND_JOIN_WARMUP = 96;
 const CLIENT_COMMAND_SELECT_MODE = 97;
 const CLIENT_COMMAND_LOBBY_MAKE_ADMIN = 98;
 const CLIENT_COMMAND_LOBBY_REVOKE_ADMIN = 99;
+const CLIENT_COMMAND_GET_MATCH_INFO = 100;
 
 const MATCH_TYPE_CUSTOM = 0;
 const MATCH_TYPE_TOURNAMENT = 1;
@@ -218,6 +219,7 @@ let global_report_reasons = [
     {"id": 2, "i18n": "report_reason_offensive_speech" },
     {"id": 3, "i18n": "report_reason_bug_exploit" },
     {"id": 4, "i18n": "report_reason_griefing" },
+    {"id": 5, "i18n": "report_reason_pause_abuse" },
 ];
 
 var global_ping_colors = {
