@@ -235,6 +235,10 @@ function init_screen_customize() {
     engine.call("initialize_color_value", "game_skin_color");
 }
 
+function customization_move_sticker_layer(direction) {
+    engine.call("arrange_decal_selection", direction);
+}
+
 let character_jscolor_picker = undefined;
 let client_buffered_set_color_timeout = null;
 function customization_set_shell_color(color) {

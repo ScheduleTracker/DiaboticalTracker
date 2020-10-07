@@ -811,7 +811,7 @@
                         <div id="settings_controls_section_gameplay"      onclick="controls_section(this)" class="i18n click-sound mouseover-sound4 active_controls_section" data-i18n="settings_controls_section_gameplay">Gameplay</div>
                         <div id="settings_controls_section_communication" onclick="controls_section(this)" class="i18n click-sound mouseover-sound4" data-i18n="settings_controls_section_communication">Communication</div>
                         <!--<div id="settings_controls_section_shop"       onclick="controls_section(this)" class="i18n click-sound mouseover-sound4" data-i18n="settings_controls_section_shop" style="display: none;">Death</div>-->
-                        <!--<div id="settings_controls_section_spectating" onclick="controls_section(this)" class="i18n click-sound mouseover-sound4" data-i18n="settings_controls_section_spectating">Spectating</div>-->
+                        <div id="settings_controls_section_spectating"    onclick="controls_section(this)" class="i18n click-sound mouseover-sound4" data-i18n="settings_controls_section_spectating">Spectating</div>
                         <div id="settings_controls_section_editing"       onclick="controls_section(this)" class="i18n click-sound mouseover-sound4" data-i18n="settings_controls_section_editing">Editing</div>
                     </div>
                 </div>
@@ -820,6 +820,9 @@
                     <div id="settings_screen_controls_subsection_gameplay" class="settings_screen_controls_subsection scroll-outer theme_settings" data-sb-hide-empty="true">
                         <div class="scroll-bar"><div class="scroll-thumb"></div></div>
                         <div class="scroll-inner">
+
+                            <div class="controls_disclaimer i18n" data-i18n="settings_controls_disclaimer_game">The controls in this section are only active while playing.</div>
+
                             <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_general">
                                 General
                             </div>
@@ -964,9 +967,10 @@
                     <div id="settings_screen_controls_subsection_communication" class="settings_screen_controls_subsection scroll-outer theme_settings" data-sb-hide-empty="true" style="display: none;">
                         <div class="scroll-bar"><div class="scroll-thumb"></div></div>
                         <div class="scroll-inner">
-                            <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_general">
-                                General
-                            </div>
+
+                            <div class="controls_disclaimer i18n" data-i18n="settings_controls_disclaimer_game">The controls in this section are only active while playing.</div>
+
+                            <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_general">General</div>
                             <div class="controls_row">
                                 <div class="controls_pair">
                                     <div class="controls_header i18n" data-i18n="settings_controls_chat">Chat</div>
@@ -996,10 +1000,7 @@
                                 </div>
                             </div>
 
-                            <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_emote" style="margin-top:2vh;">
-                                Emote
-                            </div>
-
+                            <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_emote" style="margin-top:2vh;">Emote</div>
                             <div class="controls_row">
                                 <div class="controls_pair">
                                     <div class="controls_header i18n" data-i18n="settings_controls_emote_greet">Greet</div>
@@ -1015,6 +1016,9 @@
                     <div id="settings_screen_controls_subsection_editing" class="settings_screen_controls_subsection scroll-outer theme_settings" data-sb-hide-empty="true" style="display: none;">
                         <div class="scroll-bar"><div class="scroll-thumb"></div></div>
                         <div class="scroll-inner">
+
+                            <div class="controls_disclaimer i18n" data-i18n="settings_controls_disclaimer_edit">The controls in this section are only active while in edit mode with the editpad raised.</div>
+
                             <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_general">
                                 General
                             </div>
@@ -1226,173 +1230,143 @@
                                 </div>
                             </div>
 
+                            <div class="controls_category settings_header i18n" data-i18n="settings_controls_section_communication" style="margin-top:2vh;">Communication</div>
+                            <div class="controls_row">
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_chat">Chat</div>
+                                    <div class="controls_value" data-db-binding="chat" data-db-binding-mode="editor"></div>
+                                </div>
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_teamchat">Team Chat</div>
+                                    <div class="controls_value" data-db-binding="teamchat" data-db-binding-mode="editor"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="controls_row">
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_team_voice_chat">Team Voice chat</div>
+                                    <div class="controls_value" data-db-binding="talk" data-db-binding-mode="editor"></div>
+                                </div>
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_ping">Ping</div>
+                                    <div class="controls_value" data-db-binding="ping" data-db-binding-mode="editor"></div>
+                                </div>
+                            </div>
+
                             <div style="height:4vh; width:100%"></div>
                         </div>
                     </div>
                     <div id="settings_screen_controls_subsection_spectating" class="settings_screen_controls_subsection scroll-outer theme_settings" data-sb-hide-empty="true" style="display: none;">
                         <div class="scroll-bar"><div class="scroll-thumb"></div></div>
                         <div class="scroll-inner">
-                            <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_general">
-                                General
-                            </div>
+
+                            <div class="controls_disclaimer i18n" data-i18n="settings_controls_disclaimer_spec">The controls in this section are only active when you are a spectator in a game.</div>
+                            
+                            <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_follow">Follow</div>
 
                             <div class="controls_row">
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_move_forward">Move Forward</div>
-                                    <div class="controls_value" data-db-binding="move_forward" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_1">Player 1</div>
+                                    <div class="controls_value" data-db-binding="follow 1" data-db-binding-mode="spec"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_shoot">Toggle HUD</div>
-                                    <div class="controls_value" data-db-binding="attack" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_6">Player 6</div>
+                                    <div class="controls_value" data-db-binding="follow 6" data-db-binding-mode="spec"></div>
                                 </div>
                             </div>
                             <div class="controls_row">
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_move_back">Move back</div>
-                                    <div class="controls_value" data-db-binding="move_back" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_2">Player 2</div>
+                                    <div class="controls_value" data-db-binding="follow 2" data-db-binding-mode="spec"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_zoom">Scoreboard</div>
-                                    <div class="controls_value" data-db-binding="zoom" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_7">Player 7</div>
+                                    <div class="controls_value" data-db-binding="follow 7" data-db-binding-mode="spec"></div>
                                 </div>
                             </div>
                             <div class="controls_row">
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_move_left">Move left</div>
-                                    <div class="controls_value" data-db-binding="move_left" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_3">Player 3</div>
+                                    <div class="controls_value" data-db-binding="follow 3" data-db-binding-mode="spec"></div>
                                 </div>
-                                <!--
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_dodge"></div>
-                                    <div class="controls_value" data-db-binding="skill1" data-db-binding-mode="spectate"></div>
-                                </div>
-                                -->
-                            </div>
-                            <div class="controls_row">
-                                <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_move_right">Move right</div>
-                                    <div class="controls_value" data-db-binding="move_right" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_8">Player 8</div>
+                                    <div class="controls_value" data-db-binding="follow 8" data-db-binding-mode="spec"></div>
                                 </div>
                             </div>
                             <div class="controls_row">
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_jump">Move Up</div>
-                                    <div class="controls_value" data-db-binding="move_up" data-db-binding-mode="spectate"></div>
-                                </div>
-                                <!--
-                                <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_respawn"></div>
-                                    <div class="controls_value" data-db-binding="respawn" data-db-binding-mode="spectate"></div>
-                                </div>
-                                -->
-                            </div>
-                            <div class="controls_row">
-                                <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_crouch">Move Down</div>
-                                    <div class="controls_value" data-db-binding="move_down" data-db-binding-mode="spectate"></div>
-                                </div>
-                                <!--
-                                <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_tag"></div>
-                                    <div class="controls_value" data-db-binding="tag" data-db-binding-mode="spectate"></div>
-                                </div>
-                                -->
-                            </div>
-                            <div class="controls_row">
-                                <div class="controls_pair">
-                                    <div class="controls_header_empty"></div>
-                                    <div class="controls_value_empty"></div>
-                                </div>
-                            </div>
-
-                            <div class="controls_category settings_header i18n" data-i18n="settings_controls_category_cameras">Cameras</div>
-
-                            <div class="controls_row">
-                                <div class="controls_pair">
-                                    <div class="controls_header">Player 1</div>
-                                    <div class="controls_value" data-db-binding="move_forward" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_4">Player 4</div>
+                                    <div class="controls_value" data-db-binding="follow 4" data-db-binding-mode="spec"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header">Player 7</div>
-                                    <div class="controls_value" data-db-binding="attack" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_9">Player 9</div>
+                                    <div class="controls_value" data-db-binding="follow 9" data-db-binding-mode="spec"></div>
                                 </div>
                             </div>
                             <div class="controls_row">
                                 <div class="controls_pair">
-                                    <div class="controls_header">Player 2</div>
-                                    <div class="controls_value" data-db-binding="move_back" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_5">Player 5</div>
+                                    <div class="controls_value" data-db-binding="follow 5" data-db-binding-mode="spec"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header">Player 8</div>
-                                    <div class="controls_value" data-db-binding="zoom" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_player_10">Player 10</div>
+                                    <div class="controls_value" data-db-binding="follow 10" data-db-binding-mode="spec"></div>
                                 </div>
                             </div>
                             <div class="controls_row">
                                 <div class="controls_pair">
-                                    <div class="controls_header">Player 3</div>
-                                    <div class="controls_value" data-db-binding="move_left" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_follow_prev">Previous Player</div>
+                                    <div class="controls_value" data-db-binding="move_up" data-db-binding-mode="spec"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header">Player 9</div>
-                                    <div class="controls_value" data-db-binding="skill1" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_follow_next">Next Player</div>
+                                    <div class="controls_value" data-db-binding="attack" data-db-binding-mode="spec"></div>
                                 </div>
                             </div>
-                            <div class="controls_row">
-                                <div class="controls_pair">
-                                    <div class="controls_header">Player 4</div>
-                                    <div class="controls_value" data-db-binding="move_right" data-db-binding-mode="spectate"></div>
-                                </div>
-                                <div class="controls_pair">
-                                    <div class="controls_header">Player 10</div>
-                                    <div class="controls_value" data-db-binding="skill2" data-db-binding-mode="spectate"></div>
-                                </div>
-                            </div>
-                            <div class="controls_row">
-                                <div class="controls_pair">
-                                    <div class="controls_header">Player 5</div>
-                                    <div class="controls_value" data-db-binding="move_up" data-db-binding-mode="spectate"></div>
-                                </div>
-                                <div class="controls_pair">
-                                    <div class="controls_header">Player 11</div>
-                                    <div class="controls_value" data-db-binding="respawn" data-db-binding-mode="spectate"></div>
-                                </div>
-                            </div>
-                            <div class="controls_row">
-                                <div class="controls_pair">
-                                    <div class="controls_header">Player 6</div>
-                                    <div class="controls_value" data-db-binding="move_down" data-db-binding-mode="spectate"></div>
-                                </div>
-                                <div class="controls_pair">
-                                    <div class="controls_header">Player 12</div>
-                                    <div class="controls_value" data-db-binding="tag" data-db-binding-mode="spectate"></div>
-                                </div>
-                            </div>
+<!--
                             <div class="controls_row">
                                 <div class="controls_pair">
                                     <div class="controls_header">Objective Carrier</div>
-                                    <div class="controls_value" data-db-binding="move_down" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_value" data-db-binding="move_down" data-db-binding-mode="spec"></div>
                                 </div>
                                 <div class="controls_pair">
                                     <div class="controls_header">Free Camera</div>
-                                    <div class="controls_value" data-db-binding="tag" data-db-binding-mode="spectate"></div>
+                                    <div class="controls_value" data-db-binding="tag" data-db-binding-mode="spec"></div>
                                 </div>
                             </div>
-                            <div class="controls_row">
-                                <div class="controls_pair">
-                                    <div class="controls_header">Next Camera</div>
-                                    <div class="controls_value" data-db-binding="move_down" data-db-binding-mode="spectate"></div>
-                                </div>
-                                <div class="controls_pair">
-                                    <div class="controls_header">Previous Camera</div>
-                                    <div class="controls_value" data-db-binding="tag" data-db-binding-mode="spectate"></div>
-                                </div>
-                            </div>
+
                             <div class="controls_row">
                                 <div class="controls_pair">
                                     <div class="controls_header_empty"></div>
                                     <div class="controls_value_empty"></div>
                                 </div>
                             </div>
+-->
+
+                            <div class="controls_category settings_header i18n" data-i18n="settings_controls_section_communication" style="margin-top:2vh;">Communication</div>
+                            <div class="controls_row">
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_chat">Chat</div>
+                                    <div class="controls_value" data-db-binding="chat" data-db-binding-mode="spec"></div>
+                                </div>
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_teamchat">Team Chat</div>
+                                    <div class="controls_value" data-db-binding="teamchat" data-db-binding-mode="spec"></div>
+                                </div>
+                            </div>
+
+                            <div class="controls_row">
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_team_voice_chat">Team Voice chat</div>
+                                    <div class="controls_value" data-db-binding="talk" data-db-binding-mode="spec"></div>
+                                </div>
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_ping">Ping</div>
+                                    <div class="controls_value" data-db-binding="ping" data-db-binding-mode="spec"></div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -1924,6 +1898,13 @@
                                                 <div data-value=1 class="i18n" data-i18n="settings_damage_number_values_1">Show applied damage</div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_damage_number_grouping">Damage number grouping</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_damage_numbers_grouping"><div></div></div>
                                     </div>
                                 </div>
 
@@ -3487,6 +3468,8 @@
         </div>
     </div>
 
+    <div class="customlist_disclaimer i18n" data-i18n="customlist_disclaimer">The custom list contains user created matches and continuous Quick Play matches within your selected regions which have free player slots available.</div>
+
     <!--
     <div id="customlist_bottom">
         <div id="custom_list_join_button" class="db-btn i18n click-sound mouseover-sound2 disabled" data-i18n="menu_join_game">Select Match</div>
@@ -3618,12 +3601,12 @@
     <div id="customize_screen_stickers">
         
         <div id="decals_tools" class="design_panel">
-            <div id="select_tool_icon" class="mouseover-sound2 click-sound tooltip2" onclick="customize_set_sticker_tool_select(this)" data-msg-id="customize_select_decal">
+            <div id="select_tool_icon" class="mouseover-sound4 click-sound tooltip2" onclick="customize_set_sticker_tool_select(this)" data-msg-id="customize_select_decal">
                 <span>S</span>
                 <img src="/html/images/select.svg">
             </div>
 
-            <div class="clear_tool_icon mouseover-sound2 click-sound tooltip2" onclick="customize_clear_stickers(this)" data-msg-id="customize_remove_all_stickers"></div>
+            <div class="clear_tool_icon mouseover-sound4 click-sound tooltip2" onclick="customize_clear_stickers(this)" data-msg-id="customize_remove_all_stickers"></div>
         </div>
 
         <div id="decals_status" reclass="design_panel">
@@ -3687,6 +3670,16 @@
                 <div>
                     <span class="drag i18n" data-i18n="keyboard_backspace">BACKSPACE</span>
                     <span class="action i18n" data-i18n="customize_remove_decal">Remove decal</span>
+                </div>
+
+                <div class="sticker_controls">
+                    <div class="title i18n" data-i18n="customize_order_sticker_layer">Order sticker layer</div>
+                    <div class="buttons">
+                        <div class="db-btn plain tooltip2 mouseover-sound4 click-sound double_down" data-msg-id="customize_order_sticker_layer_back" onclick="customization_move_sticker_layer(-2)"></div>
+                        <div class="db-btn plain tooltip2 mouseover-sound4 click-sound down" data-msg-id="customize_order_sticker_layer_backward" onclick="customization_move_sticker_layer(-1)"></div>
+                        <div class="db-btn plain tooltip2 mouseover-sound4 click-sound up" data-msg-id="customize_order_sticker_layer_forward" onclick="customization_move_sticker_layer(1)"></div>
+                        <div class="db-btn plain tooltip2 mouseover-sound4 click-sound double_up" data-msg-id="customize_order_sticker_layer_front" onclick="customization_move_sticker_layer(2)"></div>
+                    </div>
                 </div>
             </div>
         </div>

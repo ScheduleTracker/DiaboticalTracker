@@ -656,8 +656,14 @@ function player_profile_render_main(data) {
             stat_div.appendChild(stat_label);
 
             let stat_value = _createElement("div", "stat_value");
-            //if (stats_list[i] == "time")       stat_value.textContent = localize_ext("time_ago", { "time": _seconds_to_string(seconds_since)});
-            if (stats_list[i] == "kda")        stat_value.textContent = match.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]+"/"+match.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]+"/"+match.stats[GLOBAL_ABBR.STATS_KEY_ASSISTS];
+            //if (stats_list[i] == "time")       stat_value.textContent = localize_ext("time_ago", { "time": _seconds_to_string(seconds_since)});            
+            if (stats_list[i] == "kda") {
+                if (Object.keys(match.stats).length) {
+                    stat_value.textContent = match.stats[GLOBAL_ABBR.STATS_KEY_FRAGS]+"/"+match.stats[GLOBAL_ABBR.STATS_KEY_DEATHS]+"/"+match.stats[GLOBAL_ABBR.STATS_KEY_ASSISTS];
+                } else {
+                    stat_value.textContent = "0/0/0";
+                }
+            }
             if (stats_list[i] == "acc")        stat_value.textContent = avg_acc + "%";
             if (stats_list[i] == "match_time") stat_value.textContent = _seconds_to_digital(match.match_time);
             if (stats_list[i] == "result") {

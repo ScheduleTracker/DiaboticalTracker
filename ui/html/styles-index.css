@@ -10484,6 +10484,17 @@ h2 {
 #customlist_match_preview .playerlist .list .player {
     width:50%;
 }
+
+#play_screen_customlist .customlist_disclaimer {
+    text-align: center;
+    margin-top: 3vh;
+    font-size: 1.8vh;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    opacity: 0.8;
+    
+    display:none;
+}
 #battlepass_screen {
     position:absolute;
     top:14vh;
@@ -11811,11 +11822,11 @@ h2 {
     box-shadow:none;
 }
 .setting .jscolor {
-    height:4vh;
-    line-height:3vh;
+    height:3vh;
+    line-height:2vh;
     padding-top:0.5vh;
     padding-bottom:0.5vh;
-    margin-right:-1vh;
+    margin-right:0;
 }
 .setting .button {
     margin-right:0 !important;
@@ -11868,6 +11879,14 @@ h2 {
     bottom:0;
     flex-direction: column;
 }
+
+#settings_screen_controls_content .controls_disclaimer {
+    margin-left:6vh;
+    margin-bottom:1vh;
+    font-size:1.3vh;
+    color: rgba(255, 255, 255, 0.85);
+}
+
 #settings_screen_controls_content .controls_category {
     margin-left:6vh;
 }
@@ -13574,7 +13593,6 @@ h2 {
     border-right-width: 0;
     border-left-width: 0;
     background-color: transparent;
-	pointer-events: none;
 }
 #decals_status > div {
     position:absolute;
@@ -13618,6 +13636,36 @@ h2 {
     width: 2.4vh;
     height: 1.65vh;
 }
+
+#decals_status .sticker_controls {
+    margin-top:0.4vh;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    width:100%;
+}
+#decals_status .sticker_controls .title {
+    margin-bottom:0.2vh;
+    color:rgba(255, 255, 255, 0.9);
+}
+#decals_status .sticker_controls .buttons {
+    display:flex;
+    justify-content:flex-start;
+}
+
+#decals_status .sticker_controls .db-btn {
+    width: 4vh;
+    padding: 0;
+    margin-right: 0.4vh;
+    height: 2.6vh;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:60%;
+}
+#decals_status .sticker_controls .db-btn.double_down { background-image:url(/html/images/icons/fa/angle-double-down.svg); }
+#decals_status .sticker_controls .db-btn.down        { background-image:url(/html/images/icons/fa/angle-down.svg); }
+#decals_status .sticker_controls .db-btn.up          { background-image:url(/html/images/icons/fa/angle-up.svg); }
+#decals_status .sticker_controls .db-btn.double_up   { background-image:url(/html/images/icons/fa/angle-double-up.svg); }
 
 
 
