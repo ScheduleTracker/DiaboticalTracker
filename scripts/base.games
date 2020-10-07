@@ -26,6 +26,7 @@ game default
 	setting game_armor 0
 	setting game_stable_armor 100
 	setting game_max_armor 200
+    setting game_high_armor 175
 	setting game_medium_armor 150
 	setting game_unlimited_ammo 0
 	
@@ -649,7 +650,7 @@ game macguffin
 	map mg_sunken
 	map mg_marina
 	map mg_factory
-	map mg_test_2
+	map mg_test
 	
 
 	weapon sword 999
