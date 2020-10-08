@@ -142,6 +142,10 @@ textures\core\digits.png.dds		349700
 textures\core\entity_pin.png.dds		87556
 textures\core\forbidden.png.dds		87556
 textures\core\grid.png.dds		87556
+textures\core\idle_chat.png.dds		87556
+textures\core\idle_console.png.dds		87556
+textures\core\idle_desktop.png.dds		87556
+textures\core\idle_menu.png.dds		87556
 textures\core\item_macguffin.png.dds		349700
 textures\core\items\armor.png.dds		22020
 textures\core\items\armort1.png.dds		22020
