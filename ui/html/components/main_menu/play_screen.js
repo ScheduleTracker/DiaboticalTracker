@@ -1052,6 +1052,9 @@ function renderPlayCard(data) {
 
 class PlayCardVideo {
     constructor(style) {
+        // disable video playback until gameface fixes memory leaks
+        this.disable_videos = true;
+
         style = style.toLowerCase();
 
         this.intro = true;
@@ -1087,6 +1090,8 @@ class PlayCardVideo {
     }
 
     play() {
+        if (this.disable_videos) return;
+
         this.playing = true;
         this.card.classList.add("playing");
         if (this.state == 0) {
@@ -1104,6 +1109,8 @@ class PlayCardVideo {
     }
 
     pause() {
+        if (this.disable_videos) return;
+
         this.playing = false;
         this.card.classList.remove("playing");
         if (this.state == 1) {
@@ -1115,6 +1122,8 @@ class PlayCardVideo {
     }
 
     reset() {
+        if (this.disable_videos) return;
+
         if (this.intro) {
             this.state = 0;
             this.start_video.style.display = "block";
@@ -1136,6 +1145,8 @@ class PlayCardVideo {
     }
 
     setupListeners() {
+        if (this.disable_videos) return false;
+
         if (this.intro) {
             this.start_video.addEventListener("ended", () => {
                 this.start_video.style.display = "none";

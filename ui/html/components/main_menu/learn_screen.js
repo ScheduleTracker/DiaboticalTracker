@@ -893,8 +893,11 @@ function learn_screen_initialize_tab_ha(){
                 else if (item == 'armort1' || item == 'armort4'){
                     cellContent = global_gamemode_data.default.game_max_armor
                 }
-                else if (item == 'armort2' || item == 'armort3'){
+                else if (item == 'armort2'){
                     cellContent = global_gamemode_data.default.game_medium_armor
+                }
+                else if (item == 'armort3'){
+                    cellContent = '175'; //hard write this for now because cant see a value for it in scripts
                 }
             }
 
