@@ -698,7 +698,7 @@ grenade_launcher
 
 	gravity 450
 	gravity_pitch_offset 0.1
-	bounce_friction 0.74
+	bounce_friction 0.73
 	
   	splash_radius 120
 	knockback 160
