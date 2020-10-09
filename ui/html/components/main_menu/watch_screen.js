@@ -1,12 +1,24 @@
+let watch_screen_load_ts = null;
 function init_watch_screen() {
-    let list_cont = _id("twitch_reward_streams_list");
-    _empty(list_cont);
-    
-    api_request("GET", "/twitch/streamers", {}, function(streams) {
-        list_cont.appendChild(render_twitch_reward_stream_list(streams));
+    load_watch_screen();
+}
 
+function load_watch_screen() {
+
+    if (watch_screen_load_ts == null || ((Date.now() - watch_screen_load_ts) > (60 * 1000))) {
+        watch_screen_load_ts = Date.now();
+
+        let list_cont = _id("twitch_reward_streams_list");
+        _empty(list_cont);
+
+        api_request("GET", "/twitch/streamers", {}, function(streams) {
+            list_cont.appendChild(render_twitch_reward_stream_list(streams));
+
+            refreshScrollbar(_id("twitch_reward_streams").querySelector(".scroll-outer"));
+        });
+    } else {
         refreshScrollbar(_id("twitch_reward_streams").querySelector(".scroll-outer"));
-    });
+    }
 }
 
 function render_twitch_reward_stream_list(streams) {

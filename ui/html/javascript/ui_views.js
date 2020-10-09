@@ -713,7 +713,7 @@ function open_watch() {
     historyPushState({"page": "watch_screen"});
     switch_screens(_id("watch_screen"));
 
-    refreshScrollbar(_id("twitch_reward_streams").querySelector(".scroll-outer"));
+    load_watch_screen();
 }
 
 function open_leaderboards(mode) {
