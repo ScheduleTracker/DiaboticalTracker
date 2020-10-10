@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-c92d696ab083dbc5dd27e97064c431238d3087d5	anticheat/equ8.db
+c032702f66bc9b311fd36af451b339465deb38a2	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1562,7 +1562,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-d5b7e79e429af1b585d150e2bfca3166244520d2	diabotical.exe
+3885b02c0e3cf22e8ed9aea453a4d843461300d7	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -5677,8 +5677,8 @@ beb15d9d8287bc11129538b1eb7dcd99e01230bc	ui/html/customization/avatar/av_425d35c
 c6ea779092875261765c9cc3fd7886a60b06ff6a	ui/html/customization/avatar/av_43012b1e-e983-4532-9e49-095da057548d.png.dds
 10a3c4285658c2bc3c7bd071d77bdee466f5a996	ui/html/customization/avatar/av_4351c3e9-a05d-459c-b55f-afbbf2264979.png
 bf9f2b2ca54f1843324be740e64f9de7d26585ac	ui/html/customization/avatar/av_4351c3e9-a05d-459c-b55f-afbbf2264979.png.dds
-01f44b5b6a55c4e558822f4cd090b797e7ae9265	ui/html/customization/avatar/av_438a4b84-6971-44cc-b291-2325b48a2a61.png
-ecc48a35dd8ec757c12df3e19f85836dbedb2be0	ui/html/customization/avatar/av_438a4b84-6971-44cc-b291-2325b48a2a61.png.dds
+a3ce111fdec29ebe8e237243b07ba6301b20d771	ui/html/customization/avatar/av_438a4b84-6971-44cc-b291-2325b48a2a61.png
+6da3fc87744918d329d790531b8662ba744d8193	ui/html/customization/avatar/av_438a4b84-6971-44cc-b291-2325b48a2a61.png.dds
 4360ce4c30f340c1e85380d76a585232aec8ca61	ui/html/customization/avatar/av_44697c22-0019-49bc-b0fc-6347066aa15f.png
 4a21984b1b26264b4f9a086d955b91d98a7194b3	ui/html/customization/avatar/av_44697c22-0019-49bc-b0fc-6347066aa15f.png.dds
 e7f8c0ee0c118d258a1c4fcebb59eacc578db3fb	ui/html/customization/avatar/av_4497bd3a-ac0a-46f6-b8fa-d8b90a39586d.png
