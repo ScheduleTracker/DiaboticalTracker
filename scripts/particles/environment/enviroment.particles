@@ -21,6 +21,8 @@ env_candlelight
     fade_out 1
 	aspect_start 1 
 	aspect_end 0.8 0.7
+	
+	range 600
 
 }
 
@@ -82,6 +84,8 @@ speed_start 10
 velocity_angles 90 0 0 90 0 0
 angular_speed_start -1000 1000
 
+range 650
+
 }
 env_torchlight_3
 {
@@ -104,6 +108,8 @@ env_torchlight_3
     fade_out 1
 	aspect_start 1 
 	aspect_end 0.8 0.7
+	
+	range 800
 
 }
 torch_embers
@@ -127,6 +133,8 @@ torch_embers
 	velocity_angles 90 0 0
 	speed_start 30
 	speed_end 6
+	
+	range 350
 	
 	//position -5 -5 -5 5 -5 5
 	emitter horizontal_circle 3
@@ -193,6 +201,8 @@ fireplace_flames_2
 position 0 4 0
 velocity_angles 90 0 0 90 0 0
 angular_speed_start -1000 1000
+
+range 800
 }
 fireplace_flames_3
 {
@@ -217,6 +227,7 @@ fireplace_flames_3
 	aspect_end 2
 	position 0 2 0
 
+	range 1000
 }
 fireplace_embers
 {
@@ -245,6 +256,8 @@ fireplace_embers
 	//position -5 -5 -5 5 -5 5
 	emitter horizontal_circle 10
 	position 0 -7 0
+	
+	range 600
 }
 
 
@@ -281,6 +294,7 @@ env_statuefire
 	aspect_end 0.5 0.7
 		position 0 8 0   
 
+	range 750
 }
 env_statuefire_2
 {
@@ -304,6 +318,8 @@ env_statuefire_2
 	aspect_start 1
 	aspect_end 1
 	position 0 6 0   
+	
+	range 700
 }
 env_statuefire_3
 {
@@ -327,6 +343,8 @@ env_statuefire_3
 	aspect_start 1
 	aspect_end 1
 	position 0 6 0   
+	
+	range 800
 }
 statue_embers
 {
@@ -353,7 +371,7 @@ statue_embers
 	speed_end 30
 		position 0 6 0 
 
-
+	range 550
 }
 
 statue_embers_2 statue_embers
@@ -418,6 +436,8 @@ portal_vfx_01
 	position 0 8 0  
 angular_speed_start 5000	
 
+	range 1000
+
 }
 portal_vfx_02
 {
@@ -441,6 +461,8 @@ portal_vfx_02
 	fade_in 1
 	position 0 8 0   
 	angular_speed_start 5000
+	
+	range 1000
 
 }
 portal_vfx_03
@@ -462,7 +484,7 @@ portal_vfx_03
 	scale_start 8
 	scale_end 0
 	
-	range 0
+	range 800
 	rotation_start 0
 }
 
@@ -564,7 +586,7 @@ portal_exit_vfx_03
 	scale_start 8 1
 	scale_end 0
 	
-	range 0
+	range 1000
 	rotation_start 0
 }
 portal_exit_bolts_vfx
@@ -644,7 +666,7 @@ portal_exit_vfx_04
 	aspect_end 0.7 0.5
 	hard_edges true
 	perspective_radius 110
-	range 0
+	range 1000
 }
 portal_exit_vfx
 {	 
@@ -941,6 +963,8 @@ map particle_sheet3.png
 	aspect_end 2
 	acceleration 0 -5 0 0 -2 0
 	position -10 0 -10 10 0 10
+	
+	range 500
 
 }
 
@@ -974,6 +998,8 @@ velocity_angles 80 0 80 90 0 90
 	speed_start 10
 	speed_end 0
 position -5 0 -5 5 0 5
+
+range 800
 }
 
 splash_02
@@ -1000,7 +1026,7 @@ velocity_angles 75 15 75 105 -15 105
 	speed_start 20
 speed_end 0
 
-
+range 500
 }
 
 splash_2_vfx
@@ -1032,7 +1058,7 @@ velocity_angles 80 0 80 90 0 90
 	speed_end 0
 	aspect_start 2
 position -80 0 -20 0 0 25
-range 0
+range 1000
 }
 water_vapor_03_2
 {
@@ -1057,7 +1083,7 @@ velocity_angles 80 0 80 90 0 90
 	speed_end 0
 	aspect_start 2
 position 80 0 -20 0 0 25
-range 0
+range 2000
 }
 
 
@@ -1084,7 +1110,7 @@ position -60 0 -20 60 0 20
 velocity_angles 75 15 75 105 -15 105    
 	speed_start 20
 speed_end 0
-range 0
+range 1000
 
 }
 splash_03_small
@@ -1111,7 +1137,7 @@ velocity_angles 75 15 75 105 -15 105
 	speed_start 20
 speed_end 0
 
-range 0
+range 1000
 }
 splash_03_1
 {
@@ -1141,7 +1167,7 @@ map particle_sheet3.png
 	aspect_end 2
 	acceleration 0 -5 0 0 -2 0
 	position -60 0 -40 60 0 40
-range 0
+range 1000
 }
 splash_3_vfx
 {	 
@@ -1177,7 +1203,7 @@ floating_dust
 	rotation_end 0 5
 	//perspective_radius 260
 		angular_speed_start -1000 1000
-	range 0
+	range 600
 }
 floating_dust_2 floating_dust
 {
@@ -1368,6 +1394,8 @@ pu_statue_embers_top
 position 0 0 -0.5
 velocity_angles 80 10  0 100 -10  0
 angular_speed_start -1000 1000
+
+range 700
 }
 
 pu_statue_embers_top_2
@@ -1398,6 +1426,8 @@ pu_statue_embers_top_2
 		//position -5 -5 -5 5 -5 5
 		emitter horizontal_circle 10
 		position 0 -7 0
+		
+		range 750
 }
 
 
