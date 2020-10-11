@@ -195,6 +195,7 @@ textures\core\loading_screen.png.dds		516
 textures\core\monitor.png.dds		11064
 textures\core\ping.png.dds		349700
 textures\core\player_pin.png.dds		5636
+textures\core\player_pin_center.png.dds		5636
 textures\core\portal_mask.png.dds		174904
 textures\core\studio_logo.png.dds		87556
 textures\core\team_indicator.png.dds		87556
