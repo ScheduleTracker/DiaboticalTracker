@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		685
 scripts\base.enemy		543
-scripts\base.games		23834
+scripts\base.games		23779
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -15,7 +15,7 @@ scripts\ctf.movies-example		145
 scripts\decals.assets		4776
 scripts\dynamic_industrial.assets		71627
 scripts\dynamic_temple.assets		26277
-scripts\effects.atlas		7676
+scripts\effects.atlas		7744
 scripts\entities.assets		8163
 scripts\fragclips.movies-example		1485
 scripts\heal.particles		743
@@ -68,7 +68,7 @@ scripts\particles\gl_bullet.particles		9198
 scripts\particles\gl_impact.particles		8122
 scripts\particles\gl_impact_v2.particles		13421
 scripts\particles\gl_muzzle.particles		4460
-scripts\particles\heal.particles		10097
+scripts\particles\heal.particles		10213
 scripts\particles\heal_simple.particles		1164
 scripts\particles\hero_beam.particles		1951
 scripts\particles\hook.particles		1092
@@ -173,7 +173,7 @@ scripts\shaders\character.shader		88
 scripts\shaders\character.shader-copy		27732
 scripts\shaders\character.shader-old		26107
 scripts\shaders\container.shader		1320
-scripts\shaders\core.shader		2989
+scripts\shaders\core.shader		3249
 scripts\shaders\ct_dev.shader		887
 scripts\shaders\ctf.shader		6783
 scripts\shaders\decals.shader		24890
