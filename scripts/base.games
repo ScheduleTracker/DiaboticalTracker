@@ -808,7 +808,6 @@ game ft
 	setting game_truce_time 0
 	setting game_enable_items 1
 	setting game_team_mode 1
-   	setting game_rounds 10
 	setting game_score_limit 5
 	
 	setting game_hp 125
@@ -836,7 +835,6 @@ game ft
 	weapon shaft 50
 	weapon pncr 5
 	weapon grenade_launcher 3
-	weapon healing_weeball 1
 }
 
 // DONT CHANGE ID NUMBERS ASSIGNED TO  SKILLS!

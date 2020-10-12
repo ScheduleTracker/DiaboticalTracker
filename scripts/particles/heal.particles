@@ -82,9 +82,9 @@ heal_weeble_ring
 	scale_end 200
 	position 0 0 1 0 0 1
 	perspective_radius 90
-	color_accent true
-	color_start 1 1 1 1
-	color_end 1 1 1 1
+	//color_accent true
+	color_start 0 1 0.5 0.8
+	color_end  0 1 0.5 0.8
 		displacement true 0.9 0.01 25 0.2
 	range 0
 }
@@ -164,7 +164,7 @@ max_particles 50
 	period 0.00022
 	emitter ellipsoid 60 60 60 60 60 60
 	//position 1 1 1 -1 -1 -1
-    color_start 0 1 0.5 1.0
+    color_start 0 1 0.5 1.0 0.5 1 0.75 1
 	color_end  0 0 0 0
 	turbulence 0 0 0
 	scale_start 0 2
@@ -172,9 +172,9 @@ max_particles 50
 	//perspective_radius 300
 	perspective_radius 3
 	scale_timeline 0=0.0,l;0.2=1,l;0.5=1.2,l;0.9=0.7,l;1=0.0,l
-	color_accent true
-	color_start 1 1 1 1
-	color_end 1 1 1 1
+	//color_accent true
+	//color_start 1 1 1 1
+	//color_end 1 1 1 1
 	range 0
 }
 
@@ -205,7 +205,7 @@ heal_weeble_crosses_01_3
 	period 0.00022
 	emitter ellipsoid 30 30 30 30 30 30
 	//position 1 1 1 -1 -1 -1
-    color_start 0 1 0.5 1.0
+    color_start 0 1 0.5 1.0 0.5 1 0.75 1
 	color_end  0 0 0 0
 	turbulence 0 0 0
 	scale_start 0 2
@@ -213,9 +213,9 @@ heal_weeble_crosses_01_3
 	//perspective_radius 300
 	perspective_radius 3
 	scale_timeline 0=0.0,l;0.2=1,l;0.5=1.2,l;0.9=0.7,l;1=0.0,l
-	color_accent true
-	color_start 1 1 1 1
-	color_end 1 1 1 1
+	//color_accent true
+	//color_start 1 1 1 1
+	//color_end 1 1 1 1
 	range 0
 }
 
@@ -233,7 +233,7 @@ max_particles 50
 	period 0.00022
 	emitter ellipsoid 85 85 85 85 85 85
 	//position 1 1 1 -1 -1 -1
-    color_start 0 2 1 1.0
+    color_start 0 1 0.5 1.0 0.5 1 0.75 1
 	color_end  0 0 0 0
 	turbulence 0 0 0
 	scale_start 5
@@ -241,9 +241,9 @@ max_particles 50
 	//perspective_radius 300
 	perspective_radius 3
 	scale_timeline 0=0.0,l;0.2=1,l;0.5=1.2,l;0.9=0.7,l;1=0.0,l
-	color_accent true
-	color_start 1 1 1 1
-	color_end 1 1 1 1
+	//color_accent true
+	//color_start 1 1 1 1
+	//color_end 1 1 1 1
 	range 0
 }
 
@@ -270,7 +270,7 @@ max_particles 50
 	period 0.00022
 	emitter ellipsoid 70 70 70 70 70 70
 	//position 1 1 1 -1 -1 -1
-    color_start 0 2 1 1.0
+    color_start 0 1 0.5 1.0 0.5 1 0.75 1
 	color_end  0 0 0 0
 	turbulence 0 0 0
 	scale_start 1
@@ -345,9 +345,9 @@ heal_weeble_floor_lines_edge
 	rotation_start 90 0
 	rotation_end 90 0
 	turbulence 400 5
-	color_accent true
-	color_start 1 1 1 1
-	color_end 1 1 1 1
+	//color_accent true
+	//color_start 1 1 1 1
+	//color_end 1 1 1 1
 	range 0
 } 
 heal_weeble_floor_lines_edge_2 heal_weeble_floor_lines_edge
@@ -377,15 +377,15 @@ heal_weeble_floor_lines_edge_pulse
 	scale_end 115
 	//color_start 0.2 3 4 6
 	//color_end 0.2 3 4 6
-   color_start 0 1 0.5 1.0
+   color_start 0 1 0.5 0.5
 	color_end  0 0 0 0
 	position 0 0 0
 	rotation_start 90 0
 	rotation_end 90 0
 	turbulence 400 5
-	color_accent true
-	color_start 1 1 1 1
-	color_end 1 1 1 1
+	//color_accent true
+	//color_start 1 1 1 1
+	//color_end 1 1 1 1
 	range 0
 } 
 heal_weeble_floor_lines_edge_pulse_2 heal_weeble_floor_lines_edge_pulse
@@ -415,15 +415,15 @@ heal_weeble_floor_lines_edge_pulse_end
 	scale_end 1000
 	//color_start 0.2 3 4 6
 	//color_end 0.2 3 4 6
-   color_start 0 1 0.5 1.0
+   color_start 0 1 0.5 0.5
 	color_end  0 0 0 0
 	position 0 0 0
 	rotation_start 90 0
 	rotation_end 90 0
 	turbulence 400 5
-	color_accent true
-	color_start 1 1 1 1
-	color_end 1 1 1 1
+	//color_accent true
+	//color_start 1 1 1 1
+	//color_end 1 1 1 1
 	//scale_timeline 0=0.675,l;0.1=0,,l;1=1,l;
 	displacement true 0.9 0.025 25 0.2
 	range 0
@@ -508,7 +508,7 @@ heal_weeble_impact_light base_light_impact
 	system_light_falloff 0.75
 	velocity 0 0 0
 	perspective_radius 110
-	position 0 10 0
+	system_light_position 0 10 0
 	range 0
 }
 
