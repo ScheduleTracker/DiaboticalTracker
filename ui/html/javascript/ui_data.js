@@ -469,7 +469,7 @@ var global_game_mode_map = {
         "i18n": "game_mode_ft",
         "desc_i18n": "game_mode_desc_ft",
         "announce": "announcer_common_gamemode_ft",
-        "enabled": false,
+        "enabled": true,
         "image": "brawl_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
     },

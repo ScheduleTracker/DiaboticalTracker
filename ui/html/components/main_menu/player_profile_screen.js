@@ -62,6 +62,18 @@ function player_profile_set_eggbot_preview(customizations) {
         engine.call("set_preview_shell", "");
     }
 
+    if ("sh_l" in customizations) {
+        engine.call("set_preview_shoe", "l", customizations.sh_l);
+    } else {
+        engine.call("set_preview_shoe", "l", "");
+    }
+
+    if ("sh_r" in customizations) {
+        engine.call("set_preview_shoe", "r", customizations.sh_r);
+    } else {
+        engine.call("set_preview_shoe", "r", "");
+    }
+
     if ("sticker" in customizations) {
         engine.call("set_player_decals_override", true, customizations.sticker);
     } else {

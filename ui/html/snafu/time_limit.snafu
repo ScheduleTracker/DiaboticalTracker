@@ -23,6 +23,10 @@ ON_UPDATE
         game_state = "ingame_message_warmup"
     ELSE
         IF game_data.round_mode
+            IF game_data.game_mode == "ft"
+                discard
+            END IF
+            
             game_state = "ingame_message_round"
             state_value = game_data.round + 1
         ELSE
