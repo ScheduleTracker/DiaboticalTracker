@@ -893,8 +893,8 @@
                                     <div class="controls_value" data-db-binding="skill1" data-db-binding-mode="game"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header_empty"></div>
-                                    <div class="controls_value_empty"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_restart_run">Restart run</div>
+                                    <div class="controls_value" data-db-binding="restart" data-db-binding-mode="game"></div>
                                 </div>
                             </div>
 
@@ -3534,6 +3534,11 @@
             <div class="label i18n" data-i18n="customize_group_profile">Profile</div>
             <div class="new"></div>
         </div>
+
+        <div class="category mouseover-sound4 click-sound presets" onclick="customization_load_category(this, 'presets')">
+            <div class="label i18n" data-i18n="customize_presets">Presets</div>
+        </div>
+
         <div class="category mouseover-sound4 click-sound sticker selected" onclick="customization_load_category(this, 'sticker')">
             <div class="label i18n" data-i18n="customize_group_sticker">Sticker</div>
             <div class="new"></div>
@@ -3633,6 +3638,23 @@
         </div>
     </div>
 
+    <div id="customize_presets">
+        <div class="presets_menu">
+            <div class="option active"><div class="option_inner i18n" data-i18n="customize_character_presets">Character presets</div></div>
+        </div>
+        <div class="presets_body scroll-outer theme_settings" data-sb-hide-empty="true">
+            <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+            <div id="customization_presets_content" class="scroll-inner"></div>
+        </div>
+        <div class="presets_bottom">
+            <div id="customize_presets_menu">
+                <div class="db-btn i18n mouseover-sound4 click-sound" data-i18n="menu_button_save" onclick="customize_presets_save()"></div>
+                <div class="db-btn i18n mouseover-sound4 click-sound" data-i18n="menu_button_load" onclick="customize_presets_load()"></div>
+                <div class="db-btn i18n mouseover-sound4 click-sound" data-i18n="menu_button_delete" onclick="customize_presets_delete()"></div>
+            </div>
+        </div>
+    </div>
+
     <div id="customize_screen_stickers">
         
         <div id="decals_tools" class="design_panel">
@@ -3720,50 +3742,6 @@
         </div>
     </div>
 
-
-
-
-<!-- OLD CODE
-
-    <div class="customization_panel" style="display:none;">
-        <div class="customization_menu">
-            <div class="mouseover-sound3 click-sound i18n" onclick="open_customization_section(this, 'decals')" id="customization_tab_decals"><div class="i18n" data-i18n="customize_decals">Decals</div></div>
-            <div class="mouseover-sound3 click-sound i18n" onclick="open_customization_section(this, 'songs')"><div class="i18n" data-i18n="customize_music">Audio</div></div>
-            <div class="mouseover-sound3 click-sound i18n"><div class="i18n" data-i18n="customize_announcer">Announcers</div></div>
-            <div class="mouseover-sound3 click-sound i18n"><div class="i18n" data-i18n="customize_weapons">Weapons</div></div>
-        </div>
-        <div class="customization_filter">
-            <div class="customize_dropdown">
-                <div id="customize_dropdown_rarity_filter" class="select-field" data-theme="customize">
-                    <div class="i18n" data-i18n="rarity_all" data-value="all" data-selected=1>All rarities</div>           
-                </div>
-            </div>
-
-            <div class="customize_dropdown">
-                <div id="customize_dropdown_show_order" class="select-field" data-theme="customize">
-                    <div data="i18n" data-i18n="order_by_rarity" data-value="rarity">Order by Rarity</div>
-                    <div data="i18n" data-i18n="order_by_name" data-value="name">Order by Name</div>            
-                </div>
-            </div>
-
-            <input id="customize_input_text_filter" class="customize_input" oninput='global_input_debouncers["customize_input_text_filter"].execute()'>
-        </div>
-
-        <div>
-            <div id="customization_items_list" class="customization_list" ></div>
-        </div>
-
-        <div id="customization_preview">
-            Selection Preview Area
-        </div>
-
-        <div class="customization_bottom_bar">
-            <span id="customization_items_prev_page" class="get-closer mouseover-sound2 click-back1"><span>&lt;</span><span class="i18n" data-i18n="menu_previous_page">Previous Page</span></span>
-            <span class="customization_page_number">Page <span id="customization_items_page_count">0/0</span></span>
-            <span id="customization_items_next_page" class="get-closer mouseover-sound2 click-sound"><span class="i18n" data-i18n="menu_next_page">Next Page</span><span>&gt;</span></span>
-        </div>
-    </div>
--->
 </div>
 
             <div id="battlepass_screen">

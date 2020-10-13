@@ -419,6 +419,9 @@ window.addEventListener("load", function(){
                 case "update-session-data":
                     customlist_update_session_data(json_data.session_id, json_data.data)
                     break;
+                case "update-char-preset":
+                    customization_update_preset(json_data.data);
+                    break;
             }
 
             // Send to single use registered response handlers
@@ -483,6 +486,16 @@ window.addEventListener("load", function(){
                         "title": localize("title_info"),
                         "msg": localize("party_penalty_msg"),
                     });
+                    break;
+                case "load-char-preset-success":
+                    clear_profile_data_cache_id(global_self.user_id);
+                    customize_preset_deselect();
+                    /*
+                    queue_dialog_msg({
+                        "title": localize("title_info"),
+                        "msg": localize("customize_preset_loaded"),
+                    });
+                    */
                     break;
             }
 
@@ -1407,7 +1420,9 @@ function set_masterserver_connection_state(connected, initial) {
             // Only request these things the first time around to avoid any extra hickups when reconnecting during gameplay
             if (global_ms_connected_count <= 1) {
                 // Request the users customization item list
-                load_user_customizations();
+                load_user_customizations(function() {
+                    load_customization_presets();
+                });
 
                 // Get the list of saved huds
                 load_user_hud_list();

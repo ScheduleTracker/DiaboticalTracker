@@ -204,7 +204,7 @@ function renderMatchListRow(match, row) {
     sub_row_2.appendChild(tr_region);
 
     let tr_players = _createElement("div", "players");
-    tr_players.innerHTML = match.client_count+"/"+(match.team_count * match.team_size);
+    tr_players.innerHTML = match.client_count+"/"+match.max_clients;
     row.appendChild(tr_players);
 
     let ping_ms = global_server_locations[match.location].ping;

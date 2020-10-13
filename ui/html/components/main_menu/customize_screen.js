@@ -235,6 +235,297 @@ function init_screen_customize() {
     engine.call("initialize_color_value", "game_skin_color");
 }
 
+function load_customization_presets() {
+    // Retrieve saved customization presets
+    api_request("GET", "/user/presets", {}, function(data) {
+        if (data.hasOwnProperty("presets")) {
+            customization_render_presets(data.presets);
+        } else {
+            customization_render_presets([]);
+        }
+    });
+}
+
+const customization_max_presets_count = 5;
+let customization_selected_preset = null;
+let customize_preset_lookup = {};
+function customization_render_presets(data) {
+    let cont = _id("customization_presets_content");
+    _empty(cont);
+
+    customize_preset_lookup = {};
+    for (let p of data) customize_preset_lookup[p.preset_index] = p;
+
+    // render list of existing presets and empty spaces
+    for (let i=0; i<customization_max_presets_count; i++) {
+        
+        let preset = null;
+        if (customize_preset_lookup.hasOwnProperty(i)) preset = customize_preset_lookup[i];
+
+        let preset_div = _createElement("div", "preset");
+        customization_render_preset(preset_div, preset, i);
+
+        preset_div.addEventListener("click", function() {
+            if (customization_selected_preset !== null) customization_selected_preset.classList.remove("selected");
+
+            if (customization_selected_preset === preset_div) {
+                customize_preset_deselect();
+            } else {
+                customization_selected_preset = preset_div;
+                customization_selected_preset.classList.add("selected");
+
+                _id("customize_presets_menu").classList.add("active");
+
+                let clicked_preset = null;
+                if (customize_preset_lookup.hasOwnProperty(i)) clicked_preset = customize_preset_lookup[i];
+                customize_preset_preview(clicked_preset);
+            }
+        });
+
+        _addButtonSounds(preset_div, 1);
+
+        cont.appendChild(preset_div);
+    }
+
+    cont.appendChild(_createElement("div", "presets_padding"));
+}
+
+function customize_preset_deselect() {
+    if (customization_selected_preset !== null) customization_selected_preset.classList.remove("selected");
+    customization_selected_preset = null;
+
+    _id("customize_presets_menu").classList.remove("active");
+    customize_preset_preview(null);
+}
+
+function customize_preset_preview(preset) {
+    if (preset === null) {
+        // reset preview to the current normal setup
+        reset_customization_previews();
+    } else {
+        engine.call("reset_locker_agent_rotation");
+
+        let shell_id = '';
+        if ("shell" in preset.customizations) shell_id = preset.customizations.shell;
+
+        let customization = {}
+        if (shell_id in global_customization_data_map) customization = global_customization_data_map[shell_id];
+        
+        show_customization_preview_scene("customize", new CustomizationType("shell", ""), shell_id, customization, global_customization_preview_area);
+    
+        if ("sh_l" in preset.customizations) {
+            engine.call("set_preview_shoe", "l", preset.customizations.sh_l);
+        } else {
+            engine.call("set_preview_shoe", "l", "");
+        }
+    
+        if ("sh_r" in preset.customizations) {
+            engine.call("set_preview_shoe", "r", preset.customizations.sh_r);
+        } else {
+            engine.call("set_preview_shoe", "r", "");
+        }
+    
+        if ("sticker" in preset.customizations) {
+            engine.call("set_player_decals_override", true, preset.customizations.sticker);
+        } else {
+            engine.call("set_player_decals_override", true, "");
+        }
+    }
+}
+
+function customization_update_preset(data) {
+    let presets_cont = _id("customization_presets_content");
+    let preset_div = null;
+
+    for (let i=0; i<presets_cont.children.length; i++) {
+        if (parseInt(presets_cont.children[i].dataset.index) == data.preset_index) {
+            preset_div = presets_cont.children[i];
+            break;
+        }
+    }
+
+    if (preset_div != null) {
+        _empty(preset_div);
+        customization_render_preset(preset_div, data, data.preset_index);
+        customize_preset_lookup[data.preset_index] = data;
+
+        if (preset_div.classList.contains("selected")) {
+            customize_preset_preview(data);
+        }
+    }
+}
+
+function customization_render_preset(preset_div, preset, index) {
+    let disable = _createElement("div", ["customization_item", "disable", "rarity_bg_0"]);
+    disable.appendChild(_createElement("div", "times"));
+
+    preset_div.dataset.index = index;
+
+    if (preset) {
+        preset_div.dataset.id = preset.preset_id;
+        preset_div.dataset.name = preset.preset_name;
+
+        let preset_name = preset.preset_name;
+        if (preset_name.length == 0) preset_name = localize_ext("customize_preset", {"count": index+1});
+        let name = _createElement("div", "name", preset_name);
+        preset_div.appendChild(name);
+
+        let body = _createElement("div", "body");
+        preset_div.appendChild(body);
+
+        // Shell
+        let big = _createElement("div", "big");
+        body.appendChild(big);
+        if (preset.customizations.hasOwnProperty("shell") && preset.customizations.shell.length && global_customization_data_map.hasOwnProperty(preset.customizations.shell)) {
+            big.appendChild(render_item(global_customization_data_map[preset.customizations.shell]));
+        } else {
+            big.appendChild(disable.cloneNode(true));
+        }
+
+        // Shoes
+        if (preset.customizations.hasOwnProperty("sh_l") && preset.customizations.sh_l.length && global_customization_data_map.hasOwnProperty(preset.customizations.sh_l)) {
+            let big_sh_l = _createElement("div", "big");
+            body.appendChild(big_sh_l);
+            big_sh_l.appendChild(render_item(global_customization_data_map[preset.customizations.sh_l]));
+        }
+        if (preset.customizations.hasOwnProperty("sh_r") && preset.customizations.sh_r.length && global_customization_data_map.hasOwnProperty(preset.customizations.sh_r)) {
+            let big_sh_r = _createElement("div", "big");
+            body.appendChild(big_sh_r);
+            big_sh_r.appendChild(render_item(global_customization_data_map[preset.customizations.sh_r]));
+        }
+
+        let stickers = [];
+        if (preset.customizations.hasOwnProperty("sticker") && preset.customizations.sticker.length) {
+            let parts = preset.customizations.sticker.split("!");
+            for (let part of parts) {
+                if (stickers.length >= 10) break;
+                
+                let tmp = part.split(":");
+                stickers.push(tmp[11]);
+            }
+        }
+
+        // Stickers
+        let double_st = _createElement("div", "double");
+        body.appendChild(double_st);
+        for (let st of stickers) {
+            if (!global_customization_data_map.hasOwnProperty(st)) continue;
+            double_st.appendChild(render_item(global_customization_data_map[st]));
+        }
+
+    } else {
+        preset_div.dataset.id = "new";
+        preset_div.dataset.name = "";
+        preset_div.appendChild(_createElement("div", "new"));
+    }
+
+    function render_item(c) {
+        let item = _createElement("div", "customization_item");
+                        
+        item.dataset.msgHtmlId = "customization_item";
+        item.dataset.id = c.customization_id;
+        item.dataset.type = c.customization_type;
+        item.dataset.rarity = c.rarity;
+        add_tooltip2_listeners(item);
+
+        item.classList.add(global_customization_type_map[c.customization_type].name);
+        item.classList.add("rarity_bg_"+c.rarity);
+        item.style.setProperty("--rarity", "var(--rarity_dark_"+c.rarity+")");
+
+        item.appendChild(renderCustomizationInner("customize", c.customization_type, c.customization_id, c.amount, false));
+        return item;
+    }
+}
+
+let customize_presets_opened = false;
+function customization_load_presets() {
+    if (customize_presets_opened) return;
+    customize_presets_opened = true;
+
+    // Hide windows from regular categories
+    _id("customize_content").style.display = "none";
+    global_customization_preview_area.style.opacity = 0;
+    _id("customize_screen_stickers").style.display = "none";
+
+    historyPushState({"page": "customize_screen", "category": "presets", "type": null});
+
+    if (customization_selected_preset != null) {
+        customization_selected_preset.classList.remove("selected");
+        customization_selected_preset = null;
+        _id("customize_presets_menu").classList.remove("active");
+    }
+
+    // Show eggbot preview
+    engine.call("on_show_customization_screen", true);
+    engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.eggbot_locker);
+
+    // Setup character rotation controls
+    let preview_container = _createElement("div", "preview_container");
+    setup_customization_preview_rotation_listeners(preview_container);
+    _empty(global_customization_preview_area);
+    global_customization_preview_area.appendChild(preview_container);
+
+    let presets_cont = _id("customize_presets");
+    presets_cont.classList.add("active");
+
+    let list_content = _id("customization_presets_content");
+    refreshScrollbar(list_content.parentElement);
+    resetScrollbar(list_content.parentElement);
+}
+
+function customize_presets_save() {
+    if (customization_selected_preset == null) return;
+
+    let cont = _createElement("div","preset_name_prompt");
+    let input = _createElement("input","preset_name_prompt_input");
+    input.setAttribute("type", "text");
+    input.focus();
+    input.value = customization_selected_preset.dataset.name;
+    cont.appendChild(input);
+    input.maxLength = 50;
+
+    input.addEventListener("keydown", function(e) {
+        if (e.keyCode == 13) { //return
+            e.preventDefault();
+
+            save_preset(input.value.trim());
+
+            // close modal
+            close_modal_screen_by_selector('generic_modal');
+        }
+    });
+
+    genericModal(localize("customize_preset_name"), cont, localize("menu_button_cancel"), null, localize("menu_button_save"), function() {
+        save_preset(input.value);
+    });
+
+    function save_preset(name) {
+        send_string(CLIENT_COMMAND_SAVE_CHAR_PRESET, JSON.stringify({ "preset_id": customization_selected_preset.dataset.id, "index": customization_selected_preset.dataset.index, "name": name }));
+    }
+}
+
+function customize_presets_load() {
+    if (customization_selected_preset == null) return;
+    if (customization_selected_preset.dataset.id == "new") return;
+
+    send_string(CLIENT_COMMAND_LOAD_CHAR_PRESET, customization_selected_preset.dataset.id);
+}
+
+function customize_presets_delete() {
+    if (customization_selected_preset == null) return;
+    if (customization_selected_preset.dataset.id == "new") return;
+
+    send_string(CLIENT_COMMAND_DEL_CHAR_PRESET, customization_selected_preset.dataset.id);
+
+    _empty(customization_selected_preset);
+    customization_selected_preset.dataset.id = "new";
+    customization_selected_preset.dataset.name = "";
+    customization_selected_preset.appendChild(_createElement("div", "new"));
+
+    customize_preset_preview(null);
+    delete customize_preset_lookup[customization_selected_preset.dataset.index];
+}
+
 function customization_move_sticker_layer(direction) {
     engine.call("arrange_decal_selection", direction);
 }
@@ -540,13 +831,19 @@ function customization_load_category(btn, category, ctype) {
         btn.classList.add("selected");
     }
 
-    if (global_customization_active_ctype) global_customization_prev_type = global_customization_active_ctype.type;
+    if (customize_presets_opened) {
+        customize_presets_opened = false;
+        _id("customize_presets").classList.remove("active");
+        reset_customization_previews();
+    }
 
-    customization_render_category(category, ctype);
-    customization_show_category(category, global_customization_active_ctype);
+    if (global_customization_active_ctype) global_customization_prev_type = global_customization_active_ctype.type;
 
     let customization_content = _id("customize_content");
     if (customization_content) customization_content.style.display = "flex";
+
+    customization_render_category(category, ctype);
+    customization_show_category(category, global_customization_active_ctype);
 }
 
 /**
@@ -703,14 +1000,26 @@ function customization_render_category(category, selected_ctype) {
  */
 function customization_show_category(category, ctype) {
     //console.log("customization_show_category", category, _dump(ctype));
-    historyPushState({"page": "customize_screen", "category": category, "type": ctype});
-    global_customization_active_category = category;
 
     // Reset character selections
     reset_customization_previews();
 
     // Stop any audio previews
     _pause_music_preview();
+
+    global_customization_active_category = category;
+
+    // Reset tool selection when changing category or sub category
+    customize_set_tool("none");
+
+    if (category == "presets") {
+        customize_presets_opened = false;
+        customization_load_presets();
+        return;
+    }
+
+    historyPushState({"page": "customize_screen", "category": category, "type": ctype});
+    global_customization_preview_area.style.opacity = 1;
 
     let cont = _id("customization_window_content_inner");
 
@@ -752,8 +1061,6 @@ function customization_show_category(category, ctype) {
     // Show big 2D or 3D Preview
     show_customization_preview_scene("customize", ctype, current_customization_id, current_customization, global_customization_preview_area);
 
-    // Reset tool selection when changing category or sub category
-    customize_set_tool("none");
 
     cleanup_floating_containers();
 
@@ -822,6 +1129,9 @@ function reset_customization_previews() {
     let current_shoe_r = get_current_customization(new CustomizationType("shoes", "r"));
     engine.call("set_preview_shoe", "r", current_shoe_r);
     reset_customization_category_selection(customize_saved_page["shoes_r"], current_shoe_r);
+
+    // Stickers
+    engine.call("set_player_decals_override", false, "");
 }
 
 /**
@@ -1590,7 +1900,7 @@ let global_customization_blur_active = false;
 function show_customization_preview_scene(screen, ctype, id, customization, cont) {
     if (!ctype.type.length) return;
 
-    //console.log("show_customization_preview_scene", screen, id, _dump(ctype));
+    //console.log("show_customization_preview_scene", screen, id, _dump(customization), _dump(ctype));
 
     let show_desc = false;
     if (screen == "customize") show_desc = true;
