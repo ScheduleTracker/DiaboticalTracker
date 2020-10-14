@@ -172,6 +172,14 @@ models\theme\colliery\textures\ct_stonecoal01_n.png.dds		349700
 models\theme\default_texture\grid_default_omar.assets		175
 models\theme\default_texture\grid_default_omar.png.dds		1398276
 models\theme\default_texture\grid_default_omar.shader		493
+models\theme\desert\props\sand_props.shader		2181
+models\theme\desert\textures\sand\sand_01_b87c4d_redstone_d.png.dds		1398276
+models\theme\desert\textures\sand\sand_01_ba9068_medina_d.png.dds		1398276
+models\theme\desert\textures\sand\sand_01_d.png.dds		699192
+models\theme\desert\textures\sand\sand_01_db9f6b_temple_d.png.dds		1398276
+models\theme\desert\textures\sand\sand_01_n.png.dds		1398276
+models\theme\desert\textures\sand_textures.assets		484
+models\theme\desert\textures\sand_textures.shader		994
 models\theme\energy_source\props\batery_station\batery_d.png.dds		349700
 models\theme\energy_source\props\batery_station\batery_i.png.dds		174904
 models\theme\energy_source\props\batery_station\batery_m.png.dds		174904
