@@ -99,6 +99,7 @@ function init_element_weapon_list() {
         "iOpacityInactive": "1",
         "aOpacityInactive": "1",
         "iShadow": "0",
+        "hM": "0",
         "iC": "weapon",
         "iCCustom": "#ffffff",
         "iCActive": "weapon",
@@ -189,6 +190,8 @@ function init_element_weapon_list() {
         {"inputType": "float",  "type": "iOpacityInactive", "text": "Inactive Icon Opacity"},
         {"inputType": "float",  "type": "aOpacityInactive", "text": "Inactive Text Opacity"},
         {"inputType": "toggle", "type": "iShadow", "text": "Icon Shadow"},
+
+        {"inputType": "toggle", "type": "hM", "text": "Hide Melee"},
 
         // I'm going crazy and just add all the color options:
         {"inputType": "list",   "type": "iC", "text": "Icon Color", "listValues":

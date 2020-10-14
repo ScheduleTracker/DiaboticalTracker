@@ -128,6 +128,7 @@ BEGIN TEMPLATE weapons_list
     INT active_icon_weapon_coloring
     INT icon_bg_weapon_coloring
     INT active_icon_bg_weapon_coloring
+    INT hM
     
     IF iC == "weapon"
         icon_weapon_coloring = 1
@@ -213,6 +214,10 @@ ON_UPDATE
     IF !common_game_data.self_alive
         discard
     END IF
+
+    IF weapons_list[IDX].tag == "melee" && hM
+        skip
+    END IF 
 
     j = 0
     

@@ -1795,12 +1795,19 @@
                                 <div class="setting">
                                     <div class="label i18n" data-i18n="settings_auto_switch_weapon">Auto switch weapon on empty</div>
                                     <div class="ctrl">
-                                        <div class="setting_select">                           
+                                        <div class="setting_select wide">                           
                                             <div class="select-field" data-variable="game_auto_switch_ooa" data-theme="settings">
                                                 <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
-                                                <div data-value=1 class="i18n" data-i18n="enabled">Enabled</div>
+                                                <div data-value=1 class="i18n" data-i18n="settings_auto_switch_weapon_ammo">When running out of ammo</div>
+                                                <div data-value=2 class="i18n" data-i18n="settings_auto_switch_weapon_fire">When shooting a weapon out of ammo</div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_equip_empty">Equip empty weapons</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_equip_empty_weapons"><div></div></div>
                                     </div>
                                 </div>
                                 <div class="setting" style="display:none;">
