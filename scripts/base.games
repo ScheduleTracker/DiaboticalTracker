@@ -425,6 +425,7 @@ game duel
 	map duel_outpost_dunia
 	map duel_perilous
 	map duel_skybreak
+	map duel_monolith
 
 	weapon sword 999
 	weapon machinegun 100
