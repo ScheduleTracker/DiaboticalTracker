@@ -263,7 +263,7 @@ var global_region_map = {
     "tok": { "flag": "jp", "i18n": "datacenter_tok", "provider": "i3D.net",     "name": "Tokyo" },
     "war": { "flag": "pl", "i18n": "datacenter_war", "provider": "i3D.net",     "name": "Warsaw" },
     "yek": { "flag": "ru", "i18n": "datacenter_yek", "provider": "G-Core Labs", "name": "Yekaterinburg"},
-    "tes": { "flag": "nl", "i18n": "datacenter_test", "provider": "i3D.net",    "name": "Test Location" },
+    "tes": { "flag": "nl", "i18n": "datacenter_tes", "provider": "i3D.net",     "name": "Test Location" },
 };
 
 const CUSTOM_MULTI_TEAM_MODES = ["brawl","instagib","ghosthunt","ffa","race"];

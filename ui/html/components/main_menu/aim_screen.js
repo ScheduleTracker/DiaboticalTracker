@@ -98,6 +98,7 @@ function aim_scenario_set_video_play(shouldPlay){
         }
         else{
             scenarioVideo.pause();
+            if (scenarioVideo.hasOwnProperty("suspended")) delete scenarioVideo.suspended;
         }
     }
 }

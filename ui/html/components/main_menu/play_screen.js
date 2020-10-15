@@ -1053,7 +1053,7 @@ function renderPlayCard(data) {
 class PlayCardVideo {
     constructor(style) {
         // disable video playback until gameface fixes memory leaks
-        this.disable_videos = true;
+        this.disable_videos = false;
 
         style = style.toLowerCase();
 
@@ -1115,9 +1115,11 @@ class PlayCardVideo {
         this.card.classList.remove("playing");
         if (this.state == 1) {
             this.start_video.pause();
+            if (this.start_video.hasOwnProperty("suspended")) delete this.start_video.suspended;
         }
         if (this.state == 2) {
             this.loop_video.pause();
+            if (this.loop_video.hasOwnProperty("suspended")) delete this.loop_video.suspended;
         }
     }
 
@@ -1130,6 +1132,7 @@ class PlayCardVideo {
             this.start_image.style.visibility = "visible";
             this.start_video.currentTime = 0;
             this.start_video.pause();
+            if (this.start_video.hasOwnProperty("suspended")) delete this.start_video.suspended;
         } else { 
             this.state = 2;
         }
@@ -1137,6 +1140,7 @@ class PlayCardVideo {
         this.loop_image.style.visibility = "visible";
         this.loop_video.currentTime = 0;
         this.loop_video.pause();
+        if (this.loop_video.hasOwnProperty("suspended")) delete this.loop_video.suspended;
         this.playing = false;
     }
 

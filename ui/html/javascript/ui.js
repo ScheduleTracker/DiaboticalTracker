@@ -554,12 +554,15 @@ window.addEventListener("load", function(){
             else aim_scenario_set_video_play(false);
         }
 
-        // Note: All of this below is outdated from the time before the 2 separate hud and menu views?
-        
-        //If we are going into the game, let's remove any focus from any input
-        //element. This is a problem for example with selectmenus, if they are
-        //focused and you press space in game, the menu would drop down.
-        if (!enabled) {
+        if (enabled) {
+            resume_menu_videos();
+        } else {
+            suspend_menu_videos();
+
+            // Note: All of this below is outdated from the time before the 2 separate hud and menu views?
+            //If we are going into the game, let's remove any focus from any input
+            //element. This is a problem for example with selectmenus, if they are
+            //focused and you press space in game, the menu would drop down.
             if (document.activeElement) {
                 document.activeElement.blur();
             }
@@ -1188,7 +1191,7 @@ window.addEventListener("load", function(){
     });
 
     console.log("LOAD200");
-    
+
     bind_event('on_post_load', function () {
         console.log("POSTLOAD000");
 
@@ -1496,6 +1499,28 @@ function set_masterserver_connection_state(connected, initial) {
         // Stop searching
         process_queue_msg("all", "stop");
 
+    }
+}
+
+function suspend_menu_videos() {
+    var allVideos = document.querySelectorAll('video');
+
+    for (var i=0; i<allVideos.length; i++) {
+        if (!allVideos[i].paused) {
+            allVideos[i].pause();
+            allVideos[i].suspended = true;
+        }
+    }
+}
+
+function resume_menu_videos() {
+    var allVideos = document.querySelectorAll('video');
+
+    for (var i=0; i<allVideos.length; i++) {
+        if (allVideos[i].hasOwnProperty("suspended") && allVideos[i].suspended) {
+            allVideos[i].play();
+            delete allVideos[i].suspended;
+        }
     }
 }
 
