@@ -895,6 +895,84 @@ smokestack_01_vfx_tapered
 subsystem env_smokestack_tapered
 subsystem env_smokestack_2_tapered
 }
+////////////////////////////////////////////////////////////////////////////////////////////////CAULDRON SMOKE/////////////////////////////////////////////
+
+env_cauldron_smoke
+	{
+	map particle_sheet3.png
+	region 	s3_smoke01_41
+		animation_speed 4
+		animation_start 0
+		max_particles 25
+		max_emissions 0
+		lifetime 1.3 2
+		fade_in 0.2
+		blend add
+		fade_out 0.1
+		period 0.04
+		color_start 0.075 0.15 0.05 0.1 
+		scale_start 20 30
+		scale_end 70 50
+		rotation_start 180
+		fade_out 0.2
+		velocity_angles 90 0 0
+		speed_start 10 15
+		speed_end 2
+		emitter horizontal_circle 12
+		position 0 0 0
+		range 800
+		}
+		
+env_cauldron_smoke2
+{
+	geometry quad
+	magnet 0.05 0.10 1  
+	drag 0.5
+	map effects1.png
+	region r_point_1
+	blend add
+	max_particles 50
+	max_emissions 0
+	lifetime 1
+	period 0.02
+	emitter ellipsoid 5 5 0 0 10 0
+	color_start 0.0375 0.075 0.025 0.1
+	turbulence 5 10
+	scale_start 50	
+	scale_end 100
+	range 800
+}
+env_cauldron_bubble
+	{
+	map particle_sheet3.png
+	region 	s3_rl_muzzle_39
+		max_particles 10
+		max_emissions 0
+		lifetime .1	 .3
+		fade_in 0.0
+		blend add
+		fade_out 2
+		period .2 .8
+		color_start 2.5 5 0.5 1 
+		color_end 0.5 1 0.1 1 
+		scale_start 6 8
+		scale_end 15
+		rotation_start 180
+		
+		velocity_angles 90 0 0
+		speed_start 12 20
+		speed_end 7
+		emitter horizontal_circle 12
+		position 0 0 0
+		range 800
+		scale_timeline 0=0.5,l;0.7=0.5,l;1=1,l
+	}	
+env_cauldron_smoke_vfx
+{	 
+// subsystem env_cauldron_smoke
+ subsystem env_cauldron_smoke2
+//subsystem env_cauldron_bubble
+}
 
 
 
@@ -950,7 +1028,7 @@ map particle_sheet3.png
 	period 0.0125
 	color_start 1 1 1 1
 	color_end  1 1 1 0
-	//position -1 0 0   
+	//position -1 0 0   	§
     scale_start 2 7
     scale_end 1 5
     rotation_start 180

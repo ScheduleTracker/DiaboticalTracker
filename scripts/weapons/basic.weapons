@@ -122,7 +122,7 @@ super_shotgun
 	
 	//COPIED
 	shots_per_round 20
-	spread 4.5 4.5
+	spread 4.4 4.4
     spread_radius 1
     rate 1000
 	damage 5 5

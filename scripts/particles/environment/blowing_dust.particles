@@ -1,0 +1,75 @@
+
+env_blowing_dust
+{
+	map dust.png
+	region 	dust
+
+	max_particles 100
+	max_emissions 0
+	lifetime 1.2 2
+	fade_in 1
+	blend alpha
+period 0.02
+fade_out 0
+	color_start 1 1 1 1
+	color_end 1 1 1 0.0
+	//position -1 0 0   
+    scale_start 75 120
+    scale_end 200 150
+    rotation_start 0 360
+    fade_out 0.5
+velocity_angles 0 7 82 0 -7 97  
+	speed_start 150
+	speed_end 150
+
+turbulence 1 1 1
+	angular_speed_start 5000 -5000
+	acceleration 0 0.75 0 0 0 0
+	position 80 0 0 -80 0 0
+}
+
+
+blowing_dust_01_vfx
+{	 
+subsystem env_blowing_dust
+
+
+}
+
+
+env_blowing_dust_2
+{
+	map dust.png
+	region 	dust
+
+	max_particles 200
+	max_emissions 0
+	lifetime 1 0.8
+	fade_in .5
+	blend alpha
+period 0.01
+fade_out 0
+	color_start 1 1 1 0.8
+	color_end 1 1 1 0.0
+	//position -1 0 0   
+    scale_start 75 100
+    scale_end 120 100
+    rotation_start 0 360
+    fade_out 0.5
+velocity_angles 0 7 82 0 -7 97  
+	speed_start 150
+	speed_end 150
+
+turbulence 1 1 1
+	angular_speed_start 5000 -5000
+	acceleration 0 0.75 0 0 0 0
+	position 200 0 0 -200 0 0
+}
+
+
+blowing_dust_02_vfx
+{	 
+subsystem env_blowing_dust_2
+
+
+}
