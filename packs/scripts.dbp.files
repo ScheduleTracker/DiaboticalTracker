@@ -56,7 +56,7 @@ scripts\particles\dust_lamp.particles		503
 scripts\particles\effects.atlas		11069
 scripts\particles\entities.particles		30691
 scripts\particles\environment\blowing_dust.particles		1139
-scripts\particles\environment\enviroment.particles		30185
+scripts\particles\environment\enviroment.particles		30852
 scripts\particles\environment\environment_smoke.particles		2244
 scripts\particles\environment\environment_spark.particles		1910
 scripts\particles\fg_bullet.particles		532
