@@ -32,6 +32,39 @@ subsystem env_candlelight
 
 }
 
+///////////////////////////////////////////////////////////////////////---------------------HALLOWEEN_CANDLE-----------------------------///////////////////////////////////////////////////////////////////
+
+env_candlelight_halloween
+{
+	map particle_sheet3.png
+	region region s3_candle
+
+	max_particles 3
+	max_emissions 0
+	lifetime .5
+	fade_in 0
+	blend add
+	fade_out 1
+	period 0.2
+	color_start 0.5 4 0.5 1
+	
+	//position -1 0 0   
+    scale_start 15
+    scale_end 25
+    rotation_start -3 3
+    fade_out 1
+	aspect_start 1 
+	aspect_end 0.8 0.7
+	
+	range 600
+
+}
+
+halloween_candlelight_01_vfx
+{	 
+subsystem env_candlelight_halloween 0 1.5
+
+}
 ///////////////////////////////////////////////////////////////////////---------------------TORCH-----------------------------///////////////////////////////////////////////////////////////////
 
 env_torchlight
