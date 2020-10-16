@@ -189,6 +189,8 @@ for (let idx in global_weapon_idx_name_map2) {
 let global_weapons_in_scoreboard = [0,1,2,3,4,5,6,7,8];
 // For the customization weapon tabs:
 let global_weapons_with_skins = [0,1,2,3,4,5,6,7,8];
+// For the weapon priority list
+let global_weapons_priority_default = ["rl","shaft","ss","bl","gl","pncr","cb","mac","melee"];
 // The reload times are used to calculate the weapon usage statistic in %
 let global_weapon_reload_times = {
     0 : 700,

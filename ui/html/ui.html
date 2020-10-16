@@ -1805,6 +1805,24 @@
                                     </div>
                                 </div>
                                 <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_auto_switch_weapon_priority">Auto switch weapon priority</div>
+                                    <div class="ctrl">
+                                        <div class="button i18n" data-i18n="settings_auto_switch_weapon_organize" onclick="open_weapon_priority_modal()">Organize</div>
+                                    </div>
+                                </div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_auto_equip">Auto equip weapon on pickup</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_auto_equip" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
+                                                <div data-value=1 class="i18n" data-i18n="always">Always</div>
+                                                <div data-value=2 class="i18n" data-i18n="settings_auto_equip_priority">If weapon has higher priority</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="setting">
                                     <div class="label i18n" data-i18n="settings_equip_empty">Equip empty weapons</div>
                                     <div class="ctrl">
                                         <div class="checkbox_component checkbox" data-variable="game_equip_empty_weapons"><div></div></div>

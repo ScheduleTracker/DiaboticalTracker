@@ -13052,6 +13052,52 @@ h2 {
         width:28vh;
     }
 }
+
+
+#basic_modal .weapon_priority_cont {
+    display:flex;
+}
+
+#basic_modal .weapon_priority_cont .weapon_priority_list {
+    width:40vh;
+    background-color:rgba(255,255,255,0.04);
+    padding:1vh;
+}
+#basic_modal .weapon_priority_cont .weapon_priority_list .weapon {
+    height:3.5vh;
+    line-height:3.5vh;
+    background-color:rgba(255,255,255,0.04);
+    margin-bottom:4px;
+    padding:0 1vh;
+}
+#basic_modal .weapon_priority_cont .weapon_priority_list .weapon:hover {
+    background-color:rgba(255,255,255,0.1);
+}
+#basic_modal .weapon_priority_cont .weapon_priority_list .weapon.selected {
+    background-color:rgba(255,255,255,0.2);
+}
+#basic_modal .weapon_priority_cont .weapon_priority_controls {
+    width:15vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    pointer-events: none;
+    opacity:0.2;
+}
+#basic_modal .weapon_priority_cont .weapon_priority_controls.active {
+    pointer-events: auto;
+    opacity:1;
+}
+#basic_modal .weapon_priority_cont .weapon_priority_controls .db-btn {
+    margin:0.4vh 0;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size: 2vh;
+}
+
+#basic_modal .weapon_priority_cont .weapon_priority_controls .db-btn.move_up   { background-image:url(/html/images/icons/fa/chevron-up.svg); }
+#basic_modal .weapon_priority_cont .weapon_priority_controls .db-btn.move_down { background-image:url(/html/images/icons/fa/chevron-down.svg); }
 #customize_screen {
     display: none;
     position: absolute;

@@ -1762,3 +1762,89 @@ function generate_customization_item_info(id, type, rarity) {
     customization_info.style.maxWidth = "30vh";
     return customization_info;
 }
+
+/*
+    WEAPON PRIORTY MODAL
+*/
+let global_weapon_priority = [];
+function set_weapon_priority(data, from_engine) {
+    global_weapon_priority = [];
+    if (data.length) {
+        let tags = data.split(",");
+        for (let tag of tags) {
+            if (global_item_name_map.hasOwnProperty("weapon"+tag) && global_item_name_map["weapon"+tag][3] == "weapon") {
+                global_weapon_priority.push(tag);
+            }
+        }
+    }
+
+    let update_var = false;
+    if (global_weapon_priority.length < global_weapons_priority_default.length) update_var = true;
+
+    for (let tag of global_weapons_priority_default) {
+        if (!global_weapon_priority.includes(tag)) {
+            global_weapon_priority.push(tag);
+        }
+    }
+
+    if (!from_engine || update_var) {
+        update_variable("string", "game_weapon_priority", global_weapon_priority.join(","));
+    }
+}
+
+let global_weapon_priority_selected = null;
+function open_weapon_priority_modal() {
+    global_weapon_priority_selected = null;
+
+    let cont = _createElement("div", "weapon_priority_cont");
+    let list = _createElement("div", "weapon_priority_list");
+    cont.appendChild(list);
+
+    let ctrl = _createElement("div", "weapon_priority_controls");
+    cont.appendChild(ctrl);
+
+    for (let tag of global_weapon_priority) {
+        let weapon = _createElement("div", "weapon", localize(global_item_name_map["weapon"+tag][1]));
+        weapon.dataset.tag = tag;
+        list.appendChild(weapon);
+        _addButtonSounds(weapon, 1);
+        weapon.addEventListener("click", function() {
+            if (global_weapon_priority_selected !== null) global_weapon_priority_selected.classList.remove("selected");
+            else ctrl.classList.add("active");
+
+            global_weapon_priority_selected = weapon;
+            global_weapon_priority_selected.classList.add("selected");
+        });
+    }
+
+    let btn_up   = _createElement("div", ["db-btn", "plain", "move_up"]);
+    _addButtonSounds(btn_up, 1);
+    let btn_down = _createElement("div", ["db-btn", "plain", "move_down"]);
+    _addButtonSounds(btn_down, 1);
+    ctrl.appendChild(btn_up);
+    ctrl.appendChild(btn_down);
+
+    btn_up.addEventListener("click", function() {
+        if (global_weapon_priority_selected == null) return;
+        if (global_weapon_priority_selected.previousSibling == null) return;
+        list.insertBefore(global_weapon_priority_selected, global_weapon_priority_selected.previousSibling);
+
+        let priority_list = [];
+        for (let i=0; i<list.children.length; i++) { priority_list.push(list.children[i].dataset.tag); }
+
+        set_weapon_priority(priority_list.join(","), false);
+    });
+
+    btn_down.addEventListener("click", function() {
+        if (global_weapon_priority_selected == null) return;
+        if (global_weapon_priority_selected.nextSibling == null) return;
+        list.insertBefore(global_weapon_priority_selected, global_weapon_priority_selected.nextSibling.nextSibling);
+
+        let priority_list = [];
+        for (let i=0; i<list.children.length; i++) { priority_list.push(list.children[i].dataset.tag); }
+
+        set_weapon_priority(priority_list.join(","), false);
+    });
+
+    openBasicModal(basicGenericModal(localize("settings_auto_switch_weapon_priority"), cont, localize("modal_close")));
+}

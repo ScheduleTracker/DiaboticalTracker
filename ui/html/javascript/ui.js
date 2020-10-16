@@ -847,6 +847,11 @@ window.addEventListener("load", function(){
             clear_profile_data_cache_id(global_self.data.user_id);
             return;
         }
+
+        if (variable == "game_weapon_priority") {
+            set_weapon_priority(value, true);
+            return;
+        }
         /*
         if (variable.startsWith("hud_crosshair_type")) {
             if (variable.startsWith("hud_crosshair_type:")) {
@@ -1318,6 +1323,9 @@ window.addEventListener("load", function(){
 
     // Initialize character sticker decals variable
     engine.call("initialize_select_value", "game_decals");
+
+    // Initialize weapon priorities
+    engine.call("initialize_select_value", "game_weapon_priority");
 
     init_custom_game_references();
 
