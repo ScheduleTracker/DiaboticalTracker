@@ -1,3 +1,4 @@
+
 const GAMEFACE = true;
 const GAMEFACE_VIEW = 'menu';
 
@@ -47,9 +48,9 @@ window.self_egs_id = "";
 
 
 window.addEventListener("load", function(){
-
+    
     console.log("LOAD ui.js");
-
+    
     initialize_references();
     
     verify_script_data();
@@ -1134,6 +1135,7 @@ window.addEventListener("load", function(){
             }
         });
     });
+
     bind_event("start_redeem", function(payload) {
         /* Game requested to redeem some pending entitlements */
         /* It usually happens when players redeemed a coin pack */
@@ -1265,6 +1267,8 @@ window.addEventListener("load", function(){
 
         console.log("POSTLOAD001");
 
+        RemoteResources.init_remote_resources();
+        
         //Must do this after the engine has had an opportunity to send setting values like hit sounds.
         settings_combat_update(0);        
 

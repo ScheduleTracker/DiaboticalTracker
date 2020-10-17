@@ -1,0 +1,62 @@
+BEGIN TEMPLATE you_fragged
+    SETTING iterator kill_messages.count
+    SETTING item_direction "vertical"
+    SETTING cell_direction "horizontal"
+    SETTING align pivot
+    SETTING item_spacing 0
+    SETTING cell_spacing 0
+    SETTING row_align align
+    INT ha
+
+ON_UPDATE
+
+    #ECHO IDX
+    #ECHO kill_messages[IDX].assist 
+    #ECHO kill_messages[IDX].target_name
+
+    IF ha && kill_messages[IDX].assist
+        break
+    END IF
+    
+    DOUBLE fsize
+    fsize = fontSize
+
+    DOUBLE row_height
+    row_height = fontSize * 1.2
+
+    DOUBLE indent
+    indent = fontSize * 0.1
+
+    IF kill_messages[IDX].assist 
+        fsize = fontSize * 0.8
+        indent = fsize * 0.1
+    END IF
+
+    IF color == "white"
+        color = "#ffffff"
+    END IF
+
+    OUTPUT IDX 0 color color
+    OUTPUT IDX 0 height row_height
+    OUTPUT IDX 0 align "center"
+    OUTPUT IDX 0 font font
+    OUTPUT IDX 0 font_size fsize
+    OUTPUT IDX 0 shadow 1
+    OUTPUT IDX 0 indent indent
+    IF kill_messages[IDX].assist
+        OUTPUT IDX 0 lvalue "ingame_assist"
+    ELSE
+        OUTPUT IDX 0 lvalue "ingame_you_fragged"
+    END IF
+    OUTPUT IDX 0 value ""
+
+    OUTPUT IDX 1 height row_height
+    OUTPUT IDX 1 align "center"
+    OUTPUT IDX 1 font font
+    OUTPUT IDX 1 font_size fsize
+    OUTPUT IDX 1 shadow 1
+    OUTPUT IDX 1 indent indent
+    OUTPUT IDX 1 value kill_messages[IDX].target_name
+    OUTPUT IDX 1 color kill_messages[IDX].enemy_color
+
+END TEMPLATE

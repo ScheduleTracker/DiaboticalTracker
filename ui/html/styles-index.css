@@ -4060,169 +4060,10 @@ h2 {
 .elem_chat .chat_messages .team .msg { color:var(--tcc); }
 
 
-
-/*
- *  ELEMENT: Voicechat
- */
-.elem_voicechat {
-    display:flex;
-    flex-direction:column;
-}
-.elem_voicechat .player {}
-.elem_voicechat .player .row {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-}
-.elem_voicechat .player .name {}
-.elem_voicechat .player .mic_icon {
-    width:calc(1vh * var(--fontSize) * var(--ratio));
-    height:calc(1vh * var(--fontSize) * var(--ratio));
-    background-image:url(/html/images/icons/fa/microphone.svg?fill=red);
-    background-repeat:no-repeat;
-    background-size:100%;
-    background-position:center;
-    margin-left:calc(1vh * var(--ratio));
-}
-
-
-
-/*
- *  ELEMENT: Frag log
- */
-.hud_isPreview .fraglog_container{
-    background-color: #8A97AA7F;
-}
-.hud_isPreview .fraglog {
-    background-color: rgba(255,255,255,0.2);
-}
-.fraglog_container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    justify-content: var(--v_align) ;
-}
-.fraglog {
-    position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: var(--v_align);
-}
-.fraglog_bottomUp{
-    bottom: 0 !important;
-    top: initial !important;
-}
-.fraglog > div {
-    align-items:center;
-    margin-bottom:4px;
-    border-radius:4px;
-    /*animation: fraglog_fadein 0.2s ease-in;*/
-    display: flex;
-}
-/*
-@keyframes fraglog_fadein {
-    from { opacity: 0; transform: scale(1.1)  }
-    to   { opacity: 1; transform: scale(1)  }
-}
-*/
-.fraglog .name {
-    display:flex;
-    align-items:center;
-    height: calc(2vh* var(--fraglog_font_size) );
-    padding-left:calc(0.6vh * var(--fraglog_font_size));
-    padding-right:calc(0.6vh * var(--fraglog_font_size));
-    border-radius:0.3vh;
-}
-.fraglog .suicide_message {
-    display:flex;
-    align-items:center;
-    height: calc(2vh* var(--fraglog_font_size) );
-    padding-left: calc(0.6vh * var(--fraglog_font_size));
-    padding-right: calc(0.6vh * var(--fraglog_font_size));
-    margin-left: calc(0.2vh * var(--fraglog_font_size));
-    background-color:rgba(0,0,0,0.2);
-    border-radius:0.3vh;
-}
-.fraglog div span.icon_cont {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:center;
-    height: calc(2vh* var(--fraglog_font_size) );
-    margin-left:calc(0.4vh * var(--fraglog_font_size));
-    margin-right:calc(0.4vh * var(--fraglog_font_size));
-}
-.fraglog div span.icon {
-    display: flex;
-    align-items:center;
-    justify-content:center;
-    width: calc(2vh* var(--fraglog_font_size) );
-    height: calc(2vh* var(--fraglog_font_size) );
-    background-size:90%;
-    background-position:center;
-    background-repeat:no-repeat;
-    filter:drop-shadow(0 0 1x rgba(0, 0, 0, 0.8));
-}
-
-
-
-/*
- *  ELEMENT: you fragged message
- */
-.hud_isPreview.elem_you_fragged {
-    line-height: 100%;
-}
-.hud_isPreview.elem_you_fragged .editor {
-    display:flex;
-}
-.hud_isPreview.elem_you_fragged .live {
-    display:none;
-}
-.elem_you_fragged .editor {
-    display:none;
-}
-.elem_you_fragged .live {
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-}
-.elem_you_fragged .live.left {
-    align-items:flex-start;
-}
-.elem_you_fragged .live.right {
-    align-items:flex-end;
-}
-.elem_you_fragged .live > div {
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    padding:0 20px;
-    /*animation: you_fragged_fadein 0.3s ease-in;*/
-    line-height:100%;
-    margin-bottom:calc(1.2vh * var(--ratio));
-    display:flex;
-}
-.elem_you_fragged .live > div > span {
-    line-height:100%;
-    margin:0 0.4vh;
-}
-.elem_you_fragged .assist {
-    font-size: calc(0.8vh * var(--fontSize));
-}
-
-/*
-@keyframes you_fragged_fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-*/
-
-
-
-
 /*
  *  ELEMENT: Round MVP
  */
+/*
 .elem_round_mvp {
 
 }
@@ -4318,7 +4159,7 @@ h2 {
 .elem_round_mvp .round_mvp_container .row .value {}
 .elem_round_mvp .round_mvp_container .mvp_row .unit { font-size: calc(1.2vh* var(--ratio)); }
 .elem_round_mvp .round_mvp_container .avg_row .unit { font-size: calc(1.1vh* var(--ratio)); }
-
+*/
 
 
 
@@ -12123,10 +11964,10 @@ h2 {
     margin-right:0 !important;
 }
 #fov_preview {
-    height: 12vh;
-    width: 24vh;
-    margin-top: 1vh;
+    height: 10vh;
+    width: 20vh;
     margin-right:-1vh;
+    margin-top: calc(4px* var(--zero-onevh-rounded) );
 }
 #fov_converter_preview {
     background-image: url('/html/images/hud_preview_background.png');
@@ -12342,11 +12183,24 @@ h2 {
     flex-direction: row;
     justify-content: flex-start;
 }
-.settings_block .fov_double {
+#settings_block_fov {
     display:flex;
     flex-direction:row;
     justify-content:space-between;
-    align-items:flex-start;
+    align-items:flex-start;    
+}
+.settings_block .fov_double.flex_length {
+    flex:1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.settings_block .fov_double .setting {
+    flex:1;
+}
+.settings_block .fov_double .setting .range-slider {
+    width:22vh;
 }
 .settings_block .data {
     margin-bottom:1vh;
@@ -16410,6 +16264,22 @@ h2 {
 #aim_screen #scenario_play_button:hover{
     background-color:#2493c6;
 }
+#overlay {
+    position:absolute;
+    top: 10vh;
+    bottom:0vh;
+    left:0;
+    right: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+#overlay #overlay_download_progress {
+    display: none;
+}
+
 .dragging-clone {
     /*
 	background-color: rgba(255,255,255,0.5);

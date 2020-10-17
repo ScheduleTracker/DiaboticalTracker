@@ -17,7 +17,7 @@ function init_element_voicechat() {
         defaultColor,
         {"inputType": "color", "type": "iC", "text": "Icon Color"}
     ]
-    ,"#hud_voicechat");  
+    ,"");  
 
     hud_elements.push(hud_elem);
 

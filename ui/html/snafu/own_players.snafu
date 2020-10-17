@@ -608,7 +608,7 @@ ON_UPDATE
         STRING name_color_grayscale 
         name_color_grayscale = GRAYSCALE game_data.own_team.color
 
-        STRINg name_color
+        STRING name_color
         name_color = "#ffffff"
 
         IF name_color_grayscale > 0.55

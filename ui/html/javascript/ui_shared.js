@@ -260,137 +260,11 @@ function init_shared() {
         //let hit_color = extra_arr[8];
         //let opacity = 1;
         //let stroke_opacity = 1;
-        /*
-        if (color.length == 8) {
-            opacity = Math.round((parseInt(color.substring(6, 8), 16) / 255) * 100) / 100;
-            color = color.substring(0, 6);
-        }
-        if (stroke_color.length == 8) {
-            stroke_opacity = Math.round((parseInt(stroke_color.substring(6, 8), 16) / 255) * 100) / 100;
-            stroke_color = stroke_color.substring(0, 6);
-        }*/
 
         var preview = weapon_index == -1;
         var zoom_suffix = zoom ? "_zoom" : "";
 
-        //let elements = [];
-        /*
-        if (preview) {
 
-            // MENU PREVIEWS
-            if (!(zoom in global_crosshair_preview_containers)) global_crosshair_preview_containers[zoom] = {};
-            if (!(crosshair in global_crosshair_preview_containers[zoom])) global_crosshair_preview_containers[zoom][crosshair] = [];
-            
-            if (global_crosshair_preview_containers[zoom][crosshair].length == 0) {
-                let selector = "#editing_crosshairs_content" + zoom_suffix + " .crosshair" + crosshair + ", " +
-                               "#preview_crosshairs_content" + zoom_suffix + " .crosshair" + crosshair;
-                global_crosshair_preview_containers[zoom][crosshair] = document.querySelectorAll(selector);
-            }
-            elements = global_crosshair_preview_containers[zoom][crosshair];
-
-        } else if (GAMEFACE_VIEW === 'hud') {
-
-            // LIVE HUD CROSSHAIRS
-            for (let type of ["crosshair", "hitmarker"]) {
-                let container = false;
-                if (type == "crosshair") {
-                    if (zoom) {
-                        if (weapon_index in global_crosshair_zoom_map) container = global_crosshair_zoom_map[weapon_index];
-                    } else {
-                        if (weapon_index in global_crosshair_map) container = global_crosshair_map[weapon_index];
-                    }
-                }
-                if (type == "hitmarker") {
-                    if (zoom) {
-                        if (weapon_index in global_crosshair_hitmarker_zoom_map) container = global_crosshair_hitmarker_zoom_map[weapon_index];
-                    } else {
-                        if (weapon_index in global_crosshair_hitmarker_map) container = global_crosshair_hitmarker_map[weapon_index];
-                    }
-                }
-
-                if (container) {
-                    if (crosshair == 1) elements.push(container.children[0]);
-                    if (crosshair == 2) elements.push(container.children[1]);
-                    if (crosshair == 3) elements.push(container.children[2]);
-                } else {
-                    let new_div = _createElement("div", "game_crosshair_box" + zoom_suffix);
-                    if (type == "hitmarker") new_div.classList.add("hitmarker");
-                    new_div.style.display = "none";
-                    new_div.id = "game_crosshair_box_" + weapon_index + zoom_suffix;
-                    new_div.appendChild(_createElement("div", ["crosshair1", "crosshair"]));
-                    new_div.appendChild(_createElement("div", ["crosshair2", "crosshair"]));
-                    new_div.appendChild(_createElement("div", ["crosshair3", "crosshair"]));
-    
-                    // Add the hitmarker crosshairs to the container
-                    let target_container = false;
-                    if (type == "crosshair") target_container = _id("game_crosshairs_container" + zoom_suffix);
-                    if (type == "hitmarker") target_container = _id("game_crosshairs_container_hitmarker" + zoom_suffix);
-                    if (target_container) {
-                        target_container.appendChild(new_div);
-
-                        if (type == "crosshair") {
-                            if (zoom) global_crosshair_zoom_map[weapon_index] = new_div;
-                            else global_crosshair_map[weapon_index] = new_div;
-                        }
-                        if (type == "hitmarker") {
-                            if (zoom) global_crosshair_hitmarker_zoom_map[weapon_index] = new_div;
-                            else global_crosshair_hitmarker_map[weapon_index] = new_div;
-                        }
-                    }
-    
-                    if (crosshair == 1) elements.push(new_div.children[0]);
-                    if (crosshair == 2) elements.push(new_div.children[1]);
-                    if (crosshair == 3) elements.push(new_div.children[2]);
-                }
-            }
-
-        }
-
-        for (var i = 0; i < elements.length; i++) {
-            var element = elements[i];
-            //NOTE that type 0 means no crosshair
-            if (type) {
-                let fill = _format_color_for_url(color);
-                let show_hitmarker = false;
-                if (element.parentElement.classList.contains("hitmarker")) {
-                    if (hit_color.length == 8) hit_color = hit_color.substring(6) + hit_color.substring(0,6); //convert RRGGBBAA to AARRGGBB
-                    fill = _format_color_for_url(hit_color);
-                    stroke_opacity = 1;
-                    opacity = 1;
-                    show_hitmarker = true;
-                }
-
-                let render_crosshair = true;
-                if (show_hitmarker && hit_style == "0") render_crosshair = false;
-
-                if (render_crosshair) {
-                    let cross_string = '/html/images/crosshairs/ch_'+type+'.svg?fill='+fill+
-                                                                            '&stroke='+_format_color_for_url(stroke_color)+
-                                                                            '&stroke-width='+stroke_width+
-                                                                            '&stroke-opacity='+stroke_opacity+
-                                                                            '&fill-opacity='+opacity+
-                                                                            '&paint-order=stroke%20fill';
-                    if (element.children.length) {
-                        element.children[0].src = cross_string;
-                        element.children[0].style.transform = 'scale('+size.toFixed(2)+')';
-                    } else {
-                        let img = _createElement("img");
-                        img.src = cross_string;
-                        img.style.transform = 'scale('+size.toFixed(2)+')';
-                        _empty(element);
-                        element.appendChild(img);
-                    }
-                    element.style.display = "flex";
-                    element.style.width = "100%";
-                } else {
-                    if (element.children.length) {
-                        _empty(element);
-                    }
-                }
-            } else {
-                element.style.display = "none";
-            }
-        }*/
         
         {
             let mask = undefined;
@@ -870,7 +744,7 @@ function count_to_empty_array(count) {
 }
 
 
-let global_hud_version = 1.3;
+let global_hud_version = 1.4;
 let global_hud_version_min = 1.1; // lower than this = hud gets reset to default
 function hud_version_check(hud, hud_type) {
     if (!("version" in hud)) hud.version = 0;
@@ -883,6 +757,11 @@ function hud_version_check(hud, hud_type) {
         if (version < 1.3) {
             add_elements.push("minimap");
             modify_elements.push("voicechat");
+        }
+        if (version < 1.4) {
+            add_elements.push("race_timer");
+            modify_elements.push("frag_feed");
+            modify_elements.push("you_fragged");
         }
     }
 
@@ -942,6 +821,18 @@ function hud_version_check(hud, hud_type) {
                     "opo":0.5
                 });
             }
+            if (add_el == "race_timer") {
+                hud.elements.push({
+                    "t":"race_timer",
+                    "gid":-1,
+                    "x":50,
+                    "y":12,
+                    "font":"roboto-bold",
+                    "fontSize":"4",
+                    "pivot":"top-edge",
+                    "color":"#ffffff"
+                });
+            }
         }
     }
 
@@ -953,6 +844,14 @@ function hud_version_check(hud, hud_type) {
                 if (modif_el == "voicechat" && el.x == "3" && el.y == "4") {
                     el.y = "32"
                 }
+                // update some property name changes for alignment in snafu (center was same, and left is default anyway)
+                if (modif_el == "frag_feed" && el.v_align == "flex-end") {
+                    el.v_align = "right-edge";
+                }
+                if (modif_el == "you_fragged" && el.v_align == "right") {
+                    el.v_align = "right-edge";
+                }
+                
                 break;
             }
         }

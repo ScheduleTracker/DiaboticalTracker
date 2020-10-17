@@ -301,6 +301,17 @@ function updateEngineCrosshairDefinition(zoom, engine_variable, crosshair_defini
     copyButton.dataset.crossdef = JSON.stringify(crosshair_definition); //the string we send to the engine is short version, the dataset uses long version
 }
 
+function get_crosshair_draw_list(crosshair_string, hit_mode){
+    let crosshair_definition = generateFullCrosshairDefinition(crosshair_string);
+    if(hit_mode){
+        var crosshair_draw_list = drawCrosshair(false, crosshair_definition, "logicalHit");
+    }
+    else{
+        var crosshair_draw_list = drawCrosshair(false, crosshair_definition, "logicalDefault");
+    }
+    return crosshair_draw_list
+}
+
 function drawCrosshair(zoom, crosshair_definition, target){
     var drawHitCross = true;
     if (typeof target === 'undefined'){ //Preview - leave target field empty
@@ -319,6 +330,11 @@ function drawCrosshair(zoom, crosshair_definition, target){
         drawHitCross = false;
     }
 
+    else if (target == "logicalDefault" || target == "logicalHit"){//only interested in instruction set
+        var ctxCross = "returnString";
+        var ctxHitCross = "returnString";
+    }
+
     else { //Live Game Crosshairs, target is weapon_index
         if (zoom){
             var ctxCross = ctxCrosshairMap.zoom.default[target];
@@ -331,8 +347,11 @@ function drawCrosshair(zoom, crosshair_definition, target){
     }
 
     //clear canvas before redrawing
-    clearCross(ctxCross);
-    if(drawHitCross){clearCross(ctxHitCross);}
+    if(ctxCross != "returnString") clearCross(ctxCross);
+    if(drawHitCross && ctxHitCross != "returnString"){clearCross(ctxHitCross);}
+
+    var crosshairInstructionString = "";
+    var hitCrosshairInstructionString = "";
 
     var linesArray = [];
     var adaptiveOutlinesArray = []; //these 'adaptive' arrays are used to allow us to render certain outlines first regardless of layer so they 'merge' with others
@@ -455,13 +474,13 @@ function drawCrosshair(zoom, crosshair_definition, target){
     //reverse looping so layer 1 appears on 'top', first things here appear at back of crosshair
     if (adaptiveOutlinesArray.length > 0){
         for (let i = adaptiveOutlinesArray.length - 1; i >= 0; i--){
-            adaptiveOutlinesArray[i].call();
-            if(drawHitCross){adaptiveHitOutlinesArray[i].call();}
+            crosshairInstructionString += adaptiveOutlinesArray[i].call();
+            if(drawHitCross){hitCrosshairInstructionString += adaptiveHitOutlinesArray[i].call();}
         }
     }
     for (let i = linesArray.length - 1; i >= 0; i--){
-        linesArray[i].call();
-        if(drawHitCross){hitLinesArray[i].call();}
+        crosshairInstructionString += linesArray[i].call();
+        if(drawHitCross){hitCrosshairInstructionString += hitLinesArray[i].call();}
     }
 
     function validatedParseInt(input, defVal){
@@ -473,6 +492,12 @@ function drawCrosshair(zoom, crosshair_definition, target){
     //    if(isNaN(parseFloat(input))){return defVal;}
     //    else{return parseFloat(input);}
     //}
+    if(target == "logicalDefault"){
+        return crosshairInstructionString
+    }
+    else if(target == "logicalHit"){
+        return hitCrosshairInstructionString
+    }
 }
 
 
@@ -484,9 +509,18 @@ function clearCross(ctxCross){
 }
 
 function drawRectangles(ctxCross, /*segments,*/ enabledSides, gap, length, thickness, color, outlineThickness, rotation, outline){
-    ctxCross.fillStyle = color;
-    ctxCross.save();
-    ctxCross.rotate((Math.PI/180)*rotation);
+    let instructionString = "";
+
+    if(ctxCross !== "returnString"){
+        ctxCross.fillStyle = color;
+        ctxCross.save();
+        ctxCross.rotate((Math.PI/180)*rotation);
+    }
+    else{
+        instructionString += "fillStyle " + color + "\n";
+        instructionString += "save\n";
+        instructionString += "rotate " + ((Math.PI/180)*rotation) + "\n";
+    }
     /*test
     ctxCross.rotate((Math.PI/180)*rotation - Math.PI/2); //Makes 0deg at north by default, so segments start from there
     var width = length;
@@ -541,40 +575,91 @@ function drawRectangles(ctxCross, /*segments,*/ enabledSides, gap, length, thick
         }
 
         if(outline==0){
-            ctxCross.beginPath();
-            ctxCross.fillRect(x, y, width, height);
+            if(ctxCross !== "returnString"){
+                ctxCross.beginPath();
+                ctxCross.fillRect(x, y, width, height);
+            }
+            else{
+                instructionString += "beginPath\n";
+                instructionString += "fillRect " + x + " " + y + " " + width + " " + height + "\n";
+            }
         }
-        else{ 
-            ctxCross.beginPath();
-            ctxCross.fillRect(x - outlineThickness, y - outlineThickness, width + (outlineThickness*2), outlineThickness); //top side
-            ctxCross.fillRect(x - outlineThickness, y + height, width + (outlineThickness*2), outlineThickness); //bottom side
-            ctxCross.fillRect(x - outlineThickness, y , outlineThickness, height); //left side
-            ctxCross.fillRect(x + width, y, outlineThickness, height); //right side
+        else{
+            if(ctxCross !== "returnString"){
+                ctxCross.beginPath();
+                ctxCross.fillRect(x - outlineThickness, y - outlineThickness, width + (outlineThickness*2), outlineThickness); //top side
+                ctxCross.fillRect(x - outlineThickness, y + height, width + (outlineThickness*2), outlineThickness); //bottom side
+                ctxCross.fillRect(x - outlineThickness, y , outlineThickness, height); //left side
+                ctxCross.fillRect(x + width, y, outlineThickness, height); //right side
+            }
+            else{
+                instructionString += "beginPath\n";
+                instructionString += "fillRect " + (x - outlineThickness) + " " + (y - outlineThickness) + " " + (width + (outlineThickness*2)) + " " + outlineThickness + "\n";
+                instructionString += "fillRect " + (x - outlineThickness) + " " + (y + height) + " " + (width + (outlineThickness*2)) + " " + outlineThickness + "\n";
+                instructionString += "fillRect " + (x - outlineThickness) + " " + y + " " + outlineThickness + " " + height + "\n";
+                instructionString += "fillRect " + (x + width) + " " + y + " " + outlineThickness + " " + height + "\n";
+            }
         }
     }
-    ctxCross.restore();
+    if(ctxCross !== "returnString"){
+        ctxCross.restore();
+    }
+    else{
+        instructionString += "restore\n"
+    }
+    return instructionString;
 }
 
 function drawDot(ctxCross, dotType, thickness, outlineThickness, rotation, color, outline){
-    ctxCross.fillStyle = color;
+    let instructionString = "";
+
     var fillRule = 'nonzero'
-    ctxCross.save();
-    ctxCross.rotate((Math.PI/180)*rotation);
+
+    if(ctxCross !== "returnString"){
+        ctxCross.fillStyle = color;
+        ctxCross.save();
+        ctxCross.rotate((Math.PI/180)*rotation);
+    }
+    else{
+        instructionString += "fillStyle " + color + "\n";
+        instructionString += "save\n";
+        instructionString += "rotate " + ((Math.PI/180)*rotation) + "\n";
+    }
+
     if(thickness == 0){
         return;
     }
-    ctxCross.beginPath()
+
+    if(ctxCross !== "returnString"){
+        ctxCross.beginPath()
+    }
+    else{
+        instructionString += "beginPath\n";
+    }
+
     if(dotType == 'round'){ //Round dot
         var x = 0;
         var y = 0;
-        if (outline==0){ 
-            ctxCross.arc(x, y, thickness, 0, 2*Math.PI);
+        if (outline==0){
+            if(ctxCross !== "returnString"){
+                ctxCross.arc(x, y, thickness, 0, 2*Math.PI);
+            }
+            else{
+                instructionString += "arc " + x + " " + y + " " + thickness + " " + (2*Math.PI) + "\n";
+            }
         }
-        else{ 
-            ctxCross.arc(x, y, thickness, 0, 2*Math.PI);       
-            ctxCross.moveTo(x + thickness + outlineThickness, y);
-            ctxCross.arc(x, y, thickness + outlineThickness, 0, 2*Math.PI);
+        else{            
             fillRule = 'evenodd';
+            if(ctxCross !== "returnString"){
+                ctxCross.arc(x, y, thickness, 0, 2*Math.PI);       
+                ctxCross.moveTo(x + thickness + outlineThickness, y);
+                ctxCross.arc(x, y, thickness + outlineThickness, 0, 2*Math.PI);
+            }
+            else{
+                instructionString += "arc " + x + " " + y + " " + thickness + " " + 0 + " " + (2*Math.PI) + "\n";
+                instructionString += "moveTo " + (x + thickness + outlineThickness) + " " + y + "\n";
+                instructionString += "arc " + x + " " + y + " " + (thickness + outlineThickness) + " " + 0 + " " + (2*Math.PI) + "\n";
+            }
         }
     }
     else{ //Square dot
@@ -587,24 +672,56 @@ function drawDot(ctxCross, dotType, thickness, outlineThickness, rotation, color
             var y = -thickness/2;
         }
         if(outline==0){
-            ctxCross.rect(x, y, thickness, thickness);
+            if(ctxCross !== "returnString"){
+                ctxCross.rect(x, y, thickness, thickness);
+            }
+            else{
+                instructionString += "rect " + x + " " + y + " " + thickness + " " + thickness + "\n";
+            }
         }
         else{
-            ctxCross.rect(x - outlineThickness, y - outlineThickness, thickness + (outlineThickness*2), outlineThickness); //top
-            ctxCross.rect(x - outlineThickness, y + thickness, thickness + (outlineThickness*2), outlineThickness); //bottom
-            ctxCross.rect(x - outlineThickness, y , outlineThickness, thickness); //left
-            ctxCross.rect(x + thickness, y, outlineThickness, thickness); //right
+            if(ctxCross !== "returnString"){
+                ctxCross.rect(x - outlineThickness, y - outlineThickness, thickness + (outlineThickness*2), outlineThickness); //top
+                ctxCross.rect(x - outlineThickness, y + thickness, thickness + (outlineThickness*2), outlineThickness); //bottom
+                ctxCross.rect(x - outlineThickness, y , outlineThickness, thickness); //left
+                ctxCross.rect(x + thickness, y, outlineThickness, thickness); //right
+            }
+            else{
+                instructionString += "rect " + (x - outlineThickness) + " " + (y - outlineThickness) + " " + (thickness + (outlineThickness*2)) + " " + outlineThickness + "\n";
+                instructionString += "rect " + (x - outlineThickness) + " " + (y + thickness) + " " + (thickness + (outlineThickness*2)) + " " + outlineThickness + "\n";
+                instructionString += "rect " + (x - outlineThickness) + " " + y + " " + outlineThickness + " " + thickness + "\n";
+                instructionString += "rect " + (x + thickness) + " " + y + " " + outlineThickness + " " + thickness + "\n";
+            }
         }
     }
-    ctxCross.fill(fillRule);
-    ctxCross.restore();
+    if(ctxCross !== "returnString"){
+        ctxCross.fill(fillRule);
+        ctxCross.restore();
+    }
+    else{
+        instructionString += "fill " + fillRule + "\n";
+        instructionString += "restore\n";
+    }
+
+    return instructionString;
 }
 
 function drawArcs(ctxCross, segments, radius, thickness, outlineThickness, color, gapPct, rotation, outline){
-    ctxCross.strokeStyle = color;
-    ctxCross.fillStyle = color;
-    ctxCross.save();
-    ctxCross.rotate((Math.PI/180)*rotation - Math.PI/2); //Makes 0deg at north by default, so segments start from there
+    let instructionString = "";
+
+    if(ctxCross !== "returnString"){
+        ctxCross.strokeStyle = color;
+        ctxCross.fillStyle = color;
+        ctxCross.save();
+        ctxCross.rotate((Math.PI/180)*rotation - Math.PI/2); //Makes 0deg at north by default, so segments start from there
+    }
+    else{
+        instructionString += "strokeStyle " + color + "\n";
+        instructionString += "fillStyle " + color + "\n";
+        instructionString += "save\n";
+        instructionString += "rotate " + ((Math.PI/180)*rotation - Math.PI/2) + "\n";
+    }
+
     if(outlineThickness != 0){outlineThickness += 0.2}; //for whatever reason, this seems to more closely match the thickness on the cross, maybe some aliasing thing
     var x = 0;
     var y = 0;
@@ -614,146 +731,304 @@ function drawArcs(ctxCross, segments, radius, thickness, outlineThickness, color
     if(segments==1){
         //for some reason it looks far better for a full circle to be made of 2 parts, gameface things I guess, so we draw it with 2 segments with different gap rules
         if (outline == 0){
-            ctxCross.beginPath();
-            ctxCross.arc(x, y, radius, 0 + gapRad/2, Math.PI, false);
-            ctxCross.arc(x, y, radius + thickness, Math.PI, 0 + gapRad/2, true);
-            ctxCross.closePath();
-            ctxCross.fill();
+            if(ctxCross !== "returnString"){
+                ctxCross.beginPath();
+                ctxCross.arc(x, y, radius, 0 + gapRad/2, Math.PI, false);
+                ctxCross.arc(x, y, radius + thickness, Math.PI, 0 + gapRad/2, true);
+                ctxCross.closePath();
+                ctxCross.fill();
 
-            ctxCross.beginPath();
-            ctxCross.arc(x, y, radius, Math.PI, 0 - gapRad/2, false);
-            ctxCross.arc(x, y, radius + thickness, 0 - gapRad/2, Math.PI, true);
-            ctxCross.closePath();
-            ctxCross.fill();
+                ctxCross.beginPath();
+                ctxCross.arc(x, y, radius, Math.PI, 0 - gapRad/2, false);
+                ctxCross.arc(x, y, radius + thickness, 0 - gapRad/2, Math.PI, true);
+                ctxCross.closePath();
+                ctxCross.fill();
+            }
+            else{
+                instructionString += "beginPath\n";
+                instructionString += "arc " + x + " " + y + " " + radius + " " + (0 + gapRad/2) + " " + (Math.PI) + " false\n";
+                instructionString += "arc " + x + " " + y + " " + (radius + thickness) + " " + (Math.PI) + " " + (0 + gapRad/2) + " true\n";
+                instructionString += "closePath\n";
+                instructionString += "fill\n";
+
+                instructionString += "beginPath\n";
+                instructionString += "arc " + x + " " + y + " " + radius + " " + (Math.PI) + " " + (0 - gapRad/2) + " false\n";
+                instructionString += "arc " + x + " " + y + " " + (radius + thickness) + " " + (0 - gapRad/2) + " " + (Math.PI) + " true\n";
+                instructionString += "closePath\n";
+                instructionString += "fill\n";
+            }
         }
         else {
-            ctxCross.beginPath();
-            ctxCross.arc(x, y, radius, 0 + gapRad/2, Math.PI, false);
-            ctxCross.arc(x, y, radius + thickness, Math.PI, 0 + gapRad/2, true);
-            ctxCross.closePath();
-            ctxCross.moveTo(radius * Math.cos(0 + outlineGapRad/2), radius * Math.sin(0 + outlineGapRad/2));
-            ctxCross.arc(x, y, radius - outlineThickness, 0 + outlineGapRad/2, Math.PI, false);
-            ctxCross.arc(x, y, radius + thickness + outlineThickness, Math.PI, 0 + outlineGapRad/2, true);
-            ctxCross.closePath();
-            ctxCross.fill('evenodd');
+            if(ctxCross !== "returnString"){
+                ctxCross.beginPath();
+                ctxCross.arc(x, y, radius, 0 + gapRad/2, Math.PI, false);
+                ctxCross.arc(x, y, radius + thickness, Math.PI, 0 + gapRad/2, true);
+                ctxCross.closePath();
+                ctxCross.moveTo(radius * Math.cos(0 + outlineGapRad/2), radius * Math.sin(0 + outlineGapRad/2));
+                ctxCross.arc(x, y, radius - outlineThickness, 0 + outlineGapRad/2, Math.PI, false);
+                ctxCross.arc(x, y, radius + thickness + outlineThickness, Math.PI, 0 + outlineGapRad/2, true);
+                ctxCross.closePath();
+                ctxCross.fill('evenodd');
 
-            ctxCross.beginPath();
-            ctxCross.arc(x, y, radius, Math.PI, 0 - gapRad/2, false);
-            ctxCross.arc(x, y, radius + thickness, 0 - gapRad/2, Math.PI, true);
-            ctxCross.closePath();
-            ctxCross.moveTo(radius * Math.cos(Math.PI), radius * Math.sin(Math.PI));
-            ctxCross.arc(x, y, radius - outlineThickness, Math.PI, 0 - outlineGapRad/2, false);
-            ctxCross.arc(x, y, radius + thickness + outlineThickness, 0 - outlineGapRad/2, Math.PI, true);
-            ctxCross.closePath();
-            ctxCross.fill('evenodd');
+                ctxCross.beginPath();
+                ctxCross.arc(x, y, radius, Math.PI, 0 - gapRad/2, false);
+                ctxCross.arc(x, y, radius + thickness, 0 - gapRad/2, Math.PI, true);
+                ctxCross.closePath();
+                ctxCross.moveTo(radius * Math.cos(Math.PI), radius * Math.sin(Math.PI));
+                ctxCross.arc(x, y, radius - outlineThickness, Math.PI, 0 - outlineGapRad/2, false);
+                ctxCross.arc(x, y, radius + thickness + outlineThickness, 0 - outlineGapRad/2, Math.PI, true);
+                ctxCross.closePath();
+                ctxCross.fill('evenodd');
+            }
+            else{
+                instructionString += "beginPath\n";
+                instructionString += "arc " + x + " " + y + " " + radius + " " + (0 + gapRad/2) + " " + (Math.PI) + " false\n";
+                instructionString += "arc " + x + " " + y + " " + (radius + thickness) + " " + (Math.PI) + " " + (0 + gapRad/2) + " true\n";
+                instructionString += "closePath\n";
+                instructionString += "moveTo " + (radius * Math.cos(0 + outlineGapRad/2)) + " " + (radius * Math.sin(0 + outlineGapRad/2)) + "\n";
+                instructionString += "arc " + x + " " + y + " " + (radius - outlineThickness) + " " + (0 + outlineGapRad/2) + " " + (Math.PI) + " false\n";
+                instructionString += "arc " + x + " " + y + " " + (radius + thickness + outlineThickness) + " " + (Math.PI) + " " + (0 + outlineGapRad/2) + " true\n";
+                instructionString += "closePath\n";
+                instructionString += "fill evenodd\n";
+
+                instructionString += "beginPath\n";
+                instructionString += "arc " + x + " " + y + " " + radius + " " + (Math.PI) + " " + (0 - gapRad/2) + " false\n";
+                instructionString += "arc " + x + " " + y + " " + (radius + thickness) + " " + (0 - gapRad/2) + " " + (Math.PI) + " true\n";
+                instructionString += "closePath\n";
+                instructionString += "moveTo " + (radius * Math.cos(Math.PI)) + " " + (radius * Math.sin(Math.PI)) + "\n";
+                instructionString += "arc " + x + " " + y + " " + (radius - outlineThickness) + " " + (Math.PI) + " " + ( 0 - outlineGapRad/2) + " false\n";
+                instructionString += "arc " + x + " " + y + " " + (radius + thickness + outlineThickness) + " " + (0 - outlineGapRad/2) + " " + (Math.PI) + " true\n";
+                instructionString += "closePath\n";
+                instructionString += "fill evenodd\n";
+            }
         }
     }
     else{
         for (var i=0; i<segments; i++){
             if (outline == 0){
-                ctxCross.beginPath();
-                ctxCross.arc(x, y, radius, (i/segments)*2*Math.PI + gapRad/2, ((i+1)/segments)*2*Math.PI - gapRad/2, false);
-                ctxCross.arc(x, y, radius + thickness, ((i+1)/segments)*2*Math.PI - gapRad/2, (i/segments)*2*Math.PI + gapRad/2, true);
-                ctxCross.closePath();
-                ctxCross.fill();
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    ctxCross.arc(x, y, radius, (i/segments)*2*Math.PI + gapRad/2, ((i+1)/segments)*2*Math.PI - gapRad/2, false);
+                    ctxCross.arc(x, y, radius + thickness, ((i+1)/segments)*2*Math.PI - gapRad/2, (i/segments)*2*Math.PI + gapRad/2, true);
+                    ctxCross.closePath();
+                    ctxCross.fill();
+                }
+                else{
+                    instructionString += "beginPath\n";
+                    instructionString += "arc " + x + " " + y + " " + radius + " " + ((i/segments)*2*Math.PI + gapRad/2) + " " + (((i+1)/segments)*2*Math.PI - gapRad/2) + " false\n";
+                    instructionString += "arc " + x + " " + y + " " + (radius + thickness) + " " + (((i+1)/segments)*2*Math.PI - gapRad/2) + " " + ((i/segments)*2*Math.PI + gapRad/2) + " true\n";
+                    instructionString += "closePath\n";
+                    instructionString += "fill\n";
+                }
             }
             else {
-                ctxCross.beginPath();
-                //outlines 'inner border' is the same as main lines 'outer border'
-                ctxCross.arc(x, y, radius, (i/segments)*2*Math.PI + gapRad/2, ((i+1)/segments)*2*Math.PI - gapRad/2, false);
-                ctxCross.arc(x, y, radius + thickness, ((i+1)/segments)*2*Math.PI - gapRad/2, (i/segments)*2*Math.PI + gapRad/2, true);
-                ctxCross.closePath();
-                //now draw 'outline border'
-                ctxCross.moveTo(radius * Math.cos((i/segments)*2*Math.PI + outlineGapRad/2), radius * Math.sin((i/segments)*2*Math.PI + outlineGapRad/2));
-                ctxCross.arc(x, y, radius - outlineThickness, (i/segments)*2*Math.PI + outlineGapRad/2, ((i+1)/segments)*2*Math.PI - outlineGapRad/2, false);
-                ctxCross.arc(x, y, radius + thickness + outlineThickness, ((i+1)/segments)*2*Math.PI - outlineGapRad/2, (i/segments)*2*Math.PI + outlineGapRad/2, true);
-                ctxCross.closePath();
-                ctxCross.fill('evenodd');
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    //outlines 'inner border' is the same as main lines 'outer border'
+                    ctxCross.arc(x, y, radius, (i/segments)*2*Math.PI + gapRad/2, ((i+1)/segments)*2*Math.PI - gapRad/2, false);
+                    ctxCross.arc(x, y, radius + thickness, ((i+1)/segments)*2*Math.PI - gapRad/2, (i/segments)*2*Math.PI + gapRad/2, true);
+                    ctxCross.closePath();
+                    //now draw 'outline border'
+                    ctxCross.moveTo(radius * Math.cos((i/segments)*2*Math.PI + outlineGapRad/2), radius * Math.sin((i/segments)*2*Math.PI + outlineGapRad/2));
+                    ctxCross.arc(x, y, radius - outlineThickness, (i/segments)*2*Math.PI + outlineGapRad/2, ((i+1)/segments)*2*Math.PI - outlineGapRad/2, false);
+                    ctxCross.arc(x, y, radius + thickness + outlineThickness, ((i+1)/segments)*2*Math.PI - outlineGapRad/2, (i/segments)*2*Math.PI + outlineGapRad/2, true);
+                    ctxCross.closePath();
+                    ctxCross.fill('evenodd');
+                }
+                else{
+                    instructionString += "beginPath\n";
+                    instructionString += "arc " + x + " " + y + " " + radius + " " + ((i/segments)*2*Math.PI + gapRad/2) + " " + (((i+1)/segments)*2*Math.PI - gapRad/2) + " false\n";
+                    instructionString += "arc " + x + " " + y + " " + (radius + thickness) + " " + (((i+1)/segments)*2*Math.PI - gapRad/2) + " " + ((i/segments)*2*Math.PI + gapRad/2) + " true\n";
+                    instructionString += "closePath\n";
+                    instructionString += "moveTo " + (radius * Math.cos((i/segments)*2*Math.PI + outlineGapRad/2)) + " " + (radius * Math.sin((i/segments)*2*Math.PI + outlineGapRad/2)) + "\n";
+                    instructionString += "arc " + x + " " + y + " " + (radius - outlineThickness) + " " + ((i/segments)*2*Math.PI + outlineGapRad/2) + " " + (((i+1)/segments)*2*Math.PI - outlineGapRad/2) + " false\n";
+                    instructionString += "arc " + x + " " + y + " " + (radius + thickness + outlineThickness) + " " + (((i+1)/segments)*2*Math.PI - outlineGapRad/2) + " " + ((i/segments)*2*Math.PI + outlineGapRad/2) + " true\n";
+                    instructionString += "closePath\n";
+                    instructionString += "fill evenodd\n";
+                }
             }
         }
     }
-    ctxCross.restore();
+    if(ctxCross !== "returnString"){
+        ctxCross.restore();
+    }
+    else{
+        instructionString += "restore\n";
+    }
+    return instructionString;
 }
 
 function drawPointers(ctxCross, enabledSides, length, thickness, outlineThickness, color, gap, rotation, outline){
-    ctxCross.fillStyle = color;
-    ctxCross.save();
-    ctxCross.rotate((Math.PI/180)*rotation);
+    let instructionString = "";
+    if(ctxCross !== "returnString"){
+        ctxCross.fillStyle = color;
+        ctxCross.save();
+        ctxCross.rotate((Math.PI/180)*rotation);
+    }
+    else{
+        instructionString += "fillStyle " + color + "\n";
+        instructionString += "save\n";
+        instructionString += "rotate " + ((Math.PI/180)*rotation) + "\n";
+    }
     if (thickness > length){thickness = length}
     let x = gap;
     let y = gap;
     for(let i=0; i<=3; i++){
         if (i==0){ //bottom right
             if(enabledSides.bottomright == 0){continue}
-            if (outline==0){ 
-                ctxCross.beginPath();
-                ctxCross.rect(x + outlineThickness, y + outlineThickness, length, thickness);
-                ctxCross.rect(x + outlineThickness, y + outlineThickness + thickness, thickness, length - thickness); //so theres no overlap between lines
+            if (outline==0){
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    ctxCross.rect(x + outlineThickness, y + outlineThickness, length, thickness);
+                    ctxCross.rect(x + outlineThickness, y + outlineThickness + thickness, thickness, length - thickness); //so theres no overlap between lines
+                }
+                else{
+                    instructionString += "beginPath\n";
+                    instructionString += "rect " + (x + outlineThickness) + " " + (y + outlineThickness) + " " + length + " " + thickness + "\n";
+                    instructionString += "rect " + (x + outlineThickness) + " " + (y + outlineThickness + thickness) + " " + thickness + " " + (length - thickness) + "\n";
+                }
             }
-            else{ //outline  
-                ctxCross.beginPath();
-                ctxCross.rect(x, y, length + 2*outlineThickness, outlineThickness); //top long line
-                ctxCross.rect(x, y + outlineThickness, outlineThickness, length + outlineThickness); //left long line
-                ctxCross.rect(x + outlineThickness, y + outlineThickness + length, thickness, outlineThickness); //bottom short line
-                ctxCross.rect(x + outlineThickness + thickness, y + outlineThickness + thickness, length - thickness, outlineThickness); //bottom long line
-                ctxCross.rect(x + outlineThickness + thickness, y + 2*outlineThickness + thickness, outlineThickness, length - thickness); //right long line
-                ctxCross.rect(x + outlineThickness + length, y + outlineThickness, outlineThickness, thickness + outlineThickness); //right short line
+            else{ //outline
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    ctxCross.rect(x, y, length + 2*outlineThickness, outlineThickness); //top long line
+                    ctxCross.rect(x, y + outlineThickness, outlineThickness, length + outlineThickness); //left long line
+                    ctxCross.rect(x + outlineThickness, y + outlineThickness + length, thickness, outlineThickness); //bottom short line
+                    ctxCross.rect(x + outlineThickness + thickness, y + outlineThickness + thickness, length - thickness, outlineThickness); //bottom long line
+                    ctxCross.rect(x + outlineThickness + thickness, y + 2*outlineThickness + thickness, outlineThickness, length - thickness); //right long line
+                    ctxCross.rect(x + outlineThickness + length, y + outlineThickness, outlineThickness, thickness + outlineThickness); //right short line
+                }
+                else{
+                    instructionString += "beginPath\n";
+                    instructionString += "rect " + x + " " + y + " " + (length + 2*outlineThickness) + " " + outlineThickness + "\n";
+                    instructionString += "rect " + x + " " + (y + outlineThickness) + " " + outlineThickness + " " + (length + outlineThickness) + "\n";
+                    instructionString += "rect " + (x + outlineThickness) + " " + (y + outlineThickness + length) + " " + thickness + " " + outlineThickness + "\n";
+                    instructionString += "rect " + (x + outlineThickness + thickness) + " " + (y + outlineThickness + thickness) + " " + (length - thickness) + " " + outlineThickness + "\n";
+                    instructionString += "rect " + (x + outlineThickness + thickness) + " " + (y + 2*outlineThickness + thickness) + " " + outlineThickness + " " + (length - thickness) + "\n";
+                    instructionString += "rect " + (x + outlineThickness + length) + " " + (y + outlineThickness) + " " + outlineThickness + " " + (thickness + outlineThickness) + "\n";
+                }
             }
         }
         if (i==1){ //top right (negative y from bottom right)
             if(enabledSides.topright == 0){continue}
-            if (outline==0){ 
-                ctxCross.beginPath();
-                ctxCross.rect(x + outlineThickness, -(y + outlineThickness), length, -(thickness));
-                ctxCross.rect(x + outlineThickness, -(y + outlineThickness + thickness), thickness, -(length - thickness)); 
+            if (outline==0){
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    ctxCross.rect(x + outlineThickness, -(y + outlineThickness), length, -(thickness));
+                    ctxCross.rect(x + outlineThickness, -(y + outlineThickness + thickness), thickness, -(length - thickness)); 
+                }
+                else{
+                    instructionString += "beginPath\n";
+                    instructionString += "rect " + (x + outlineThickness) + " " + (-(y + outlineThickness)) + " " + length + " " + (-thickness) + "\n";
+                    instructionString += "rect " + (x + outlineThickness) + " " + (-(y + outlineThickness + thickness)) + " " + thickness + " " + (-(length - thickness)) + "\n";
+                }
             }
             else{ //outline  
-                ctxCross.beginPath();
-                ctxCross.rect(x, -(y), length + 2*outlineThickness, -(outlineThickness)); 
-                ctxCross.rect(x, -(y + outlineThickness), outlineThickness, -(length + outlineThickness)); 
-                ctxCross.rect(x + outlineThickness, -(y + outlineThickness + length), thickness, -(outlineThickness)); 
-                ctxCross.rect(x + outlineThickness + thickness, -(y + outlineThickness + thickness), length - thickness, -(outlineThickness));
-                ctxCross.rect(x + outlineThickness + thickness, -(y + 2*outlineThickness + thickness), outlineThickness, -(length - thickness)); 
-                ctxCross.rect(x + outlineThickness + length, -(y + outlineThickness), outlineThickness, -(thickness + outlineThickness)); 
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    ctxCross.rect(x, -(y), length + 2*outlineThickness, -(outlineThickness)); 
+                    ctxCross.rect(x, -(y + outlineThickness), outlineThickness, -(length + outlineThickness)); 
+                    ctxCross.rect(x + outlineThickness, -(y + outlineThickness + length), thickness, -(outlineThickness)); 
+                    ctxCross.rect(x + outlineThickness + thickness, -(y + outlineThickness + thickness), length - thickness, -(outlineThickness));
+                    ctxCross.rect(x + outlineThickness + thickness, -(y + 2*outlineThickness + thickness), outlineThickness, -(length - thickness)); 
+                    ctxCross.rect(x + outlineThickness + length, -(y + outlineThickness), outlineThickness, -(thickness + outlineThickness));
+                }
+                else{                
+                    instructionString += "beginPath\n";
+                    instructionString += "rect " + x + " " + (-y) + " " + (length + 2*outlineThickness) + " " + (-outlineThickness) + "\n";
+                    instructionString += "rect " + x + " " + (-(y + outlineThickness)) + " " + outlineThickness + " " + (-(length + outlineThickness)) + "\n";
+                    instructionString += "rect " + (x + outlineThickness) + " " + (-(y + outlineThickness + length)) + " " + thickness + " " + (-outlineThickness) + "\n";
+                    instructionString += "rect " + (x + outlineThickness + thickness) + " " + (-(y + outlineThickness + thickness)) + " " + (length - thickness) + " " + (-outlineThickness) + "\n";
+                    instructionString += "rect " + (x + outlineThickness + thickness) + " " + (-(y + 2*outlineThickness + thickness)) + " " + outlineThickness + " " + (-(length - thickness)) + "\n";
+                    instructionString += "rect " + (x + outlineThickness + length) + " " + (-(y + outlineThickness)) + " " + outlineThickness + " " + (-(thickness + outlineThickness)) + "\n";
+                }
             }
         }
         if (i==2){ //bottom left (negative x from bottom right)
             if(enabledSides.bottomleft == 0){continue}
-            if (outline==0){ 
-                ctxCross.beginPath();
-                ctxCross.rect(-(x + outlineThickness), y + outlineThickness, -(length), thickness);
-                ctxCross.rect(-(x + outlineThickness), y + outlineThickness + thickness, -(thickness), length - thickness);
+            if (outline==0){
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    ctxCross.rect(-(x + outlineThickness), y + outlineThickness, -(length), thickness);
+                    ctxCross.rect(-(x + outlineThickness), y + outlineThickness + thickness, -(thickness), length - thickness);
+                }
+                else{
+                    instructionString += "beginPath\n";
+                    instructionString += "rect " + (-(x + outlineThickness)) + " " + (y + outlineThickness) + " " + (-length) + " " + thickness + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness)) + " " + (y + outlineThickness + thickness) + " " + (-thickness) + " " + (length - thickness) + "\n";
+                }
             }
-            else{ //outline  
-                ctxCross.beginPath();
-                ctxCross.rect(-(x), y, -(length + 2*outlineThickness), outlineThickness);
-                ctxCross.rect(-(x), y + outlineThickness, -(outlineThickness), length + outlineThickness);
-                ctxCross.rect(-(x + outlineThickness), y + outlineThickness + length, -(thickness), outlineThickness);
-                ctxCross.rect(-(x + outlineThickness + thickness), y + outlineThickness + thickness, -(length - thickness), outlineThickness);
-                ctxCross.rect(-(x + outlineThickness + thickness), y + 2*outlineThickness + thickness, -(outlineThickness), length - thickness);
-                ctxCross.rect(-(x + outlineThickness + length), y + outlineThickness, -(outlineThickness), thickness + outlineThickness);
+            else{ //outline
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    ctxCross.rect(-(x), y, -(length + 2*outlineThickness), outlineThickness);
+                    ctxCross.rect(-(x), y + outlineThickness, -(outlineThickness), length + outlineThickness);
+                    ctxCross.rect(-(x + outlineThickness), y + outlineThickness + length, -(thickness), outlineThickness);
+                    ctxCross.rect(-(x + outlineThickness + thickness), y + outlineThickness + thickness, -(length - thickness), outlineThickness);
+                    ctxCross.rect(-(x + outlineThickness + thickness), y + 2*outlineThickness + thickness, -(outlineThickness), length - thickness);
+                    ctxCross.rect(-(x + outlineThickness + length), y + outlineThickness, -(outlineThickness), thickness + outlineThickness);
+                }
+                else{
+                    instructionString += "beginPath\n";
+                    instructionString += "rect " + (-x) + " " + y + " " + (-(length + 2*outlineThickness)) + " " + outlineThickness + "\n";
+                    instructionString += "rect " + (-x) + " " + (y + outlineThickness) + " " + (-outlineThickness) + " " + (length + outlineThickness) + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness)) + " " + (y + outlineThickness + length) + " " + (-thickness) + " " + outlineThickness + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness + thickness)) + " " + (y + outlineThickness + thickness) + " " + (-(length - thickness)) + " " + outlineThickness + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness + thickness)) + " " + (y + 2*outlineThickness + thickness) + " " + (-outlineThickness) + " " + (length - thickness) + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness + length)) + " " + (y + outlineThickness) + " " + (-outlineThickness) + " " + (thickness + outlineThickness) + "\n";
+                }
             }
         }
         if (i==3){ //top left (negative x and y from bottom right)
             if(enabledSides.topleft == 0){continue}
-            if (outline==0){ 
-                ctxCross.beginPath();
-                ctxCross.rect(-(x + outlineThickness), -(y + outlineThickness), -(length), -(thickness));
-                ctxCross.rect(-(x + outlineThickness), -(y + outlineThickness + thickness), -(thickness), -(length - thickness));
+            if (outline==0){
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    ctxCross.rect(-(x + outlineThickness), -(y + outlineThickness), -(length), -(thickness));
+                    ctxCross.rect(-(x + outlineThickness), -(y + outlineThickness + thickness), -(thickness), -(length - thickness));
+                }
+                else{
+                    instructionString += "beginPath\n";
+                    instructionString += "rect " + (-(x + outlineThickness)) + " " + (-(y + outlineThickness)) + " " + (-length) + " " + (-thickness) + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness)) + " " + (-(y + outlineThickness + thickness)) + " " + (-thickness) + " " + (-(length - thickness)) + "\n";
+                }
             }
-            else{ //outline  
-                ctxCross.beginPath();
-                ctxCross.rect(-(x), -(y), -(length + 2*outlineThickness), -(outlineThickness));
-                ctxCross.rect(-(x), -(y + outlineThickness), -(outlineThickness), -(length + outlineThickness));
-                ctxCross.rect(-(x + outlineThickness), -(y + outlineThickness + length), -(thickness), -(outlineThickness));
-                ctxCross.rect(-(x + outlineThickness + thickness), -(y + outlineThickness + thickness), -(length - thickness), -(outlineThickness));
-                ctxCross.rect(-(x + outlineThickness + thickness), -(y + 2*outlineThickness + thickness), -(outlineThickness), -(length - thickness));
-                ctxCross.rect(-(x + outlineThickness + length), -(y + outlineThickness), -(outlineThickness), -(thickness + outlineThickness));
+            else{ //outline
+                if(ctxCross !== "returnString"){
+                    ctxCross.beginPath();
+                    ctxCross.rect(-(x), -(y), -(length + 2*outlineThickness), -(outlineThickness));
+                    ctxCross.rect(-(x), -(y + outlineThickness), -(outlineThickness), -(length + outlineThickness));
+                    ctxCross.rect(-(x + outlineThickness), -(y + outlineThickness + length), -(thickness), -(outlineThickness));
+                    ctxCross.rect(-(x + outlineThickness + thickness), -(y + outlineThickness + thickness), -(length - thickness), -(outlineThickness));
+                    ctxCross.rect(-(x + outlineThickness + thickness), -(y + 2*outlineThickness + thickness), -(outlineThickness), -(length - thickness));
+                    ctxCross.rect(-(x + outlineThickness + length), -(y + outlineThickness), -(outlineThickness), -(thickness + outlineThickness));
+                }
+                else{
+                    instructionString += "beginPath\n";
+                    instructionString += "rect " + (-x) + " " + (-y) + " " + (-(length + 2*outlineThickness)) + " " + (-outlineThickness) + "\n";
+                    instructionString += "rect " + (-x) + " " + (-(y + outlineThickness)) + " " + (-outlineThickness) + " " + (-(length + outlineThickness)) + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness)) + " " + (-(y + outlineThickness + length)) + " " + (-thickness) + " " + (-outlineThickness) + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness + thickness)) + " " + (-(y + outlineThickness + thickness)) + " " + (-(length - thickness)) + " " + (-outlineThickness) + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness + thickness)) + " " + (-(y + 2*outlineThickness + thickness)) + " " + (-outlineThickness) + " " + (-(length - thickness)) + "\n";
+                    instructionString += "rect " + (-(x + outlineThickness + length)) + " " + (-(y + outlineThickness)) + " " + (-outlineThickness) + " " + (-(thickness + outlineThickness)) + "\n";
+                }
             }
-        }    
-        ctxCross.fill();
+        }
+        if(ctxCross !== "returnString"){
+            ctxCross.fill();
+        }
+        else{
+            instructionString += "fill\n";
+        }
     }
-    ctxCross.restore();
+    if(ctxCross !== "returnString"){
+        ctxCross.restore();
+    }
+    else{
+        instructionString += "restore\n";
+    }
+
+    return instructionString;
 }
 
 function initialize_crosshair_creator(zoom, crosshair_definition, engine_variable, layer_display){

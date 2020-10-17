@@ -1261,7 +1261,7 @@ h2 {
 
 
 /*
- *  Respawn countdown timer
+ *  Respawn countdown timer ... outdated/unused?
  */
 #respawn_timer {
     position: absolute;
@@ -1273,81 +1273,6 @@ h2 {
     justify-content: center;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
     text-transform: uppercase;
-}
-
-
-/*
- *  Respawn message
- */
-#respawn_message {
-    font-size: 3vh;
-    font-weight:bold;
-    margin-bottom: 2vh;
-
-    display: none;
-    bottom: 20vh;
-    position: absolute; 
-    left: 50%;
-    transform: translateX(-50%);
-
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-}
-
-
-/*
- *  Ready up message
- */
- #f3_message{
-    font-size: 2.5vh;
-    font-weight:bold;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-
-    left: 50%;
-    transform: translateX(-50%);
-
-    top: 34vh;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-}
-#f3_message > * {
-    margin-right: 0.5vh;
-    margin-left: 0.5vh;
-}
-#f3_message .hl {
-    color:orange;
-    text-transform:uppercase;
-}
-
-#f3_message.unready {
-    animation-name: fade_in_out_loop;
-    animation-duration: 3.2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-@keyframes fade_in_out_loop {
-    0%   { opacity: 0.4; }
-    50%  { opacity: 1; }
-    100% { opacity: 0.4; }
-}
-
-/*
- *  Game Pause/Timeout message
- */
-#paused_message {
-    font-size: 3.5vh;
-    position: absolute;
-    display: none;
-
-    left: 50%;
-    transform: translateX(-50%);
-
-    top: 40vh;
-
-    font-weight:bold;
-    font-family:var(--mont-font);
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-    text-transform:uppercase;
 }
 
 
@@ -1403,69 +1328,6 @@ h2 {
 #announcements .countdown.medium {
     font-size:5vh;
 }
-
-
-/*
- *  Gamestate (Round/Overtime) & Duel Time bar, both of which might be outdated but are still functional
- */
-/* Bar removed, Gamestate merged into timelimit hud element
-#teamscore_container {
-    position: absolute;
-    top: 2vh;
-    width: 100%;
-}
-#teamscore {
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width:100%;
-}
-#current_gamestate {
-    position: absolute;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    justify-content:center;
-    width: 30vh;
-
-    height: 3vh;
-    font-size:1.4vh;
-    font-family:var(--main-font-medium);
-    font-weight:bold;
-
-    top: 8vh;
-}
-#time_left_holder_bar{
-    display: none;
-}
-.duel_dynamic_timer {
-    position: absolute;
-    width: 20vh;
-    height: 1.75vh;
-    top: 9vh;
-    background-color:rgba(0,0,0,0.2);
-}
-.timer_bar {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    box-shadow:0px 1px 6px 0px rgba(0, 0, 0, 0.16);
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-}
-.tide_left_bar {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.315);
-    position:absolute;
-    top:0;
-    left:0;
-}
-*/
 
 
 /*
@@ -1548,24 +1410,6 @@ h2 {
 .game_masks_container .mask_letterbox .box2 {
     bottom:0;
 }
-
-
-/*
- *  Waiting for players to load message
- */
-#game_loading_message {
-    display:none;
-    bottom: 4vh;
-    
-    left: 50%;
-    transform: translateX(-50%);
-
-  
-    position: absolute;
-    font-size: 1.8vh;
-    text-shadow:2px 2px 3px rgba(0,0,0,0.5);
-}
-
 
 /*
  *  Game intro VS screen
@@ -1781,169 +1625,10 @@ h2 {
 .elem_chat .chat_messages .team .msg { color:var(--tcc); }
 
 
-
-/*
- *  ELEMENT: Voicechat
- */
-.elem_voicechat {
-    display:flex;
-    flex-direction:column;
-}
-.elem_voicechat .player {}
-.elem_voicechat .player .row {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-}
-.elem_voicechat .player .name {}
-.elem_voicechat .player .mic_icon {
-    width:calc(1vh * var(--fontSize) * var(--ratio));
-    height:calc(1vh * var(--fontSize) * var(--ratio));
-    background-image:url(/html/images/icons/fa/microphone.svg?fill=red);
-    background-repeat:no-repeat;
-    background-size:100%;
-    background-position:center;
-    margin-left:calc(1vh * var(--ratio));
-}
-
-
-
-/*
- *  ELEMENT: Frag log
- */
-.hud_isPreview .fraglog_container{
-    background-color: #8A97AA7F;
-}
-.hud_isPreview .fraglog {
-    background-color: rgba(255,255,255,0.2);
-}
-.fraglog_container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    justify-content: var(--v_align) ;
-}
-.fraglog {
-    position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: var(--v_align);
-}
-.fraglog_bottomUp{
-    bottom: 0 !important;
-    top: initial !important;
-}
-.fraglog > div {
-    align-items:center;
-    margin-bottom:4px;
-    border-radius:4px;
-    /*animation: fraglog_fadein 0.2s ease-in;*/
-    display: flex;
-}
-/*
-@keyframes fraglog_fadein {
-    from { opacity: 0; transform: scale(1.1)  }
-    to   { opacity: 1; transform: scale(1)  }
-}
-*/
-.fraglog .name {
-    display:flex;
-    align-items:center;
-    height: calc(2vh* var(--fraglog_font_size) );
-    padding-left:calc(0.6vh * var(--fraglog_font_size));
-    padding-right:calc(0.6vh * var(--fraglog_font_size));
-    border-radius:0.3vh;
-}
-.fraglog .suicide_message {
-    display:flex;
-    align-items:center;
-    height: calc(2vh* var(--fraglog_font_size) );
-    padding-left: calc(0.6vh * var(--fraglog_font_size));
-    padding-right: calc(0.6vh * var(--fraglog_font_size));
-    margin-left: calc(0.2vh * var(--fraglog_font_size));
-    background-color:rgba(0,0,0,0.2);
-    border-radius:0.3vh;
-}
-.fraglog div span.icon_cont {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:center;
-    height: calc(2vh* var(--fraglog_font_size) );
-    margin-left:calc(0.4vh * var(--fraglog_font_size));
-    margin-right:calc(0.4vh * var(--fraglog_font_size));
-}
-.fraglog div span.icon {
-    display: flex;
-    align-items:center;
-    justify-content:center;
-    width: calc(2vh* var(--fraglog_font_size) );
-    height: calc(2vh* var(--fraglog_font_size) );
-    background-size:90%;
-    background-position:center;
-    background-repeat:no-repeat;
-    filter:drop-shadow(0 0 1x rgba(0, 0, 0, 0.8));
-}
-
-
-
-/*
- *  ELEMENT: you fragged message
- */
-.hud_isPreview.elem_you_fragged {
-    line-height: 100%;
-}
-.hud_isPreview.elem_you_fragged .editor {
-    display:flex;
-}
-.hud_isPreview.elem_you_fragged .live {
-    display:none;
-}
-.elem_you_fragged .editor {
-    display:none;
-}
-.elem_you_fragged .live {
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-}
-.elem_you_fragged .live.left {
-    align-items:flex-start;
-}
-.elem_you_fragged .live.right {
-    align-items:flex-end;
-}
-.elem_you_fragged .live > div {
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-    padding:0 20px;
-    /*animation: you_fragged_fadein 0.3s ease-in;*/
-    line-height:100%;
-    margin-bottom:calc(1.2vh * var(--ratio));
-    display:flex;
-}
-.elem_you_fragged .live > div > span {
-    line-height:100%;
-    margin:0 0.4vh;
-}
-.elem_you_fragged .assist {
-    font-size: calc(0.8vh * var(--fontSize));
-}
-
-/*
-@keyframes you_fragged_fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-*/
-
-
-
-
 /*
  *  ELEMENT: Round MVP
  */
+/*
 .elem_round_mvp {
 
 }
@@ -2039,7 +1724,7 @@ h2 {
 .elem_round_mvp .round_mvp_container .row .value {}
 .elem_round_mvp .round_mvp_container .mvp_row .unit { font-size: calc(1.2vh* var(--ratio)); }
 .elem_round_mvp .round_mvp_container .avg_row .unit { font-size: calc(1.1vh* var(--ratio)); }
-
+*/
 
 
 

@@ -1,0 +1,17 @@
+BEGIN TEMPLATE race_timer
+    SETTING align pivot
+
+    COL_OUTPUT 0 align pivot
+    COL_OUTPUT 0 color color
+    COL_OUTPUT 0 font font
+    COL_OUTPUT 0 shadow 1
+
+ON_UPDATE
+
+    IF !game_data.race_mode && !IN_EDITOR
+        discard
+    END IF
+
+    OUTPUT 0 0 value frame_data.race_timer
+
+END TEMPLATE

@@ -1,3 +1,4 @@
+/* apiHandler singleton */
 function apiHandler() {
     class APIHandler {
         constructor(api_url, auth_required) {

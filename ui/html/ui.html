@@ -1501,29 +1501,31 @@
                                     </div>
                                     <div id="settings_block_fov" class="lockable">
 
-                                        <div class="setting">
-                                            <div class="label i18n" data-i18n="settings_field_of_view_normal">Normal Field of View</div>
-                                            <div class="ctrl">
-                                                <div id="setting_fov" class="range-slider" data-min="1" data-max="110" data-step="1.0000" data-fig="6"></div>
+                                        <div class="fov_double flex_length">
+                                            <div class="setting">
+                                                <div class="label i18n" data-i18n="settings_field_of_view_normal">Normal Field of View</div>
+                                                <div class="ctrl">
+                                                    <div id="setting_fov" class="range-slider" data-min="1" data-max="110" data-step="1.0000" data-fig="6"></div>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="setting">
-                                            <div class="label i18n" data-i18n="settings_zoomed_field_of_view">Zoomed Field of View</div>
-                                            <div class="ctrl">
-                                                <div id="setting_zoom_fov" class="range-slider" data-min="1" data-max="110" data-step="1.0000" data-fig="6"></div>
+                                            <div class="setting">
+                                                <div class="label i18n" data-i18n="settings_zoomed_field_of_view">Zoomed Field of View</div>
+                                                <div class="ctrl">
+                                                    <div id="setting_zoom_fov" class="range-slider" data-min="1" data-max="110" data-step="1.0000" data-fig="6"></div>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="setting">
-                                            <div class="label i18n" data-i18n="settings_toggable_zoom">Toggle zoom</div>
-                                            <div class="ctrl">
-                                                <div class="checkbox_component checkbox" id="setting_zoom_mode"><div></div></div>
+                                            <div class="setting">
+                                                <div class="label i18n" data-i18n="settings_toggable_zoom">Toggle zoom</div>
+                                                <div class="ctrl">
+                                                    <div class="checkbox_component checkbox" id="setting_zoom_mode"><div></div></div>
+                                                </div>
                                             </div>
-                                        </div>
-        
-                                        <div class="fov_double">
+
                                             <div class="button i18n" onclick="load_field_of_view_conversion()" data-i18n="settings_fov_converter">FOV converter</div>
+                                        </div>
+                                        <div class="fov_double">
                                             <canvas id="fov_preview" onclick="load_field_of_view_conversion()"></canvas>
                                         </div>
                                     </div>
@@ -2503,6 +2505,9 @@
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="minimap">
                                     <div class="element_label element_label_minimap i18n" data-i18n="settings_hud_minimap">Minimap</div>
+                                </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="race_timer">
+                                    <div class="element_label element_label_race_timer i18n" data-i18n="settings_hud_race_timer">Race Timer</div>
                                 </div>
                             <!--
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="round_mvp">
@@ -5793,12 +5798,6 @@
     [[/if]]
 </script>
 
-
-<script id="hud_you_fragged" type="text/x-jsrender">
-    <div class="live [[:align]]"></div>
-    <div class="editor"><span style="margin-right:0.4vh" class="i18n" data-i18n="ingame_you_fragged">Fragged</span><span style="color:white"> Mr. Eggbot</span></div>
-</script>
-
 <!--<div class="stack_hp_overtip"      [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.min(100, 200-{{battle_data.self.hp}}) + '%'"[[/if]]></div>-->
 <!--
 <script id="hud_stack_bar" type="text/x-jsrender">
@@ -5815,12 +5814,6 @@
     </div>
 </script>
 -->
-
-<script id="hud_frag_feed" type="text/x-jsrender">
-    <div class="fraglog_container">
-        <div class="fraglog [[if bottomUp == "1"]] fraglog_bottomUp [[/if]]" style="text-align: [[:align]]; --fraglog_font_size:[[:fontSize]]"></div>
-    </div>
-</script>
 
 <script id="hud_editing_info" type="text/x-jsrender">
 
@@ -6710,7 +6703,13 @@
 <script inline src="javascript/hud_elements/element_team_name.js"></script>
 <script inline src="javascript/hud_elements/element_editing_info.js"></script>
 <script inline src="javascript/hud_elements/element_minimap.js"></script>
+<script inline src="javascript/hud_elements/element_race_timer.js"></script>
+    <div id="overlay">
+    <div id="overlay_download_progress">PROGRESS</div>
+</div>
 
+    
     <div id="watermark"></div>
+
 <script type="text/javascript" src="/html/index.bundle.js"></script></body>
 </html>

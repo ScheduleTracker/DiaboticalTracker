@@ -125,8 +125,6 @@ let global_hud_references = {
     "system_clock": [],
     "chat_messages": [],
     "chat_container": [],
-    "fraglog": [],
-    "you_fragged": [],
     "editing_info": [],
     "game_report_chat_messages": undefined,
     "game_report_chat_input": undefined,
@@ -447,10 +445,6 @@ window.addEventListener("load", function(){
         global_hud_references.game_report_chat_input = _id("game_report_cont").querySelector(".chat_input");
         _for_each_with_class_in_parent(game_hud_special, "chat_messages", el => global_hud_references.chat_messages.push(el));
         _for_each_with_class_in_parent(game_hud_special, "chat_container", el => global_hud_references.chat_container.push(el));
-        global_hud_references.fraglog.length = 0;
-        global_hud_references.you_fragged.length = 0;
-        _for_each_with_class_in_parent(real_hud_container, "fraglog", el => global_hud_references.fraglog.push(el));
-        _for_each_with_class_in_parent(real_hud_container, "elem_you_fragged", el => global_hud_references.you_fragged.push(el));
 
         global_hud_references.editing_info.length = 0;
         _for_each_with_class_in_parent(game_hud_special, "elem_editing_info", el => global_hud_references.editing_info.push(el));
@@ -468,12 +462,10 @@ window.addEventListener("load", function(){
         global_hud_view_active = true;
 
         engine.call("hud_mouse_control", false);
-        console.log("hud_mouse_control false #1");
         engine.call('set_chat_enabled', false);
         global_game_report_active = false;
 
         _id("play_of_the_game").style.display = "none";
-        _id("game_loading_message").style.display = "none";
         _id("game_intro_screen").style.display = "none";
         _id("join_menu").style.display = "none";
         _id("game_over_screen").style.display = "none";
@@ -541,16 +533,8 @@ window.addEventListener("load", function(){
             }
         }
 
-        //_id("game_loading_message").style.display = "block";
     });
 
-    bind_event("change_pause_state", function(paused) {
-        if (paused) {
-            _id("paused_message").style.display = "flex";
-        } else {
-            _id("paused_message").style.display = "none";
-        }
-    });
 
     bind_event("server_log_message", function(key, value1, value2) {
         console.log("server_log_message", key, value1, value2);
@@ -575,15 +559,6 @@ window.addEventListener("load", function(){
         }
     });
 
-    bind_event('show_score', function (visible) {
-        /* replaced with native scoreboard
-        if (visible){
-            _id("scoreboard").style.display = "flex";            
-        } else {
-            _id("scoreboard").style.display = "none";
-        }
-        */
-    });
 
     bind_event("show_game_over", show_game_over);
 
@@ -607,11 +582,9 @@ window.addEventListener("load", function(){
     bind_event('show_ingame_hud', function (visible) {
         console.log("show_ingame_hud " + visible);
         engine.call("hud_mouse_control", false);
-        console.log("hud_mouse_control false #2");
 
         if (visible) {
             _id("game_intro_screen").style.display = "none";
-            _id("game_loading_message").style.display = "none";
 
             if (global_on_after_connected) {
                 global_on_after_connected = false;
@@ -627,7 +600,6 @@ window.addEventListener("load", function(){
             anim_show(_id("game_hud"));
             global_hud_is_visible = true;
         } else {
-            _id("paused_message").style.display = "none";
             anim_hide(_id("game_hud"));
             global_hud_is_visible = false;
         }
@@ -643,21 +615,6 @@ window.addEventListener("load", function(){
     });
 
 
-    bind_event("show_respawn_message", function (keybind, enabled){
-        console.log("show_respawn_message", enabled);
-        //keybind not used atm, since it's attack to respawn.
-
-        // Hack to make sure the intro message goes away when you initially spawn
-        if (enabled == false && global_hud_is_visible) {
-            _id("game_intro_screen").style.display = "none";
-            _id("game_loading_message").style.display = "none";
-        }
-
-        if(enabled)
-            anim_show(_id("respawn_message"));
-        else
-            anim_hide(_id("respawn_message"));
-    });
 
     bind_event("set_player_respawn_timer", function (player_id, time_ms){
         /*
@@ -787,114 +744,13 @@ window.addEventListener("load", function(){
         });
     };
 
-    bind_event('set_time', function (time, warmup, game_mode, round, extraDataJSON) {
-
-        /* 
-        // REPLACED WITH SNAFU ELEMENTS
-
-        var extraData = JSON.parse(extraDataJSON);
-        //console.log("==============");
-        //console.log("set_time", time,warmup,game_mode,round);
-        //console.log(_dump(extraData));
-       
-        var time_limit = parseInt(extraData[0]);
-        var overtime_seconds = parseInt(extraData[1]);
-        var tide_time_offset = parseInt(extraData[2]);
-        var in_overtime_frag_mode = extraData[3];
-        var dynamic_overtime_frag_limit = parseInt(extraData[4]);
-
-        current_match.game_time_for_chat = _seconds_to_digital(time);  // hacky shoehorning timestamp for chat msg
-
-        var game_state = '';
-        if (warmup) {
-            // Warmup
-            game_state = localize("ingame_message_warmup");
-        } else {
-            if (CUSTOM_ROUND_BASED_MODES.includes(game_mode)) {
-                // Round X
-                game_state = localize_ext("ingame_message_round", {"round": (round + 1) });
-            } else {
-                var limit_overtime = time_limit + overtime_seconds + tide_time_offset;
-
-                if (overtime_seconds) {
-                    // XX:XX Overtime
-                    game_state = _seconds_to_digital(limit_overtime)+" "+localize("ingame_message_overtime");
-                } else {
-
-                    if (time_limit !== 0) {
-                        if (current_match.confirmation_frag_time) {
-                            // Golden Frag
-                            game_state = localize("ingame_message_golden_frag");
-                        } else if (in_overtime_frag_mode === true) {
-                            game_state = localize_ext("ingame_message_overtime_fraglimit", {"score": dynamic_overtime_frag_limit });
-                        } else {
-                            // XX:XX
-                            game_state = _seconds_to_digital(limit_overtime);
-                        }    
-                    }
-
-                }
-            }
-        }
-
-        for (let el of global_hud_references.time_limit) {
-            el.textContent = game_state;
-        }
-
-        var timeLeft = (time_limit + overtime_seconds + tide_time_offset) - time;
-        if (timeLeft < 0) timeLeft = 0;
-
-        var minutes = Math.floor(time / 60);
-        var seconds = time % 60;
-
-        var time_left_minutes = Math.floor(timeLeft / 60);
-        var time_left_seconds = timeLeft % 60;
-
-        for (let el of global_hud_references.game_timer) {
-            if (el.dataset.analog == 1) {
-                if(el.dataset.countdown == 1){
-                    el.children[0].children[0].style.transform = "rotate("+(time_left_seconds*6)+"deg)";
-                    el.children[0].children[1].style.transform = "rotate("+(time_left_minutes*30+time_left_seconds/2)+"deg)";
-                } else {
-                    el.children[0].children[0].style.transform = "rotate("+(seconds*6)+"deg)";      
-                    el.children[0].children[1].style.transform = "rotate("+(minutes*30+seconds/2)+"deg)";   
-                }
-            } else {
-                if (el.dataset.countdown == 1){
-                    el.textContent = _seconds_to_digital(timeLeft);
-                } else {
-                    el.textContent = _seconds_to_digital(time);
-                }
-            }
-        }
-        
-        // hacky experimental piggybacking for a system clock element, should be moved elsewhere when finalized so that seconds update aren't synced to game time
-        var piggyback_today = new Date();
-        var piggyback_local_hour = piggyback_today.getHours();
-        var piggyback_local_min  = piggyback_today.getMinutes();
-        var piggyback_local_sec  = piggyback_today.getSeconds();
-        var piggyback_local_time = piggyback_local_hour + ":" + (piggyback_local_min<10?"0"+piggyback_local_min:piggyback_local_min) + ":" + (piggyback_local_sec<10?"0"+piggyback_local_sec:piggyback_local_sec);
-        for (let el of global_hud_references.system_clock) {
-            if (el.dataset.analog == 1) {
-                el.children[0].children[0].style.transform = "rotate("+(piggyback_local_min*6 + piggyback_local_sec/10)+"deg)";
-                el.children[0].children[1].style.transform = "rotate("+(piggyback_local_hour*30 + piggyback_local_min/2 + piggyback_local_sec/120)+"deg)";      
-            } else {
-                el.textContent = piggyback_local_time;
-            }
-        }
-        */
-    });
-
-
-
-
     bind_event("player_needs_confirmation_frag", function (player_id) {
         current_match.confirmation_frag_time = true;
     });
 
+    /*
     bind_event('set_hud_game_mode', function (mode) {
         //engine.call("echo", 'set_hud_game_mode ' + mode.toUpperCase());
-/*
         
         _for_each_with_class_in_parent(real_hud_container, "scoreboard_gamemode_name", el => {
             el.textContent = mode.toUpperCase();
@@ -907,8 +763,8 @@ window.addEventListener("load", function(){
             let el = _id("teams_scoreboard");
             if (el) el.style.display = "none";
         }
-        */
     });
+    */
     
     bind_event('set_zoom', function (enabled) {
         crosshair_containers[0].style.display      = enabled ? "none" : "flex"; // crosshair

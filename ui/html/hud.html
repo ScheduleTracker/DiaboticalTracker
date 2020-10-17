@@ -441,8 +441,6 @@
         <div id="play_of_the_game_player"></div>
     </div>
 
-    <div id="game_loading_message">Waiting for all players to load.</div>
-
     <div id="game_intro_screen">
         <div class="mode_map">
             <div id="game_intro_mode"></div>
@@ -469,20 +467,6 @@
             </div>
 
             <div id=announcements></div>
-
-            <div id="respawn_message" class="i18n" data-i18n="ingame_press_attack_to_respawn">Press attack to respawn</div>
-            
-            <!--
-            <div id="f3_message" class="unready" 
-                data-bind-if="{{game_data.spectator}} == false && {{game_data.game_stage}} == 1 && !{{battle_data.self.ready}} && !{{game_data.race_mode}} && !{{battle_data.is_editor_loaded}}" 
-                data-bind-i18n="'ingame_status_unready:'+{{battle_data.ready_key}}"></div>
-            -->
-
-            <!--<div id="f3_message" 
-                data-bind-if="{{game_data.spectator}} == false && {{game_data.game_stage}} == 1 && {{battle_data.self.ready}} && !{{battle_data.is_editor_loaded}}" 
-                data-bind-i18n="'ingame_status_ready:'+{{battle_data.self.ready}}"></div>-->
-
-            <div id="paused_message" class="i18n" data-i18n="ingame_game_is_paused">Game Is Paused.</div>
 
         </div>
 
@@ -797,12 +781,6 @@
     [[/if]]
 </script>
 
-
-<script id="hud_you_fragged" type="text/x-jsrender">
-    <div class="live [[:align]]"></div>
-    <div class="editor"><span style="margin-right:0.4vh" class="i18n" data-i18n="ingame_you_fragged">Fragged</span><span style="color:white"> Mr. Eggbot</span></div>
-</script>
-
 <!--<div class="stack_hp_overtip"      [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.min(100, 200-{{battle_data.self.hp}}) + '%'"[[/if]]></div>-->
 <!--
 <script id="hud_stack_bar" type="text/x-jsrender">
@@ -819,12 +797,6 @@
     </div>
 </script>
 -->
-
-<script id="hud_frag_feed" type="text/x-jsrender">
-    <div class="fraglog_container">
-        <div class="fraglog [[if bottomUp == "1"]] fraglog_bottomUp [[/if]]" style="text-align: [[:align]]; --fraglog_font_size:[[:fontSize]]"></div>
-    </div>
-</script>
 
 <script id="hud_editing_info" type="text/x-jsrender">
 
@@ -1669,6 +1641,7 @@
 <script inline src="javascript/hud_elements/element_team_name.js"></script>
 <script inline src="javascript/hud_elements/element_editing_info.js"></script>
 <script inline src="javascript/hud_elements/element_minimap.js"></script>
+<script inline src="javascript/hud_elements/element_race_timer.js"></script>
 
     <div id="watermark" class="ingame"></div>
 <script type="text/javascript" src="/html/hud.bundle.js"></script></body>

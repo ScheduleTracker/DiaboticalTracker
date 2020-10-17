@@ -1,0 +1,23 @@
+INSTANCE pause_msg 50 42
+
+BEGIN TEMPLATE pause_msg
+    SETTING align "center"
+
+ON_UPDATE
+
+    IF !game_data.game_paused
+        discard
+    END IF
+
+    IF battle_data.is_editor_loaded
+        discard
+    END IF
+
+    OUTPUT 0 0 lvalue "ingame_game_is_paused"
+    OUTPUT 0 0 value ""
+    OUTPUT 0 0 font "montserrat-bold"
+    OUTPUT 0 0 font_size 5
+    OUTPUT 0 0 shadow 1
+    OUTPUT 0 0 uppercase 1
+
+END TEMPLATE
