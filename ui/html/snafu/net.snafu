@@ -1,0 +1,28 @@
+BEGIN TEMPLATE net
+    SETTING align pivot
+    DOUBLE iS
+
+    COL_OUTPUT 0 image "images/lag_state.svg"
+    COL_OUTPUT 0 image_width iS
+    COL_OUTPUT 0 image_height iS
+    COL_OUTPUT 0 width iS
+    COL_OUTPUT 0 height iS
+
+ON_UPDATE 
+
+    INT hide
+    hide = 0
+
+    IF !game_data.lagged
+        hide = 1
+    END IF
+
+    IF IN_EDITOR
+        hide = 0
+    END IF
+
+    IF hide
+        discard
+    END IF
+
+END TEMPLATE

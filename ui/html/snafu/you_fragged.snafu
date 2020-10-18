@@ -14,8 +14,10 @@ ON_UPDATE
     #ECHO kill_messages[IDX].assist 
     #ECHO kill_messages[IDX].target_name
 
+    INT render_msg
+    render_msg = 1
     IF ha && kill_messages[IDX].assist
-        break
+        render_msg = 0
     END IF
     
     DOUBLE fsize
@@ -58,5 +60,14 @@ ON_UPDATE
     OUTPUT IDX 1 indent indent
     OUTPUT IDX 1 value kill_messages[IDX].target_name
     OUTPUT IDX 1 color kill_messages[IDX].enemy_color
+
+    # Need to set to something ("empty") otherwise the previous iterations value will be rendered
+    IF !render_msg
+        OUTPUT IDX 0 height 0
+        OUTPUT IDX 0 lvalue "empty"
+        OUTPUT IDX 0 value ""
+        OUTPUT IDX 1 height 0
+        OUTPUT IDX 1 value ""
+    END IF
 
 END TEMPLATE

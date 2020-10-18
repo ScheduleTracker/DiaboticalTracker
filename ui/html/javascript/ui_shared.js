@@ -744,7 +744,7 @@ function count_to_empty_array(count) {
 }
 
 
-let global_hud_version = 1.4;
+let global_hud_version = 1.5;
 let global_hud_version_min = 1.1; // lower than this = hud gets reset to default
 function hud_version_check(hud, hud_type) {
     if (!("version" in hud)) hud.version = 0;
@@ -762,6 +762,9 @@ function hud_version_check(hud, hud_type) {
             add_elements.push("race_timer");
             modify_elements.push("frag_feed");
             modify_elements.push("you_fragged");
+        }
+        if (version < 1.5) {
+            add_elements.push("net");
         }
     }
 
@@ -827,10 +830,20 @@ function hud_version_check(hud, hud_type) {
                     "gid":-1,
                     "x":50,
                     "y":12,
-                    "font":"roboto-bold",
+                    "font":"notosans",
                     "fontSize":"4",
                     "pivot":"top-edge",
                     "color":"#ffffff"
+                });
+            }
+            if (add_el == "net") {
+                hud.elements.push({
+                    "t":"net",
+                    "gid":-1,
+                    "x":0.5,
+                    "y":2,
+                    "iS": "4",
+                    "pivot":"top-left",
                 });
             }
         }

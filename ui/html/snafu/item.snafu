@@ -262,20 +262,13 @@ BEGIN TEMPLATE item
     END IF
 
     # KEY BIND
-    STRING rounded_rect
-    BEGIN TEXT rounded_rect
-        <svg width="100" height="100">
-            <rect width="100" height="100" x="0" y="0" rx="10" fill="#ffffff" fill-opacity="0.4" />
-        </svg>
-    END TEXT
-
     INT show_keybind
     IF keybind
         DOUBLE keybind_x
         DOUBLE keybind_y
         keybind_x = iSize + 1
         keybind_y = iSize / 2
-        keybind_y = keybind_y - 1
+        keybind_y = keybind_y - 1.5
         IF name
             keybind_x = iSize + 2.5
         END IF
@@ -288,18 +281,16 @@ BEGIN TEMPLATE item
         END IF
 
         show_keybind = 1
-        COL_OUTPUT 6 width 4
         COL_OUTPUT 6 font_size 1.2
         COL_OUTPUT 6 font "roboto-bold"
         COL_OUTPUT 6 align "center"
-        COL_OUTPUT 6 image rounded_rect
-        COL_OUTPUT 6 image_width 2
-        COL_OUTPUT 6 image_height 2
         COL_OUTPUT 6 width 2
-        COL_OUTPUT 6 height 2
+        COL_OUTPUT 6 height 3
         COL_OUTPUT 6 color "1a1a1a"
         COL_OUTPUT 6 x keybind_x
         COL_OUTPUT 6 y keybind_y
+        COL_OUTPUT 6 fill "#ffffff55"
+        COL_OUTPUT 6 border_radius 0.3
     END IF
 
 ON_UPDATE

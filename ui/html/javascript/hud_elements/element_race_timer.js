@@ -2,7 +2,7 @@ function init_element_race_timer() {
 
     const element = new HUD_element('race_timer', true,
     {
-        "font": "roboto-bold",
+        "font": "notosans",
         "fontSize": "4",
         "pivot": "right-edge",
         "color": "#ffffff",

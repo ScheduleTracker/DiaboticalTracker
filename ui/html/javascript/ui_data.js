@@ -646,6 +646,7 @@ const GLOBAL_ABBR = {
     STATS_KEY_ROUNDS: "r",
     STATS_KEY_BASE: "b",
     STATS_KEY_ASSISTS: "a",
+    STATS_KEY_PING: "p",
 };
 
 

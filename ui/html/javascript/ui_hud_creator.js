@@ -47,6 +47,7 @@ function init_hud_elements() {
     init_element_editing_info();
     init_element_minimap();
     init_element_race_timer();
+    init_element_net();
 }
 
 function make_hud_in_element(container_id, editing_mode, spectating_hud) {
