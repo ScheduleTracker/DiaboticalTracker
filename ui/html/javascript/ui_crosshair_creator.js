@@ -301,15 +301,15 @@ function updateEngineCrosshairDefinition(zoom, engine_variable, crosshair_defini
     copyButton.dataset.crossdef = JSON.stringify(crosshair_definition); //the string we send to the engine is short version, the dataset uses long version
 }
 
-function get_crosshair_draw_list(crosshair_string, hit_mode){
-    let crosshair_definition = generateFullCrosshairDefinition(crosshair_string);
+function get_crosshair_draw_list(crosshair_string, hit_mode, draw_id){
+    let crosshair_definition = cleanCrosshairDefinition(generateFullCrosshairDefinition(crosshair_string));
     if(hit_mode){
         var crosshair_draw_list = drawCrosshair(false, crosshair_definition, "logicalHit");
     }
     else{
         var crosshair_draw_list = drawCrosshair(false, crosshair_definition, "logicalDefault");
     }
-    return crosshair_draw_list
+    engine.call("get_crosshair_draw_list_return", crosshair_draw_list, draw_id);
 }
 
 function drawCrosshair(zoom, crosshair_definition, target){
