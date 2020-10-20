@@ -267,6 +267,10 @@
 	<script inline src="javascript/ui_select_component.js"></script>
 
 <script>
+	const global_editpad = {
+		next_tab_input: null
+	};
+
 	window.addEventListener("load", function () {
 		//$('#filter_input').on("input", function () {
 		//	populate();
@@ -303,29 +307,71 @@
 		}
 	}
 
+	function _set_focus(selector) {
+		const elt = $(selector)[0];
+		if (elt) {
+			elt.focus();
+			if (elt.value && elt.value.length)
+				elt.selectionStart = elt.selectionEnd = elt.value.length;
+		}
+	}
+
 	engine.on('entity_details', function (content, id) {
 		//$("#" + id).empty();
 		//$("#" + id).html(content);
 		var el = _id(id);
 		_html(el, content);
-
 		_setup_color_pickers("#" + id + " .color-picker-new");
+
+		if (global_editpad.next_tab_input_selector) {
+			// Focus next tab input in case of new content
+			_set_focus(global_editpad.next_tab_input_selector)
+			global_editpad.next_tab_input_selector = null;
+		}
+		
+		const onConfirm = function (target) {
+			var property = "" + target.data("property");
+			var entity = "" + target.data("entity");
+			var expression = "" + target.data("expression");
+			var val = "" + target.val();
+			if (expression == "1"){
+				val = "" + addbits(val);
+				target.val(val);
+			}
+			engine.call("set_string_property", target.data("entity"), target.data("property"), val);
+		};
 		
 		$(".detail_text_field").each(function (i) {
 			$(this).keyup(function (e) {
 			  if (e.keyCode == 13) {
-				  var property = "" + $(this).data("property");
-				  var entity = "" + $(this).data("entity");
-				  var expression = "" + $(this).data("expression");
-				  var val = ""+$(this).val();
-				  if (expression == "1"){
-					val = ""+addbits(val);
-					$(this).val(val);
-				  }
-				  engine.call("set_string_property", $(this).data("entity"), $(this).data("property"), val);
-				  this.setSelectionRange(0, this.value.length);
-				  //$(this).select();
+				// Force refocus if content changes
+				const target_index = parseInt(e.currentTarget.getAttribute("tabIndex"), 10);
+				global_editpad.next_tab_input_selector = target_index ? `#${id} .detail_text_field[tabIndex="${target_index}"]` : null;
+
+				onConfirm($(this));				
+				this.setSelectionRange(0, this.value.length);
 			  }
+			});
+		});
+
+		const inputsSelector = `#${id} input`;
+		$(inputsSelector).each(function (i) {
+			$(this).keyup(function (e) {
+				if(e.keyCode == 9) {
+					const input_tab_indexes = $(`#${id} input`).toArray().reduce((acc, input) => {
+						acc[parseInt(input.getAttribute("tabIndex"), 10)] = input;
+						return acc;
+					}, []);
+
+					const target_index = parseInt(e.currentTarget.getAttribute("tabIndex"), 10);
+					const next_tab_index = (input_tab_indexes.length - 1) >= target_index ? target_index + 1 : 1;
+					
+					global_editpad.next_tab_input_selector = `${inputsSelector}[tabIndex="${next_tab_index}"]`;
+					// Focus next tab input in case of not expecting for new content
+					_set_focus(global_editpad.next_tab_input_selector)
+
+					onConfirm($(this));
+				}
 			});
 		});
 		

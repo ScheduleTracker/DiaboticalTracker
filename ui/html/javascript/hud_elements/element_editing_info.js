@@ -12,7 +12,7 @@ function init_element_editing_info() {
         defaultFontFamily,
         defaultFontSize,
     ]
-    , "#hud_editing_info");  //Template Name
+    , "#hud_placeholder");  //Template Name
 
     hud_elements.push(hud_elem);
 

@@ -285,6 +285,7 @@ function initialize_canvas_crosshair_presets() {
 }
 
 function updateCrosshairPreview(zoom, crosshair_definition){
+        //draw crosshair to editor preview
         drawCrosshair(zoom, crosshair_definition);
         //copy drawing to menu preview
         var zoom_key = zoom ? 'zoom' : 'normal';
@@ -612,6 +613,10 @@ function drawRectangles(ctxCross, /*segments,*/ enabledSides, gap, length, thick
 
 function drawDot(ctxCross, dotType, thickness, outlineThickness, rotation, color, outline){
     let instructionString = "";
+    
+    if(thickness == 0){
+        return;
+    }
 
     var fillRule = 'nonzero'
 
@@ -624,10 +629,6 @@ function drawDot(ctxCross, dotType, thickness, outlineThickness, rotation, color
         instructionString += "fillStyle " + color + "\n";
         instructionString += "save\n";
         instructionString += "rotate " + ((Math.PI/180)*rotation) + "\n";
-    }
-
-    if(thickness == 0){
-        return;
     }
 
     if(ctxCross !== "returnString"){

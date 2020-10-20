@@ -1771,8 +1771,23 @@
 
                         <div class="settings_block double">
                             <div class="settings_block_double">
+                                <!-- GENERAL -->
+                                <div class="settings_header i18n" data-i18n="settings_general">General</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_show_chat">Show chat</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="hud_show_chat" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
+                                                <div data-value=1 class="i18n" data-i18n="settings_show_chat_team">Show only team messages</div>
+                                                <div data-value=2 class="i18n" data-i18n="settings_show_chat_all">Show all messages</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!-- INPUT -->
-                                <div class="settings_header i18n" data-i18n="settings_input">Input</div>
+                                <div class="settings_header i18n" data-i18n="settings_input" style="margin-top:2vh;">Input</div>
                                 <div class="setting">
                                     <div class="label i18n" data-i18n="settings_invert_mouse">Invert mouse</div>
                                     <div class="ctrl">
@@ -1865,6 +1880,26 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- ZOOM -->
+                                <div class="settings_header i18n" data-i18n="settings_zoom" style="margin-top:2vh;">Zoom</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_zoom_weapon_scaling">Scale weapon when zooming</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_zoom_weapon_scaling"><div></div></div>
+                                    </div>
+                                </div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_zoom_in_time">Zoom-in time</div>
+                                    <div class="ctrl">
+                                        <div id="slider_game_zoom_in_time" class="range-slider" data-variable="game_zoom_in_time" data-min="0" data-max="0.5" data-step="0.01"></div>
+                                    </div>
+                                </div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_zoom_out_time">Zoom-out time</div>
+                                    <div class="ctrl">
+                                        <div id="slider_game_zoom_out_time" class="range-slider" data-variable="game_zoom_out_time" data-min="0" data-max="0.5" data-step="0.01"></div>
+                                    </div>
+                                </div>
                                 <div class="setting">
                                     <div class="label i18n" data-i18n="settings_reset_zoom_on_switch">Reset zoom toggle when switching weapons.</div>
                                     <div class="ctrl">
@@ -1925,39 +1960,6 @@
                                     <div class="label i18n" data-i18n="settings_damage_number_grouping">Damage number grouping</div>
                                     <div class="ctrl">
                                         <div class="checkbox_component checkbox" data-variable="game_damage_numbers_grouping"><div></div></div>
-                                    </div>
-                                </div>
-
-                                <!-- WAYPOINTS -->
-                                <div class="settings_header i18n" data-i18n="settings_waypoints" style="margin-top:2vh;">Waypoints</div>
-                                <div class="setting">
-                                    <div class="label i18n" data-i18n="settings_weapon_waypoints">Weapon waypoints</div>
-                                    <div class="ctrl">
-                                        <div class="setting_select wide">                           
-                                            <div class="select-field" data-variable="game_weapon_waypoints" data-theme="settings">
-                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
-                                                <div data-value=1 class="i18n" data-i18n="enabled">Enabled</div>
-                                                <div data-value=2 class="i18n" data-i18n="waypoints_not_owned">Only for not-owned weapons</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="setting">
-                                    <div class="label i18n" data-i18n="settings_waypoint_size">Waypoint size</div>
-                                    <div class="ctrl">
-                                        <div id="slider_game_waypoint_scale" class="range-slider" data-variable="game_waypoint_scale" data-min="0" data-max="1" data-step="0.01"></div>
-                                    </div>
-                                </div>
-                                <div class="setting">
-                                    <div class="label i18n" data-i18n="settings_screenedge_ping_waypoints">Screen-edge ping waypoints</div>
-                                    <div class="ctrl">
-                                        <div class="setting_select wide">                           
-                                            <div class="select-field" data-variable="game_ping_waypoints" data-theme="settings">
-                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
-                                                <div data-value=1 class="i18n" data-i18n="waypoints_ping_threat_type">Show only threat type</div>
-                                                <div data-value=2 class="i18n" data-i18n="show_all">Show all</div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 
@@ -2097,7 +2099,39 @@
                                         <input class="jscolor color-picker-new" onchange="colorPickerValueUpdated(this, this.jscolor)" data-variable="game_team_names_color">
                                     </div>
                                 </div>
-
+                                
+                                <!-- WAYPOINTS -->
+                                <div class="settings_header i18n" data-i18n="settings_waypoints" style="margin-top:2vh;">Waypoints</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_weapon_waypoints">Weapon waypoints</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_weapon_waypoints" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
+                                                <div data-value=1 class="i18n" data-i18n="enabled">Enabled</div>
+                                                <div data-value=2 class="i18n" data-i18n="waypoints_not_owned">Only for not-owned weapons</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_waypoint_size">Waypoint size</div>
+                                    <div class="ctrl">
+                                        <div id="slider_game_waypoint_scale" class="range-slider" data-variable="game_waypoint_scale" data-min="0" data-max="1" data-step="0.01"></div>
+                                    </div>
+                                </div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_screenedge_ping_waypoints">Screen-edge ping waypoints</div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="game_ping_waypoints" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
+                                                <div data-value=1 class="i18n" data-i18n="waypoints_ping_threat_type">Show only threat type</div>
+                                                <div data-value=2 class="i18n" data-i18n="show_all">Show all</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             <!--
                                 <div class="settings_header i18n" data-i18n="settings_streaming" style="margin-top:2vh;">Streaming</div>
                                 <div class="setting">
@@ -5685,6 +5719,10 @@
     <div id="logout_reason" class="logged_out"></div>
     <div class="quit db-btn plain mouseover-sound4 click-sound" onclick="engine.call('quit')">Quit</div>
 </div> 
+    <div id="ingame_chat_prompt">
+    <div id="ingame_chat_label"></div>
+    <input id="ingame_chat_input" />
+</div>
     <div id=console>
     <div id=console_buffer_wrapper><div id=console_buffer></div></div>
     <div id=console_prompt_container><input tabindex="-1" id=console_prompt value=""></div>
@@ -5824,11 +5862,7 @@
 </script>
 -->
 
-<script id="hud_editing_info" type="text/x-jsrender">
-
-</script>
-<script id="hud_minimap" type="text/x-jsrender">
-
+<script id="hud_placeholder" type="text/x-jsrender">
 </script>
 
 

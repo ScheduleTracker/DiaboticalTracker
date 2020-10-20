@@ -744,7 +744,7 @@ function count_to_empty_array(count) {
 }
 
 
-let global_hud_version = 1.5;
+let global_hud_version = 1.6;
 let global_hud_version_min = 1.1; // lower than this = hud gets reset to default
 function hud_version_check(hud, hud_type) {
     if (!("version" in hud)) hud.version = 0;
@@ -765,6 +765,9 @@ function hud_version_check(hud, hud_type) {
         }
         if (version < 1.5) {
             add_elements.push("net");
+        }
+        if (version == 1.5) {
+            modify_elements.push("net");
         }
     }
 
@@ -840,9 +843,10 @@ function hud_version_check(hud, hud_type) {
                 hud.elements.push({
                     "t":"net",
                     "gid":-1,
-                    "x":0.5,
+                    "x":0,
                     "y":2,
                     "iS": "4",
+                    "ol": "1",
                     "pivot":"top-left",
                 });
             }
@@ -863,6 +867,12 @@ function hud_version_check(hud, hud_type) {
                 }
                 if (modif_el == "you_fragged" && el.v_align == "right") {
                     el.v_align = "right-edge";
+                }
+                if (modif_el == "net") {
+                    if (el.x == "0.5" && el.y == "2") {
+                        el.x = "0";
+                    }
+                    el.ol = "1";
                 }
                 
                 break;

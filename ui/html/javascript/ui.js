@@ -192,6 +192,9 @@ window.addEventListener("load", function(){
         set_console(visible);
     });
 
+    // Setup listeners for the main ingame chat prompt
+    main_chat_setup();
+
     // Press Escape to go up a level 
     document.addEventListener("keydown", function(e){
         var tag = e.target.tagName.toLowerCase();
@@ -557,6 +560,8 @@ window.addEventListener("load", function(){
 
         if (enabled) {
             resume_menu_videos();
+
+            set_chat(false);
         } else {
             suspend_menu_videos();
 

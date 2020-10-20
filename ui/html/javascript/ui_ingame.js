@@ -127,7 +127,6 @@ let global_hud_references = {
     "chat_container": [],
     "editing_info": [],
     "game_report_chat_messages": undefined,
-    "game_report_chat_input": undefined,
 };
 
 // Current battlepass stored in the hud view for access in the game report
@@ -288,7 +287,7 @@ window.addEventListener("load", function(){
     // Load all the hud element definitions
     init_hud_elements();
 
-    element_chat_setup();
+    main_chat_setup();
 
     //Generate crosshair canvases
     initializeCanvasCrosshairMaps();
@@ -442,7 +441,6 @@ window.addEventListener("load", function(){
         global_hud_references.chat_messages.length = 0;
         global_hud_references.chat_container.length = 0;
         global_hud_references.game_report_chat_messages = _id("game_report_cont").querySelector(".chat_messages");
-        global_hud_references.game_report_chat_input = _id("game_report_cont").querySelector(".chat_input");
         _for_each_with_class_in_parent(game_hud_special, "chat_messages", el => global_hud_references.chat_messages.push(el));
         _for_each_with_class_in_parent(game_hud_special, "chat_container", el => global_hud_references.chat_container.push(el));
 

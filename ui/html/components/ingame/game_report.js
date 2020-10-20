@@ -16,10 +16,6 @@ let global_game_report_data_snafu = {};
 
 function init_hud_screen_game_report() {
 
-    _id("game_report_cont").querySelector(".chat_input").addEventListener("blur", function() {
-        engine.call('set_chat_enabled', false);
-    });
-
     bind_event('set_game_report', set_game_report);
     bind_event('show_game_report', show_game_report);
 
@@ -180,7 +176,6 @@ function init_hud_screen_game_report() {
 
         show_game_report(true);
         engine.call("hud_mouse_control", true);
-        move_open_chat_to_report();
     });
 
     let scoreboard_scroll = _id("report_scoreboard");
@@ -369,8 +364,6 @@ function show_game_report(visible) {
 
         let scoreboard_scroll = _id("report_scoreboard");
         if (scoreboard_scroll) refreshScrollbar(scoreboard_scroll);
-
-        move_open_chat_to_report();
 
     } else {
         anim_hide(_id("game_report_cont"), 100);

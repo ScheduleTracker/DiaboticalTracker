@@ -45,7 +45,7 @@ function init_element_minimap() {
         {"inputType": "float",  "type": "sps", "text": "Self player scale"},
         {"inputType": "float",  "type": "as", "text": "Allies scale"},
     ]
-    , "#hud_minimap");
+    , "#hud_placeholder");
 
     hud_elements.push(element);
 

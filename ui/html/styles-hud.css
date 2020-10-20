@@ -1218,47 +1218,6 @@ h2 {
     visibility: visible; /*important*/
 }
 
-/*
- *  Chat input
- */
-#ingame_chat_prompt {
-    position:absolute;
-    bottom:0;
-    left:0;
-    right:0;
-    background-color:rgba(20, 20, 20, 0.9);
-    padding:0.5vh;
-    display:none;
-    flex-direction:row;
-}
-#ingame_chat_prompt.active {
-    display:flex;
-}
-#ingame_chat_label {
-    padding:0 1vh;
-    font-size:1.8vh;
-    font-weight:bold;
-    font-family:var(--mont-font);
-    text-transform:uppercase;
-    display:flex;
-    align-items:center;
-}
-#ingame_chat_input {
-    flex:1;
-    height:100%;
-    background-color:rgba(0, 0, 0, 0.7);
-    border:none;
-    font-size:1.8vh;
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    height:4vh;
-    line-height:3vh;
-    padding:0.5vh 1vh;
-    color:#fff;
-    font-family:var(--main-font-medium);
-}
-
 
 /*
  *  Respawn countdown timer ... outdated/unused?
@@ -1785,7 +1744,7 @@ h2 {
 .hud_isPreview.elem_editing_info {
     width: calc(30vh * var(--ratio));
     height: calc(20vh * var(--ratio));
-    background-color:rgba(255,255,255,0.1);
+    background-color:rgba(255,255,255,0.3);
 }
 
 
@@ -1797,7 +1756,18 @@ h2 {
     height:calc(1vh * var(--size) * var(--ratio));
 }
 .hud_isPreview.elem_minimap {
-    background-color:rgba(255,255,255,0.1);
+    background-color:rgba(255,255,255,0.3);
+}
+
+/*
+ *  ELEMENT: Lag Indicator
+ */
+ .elem_net {
+    width:calc(1vh * var(--iS) * var(--ratio));
+    height:calc(1vh * var(--iS) * var(--ratio));
+}
+.hud_isPreview.elem_net {
+    background-color:rgba(255,255,255,0.3);
 }
 #aim_report {
     position:absolute;
@@ -2479,7 +2449,7 @@ h2 {
     flex:1;
     overflow-x:hidden;
     overflow-y:hidden;
-    padding:0.4vh 0.4vh 0.8vh 0.4vh;
+    padding:0.4vh 0.4vh 2vh 0.4vh;
     display:flex;
     align-items:flex-end;
     font-size:1.4vh;
@@ -2489,37 +2459,6 @@ h2 {
     flex-direction: column;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
     width:100%;
-}
-
-#game_report_cont .report_bottom .chat .chat_input_cont {
-    display:flex;
-}
-#game_report_chat_input_mode {
-    display:flex;
-    align-items:center;
-    padding:0 1vh;
-    background-color:rgba(0,0,0,0.2);
-    font-weight:bold;
-    font-family:var(--mont-font);
-    font-size:1.5vh;
-    text-transform: uppercase;
-    margin-right:0.4vh;
-}
-#game_report_chat_input_mode:hover {
-    background-color:rgba(255,255,255,0.1);
-}
-#game_report_cont .report_bottom .chat .chat_input_cont .chat_input {
-    border:none;
-    background: rgba(0,0,0,0.2);
-    flex:1;
-    font-size: 1.6vh;
-    font-family: var(--main-font-medium);
-    line-height: 3vh;
-
-    padding: 0.5vh 1vh;
-    height: 4vh;
-
-    color: white;
 }
 
 #game_report_cont .report_bottom .chat .chat_messages .chat_msg { display: flex; }
@@ -2596,7 +2535,7 @@ h2 {
     align-items:flex-end;
     justify-content:flex-end;
     padding-right:6vh;
-    padding-bottom:3vh;
+    padding-bottom:5vh;
 }
 
 #game_report_cont .report_bottom .menu .btn {
