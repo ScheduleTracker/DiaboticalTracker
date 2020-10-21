@@ -544,6 +544,10 @@ window.addEventListener("load", function(){
             addServerChatMessage(localize_ext("ingame_chat_msg_client_joined_team", {"name": value1, "team": value2}));
         } else if (key == "join_spec") {
             addServerChatMessage(localize_ext("ingame_chat_msg_client_joined_spec", {"name": value1}));
+        } else if (key == "inactivity_kick") {
+            addServerChatMessage(localize_ext("ingame_chat_msg_client_inactivity_kick", {"name": value1}));
+        } else if (key == "inactivity_warning") {
+            addServerChatMessage(localize("ingame_chat_msg_client_inactivity_warning"));
         } else if (key == "pauses_left") {
             let pauses_avail_after = parseInt(value1);
             if (pauses_avail_after >= 0) addServerChatMessage(localize_ext("ingame_chat_msg_pauses_left", {"count": pauses_avail_after}));

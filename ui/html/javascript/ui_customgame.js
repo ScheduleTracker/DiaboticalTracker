@@ -1173,6 +1173,9 @@ function handle_lobby_event(data) {
         btn.classList.add("locked");
     }
     if (data.action == "lobby-match-confirmed") {
+        // Reset the inactivity timer if we are about to join a match
+        engine.call("reset_inactivity_timer");
+        
         lobby_hide_loading_overlay();
     }
     if (data.action == "lobby-match-error") {

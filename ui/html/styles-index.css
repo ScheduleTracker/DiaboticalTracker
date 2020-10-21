@@ -11738,7 +11738,7 @@ h2 {
     border-bottom:1px solid rgba(255,255,255,0.1);
 }
 #settings_screen_controls_bar > div {
-    padding-right:4vh;
+    padding: 0 2vh;
     line-height:5vh;
     height:5vh;
     text-transform:uppercase;
@@ -11752,6 +11752,7 @@ h2 {
 }
 #settings_screen_controls_bar > div.active_controls_section {
     color: rgba(255,255,255,1.0);
+    background-image: linear-gradient(to top,rgba(255, 255, 255, 0.1) 0%, transparent 100%);
 }
 #settings_screen_controls_content {
     overflow-y: auto;
@@ -11896,6 +11897,14 @@ h2 {
     color: rgba(255, 255, 255, 0.8);
     overflow: visible;
     /*border-bottom:2px solid transparent;*/
+}
+#combat_panel_header .combat_panel_header_item.txt {
+    padding:0 2vh;
+    font-size:1.5vh;
+    text-transform:uppercase;
+}
+#combat_panel_header .combat_panel_header_item.txt:hover {
+    color: #fff;
 }
 #combat_panel_header .combat_panel_header_item .combat_name {
     font-size:1.4vh;

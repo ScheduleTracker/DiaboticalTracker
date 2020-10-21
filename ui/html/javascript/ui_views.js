@@ -66,9 +66,36 @@ function addCrosshairSelectHandler(crosshair_option) {
     });
 }
 
-function settings_combat_update(weapon) {
+function settings_combat_general() {
+    let weapon_sheet = _id("weapon_sheet");
+    let general_sheet = _id("weapon_sheet_general");
+
+    weapon_sheet.style.display = "none";
+    general_sheet.style.display = "block";
 
     let weapon_title = _id("combat_panel_header_title");
+    weapon_title.style.display = "none";
+
+    let combat_header = _id("combat_panel_header");
+    _for_each_with_class_in_parent(combat_header, 'button-weapon-selected', function(el) { el.classList.remove("button-weapon-selected"); });
+    _for_each_with_class_in_parent(combat_header, 'img-weapon-selected', function(el) { el.classList.remove("img-weapon-selected"); });
+    _for_each_with_class_in_parent(combat_header, 'tip_inner', function(el) { el.classList.remove("hidden"); });
+
+    let button = _id("combat_panel_general");
+    button.classList.add("button-weapon-selected");
+
+}
+
+function settings_combat_update(weapon) {
+    let weapon_sheet = _id("weapon_sheet");
+    let general_sheet = _id("weapon_sheet_general");
+
+    weapon_sheet.style.display = "block";
+    general_sheet.style.display = "none";
+
+    let weapon_title = _id("combat_panel_header_title");
+    weapon_title.style.display = "block";
+
     let weapon_settings = _id("custom_weapon_settings");
     let weapon_settings_checkboxes = _id("weapon_sheet").querySelectorAll('.settings_block_header .checkbox_component');
     if (weapon == 0) {
@@ -81,24 +108,22 @@ function settings_combat_update(weapon) {
             weapon_settings_checkboxes[i].classList.add("hidden");
         }
 
-        weapon_title.textContent = localize("settings_default");
+        weapon_title.textContent = localize("settings_default_weapon_settings");
     } else {
         for (let i=0; i<weapon_settings_checkboxes.length; i++) {
             weapon_settings_checkboxes[i].classList.remove("hidden");
         }
-        weapon_title.textContent = localize(global_item_name_map[global_weapon_idx_name_map[weapon]][1]);
+        weapon_title.textContent = localize("settings_customize")+" "+localize(global_item_name_map[global_weapon_idx_name_map[weapon]][1]);
     }
     
     let combat_header = _id("combat_panel_header");
     _for_each_with_class_in_parent(combat_header, 'button-weapon-selected', function(el) { el.classList.remove("button-weapon-selected"); });
     _for_each_with_class_in_parent(combat_header, 'img-weapon-selected', function(el) { el.classList.remove("img-weapon-selected"); });
-    //_for_each_with_class_in_parent(combat_header, 'combat_name', function(el) { el.classList.remove("active"); });
     _for_each_with_class_in_parent(combat_header, 'tip_inner', function(el) { el.classList.remove("hidden"); });
 
     let button = _id("combat_panel_weapon_"+weapon);
     button.classList.add("button-weapon-selected");
     _for_each_with_tag_in_parent(button, 'img', function(el) { el.classList.add("img-weapon-selected"); });
-    //_for_each_with_class_in_parent(button, 'combat_name', function(el) { el.classList.add("active"); });
     _for_each_with_class_in_parent(button, 'tip_inner', function(el) { el.classList.add("hidden"); });
 
 
@@ -1267,6 +1292,9 @@ function process_queue_msg(type, msg) {
         if (type == "quickplay") global_mm_searching_quickplay = true;
 
     } else if (msg == "found") {
+
+        // Reset the inactivity timer if we are about to join a match
+        engine.call("reset_inactivity_timer");
 
         if (type == "ranked")    global_mm_searching_ranked = false;
         if (type == "quickplay") global_mm_searching_quickplay = false;

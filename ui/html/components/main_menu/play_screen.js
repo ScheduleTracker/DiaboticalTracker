@@ -1732,8 +1732,12 @@ function showRankOverview() {
 }
 
 function join_warmup() {
+    // Reset the inactivity timer if we are about to join a match
+    engine.call("reset_inactivity_timer");
     send_string(CLIENT_COMMAND_JOIN_WARMUP, "s");
 }
 function join_party_warmup() {
+    // Reset the inactivity timer if we are about to join a match
+    engine.call("reset_inactivity_timer");
     send_string(CLIENT_COMMAND_JOIN_WARMUP, "p")
 }
