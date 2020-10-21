@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-89062599ae1a09908395b33f7ca31436981285ea	anticheat/equ8.db
+e5e54a43b55886a5539c2a5142b948aead2f2e49	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -928,7 +928,7 @@ f3ed5aa53a1b6d1839c11dc0affd0a6ea05320b9	audio/misc.sounds
 134ed4125ee222c39ad79489fe9faee42e5e563c	audio/misc/claim_reward.wav
 26063c1e767504952e2cc5f86749127a6fec50fb	audio/misc/equip.wav
 5dec378417d32d405e5242087a39679d1aefb7ce	audio/misc/ir.wav
-c5dc5730a95f17ec738219ab9de038db9763e431	audio/music.sounds
+e33d1fac0a522dbcca05710e4a43d230c1b64f55	audio/music.sounds
 c5678621b0debee46800305d015fc51fc59d346a	audio/music/gameplay/dbt_instant_eight.ogg
 13df9d928898e4ebe1e251e56167b1ad0466290b	audio/music/gameplay/dbt_instant_eight.wma
 d6c88fa99c99ea5361a338bbd3e89d6b4482b31a	audio/music/gameplay/dbt_instant_six.ogg
@@ -1035,6 +1035,7 @@ e0245fa89b9c67c8db012b13af41897f74384596	audio/music/themes/music_theme_main.ogg
 4c32afa10317e61c45cc332f2f55e2171d197dcc	audio/music/themes/music_theme_main.wma
 01eb665bdf1e839a698d7d84210250b08bc465fe	audio/music/themes/music_theme_menu_ambient.ogg
 8be23ad6145ceb2faf84f6d473ce0450c4c99709	audio/music/themes/music_theme_menu_ambient.wma
+9caebd614eb3da1ba619685388136a543d15bd86	audio/music/themes/music_theme_snow.ogg
 253d2ab92b3bd72ad8e15db225a79ee65577043d	audio/music/themes/music_theme_space.ogg
 da3fbf9a596ae834c1a60011bc7add794600169a	audio/music/themes/music_theme_space.wma
 9cd5e99088cc0ec366e95e51ee7a176c7f6d83bf	audio/music/themes/music_theme_temple.ogg
@@ -1577,7 +1578,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-4f2f216098d498b67ab3b80fc2be8d1289781bbd	diabotical.exe
+fe2552a995069f85e97e3536529c3fc3956da745	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1598,7 +1599,7 @@ ffc92ba66faf3b23ada3c0a2212194da9d427a9c	packs/models_props_clouds.dbp
 8298aa7d0a703b31244a490bd48ef8eaa5518b1b	packs/models_props_industrial.dbp
 c300bbad943e1dd3c1ff84a2ebf983640c466bca	packs/models_props_medieval.dbp
 37c6926cbab64444c1ca103ed3d5b11897fdeb4b	packs/models_props_production.dbp
-2c260e38efaaf285abe4cb66a5acd486594ebe5e	packs/models_theme.dbp
+ccb9552e94b21a15c57cf1155cb19365efe01b9a	packs/models_theme.dbp
 62b32e237f21a2cb81d62e4c7f9ea3ccedf76a64	packs/models_theme_japan.dbp
 9932e4dba1be7093d1296e60126da7abf28d1785	packs/models_theme_medina.dbp
 afba8a8a908f1b03cbbc48117980630bacccad20	packs/models_weapons.dbp
@@ -5274,7 +5275,7 @@ cdabcc39c561e8c224c4e54eb5cc1775f2ecc83e	ui/html/components/main_menu/match_scre
 3a5ccd63182dbe1be0b3c661efd12f1e49070f77	ui/html/components/main_menu/new_items_screen.js
 b3ac5fed498d19ae8e1024c6ff1deebe7e979c63	ui/html/components/main_menu/notification_screen.js
 17e2f7d2ee2aedba54e74b2f3a9423f140505b24	ui/html/components/main_menu/party_box.js
-070c6107bbefb76ac360e9908b161b6b3a0761e4	ui/html/components/main_menu/play_screen.js
+ee9c522534a060334d46ddcb5dfbe2d49164ddba	ui/html/components/main_menu/play_screen.js
 70358c3a44784c5bd207dfff9cfa8ad526b96105	ui/html/components/main_menu/play_screen_customlist.js
 309fb8bbbab8bab5184a32fb0f965b0c77929abb	ui/html/components/main_menu/player_profile_screen.js
 8a19aaf19d86ea451153e7a6e43463649b874098	ui/html/components/main_menu/practice_screen.js
@@ -8497,6 +8498,7 @@ b3d472d8c58f42ff6bcf186047daf81e11194c8b	ui/html/images/item_hpt0.svg
 f1018320f073d57b77abe382f56eea9f9ef93641	ui/html/images/item_hpt2.svg
 62f7e031edec9eab7f5105051325f0dc99ed15e9	ui/html/images/item_hpt3.svg
 a943d04416675bc2f95faee0f411ee0ba0547db7	ui/html/images/item_macguffin.svg
+770fcc3d0fbe08d1d88124c7a2cd49ae2563dbb1	ui/html/images/kick_icon.svg
 d2f077b2693981b7fdb08a2cd616c6e8ae2bdbd8	ui/html/images/lag_state.svg
 fc73fbd6c1c9860b89e4a6755decdf7026b02e07	ui/html/images/learn_screen/learn_tab_gamemodes.png
 1e074a6b8716aca2183350824149148899ecd0f9	ui/html/images/learn_screen/learn_tab_ha.png
@@ -8640,7 +8642,7 @@ a84138605e1dba56c8b44d59317d6a3af716f794	ui/html/javascript/spectrum_custom.js
 aaa6b0c3cf1486d4b388b8557c05b1582be520ac	ui/html/javascript/ui_br.js
 6f63ec7b3774041f5b8f9f7a7e188f95e2cf7781	ui/html/javascript/ui_contextmenu.js
 165169343b21b1a5941e135fc85b1858cb1b2434	ui/html/javascript/ui_crosshair_creator.js
-a3cd084a4de613bb7105c98674457bdd25731bcb	ui/html/javascript/ui_customgame.js
+c982c390d5bef51a4ad544e6ebc45539a6c15e7e	ui/html/javascript/ui_customgame.js
 d17e829286944f3c7c65f8ef6165bb44a04e61c4	ui/html/javascript/ui_data.js
 2ede9225a269e14a8e1ec06c7a03ed813db9749a	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
@@ -8648,7 +8650,7 @@ c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
 fc73800fd9f3eae829cec6d10dac35a2f99e96af	ui/html/javascript/ui_helpers.js
 1d0eb511f897c7be929438a91d4890cffe085e5c	ui/html/javascript/ui_hud_creator.js
 dc90b0d4121b62c2fd43b67ce0e508b41e991987	ui/html/javascript/ui_hud_editor.js
-9195dcbaccc691b2437d37e28bb53b923d0fffb2	ui/html/javascript/ui_ingame.js
+d7943bddbc83ba447a90fbfab544d7671341c29e	ui/html/javascript/ui_ingame.js
 d4bf49b9cc1dff18fbfe80c213ce7d7ae4d413d4	ui/html/javascript/ui_mouse.js
 888be6f8df6b06fe4aae0f0a956bd07e39b15378	ui/html/javascript/ui_ms.js
 8ef7fe4cd529480bdf328d5e03b8eb25d545d4bc	ui/html/javascript/ui_play.js
@@ -8659,7 +8661,7 @@ debdea73c16f44c81fa9801fde336f0d515fb641	ui/html/javascript/ui_select_component.
 929d6cc7d8604180d519f86aa67774c7c4e2c69f	ui/html/javascript/ui_strafe.js
 847addb0be88c4af0333358099144b41fa662ab6	ui/html/javascript/ui_strafe_experiment.js
 696df968ba51010c2b370b9b378306e03a5fe9e8	ui/html/javascript/ui_variable.js
-fe1d3b3642a41d2d07b82e2b0321c4134b805d39	ui/html/javascript/ui_views.js
+b1e1dcf0441559eb4417112fab4eac6a930088cf	ui/html/javascript/ui_views.js
 c594e9473953bffbebc8513dd0f9f6c18e0cc1f2	ui/html/jquery/jquery-ui.css
 ae5f184d49ea20775c6d44f72fe167ff5bbc3504	ui/html/jquery/jquery-ui.js
 567273b96aa7ceabd9afe987a78d05d6045b00f9	ui/html/jquery/jquery.js
@@ -9020,7 +9022,7 @@ d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list - Copy.snafu
 8939d9fba0db615229490b0571f633d9a11c05e2	ui/html/snafu/weapons_list.snafu
 eb6ce3bb6e30c33c7194911f71c6ba24b6514d73	ui/html/snafu/you_fragged.snafu
 c6c4acf8d8036cef3a78a7ebee9935154983c96d	ui/html/styles-hud.css
-5444d1a5c908e1ac8b29429aed2012486be0ae4a	ui/html/styles-index.css
+7de8fdef43ab1f6161fe0c6259ecff2641bf687f	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
@@ -9040,7 +9042,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 4bf8dc93589fb97321e114e6c1c24b5ea49cc8d0	ui/html/translations/strings_play.json
 5ed68265c9c1591cf0aa660fb2e37bfa33691fdc	ui/html/translations/translation-de.js
-dc16ef2adc4834dc3056c64a13e0888cfba58cec	ui/html/translations/translation-en.js
+420985016a3f0b57f66ba0290fbe0936db5597e8	ui/html/translations/translation-en.js
 4bd74b6957c4219512c8f8a76c0408a8ab5d4837	ui/html/translations/translation-es-ES.js
 8049331d44a5905de6940e48412932e8e6a72cdf	ui/html/translations/translation-es-MX.js
 57c7abbd47f9570818d5c703c099e42d9dd94fcb	ui/html/translations/translation-fr.js
@@ -9051,7 +9053,7 @@ dfbf784e93ca7975fa48c522326c202b72acd82e	ui/html/translations/translation-pt-BR.
 5427db29e95750c6583cd7828f63f34f065105b1	ui/html/translations/translation-ru.js
 d973b3351a6b315cd672470925e8084e3596a741	ui/html/translations/translation-zh-CN.js
 44b49e0cdd2ba214dc3c0f25fbb7ea092b827c6f	ui/html/translations/translation-zh-TW.js
-c95f9905446d8ba55ec0b8cfe61aced7debecbad	ui/html/ui.html
+85d6162cbb10de729ff9adab93f14787ecdf9b6d	ui/html/ui.html
 18c61eaa43f0b2d2d56cabd10bfb4191336debf7	ui/html/vendors/anime/anime.min.js
 9737735e4a7e3a0db1fd7aec9c9670a94e31e035	ui/html/vendors/chartjs/_Chart.bundle.js
 388ec557ec1e260c59ce61d819077cb52949bd02	ui/html/vendors/fetch.umd.js
