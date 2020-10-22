@@ -300,7 +300,7 @@ function set_server_locations() {
 
     let css_fix = document.createElement("div");
     css_fix.classList.add("empty-region");
-    row.appendChild(css_fix);
+    if (row) row.appendChild(css_fix);
 }
 
 var global_datacenter_map = {};
@@ -325,6 +325,7 @@ function update_server_location_pings(data) {
 
     let map = {};
     for (let region of data) {
+        if (region.location.length == 0 && region.region.length == 0) continue;
         map[region.code] = region;
 
         global_server_locations[region.code] = {

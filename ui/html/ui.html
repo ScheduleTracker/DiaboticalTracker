@@ -1490,23 +1490,6 @@
                                         <div class="checkbox_component checkbox" data-variable="game_equip_empty_weapons"><div></div></div>
                                     </div>
                                 </div>
-                                <div class="setting">
-                                    <div class="label i18n" data-i18n="settings_hit_sounds">Hit Sounds</div>
-                                    <div class="ctrl">
-                                        <div class="checkbox_component checkbox" data-variable="game_hit_sounds"><div></div></div>
-                                    </div>
-                                </div>
-                                <div class="setting">
-                                    <div class="label i18n" data-i18n="settings_weapon_position">Weapon position</div>
-                                    <div class="ctrl">
-                                        <div class="setting_select wide">                           
-                                            <div class="select-field" data-variable="game_weapon_position" data-theme="settings">
-                                                <div data-value=0 class="i18n" data-i18n="default">Default</div>
-                                                <div data-value=1 class="i18n" data-i18n="centered">Centered</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <!-- ZOOM -->
                                 <div class="settings_header i18n" data-i18n="settings_zoom" style="margin-top:2vh;">Zoom</div>
@@ -1600,6 +1583,7 @@
                         </div>
                     </div>
 
+                    <!-- PER WEAPON SETTINGS -->
                     <div id="weapon_sheet">
                         <div id="custom_weapon_settings">
                             <!-- NEWEST FORMAT FIELDS -->
@@ -1607,10 +1591,7 @@
                                 <div class="settings_block_double">
                                     <div class="settings_block_header">
                                         <div class="checkbox_component checkbox" id="setting_weapon_use_sensitivity" data-variable="game_custom_weapon_sensitivity"><div></div></div>
-                                        <div class="settings_header">
-                                            <span class="i18n" data-i18n="settings_sensitivity">Sensitivity</span>
-                                            <!--<span class="i18n small" data-i18n="settings_sensitivity_arcmin">(arcmin)</span>-->
-                                        </div>
+                                        <div class="settings_header i18n" data-i18n="settings_sensitivity">Sensitivity</div>
                                     </div>
                                     <div id="settings_block_sensitivity" class="lockable">
 
@@ -1628,17 +1609,19 @@
                                             </div>
                                         </div>
 
-                                        <div class="setting">
-                                            <div class="label i18n" data-i18n="settings_yaw_multiplier">Yaw multiplier</div>
-                                            <div class="ctrl">
-                                                <div id="setting_mouse_accel_post_scale_x" class="range-slider" data-min="0" data-max="21600" data-step="0.0100" data-fig="6" data-hide-slider="true"></div>
+                                        <div class="double_settings">
+                                            <div class="setting margin_right">
+                                                <div class="label i18n" data-i18n="settings_yaw_multiplier">Yaw multiplier</div>
+                                                <div class="ctrl">
+                                                    <div id="setting_mouse_accel_post_scale_x" class="range-slider" data-min="0" data-max="21600" data-step="0.0100" data-fig="6" data-hide-slider="true"></div>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="setting">
-                                            <div class="label i18n" data-i18n="settings_pitch_multiplier">Pitch multiplier</div>
-                                            <div class="ctrl">
-                                                <div id="setting_mouse_accel_post_scale_y" class="range-slider" data-min="0" data-max="21600" data-step="0.0100" data-fig="6" data-hide-slider="true"></div>
+                                            <div class="setting margin_left">
+                                                <div class="label i18n" data-i18n="settings_pitch_multiplier">Pitch multiplier</div>
+                                                <div class="ctrl">
+                                                    <div id="setting_mouse_accel_post_scale_y" class="range-slider" data-min="0" data-max="21600" data-step="0.0100" data-fig="6" data-hide-slider="true"></div>
+                                                </div>
                                             </div>
                                         </div>
                                         
@@ -1890,6 +1873,48 @@
                                 </div>
                             </div>
 
+                            
+                            <div class="settings_block double">
+                                <div class="settings_block_double">
+                                    <div class="settings_block_header">
+                                        <div class="checkbox_component checkbox" id="setting_weapon_use_visuals" data-variable="game_custom_weapon_visuals"><div></div></div>
+                                        <div class="settings_header" class="i18n" data-i18n="settings_visuals">Visuals</div>
+                                    </div>
+                                    <div id="settings_block_visuals" class="lockable">
+
+                                        <div class="setting">
+                                            <div class="label i18n" data-i18n="settings_weapon_position">Weapon position</div>
+                                            <div class="ctrl">
+                                                <div class="setting_select wide">                           
+                                                    <div id="setting_weapon_position" class="select-field" data-variable="game_weapon_position" data-theme="settings">
+                                                        <div data-value=0 class="i18n" data-i18n="default">Default</div>
+                                                        <div data-value=1 class="i18n" data-i18n="centered">Centered</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="settings_block_double">
+                                    
+                                    <div class="settings_block_header">
+                                        <div class="checkbox_component checkbox" id="setting_weapon_use_sounds" data-variable="game_custom_weapon_sounds"><div></div></div>
+                                        <div class="settings_header" class="i18n" data-i18n="settings_sounds">Sounds</div>
+                                    </div>
+                                    <div id="settings_block_sounds" class="lockable">
+
+                                        <div class="setting">
+                                            <div class="label i18n" data-i18n="settings_hit_sounds">Enable Hit Sounds</div>
+                                            <div class="ctrl">
+                                                <div id="setting_hit_sounds" class="checkbox_component checkbox" data-variable="game_hit_sounds"><div></div></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
 
 <!-- Hiding unused / non working hit and frag sound selectors for now-->
                             <div class="settings_block double" style="display:none;">

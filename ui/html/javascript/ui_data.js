@@ -132,6 +132,18 @@ var global_item_name_map = {
     "editpad":      ["#555555", "tool_editpad",                 "images/weapon_editpad.svg",       "special"],
 };
 
+let global_item_pickups_in_scoreboard = [
+    "hpt3",
+    "armort4",
+    "armort3",
+    "armort2",
+    "doubledamage",
+    "tripledamage",
+    "vanguard",
+    "survival",
+    "haste",
+];
+
 // weapon index to data map
 let global_weapon_idx_name_map = {
     0 : "default",
@@ -250,9 +262,10 @@ var global_region_map = {
     "hon": { "flag": "hk", "i18n": "datacenter_hon", "provider": "i3D.net",     "name": "Hong Kong" },
     "ist": { "flag": "tr", "i18n": "datacenter_ist", "provider": "i3D.net",     "name": "Istanbul"},
     "joh": { "flag": "za", "i18n": "datacenter_joh", "provider": "i3D.net",     "name": "Johannesburg" },
+    "lon": { "flag": "gb", "i18n": "datacenter_lon", "provider": "Nitrado Enterprise", "name": "London" },
     "los": { "flag": "us", "i18n": "datacenter_los", "provider": "i3D.net",     "name": "Los Angeles" },
     "mad": { "flag": "es", "i18n": "datacenter_mad", "provider": "i3D.net",     "name": "Madrid" },
-    "mia": { "flag": "us", "i18n": "datacenter_mia", "provider": "i3D.net",     "name": "Miami"},
+    "mia": { "flag": "us", "i18n": "datacenter_mia", "provider": "Nitrado Enterprise", "name": "Miami"},
     "mos": { "flag": "ru", "i18n": "datacenter_mos", "provider": "i3D.net",     "name": "Moscow" },
     "mum": { "flag": "in", "i18n": "datacenter_mum", "provider": "i3D.net",     "name": "Mumbai"},
     "par": { "flag": "fr", "i18n": "datacenter_par", "provider": "i3D.net",     "name": "Paris" },
@@ -639,7 +652,7 @@ const GLOBAL_ABBR = {
     STATS_KEY_DEATHS: "d",
     STATS_KEY_DEATHS_FROM: "df",
     STATS_KEY_DEATHS_WHILE_HELD: "dh",
-    STATS_KEY_WEAPON_IDX: "i",
+    STATS_KEY_ITEM_IDX: "i",
     STATS_KEY_SHOTS_FIRED: "sf",
     STATS_KEY_SHOTS_HIT: "sh",
     STATS_KEY_WEAPONS: "w",
@@ -647,6 +660,8 @@ const GLOBAL_ABBR = {
     STATS_KEY_BASE: "b",
     STATS_KEY_ASSISTS: "a",
     STATS_KEY_PING: "p",
+    STATS_KEY_ITEMS: "it",
+    STATS_KEY_COUNT: "c",
 };
 
 

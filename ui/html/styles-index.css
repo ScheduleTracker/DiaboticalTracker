@@ -11726,6 +11726,15 @@ h2 {
     margin-top:0 !important;
 }
 
+.double_settings {
+    display:flex;
+}
+.double_settings .setting {
+    flex:1;
+}
+.double_settings .setting.margin_right { margin-right:calc(2px * var(--zero-onevh-rounded)); }
+.double_settings .setting.margin_left { margin-left:calc(2px * var(--zero-onevh-rounded)); }
+
 /*
  *  SETTINGS Controls
  */
@@ -11975,7 +11984,11 @@ h2 {
 #weapon_sheet .settings_block .select-field {
     width:16vh;
 }
-#weapon_sheet .lockable {}
+#weapon_sheet .lockable {
+    opacity:1;
+    filter: grayscale(0);
+    pointer-events:auto;
+}
 #weapon_sheet .lockable.locked {
     opacity:0.05;
     filter: grayscale(1);
@@ -12185,7 +12198,7 @@ h2 {
 }
 .settings_block {
     display: flex;
-    padding:0vh 5vh 3vh 5vh;
+    padding:0vh 5vh 2vh 5vh;
 }
 .settings_block.padded {
     width: 100%;
@@ -12752,8 +12765,13 @@ h2 {
 #accel_settings_column {
     width:50%;
     padding-right:calc(4px* var(--zero-onevh-rounded) );
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
 }
-.accel_setting {}
+.accel_setting {
+    width:100%;
+}
 .accel_setting .setting { flex:1; }
 
 #ultra_advanced_accel_settings {

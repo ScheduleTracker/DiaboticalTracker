@@ -128,16 +128,20 @@ function settings_combat_update(weapon) {
 
 
     //Override default values checkboxes    
-    _id("setting_weapon_use_sensitivity").dataset.variable = ("game_custom_weapon_sensitivity:" + weapon);
+    _id("setting_weapon_use_sensitivity").dataset.variable = "game_custom_weapon_sensitivity:" + weapon;
     engine.call("initialize_checkbox_value", "game_custom_weapon_sensitivity:" + weapon);
-    _id("setting_weapon_use_accel").dataset.variable = ("game_custom_weapon_accel:" + weapon);
+    _id("setting_weapon_use_accel").dataset.variable = "game_custom_weapon_accel:" + weapon;
     engine.call("initialize_checkbox_value", "game_custom_weapon_accel:" + weapon);
-    _id("setting_weapon_use_fov").dataset.variable = ("game_custom_weapon_fov:" + weapon);
+    _id("setting_weapon_use_fov").dataset.variable = "game_custom_weapon_fov:" + weapon;
     engine.call("initialize_checkbox_value", "game_custom_weapon_fov:" + weapon);
-    _id("setting_weapon_use_crosshair").dataset.variable = ("game_custom_weapon_crosshair:" + weapon);
+    _id("setting_weapon_use_crosshair").dataset.variable = "game_custom_weapon_crosshair:" + weapon;
     engine.call("initialize_checkbox_value", "game_custom_weapon_crosshair:" + weapon);
-    _id("setting_weapon_use_zoom_crosshair").dataset.variable = ("game_custom_weapon_zoom_crosshair:" + weapon);
+    _id("setting_weapon_use_zoom_crosshair").dataset.variable = "game_custom_weapon_zoom_crosshair:" + weapon;
     engine.call("initialize_checkbox_value", "game_custom_weapon_zoom_crosshair:" + weapon);
+    _id("setting_weapon_use_visuals").dataset.variable = "game_custom_weapon_visuals:" + weapon;
+    engine.call("initialize_checkbox_value", "game_custom_weapon_visuals:" + weapon);
+    _id("setting_weapon_use_sounds").dataset.variable = "game_custom_weapon_sounds:" + weapon;
+    engine.call("initialize_checkbox_value", "game_custom_weapon_sounds:" + weapon);
     
 
     //sensitivity
@@ -246,7 +250,6 @@ function settings_combat_update(weapon) {
 
 
     // PER-WEAPON & ZOOM FULLSCREEN MASK
-    
     _id("setting_hud_crosshair_sizemask").dataset.variable = ("hud_crosshair_mask_diameter:" + weapon);
     global_range_slider_map["hud_crosshair_mask_diameter:" + weapon] = new rangeSlider(_id("setting_hud_crosshair_sizemask"), true);
     engine.call("initialize_range_value", "hud_crosshair_mask_diameter:" + weapon);
@@ -267,12 +270,21 @@ function settings_combat_update(weapon) {
     _id("setting_hud_zoom_crosshair_typemask").dataset.variable = ("hud_zoom_crosshair_mask_aperture:" + weapon);
     engine.call("initialize_select_value", "hud_zoom_crosshair_mask_aperture:" + weapon);
 
+    // VISUALS
+    _id("setting_weapon_position").dataset.variable = ("game_weapon_position:" + weapon);
+    engine.call("initialize_select_value", "game_weapon_position:" + weapon);
 
+    // SOUNDS
+    _id("setting_hit_sounds").dataset.variable = ("game_hit_sounds:" + weapon);
+    engine.call("initialize_checkbox_value", "game_hit_sounds:" + weapon);
+
+    /*
     /// HIT SOUNDS
     _id("setting_game_hit_sound").dataset.variable = ("game_hit_sound:" + weapon);
     engine.call("initialize_select_value", "game_hit_sound:" + weapon);
     _id("setting_game_critical_hit_sound").dataset.variable = ("game_critical_hit_sound:" + weapon);
     engine.call("initialize_select_value", "game_critical_hit_sound:" + weapon);
+    */
 
 
     //notify engine of page change
@@ -1124,37 +1136,36 @@ function update_checkbox(checkbox) {
         checkbox.firstElementChild.classList.remove("inner_checkbox_enabled");
     }
 
+    // Weapon setting blocks
     var variable = checkbox.dataset.variable;
+    let cont = null;
+    let visible = false;
     if (checkbox.id == "setting_weapon_use_sensitivity") {
-        if (value || variable == "game_custom_weapon_sensitivity:0") {
-            _id("settings_block_sensitivity").classList.remove("locked");
-        } else {
-            _id("settings_block_sensitivity").classList.add("locked");
-        }
+        cont = _id("settings_block_sensitivity");
+        if (value || variable == "game_custom_weapon_sensitivity:0") visible = true;
     } else if (checkbox.id == "setting_weapon_use_accel") {
-        if (value || variable == "game_custom_weapon_accel:0") {
-            _id("settings_block_accel").classList.remove("locked");
-        } else {
-            _id("settings_block_accel").classList.add("locked");
-        }
+        cont = _id("settings_block_accel");
+        if (value || variable == "game_custom_weapon_accel:0") visible = true;
     } else if (checkbox.id == "setting_weapon_use_fov") {
-        if (value || variable == "game_custom_weapon_fov:0") {
-            _id("settings_block_fov").classList.remove("locked");
-        } else {
-            _id("settings_block_fov").classList.add("locked");
-        }
+        cont = _id("settings_block_fov");
+        if (value || variable == "game_custom_weapon_fov:0") visible = true;
     } else if (checkbox.id == "setting_weapon_use_crosshair") {
-        if (value || variable == "game_custom_weapon_crosshair:0") {
-            _id("settings_block_crosshair").classList.remove("locked");
-        } else {
-            _id("settings_block_crosshair").classList.add("locked");
-        }
+        cont = _id("settings_block_crosshair");
+        if (value || variable == "game_custom_weapon_crosshair:0") visible = true;
     } else if (checkbox.id == "setting_weapon_use_zoom_crosshair") {
-        if (value || variable == "game_custom_weapon_zoom_crosshair:0") {
-            _id("settings_block_zoom_crosshair").classList.remove("locked");
-        } else {
-            _id("settings_block_zoom_crosshair").classList.add("locked");
-        }
+        cont = _id("settings_block_zoom_crosshair");
+        if (value || variable == "game_custom_weapon_zoom_crosshair:0") visible = true;
+    } else if (checkbox.id == "setting_weapon_use_visuals") {
+        cont = _id("settings_block_visuals");
+        if (value || variable == "game_custom_weapon_visuals:0") visible = true;
+    } else if (checkbox.id == "setting_weapon_use_sounds") {
+        cont = _id("settings_block_sounds");
+        if (value || variable == "game_custom_weapon_sounds:0") visible = true;
+    }
+
+    if (cont !== null) {
+        if (visible) cont.classList.remove("locked");
+        else cont.classList.add("locked");
     }
 }
 

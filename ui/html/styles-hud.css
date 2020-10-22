@@ -2525,6 +2525,38 @@ h2 {
     align-items: center;
 }
 
+#report_stats .pickups {
+    margin-top:3vh;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:flex-start;
+}
+#report_stats .pickups .item_cont {
+    background-color:rgba(15, 15, 28, 0.2);
+    margin-right:calc(2px * var(--zero-onevh-rounded));
+    margin-left:calc(2px * var(--zero-onevh-rounded));
+    min-width:6vh;
+    padding:1vh 0.5vh;
+    text-align:center;
+}
+#report_stats .pickups .item_cont .icon {
+    width:3vh;
+    height:3vh;
+    background-size:100%;
+    background-repeat:no-repeat;
+    background-position:center;
+    margin-bottom:1vh;
+    filter: brightness(1.2);
+}
+#report_stats .pickups .item_cont .count {
+    height: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:1.45vh;
+}
+
 
 #game_report_cont .report_bottom .menu {
     position:relative;

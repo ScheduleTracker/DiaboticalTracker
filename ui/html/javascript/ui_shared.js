@@ -248,6 +248,10 @@ function init_shared() {
         }
     })
 
+    bind_event("get_crosshair_draw_list", function(crosshair_string, hit_mode, draw_id){
+        get_crosshair_draw_list(crosshair_string, hit_mode, draw_id);
+    })
+
     bind_event("set_crosshair", function (zoom, weapon_index, crosshair, type, extra) {
         //console.log("set_crosshair event", zoom, weapon_index, crosshair, type, extra);
 

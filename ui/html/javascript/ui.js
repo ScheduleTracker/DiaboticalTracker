@@ -242,6 +242,8 @@ window.addEventListener("load", function(){
             //console.log(_dump(data));
             if (global_server_regions_init) {
                 for (let ds of data) {
+                    if (ds.location.length == 0 && ds.region.length == 0) continue;
+
                     if (!(ds.region in global_server_regions)) {
                         global_server_regions[ds.region] = [];
                     }

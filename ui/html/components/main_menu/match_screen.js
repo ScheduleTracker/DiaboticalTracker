@@ -8,7 +8,7 @@ function load_match(match_id) {
 }
 
 function renderMatchScreen(match) {
-    console.log(_dump(match));
+    //console.log(_dump(match));
     let cont = _id("match_screen");
     _empty(cont);
     
@@ -155,9 +155,14 @@ function renderMatchScreen(match) {
     // RESULTS //
     // ======= //
 
+    let picked_items = match_picked_items(match.clients);
+
     let tabs = ["scoreboard", "frags", "deaths", "accuracy", "damage", "shots"];
     if (CUSTOM_ROUND_BASED_MODES.includes(match.match_mode)) {
         tabs.push("rounds");
+    }
+    if (Object.keys(picked_items).length) {
+        tabs.push("pickups");
     }
     let tab_elements = [];
     let tab_cont_elements = [];
@@ -197,11 +202,11 @@ function renderMatchScreen(match) {
             tab_cont.appendChild(team_cont);
 
             if (match.team_size > 1 && current_tab != "rounds") {
-                team_cont.appendChild(renderHeaderRow(current_tab, data.weapons, t));
+                team_cont.appendChild(renderHeaderRow(current_tab, data.weapons, t, picked_items));
             } else {
                 team_cont.classList.add("solo");
                 if (!header_rendered) {
-                    team_cont.appendChild(renderHeaderRow(current_tab, data.weapons, t));
+                    team_cont.appendChild(renderHeaderRow(current_tab, data.weapons, t, picked_items));
                     header_rendered = true;
                 }
             }
@@ -214,15 +219,15 @@ function renderMatchScreen(match) {
                 player_count++;
             } else {
                 for (let p of t.players) {
-                    team_cont.appendChild(renderDataRow("player", t, p, player_count, current_tab, data.weapons));
+                    team_cont.appendChild(renderDataRow("player", t, p, player_count, current_tab, data.weapons, picked_items));
                     player_count++;
                 }
 
                 if (!ffa && t.switched.length > 0 && t.team_idx in data.switched_summary) {
-                    team_cont.appendChild(renderDataRow("summary", t, data.switched_summary[t.team_idx], player_count, current_tab, data.weapons));
+                    team_cont.appendChild(renderDataRow("summary", t, data.switched_summary[t.team_idx], player_count, current_tab, data.weapons, picked_items));
                     let switched_cont = _createElement("div", "switched_cont");
                     for (let p of t.switched) {
-                        switched_cont.appendChild(renderDataRow("player", t, p, player_count, current_tab, data.weapons));
+                        switched_cont.appendChild(renderDataRow("player", t, p, player_count, current_tab, data.weapons, picked_items));
                         player_count++;
                     }
                     team_cont.appendChild(switched_cont);
@@ -240,10 +245,10 @@ function renderMatchScreen(match) {
             };
             let team_cont = _createElement("div", "team");
             tab_cont.appendChild(team_cont);
-            team_cont.appendChild(renderDataRow("summary", t, data.switched_summary[0], player_count, current_tab, data.weapons));
+            team_cont.appendChild(renderDataRow("summary", t, data.switched_summary[0], player_count, current_tab, data.weapons, picked_items));
             let switched_cont = _createElement("div", "switched_cont");
             for (let p of data.teams[0].switched) {
-                switched_cont.appendChild(renderDataRow("player", t, p, player_count, current_tab, data.weapons));
+                switched_cont.appendChild(renderDataRow("player", t, p, player_count, current_tab, data.weapons, picked_items));
                 player_count++;
             }
             team_cont.appendChild(switched_cont);
@@ -259,7 +264,7 @@ function renderMatchScreen(match) {
         });
     });
 
-    function renderHeaderRow(current_tab, weapons, t) {
+    function renderHeaderRow(current_tab, weapons, t, pickups) {
         let victory = '';
         if (t && t.placement == 0) victory = " - "+localize("ingame_victory");
 
@@ -308,20 +313,32 @@ function renderMatchScreen(match) {
                 team_head.appendChild(_createElement("div", "desc"));
             }
 
-            for (let idx of weapons) {
-                if (!(idx in global_weapon_idx_name_map2)) continue;
-                if (!(global_weapon_idx_name_map2[idx] in global_item_name_map)) continue;
+            if (current_tab == "pickups") {
+                // Show pickup item icons
+                for (let item of global_item_pickups_in_scoreboard) {
+                    if (!pickups.hasOwnProperty(item)) continue;
 
-                let weapon_icon = _createElement("div", ["w_label", "icon"]);
-                weapon_icon.style.backgroundImage = "url("+global_item_name_map[global_weapon_idx_name_map2[idx]][2]+"?fill="+global_item_name_map[global_weapon_idx_name_map2[idx]][0]+")";
-                team_head.appendChild(weapon_icon);
+                    let item_icon = _createElement("div", ["w_label", "icon"]);
+                    item_icon.style.backgroundImage = "url("+global_item_name_map[item][2]+"?fill="+global_item_name_map[item][0]+")";
+                    team_head.appendChild(item_icon);
+                }
+            } else {
+                // Show weapon icons
+                for (let idx of weapons) {
+                    if (!(idx in global_weapon_idx_name_map2)) continue;
+                    if (!(global_weapon_idx_name_map2[idx] in global_item_name_map)) continue;
+
+                    let weapon_icon = _createElement("div", ["w_label", "icon"]);
+                    weapon_icon.style.backgroundImage = "url("+global_item_name_map[global_weapon_idx_name_map2[idx]][2]+"?fill="+global_item_name_map[global_weapon_idx_name_map2[idx]][0]+")";
+                    team_head.appendChild(weapon_icon);
+                }
             }
         }
 
         return team_head;
     }
 
-    function renderDataRow(type, team, p, player_count, tab, weapons) {
+    function renderDataRow(type, team, p, player_count, tab, weapons, pickups) {
         let row = undefined;
         if (type == "summary") row = _createElement("div", ["row", "player", "summary"]);
         if (type == "player") row = _createElement("div", ["row", "player"]);
@@ -453,7 +470,27 @@ function renderMatchScreen(match) {
                     row.appendChild(w_stat);
                 }
             }
+        
+        } else if (tab == "pickups") {
 
+            let lookup = {};
+            if (p.stats.hasOwnProperty(GLOBAL_ABBR.STATS_KEY_ITEMS)) {
+                for (let pickup of p.stats[GLOBAL_ABBR.STATS_KEY_ITEMS]) {
+                    lookup[pickup[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]] = pickup[GLOBAL_ABBR.STATS_KEY_COUNT];
+                }
+            }
+
+            // Show pickup item icons
+            for (let item of global_item_pickups_in_scoreboard) {
+                if (!pickups.hasOwnProperty(item)) continue;
+
+                if (lookup.hasOwnProperty(item)) {
+                    row.appendChild(_createElement("div","w_stat", lookup[item]));
+                } else {
+                    row.appendChild(_createElement("div","w_stat", "--"));
+                }                
+            }
+            
         } else {
 
             if (tab == "damage" || tab == "shots" || tab == "deaths") {
@@ -584,7 +621,7 @@ function prepareMatchTopStats(match) {
             if (key == GLOBAL_ABBR.STATS_KEY_WEAPONS) {
                 for (let w of c.stats[GLOBAL_ABBR.STATS_KEY_WEAPONS]) {
 
-                    let w_idx = w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX];
+                    let w_idx = w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX];
                     if (!(w_idx in top_stats["weapons"])) top_stats["weapons"][w_idx] = {};
 
                     if (!("acc" in top_stats["weapons"][w_idx])) top_stats["weapons"][w_idx]["acc"] = 0;
@@ -707,10 +744,10 @@ function prepareMatchTeamData(match) {
                 match.clients[i].shots_fired = 0;
                 match.clients[i].shots_hit = 0;
                 for (let w of match.clients[i].stats[GLOBAL_ABBR.STATS_KEY_WEAPONS]) {
-                    if (!global_weapons_in_scoreboard.includes(w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX])) continue;
+                    if (!global_weapons_in_scoreboard.includes(w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX])) continue;
 
-                    weapons_included[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]] = true;
-                    match.clients[i].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]] = w;
+                    weapons_included[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]] = true;
+                    match.clients[i].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]] = w;
 
                     if (GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED in w) {
                         match.clients[i].shots_fired += w[GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED];
@@ -724,27 +761,27 @@ function prepareMatchTeamData(match) {
                     }
 
                     if (switched) {
-                        if (!(w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX] in switched_summary[switched_tidx].weapon_stats)) {
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]] = {};
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_FRAGS] = 0;
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_ASSISTS] = 0;
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_DEATHS] = 0;
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_DAMAGE_TAKEN] = 0;
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED] = 0;
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED] = 0;
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_SHOTS_HIT] = 0;
+                        if (!(w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX] in switched_summary[switched_tidx].weapon_stats)) {
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]] = {};
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_FRAGS] = 0;
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_ASSISTS] = 0;
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_DEATHS] = 0;
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_DAMAGE_TAKEN] = 0;
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED] = 0;
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED] = 0;
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_SHOTS_HIT] = 0;
                         }
-                        if (GLOBAL_ABBR.STATS_KEY_FRAGS in w)            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_FRAGS] += w[GLOBAL_ABBR.STATS_KEY_FRAGS];
-                        if (GLOBAL_ABBR.STATS_KEY_ASSISTS in w)          switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_ASSISTS] += w[GLOBAL_ABBR.STATS_KEY_ASSISTS];
-                        if (GLOBAL_ABBR.STATS_KEY_DEATHS in w)           switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_DEATHS] += w[GLOBAL_ABBR.STATS_KEY_DEATHS];
-                        if (GLOBAL_ABBR.STATS_KEY_DAMAGE_TAKEN in w)     switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_DAMAGE_TAKEN] += w[GLOBAL_ABBR.STATS_KEY_DAMAGE_TAKEN];
-                        if (GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED in w) switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED] += w[GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED];
+                        if (GLOBAL_ABBR.STATS_KEY_FRAGS in w)            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_FRAGS] += w[GLOBAL_ABBR.STATS_KEY_FRAGS];
+                        if (GLOBAL_ABBR.STATS_KEY_ASSISTS in w)          switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_ASSISTS] += w[GLOBAL_ABBR.STATS_KEY_ASSISTS];
+                        if (GLOBAL_ABBR.STATS_KEY_DEATHS in w)           switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_DEATHS] += w[GLOBAL_ABBR.STATS_KEY_DEATHS];
+                        if (GLOBAL_ABBR.STATS_KEY_DAMAGE_TAKEN in w)     switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_DAMAGE_TAKEN] += w[GLOBAL_ABBR.STATS_KEY_DAMAGE_TAKEN];
+                        if (GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED in w) switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED] += w[GLOBAL_ABBR.STATS_KEY_DAMAGE_INFLICTED];
                         if (GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED in w) {
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED] += w[GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED];
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED] += w[GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED];
                             switched_summary[switched_tidx].shots_fired += w[GLOBAL_ABBR.STATS_KEY_SHOTS_FIRED];
                         }
                         if (GLOBAL_ABBR.STATS_KEY_SHOTS_HIT in w) {
-                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_WEAPON_IDX]][GLOBAL_ABBR.STATS_KEY_SHOTS_HIT] += w[GLOBAL_ABBR.STATS_KEY_SHOTS_HIT];
+                            switched_summary[switched_tidx].weapon_stats[w[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]][GLOBAL_ABBR.STATS_KEY_SHOTS_HIT] += w[GLOBAL_ABBR.STATS_KEY_SHOTS_HIT];
                             switched_summary[switched_tidx].shots_hit += w[GLOBAL_ABBR.STATS_KEY_SHOTS_HIT];
                         }
                     }
@@ -796,4 +833,17 @@ function prepareMatchTeamData(match) {
         "weapons": weapons,
         "rounds": rounds,
     };
+}
+
+function match_picked_items(clients) {
+    let items = {};
+    for (let c of clients) {
+        if (c.hasOwnProperty("stats") && c.stats.hasOwnProperty(GLOBAL_ABBR.STATS_KEY_ITEMS)) {
+            for (let item of c.stats[GLOBAL_ABBR.STATS_KEY_ITEMS]) {
+                items[item[GLOBAL_ABBR.STATS_KEY_ITEM_IDX]] = true;
+            }
+        }
+    }
+
+    return items;
 }

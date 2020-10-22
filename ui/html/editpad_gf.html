@@ -334,11 +334,13 @@
 			var entity = "" + target.data("entity");
 			var expression = "" + target.data("expression");
 			var val = "" + target.val();
-			if (expression == "1"){
-				val = "" + addbits(val);
-				target.val(val);
+			if (val.length > 0) {
+				if (expression == "1") {
+					val = "" + addbits(val);
+					target.val(val);
+				}
+				engine.call("set_string_property", target.data("entity"), target.data("property"), val);
 			}
-			engine.call("set_string_property", target.data("entity"), target.data("property"), val);
 		};
 		
 		$(".detail_text_field").each(function (i) {
@@ -363,8 +365,15 @@
 						return acc;
 					}, []);
 
-					const target_index = parseInt(e.currentTarget.getAttribute("tabIndex"), 10);
-					const next_tab_index = (input_tab_indexes.length - 1) >= target_index ? target_index + 1 : 1;
+					const FIRST_TAB_INDEX = 1;
+					const inc = e.shiftKey ? -1 : 1;
+					let next_tab_index = parseInt(e.currentTarget.getAttribute("tabIndex"), 10) + inc;
+					next_tab_index =
+						next_tab_index < FIRST_TAB_INDEX ?
+						input_tab_indexes.length - 1 : 
+						input_tab_indexes.length > next_tab_index ?
+						next_tab_index : 
+						FIRST_TAB_INDEX;
 					
 					global_editpad.next_tab_input_selector = `${inputsSelector}[tabIndex="${next_tab_index}"]`;
 					// Focus next tab input in case of not expecting for new content

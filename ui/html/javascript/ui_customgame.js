@@ -426,6 +426,8 @@ function custom_lobby_update_datacenters(data, init) {
     
     let fragment = new DocumentFragment();
     for (let dc of data) {
+        if (dc.official && dc.region.length == 0 && dc.location.length == 0) continue;
+
         let name = '';
         let value = '';
         if (dc.official) {
