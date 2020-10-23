@@ -467,10 +467,11 @@ window.addEventListener("load", function(){
         _id("game_intro_screen").style.display = "none";
         _id("join_menu").style.display = "none";
         _id("game_over_screen").style.display = "none";
-        _id("game_report_cont").style.display = "none";
-        _id("game_report").style.display = "none";
+        //_id("game_report_cont").style.display = "none";
+        //_id("rank_screen").style.display = "none";
+        //_id("game_report").style.display = "none";
         _id("aim_report").style.display = "none";
-        _id("rank_screen").style.display = "none";
+        
 
         // clear the previous progression update
         clear_battle_pass_progression();
@@ -489,6 +490,12 @@ window.addEventListener("load", function(){
     bind_event('on_map_loaded', function () {
         console.log("on_map_loaded");
         global_hud_view_active = true;
+
+        // Hide these on map loaded instead of on connected because during on connected we would then see the previous map before loading the new map occurs which is ugly
+        // In theory this may cause the game report to be visible for a split second after loading the map but haven't seen it in practice in my testing
+        _id("game_report_cont").style.display = "none";
+        _id("game_report").style.display = "none";
+        _id("rank_screen").style.display = "none";
     });
 
     // game_manifest is sent after connecting / loading the map
@@ -558,6 +565,9 @@ window.addEventListener("load", function(){
         } else if (key == "unpaused") {
             if (value1) addServerChatMessage(localize_ext("ingame_chat_msg_client_match_unpaused", {"name": value1}));
             else addServerChatMessage(localize("ingame_chat_msg_match_unpaused"));
+        } else if (key == "observe") {
+            if (value1) addServerChatMessage(localize_ext("ingame_chat_msg_observing", {"name": value1}));
+            else addServerChatMessage(localize("ingame_chat_msg_observing_stopped"));
         }
     });
 
