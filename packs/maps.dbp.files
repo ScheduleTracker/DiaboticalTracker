@@ -27,7 +27,7 @@ maps\b_crystal_cove.rbe		34952344
 maps\b_furnace.rbe		42839399
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
-maps\b_icefall.rbe		16856398
+maps\b_icefall.rbe		16835780
 maps\b_marina-b.png		8774
 maps\b_marina-h.png		373884
 maps\b_marina.rbe		28876494
@@ -35,7 +35,7 @@ maps\b_oxide.rbe		25085683
 maps\b_refinery-b.png		89398
 maps\b_refinery-h.png		374324
 maps\b_refinery.rbe		35803436
-maps\b_sunken.rbe		18771110
+maps\b_sunken.rbe		18783504
 maps\b_toya_fortress.rbe		33421013
 maps\b_wellspring-b.png		11751
 maps\b_wellspring-h.png		241336
@@ -119,7 +119,7 @@ maps\mg_factory.rbe		15798807
 maps\mg_marina-b.png		8774
 maps\mg_marina-h.png		373884
 maps\mg_marina.rbe		28877665
-maps\mg_sunken.rbe		18772599
+maps\mg_sunken.rbe		18784993
 maps\mg_test.rbe		8662189
 maps\mg_test_1.rbe		9664309
 maps\mg_test_2-b.png		3764
@@ -130,9 +130,12 @@ maps\stage.rbe		640343
 maps\tdm_alchemy-b.png		2876
 maps\tdm_alchemy-h.png		473727
 maps\tdm_alchemy.rbe		30419280
+maps\tdm_alchemy_wip-b.png		2876
+maps\tdm_alchemy_wip-h.png		473873
+maps\tdm_alchemy_wip.rbe		31320593
 maps\tdm_icefall-b.png		3456
 maps\tdm_icefall-h.png		481103
-maps\tdm_icefall.rbe		16856178
+maps\tdm_icefall.rbe		16836000
 maps\tdm_oxide.rbe		25091938
 maps\template_islands-b.png		2198
 maps\template_islands-h.png		361693
