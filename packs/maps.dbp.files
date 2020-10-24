@@ -27,7 +27,7 @@ maps\b_crystal_cove.rbe		34952344
 maps\b_furnace.rbe		42839399
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
-maps\b_icefall.rbe		16835780
+maps\b_icefall.rbe		16803987
 maps\b_marina-b.png		8774
 maps\b_marina-h.png		373884
 maps\b_marina.rbe		28876494
@@ -60,7 +60,7 @@ maps\duel_kasbah.rbe		26239315
 maps\duel_monolith.rbe		17621415
 maps\duel_outpost_dunia.rbe		17891603
 maps\duel_perilous.rbe		24937946
-maps\duel_skybreak.rbe		10899629
+maps\duel_skybreak.rbe		10899657
 maps\example-b.png		2277
 maps\example-h.png		8528
 maps\example.rbe		5780119
@@ -132,10 +132,10 @@ maps\tdm_alchemy-h.png		473727
 maps\tdm_alchemy.rbe		30419280
 maps\tdm_alchemy_wip-b.png		2876
 maps\tdm_alchemy_wip-h.png		473873
-maps\tdm_alchemy_wip.rbe		31320593
+maps\tdm_alchemy_wip.rbe		31285715
 maps\tdm_icefall-b.png		3456
 maps\tdm_icefall-h.png		481103
-maps\tdm_icefall.rbe		16836000
+maps\tdm_icefall.rbe		16804047
 maps\tdm_oxide.rbe		25091938
 maps\template_islands-b.png		2198
 maps\template_islands-h.png		361693
