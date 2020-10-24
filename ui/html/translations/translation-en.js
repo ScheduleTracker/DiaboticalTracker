@@ -2010,6 +2010,7 @@ var TRANSLATION_en =
     "settings_controls_player_10": "Player 10",
     "settings_controls_follow_prev": "Previous Player",
     "settings_controls_follow_next": "Next Player",
+    "settings_controls_casterlock": "Caster Lock",
     "settings_combat_panel_defaults":"Defaults",
     "settings_reset_controls":"Reset controls to default",
     "settings_reset_weapons":"Reset weapons to default",

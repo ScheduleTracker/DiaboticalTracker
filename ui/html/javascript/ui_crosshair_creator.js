@@ -382,7 +382,7 @@ function drawCrosshair(zoom, crosshair_definition, target){
             };
             var hitColorEnabled = crosshair_definition[layer].crHCE;
             var hitColor = '#' + (hitColorEnabled == 1 ? crosshair_definition[layer].crHCo : crosshair_definition[layer].crCol);
-            usesHitColor = hitColorEnabled == 1 ? true : false; 
+            if(hitColorEnabled == 1){usesHitColor = true}; 
             
             var outlinesArray = ((outlineStyle == 'persistent') ? linesArray : adaptiveOutlinesArray);
             var hitOutlinesArray = ((outlineStyle == 'persistent') ? hitLinesArray : adaptiveHitOutlinesArray);
@@ -408,7 +408,7 @@ function drawCrosshair(zoom, crosshair_definition, target){
             if(segments>8){segments=8};
             var hitColorEnabled = crosshair_definition[layer].ciHCE;
             var hitColor = '#' + (hitColorEnabled == 1 ? crosshair_definition[layer].ciHCo : crosshair_definition[layer].ciCol);
-            usesHitColor = hitColorEnabled == 1 ? true : false;
+            if(hitColorEnabled == 1){usesHitColor = true}; 
             //for layers without a hit color we still need to draw normal color in case other layers have it enabled
 
             var outlinesArray = ((outlineStyle == 'persistent') ? linesArray : adaptiveOutlinesArray);
@@ -433,7 +433,7 @@ function drawCrosshair(zoom, crosshair_definition, target){
 
             var hitColorEnabled = crosshair_definition[layer].dHCE;
             var hitColor = '#' + (hitColorEnabled == 1 ? crosshair_definition[layer].dHCo : crosshair_definition[layer].dCol);
-            usesHitColor = hitColorEnabled == 1 ? true : false;
+            if(hitColorEnabled == 1){usesHitColor = true}; 
 
             var outlinesArray = ((outlineStyle == 'persistent') ? linesArray : adaptiveOutlinesArray);
             var hitOutlinesArray = ((outlineStyle == 'persistent') ? hitLinesArray : adaptiveHitOutlinesArray);
@@ -463,7 +463,7 @@ function drawCrosshair(zoom, crosshair_definition, target){
             };
             var hitColorEnabled = crosshair_definition[layer].poHCE;
             var hitColor = '#' + (hitColorEnabled == 1 ? crosshair_definition[layer].poHCo : crosshair_definition[layer].poCol);
-            usesHitColor = hitColorEnabled == 1 ? true : false;
+            if(hitColorEnabled == 1){usesHitColor = true}; 
             
             var outlinesArray = ((outlineStyle == 'persistent') ? linesArray : adaptiveOutlinesArray);
             var hitOutlinesArray = ((outlineStyle == 'persistent') ? hitLinesArray : adaptiveHitOutlinesArray);
@@ -503,7 +503,7 @@ function drawCrosshair(zoom, crosshair_definition, target){
         return crosshairInstructionString
     }
     else if(target == "logicalHit"){
-        if(usesHitColor){hitCrosshairInstructionString = "identical"}
+        if(!usesHitColor){hitCrosshairInstructionString = ""}
         return hitCrosshairInstructionString
     }
 }
