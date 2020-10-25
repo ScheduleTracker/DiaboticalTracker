@@ -258,6 +258,8 @@ models\theme\halloween\props\cauldron\cauldron_vercol.fbx		117632
 models\theme\halloween\props\cauldron\halloween_cauldron_ladle.fbx		56784
 models\theme\halloween\props\cauldron\halloween_cauldron_vercol-col.fbx		42128
 models\theme\halloween\props\cauldron\halloween_cauldron_vercol.fbx		117632
+models\theme\halloween\props\pumpkins.assets		7469
+models\theme\halloween\props\pumpkins.shader		27961
 models\theme\halloween\props\pumpkins\halloween_face_d.png		11334
 models\theme\halloween\props\pumpkins\hanging_pumkins_01-col.fbx		49280
 models\theme\halloween\props\pumpkins\hanging_pumkins_01.fbx		206480
@@ -267,8 +269,17 @@ models\theme\halloween\props\pumpkins\hanging_pumkins_03-col.fbx		60752
 models\theme\halloween\props\pumpkins\hanging_pumkins_03.fbx		300768
 models\theme\halloween\props\pumpkins\hanging_pumkins_04-col.fbx		49456
 models\theme\halloween\props\pumpkins\hanging_pumkins_04.fbx		208560
+models\theme\halloween\props\pumpkins\hanging_pumpkins_01-col.fbx		49280
+models\theme\halloween\props\pumpkins\hanging_pumpkins_01.fbx		206480
+models\theme\halloween\props\pumpkins\hanging_pumpkins_02-col.fbx		60752
+models\theme\halloween\props\pumpkins\hanging_pumpkins_02.fbx		262864
+models\theme\halloween\props\pumpkins\hanging_pumpkins_03-col.fbx		60752
+models\theme\halloween\props\pumpkins\hanging_pumpkins_03.fbx		300768
+models\theme\halloween\props\pumpkins\hanging_pumpkins_04-col.fbx		49456
+models\theme\halloween\props\pumpkins\hanging_pumpkins_04.fbx		208560
 models\theme\halloween\props\pumpkins\pumkin_d.png		192806
 models\theme\halloween\props\pumpkins\pumkin_n.png		190933
+models\theme\halloween\props\pumpkins\pumpkin_d.png		192806
 models\theme\halloween\props\pumpkins\pumpkin_face_open_single_01.fbx		61040
 models\theme\halloween\props\pumpkins\pumpkin_face_open_single_01_col.fbx		30704
 models\theme\halloween\props\pumpkins\pumpkin_face_open_single_02-col.fbx		30704
@@ -307,6 +318,7 @@ models\theme\halloween\props\pumpkins\pumpkin_face_single_12-col.fbx		27040
 models\theme\halloween\props\pumpkins\pumpkin_face_single_12.fbx		46048
 models\theme\halloween\props\pumpkins\pumpkin_face_single_13-col.fbx		27040
 models\theme\halloween\props\pumpkins\pumpkin_face_single_13.fbx		45408
+models\theme\halloween\props\pumpkins\pumpkin_n.png		190933
 models\theme\macguffin\dynamic_props\conveyor_belt\belt_large_a.fbx		28336
 models\theme\macguffin\dynamic_props\conveyor_belt\belt_large_b.fbx		29440
 models\theme\macguffin\dynamic_props\conveyor_belt\belt_large_c.fbx		28576
