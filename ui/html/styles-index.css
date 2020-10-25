@@ -15341,6 +15341,7 @@ h2 {
     font-size:1.2vh;
     color: rgba(255, 255, 255, 0.8);
 }
+#match_screen .match .team .team_head .label.healing { width:14vh; }
 #match_screen .match .team .team_head .desc {}
 #match_screen .match .team .team_head .w_label {
     width:8vh;
@@ -15414,6 +15415,7 @@ h2 {
     text-align:center;
     font-size:1.2vh;
 }
+#match_screen .match .team .player .stat.healing { width: 14vh; }
 #match_screen .match .team .player .w_stat {
     width:8vh;
     text-align:center;

@@ -646,7 +646,6 @@ const GLOBAL_ABBR = {
     STATS_KEY_DAMAGE_TAKEN: "dt",
     STATS_KEY_DAMAGE_INFLICTED: "di",
     STATS_KEY_DAMAGE_SELF: "ds",
-    STATS_KEY_HEALING: "h",
     STATS_KEY_SCORE: "s",
     STATS_KEY_FRAGS: "f",
     STATS_KEY_DEATHS: "d",
@@ -662,6 +661,9 @@ const GLOBAL_ABBR = {
     STATS_KEY_PING: "p",
     STATS_KEY_ITEMS: "it",
     STATS_KEY_COUNT: "c",
+    STATS_KEY_TEAM_HEALING: "th",
+    STATS_KEY_OWN_HEALING: "oh",
+    STATS_KEY_ARMOR_TAKEN: "at",
 };
 
 

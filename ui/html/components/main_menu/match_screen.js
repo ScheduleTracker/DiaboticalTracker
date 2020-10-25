@@ -164,6 +164,14 @@ function renderMatchScreen(match) {
     if (Object.keys(picked_items).length) {
         tabs.push("pickups");
     }
+    tabs.push("healing");
+
+    let healing_stats = [
+        GLOBAL_ABBR.STATS_KEY_TEAM_HEALING,
+        GLOBAL_ABBR.STATS_KEY_OWN_HEALING,
+        GLOBAL_ABBR.STATS_KEY_ARMOR_TAKEN,
+    ];
+
     let tab_elements = [];
     let tab_cont_elements = [];
     for (let current_tab of tabs) {
@@ -321,6 +329,15 @@ function renderMatchScreen(match) {
                     let item_icon = _createElement("div", ["w_label", "icon"]);
                     item_icon.style.backgroundImage = "url("+global_item_name_map[item][2]+"?fill="+global_item_name_map[item][0]+")";
                     team_head.appendChild(item_icon);
+                }
+            } else if (current_tab == "healing") {
+                for (let stat_key of healing_stats) {
+                    let stat_label = _createElement("div", ["label", "healing"]);
+                    team_head.appendChild(stat_label);
+                    
+                    if (stat_key == GLOBAL_ABBR.STATS_KEY_TEAM_HEALING) stat_label.textContent = localize("stats_team_healing");
+                    else if (stat_key == GLOBAL_ABBR.STATS_KEY_OWN_HEALING) stat_label.textContent = localize("stats_own_healing");
+                    else if (stat_key == GLOBAL_ABBR.STATS_KEY_ARMOR_TAKEN) stat_label.textContent = localize("stats_armor_taken");
                 }
             } else {
                 // Show weapon icons
@@ -490,7 +507,17 @@ function renderMatchScreen(match) {
                     row.appendChild(_createElement("div","w_stat", "--"));
                 }                
             }
-            
+
+        } else if (tab == "healing") {
+
+            for (let stat_key of healing_stats) {
+                if (p.stats.hasOwnProperty(stat_key)) {
+                    row.appendChild(_createElement("div",["stat", "healing"], p.stats[stat_key]));
+                } else {
+                    row.appendChild(_createElement("div",["stat", "healing"], 0));
+                }
+            }
+        
         } else {
 
             if (tab == "damage" || tab == "shots" || tab == "deaths") {
