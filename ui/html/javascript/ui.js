@@ -549,15 +549,21 @@ window.addEventListener("load", function(){
         _id("main_menu").style.display = enabled ? "flex" : "none";
 
         // Stop / Resume the shop animations
-        if (global_menu_page == "shop_screen") {
-            if (enabled) shop_set_animation_state(true);
-            else shop_set_animation_state(false);
+        if (enabled){
+            if (global_menu_page == "shop_screen"){
+                shop_set_animation_state(true);
+            }
+        } else {
+            shop_set_animation_state(false);
         }
 
         // Stop / Resume Aim Trainer scenario videos
-        if (global_menu_page == "aim_screen") {
-            if (enabled) aim_scenario_set_video_play(true);
-            else aim_scenario_set_video_play(false);
+        if (enabled){
+            if (global_menu_page == "aim_screen"){
+                aim_scenario_set_video_play(true);
+            }
+        } else {
+            aim_scenario_set_video_play(false);
         }
 
         if (enabled) {
