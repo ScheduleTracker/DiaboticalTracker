@@ -24,7 +24,7 @@ maps\b_alchemy.rbe		30419280
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
 maps\b_crystal_cove.rbe		34952344
-maps\b_furnace.rbe		42839399
+maps\b_furnace.rbe		42703543
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
 maps\b_icefall.rbe		16803987
@@ -60,7 +60,7 @@ maps\duel_kasbah.rbe		26239315
 maps\duel_monolith.rbe		17621415
 maps\duel_outpost_dunia.rbe		17891603
 maps\duel_perilous.rbe		24937946
-maps\duel_skybreak.rbe		10899657
+maps\duel_skybreak.rbe		10934333
 maps\example-b.png		2277
 maps\example-h.png		8528
 maps\example.rbe		5780119
@@ -167,7 +167,7 @@ maps\weapon.rbe		300781
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
 maps\wo_crystal_cove.rbe		34942356
-maps\wo_furnace.rbe		42828587
+maps\wo_furnace.rbe		42691595
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
 maps\wo_refinery.rbe		35783081
