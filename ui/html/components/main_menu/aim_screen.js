@@ -77,7 +77,7 @@ function init_screen_aim() {
             scenarioVideo.currentTime = 0;
             scenarioVideo.style.display = "flex";
             scenarioVideo.classList.add("active_video");
-            if(shouldPlay){scenarioVideo.play();}
+            if(shouldPlay && global_view_active){scenarioVideo.play();}
             
             _id("scenario_description_title").textContent = localize(scenario.title);
             _id("scenario_description").textContent = localize(scenario.description);
@@ -87,13 +87,16 @@ function init_screen_aim() {
 }
 
 function load_aim_scenario(scenarioName) {
+    // Reset timer to make sure its not stuck printed on the screen from a previous countdown
+    engine.call("reset_inactivity_timer");
+
     if (typeof scenarioName !== 'undefined') engine.call("load_aim_" + scenarioName);
 }
 
 function aim_scenario_set_video_play(shouldPlay){
     let scenarioVideo = _get_first_with_class_in_parent(_id("scenario_video_container"), "active_video");
     if(typeof scenarioVideo !== 'undefined'){
-        if(shouldPlay){
+        if(shouldPlay && global_view_active){
             scenarioVideo.play();
         }
         else{

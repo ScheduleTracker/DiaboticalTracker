@@ -460,7 +460,7 @@ function showRankScreen(cb, initial) {
                     setTimeout(function() {
                         if (type == "image") anim_show(next, 900);
                         if (type == "video") {
-                            next.play();
+                            if (global_view_active) next.play();
                             if (next_pos) setTimeout(function() { anim_show(next_pos, 500); },1500);
                         }
                         anim_show(next_name, 900);
@@ -538,7 +538,7 @@ function showRankScreen(cb, initial) {
                 // trigger showing the value and icon animations
                 if (type == "image") _for_each_with_class_in_parent(placement_rank_screen, 'rank_icon', function(el) { el.classList.add("visible"); });
                 if (type == "video") {
-                    _for_each_with_class_in_parent(placement_rank_screen, 'rank_video', function(el) { el.play(); });
+                    if (global_view_active) _for_each_with_class_in_parent(placement_rank_screen, 'rank_video', function(el) { el.play(); });
                     if (video_pos) setTimeout(function() { anim_show(video_pos, 500); }, 1500);
                 }
                 _for_each_with_class_in_parent(placement_rank_screen, 'rank_name', function(el) { el.classList.add("visible"); });

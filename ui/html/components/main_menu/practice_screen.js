@@ -3,6 +3,10 @@ function init_screen_practice() {
 }
 
 function practice_start_match(type) {
+
+    // Reset timer to make sure its not stuck printed on the screen from a previous countdown
+    engine.call("reset_inactivity_timer");
+
     if (type == "practice_range") {
         engine.call("load_practice_range");
     }
@@ -74,7 +78,9 @@ function practice_screen_reset_cards() {
         if (video) {
             let is_playing = video.isPlaying();
             video.reset();
-            if (is_playing) video.play();
+            if (is_playing){
+                if (global_view_active) video.play();
+            }
         }
     });
 }

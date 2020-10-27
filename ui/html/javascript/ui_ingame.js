@@ -1,7 +1,7 @@
 const GAMEFACE_VIEW = 'hud';
 
 // If the current view (hud in this case) is currently active or not
-var global_view_active = true;
+var global_view_active = false;
 
 let global_hud_view_active = false;
 

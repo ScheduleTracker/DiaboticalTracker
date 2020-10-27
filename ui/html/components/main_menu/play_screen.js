@@ -972,7 +972,7 @@ function renderPlayCard(data) {
             _play_mouseover4();
 
             if (card_flex.dataset.currently_active == "false") {
-                play_card_video.play();
+                if (global_view_active) play_card_video.play();
             }
         });
         card_flex.addEventListener("mouseleave", function() {
@@ -1095,16 +1095,19 @@ class PlayCardVideo {
 
         this.playing = true;
         this.card.classList.add("playing");
+
+        if (!global_view_active) return;
+
         if (this.state == 0) {
             this.state = 1;
-            this.start_video.play();
+            if (global_view_active) this.start_video.play();
             this.start_image.style.visibility = "hidden";
         }
         if (this.state == 1) {
-            this.start_video.play();
+            if (global_view_active) this.start_video.play();
         }
         if (this.state == 2) {
-            this.loop_video.play();
+            if (global_view_active) this.loop_video.play();
             this.loop_image.style.visibility = "hidden";
         }
     }
@@ -1173,7 +1176,9 @@ function play_screen_reset_cards(type) {
         if (video) {
             let is_playing = video.isPlaying();
             video.reset();
-            if (is_playing) video.play();
+            if (is_playing){
+                if (global_view_active) video.play();
+            }
         }
     });
 }
@@ -1323,7 +1328,7 @@ function update_queue_mode_selection() {
                 (global_mm_searching_ranked && cb.dataset.type == "ranked")) {
                 let card = cb.closest(".card_flex");
                 card.dataset.currently_active = true;
-                play_card_lookup[card.dataset.card_idx].play();
+                if (global_view_active) play_card_lookup[card.dataset.card_idx].play();
             }
         } else {
             disable_mode_checkbox(cb);

@@ -45,9 +45,16 @@
 			background-color: transparent;
 			color: white;
 		}
-
+		#asset_browser_scroll {
+			position: absolute;
+			left: 11vw;
+			width: 79.5vw;
+			top: 23.55vh;
+			height: 65vh;
+			margin-top: 4.5vh;
+		}
         #asset_browser {
-            margin-top: 4.5vh;
+            
         }
 		.asset_button {
 			width: 13.8vh;
@@ -130,6 +137,11 @@
 			display: flex;
 			overflow-y: scroll;
 		}
+		.section-subcontainer-scroll {
+			height:100%;
+			display: flex;
+			flex-wrap: wrap;
+		}
 		
 		#buttons {
 			font-family: "cpmono";
@@ -206,14 +218,18 @@
 		#tabs-button-6 > div.image {
 			background-image: url("images/editpad_menu_help.png");
 		}
+        .color_field {
+            display: flex;
+            flex-direction: row;
+        }
 		.dropper_tool {
 			background-image: url('images/editpad_menu_dropper.png');
 			background-size: 80% 80%;
 			background-position: center center;
 			background-repeat: no-repeat;
 			display: inline-block;
-			width: 5vh;
-			height: 5vh;
+			width: 4vh;
+			height: 4vh;
 			vertical-align: middle;
 			margin-bottom: 0.45vh;
 			margin-left: 0.45vh;
@@ -326,6 +342,9 @@
 		//});
 		initialize_select(_id("main_menu"));
 		engine.call("on_editpad_loaded");
+
+
+		initialize_scrollbar(_id("asset_browser_scroll"));
 	});
 		 
 	function addbits(s) { //https://stackoverflow.com/a/44282109
@@ -457,6 +476,9 @@
 				//elements[i].getClientRects();
 				//elements[i].getBoundingClientRect();
 			//}
+			let scroll_container = _id("asset_browser_scroll");
+			refreshScrollbar(scroll_container);
+			resetScrollbar(scroll_container);
 
 		} catch (err){}
           
@@ -564,16 +586,22 @@
             font-size: 2vh;
         }
         .scroll-bar {
-            width: 2vh;
-        }
-        .scroll-inner { padding-right 2vh; }
+			width: 2.5vh;
+			right: -3vh;
+		}
+		.scroll-thumb {
+			background-color:#777;
+		}
     </style>
 </head>
 
 <body id="main_menu" onmouseover='reset_status_bar()'>
 
 <div id="section-1" class=section>
-	<div class="property_view section-subcontainer" id="asset_browser" onscroll="on_asset_browser_scroll(event)"></div>
+	<div id="asset_browser_scroll" class="scroll-outer" data-sb-hide-empty="true">
+		<div class="scroll-bar"><div class="scroll-thumb"></div></div>
+		<div class="scroll-inner property_view section-subcontainer-scroll" id="asset_browser" onscroll="on_asset_browser_scroll(event)"></div>
+	</div>
 	<div id=browser_status></div>
 </div>
 

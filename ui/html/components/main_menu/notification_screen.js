@@ -243,7 +243,7 @@ function load_notifications() {
                 engine.call('ui_sound', "ui_battlepass_upgrade");
             }
 
-            notif_video.play();
+            if (global_view_active) notif_video.play();
 
         }, 500);
     }

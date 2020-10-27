@@ -25,9 +25,9 @@ var global_mm_time_quickplay = 0;
 // queue is currently active:
 var global_mm_searching_ranked = false;
 var global_mm_searching_quickplay = false;
-// queue starts with next animation frame:
-var global_mm_start_ranked = false;
-var global_mm_start_quickplay = false;
+// queue start timestamps:
+var global_mm_start_ranked_ts = null;
+var global_mm_start_quickplay_ts = null;
 
 // currently open menu page
 var global_menu_page = "home_screen";
@@ -272,15 +272,9 @@ window.addEventListener("load", function(){
 
     // Add leave match button once map has loaded
     bind_event('on_map_loaded', function () {
-        /*
-        let code = '<div id="mm_disconnect" onclick="open_modal_screen(\'disconnect_dialog_modal_screen\')" class="click-sound menu-disconnect-button" data-i18n="menu_top_disconnect"><span>LEAVE MATCH</span></div>';
-        let element = _id("notification_area_code");
-        if (element){
-            element.innerHTML = code;
-        }
-        element.style.display = "flex";
-        */
-
+        //if (!global_view_active) {
+            suspend_menu_videos();
+        //}
     });
 
     console.log("LOAD010");
@@ -1532,9 +1526,9 @@ function suspend_menu_videos() {
 
     for (var i=0; i<allVideos.length; i++) {
         if (!allVideos[i].paused) {
-            allVideos[i].pause();
             allVideos[i].suspended = true;
         }
+        allVideos[i].pause();
     }
 }
 
@@ -1543,7 +1537,7 @@ function resume_menu_videos() {
 
     for (var i=0; i<allVideos.length; i++) {
         if (allVideos[i].hasOwnProperty("suspended") && allVideos[i].suspended) {
-            allVideos[i].play();
+            if (global_view_active) allVideos[i].play();
             delete allVideos[i].suspended;
         }
     }
@@ -1689,48 +1683,14 @@ function set_console(visible) {
 }
 
 // animationFrame loop for misc purposes to not mix it with the anim library, currently only used for the queue timer (replaced anime.js)
-_last_anim_misc = performance.now();
+_last_anim_misc = Math.floor(performance.now() / 1000);
 function anim_misc(timestamp) {
-    _last_anim_misc = timestamp;
-
-    if (global_mm_start_ranked) {
-        global_mm_queuetime_ranked = timestamp;
-        global_mm_start_ranked = false;
-        global_mm_searching_ranked = true;
+    let ts_seconds = Math.floor(timestamp / 1000);
+    if (_last_anim_misc != ts_seconds) {
+        // Run something once a second
+        if (global_mm_searching_ranked || global_mm_searching_quickplay) queue_timer_update();
     }
-    if (global_mm_start_quickplay) {
-        global_mm_queuetime_quickplay = timestamp;
-        global_mm_start_quickplay = false;
-        global_mm_searching_quickplay = true;
-    }
-
-    if (global_mm_searching_ranked) {
-        let time = Math.floor((timestamp - global_mm_queuetime_ranked) / 1000);
-        if (time != global_mm_time_ranked) {
-            global_mm_time_ranked = time;
-            let queueTimerDOM = _get_first_with_class_in_parent(_id("queue_mm_box"), 'queue_queue_time');
-            let minutes = Math.floor(time / 60);
-            let seconds = time % 60;
-            let formattedMinutes = ("0" + minutes).slice(-2);
-            let formattedSeconds = ("0" + seconds).slice(-2);
-
-            _html(queueTimerDOM, formattedMinutes + ":" + formattedSeconds);
-        }
-    }
-    if (global_mm_searching_quickplay) {
-        let time = Math.floor((timestamp - global_mm_queuetime_quickplay) / 1000);
-        if (time != global_mm_time_quickplay) {
-            global_mm_time_quickplay = time;
-            let queueTimerDOM = _get_first_with_class_in_parent(_id("queue_quickplay_box"), 'queue_queue_time');
-            let minutes = Math.floor(time / 60);
-            let seconds = Math.floor(time % 60);
-
-            let formattedMinutes = ("0" + minutes).slice(-2);
-            let formattedSeconds = ("0" + seconds).slice(-2);
-
-            _html(queueTimerDOM, formattedMinutes + ":" + formattedSeconds);
-        }
-    }
+    _last_anim_misc = ts_seconds;
 
     window.requestAnimationFrame(anim_misc);
 }

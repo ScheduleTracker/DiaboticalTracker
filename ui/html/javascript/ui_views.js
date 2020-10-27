@@ -1222,6 +1222,41 @@ function party_context_select(cmd, user_id) {
     }
 }
 
+
+function queue_timer_update() {
+    if (!global_mm_searching_ranked && !global_mm_searching_quickplay) return;
+
+    let now = Date.now();
+
+    if (global_mm_searching_ranked) {
+        let time = Math.floor((now - global_mm_start_ranked_ts) / 1000);
+        if (time != global_mm_time_ranked) {
+            global_mm_time_ranked = time;
+            let queueTimerDOM = _get_first_with_class_in_parent(_id("queue_mm_box"), 'queue_queue_time');
+            let minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            let formattedMinutes = ("0" + minutes).slice(-2);
+            let formattedSeconds = ("0" + seconds).slice(-2);
+
+            queueTimerDOM.textContent = formattedMinutes + ":" + formattedSeconds;
+        }
+    }
+    if (global_mm_searching_quickplay) {
+        let time = Math.floor((now - global_mm_start_quickplay_ts) / 1000);
+        if (time != global_mm_time_quickplay) {
+            global_mm_time_quickplay = time;
+            let queueTimerDOM = _get_first_with_class_in_parent(_id("queue_quickplay_box"), 'queue_queue_time');
+            let minutes = Math.floor(time / 60);
+            let seconds = Math.floor(time % 60);
+            let formattedMinutes = ("0" + minutes).slice(-2);
+            let formattedSeconds = ("0" + seconds).slice(-2);
+
+            queueTimerDOM.textContent = formattedMinutes + ":" + formattedSeconds;
+        }
+    }
+
+}
+
 function process_queue_msg(type, msg) {
     console.log("process_queue_msg", type, msg);
 
@@ -1257,11 +1292,16 @@ function process_queue_msg(type, msg) {
             easing: easing_functions.easeOutQuad,
         });      
 
-        var queueTimerDOM = _get_first_with_class_in_parent(elem, 'queue_queue_time');
-        _html(queueTimerDOM, "00:00");
-                    
-        if (type == 'ranked')    global_mm_start_ranked = true;
-        if (type == 'quickplay') global_mm_start_quickplay = true;
+        if (type == 'ranked') {
+            global_mm_searching_ranked = true;
+            global_mm_start_ranked_ts = Date.now();
+        }
+        if (type == 'quickplay') {
+            global_mm_searching_quickplay = true;
+            global_mm_start_quickplay_ts = Date.now();
+        }
+
+        queue_timer_update();
 
     } else if (msg == "stop") {
 
@@ -1334,10 +1374,7 @@ function process_queue_msg(type, msg) {
 
     }
 
-    // wait for the next animationFrame update which updates global_mm_searching_ranked and global_mm_searching_quickplay 
-    req_anim_frame(() => {
-        update_queue_mode_selection();
-    }, 2);
+    update_queue_mode_selection();
 }
 
 function cancel_search(type) {
