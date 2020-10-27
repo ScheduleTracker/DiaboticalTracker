@@ -342,6 +342,8 @@ models\weapons\melee\broadsword\Creator Omar Chaouch.txt		27
 models\weapons\melee\broadsword\weapon_broadsword.ani		362
 models\weapons\melee\broadsword\weapon_broadsword.dbm		489203
 models\weapons\melee\broadsword\weapon_broadsword.fbx		348416
+models\weapons\melee\broomstick\weapon_broomstick.dbm		828187
+models\weapons\melee\broomstick\weapon_broomstick.fbx		644976
 models\weapons\melee\chockhammer\chockhammer.ani		362
 models\weapons\melee\chockhammer\chockhammer.assets		155
 models\weapons\melee\chockhammer\chockhammer.dbm		301373
@@ -393,6 +395,8 @@ models\weapons\melee\mazer\mazer_s.png.dds		1398260
 models\weapons\melee\mazer\weapon_mazer.ani		362
 models\weapons\melee\mazer\weapon_mazer.dbm		280667
 models\weapons\melee\mazer\weapon_mazer.fbx		277680
+models\weapons\melee\scythe\weapon_scythe.dbm		499457
+models\weapons\melee\scythe\weapon_scythe.fbx		2217760
 models\weapons\melee\shields\shield_01\shield_01_d.png.dds		349700
 models\weapons\melee\shields\shield_01\shield_01_i.png.dds		174904
 models\weapons\melee\shields\shield_01\shield_01_n.png.dds		1398260
