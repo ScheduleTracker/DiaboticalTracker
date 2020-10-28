@@ -322,16 +322,16 @@ models\weapons\melee\ballhammer\Creator Omar Chaouch.txt		27
 models\weapons\melee\ballhammer\weapon_ballhammer.ani		362
 models\weapons\melee\ballhammer\weapon_ballhammer.dbm		155661
 models\weapons\melee\ballhammer\weapon_ballhammer.fbx		4222448
-models\weapons\melee\boltbat\boltbat.assets		135
-models\weapons\melee\boltbat\boltbat.shader		1611
+models\weapons\melee\boltbat\boltbat.assets		150
+models\weapons\melee\boltbat\boltbat.shader		1680
 models\weapons\melee\boltbat\boltbat_d.png.dds		5592548
 models\weapons\melee\boltbat\boltbat_i.png		3150
 models\weapons\melee\boltbat\boltbat_n.png.dds		1398260
 models\weapons\melee\boltbat\boltbat_s.png.dds		1398260
 models\weapons\melee\boltbat\Creator Omar Chaouch.txt		27
 models\weapons\melee\boltbat\weapon_boltbat.ani		362
-models\weapons\melee\boltbat\weapon_boltbat.dbm		199808
-models\weapons\melee\boltbat\weapon_boltbat.fbx		164640
+models\weapons\melee\boltbat\weapon_boltbat.dbm		292220
+models\weapons\melee\boltbat\weapon_boltbat.fbx		274608
 models\weapons\melee\broadsword\broadsword.assets		150
 models\weapons\melee\broadsword\broadsword.dbm		245527
 models\weapons\melee\broadsword\broadsword.shader		1695
@@ -342,6 +342,12 @@ models\weapons\melee\broadsword\Creator Omar Chaouch.txt		27
 models\weapons\melee\broadsword\weapon_broadsword.ani		362
 models\weapons\melee\broadsword\weapon_broadsword.dbm		489203
 models\weapons\melee\broadsword\weapon_broadsword.fbx		348416
+models\weapons\melee\broomstick\broomstick.assets		165
+models\weapons\melee\broomstick\broomstick.shader		1771
+models\weapons\melee\broomstick\broomstick_d.png.dds		1398276
+models\weapons\melee\broomstick\broomstick_n.png.dds		1398276
+models\weapons\melee\broomstick\broomstick_s.png.dds		1398276
+models\weapons\melee\broomstick\weapon_broomstick.ani		362
 models\weapons\melee\broomstick\weapon_broomstick.dbm		828187
 models\weapons\melee\broomstick\weapon_broomstick.fbx		644976
 models\weapons\melee\chockhammer\chockhammer.ani		362
@@ -395,6 +401,12 @@ models\weapons\melee\mazer\mazer_s.png.dds		1398260
 models\weapons\melee\mazer\weapon_mazer.ani		362
 models\weapons\melee\mazer\weapon_mazer.dbm		280667
 models\weapons\melee\mazer\weapon_mazer.fbx		277680
+models\weapons\melee\scythe\scythe.assets		145
+models\weapons\melee\scythe\scythe.shader		1579
+models\weapons\melee\scythe\scythe_d.png.dds		1398276
+models\weapons\melee\scythe\scythe_n.png.dds		1398276
+models\weapons\melee\scythe\scythe_s.png.dds		1398276
+models\weapons\melee\scythe\weapon_scythe.ani		362
 models\weapons\melee\scythe\weapon_scythe.dbm		499457
 models\weapons\melee\scythe\weapon_scythe.fbx		2217760
 models\weapons\melee\shields\shield_01\shield_01_d.png.dds		349700
