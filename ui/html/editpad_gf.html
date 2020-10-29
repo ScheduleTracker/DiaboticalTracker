@@ -45,14 +45,6 @@
 			background-color: transparent;
 			color: white;
 		}
-		#asset_browser_scroll {
-			position: absolute;
-			left: 11vw;
-			width: 79.5vw;
-			top: 23.55vh;
-			height: 65vh;
-			margin-top: 4.5vh;
-		}
         #asset_browser {
             
         }
@@ -112,7 +104,7 @@
 			background-color: #de25e5;
 		}
 		#browser_status {
-			position: fixed;
+			position: absolute;
 			top: 23vh;
 			left: 22vh;
 			width:125vh;
@@ -125,17 +117,14 @@
 		
 		.section {
 		}
-		
+
 		.section-subcontainer {
 			position: absolute;
 			left: 11vw;
 			width: 79.5vw;
-			/*top: 28vh;*/
-            top: 23.55vh;
+			top: 23.55vh;
 			height: 65vh;
-			flex-wrap: wrap;
-			display: flex;
-			overflow-y: scroll;
+			margin-top: 4.5vh;
 		}
 		.section-subcontainer-scroll {
 			height:100%;
@@ -254,10 +243,12 @@
 		}
 		.entity_property_category {
 			text-transform: uppercase;
-			background-color: rgba(255,255,255,0.05);
-            color: rgb(200,200,200);
+			background-color: rgba(255,255,255,0.1);
+            color: rgb(255,255,255);
             padding: 0.5vh;
             padding-left: 1.5vh; 
+            border-top-right-radius: 1.5vh;
+            border-width: 0;
 		}
 		.entity_property {
 			display: flex;
@@ -318,15 +309,34 @@
     border:1px solid black;
 }
 
-.entity_detail_header {
+.header_content {
     display: flex;
 	flex-direction: row;
     margin-bottom: 2.5vh;
     margin-left: 0.5vh;
     width: 122vh;
-    justify-content: space-between
+    height: 2vh;
+    justify-content: space-between;
 }
-.entity_detail_header span {
+.header_content span {
+    color: #aaffff;
+}
+.header_bar {
+    position: absolute;
+    top: 23vh;
+    left: 22vh;
+    height:3.5vh;
+    align-items:center;
+    overflow: hidden;
+    padding-left: 1.5vh;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2.5vh;
+    margin-left: 0.5vh;
+    width: 122vh;
+    justify-content: space-between;
+}
+.header_bar span {
     color: #aaffff;
 }
     </style> 
@@ -352,7 +362,7 @@
 		engine.call("on_editpad_loaded");
 
 
-		initialize_scrollbar(_id("asset_browser_scroll"));
+		initialize_scrollbar(_id("asset_browser_scroll"),{thumb_offset_top: 22, thumb_offset_bottom: 26});
 	});
 		 
 	function addbits(s) { //https://stackoverflow.com/a/44282109
@@ -392,11 +402,14 @@
 		}
 	}
 
-	engine.on('entity_details', function (content, id) {
+	engine.on('entity_details', function (content, id, header_el_id, header_content) {
 		//$("#" + id).empty();
 		//$("#" + id).html(content);
 		var el = _id(id);
 		_html(el, content);
+        var header_el = _id(header_el_id);
+        if (header_el) _html(header_el, header_content);
+        
 		_setup_color_pickers("#" + id + " .color-picker-new");
 
 		if (global_editpad.next_tab_input_selector) {
@@ -466,31 +479,43 @@
 					subel.dataset.entity, subel.dataset.property, opt.dataset.value);
 			});
 		});
-        
+
+		// Init or refresh the scrollbar when the content changes
+		let scroll_container = null;
+		if (id == "global_properties") scroll_container = _id("global_properties_scroll");
+		if (id == "entity_details") scroll_container = _id("entity_details_scroll");
+		if (scroll_container) {
+			if ("scrollIdx" in scroll_container.dataset) {
+				refreshScrollbar(scroll_container);
+				resetScrollbar(scroll_container);
+			} else {
+				initialize_scrollbar(scroll_container, {thumb_offset_top: 22, thumb_offset_bottom: 26});
+			}
+		}
 	});
 
 	function populate() {
 		engine.call("editpad_filter", $('#filter_input').val()).then(function (reply) {
-	    assets = [];
-		try {
-			////$("#test").html(reply);
-			//assets = JSON.parse(reply);
-			//$("#asset_browser").html(assets.join(""));
-			_id("asset_browser").innerHTML = reply;
+			assets = [];
+			try {
+				////$("#test").html(reply);
+				//assets = JSON.parse(reply);
+				//$("#asset_browser").html(assets.join(""));
+				_id("asset_browser").innerHTML = reply;
+				
+				//var elements = document.querySelectorAll("*");
+
+				//for(var i = 0; i < elements.length; i++){
+					//elements[i].getClientRects();
+					//elements[i].getBoundingClientRect();
+				//}
+				let scroll_container = _id("asset_browser_scroll");
+				refreshScrollbar(scroll_container);
+				resetScrollbar(scroll_container);
+
+			} catch (err){}
 			
-			//var elements = document.querySelectorAll("*");
-
-			//for(var i = 0; i < elements.length; i++){
-				//elements[i].getClientRects();
-				//elements[i].getBoundingClientRect();
-			//}
-			let scroll_container = _id("asset_browser_scroll");
-			refreshScrollbar(scroll_container);
-			resetScrollbar(scroll_container);
-
-		} catch (err){}
-          
-      });
+		});
 	}
 	
 	
@@ -565,11 +590,15 @@
 				$("#tabs-button-" + i).removeClass("section_button_hl");
 			}
 		}
-	}
 
-	function on_asset_browser_scroll(event){
-		var el = _id("asset_browser");
-		engine.call("echo", "TOP="+el.scrollTop+" =" + el.scrollHeight + " ="+el.getBoundingClientRect().height);
+		// Refresh the scrollbar when switching between sections
+		let scroll_container = null;
+		if (idx == 1) scroll_container = _id("asset_browser_scroll");
+		if (idx == 2) scroll_container = _id("entity_details_scroll");
+		if (idx == 3) scroll_container = _id("global_properties_scroll");
+		if (scroll_container) {
+			if ("scrollIdx" in scroll_container.dataset) refreshScrollbar(scroll_container);
+		}
 	}
 	
 	document.addEventListener("mouseover", function(e) {
@@ -598,7 +627,10 @@
 			right: -3vh;
 		}
 		.scroll-thumb {
-			background-color:#777;
+			background-color:#a6a6a6;
+            width: 1.8vh;
+            border-width: 0;
+            margin-left: 0.52vh;
 		}
     </style>
 </head>
@@ -606,20 +638,28 @@
 <body id="main_menu" onmouseover='reset_status_bar()'>
 
 <div id="section-1" class=section>
-	<div id="asset_browser_scroll" class="scroll-outer" data-sb-hide-empty="true">
+	<div id="asset_browser_scroll" class="section-subcontainer scroll-outer" data-sb-hide-empty="true">
 		<div class="scroll-bar"><div class="scroll-thumb"></div></div>
-		<div class="scroll-inner property_view section-subcontainer-scroll" id="asset_browser" onscroll="on_asset_browser_scroll(event)"></div>
+		<div class="scroll-inner property_view section-subcontainer-scroll" id="asset_browser"></div>
 	</div>
 	<div id=browser_status></div>
 </div>
 
 <div id="section-2" class=section style="display: none;">
 	<!--<img src="images/editpad/section_header.png" style='position: absolute; left: 200px; top: 200px'>-->
-	<div class="property_view section-subcontainer" id="entity_details"></div>
+	<div id="entity_details_scroll" class="section-subcontainer scroll-outer" data-sb-hide-empty="true">
+		<div class="scroll-bar"><div class="scroll-thumb"></div></div>
+		<div class="scroll-inner property_view section-subcontainer-scroll" id="entity_details"></div>
+	</div>
+    <div id="header_content_2" class="header_bar"></div>
 </div>
 
 <div id="section-3" class=section style="display: none;">
-	<div class="property_view section-subcontainer" id="global_properties"></div>
+	<div id="global_properties_scroll" class="section-subcontainer scroll-outer" data-sb-hide-empty="true">
+		<div class="scroll-bar"><div class="scroll-thumb"></div></div>
+		<div class="scroll-inner property_view section-subcontainer-scroll" id="global_properties"></div>
+	</div>
+    <div id="header_content_3" class="header_bar"></div>
 </div>
 
 <input id="filter_input" oninput="search_debouncer.execute()">

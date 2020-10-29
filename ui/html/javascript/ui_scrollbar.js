@@ -1,6 +1,17 @@
 class Scrollbar {
 
-    constructor(outer, idx, hide_empty) {
+    constructor(outer, idx, hide_empty, options) {
+        this.options = options;
+        if (this.options && this.options.thumb_offset_top){
+            this.thumb_offset_top = this.options.thumb_offset_top;
+        } else {
+            this.thumb_offset_top = 0;
+        }
+        if (this.options && this.options.thumb_offset_bottom){
+            this.thumb_offset_bottom = this.options.thumb_offset_bottom;
+        } else {
+            this.thumb_offset_bottom = 0;
+        }
         this.outer = outer;
         this.outer.dataset.scrollIdx = idx;
         this.inner = _get_first_with_class_in_parent(this.outer, "scroll-inner");
@@ -86,7 +97,7 @@ class Scrollbar {
         this.max_scroll = this.inner.scrollHeight - this.rect_inner.height;
         let scroll_perc = this.inner.scrollTop / this.max_scroll;
 
-        this.thumb.style.top = ((this.rect_inner.height - this.thumb_height) * scroll_perc) +'px'; 
+        this.thumb.style.top = ((this.rect_inner.height - this.thumb_height) * scroll_perc + this.thumb_offset_top) +'px'; 
     }
 
     updateThumbPosition(e) {
@@ -100,13 +111,13 @@ class Scrollbar {
         let scroll_perc = 0;
         if (perc <= 0) {
             scroll_perc = 0;
-            this.thumb.style.top = 0;
+            this.thumb.style.top = this.thumb_offset_top;
         } else if (perc >= 1) {
             scroll_perc = 1;
-            this.thumb.style.top = max_pos+'px';
+            this.thumb.style.top = (max_pos+this.thumb_offset_top)+'px';
         } else {
             scroll_perc = perc;
-            this.thumb.style.top = pos+'px';
+            this.thumb.style.top = (pos+this.thumb_offset_top)+'px';
         }
 
         this.inner.scrollTop = (this.max_scroll * scroll_perc);
@@ -117,7 +128,7 @@ class Scrollbar {
     resetScrollPosition(e) {
         req_anim_frame(() => {
             this.inner.scrollTop = 0;
-            this.thumb.style.top = 0+'px';
+            this.thumb.style.top = (this.thumb_offset_top)+'px';
         }, 2);
     }
 
@@ -148,7 +159,7 @@ class Scrollbar {
                 let perc = (Math.floor(this.rect_inner.height)/this.inner.scrollHeight);
                 if (perc < 0.15) perc = 0.15;
                 this.thumb_height = perc * this.rect_inner.height;
-                this.thumb.style.height = this.thumb_height+'px';
+                this.thumb.style.height = (this.thumb_height - this.thumb_offset_bottom - this.thumb_offset_top) +'px';
                 
                 this.updateThumbPositionFromScroll();
             }
@@ -159,23 +170,23 @@ class Scrollbar {
 
 let global_scrollbarTracker = []
 let global_scrollbarTrackerId = 0;
-function initialize_scrollbars() {
+function initialize_scrollbars(options) {
     let scrollbars = document.getElementsByClassName("scroll-outer");    
     for (global_scrollbarTrackerId = 0; global_scrollbarTrackerId < scrollbars.length; global_scrollbarTrackerId++) {
 
         let hide_empty = false;
         if ("sbHideEmpty" in scrollbars[global_scrollbarTrackerId].dataset && scrollbars[global_scrollbarTrackerId].dataset.sbHideEmpty == "true") hide_empty = true;
 
-        global_scrollbarTracker[global_scrollbarTrackerId] = new Scrollbar(scrollbars[global_scrollbarTrackerId],global_scrollbarTrackerId, hide_empty);
+        global_scrollbarTracker[global_scrollbarTrackerId] = new Scrollbar(scrollbars[global_scrollbarTrackerId],global_scrollbarTrackerId, hide_empty, options);
     }
 }
-function initialize_scrollbar(el) {
+function initialize_scrollbar(el, options) {
     let sb_id = global_scrollbarTrackerId++;
 
     let hide_empty = false;
     if ("sbHideEmpty" in el.dataset && el.dataset.sbHideEmpty == "true") hide_empty = true;
 
-    global_scrollbarTracker[sb_id] = new Scrollbar(el, sb_id, hide_empty);
+    global_scrollbarTracker[sb_id] = new Scrollbar(el, sb_id, hide_empty, options);
 }
 
 function refreshScrollbar(el) {
