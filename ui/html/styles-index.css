@@ -6277,12 +6277,19 @@ h2 {
 #friends_list_popup .friends_list_self .desc .name { font-size:1.6vh; }
 #friends_list_popup .friends_list_self .desc .state {
     font-size:1vh;
-    color:rgba(255,255,255,0.4);
+    color:rgba(255,255,255,0.6);
     font-weight:bold;
     text-transform:uppercase;
     margin-top:0.2vh;
 }
 #friends_list_popup .friends_list_self .settings {
+    padding: 0 1vh;
+    font-size: 1.5vh;
+    font-family:var(--mont-font);
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0.9;
+    /*
     width:5vh;
     height:5vh;
     background-image:url(/html/images/icons/fa/cog.svg);
@@ -6291,6 +6298,7 @@ h2 {
     background-size:2.4vh;
     animation: gear_rotate 2400ms linear infinite;
     animation-play-state: paused;
+    */
 }
 #friends_list_popup .friends_list_self .settings.hover {
     animation-play-state: running;
@@ -6358,6 +6366,8 @@ h2 {
     margin-left:0.6vh;
     margin-right:0.6vh;
 }
+
+#friends_list_popup .friends_list_cont .category.hidden { display:none; }
 
 #friends_list_popup .friends_list_cont .category .head {
     display:flex;
@@ -6445,7 +6455,11 @@ h2 {
     display:none;
 }
 #friends_list_popup .friends_list_cont .category .cont .friend.ingame { background-color:#153a4c; }
-#friends_list_popup .friends_list_cont .category .cont .friend.inparty { background-color:#1c526d; }
+/*#friends_list_popup .friends_list_cont .category .cont .friend.inparty { background-color:#1c526d; }*/
+#friends_list_popup .friends_list_cont .category .cont .friend.inparty { background-color:#ae7f37; }
+#friends_list_popup .friends_list_cont .category .cont .friend.inparty:hover { background-color:#be975c; }
+
+#friends_list_popup .friends_list_cont .category .cont .friend.online { height:4vh; }
 #friends_list_popup .friends_list_cont .category .cont .friend.offline { 
     background-color:#1b1b1b;
     height:4vh;
@@ -6494,6 +6508,25 @@ h2 {
     background-position:center;
     background-size:2vh;
 }
+
+#friends_list_popup .friends_list_cont .category .cont .friend .icons {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    margin-right:0.6vh;
+}
+#friends_list_popup .friends_list_cont .category .cont .friend .icons .icon {
+    width:2vh;
+    height:2vh;
+    margin-right:0.4vh;
+    opacity:0.6;
+    background-size:100%;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+#friends_list_popup .friends_list_cont .category .cont .friend .icons .icon.epic { background-image:url(/html/images/eos_logo.png); }
+#friends_list_popup .friends_list_cont .category .cont .friend .icons .icon.master { background-image:url(/html/images/diabotical_o.svg);}
 
 #friends_list_popup .friends_list_cont .category .cont .friend .arrow {
     width:0vh;
@@ -6555,7 +6588,7 @@ h2 {
 
 #friends_list_action_menus .action_menu .option {
     background-color:rgb(51, 51, 51);
-    margin-bottom:0.2vh;
+    margin-bottom:3px;
     height:4.2vh;
     display:flex;
     flex-direction:row;

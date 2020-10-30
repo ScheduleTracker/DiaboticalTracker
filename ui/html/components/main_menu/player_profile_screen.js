@@ -384,14 +384,24 @@ function player_profile_render_head(data, simple) {
             head.appendChild(msg_friend);
         }
         */
-        /*
-        if (data.user_id != global_self.user_id && !global_friends_user_ids.includes(data.user_id)) {
+        
+        let show_add_button = true;
+        if (data.user_id == global_self.user_id) show_add_button = false;
+        if (global_friends.hasOwnProperty(data.user_id) && global_friends[data.user_id].masterfriend) show_add_button = false;
+
+        if (show_add_button) {
             let add_friend = _createElement("div", ["btn","add_friend","tooltip2"]);
-            add_friend.dataset.msgId = "friends_list_label_add_friend";
+            add_friend.dataset.msgId = "friends_list_action_friend_request";
             add_tooltip2_listeners(add_friend);
+            _addButtonSounds(add_friend, 1);
             head.appendChild(add_friend);
+
+            add_friend.addEventListener("click", function() {
+                send_string(CLIENT_COMMAND_SEND_FRIEND_REQUEST, data.user_id);
+                anim_hide(add_friend);
+            });
         }
-        */
+        
     }
 
     return head;

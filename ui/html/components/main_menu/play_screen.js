@@ -1100,14 +1100,14 @@ class PlayCardVideo {
 
         if (this.state == 0) {
             this.state = 1;
-            if (global_view_active) this.start_video.play();
+            this.start_video.play();
             this.start_image.style.visibility = "hidden";
         }
         if (this.state == 1) {
-            if (global_view_active) this.start_video.play();
+            this.start_video.play();
         }
         if (this.state == 2) {
-            if (global_view_active) this.loop_video.play();
+            this.loop_video.play();
             this.loop_image.style.visibility = "hidden";
         }
     }

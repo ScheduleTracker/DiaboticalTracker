@@ -32,6 +32,7 @@ var global_party = {
     "id": -1,
     "size": 0,
     "user_id": 0,
+    "leader_id": 0,
     "privacy": false,
 
     // user_id -> info map
@@ -937,7 +938,7 @@ function map_selected(element, map_name) {
 function handle_invite_event(data) {
     //console.log("== handle_invite_event",data.action, _dump(data));
     if (data.action == "invite-list") {
-        update_friendlist_invites(data.list);
+        friend_list_invites_update(data.list);
     }
 
     if (data.action == "invite-add") {
@@ -945,14 +946,14 @@ function handle_invite_event(data) {
         if (data.type == "party" && global_party.id == data['type-id']) return;
         
         let title = '';
-        let text = data['from-name']+" ";
+        let text = '';
         if (data.type == "lobby") {
             title = localize("friends_list_title_lobby_invite");
-            text += localize("friends_list_state_lobby_invite_in");
+            text = localize_ext("friends_list_state_lobby_invite_in", {"name": data['from-name']});
         }
         if (data.type == "party") {
             title = localize("friends_list_title_party_invite");
-            text += localize("friends_list_state_party_invite_in");
+            text = localize_ext("friends_list_state_party_invite_in", {"name": data['from-name']});
         }
 
         queue_dialog_msg({
@@ -991,6 +992,7 @@ function handle_party_event(data) {
         global_self.user_id = data['user-id'];
 
         global_party.id = data['party-id'];
+        global_party.leader_id = data.data['leader-id'];
         global_party.privacy = data['privacy'];
         global_party.size = Object.keys(data.data.members).length;
 

@@ -249,6 +249,11 @@ function _insertAfter(newNode, referenceNode) {
     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
 
+function _replaceNode(oldNode, newNode) {
+    if (!oldNode.parentNode) return;
+    oldNode.parentNode.replaceChild(newNode, oldNode);
+}
+
 function _dump(obj) {
     return JSON.stringify(obj, null, '\t');
 }

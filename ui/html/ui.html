@@ -4064,13 +4064,6 @@
         <div id="player_plate">
             <div id="player_plate_offline">[ ! ] &nbsp; <span data-i18n="diabotical_not_on_egs" class="i18n">Diabotical not installed on EGS. Running in development offline mode.</span></div>
 
-            <div id="friends_icon_triangle"></div>
-            <div id="friends_icon" class="bottom_button mouseover-sound2 click-sound tooltip top" onclick="popup_friends_list()">
-                <span class="tip_inner top i18n" data-i18n="friends">Friends</span>
-                <img src="/html/images/icons/fa/user-friends.svg?fill=white">
-                <div id="friends_list_notice"></div>
-            </div>
-
             <div id="friends_list_popup">
     <div class="friends_list_self">
         <div class="avatar"></div>
@@ -4078,7 +4071,7 @@
             <div class="name">Name</div>
             <div class="state">State</div>
         </div>
-        <div class="settings"></div>
+        <div class="settings">Settings</div>
     </div>
 
     <!--
@@ -4099,16 +4092,25 @@
         <div class="scroll-bar"><div class="scroll-thumb"></div></div>
         <div class="scroll-inner">
 
-            <div id="friends_invites_game" class="category open">
+            <div id="friends_list_requests" class="category open hidden">
                 <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
-                    <div class="count">0</div>
+                    <div class="count hl">0</div>
+                    <div class="label i18n" data-i18n="friends_list_label_requests">Incoming Friend Requests</div>
+                    <div class="arrow open"></div>
+                </div>
+                <div id="friends_list_requests_cont" class="cont open"></div>
+            </div>
+
+            <div id="friends_invites_game" class="category open hidden">
+                <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
+                    <div class="count hl">0</div>
                     <div class="label i18n" data-i18n="friends_list_label_invites">Invites</div>
                     <div class="arrow open"></div>
                 </div>
                 <div id="friends_invites_game_cont" class="cont open"></div>
             </div>
 
-            <div id="friends_list_party" class="category open">
+            <div id="friends_list_party" class="category open hidden">
                 <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
                     <div class="count">0</div>
                     <div class="label i18n" data-i18n="friends_list_label_party">Party</div>
@@ -4117,7 +4119,7 @@
                 <div id="friends_list_party_cont" class="cont open"></div>
             </div>
 
-            <div id="friends_list_in_diabotical" class="category open">
+            <div id="friends_list_in_diabotical" class="category open hidden">
                 <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
                     <div class="count">0</div>
                     <div class="label i18n" data-i18n="friends_list_label_in_diabotical">In Diabotical</div>
@@ -4126,16 +4128,16 @@
                 <div id="friends_list_in_diabotical_cont" class="cont open"></div>
             </div>
 
-            <div id="friends_list_online" class="category open">
+            <div id="friends_list_online" class="category hidden">
                 <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
                     <div class="count">0</div>
                     <div class="label i18n" data-i18n="friends_list_label_online">Online</div>
-                    <div class="arrow open"></div>
+                    <div class="arrow"></div>
                 </div>
-                <div id="friends_list_online_cont" class="cont open"></div>
+                <div id="friends_list_online_cont" class="cont"></div>
             </div>
 
-            <div id="friends_list_offline" class="category">
+            <div id="friends_list_offline" class="category hidden">
                 <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
                     <div class="count">0</div>
                     <div class="label i18n" data-i18n="friends_list_label_offline">Offline</div>
@@ -4149,42 +4151,14 @@
         </div>
     </div>
 
-    <!--
-    <div id="friends_list_cont_invites" class="friends_list_cont scroll-outer theme_friends" data-sb-hide-empty="true">
-        <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-        <div class="scroll-inner">
-
-            <div class="friend_request_cont" style="display:none;">
-                <div class="title i18n" data-i18n="friends_list_label_add_friend">Add a Friend</div>
-                <div class="cont">
-                    <input type="text" />
-                    <div class="db-btn i18n" data-i18n="friends_list_label_send_request" onclick="send_friend_request()">Send</div>
-                </div>
-            </div>
-
-            <div id="friends_invites_epic_in" class="category open" style="display:none;">
-                <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
-                    <div class="count">0</div>
-                    <div class="label i18n" data-i18n="friends_list_label_friend_requests_in">Friend Requests - Incoming</div>
-                    <div class="arrow open"></div>
-                </div>
-                <div id="friends_invites_epic_in_cont" class="cont open"></div>
-            </div>
-
-            <div id="friends_invites_epic_out" class="category" style="display:none;">
-                <div class="head mouseover-sound4 click-sound" onclick="friends_list_toggle_category(this)">
-                    <div class="count">0</div>
-                    <div class="label i18n" data-i18n="friends_list_label_friend_requests_out">Friend Requests - Outgoing</div>
-                    <div class="arrow"></div>
-                </div>
-                <div id="friends_invites_epic_out_cont" class="cont"></div>
-            </div>
-
-        </div>
-    </div>
-    -->
-
 </div>
+
+            <div id="friends_icon_triangle"></div>
+            <div id="friends_icon" class="bottom_button mouseover-sound2 click-sound tooltip top" onclick="popup_friends_list()">
+                <span class="tip_inner top i18n" data-i18n="friends">Friends</span>
+                <img src="/html/images/icons/fa/user-friends.svg?fill=white">
+                <div id="friends_list_notice"></div>
+            </div>
 
             <div id="main_chat">
     <div class="chat_icon"><div class="icon"></div></div>

@@ -1,11 +1,17 @@
+// user_id => user object, all friends in any states from any source
+let global_friends = {};
+
+// list of user_ids from epic for diff purposes between current and last update
+let global_friends_from_epic = [];
+
 let global_friends_list_enabled = false;
 let global_friends_list_action_menu_open = false;
 let global_active_friends_list_cont = undefined;
-let global_friend_request_count = 0;
+let global_friend_requests_count = 0;
 let global_friend_invites_count = 0;
-let global_friends_online_data = undefined;
 let global_friends_online_data_requested = false;
 
+// user_id -> name map (epic friends)
 let global_friends_list_map = {};
 
 function init_friends_list() {
@@ -25,14 +31,13 @@ function init_friends_list() {
         }
 
         if ("friends" in json_data) {
-            handle_friend_list_update(json_data["friends"]);
-        } else {
-            handle_friend_list_update([]);
+            console.log("set_friends_data EPIC");
+            for (let f of json_data.friends) {
+                if (f.user_id == "56e300951a2e4a72867496e688c3a517") console.log(_dump(f));
+            }
+            friend_list_epic_update(json_data.friends);
         }
 
-        if ("self" in json_data) {
-            handle_friend_list_update_self(json_data["self"]);
-        }
     });
     
     // Prevent the window from closing when clicking anywhere in the friends list
@@ -91,6 +96,7 @@ function init_friends_list() {
     */
     
     // call : "friend_request": string user_id
+    /*
     bind_event("friend_request_result", function(success) {
         console.log("friend request by user_id: "+success);
 
@@ -123,6 +129,490 @@ function init_friends_list() {
             "msg": msg,
         });
     });
+    */
+}
+
+let friends_list_cache = {
+    "party": [],
+    "in_diabotical": [],
+    "online": [],
+    "offline": [],
+    "invites_game":[],
+    "invites_epic_in": [],
+    "invites_epic_out": [],
+};
+
+let global_friends_user_ids = [];
+let friends_in_diabotical_user_ids = [];
+let friends_in_party_user_ids = [];
+
+// Party list
+let friends_list_party = _id("friends_list_party");
+let friends_list_party_cont = _id("friends_list_party_cont");
+let friends_list_party_fragment = new DocumentFragment();
+// In Diabotical list
+let friends_list_in_diabotical = _id("friends_list_in_diabotical");
+let friends_list_in_diabotical_cont = _id("friends_list_in_diabotical_cont");
+let friends_list_in_diabotical_fragment = new DocumentFragment();
+// Online list
+let friends_list_online = _id("friends_list_online");
+let friends_list_online_cont = _id("friends_list_online_cont");
+let friends_list_online_cont_fragment = new DocumentFragment();
+// Offline list
+let friends_list_offline = _id("friends_list_offline");
+let friends_list_offline_cont = _id("friends_list_offline_cont");
+let friends_list_offline_cont_fragment = new DocumentFragment();
+
+
+// Friend requests list
+let global_friend_requests = [];
+let friends_list_requests = _id("friends_list_requests");
+let friends_list_requests_cont = _id("friends_list_requests_cont");
+let friends_list_requests_cont_fragment = new DocumentFragment();
+
+// Lobby / Game / Match Invites
+let global_friend_invites = [];
+let friends_invites_game = _id("friends_invites_game");
+let friends_invites_game_cont = _id("friends_invites_game_cont");
+let friends_invites_game_cont_fragment = new DocumentFragment();
+
+function friend_list_epic_update(epic_friends) {
+    let user_ids = {};
+    for (let f of epic_friends) {
+        user_ids[f.user_id] = true;
+
+        if (!global_friends.hasOwnProperty(f.user_id)) {
+            create_friend_from_epic(f);
+        } else {
+            update_friend_from_epic(global_friends[f.user_id], f);
+        }
+    }
+
+    // list of user_ids from epic for diff purposes between current and last update
+    let global_friends_from_epic = [];
+    for (let user_id of global_friends_from_epic) {
+        // Check if the user_id is still an epic friend according to this update
+        if (user_ids.hasOwnProperty(user_id)) continue; 
+
+        // User appears to not be an epic friend anymore
+        remove_friend_from_epic(user_id);
+    }
+
+    friend_list_update("party");
+    friend_list_update("ingame");
+    friend_list_update("online");
+    friend_list_update("offline");
+
+    if (global_friends_online_data_requested == false) {
+        get_friends_in_diabotical_data();
+    }
+
+    refreshScrollbar(global_active_friends_list_cont);
+}
+
+function friend_requests_update() {
+    global_friend_requests.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0));
+    for (let f of global_friend_requests) {
+        friends_list_requests_cont_fragment.appendChild(f.el);
+    }
+
+    // Add fragment to DOM
+    _empty(friends_list_requests_cont);
+    friends_list_requests_cont.appendChild(friends_list_requests_cont_fragment);
+
+    // Update category count
+    let count = friends_list_requests.querySelector(".head .count");
+    count.textContent = global_friend_requests.length;
+    global_friend_requests_count = global_friend_requests.length;
+
+    if (global_friend_requests.length == 0) friends_list_requests.classList.add("hidden");
+    else friends_list_requests.classList.remove("hidden");
+
+    refreshScrollbar(global_active_friends_list_cont);
+    update_friendlist_invite_count();
+}
+
+function friend_invites_update() {
+    global_friend_invites.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0));
+    for (let f of global_friend_invites) {
+        friends_invites_game_cont_fragment.appendChild(f.el);
+    }
+
+    // Add fragment to DOM
+    _empty(friends_invites_game_cont);
+    friends_invites_game_cont.appendChild(friends_invites_game_cont_fragment);
+
+    // Update category count
+    let count = friends_invites_game.querySelector(".head .count");
+    count.textContent = global_friend_invites.length;
+    global_friend_invites_count = global_friend_invites.length;
+
+    if (global_friend_invites.length == 0) friends_invites_game.classList.add("hidden");
+    else friends_invites_game.classList.remove("hidden");
+
+    refreshScrollbar(global_active_friends_list_cont);
+    update_friendlist_invite_count();
+}
+
+function friend_list_update(category, skip_dom) {
+
+    if (category == "party") {
+        category_cont = friends_list_party;
+        friends_cont = friends_list_party_cont;
+        fragment = friends_list_party_fragment;
+    } else if (category == "ingame") {
+        category_cont = friends_list_in_diabotical;
+        friends_cont = friends_list_in_diabotical_cont;
+        fragment = friends_list_in_diabotical_fragment;
+    } else if (category == "online") {
+        category_cont = friends_list_online;
+        friends_cont = friends_list_online_cont;
+        fragment = friends_list_online_cont_fragment;
+    } else if (category == "offline") {
+        category_cont = friends_list_offline;
+        friends_cont = friends_list_offline_cont;
+        fragment = friends_list_offline_cont_fragment;
+    }
+
+    let users = [];
+    for (let user_id in global_friends) {
+        if (global_friends[user_id].category == category) users.push(global_friends[user_id]);
+    }
+
+    // Sort the array
+    if (!skip_dom) {
+        users.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0));
+        for (let f of users) {
+            fragment.appendChild(f.el);
+        }
+
+        // Add fragment to DOM
+        _empty(friends_cont);
+        friends_cont.appendChild(fragment);
+    }
+
+    // Update category count
+    let count = category_cont.querySelector(".head .count");
+    count.textContent = users.length;
+
+    if (users.length == 0) category_cont.classList.add("hidden");
+    else category_cont.classList.remove("hidden");
+}
+
+function assign_friend_to_category(friend) {
+    let category = "";
+
+    if (friend.inparty) {
+        category = "party";
+    } else if (friend.ingame) {
+        category = "ingame";
+    } else {
+        if (friend.online) {
+            category = "online";
+        } else {
+            category = "offline";
+        }
+    }
+
+    return category;
+}
+
+function create_friend_from_epic(data) {
+
+    if (data.account_status !== "friends") return;
+
+    global_friends[data.user_id] = {
+        "user_id": data.user_id,
+        "name": data.name,
+        "avatar": "",
+        "epicfriend": true,                                            // Epic friend relationship
+        "masterfriend": false,                                         // MS friend relationship
+        "online": (data.presence_status == "offline") ? false : true,  // Whether the user is online or offline in the epic client
+        "ingame": (data.in_this_application) ? true : false,           // Whether the user is in diabotical or not, this gets overrwritten by master updates if friends in both
+        "epic_ingame": (data.in_this_application) ? true : false,      // Store the epic state too
+        "inparty": (friends_in_party_user_ids.includes(data.user_id)) ? true : false,
+        "gamestate": "",
+        "party_privacy": true,                                         // true = party is private, false = party is public
+        "friendship_id": null,                                         // MS friendship id
+        "friendship_state": 0,                                         // MS friendship state, 0 = friends, 1 = incoming request pending approval
+        // DOM Element ref:
+        "el": null,
+        "category": "",
+    };
+    global_friends[data.user_id].el = create_friend_el(global_friends[data.user_id]);
+    global_friends[data.user_id].category = assign_friend_to_category(global_friends[data.user_id]);
+}
+
+function update_friend_from_epic(friend, data) {
+    if (data.account_status !== "friends") {
+        remove_friend_from_epic(friend.user_id);
+        return;
+    }
+
+    friend.name = data.name;
+    friend.epicfriend = true;
+    friend.online = (data.presence_status == "offline") ? false : true;
+    friend.ingame = (data.in_this_application) ? true : false;
+    friend.epic_ingame = (data.in_this_application) ? true : false;
+    friend.el = create_friend_el(friend);
+    friend.category = assign_friend_to_category(friend);
+}
+
+function remove_friend_from_epic(user_id) {
+    if (!global_friends.hasOwnProperty(user_id)) return;
+
+    if (global_friends[user_id].masterfriend || global_friends[user_id].inparty) {
+        global_friends[user_id].epicfriend = false;
+        global_friends[user_id].online = false;
+        global_friends[user_id].el = create_friend_el(global_friends[user_id]);
+        global_friends[user_id].category = assign_friend_to_category(global_friends[user_id]);
+    } else {
+        delete global_friends[user_id];
+    }
+}
+
+function friend_list_master_update(diabotical_friends) {
+    /*
+    diabotical_friends = [[
+     0   user_id,
+     1   name,
+     2   avatar,
+     3   online,
+     4   gamestate,
+     5   party_privacy,
+     6   friendship_id,
+     7   friendship_state,
+    ],...];
+    */
+
+    global_friend_requests.length = 0;
+
+    for (let friend of diabotical_friends) {
+        if (friend[7] == 1) {         
+            global_friend_requests.push(create_friend_request(friend));
+        } else {
+            if (!global_friends.hasOwnProperty(friend[0])) {
+                create_friend_from_master(friend);
+            } else {
+                update_friend_from_master(global_friends[friend[0]], friend);
+            }
+        }   
+    }
+
+    friend_list_update("party");
+    friend_list_update("ingame");
+    friend_list_update("online");
+    friend_list_update("offline");
+
+    friend_requests_update();
+
+    refreshScrollbar(global_active_friends_list_cont);
+}
+
+function friend_list_master_update_partial(data) {
+    /*
+    let data = [
+        user_id,
+        name,
+        avatar,
+        online,
+        gamestate,
+        party_privacy
+    ];
+    */
+   if (!global_friends.hasOwnProperty(data[0])) return;
+
+   global_friends[data[0]].name = data[1];
+   global_friends[data[0]].avatar = data[2];
+   global_friends[data[0]].ingame = data[3];
+   global_friends[data[0]].gamestate = data[4];
+   global_friends[data[0]].party_privacy = data[5];
+
+   let prev_category = global_friends[data[0]].category;
+   global_friends[data[0]].category = assign_friend_to_category(global_friends[data[0]]);
+
+   let new_el = create_friend_el(global_friends[data[0]]); 
+   if (global_friends[data[0]].category == prev_category) {
+       _replaceNode(global_friends[data[0]].el, new_el);
+       global_friends[data[0]].el = new_el;
+   } else {
+       _remove_node(global_friends[data[0]].el);
+       global_friends[data[0]].el = new_el;
+       friend_list_update(global_friends[data[0]].category);
+       friend_list_update(prev_category, true);
+   }
+}
+
+function create_friend_request(data) {
+    let req = {
+        "user_id": data[0],
+        "name": data[1],
+        "avatar": data[2],
+        // DOM Element ref:
+        "el": null,
+    };
+    req.el = create_friend_request_el(req);
+
+    return req;
+}
+
+function create_friend_invite(data) {
+    let req = {
+        "user_id": data["from-user-id"],
+        "name": data["from-name"],
+        "type": data["type"],
+        "type-id": data["type-id"],
+        // DOM Element ref:
+        "el": null,
+    };
+    req.el = create_friend_invite_el(req);
+
+    return req;
+}
+
+function create_friend_from_master(data) {
+    global_friends[data[0]] = {
+        "user_id": data[0],
+        "name": data[1],
+        "avatar": data[2],
+        "epicfriend": false,                    // Epic friend relationship
+        "masterfriend": true,                   // MS friend relationship
+        "online": false,                        // Whether the user is online or offline in the epic client
+        "ingame": data[3],                      // Whether the user is in diabotical or not
+        "epic_ingame": false,
+        "inparty": (friends_in_party_user_ids.includes(data[0])) ? true : false,
+        "gamestate": data[4],
+        "party_privacy": data[5],               // true = party is private, false = party is public
+        "friendship_id": data[6],               // MS friendship id
+        "friendship_state": data[7],            // MS friendship state, 0 = friends, 1 = incoming request pending approval, -1 = no friendship of any kind (e.g. a party member friend from someone else)
+        // DOM Element ref:
+        "el": null,
+        "category": "",
+    };
+    global_friends[data[0]].el = create_friend_el(global_friends[data[0]]);
+    global_friends[data[0]].category = assign_friend_to_category(global_friends[data[0]]);
+
+    return global_friends[data[0]];
+}
+
+function update_friend_from_master(friend, data) {
+    friend.masterfriend = true;
+    friend.name = data[1];
+    friend.ingame = data[3];
+    friend.gamestate = data[4];
+    friend.party_privacy = data[5];
+    friend.friendship_state = data[7];
+
+    let prev_category = friend.category;
+    friend.category = assign_friend_to_category(friend);
+
+    let new_el = create_friend_el(friend); 
+    if (friend.category == prev_category) {
+        _replaceNode(friend.el, new_el);
+        friend.el = new_el;
+    } else {
+        _remove_node(friend.el);
+        friend.el = new_el;
+        friend_list_update(friend.category);
+    }
+}
+
+function remove_friend_from_master(user_id) {
+    if (!global_friends.hasOwnProperty(user_id)) return;
+
+    if (global_friends[user_id].epicfriend || global_friends[user_id].inparty) {
+        global_friends[user_id].masterfriend = false;
+        global_friends[user_id].friendship_id = null;
+        global_friends[user_id].friendship_state = -1;
+        global_friends[user_id].ingame = global_friends[user_id].epic_ingame;
+
+        let prev_category = global_friends[user_id].category;
+        global_friends[user_id].category = assign_friend_to_category(global_friends[user_id]);
+
+        let new_el = create_friend_el(global_friends[user_id]);
+        if (global_friends[user_id].category == prev_category) {
+            _replaceNode(global_friends[user_id].el, new_el);
+            global_friends[user_id].el = new_el;
+        } else {
+            _remove_node(global_friends[user_id].el);
+            global_friends[user_id].el = new_el;
+            friend_list_update(global_friends[user_id].category);
+            friend_list_update(prev_category, true);
+        }
+    } else {
+        _remove_node(global_friends[user_id].el);
+        friend_list_update(global_friends[user_id].category, true);
+        delete global_friends[user_id];
+    }
+}
+
+function remove_friend_request(user_id) {
+    for (let i=0; i<global_friend_requests.length; i++) {
+        if (global_friend_requests[i].user_id == user_id) {
+            if (global_friend_requests[i].el !== null) _remove_node(global_friend_requests[i].el);
+            global_friend_requests.splice(i, 1);
+            break;
+        }
+    }
+
+    friend_requests_update();
+}
+
+function friend_list_add_request(data) {
+    // data format same as full friend list update
+
+    for (let req of global_friend_requests) {
+        if (data[0] == req.user_id) return;
+    }
+
+    global_friend_requests.push(create_friend_request(data));
+    friend_requests_update();
+
+    queue_dialog_msg({
+        "title": localize("friends_list_title_friend_request"),
+        "msg": localize_ext("friends_list_state_friend_request_in", {"name": data[1]}),
+        "duration": 20000,
+        "options": [
+            {
+                "button": "accept",
+                "label": localize("friends_list_action_accept"),
+                "callback": function() {
+                    send_string(CLIENT_COMMAND_HANDLE_FRIEND_REQUEST, data[0]+":a");
+                    remove_friend_request(data[0]);
+                }
+            }, 
+            {
+                "button": "decline",
+                "label": localize("friends_list_action_decline"),
+                "callback": function() {
+                    send_string(CLIENT_COMMAND_HANDLE_FRIEND_REQUEST, data[0]+":d");
+                    remove_friend_request(data[0]);
+                }
+            }, 
+        ]
+    });
+}
+
+function friend_list_request_accepted(friend) {
+    // data format same as full friend list update
+    remove_friend_request(friend[0]);
+
+    if (!global_friends.hasOwnProperty(friend[0])) {
+        create_friend_from_master(friend);
+    } else {
+        update_friend_from_master(global_friends[friend[0]], friend);
+    }
+
+    friend_list_update(global_friends[friend[0]].category);
+}
+
+function friend_list_invites_update(invites) {
+    global_friend_invites.length = 0;
+    for (let i of invites) {
+        global_friend_invites.push(create_friend_invite(i));
+    }
+    
+    friend_invites_update();
 }
 
 function send_friend_request() {
@@ -148,59 +638,101 @@ function send_friend_request() {
 }
 
 let friends_list_self = undefined;
-let friends_list_self_status = "";
-function handle_friend_list_update_self(data) {
+function update_friend_list_self(leader, data) {
     if (!friends_list_self) friends_list_self = _id("friends_list_popup").querySelector(".friends_list_self");
 
     friends_list_self.querySelector(".desc .name").textContent = data.name;
-    friends_list_self.querySelector(".desc .state").textContent = create_friend_state_string(data);
-    friends_list_self_status = data.presence_status;
-}
+    if (data.match_connected) {
+        friends_list_self.querySelector(".desc .state").textContent = localize("friends_list_state_playing");
+    } else {
+        friends_list_self.querySelector(".desc .state").textContent = localize("friends_list_state_in_menu");
+    }
 
-function set_friend_list_avatar_self(data) {
-    if (!friends_list_self) friends_list_self = _id("friends_list_popup").querySelector(".friends_list_self");
+    let crown = friends_list_self.querySelector(".party_crown");
+    let desc = friends_list_self.querySelector(".desc");
+    if (leader && global_party.size > 1) {
+        if (!crown && desc) {
+            _insertAfter(_createElement("div", "party_crown"), desc);
+        }
+    } else {
+        if (crown) _remove_node(crown);
+    }
+
     friends_list_self.querySelector(".avatar").style.backgroundImage = "url("+_avatarUrl(data.customizations.avatar)+")";
 }
 
-let friends_list_cache = {
-    "party": [],
-    "in_diabotical": [],
-    "online": [],
-    "offline": [],
-    "invites_game":[],
-    "invites_epic_in": [],
-    "invites_epic_out": [],
-};
+function update_friendlist_party(party) {
 
-let global_friends_user_ids = [];
-let friends_in_diabotical_user_ids = [];
-let friends_in_party_user_ids = [];
+    friends_in_party_user_ids.length = 0;
+    let update_categories = { "party": true };
+    for (let m of party.data.members) {
 
-let friends_list_party = _id("friends_list_party");
-let friends_list_party_cont = _id("friends_list_party_cont");
-let friends_list_party_fragment = new DocumentFragment();
-let friends_list_in_diabotical = _id("friends_list_in_diabotical");
-let friends_list_in_diabotical_cont = _id("friends_list_in_diabotical_cont");
-let friends_list_in_diabotical_fragment = new DocumentFragment();
-let friends_list_online = _id("friends_list_online");
-let friends_list_online_cont = _id("friends_list_online_cont");
-let friends_list_online_cont_fragment = new DocumentFragment();
-let friends_list_offline = _id("friends_list_offline");
-let friends_list_offline_cont = _id("friends_list_offline_cont");
-let friends_list_offline_cont_fragment = new DocumentFragment();
+        // Self
+        if (m.user_id == party['user-id']) {
+            update_friend_list_self(party.leader, m);
+            continue;
+        }
 
-let friends_invites_game = _id("friends_invites_game");
-let friends_invites_game_cont = _id("friends_invites_game_cont");
-let friends_invites_game_cont_fragment = new DocumentFragment();
-/*
-let friends_invites_epic_in = _id("friends_invites_epic_in");
-let friends_invites_epic_in_cont = _id("friends_invites_epic_in_cont");
-let friends_invites_epic_in_cont_fragment = new DocumentFragment();
-let friends_invites_epic_out = _id("friends_invites_epic_out");
-let friends_invites_epic_out_cont = _id("friends_invites_epic_out_cont");
-let friends_invites_epic_out_cont_fragment = new DocumentFragment();
-*/
+        if (global_friends.hasOwnProperty(m.user_id)) {
+            // We have an existing friendlist entry for this user_id, update it
+            global_friends[m.user_id].inparty = true;
+            global_friends[m.user_id].party_leader = (m.user_id == party.data['leader-id']);
+            global_friends[m.user_id].gamestate = (m.match_connected) ? "p" : "m",
+
+            update_categories[global_friends[m.user_id].category] = true;
+            global_friends[m.user_id].category = "party";
+            update_categories["party"] = true;
+
+            global_friends[m.user_id].el = create_friend_el(global_friends[m.user_id]);
+        } else {
+            // We don't have a friendlist entry for this user_id, create it
+            global_friends[m.user_id] = {
+                "user_id": m.user_id,
+                "name": m.name,
+                "avatar": m.customizations.avatar,
+                "epicfriend": false,                    // Epic friend relationship
+                "masterfriend": false,                  // MS friend relationship
+                "online": false,                        // Whether the user is online or offline in the epic client
+                "ingame": true,                         // Whether the user is in diabotical or not
+                "inparty": true,
+                "gamestate": (m.match_connected) ? "p" : "m",
+                "friendship_id": "",               // MS friendship id
+                "friendship_state": -1,            // MS friendship state, 0 = friends, 1 = incoming request pending approval
+                // DOM Element ref:
+                "el": null,
+                "category": "party",
+            };
+            global_friends[m.user_id].el = create_friend_el(global_friends[m.user_id]);
+
+        }
+        friends_in_party_user_ids.push(m.user_id);
+    }
+
+    // Check for people not in the party anymore
+    for (let user_id in global_friends) {
+        if (global_friends[user_id].category == "party") {
+            if (!friends_in_party_user_ids.includes(user_id)) {
+                // Move the user thats not in the party anymore to the correct category, or delete it if its not actually a friend
+                if (global_friends[user_id].epicfriend || global_friends[user_id].masterfriend) {
+                    global_friends[user_id].inparty = false;
+                    global_friends[user_id].category = assign_friend_to_category(global_friends[user_id]);
+                    global_friends[user_id].el = create_friend_el(global_friends[user_id]);
+                    update_categories[global_friends[user_id].category] = true;
+                } else {
+                    delete (global_friends[user_id]);
+                }
+            }
+        }
+    }
+
+    // Rerender all affected categories
+    for (let category in update_categories) {
+        friend_list_update(category);
+    }
+}
+
 function handle_friend_list_update(friends) {
+    return;
     /*
     "account_status" : not_friends, invite_sent, invite_received, friends or unknown 
     "presence_status": online, offline, away, do_not_disturb, extended_away and unknown 
@@ -259,10 +791,6 @@ function handle_friend_list_update(friends) {
     });
     handle_friends_list_update_category(friends_list_in_diabotical, friends_list_in_diabotical_cont, friends_list_in_diabotical_fragment, friends_list_cache.in_diabotical, friends_in_diabotical, false);
 
-    if (global_friends_online_data_requested == false) {
-        get_friends_in_diabotical_data(friends_in_diabotical);
-    }
-
     var friends_online = friends.filter(function(f) {
         if (f.account_status != "friends") return false;
         if (f.presence_status == "offline") return false;
@@ -278,29 +806,16 @@ function handle_friend_list_update(friends) {
     });
     handle_friends_list_update_category(friends_list_offline, friends_list_offline_cont, friends_list_offline_cont_fragment, friends_list_cache.offline, friends_offline, false);
 
-    /*
-    var invites_epic_in = friends.filter(function(f) {
-        if (f.account_status == "invite_received") return true;
-        return false;
-    });
-    global_friend_request_count = invites_epic_in.length;
-    handle_friends_list_update_category(friends_invites_epic_in, friends_invites_epic_in_cont, friends_invites_epic_in_cont_fragment, friends_list_cache.invites_epic_in, invites_epic_in, true);
-
-    var invites_epic_out = friends.filter(function(f) {
-        if (f.account_status == "invite_sent") return true;
-        return false;
-    });
-    handle_friends_list_update_category(friends_invites_epic_out, friends_invites_epic_out_cont, friends_invites_epic_out_cont_fragment, friends_list_cache.invites_epic_out, invites_epic_out, false);
-    */
-
     let end = performance.now();
     //console.log("friendlist update in: "+(end-start)+"ms");
 
     update_friendlist_invite_count();
 }
 
-function get_friends_in_diabotical_data(friends) {
+// Request data for EPIC only friends
+function get_friends_in_diabotical_data() {
     let user_ids = [];
+    /*
     for (let f of friends) {
         if (!friends_in_diabotical_user_ids.includes(f.user_id)) {
             friends_in_diabotical_user_ids.push(f.user_id);
@@ -319,6 +834,13 @@ function get_friends_in_diabotical_data(friends) {
             friends_in_diabotical_user_ids.splice(i, 1);
         }
     }
+    */
+
+    for (let user_id in global_friends) {
+        if (global_friends[user_id].epicfriend && !global_friends[user_id].masterfriend) {
+            user_ids.push(user_id);
+        }
+    }
 
     if (user_ids.length) {
         global_friends_online_data_requested = true;
@@ -328,22 +850,26 @@ function get_friends_in_diabotical_data(friends) {
 }
 
 function handle_friends_in_diabotical_data(data) {
+    console.log("handle_friends_in_diabotical_data", _dump(data));
     if (global_friends_online_data_requested) global_friends_online_data_requested = false;
 
     for (let f of data) {
         // f[0] = user_id
         // f[1] = privacy
         // f[2] = avatar
-        for (let c of friends_list_cache.in_diabotical) {
-            if (f[0] == c.user_id) {
-                c.el.dataset.party_privacy = f[1];
-                c.el.querySelector(".avatar").style.backgroundImage = "url("+_avatarUrl(f[2])+")";
-                break;
-            }
+
+        if (global_friends.hasOwnProperty(f[0])) {
+            global_friends[f[0]].party_privacy = f[1];
+            global_friends[f[0]].avatar = f[2];
+
+            let new_el = create_friend_el(global_friends[f[0]]);
+            _replaceNode(global_friends[f[0]].el, new_el);
+            global_friends[f[0]].el = new_el;
         }
     }
 }
 
+/*
 function handle_friends_list_update_category(category, cont, fragment, cache, update, highlight) {
     let changed = false;
 
@@ -458,7 +984,145 @@ function handle_friends_list_update_category(category, cont, fragment, cache, up
         refreshScrollbar(global_active_friends_list_cont);
     }
 }
+*/
 
+function create_friend_el(f) {
+    let friend = _createElement("div", "friend");
+    friend.dataset.type = "friend";
+    friend.dataset.user_id = f.user_id;
+    friend.dataset.party_privacy = true; // Default to "private" until we get the info from the MS
+
+    /*
+        "user_id": data.user_id,
+        "name": data.name,
+        "avatar": "",
+        "epicfriend": true,                                            // Epic friend relationship
+        "masterfriend": false,                                         // MS friend relationship
+        "online": (data.presence_status == "offline") ? false : true,  // Whether the user is online or offline in the epic client
+        "ingame": (data.in_this_application) ? true: false,            // Whether the user is in diabotical or not
+        "inparty": true/false,
+        "gamestate": "",
+        "party_privacy": true,                                         // true = party is private, false = party is public
+        "friendship_id": null,                                         // MS friendship id
+        "friendship_state": 0,                                         // MS friendship state, 0 = friends, 1 = incoming request pending approval
+    */
+
+    if (f.inparty) {
+        friend.classList.add("inparty");
+
+        let avatar = _createElement("div", "avatar")
+        avatar.style.backgroundImage = "url("+_avatarUrl(f.avatar)+")";
+        friend.appendChild(avatar);
+
+    } else if (f.ingame) {
+        friend.classList.add("ingame");
+
+        let avatar = _createElement("div", "avatar")
+        avatar.style.backgroundImage = "url("+_avatarUrl(f.avatar)+")";
+        friend.appendChild(avatar);
+
+    } else {
+        if (f.online) {
+            friend.classList.add("online");
+            friend.appendChild(_createElement("div", "accent"));
+        } else {
+            friend.classList.add("offline");
+            friend.appendChild(_createElement("div", "accent"));
+        }
+    }
+
+    let desc = _createElement("div", "desc");
+    desc.appendChild(_createElement("div", "name", f.name));
+
+    // gamestate changes are currently only being sent with party updates
+    //if (f.inparty || (f.ingame && f.gamestate.length)) {
+    if (f.inparty) {
+        if (f.gamestate == "m") {
+            desc.appendChild(_createElement("div", "state", localize("friends_list_state_in_menu")));
+        } else if (f.gamestate == "p") {
+            desc.appendChild(_createElement("div", "state", localize("friends_list_state_playing")));
+        }
+    }
+
+    friend.appendChild(desc);
+
+    // Party crown if leader
+    if (f.inparty && f.user_id == global_party.leader_id) {
+        friend.appendChild(_createElement("div", "party_crown"));
+    }
+
+    let icon_cont = _createElement("div", "icons");
+    if (f.epicfriend)   icon_cont.appendChild(_createElement("div", ["icon", "epic"]));
+    if (f.masterfriend) icon_cont.appendChild(_createElement("div", ["icon", "master"]));
+    friend.appendChild(icon_cont);
+
+    friend.appendChild(_createElement("div", "arrow"));
+
+    setup_friends_list_friend_listeners(friend);
+
+    return friend;
+}
+
+function create_friend_request_el(f) {
+    let friend = _createElement("div", "friend");
+    friend.dataset.user_id = f.user_id;
+    friend.dataset.type = "request";
+
+    let avatar = _createElement("div", "avatar")
+    avatar.style.backgroundImage = "url("+_avatarUrl(f.avatar)+")";
+    friend.appendChild(avatar);
+
+    let desc = _createElement("div", "desc");
+    desc.appendChild(_createElement("div", "name", f.name));
+
+    // Incoming friend invite info
+    desc.appendChild(_createElement("div", "info", localize("friends_list_title_friend_request")));
+    friend.appendChild(desc);
+
+    // Add an exclamation mark if this is a notification 
+    friend.appendChild(_createElement("div", "exclamation"));
+    friend.appendChild(_createElement("div", "arrow"));
+
+    setup_friends_list_friend_listeners(friend);
+
+    return friend;
+}
+
+function create_friend_invite_el(f) {
+    let friend = _createElement("div", "friend");
+    friend.dataset.user_id = f.user_id;
+    friend.dataset.type = "invite";
+    friend.dataset.inviteType = f["type"];
+    friend.dataset.typeId = f["type-id"];
+
+    friend.appendChild(_createElement("div", "accent"));
+
+    let desc = _createElement("div", "desc");
+    desc.appendChild(_createElement("div", "name", f.name));
+
+    // Incoming friend invite info
+    let info = "";
+    if (f.type == "party") {
+        info = localize("friends_list_title_party_invite");
+    } else if (f.type == "lobby") {
+        info = localize("friends_list_title_lobby_invite");
+    } else if (f.type == "match") {
+        info = localize("friends_list_title_match_invite");
+    }
+    desc.appendChild(_createElement("div", "info", info));
+
+    friend.appendChild(desc);
+
+    // Add an exclamation mark if this is a notification 
+    friend.appendChild(_createElement("div", "exclamation"));
+    friend.appendChild(_createElement("div", "arrow"));
+
+    setup_friends_list_friend_listeners(friend);
+
+    return friend;
+}
+
+/*
 function create_friend_entry(f) {
     let friend = _createElement("div", "friend");
 
@@ -532,6 +1196,7 @@ function create_friend_entry(f) {
 
     return friend;
 }
+*/
 
 function create_friend_state_string(f) {
     let state = '';
@@ -560,19 +1225,6 @@ function create_friend_state_string(f) {
         }
     }
     return state;
-}
-function create_friend_info_string(f) {
-    let info = '';
-    if (f.account_status == "invite_received") {
-        info = localize("friends_list_state_friend_invite_in");
-    } else if (f.account_status == "ms-invite-party") {
-        info = localize("friends_list_state_party_invite_in");
-    } else if (f.account_status == "ms-invite-lobby") {
-        info = localize("friends_list_state_lobby_invite_in");
-    } else if (f.account_status == "ms-invite-match") {
-        info = localize("friends_list_state_match_invite_in");
-    }
-    return info;
 }
 
 function setup_friends_list_friend_listeners(el) {
@@ -632,202 +1284,201 @@ function create_action_menu(el, top) {
     menu.style.top = top+"px";
 
     let options = [];
+    let user_id = el.dataset.user_id;
+    let type = el.dataset.type;
 
-    {
+    // View Profile
+    if (type == "friend" || type == "request") {
         let option = _createElement("div", "option");
         option.appendChild(_createElement("div", ["accent", "positive"]));
         option.appendChild(_createElement("div", "label", localize("friends_list_action_view_profile")));
         option.addEventListener("click", function() {
-            open_player_profile(el.dataset.user_id);
+            open_player_profile(user_id);
             close_friends_list();
         });
         menu.appendChild(option);
         options.push(option);
     }
-    if (el.dataset.in_this_application == "true" && el.dataset.account_status == "friends") {
 
-        if (el.dataset.party_privacy == "false" && !(el.dataset.user_id in global_party.members)) {
-            let option_join = _createElement("div", "option");
-            option_join.appendChild(_createElement("div", ["accent", "positive"]));
-            option_join.appendChild(_createElement("div", "label", "Join Party"));
-            option_join.addEventListener("click", function() {
-                send_string(CLIENT_COMMAND_JOIN_USERID_PARTY, el.dataset.user_id);
-                close_friends_list_action_menu();
-            });
-            menu.appendChild(option_join);
-            options.push(option_join);
-        }
-
-        /*
-        let option_msg = _createElement("div", "option");
-        option_msg.appendChild(_createElement("div", ["accent", "positive"]));
-        option_msg.appendChild(_createElement("div", "label", "Whisper"));
-        menu.appendChild(option_msg);
-        options.push(option_msg);
-        */
-    }
-
-    if (el.dataset.account_status == "friends" && global_lobby_id != -1) {
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "positive"]));
-        option.appendChild(_createElement("div", "label", localize("friends_list_action_invite_lobby")));
-        option.addEventListener("click", function() {
-            send_json_data({"action": "invite-add", "type": "lobby", "user-id": el.dataset.user_id });
-            close_friends_list_action_menu();
-        });
-        menu.appendChild(option);
-        options.push(option);
-    }
-
-    if (el.dataset.account_status == "friends") {
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "positive"]));
-        option.appendChild(_createElement("div", "label", localize("friends_list_action_invite_party")));
-        option.addEventListener("click", function() {
-            send_json_data({"action": "invite-add", "type": "party", "user-id": el.dataset.user_id });
-            close_friends_list_action_menu();
-        });
-        menu.appendChild(option);
-        options.push(option);
-    }
-
-    if (el.dataset.account_status == "in_my_party" && bool_am_i_leader) {
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "positive"]));
-        option.appendChild(_createElement("div", "label", localize("friends_list_action_party_promote")));
-        option.addEventListener("click", function() {
-            send_json_data({"action": "party-promote", "user-id": el.dataset.user_id });
-            close_friends_list_action_menu();
-        });
-        menu.appendChild(option);
-        options.push(option);
-    }
-
-    if (el.dataset.account_status == "in_my_party" && bool_am_i_leader) {
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "negative"]));
-        option.appendChild(_createElement("div", "label", localize("friends_list_action_party_remove")));
-        option.addEventListener("click", function() {
-            send_json_data({"action": "party-remove", "user-id": el.dataset.user_id });
-            close_friends_list_action_menu();
-        });
-        menu.appendChild(option);
-        options.push(option);
-    }
-
-
-    /*
-    // NOT SUPPORTED BY EGS SDK
-    if (el.dataset.account_status == "invite_received") {
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "positive"]));
-        option.appendChild(_createElement("div", "label", localize("friends_list_action_accept")));
-        option.addEventListener("click", function() {
-            engine.call("friend_accept", el.dataset.user_id);
-            // remove the friend entry from DOM
-            el.parentNode.removeChild(el);
-            close_friends_list_action_menu();
-        });
-        menu.appendChild(option);
-        options.push(option);
-    }
-    */
-
-    if (el.dataset.account_status.startsWith("ms-invite-")) {
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "positive"]));
-        option.appendChild(_createElement("div", "label", localize("friends_list_action_accept")));
-        option.addEventListener("click", function() {
-            send_invite_accept(el.dataset.type, el.dataset.typeId);
-            close_friends_list_action_menu();
-        });
-        menu.appendChild(option);
-        options.push(option);
-    }
-
-    
-    /*
-    // NOT SUPPORTED BY EGS SDK
-    if (el.dataset.account_status == "invite_received") {
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "negative"]));
-        option.appendChild(_createElement("div", "label", localize("friends_list_action_decline")));
-        option.addEventListener("click", function() {
-            engine.call("friend_decline", el.dataset.user_id);
-            // remove the friend entry from DOM
-            el.parentNode.removeChild(el);
-            close_friends_list_action_menu();
-        });
-        menu.appendChild(option);
-        options.push(option);
-    }
-    */
-
-    if (el.dataset.account_status.startsWith("ms-invite-")) {
-        menu.appendChild(_createElement("div", "separator"));
-
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "negative"]));
-        option.appendChild(_createElement("div", "label", localize("friends_list_action_decline")));
-        option.addEventListener("click", function() {
-            send_invite_decline(el.dataset.type, el.dataset.typeId);
-            close_friends_list_action_menu();
-        });
-        menu.appendChild(option);
-        options.push(option);
-    }
-
-    /*
-    // NOT SUPPORTED BY EGS SDK
-    if (el.dataset.account_status == "invite_sent") {
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "negative"]));
-        option.appendChild(_createElement("div", "label", localize("friends_list_action_cancel")));
-        option.addEventListener("click", function() {
-            engine.call("friend_remove", el.dataset.user_id);
-            // remove the friend entry from DOM
-            el.parentNode.removeChild(el);
-            close_friends_list_action_menu();
-        });
-        menu.appendChild(option);
-        options.push(option);
-    }
-    */
-
-    /*
-    // NOT SUPPORTED BY EGS SDK
-    if (el.dataset.account_status == "friends") {
-        let confirm = undefined;
-        let option = _createElement("div", "option");
-        option.appendChild(_createElement("div", ["accent", "negative"]));
-        option.appendChild(_createElement("div", "label", "Remove EPIC Friend"));
-        option.addEventListener("click", function() {
-            if (!confirm) {
-                confirm = _createElement("div", "confirm");
-                let yes = _createElement("div", ["btn","first"], localize("menu_button_confirm"));
-                _addButtonSounds(yes, 1);
-                yes.addEventListener("click", function() {
-                    engine.call("friend_remove", el.dataset.user_id);
-                    // remove the friend entry from DOM
-                    el.parentNode.removeChild(el);
+    // Any Friend related actions (also non friends within parties)
+    if (type == "friend") {
+        if (global_friends.hasOwnProperty(user_id)) {
+            // Send Friend Request
+            if (!global_friends[user_id].masterfriend) {
+                let option = _createElement("div", "option");
+                option.appendChild(_createElement("div", ["accent", "positive"]));
+                option.appendChild(_createElement("div", "label", localize("friends_list_action_friend_request")));
+                option.addEventListener("click", function() {
+                    send_string(CLIENT_COMMAND_SEND_FRIEND_REQUEST, user_id);
                     close_friends_list_action_menu();
                 });
-                confirm.appendChild(yes);
-
-                let no = _createElement("div", ["btn","last"], localize("menu_button_cancel"));
-                _addButtonSounds(no, 1);
-                no.addEventListener("click", function() {
-                    _remove_node(confirm);
-                    confirm = undefined;
-                });
-                confirm.appendChild(no);
-                _insertAfter(confirm, option);
+                menu.appendChild(option);
+                options.push(option);
             }
-        });
-        menu.appendChild(option);
-        options.push(option);
+            
+            // Join Party
+            if (global_friends[user_id].friendship_state == 0 && global_friends[user_id].ingame) {
+                if (global_friends[user_id].party_privacy == false && !(user_id in global_party.members)) {
+                    let option_join = _createElement("div", "option");
+                    option_join.appendChild(_createElement("div", ["accent", "positive"]));
+                    option_join.appendChild(_createElement("div", "label", "Join Party"));
+                    option_join.addEventListener("click", function() {
+                        send_string(CLIENT_COMMAND_JOIN_USERID_PARTY, user_id);
+                        close_friends_list_action_menu();
+                    });
+                    menu.appendChild(option_join);
+                    options.push(option_join);
+                }
+
+                /*
+                let option_msg = _createElement("div", "option");
+                option_msg.appendChild(_createElement("div", ["accent", "positive"]));
+                option_msg.appendChild(_createElement("div", "label", "Whisper"));
+                menu.appendChild(option_msg);
+                options.push(option_msg);
+                */
+            }
+
+            // Invite to Lobby
+            if (global_friends[user_id].friendship_state == 0 && global_lobby_id != -1) {
+                let option = _createElement("div", "option");
+                option.appendChild(_createElement("div", ["accent", "positive"]));
+                option.appendChild(_createElement("div", "label", localize("friends_list_action_invite_lobby")));
+                option.addEventListener("click", function() {
+                    send_json_data({"action": "invite-add", "type": "lobby", "user-id": user_id });
+                    close_friends_list_action_menu();
+                });
+                menu.appendChild(option);
+                options.push(option);
+            }
+
+            // Invite to Party
+            if (global_friends[user_id].friendship_state == 0 && !(user_id in global_party.members)) {
+                let option = _createElement("div", "option");
+                option.appendChild(_createElement("div", ["accent", "positive"]));
+                option.appendChild(_createElement("div", "label", localize("friends_list_action_invite_party")));
+                option.addEventListener("click", function() {
+                    send_json_data({"action": "invite-add", "type": "party", "user-id": user_id });
+                    close_friends_list_action_menu();
+                });
+                menu.appendChild(option);
+                options.push(option);
+            }
+    
+        }
+
+        // Promote to Party Leader
+        if ((user_id in global_party.members) && bool_am_i_leader) {
+            let option = _createElement("div", "option");
+            option.appendChild(_createElement("div", ["accent", "positive"]));
+            option.appendChild(_createElement("div", "label", localize("friends_list_action_party_promote")));
+            option.addEventListener("click", function() {
+                send_json_data({"action": "party-promote", "user-id": user_id });
+                close_friends_list_action_menu();
+            });
+            menu.appendChild(option);
+            options.push(option);
+        }
+
+        // Remove from Party
+        if ((user_id in global_party.members) && bool_am_i_leader) {
+            let option = _createElement("div", "option");
+            option.appendChild(_createElement("div", ["accent", "negative"]));
+            option.appendChild(_createElement("div", "label", localize("friends_list_action_party_remove")));
+            option.addEventListener("click", function() {
+                send_json_data({"action": "party-remove", "user-id": user_id });
+                close_friends_list_action_menu();
+            });
+            menu.appendChild(option);
+            options.push(option);
+        }
+
+        // Remove Master Friend
+        if (global_friends.hasOwnProperty(user_id) && global_friends[user_id].friendship_state == 0 && global_friends[user_id].masterfriend) {
+            menu.appendChild(_createElement("div", "separator"));
+
+            let confirm = undefined;
+            let option = _createElement("div", "option");
+            option.appendChild(_createElement("div", ["accent", "negative"]));
+            option.appendChild(_createElement("div", "label", localize("friends_list_action_remove_friend")));
+            option.addEventListener("click", function() {
+                if (!confirm) {
+                    confirm = _createElement("div", "confirm");
+                    let yes = _createElement("div", ["btn","first"], localize("menu_button_confirm"));
+                    _addButtonSounds(yes, 1);
+                    yes.addEventListener("click", function() {
+                        send_string(CLIENT_COMMAND_REMOVE_FRIEND, user_id);
+                        remove_friend_from_master(user_id);
+                        close_friends_list_action_menu();
+                    });
+                    confirm.appendChild(yes);
+
+                    let no = _createElement("div", ["btn","last"], localize("menu_button_cancel"));
+                    _addButtonSounds(no, 1);
+                    no.addEventListener("click", function() {
+                        _remove_node(confirm);
+                        confirm = undefined;
+                    });
+                    confirm.appendChild(no);
+                    _insertAfter(confirm, option);
+                }
+            });
+            menu.appendChild(option);
+            options.push(option);
+        }
     }
-    */
+
+    // Invite Accept / Deny
+    if (type == "invite") {
+        let option_a = _createElement("div", "option");
+        option_a.appendChild(_createElement("div", ["accent", "positive"]));
+        option_a.appendChild(_createElement("div", "label", localize("friends_list_action_accept")));
+        option_a.addEventListener("click", function() {
+            send_invite_accept(el.dataset.inviteType, el.dataset.typeId);
+            close_friends_list_action_menu();
+        });
+        menu.appendChild(option_a);
+        options.push(option_a);
+
+        menu.appendChild(_createElement("div", "separator"));
+
+        let option_d = _createElement("div", "option");
+        option_d.appendChild(_createElement("div", ["accent", "negative"]));
+        option_d.appendChild(_createElement("div", "label", localize("friends_list_action_decline")));
+        option_d.addEventListener("click", function() {
+            send_invite_decline(el.dataset.inviteType, el.dataset.typeId);
+            close_friends_list_action_menu();
+        });
+        menu.appendChild(option_d);
+        options.push(option_d);
+    }
+
+    // Friend Request Accept / Deny
+    if (type == "request") {
+        let option_a = _createElement("div", "option");
+        option_a.appendChild(_createElement("div", ["accent", "positive"]));
+        option_a.appendChild(_createElement("div", "label", localize("friends_list_action_accept")));
+        option_a.addEventListener("click", function() {
+            send_string(CLIENT_COMMAND_HANDLE_FRIEND_REQUEST, user_id+":a");
+            remove_friend_request(user_id);
+            close_friends_list_action_menu();
+        });
+        menu.appendChild(option_a);
+        options.push(option_a);
+
+        menu.appendChild(_createElement("div", "separator"));
+
+        let option_d = _createElement("div", "option");
+        option_d.appendChild(_createElement("div", ["accent", "negative"]));
+        option_d.appendChild(_createElement("div", "label", localize("friends_list_action_decline")));
+        option_d.addEventListener("click", function() {
+            send_string(CLIENT_COMMAND_HANDLE_FRIEND_REQUEST, user_id+":d");
+            remove_friend_request(user_id);
+            close_friends_list_action_menu();
+        });
+        menu.appendChild(option_d);
+        options.push(option_d);
+    }
 
     for (let option of options) {
         _addButtonSounds(option, 1);
@@ -849,13 +1500,13 @@ function create_action_menu(el, top) {
 
     let friends_list_rect = _id("friends_list_popup").getBoundingClientRect();
 
-    setTimeout(function() {
+    req_anim_frame(() => {
         let rect = menu.getBoundingClientRect();
         if ((rect.height + top) > friends_list_rect.height) {
             menu.style.top = (friends_list_rect.height - rect.height) + "px";
         }
         menu.style.visibility = "visible";
-    });
+    },2);
 }
 
 
@@ -873,9 +1524,9 @@ function create_friends_settings_menu() {
         menu.appendChild(option);
     }
 
-    //let settings = ["status"];
     let settings = [];
     if (bool_am_i_leader) settings.push("privacy");
+    if (global_self.friend_requests != null) settings.push("friend_requests");
 
     for (let setting of settings) {
         let category = _createElement("div", "category");
@@ -885,8 +1536,8 @@ function create_friends_settings_menu() {
 
         let cont = _createElement("div", "cont");
         let options = [];
-        if (setting == "status") options = ["online", "away"];
         if (setting == "privacy") options = ["public", "private"];
+        if (setting == "friend_requests") options = ["enabled", "disabled"];
 
         for (let o of options) {
             let option = _createElement("div", ["option","small"]);
@@ -897,10 +1548,13 @@ function create_friends_settings_menu() {
             let check = _createElement("div", "check");
             option.appendChild(check);
 
-            if (setting == "status" && friends_list_self_status == o) { check.classList.add("active"); }
             if (setting == "privacy") {
                 if (o == "private" && global_party.privacy == true) check.classList.add("active"); 
                 if (o == "public"  && global_party.privacy == false) check.classList.add("active"); 
+            }
+            if (setting == "friend_requests") {
+                if (o == "enabled"  && global_self.friend_requests == true) check.classList.add("active");
+                if (o == "disabled" && global_self.friend_requests == false) check.classList.add("active");
             }
 
             _addButtonSounds(option, 1);
@@ -922,6 +1576,11 @@ function create_friends_settings_menu() {
                     send_string(CLIENT_COMMAND_SET_PARTY_PRIVACY, ""+bool);
                     global_party.privacy = bool;
                 }
+                if (setting == "friend_requests") {
+                    let bool = (o == "enabled") ? true : false;
+                    send_string(CLIENT_COMMAND_SET_ALLOW_FRIEND_REQUESTS, ""+bool);
+                    global_self.friend_requests = bool;
+                }
             });
 
             cont.appendChild(option);
@@ -937,88 +1596,14 @@ function create_friends_settings_menu() {
 }
 
 function update_friendlist_invite_count() {
-    //let total = global_friend_request_count + global_friend_invites_count;
-    let total = global_friend_invites_count;
-
-    //let count_cont = _id("friends_list_popup").querySelector(".friends_list_tabs .tab_invites .count");
-    let count_cont2 = _id("friends_list_notice");
+    let total = global_friend_requests_count + global_friend_invites_count;
+    let count_cont = _id("friends_list_notice");
     if (total == 0) {
-        //count_cont.classList.remove("visible");
-        count_cont2.style.display = "none";
+        count_cont.style.display = "none";
     } else {
-        //count_cont.textContent = total;
-        count_cont2.textContent = total;
-        //count_cont.classList.add("visible");
-        count_cont2.style.display = "block";
+        count_cont.textContent = total;
+        count_cont.style.display = "block";
     }
-}
-
-
-
-function update_friendlist_invites(invites) {
-
-    let formatted_invites = [];
-    for (let i of invites) {
-        formatted_invites.push({
-            "account_status": "ms-invite-"+i.type,
-            "user_id": i["from-user-id"],
-            "name": i["from-name"],
-            "type-id": i["type-id"],
-            "type":i.type,
-        });
-    }
-    formatted_invites.sort((a,b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0));
-    handle_friends_list_update_category(friends_invites_game, friends_invites_game_cont, friends_invites_game_cont_fragment, friends_list_cache.invites_game, formatted_invites, true);
-
-    global_friend_invites_count = formatted_invites.length;
-    update_friendlist_invite_count()
-}
-
-function update_friendlist_party(party) {
-
-    let crown = friends_list_self.querySelector(".party_crown");
-    let desc = friends_list_self.querySelector(".desc");
-    if (party.leader && global_party.size > 1) {
-        if (!crown && desc) {
-            _insertAfter(_createElement("div", "party_crown"), desc);
-        }
-    } else {
-        if (crown) _remove_node(crown);
-    }
-
-    let members = [];
-    friends_in_party_user_ids = [];
-    for (let m of party.data.members) {
-        // Skip self
-        if (m.user_id == party['user-id']) continue;
-            
-        m.account_status = "in_my_party";
-        if (m.user_id == party.data['leader-id']) {
-            m.party_leader = true;
-        } else {
-            m.party_leader = false;
-        }
-        members.push(m);
-        friends_in_party_user_ids.push(m.user_id);
-    }
-    handle_friends_list_update_category(friends_list_party, friends_list_party_cont, friends_list_party_fragment, friends_list_cache.party, members, false);
-
-    update_in_diabotical_party_visibility();
-}
-
-function update_in_diabotical_party_visibility() {
-    let category_count = 0;
-    _for_each_with_class_in_parent(friends_list_in_diabotical_cont, "friend", function(friend) {
-        if (friends_in_party_user_ids.includes(friend.dataset.user_id)) {
-            friend.classList.add("hidden");
-        } else {
-            friend.classList.remove("hidden");
-            category_count++;
-        }
-    });
-
-    let count = friends_list_in_diabotical.querySelector(".head .count");
-    _html(count, category_count);
 }
 
 function friends_list_toggle_category(head) {

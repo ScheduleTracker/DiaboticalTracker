@@ -422,6 +422,32 @@ window.addEventListener("load", function(){
                 case "update-char-preset":
                     customization_update_preset(json_data.data);
                     break;
+                case "own-data":
+                    update_own_data(json_data.data);
+                    break;
+
+                // FRIEND LIST EVENTS
+                case "friends-list":
+                    friend_list_master_update(json_data.users);
+                    break;
+                case "friend-request":
+                    friend_list_add_request(json_data.data);
+                    break;
+                case "friend-update":
+                    friend_list_master_update_partial(json_data.data);
+                    break;
+                case "friend-removed":
+                    remove_friend_from_master(json_data.user_id);
+                    break;
+                case "friend-accepted":
+                    friend_list_request_accepted(json_data.data);
+                    break;
+                case "friend-requests-disabled":
+                    queue_dialog_msg({
+                        "title": localize("title_info"),
+                        "msg": localize_ext("friends_list_text_add_friend_disabled", {"name": json_data.name}),
+                    });
+                    break;
             }
 
             // Send to single use registered response handlers
@@ -1413,6 +1439,8 @@ function set_masterserver_connection_state(connected, initial) {
         // =============================
 
         // Request initial invite and party infos
+        send_string(CLIENT_COMMAND_OWN_DATA);
+        send_string(CLIENT_COMMAND_GET_FRIENDS_LIST);
         send_string(CLIENT_COMMAND_GET_INVITE_LIST);
         send_string(CLIENT_COMMAND_PARTY, "party-status");
 
@@ -1519,6 +1547,10 @@ function set_masterserver_connection_state(connected, initial) {
         process_queue_msg("all", "stop");
 
     }
+}
+
+function update_own_data(data) {
+    global_self.friend_requests = data.friend_requests;
 }
 
 function suspend_menu_videos() {

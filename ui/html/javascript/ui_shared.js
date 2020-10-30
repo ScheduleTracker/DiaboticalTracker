@@ -30,6 +30,7 @@ var global_self = {
     "user_id": 0,
     "lan_ip": "",
     "data": undefined,
+    "friend_requests": null,
     "private": {
         "coins": 0,
     },
