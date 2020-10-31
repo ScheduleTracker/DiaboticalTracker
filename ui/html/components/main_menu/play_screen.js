@@ -633,12 +633,16 @@ function renderQuickPlayCards(cards) {
     let container = screen.querySelector(".play_cards_container");
     _empty(container);
 
+    let survival_card = null;
     for (let card of cards) {
-        container.appendChild(renderPlayCard(card));
+        if (card.name == "qg_qp_survival") {
+            survival_card = card;
+        } else {
+            container.appendChild(renderPlayCard(card));
+        }
     }
 
-    // Warmup card/button
-    container.appendChild(renderPlayCard({
+    let warmup_card = {
         "name": "warmup",
         "type": "warmup",
         "title": "warmup",
@@ -660,7 +664,17 @@ function renderQuickPlayCards(cards) {
                 "on_click": function() { join_party_warmup(); }
             },
         ],
-    }));
+    };
+
+    if (survival_card !== null) {
+        let double_container = _createElement("div", "card_double");
+        double_container.appendChild(renderPlayCard(survival_card));
+        double_container.appendChild(renderPlayCard(warmup_card));
+        container.appendChild(double_container);
+    } else {
+        // Warmup card/button
+        container.appendChild(renderPlayCard(warmup_card));
+    }
 
     _for_each_with_class_in_parent(container, 'tooltip2', function(el) {
         add_tooltip2_listeners(el);
@@ -706,7 +720,7 @@ function update_warmup_buttons() {
 let play_card_index = 0;
 let play_card_lookup = {}; 
 let play_card_checkboxes = {};
-let global_small_play_cards = ["qg_r_arena", "qg_r_solo", "qg_qp_arcade", "warmup"];
+let global_small_play_cards = ["qg_r_arena", "qg_r_solo", "qg_qp_arcade", "qg_qp_survival", "warmup"];
 function renderPlayCard(data) {
     //console.log("renderPlayCard", _dump(data));
 
@@ -1059,7 +1073,12 @@ class PlayCardVideo {
         style = style.toLowerCase();
 
         this.intro = true;
+        this.static_image = false;
         if (style.toLowerCase() == "arena") this.intro = false;
+        if (style.toLowerCase() == "survival") {
+            this.intro = false;
+            this.static_image = true;
+        }
 
         this.card = _createElement("div", "card_video");
         if (this.intro) {
@@ -1069,18 +1088,24 @@ class PlayCardVideo {
             this.start_video.src = "/html/images/gamemode_cards/"+style+"_intro.webm";
             this.start_video.currentTime = 1;
         }
-        this.loop_image  = _createElement("img",   ["card_video_preview", "loop"]);
-        this.loop_video  = _createElement("video", ["card_video_clip", "loop"]);
-        this.loop_image.src  = "/html/images/gamemode_cards/"+style+"_loop.jpg";
-        this.loop_video.src  = "/html/images/gamemode_cards/"+style+"_loop.webm";
-        this.loop_video.currentTime = 1;
-        this.loop_video.loop = true;
+        if (this.static_image) {
+            this.loop_image  = _createElement("img",   ["card_static_image", "loop"]);
+            this.loop_image.src  = "/html/images/gamemode_cards/"+style+"_static.jpg";
+            this.card.appendChild(this.loop_image);
+        } else {
+            this.loop_image  = _createElement("img",   ["card_video_preview", "loop"]);
+            this.loop_video  = _createElement("video", ["card_video_clip", "loop"]);
+            this.loop_image.src  = "/html/images/gamemode_cards/"+style+"_loop.jpg";
+            this.loop_video.src  = "/html/images/gamemode_cards/"+style+"_loop.webm";
+            this.loop_video.currentTime = 1;
+            this.loop_video.loop = true;
 
-        this.card.appendChild(this.loop_video);
-        this.card.appendChild(this.loop_image);
-        if (this.intro) {
-            this.card.appendChild(this.start_video);
-            this.card.appendChild(this.start_image);
+            this.card.appendChild(this.loop_video);
+            this.card.appendChild(this.loop_image);
+            if (this.intro) {
+                this.card.appendChild(this.start_video);
+                this.card.appendChild(this.start_image);
+            }
         }
 
         if (this.intro) this.state = 0;
@@ -1092,6 +1117,7 @@ class PlayCardVideo {
 
     play() {
         if (this.disable_videos) return;
+        if (this.static_image) return;
 
         this.playing = true;
         this.card.classList.add("playing");
@@ -1114,6 +1140,7 @@ class PlayCardVideo {
 
     pause() {
         if (this.disable_videos) return;
+        if (this.static_image) return;
 
         this.playing = false;
         this.card.classList.remove("playing");
@@ -1129,6 +1156,7 @@ class PlayCardVideo {
 
     reset() {
         if (this.disable_videos) return;
+        if (this.static_image) return;
 
         if (this.intro) {
             this.state = 0;
@@ -1154,6 +1182,7 @@ class PlayCardVideo {
 
     setupListeners() {
         if (this.disable_videos) return false;
+        if (this.static_image) return;
 
         if (this.intro) {
             this.start_video.addEventListener("ended", () => {
@@ -1564,7 +1593,7 @@ function mm_match_found_overlay(data) {
     
     mm_cancel_timeout = setTimeout(function() {
 
-        if (data.action == "mm-match-found") {
+        if (data.action == "mm-match-found" && data.vote.length) {
             set_draft_visible(true, data);
         }
         splash.classList.add("out");

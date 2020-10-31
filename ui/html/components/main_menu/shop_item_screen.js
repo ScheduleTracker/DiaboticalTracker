@@ -124,8 +124,12 @@ function render_shop_item(group_items, item_idx) {
         })));
     } else {
         // Coin shop item
-        price.appendChild(_createElement("div", ["icon", "reborn-coin"]));
-        price.appendChild(_createElement("div", "value", _format_number(selected_item.item_price)));
+        if (selected_item.item_price == 0) {
+            price.appendChild(_createElement("div", "value", localize("free").toUpperCase()));
+        } else {
+            price.appendChild(_createElement("div", ["icon", "reborn-coin"]));
+            price.appendChild(_createElement("div", "value", _format_number(selected_item.item_price)));
+        }
     }
     bottom.appendChild(price);
 
@@ -137,11 +141,12 @@ function render_shop_item(group_items, item_idx) {
     } else {
         if (selected_item.eos_offer_id) {
             add_purchase_button(
-                bottom, 
+                bottom,
+                1,
                 () => engine.call("eos_checkout", selected_item.eos_offer_id)
             );
         } else if (global_self.private.coins >= selected_item.item_price) {
-            add_purchase_button(bottom, show_purchase_modal);
+            add_purchase_button(bottom, selected_item.item_price, show_purchase_modal);
             /*
             let gift_btn = _createElement("div", ["big-btn"], localize("shop_purchase_gift"));
             _addButtonSounds(gift_btn, 1);
@@ -189,8 +194,11 @@ function render_shop_item(group_items, item_idx) {
 
     show_preview(init_item);
 
-    function add_purchase_button(target, callback) {
-        let buy_btn = _createElement("div", ["big-btn", "main"], localize("shop_purchase"));
+    function add_purchase_button(target, price, callback) {
+        let label = localize("shop_purchase");
+        if (price == 0) label = localize("shop_claim");
+        
+        let buy_btn = _createElement("div", ["big-btn", "main"], label);
         _addButtonSounds(buy_btn, 1);
         target.appendChild(buy_btn);
         buy_btn.addEventListener("click", callback);
@@ -347,12 +355,14 @@ function render_shop_item(group_items, item_idx) {
 
 function update_after_purchase(data) {
     if (data.coins) {
-        global_self.private.coins = data.coins;
-        update_wallet(global_self.private.coins);
-        queue_dialog_msg({
-           "title": localize("toast_title_updated_wallet"),
-            "msg": localize_ext("toast_msg_updated_wallet", { "count": data.coins })
-        });   
+        if (global_self.private.coins !== data.coins) {
+            global_self.private.coins = data.coins;
+            update_wallet(global_self.private.coins);
+            queue_dialog_msg({
+            "title": localize("toast_title_updated_wallet"),
+                "msg": localize_ext("toast_msg_updated_wallet", { "count": data.coins })
+            });
+        }
     }
 
     if (data.items) {

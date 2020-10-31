@@ -31,10 +31,6 @@ function init_friends_list() {
         }
 
         if ("friends" in json_data) {
-            console.log("set_friends_data EPIC");
-            for (let f of json_data.friends) {
-                if (f.user_id == "56e300951a2e4a72867496e688c3a517") console.log(_dump(f));
-            }
             friend_list_epic_update(json_data.friends);
         }
 
@@ -837,7 +833,7 @@ function get_friends_in_diabotical_data() {
     */
 
     for (let user_id in global_friends) {
-        if (global_friends[user_id].epicfriend && !global_friends[user_id].masterfriend) {
+        if (global_friends[user_id].epicfriend && !global_friends[user_id].masterfriend && global_friends[user_id].ingame) {
             user_ids.push(user_id);
         }
     }
@@ -850,7 +846,6 @@ function get_friends_in_diabotical_data() {
 }
 
 function handle_friends_in_diabotical_data(data) {
-    console.log("handle_friends_in_diabotical_data", _dump(data));
     if (global_friends_online_data_requested) global_friends_online_data_requested = false;
 
     for (let f of data) {

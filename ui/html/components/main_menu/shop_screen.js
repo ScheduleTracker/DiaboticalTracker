@@ -135,8 +135,8 @@ function render_shop(data) {
 
     let cont = _id("shop_screen").querySelector(".shop_group_container");
     _empty(cont);
-    if (Object.keys(data.special).length)     cont.appendChild(render_shop_category("special", data["special"]));
     if (Object.keys(data.limited).length)     cont.appendChild(render_shop_category("limited", data["limited"]));
+    if (Object.keys(data.special).length)     cont.appendChild(render_shop_category("special", data["special"]));
     if (Object.keys(data.normal).length)      cont.appendChild(render_shop_category("normal", data["normal"]));
     if (Object.keys(data.battlepass).length)  cont.appendChild(render_shop_category("battlepass", data["battlepass"]));
 
@@ -286,7 +286,7 @@ function render_shop_category(category, data) {
 function render_shop_category_header(category, title, ts_end) {
     let header = _createElement("div", "header");
     header.appendChild(_createElement("div", "title", title));
-    if (category == "normal") {
+    if (category == "normal" || category == "special") {
         let time_left = _createElement("div", "time_left");
         time_left.appendChild(_createElement("div", "clock"));
     
@@ -592,8 +592,13 @@ class ShopGroup {
             this.type.style.display = "none";
         } else {
             // Coin shop item
-            this.price.textContent = _format_number(this.data[idx].item_price);
-            this.price_coin_icon.style.display = "flex";
+            if (this.data[idx].item_price == 0) {
+                this.price.textContent = localize("free").toUpperCase();
+                this.price_coin_icon.style.display = "none";
+            } else {
+                this.price.textContent = _format_number(this.data[idx].item_price);
+                this.price_coin_icon.style.display = "flex";
+            }
             this.container.classList.remove("fiat");
             this.type.style.display = "flex";
         }

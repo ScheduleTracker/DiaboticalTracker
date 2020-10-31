@@ -7065,11 +7065,14 @@ h2 {
     color: white;
     font-size:1.4vh;
 }
+#main_chat input.hl {
+    background-color:rgb(10, 23, 37);
+}
 
 #main_chat_popup {
     display: none;
     background-color: rgba(0,10,20,0.98);
-    width: 40vh;
+    width: 50vh;
     height: 34vh;
     position: absolute;
     top: -34vh;
@@ -8586,14 +8589,23 @@ h2 {
     justify-content:center;
     width: calc(108px* var(--onevh) );
 }
+.play_cards_container .card_double .card_flex {
+    height:calc(28px * var(--onevh));
+    margin-top:0.5vh;
+    margin-bottom:0.5vh;
+}
+.play_cards_container .card_double .card_flex.small {
+    width:calc(30px* var(--onevh));
+    height:calc(25px * var(--onevh));
+    margin-top:0.5vh;
+    margin-bottom:0.5vh;
+}
 .play_cards_container .card_flex {
     position:relative;
-    /*width:32vh;*/
     width:calc(33px* var(--onevh));
-    margin-left:calc(15px * var(--zero-onevh-rounded));
-    margin-right:calc(15px * var(--zero-onevh-rounded));
-    /*height:56vh;*/
     height:calc(57px * var(--onevh));
+    margin-left:calc(15px * var(--zero-onevh-rounded));
+    margin-right:calc(15px * var(--zero-onevh-rounded));    
     /*overflow:hidden;*/
     box-shadow: 0 2px 27px 0px rgba(0, 0, 0, 0.55);
     background-color:#333;
@@ -8676,6 +8688,14 @@ h2 {
 .play_cards_container .card_flex .card_video.playing {
     filter:grayscale(0%);
 }
+.play_cards_container .card_static_image {
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0px;
+    left:0px;
+    /*object-fit: cover;*/
+}
 .play_cards_container .card_video_preview {
     position:absolute;
     height:100%;
@@ -8692,6 +8712,10 @@ h2 {
     top:0px;
     left:0px;
     position:absolute;
+}
+.play_cards_container .card_double .card_video_clip,
+.play_cards_container .card_double .card_video_preview {
+    height:200%;
 }
 .play_cards_container .card_top {
     position:absolute;
@@ -8805,6 +8829,10 @@ h2 {
 }
 .play_cards_container .card_text.hidden {
     display:none;
+}
+.play_cards_container .card_double .card_text {
+    padding-top:1vh;
+    padding-bottom:1vh;
 }
 .play_cards_container .card_checkbox_outer {
     padding-top: 2px;

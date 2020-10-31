@@ -1620,18 +1620,24 @@ function parse_modes(modes) {
             }
         }
 
-        if (modes[name].teams == 2) {
+        if (modes[name].teams == 1) {
+            vs += localize_ext("game_mode_type_players", {"count": modes[name].players_per_team});
+        } else if (modes[name].teams == 2) {
             vs += modes[name].players_per_team+localize("game_mode_type_vs_short")+modes[name].players_per_team;
-        } else {
+        } else if (modes[name].teams > 2) {
             if (modes[name].players_per_team == 1) vs += localize("game_mode_type_ffa");
             else vs += Array(modes[name].teams).fill(modes[name].players_per_team).join(localize("game_mode_type_vs_short"));
         }
 
         let queue_name = '';
         if (mode == "ffa") {
-            queue_name = vs+" "+modifier.toUpperCase();
+            queue_name = vs;
         } else {
-            queue_name = vs+" "+localize(i18n).toUpperCase()+" "+modifier.toUpperCase();
+            queue_name = vs+" "+localize(i18n).toUpperCase();
+        }
+
+        if (modifier.length) {
+            queue_name += " "+modifier.toUpperCase();
         }
 
         let roles = [];

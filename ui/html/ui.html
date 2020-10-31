@@ -1496,6 +1496,12 @@
                                         <div class="checkbox_component checkbox" data-variable="game_equip_empty_weapons"><div></div></div>
                                     </div>
                                 </div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_switch_mode">Switch fov and mouse weapon setting when pressing the keys</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_weapon_switch_mode"><div></div></div>
+                                    </div>
+                                </div>
 
                                 <!-- ZOOM -->
                                 <div class="settings_header i18n" data-i18n="settings_zoom" style="margin-top:2vh;">Zoom</div>
@@ -2068,25 +2074,21 @@
                                     </div>
                                 </div>
                                 <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_team_names_uppercase">Uppercase names</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_player_names_uppercase"><div></div></div>
+                                    </div>
+                                </div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_team_names_size">Name size</div>
+                                    <div class="ctrl">
+                                        <div id="slider_game_team_name_size" class="range-slider" data-variable="game_player_names_scale" data-min="0" data-max="1" data-step="0.01"></div>
+                                    </div>
+                                </div>
+                                <div class="setting">
                                     <div class="label i18n" data-i18n="settings_show_player_lag">Display overhead lag indicator</div>
                                     <div class="ctrl">
                                         <div class="checkbox_component checkbox" data-variable="game_show_player_lag"><div></div></div>
-                                    </div>
-                                </div>
-
-                                <!-- CONNECTIONS -->
-                                <div class="settings_header i18n" data-i18n="settings_connections" style="margin-top: 2vh;">Connections</div>
-                                <div class="setting">
-                                    <div class="label i18n" data-i18n="settings_connections_twitch">
-                                        Twitch
-                                    </div>
-                                    <div class="ctrl">
-                                        <div class="button i18n" id="settings_connections_twitch_link" data-i18n="settings_connections_twitch_link" onclick="settingsTwitchAccount(false)">
-                                            Link account
-                                        </div>
-                                        <div class="button i18n" id="settings_connections_twitch_unlink" data-i18n="settings_connections_twitch_unlink" onclick="settingsTwitchAccount(true)">
-                                            Unlink
-                                        </div>
                                     </div>
                                 </div>
 
@@ -2226,6 +2228,22 @@
                                                 <div data-value=1 class="i18n" data-i18n="waypoints_ping_threat_type">Show only threat type</div>
                                                 <div data-value=2 class="i18n" data-i18n="show_all">Show all</div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CONNECTIONS -->
+                                <div class="settings_header i18n" data-i18n="settings_connections" style="margin-top: 2vh;">Connections</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_connections_twitch">
+                                        Twitch
+                                    </div>
+                                    <div class="ctrl">
+                                        <div class="button i18n" id="settings_connections_twitch_link" data-i18n="settings_connections_twitch_link" onclick="settingsTwitchAccount(false)">
+                                            Link account
+                                        </div>
+                                        <div class="button i18n" id="settings_connections_twitch_unlink" data-i18n="settings_connections_twitch_unlink" onclick="settingsTwitchAccount(true)">
+                                            Unlink
                                         </div>
                                     </div>
                                 </div>
@@ -2437,6 +2455,13 @@
                                         <div data-value=3 class="i18n" data-i18n="settings_high">High</div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="setting">
+                            <div class="label i18n" data-i18n="settings_video_gamma">Gamma (Brightness)</div>
+                            <div class="ctrl">
+                                <div id="setting_video_gamma" class="range-slider" data-variable="video_gamma" data-min="0.5" data-max="2" data-step="0.05" data-def="1"></div>
                             </div>
                         </div>
 

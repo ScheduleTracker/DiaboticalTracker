@@ -6,16 +6,21 @@ let global_main_chat_opening = false;
 function init_main_chat() {
     let main_chat = _id("main_chat");
     let main_chat_buffer = _id("main_chat_buffer");
+    let main_chat_popup = _id("main_chat_popup");
+    let main_chat_input = _id("chat_bar_input");
     main_chat.addEventListener("click", function(e) {
         global_main_chat_opening = true;
 
-        _id("main_chat_popup").style.display = "flex";
+        main_chat_popup.style.display = "flex";
+        main_chat_input.classList.add("hl");
         global_main_chat_open = true;
 
         let tab = undefined;
         if (global_main_chat_active_channel == "party") tab = _id("chat_tab_party");
         if (global_main_chat_active_channel == "lobby") tab = _id("chat_tab_lobby");
         if (tab && tab.classList.contains("new")) tab.classList.remove("new");
+
+        main_chat_input.focus();
 
         updateChatHighlight();
     });
@@ -41,7 +46,7 @@ function init_main_chat() {
             if (global_main_chat_active_channel == "lobby") tab = _id("chat_tab_lobby");
             if (tab && tab.classList.contains("new")) tab.classList.remove("new");
 
-            _id("chat_bar_input").focus();
+            main_chat_input.focus();
 
             updateChatHighlight();
         });
@@ -234,6 +239,7 @@ function main_chat_minimize(ev) {
 
     if (global_main_chat_open) {
         _id("main_chat_popup").style.display = "none";
+        _id("chat_bar_input").classList.remove("hl");
         global_main_chat_open = false;
     }
 }
