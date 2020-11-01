@@ -44948,7 +44948,7 @@ Position and orientation string for the menu camera for 3-size or more parties.
 Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
 62,-21,-2,-25,-6
 lobby_team_offset_2
-0.20.394b
+0.20.394c
 TANGENT
 BINORMAL
  depth=
