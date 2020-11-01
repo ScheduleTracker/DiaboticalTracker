@@ -839,6 +839,7 @@ game ft
 	weapon grenade_launcher 3
 }
 
+
 // DONT CHANGE ID NUMBERS ASSIGNED TO  SKILLS!
 
 skill 0
