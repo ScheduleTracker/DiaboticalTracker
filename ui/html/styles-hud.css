@@ -2386,18 +2386,18 @@ h2 {
 #report_scoreboard .team .player_row .stat .commend {
     width:6vh;
     height:100%;
-    background-image:url(/html/images/icons/fa/thumbs-up.svg);
-    background-size:2vh;
-    background-repeat:no-repeat;
-    background-position:center;
-    opacity:0.6;
+    mask-image:url(/html/images/icons/fa/thumbs-up.svg);
+    mask-position:center;
+    mask-size:2vh;
+    mask-repeat:no-repeat;
+    background-color:rgba(255,255,255,0.6);
 }
 #report_scoreboard .team .player_row .stat .commend:hover {
-    opacity:1;
+    background-color:rgba(255,255,255,1);
 }
 #report_scoreboard .team .player_row .stat .commend.commended {
-    background-image:url(/html/images/icons/fa/thumbs-up.svg?fill=#41e041);
-    opacity:1;
+    background-color: var(--team_color);
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
 }
 #report_scoreboard .separator {
     height:1vh;

@@ -637,6 +637,7 @@ function renderQuickPlayCards(cards) {
     for (let card of cards) {
         if (card.name == "qg_qp_survival") {
             survival_card = card;
+            survival_card.limited = localize("limited_time_mode");
         } else {
             container.appendChild(renderPlayCard(card));
         }
@@ -775,6 +776,11 @@ function renderPlayCard(data) {
         });
         top_links.appendChild(link_leaderboards);
         card_top.appendChild(top_links);
+    }
+
+    if (data.hasOwnProperty("limited") && data.limited.length) {
+        let top_desc = _createElement("div", "card_top_desc", data.limited);
+        card_top.appendChild(top_desc);
     }
 
     if (data.type == "warmup") {

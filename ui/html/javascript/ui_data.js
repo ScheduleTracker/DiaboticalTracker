@@ -291,6 +291,7 @@ const CUSTOM_MULTI_TEAM_MODES = ["brawl","instagib","ghosthunt","ffa","race"];
 const CUSTOM_SOLO_MODES = ["duel","ffa"];
 const CUSTOM_ROUND_BASED_MODES = ["ca","shaft_arena","rocket_arena","wipeout","macguffin","extinction","bounty"];
 const CUSTOM_TIMELIMIT_ONLY_MODES = ["duel", "race"];
+const CUSTOM_SPECIAL_COOP_MODES = ["survival"];
 
 const CUSTOM_FRAG_LIMITS = [1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 100, 150, 200, 250, 300, 500, 1000, 0];
 const CUSTOM_ROUND_LIMITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20];

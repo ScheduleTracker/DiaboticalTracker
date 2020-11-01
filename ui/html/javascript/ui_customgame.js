@@ -756,6 +756,17 @@ function custom_game_mode_changed(send_update) {
         container_score_limit.style.display = "flex";
     }
 
+    if (CUSTOM_SPECIAL_COOP_MODES.includes(mode)) {
+        global_customSettingElements["team_count"].dataset.value = 1;
+        update_select(global_customSettingElements["team_count"]);
+        custom_update_score_limit_options([0]);
+        global_customSettingElements["time_limit"].dataset.value = 0;
+        global_customSettingElements["score_limit"].dataset.value = 0;
+        container_team_count.style.display = "none";
+        container_time_limit.style.display = "none";
+        container_score_limit.style.display = "none";
+    }
+
     custom_game_number_of_teams_changed(parseInt(global_customSettingElements["team_count"].dataset.value), false);
 
     /*
@@ -822,10 +833,13 @@ function custom_game_number_of_teams_changed(numOfTeams, sendUpdate) {
     var totalPlayers = numOfTeams * teamSize;
     var maxPlayers = 16;
 
-    if (!CUSTOM_MULTI_TEAM_MODES.includes(mode)) {
+    if (CUSTOM_SPECIAL_COOP_MODES.includes(mode)) {
+        numOfTeams = 1;
+    } else if (!CUSTOM_MULTI_TEAM_MODES.includes(mode)) {
         numOfTeams = 2;
-    } else if (totalPlayers > maxPlayers) {
-        teamSize = Math.floor(maxPlayers / numOfTeams)
+    } 
+    if (totalPlayers > maxPlayers) {
+        teamSize = Math.floor(maxPlayers / numOfTeams);
         global_customSettingElements["team_size"].dataset.value = teamSize;
         update_select(global_customSettingElements["team_size"]);
     }

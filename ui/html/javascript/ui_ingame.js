@@ -721,7 +721,11 @@ window.addEventListener("load", function(){
         } else if (key == "baked_map") {
             showAnnounce(localize_ext("editor_baked_map", {"seconds": value/1000 }), 0, 300, 2000);
         } else if (key == "bake_map_failed") {
-            showAnnounce(localize("editor_map_bake_failed"), 0, 300, 2000);
+            showAnnounce(localize("editor_map_bake_failed"), 1, 1000, 1000);
+        } else if (key == "round_x") {
+            showAnnounce(localize_ext("ingame_message_round_x", {"round": value}), 1, 1000, 1000);
+        } else if (key == "round_cleared") {
+            showAnnounce(localize("ingame_message_round_cleared"), 1, 1000, 1000);
         }
 
         cur_announce_msg = key;
@@ -1081,7 +1085,7 @@ function play_tracked_sound(sound_key) {
     engine.call('ui_sound_tracked', sound_key);
 }
 
-function show_game_over(show, placement, team_count) {
+function show_game_over(show, placement, team_count, last_round) {
     //console.log("show_game_over", show, placement, team_count);
 
     _id("game_over_screen").style.display = show ? 'block' : 'none';
@@ -1096,27 +1100,27 @@ function show_game_over(show, placement, team_count) {
 
     if (show) {
         anim = "v";
-        if (team_count <= 2) {
+        if (team_count == 1) {
+            anim = "go";
+            sound = "";
+            music = "music_victory";
+            if (last_round) {
+                el_placement.textContent = localize_ext("ingame_game_over_round", {"round": last_round});
+            } else {
+                el_placement.textContent = localize("ingame_game_over");
+            }
+        } else if (team_count == 2) {
             if (placement == 0) {
-                el_victory.style.display = "flex";
-                el_defeat.style.display = "none";
-                el_placement.style.display = "none";
                 anim = "v";
                 sound = "announcer_common_game_win";
                 music = "music_victory";
             } else {
-                el_victory.style.display = "none";
-                el_defeat.style.display = "flex";
-                el_placement.style.display = "none";
                 anim = "d";
                 sound = "announcer_common_game_loss";
                 music = "music_defeat";
             }
         } else {
             if (placement == 0) {
-                el_victory.style.display = "flex";
-                el_defeat.style.display = "none";
-                el_placement.style.display = "none";
                 anim = "v";
                 sound = "announcer_common_game_win";
                 music = "music_victory";
@@ -1141,9 +1145,6 @@ function show_game_over(show, placement, team_count) {
                 else if (placement == 18) { el_placement.textContent = localize("ingame_placement_19"); sound = "announcer_common_game_loss"; }
                 else if (placement == 19) { el_placement.textContent = localize("ingame_placement_20"); sound = "announcer_common_game_loss"; }
 
-                el_victory.style.display = "none";
-                el_defeat.style.display = "none";
-                el_placement.style.display = "flex";
                 anim = "p";
                 music = "music_defeat";
             }
@@ -1155,14 +1156,36 @@ function show_game_over(show, placement, team_count) {
 
         if (music.length) engine.call("ui_music", music);
 
-        setTimeout(function () { 
-            if (anim == "v") game_over_animation(true); 
-            else game_over_animation(false);
-        }, 400);
+        if (anim.length) {
+            // Show Victory/Defeat/Placement/Game Over/Round text
+            if (anim == "v") {
+                el_victory.style.display = "flex";
+                el_defeat.style.display = "none";
+                el_placement.style.display = "none";
+                play_anim("game_over_victory", "game_over_anim");
+            } else if (anim == "d") {
+                el_victory.style.display = "none";
+                el_defeat.style.display = "flex";
+                el_placement.style.display = "none";
+                play_anim("game_over_defeat", "game_over_anim");
+            } else if (anim == "p") {
+                el_victory.style.display = "none";
+                el_defeat.style.display = "none";
+                el_placement.style.display = "flex";
+                play_anim("game_over_placement", "game_over_anim");
+            } else if (anim == "go") {
+                el_victory.style.display = "none";
+                el_defeat.style.display = "none";
+                el_placement.style.display = "flex";
+                play_anim("game_over_placement", "game_over_anim");
+            }
 
-        if (anim == "v") play_anim("game_over_victory", "game_over_anim");
-        else if (anim == "d") play_anim("game_over_defeat", "game_over_anim");
-        else if (anim == "p") play_anim("game_over_placement", "game_over_anim");
+            // Show lightning animation over the text
+            setTimeout(function () { 
+                if (anim == "v" || anim == "go") game_over_animation(true); 
+                else if (anim == "d" || anim == "p") game_over_animation(false);
+            }, 400);
+        }
 
     } else {
         el_victory.style.display = "none";

@@ -637,10 +637,11 @@ function create_game_report(game_status, snafu_data) {
 
                                 let commend = _createElement("div", "commend");
                                 commend.addEventListener("click", function(e) {
+                                    e.stopPropagation();
+
                                     if (commend.classList.contains("commended")) return;
 
                                     _play_click1();
-                                    e.stopPropagation();
 
                                     commend.classList.add("commended");
                                     send_string(CLIENT_COMMAND_COMMEND, p.user_id);

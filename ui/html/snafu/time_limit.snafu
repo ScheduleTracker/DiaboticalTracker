@@ -1,12 +1,26 @@
 BEGIN TEMPLATE time_limit
+    SETTING item_direction "vertical"
+    SETTING cell_direction "horizontal"
     SETTING align pivot
+    SETTING item_spacing 0
+    SETTING cell_spacing 0
+    SETTING row_align "center"
     INT shadow
 
     COL_OUTPUT 0 font font
     COL_OUTPUT 0 align pivot
     COL_OUTPUT 0 color color
+    COL_OUTPUT 0 height fontSize
     IF shadow
         COL_OUTPUT 0 shadow 1
+    END IF
+
+    COL_OUTPUT 1 font font
+    COL_OUTPUT 1 align pivot
+    COL_OUTPUT 1 color color
+    COL_OUTPUT 1 height fontSize
+    IF shadow
+        COL_OUTPUT 1 shadow 1
     END IF
 
     STRING game_state
@@ -22,11 +36,7 @@ ON_UPDATE
     IF game_data.warmup
         game_state = "ingame_message_warmup"
     ELSE
-        IF game_data.round_mode
-            IF game_data.game_mode == "ft"
-                discard
-            END IF
-            
+        IF game_data.round_mode            
             game_state = "ingame_message_round"
             state_value = game_data.round + 1
         ELSE
@@ -68,6 +78,16 @@ ON_UPDATE
         OUTPUT 0 0 LVALUE "empty"
     END IF
 
-    OUTPUT 0 0 value state_value
+    OUTPUT 0 0 VALUE state_value
+
+
+    IF game_data.game_mode == "survival"
+        IF !game_data.warmup
+            IF game_data.survival_remaining
+                OUTPUT 1 0 LVALUE "ingame_survival_remaining"
+                OUTPUT 1 0 VALUE game_data.survival_remaining
+            END IF
+        END IF
+    END IF
 
 END TEMPLATE

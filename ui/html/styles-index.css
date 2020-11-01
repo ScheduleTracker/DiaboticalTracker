@@ -7066,7 +7066,7 @@ h2 {
     font-size:1.4vh;
 }
 #main_chat input.hl {
-    background-color:rgb(10, 23, 37);
+    background-color:#273f48;
 }
 
 #main_chat_popup {
@@ -8742,7 +8742,7 @@ h2 {
     justify-content:center;
     align-items:center;
     text-shadow: 0 0 0 transparent;
-    filter:drop-shadow(2px 2px 6px rgba(0,0,0,0.6));
+    filter:drop-shadow(2px 2px 4px rgba(0,0,0,1));
     color:#ccc;
     padding:1vh;
     font-size: 1.25vh;
