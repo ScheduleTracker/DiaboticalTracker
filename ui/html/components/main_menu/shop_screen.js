@@ -110,7 +110,12 @@ function prepare_shop(data) {
         
         if (!(type in global_shop_data[i.item_category])) global_shop_data[i.item_category][type] = {};
         
-        global_shop_data[i.item_category][type].ts_end = new Date(i.ts_end);
+        let date = new Date(i.ts_end);
+        if (global_shop_data[i.item_category][type].ts_end) {
+            if (global_shop_data[i.item_category][type].ts_end > date) global_shop_data[i.item_category][type].ts_end = date;
+        } else {
+            global_shop_data[i.item_category][type].ts_end = date;
+        }
 
         if (!(i.item_group in global_shop_data[i.item_category][type])) {
             global_shop_data[i.item_category][type][i.item_group] = [i];
@@ -171,6 +176,8 @@ function render_shop(data) {
 
 let global_shop_timers = [];
 function render_shop_category(category, data) {
+
+    //console.log("render_shop_category", category, _dump(data));
 
     let fragment = new DocumentFragment();
 
