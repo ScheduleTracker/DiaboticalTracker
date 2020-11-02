@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-c68e19af730ff9741d3a108469f8c3198a921d00	anticheat/equ8.db
+b5c59b073efc697e9a4dc3d1a52e47ea9eeb6ada	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1585,7 +1585,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-452cc0432b0894dc2853c9015cf92e53568df1cd	diabotical.exe
+fed0c00f573402672e0756d5e42b4544f3bbe5f6	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1596,7 +1596,7 @@ de0feed659f783a8555efd579685d5b16eee3bd7	libcrypto-1_1-x64.dll
 b51420f5acd33b7b0625fe9a1bd0c619a7791b08	manifest.rbd
 7952bec4fa818a443c7199e3bf46c680cc0b0c38	msvcp140.dll
 b00fb5dd258ddfcf7a757bbc0ae904c950ac50e3	packs/blocks.dbp
-010101783037ad5529e02032ba13507aa9a3958f	packs/maps.dbp
+caab7da01519c4df09c2a6b79fa065820acf4bdb	packs/maps.dbp
 3056fc5b0e7d502012bb86940d693e63b25ed243	packs/models.dbp
 b2d9cc37cbbab53e6cabaa5351401678806d8072	packs/models_dynamic_props.dbp
 fdb1aa37f6d88bc6810899ac12b88bcef7248921	packs/models_dynamic_props_industry.dbp
@@ -1614,7 +1614,7 @@ facdedb08a2c03e3ad6cc4198417ac45c03165d4	packs/models_weapons.dbp
 c782befffe28597f53b988f1cf16791af746c405	packs/models_weapons_crossbow.dbp
 e3059f7e2e514982f6fd7c64671712dddd5645cf	packs/models_weapons_rocket_launcher.dbp
 576bcaf29e6e108be9b2c9f9abf755fbd63e52cf	packs/models_weapons_shaft.dbp
-a4836d42fe66e07403b07e941fdb445383e18b02	packs/scripts.dbp
+f27fd1560aa39b30ff45de7e8c1cc837284043e4	packs/scripts.dbp
 41e4e5eb57864cb401c1712e39c91c40a577d37f	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 676e37d176b95b1102506499d5934c291a070dc0	packs/textures_customization.dbp
@@ -1748,7 +1748,7 @@ d75ccef3810a1ce1f1e4347908a0e74b63d213e0	shaders/statictranstexcol.ps.cso
 f47c22953fe4586f2cf59e18f3ffaa8959a9a627	shaders/statictranstexfog.ps.cso
 ff16152301e9db1a6890fcad39f284221bce9f00	shaders/statictranstexfogg.ps.cso
 d961c67cecd11ad5327b51c671884397a74b467b	shaders/textured.ps.cso
-b706b07bdd0d839bfc003d0ceba8e7a51bc579cd	shaders/tile.cs.cso
+acadac155f4477c8ad9acd5c439d43fd52afd22c	shaders/tile.cs.cso
 8fcd2b0c214765c9c4b891341163117489c7f280	shaders/tile.ps.cso
 e533a942231ca04eaf1a93584932fface366ae24	shaders/tile.vs.cso
 d7289348f352bc633fae63549ae90b7df592294b	shaders/tile_col.ps.cso
@@ -1762,7 +1762,7 @@ a65c8ec277c530b64001c08f9d9782c762eabf04	shaders/tileblend2d.ps.cso
 2868d0de55ccb5d117a181d5f718c837cce469ad	shaders/tiledecal.ps.cso
 c3d0ba056078756bbe2ae2d831bc2e99710f1b45	shaders/tiledecalp.ps.cso
 7a3a03d7d5659c844fb7df35d8ac92b93077f284	shaders/tiledecalssr.ps.cso
-727fb60b4059a826d1299c8e99f32dc238d5ccb4	shaders/tilediag.cs.cso
+ec3a3f66d0b89058674de6465d98ab76e825c170	shaders/tilediag.cs.cso
 66a2e8a438c87f15f870aac95f5dfc8dd877dc36	shaders/tiledirt.ps.cso
 6d835587e358818611be483ad219cb05c0821c9f	shaders/tileflower.vs.cso
 59e8da17e836ebebd4eabf592dc6d4fcae48a1ab	shaders/tilegrass.vs.cso
@@ -5287,7 +5287,7 @@ edf4a41c2ce9c4fcb6a4918e8217b64f74390dc4	ui/html/components/main_menu/play_scree
 7d0f3933e0bcc080dcf820b99851b9cdaa9ae7ea	ui/html/components/main_menu/player_profile_screen.js
 27f1929b7ff77d40bcc0da4070fc42482311286e	ui/html/components/main_menu/practice_screen.js
 d5522615af1849d90962f429c40d6dcc4639cf04	ui/html/components/main_menu/shop_item_screen.js
-1a3e7bd831166b3556b3573004363252bd13b89f	ui/html/components/main_menu/shop_screen.js
+d9208d15ab50233b7580515b2aa5d642ff97a3b5	ui/html/components/main_menu/shop_screen.js
 6b85771bc50067de167ba9cbfa8ff98ad751dd1e	ui/html/components/main_menu/watch_screen.js
 9bd4692e8751a67a7e3e5866ff8b74b4a66dc848	ui/html/css/color-pickers.css
 0ed9a8464fd2ed600654a5f68ae8cca65cc0149c	ui/html/css/images/ui-icons_444444_256x240.png
