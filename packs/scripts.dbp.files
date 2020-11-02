@@ -69,7 +69,7 @@ scripts\particles\gl_bullet.particles		9198
 scripts\particles\gl_impact.particles		8122
 scripts\particles\gl_impact_v2.particles		13421
 scripts\particles\gl_muzzle.particles		4460
-scripts\particles\heal.particles		10213
+scripts\particles\heal.particles		10196
 scripts\particles\heal_simple.particles		1164
 scripts\particles\hero_beam.particles		1951
 scripts\particles\hook.particles		1092
