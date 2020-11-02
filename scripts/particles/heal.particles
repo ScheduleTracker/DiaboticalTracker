@@ -341,7 +341,7 @@ heal_weeble_floor_lines_edge
 	//color_end 0.2 3 4 6
    color_start 0 1 0.5 1.0
 	color_end  0 0 0 0
-	position 0 0 0
+	position 0 1 0
 	rotation_start 90 0
 	rotation_end 90 0
 	turbulence 400 5
@@ -353,7 +353,6 @@ heal_weeble_floor_lines_edge
 heal_weeble_floor_lines_edge_2 heal_weeble_floor_lines_edge
 {
 
-	position 0 5 0
 	range 0
 
 } 
@@ -379,7 +378,7 @@ heal_weeble_floor_lines_edge_pulse
 	//color_end 0.2 3 4 6
    color_start 0 1 0.5 0.5
 	color_end  0 0 0 0
-	position 0 0 0
+	position 0 1 0
 	rotation_start 90 0
 	rotation_end 90 0
 	turbulence 400 5
