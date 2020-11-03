@@ -605,6 +605,9 @@ function friend_list_request_accepted(friend) {
 function friend_list_invites_update(invites) {
     global_friend_invites.length = 0;
     for (let i of invites) {
+        // Only show invites from friends
+        if (!global_friends.hasOwnProperty(i['from-user-id'])) return;
+        
         global_friend_invites.push(create_friend_invite(i));
     }
     
@@ -1298,6 +1301,19 @@ function create_action_menu(el, top) {
     // Any Friend related actions (also non friends within parties)
     if (type == "friend") {
         if (global_friends.hasOwnProperty(user_id)) {
+            // Send Message
+            if (global_friends[user_id].friendship_state == 0) {
+                let option_join = _createElement("div", "option");
+                option_join.appendChild(_createElement("div", ["accent", "positive"]));
+                option_join.appendChild(_createElement("div", "label", localize("friends_list_action_message")));
+                option_join.addEventListener("click", function() {
+                    main_chat_message_user(user_id, global_friends[user_id].name);
+                    close_friends_list_action_menu();
+                });
+                menu.appendChild(option_join);
+                options.push(option_join);
+            }
+
             // Send Friend Request
             if (!global_friends[user_id].masterfriend) {
                 let option = _createElement("div", "option");
@@ -1316,7 +1332,7 @@ function create_action_menu(el, top) {
                 if (global_friends[user_id].party_privacy == false && !(user_id in global_party.members)) {
                     let option_join = _createElement("div", "option");
                     option_join.appendChild(_createElement("div", ["accent", "positive"]));
-                    option_join.appendChild(_createElement("div", "label", "Join Party"));
+                    option_join.appendChild(_createElement("div", "label", localize("friends_list_action_party_join")));
                     option_join.addEventListener("click", function() {
                         send_string(CLIENT_COMMAND_JOIN_USERID_PARTY, user_id);
                         close_friends_list_action_menu();

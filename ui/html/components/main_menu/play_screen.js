@@ -1419,9 +1419,11 @@ function handle_mm_match_event(data) {
             process_queue_msg("quickplay", "stop");
             process_queue_msg("ranked", "found");
         }
+        engine.call("flash_taskbar");
     } else if (data.action == "mm-join-match-found") {
         process_queue_msg("quickplay", "found");
         process_queue_msg("ranked", "stop");
+        engine.call("flash_taskbar");
     } else if (data.action == "mm-map-vote") {
         // mm-map-vote only comes after a mode-vote, so the draft screen is already visible
         delay = 250;

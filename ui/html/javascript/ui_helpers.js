@@ -307,7 +307,7 @@ function _createElement(type, classes, textContent) {
         }
     }
     if (typeof textContent != "undefined") {
-        if (typeof textContent == "string") {
+        if (typeof textContent == "string" && textContent.length) {
             el.textContent = textContent;
         } else {typeof textContent == "number"} {
             el.textContent = ""+textContent;

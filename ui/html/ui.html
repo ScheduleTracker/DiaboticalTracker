@@ -2314,7 +2314,13 @@
                         </div>
                         -->
 
-                        <div style="height:3vh;"></div>
+                        <div class="settings_header i18n" data-i18n="settings_general" style="margin-top:2vh;">General</div>
+                        <div class="setting">
+                            <div class="label i18n" data-i18n="settings_sound_auto_mute">Mute game when in the background</div>
+                            <div class="ctrl">
+                                <div class="checkbox_component checkbox" data-variable="sound_auto_mute"><div></div></div>
+                            </div>
+                        </div>
                         <!--
                         <div class="setting">
                             <div class="label i18n" data-i18n="settings_sound_voip_mode">Voice Chat mode</div>
@@ -2328,7 +2334,7 @@
                             </div>
                         </div>
                         -->
-
+                        <div style="height:3vh;"></div>
                         <div class="setting btn">
                             <div class="label i18n" data-i18n="settings_sound_reinitialize_msg">Reinitialize audio using the current Windows default audio device</div>
                             <div class="ctrl">
@@ -4189,17 +4195,17 @@
     <div class="chat_icon"><div class="icon"></div></div>
     <input id="chat_bar_input" type="text" maxlength="300" onkeydown="main_chat_keydown(event)" />
     <div id="main_chat_popup">
-        <div class="chat_minimize mouseover-sound4 click-sound" onclick="main_chat_minimize(event)"></div>
-        <div class="chat_channels">
-            <div id="chat_tab_party" class="channel mouseover-sound4 click-sound i18n active" data-i18n="party" data-type="party">Party</div>
-            <div id="chat_tab_lobby" class="channel mouseover-sound4 click-sound i18n" data-i18n="lobby" data-type="lobby" style="display:none;">Lobby</div>
+        <div class="chat_channel_cont">
+            <div id="chat_channel_scroll">
+                <div id="chat_channels"></div>
+            </div>
+            <div id="chat_channel_left" class="chat_channel_scroll_button" onclick="main_chat_channels_left(event)"></div>
+            <div id="chat_channel_right" class="chat_channel_scroll_button" onclick="main_chat_channels_right(event)"></div>
         </div>
+        <div class="chat_minimize mouseover-sound4 click-sound" onclick="main_chat_minimize(event)"></div>
         <div id="main_chat_buffer" class="scroll-outer theme_chat" data-sb-hide-empty="true">
             <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-            <div class="scroll-inner">
-                <div id="chat_party" class="chat active"></div>
-                <div id="chat_lobby" class="chat"></div>
-            </div>
+            <div class="scroll-inner" id="main_chat_buffer_inner"></div>
         </div>
     </div>
 </div>

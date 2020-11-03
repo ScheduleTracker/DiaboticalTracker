@@ -956,6 +956,9 @@ function handle_invite_event(data) {
     }
 
     if (data.action == "invite-add") {
+        // Only show invites from friends
+        if (!global_friends.hasOwnProperty(data['from-user-id'])) return;
+
         if (data.type == "lobby" && global_lobby_id == data['type-id']) return;
         if (data.type == "party" && global_party.id == data['type-id']) return;
         
@@ -1000,7 +1003,7 @@ function handle_party_event(data) {
         if (global_party.id == -1) init = true;
 
         if (global_party.id != data['party-id']) {
-            main_chat_reset("party");
+            main_chat_reset("party", false);
         }
 
         global_self.user_id = data['user-id'];
@@ -1111,7 +1114,8 @@ function handle_lobby_event(data) {
         }
 
         if (global_lobby_id != data['lobby-id']) {
-            main_chat_reset("lobby");
+            if (data['lobby-id'] == -1) main_chat_reset("lobby", true);
+            else main_chat_reset("lobby", false);
         }
         global_lobby_id = data['lobby-id'];
 
@@ -1145,7 +1149,7 @@ function handle_lobby_event(data) {
     if (data.action == "lobby-gone") {
         if (global_lobby_id >= 0) {
             global_lobby_id = -1;
-            main_chat_reset("lobby");
+            main_chat_reset("lobby", true);
 
             if (global_menu_page == "play_panel" && (global_play_menu_page == "play_screen_customlist" || global_play_menu_page == "play_screen_custom")) {
                 leave_custom_lobby_action();
@@ -1165,7 +1169,7 @@ function handle_lobby_event(data) {
 
     if (data.action == "lobby-leave") {
         global_lobby_id = -1;
-        main_chat_reset("lobby");
+        main_chat_reset("lobby", true);
         if (global_menu_page == "play_panel" && (global_play_menu_page == "play_screen_customlist" || global_play_menu_page == "play_screen_custom")) {
             leave_custom_lobby_action();
         } else {
@@ -1204,10 +1208,8 @@ function handle_lobby_event(data) {
     
     if (global_lobby_id < 0) {
         _id("open_lobby_button").style.display = "none";
-        main_chat_lobby_visibility(false);
     } else {
         _id("open_lobby_button").style.display = "flex";
-        main_chat_lobby_visibility(true);
     }
 }
 

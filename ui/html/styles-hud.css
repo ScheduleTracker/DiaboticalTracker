@@ -4439,8 +4439,10 @@ h2 {
 .scroll-outer.theme_friends .scroll-bar { background-color:transparent; }
 .scroll-outer.theme_friends .scroll-thumb {}
 
-.scroll-outer.theme_chat .scroll-thumb { background-color:rgba(255,255,255,0.05); box-shadow:inset 0 0 0 1px rgba(255,255,255,0.5); }
-.scroll-outer.theme_chat .scroll-thumb { background-color:rgba(0, 2, 3, 1); }
+.scroll-outer.theme_chat .scroll-thumb { background-color:rgba(37, 51, 57, 1); box-shadow:none; }
+.scroll-outer.theme_chat .scroll-thumb:hover { background-color:rgb(52, 69, 77); }
+.scroll-outer.theme_chat .scroll-thumb:active { background-color:rgb(72, 91, 100); }
+.scroll-outer.theme_chat .scroll-bar { background-color:rgba(255, 255, 255, 0.05); }
 .scroll-outer.theme_settings .scroll-thumb { background-color: rgba(255, 255, 255, 0.498039); box-shadow:inset 0 0 0 1px rgba(255,255,255,0.5); }
 .scroll-outer.theme_modal    .scroll-thumb { background-color: #1a1e22; }
 .scroll-outer.theme_gray2    .scroll-thumb { background-color: #121212; }
