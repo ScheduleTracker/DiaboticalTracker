@@ -179,9 +179,10 @@ models\theme\desert\decals\decal_sand_streaks_02.png.dds		174904
 models\theme\desert\decals\decal_sand_streaks_03.png.dds		174904
 models\theme\desert\decals\decal_sand_streaks_04.png.dds		174904
 models\theme\desert\decals\sand\decal_sand_steaks_01.png.dds		174904
-models\theme\desert\decals\sand\decal_sand_streaks_02.png.dds		174904
-models\theme\desert\decals\sand\decal_sand_streaks_03.png.dds		174904
-models\theme\desert\decals\sand\decal_sand_streaks_04.png.dds		174904
+models\theme\desert\decals\sand\decal_sand_streaks_01.png.dds		349700
+models\theme\desert\decals\sand\decal_sand_streaks_02.png.dds		349700
+models\theme\desert\decals\sand\decal_sand_streaks_03.png.dds		349700
+models\theme\desert\decals\sand\decal_sand_streaks_04.png.dds		349700
 models\theme\desert\decals\sand_decals.assets		260
 models\theme\desert\decals\sand_decals.shader		999
 models\theme\desert\props\sand_props.shader		4184

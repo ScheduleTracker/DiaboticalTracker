@@ -784,8 +784,8 @@ models\dynamic_props\medieval\med_base_walls\med_brick_wall_quarter\sport_concre
 models\dynamic_props\medieval\med_base_walls\med_brick_wall_quarter\sport_concrete01_quarter.shader		418
 models\dynamic_props\medieval\med_base_walls\med_brick_wall_quarter\sport_concrete01_wall_tile_01_4.dbm		3331
 models\dynamic_props\medieval\med_base_walls\med_brick_wall_quarter\sport_concrete01_wall_tile_01_4.fbx		24704
-models\dynamic_props\medieval\med_base_walls\med_diagonal_wall.assets		142
-models\dynamic_props\medieval\med_base_walls\med_diagonal_wall.shader		437
+models\dynamic_props\medieval\med_base_walls\med_diagonal_wall.assets		289
+models\dynamic_props\medieval\med_base_walls\med_diagonal_wall.shader		876
 models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_arched_1x1x1\1_brick_01-col.fbx		30112
 models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_arched_1x1x1\1_brick_01.dbm		5385
 models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_arched_1x1x1\1_brick_01.fbx		28208
@@ -1352,6 +1352,8 @@ models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_block\z05\z05_z_b
 models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_block\z05\z05_z_plaster_3.fbx		26176
 models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_boards-col.fbx		17520
 models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_boards.fbx		17232
+models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_boards_2-col.fbx		17536
+models\dynamic_props\medieval\med_base_walls\med_diagonal_wall_boards_2.fbx		17248
 models\dynamic_props\medieval\med_base_walls\med_window_wall\med_window_wall.assets		1180
 models\dynamic_props\medieval\med_base_walls\med_window_wall\med_window_wall.shader		1129
 models\dynamic_props\medieval\med_base_walls\med_window_wall\wall_01_1.dbm		1768
