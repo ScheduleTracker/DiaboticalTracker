@@ -149,8 +149,8 @@ function add_ingame_announcement(announcement_data, container, size){
   }
   
   if(announcement_data.use_countdown && announcement_data.countdown){
-    //let countdown_target = new Date(announcement_data.countdown).getTime();
-    let countdown_target = new Date().getTime() + 3000;  //use for testing
+    let countdown_target = new Date(announcement_data.countdown).getTime();
+    //let countdown_target = new Date().getTime() + 3000;  //use for testing
     let countdown_information = _createElement("div",  "announcement_countdown");
     announcement_text_container.appendChild(countdown_information);
     

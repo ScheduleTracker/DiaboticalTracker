@@ -499,6 +499,16 @@ var global_game_mode_map = {
         "image": "brawl_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
     },
+    "survival": {
+        "mode": "survival",
+        "name": "Survival",
+        "i18n": "game_mode_survival",
+        "desc_i18n": "game_mode_desc_survival",
+        "announce": "announcer_common_gamemode_survival",
+        "enabled": false,
+        "image": "brawl_loop.jpg",
+        "icon": "/html/images/gamemodes/tdm.svg"
+    },
     "ffa": {
         "mode": "ffa",
         "name": "Free For All",

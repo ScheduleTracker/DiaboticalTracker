@@ -443,7 +443,7 @@ function create_game_report(game_status, snafu_data) {
     // HEAD RIGHT
     _empty(head_right);
     head_right.appendChild(_createElement("div", "type", localize(MATCH_TYPE[game_status.match_type].i18n)));
-    head_right.appendChild(_createElement("div", "mode", localize(global_game_mode_map[game_status.mode].i18n)));
+    if (global_game_mode_map.hasOwnProperty(game_status.mode)) head_right.appendChild(_createElement("div", "mode", localize(global_game_mode_map[game_status.mode].i18n)));
     head_right.appendChild(_createElement("div", "map", _format_map_name(game_status.map)));
     head_right.appendChild(_createElement("div", "time", _seconds_to_digital(game_status.match_time)));
 

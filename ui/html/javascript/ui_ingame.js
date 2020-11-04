@@ -523,7 +523,11 @@ window.addEventListener("load", function(){
 
             if ("lingering_time" in mani) global_game_report_countdown = Number(mani.lingering_time);
 
-            _id("game_intro_mode").textContent = localize(global_game_mode_map[mani.mode].i18n);
+            if (global_game_mode_map.hasOwnProperty(mani.mode)) {
+                _id("game_intro_mode").textContent = localize(global_game_mode_map[mani.mode].i18n);
+            } else {
+                _id("game_intro_mode").textContent = "";
+            }
             _id("game_intro_map").textContent = _format_map_name(mani.map);
 
             let server = '';
