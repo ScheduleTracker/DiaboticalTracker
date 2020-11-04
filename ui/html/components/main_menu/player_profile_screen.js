@@ -642,11 +642,11 @@ function player_profile_render_main(data) {
         last_match.appendChild(last_match_cont);
 
         let mode_icon = _createElement("div", "mode_icon");
-        mode_icon.style.backgroundImage = "url("+global_game_mode_map[match.match_mode].icon+"?s=8)";
+        if (global_game_mode_map.hasOwnProperty(match.match_mode)) mode_icon.style.backgroundImage = "url("+global_game_mode_map[match.match_mode].icon+"?s=8)";
         last_match_cont.appendChild(mode_icon);
 
         let mode_name = _createElement("div", "mode_name");
-        mode_name.textContent = localize(global_game_mode_map[match.match_mode].i18n);
+        if (global_game_mode_map.hasOwnProperty(match.match_mode)) mode_name.textContent = localize(global_game_mode_map[match.match_mode].i18n);
         last_match_cont.appendChild(mode_name);
 
         let avg_acc = 0;

@@ -1340,14 +1340,6 @@ function create_action_menu(el, top) {
                     menu.appendChild(option_join);
                     options.push(option_join);
                 }
-
-                /*
-                let option_msg = _createElement("div", "option");
-                option_msg.appendChild(_createElement("div", ["accent", "positive"]));
-                option_msg.appendChild(_createElement("div", "label", "Whisper"));
-                menu.appendChild(option_msg);
-                options.push(option_msg);
-                */
             }
 
             // Invite to Lobby

@@ -720,35 +720,29 @@
 </div>
 
             <div id="home_screen">
-  <div id="home_screen_left">
-    <div id="home_screen_motd_window" class="mouseover-sound4 click-sound">
-      <div id="home_screen_motd_background"></div>
-      <div id="home_screen_motd_container">
-        <div class="content">
-          <h1 class="title"></h1>
-          <h2 class="subtitle"></h2 id="home_screen_motd_subtitle">
-          <div class="body_container">
-            <p class="body"></p>
+  <div id="home_screen_column_container">
+    <div class="home_screen_column">
+        
+      <div id="home_screen_announcements_cont">
+        <div class="home_head i18n" data-i18n="home_screen_whats_new">What's New</div>
+      </div>
+  
+      <div id="home_screen_patch_notes_cont">
+        <div class="home_head i18n" data-i18n="home_screen_patch_notes">Patch Notes</div>
+        <div class="scroll-outer" style="flex: 1 0 0" data-sb-hide-empty="true">
+          <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+          <div class="scroll-inner">                
+              <div id="home_screen_patch_notes_body">
+              </div>
           </div>
-        </div>
+        </div>      
       </div>
     </div>
-
-    <div id="home_screen_patch_notes_cont">
-      <div class="home_head i18n" data-i18n="home_screen_announcements">Announcements</div>
-      <div class="scroll-outer" style="flex: 1 0 0" data-sb-hide-empty="true">
-        <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-        <div class="scroll-inner">                
-            <div id="home_screen_patch_notes_body">
-            </div>
-        </div>
-    </div>      
-    </div>
-
-    <div id="home_screen_challenges_cont">
-      <div class="home_head i18n" data-i18n="daily_challenges">Daily Challenges</div>
-      <div id="home_screen_challenges" class="challenge_list"></div>
-    </div>
+  </div>
+    
+  <div id="home_screen_challenges_cont">
+    <div class="home_head i18n" data-i18n="daily_challenges">Daily Challenges</div>
+    <div id="home_screen_challenges" class="challenge_list"></div>
   </div>
 
   <div id="home_screen_load_tutorial" style="display:none;">
@@ -4193,7 +4187,9 @@
 
             <div id="main_chat">
     <div class="chat_icon"><div class="icon"></div></div>
-    <input id="chat_bar_input" type="text" maxlength="300" onkeydown="main_chat_keydown(event)" />
+    <div class="chat_input_cont">
+        <input id="chat_bar_input" type="text" maxlength="300" onkeydown="main_chat_keydown(event)" />
+    </div>
     <div id="main_chat_popup">
         <div class="chat_channel_cont">
             <div id="chat_channel_scroll">

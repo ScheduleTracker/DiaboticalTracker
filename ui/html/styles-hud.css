@@ -1475,6 +1475,9 @@ h2 {
     font-family:var(--mont-font);
     font-style:italic;
 }
+#game_over_placement.small {
+    font-size:8vh;
+}
 
 
 #commend_notif {

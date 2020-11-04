@@ -93,6 +93,7 @@ function main_chat_open(e) {
 
     global_main_ref_chat_popup.style.display = "flex";
     global_main_ref_chat_input.classList.add("hl");
+    global_main_ref_chat_input.parentElement.classList.add("hl");
     global_main_chat_open = true;
 
     // If no channel is active or a different channel than the active one has a new message then open that channel
@@ -290,6 +291,7 @@ function main_chat_minimize(ev) {
     if (global_main_chat_open) {
         global_main_ref_chat_popup.style.display = "none";
         global_main_ref_chat_input.classList.remove("hl");
+        global_main_ref_chat_input.parentElement.classList.remove("hl");
         global_main_chat_open = false;
     }
 }
@@ -498,6 +500,9 @@ class MainChat {
         }
         _addButtonSounds(this.channel_tab, 1);
         this.channel_tab.addEventListener("click", this.openChannel.bind(this));
+        if (this.type == "user") {
+            this.channel_tab.addEventListener("mousedown", this.openContextMenu.bind(this));
+        }
 
         if (this.type == "party") {
             // Insert the party channel always as the first one
@@ -519,6 +524,42 @@ class MainChat {
         if (global_main_chat_open && global_main_chat_active_channel === null) {
             this.openChannel();
         }
+    }
+
+    openContextMenu(e) {
+        if (this.type != "user") return;
+        if (e.button != 2) return;
+        e.preventDefault();
+
+        let contextOptions = [];
+
+        if (global_friends.hasOwnProperty(this.channel_id) && global_friends[this.channel_id].friendship_state == 0) {
+            // Join Party
+            if (global_friends[this.channel_id].ingame && global_friends[this.channel_id].party_privacy == false && !(this.channel_id in global_party.members)) {
+                contextOptions.push({
+                    "text": localize("friends_list_action_party_join"),
+                    "callback": () => { send_string(CLIENT_COMMAND_JOIN_USERID_PARTY, this.channel_id); },
+                });
+            }
+
+            // Invite to Lobby
+            if (global_lobby_id != -1) {
+                contextOptions.push({
+                    "text": localize("friends_list_action_invite_lobby"),
+                    "callback": () => { send_json_data({"action": "invite-add", "type": "lobby", "user-id": this.channel_id }); },
+                });
+            }
+            
+            // Invite to Party
+            if (!(this.channel_id in global_party.members)) {
+                contextOptions.push({
+                    "text": localize("friends_list_action_invite_party"),
+                    "callback": () => { send_json_data({"action": "invite-add", "type": "party", "user-id": this.channel_id }); },
+                });
+            }
+        }
+
+        context_menu(e, contextOptions);
     }
 
     cleanup() {

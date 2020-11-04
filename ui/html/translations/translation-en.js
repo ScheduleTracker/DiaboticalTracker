@@ -2699,6 +2699,8 @@ var TRANSLATION_en =
     "notification_msg_twitch_drop": "Thank you for watching Diabotical!",
     "items_remaining": "Items remaining",
     "home_screen_announcements": "Announcements",
+    "home_screen_whats_new": "What's New",
+    "home_screen_patch_notes": "Patch Notes",
     "learn_screen_tab_weapons": "Weapons",
     "learn_screen_tab_ha": "Health and Armor",
     "learn_screen_tab_gamemodes": "Game Modes",

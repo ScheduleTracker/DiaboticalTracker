@@ -1093,6 +1093,7 @@ function show_game_over(show, placement, team_count, last_round) {
     let el_victory = _id("game_over_victory");
     let el_defeat = _id("game_over_defeat");
     let el_placement = _id("game_over_placement");
+    el_placement.classList.remove("small");
 
     let sound = "";
     let music = "";
@@ -1106,6 +1107,7 @@ function show_game_over(show, placement, team_count, last_round) {
             music = "music_victory";
             if (last_round) {
                 el_placement.textContent = localize_ext("ingame_game_over_round", {"round": last_round});
+                el_placement.classList.add("small");
             } else {
                 el_placement.textContent = localize("ingame_game_over");
             }

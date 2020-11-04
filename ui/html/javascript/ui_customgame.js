@@ -1847,8 +1847,14 @@ function set_lobby_slot_player(user_id, team, slot, name, avatar, host, is_it_me
     slot_elem.classList.remove("action");
 
     slot_elem.contextOptions.push({
+        "type": "stored",
         "text": localize("custom_game_view_profile"),
         "callback": () => { open_player_profile(user_id); },
+    });
+
+    slot_elem.contextOptions.push({
+        "type": "friend",
+        "user_id": user_id,
     });
 
     if (bool_am_i_host) {
@@ -1859,23 +1865,27 @@ function set_lobby_slot_player(user_id, team, slot, name, avatar, host, is_it_me
         if (!is_it_me) {
             slot_elem.user_id = user_id;
             slot_elem.contextOptions.push({
+                "type": "stored",
                 "text": localize("custom_game_make_host"),
                 "callback": () => { makePlayerLobbyHost(user_id); },
             });
 
             if (global_lobby_admins.includes(user_id)) {
                 slot_elem.contextOptions.push({
+                    "type": "stored",
                     "text": localize("custom_game_revoke_admin"),
                     "callback": () => { revokePlayerLobbyAdmin(user_id); },
                 });
             } else {
                 slot_elem.contextOptions.push({
+                    "type": "stored",
                     "text": localize("custom_game_make_admin"),
                     "callback": () => { makePlayerLobbyAdmin(user_id); },
                 });
             }
 
             slot_elem.contextOptions.push({
+                "type": "stored",
                 "text": localize("custom_game_remove_player"),
                 "callback": () => { removePlayerFromLobby(user_id); },
             });
@@ -1906,7 +1916,28 @@ function customPlayerContextMenu(e) {
     if (e.button != 2) return;
     e.preventDefault();
 
-    context_menu(e, this.contextOptions);
+    let options = [];
+    for (let o of this.contextOptions) {
+        if (o.type == "stored") {
+            options.push(o);
+        } else if (o.type == "friend") {
+            if (global_friends.hasOwnProperty(o.user_id) && global_friends[o.user_id].friendship_state == 0) {
+                options.push({
+                    "text": localize("friends_list_action_message"),
+                    "callback": () => { main_chat_message_user(o.user_id, global_friends[o.user_id].name); },
+                });
+            } else {
+                if (global_self.user_id !== o.user_id) {
+                    options.push({
+                        "text": localize("friends_list_action_friend_request"),
+                        "callback": () => { send_string(CLIENT_COMMAND_SEND_FRIEND_REQUEST, o.user_id); },
+                    });
+                }
+            }
+        }
+    }
+
+    context_menu(e, options);
 }
 
 // Convert e.g. "global" slot index 5 -> team 2/slot 3 (max 3 slots per team)

@@ -1,48 +1,11 @@
 function init_screen_home() {
   const apiEndpoint = "https://dbgg.prismic.io/api/v2";
-  let currentPost = 1;
-  let modt_url = null;
-
-  /* News Post
-  PrismicJS.getApi(apiEndpoint)
-    .then(function(api) {
-      return api.query(
-        PrismicJS.Predicates.at("document.type", "news_post"),
-        {
-          orderings: "[document.last_publication_date desc]",
-          pageSize: 3
-        }
-      );
-    })
-    .then(
-      function(response) {
-        if (response.results.length > 0) {
-          response.results.forEach(function(result) {
-            preload_image(result.data.background.url);
-          });
-          const post = response.results[currentPost];
-          update_motd(response.results[currentPost]);
-          
-          setInterval(function () {
-            currentPost++;
-            if (currentPost >= response.results.length)
-              currentPost = 0;
-            
-            update_motd(response.results[currentPost]);            
-          }, 8000);
-        }
-      },
-      function(err) {
-        console.error("Error while calling CMS: ", err);
-      }
-    );
-    */
 
   //PATCH NOTES
   PrismicJS.getApi(apiEndpoint)
     .then(function(api) {
       return api.query(
-        PrismicJS.Predicates.any("document.type", ["patch_note_ingame", "temp_ingame_announcement"]),
+        PrismicJS.Predicates.at("document.type", "patch_note_ingame"),
         {
           orderings: "[document.last_publication_date desc]",
           pageSize: 8
@@ -53,12 +16,7 @@ function init_screen_home() {
       function(response) {
         if (response.results.length > 0) {
           for(let i=0; i<response.results.length; i++){
-            if(response.results[i].type == "patch_note_ingame"){
-              add_patch_notes(response.results[i].data);
-            }
-            else if(response.results[i].type == "temp_ingame_announcement"){
-              add_ingame_announcement(response.results[i].data);
-            }
+            add_patch_notes(response.results[i].data);
           }
           refreshScrollbar(_id("home_screen_patch_notes_cont").querySelector(".scroll-outer"));
         }
@@ -67,11 +25,53 @@ function init_screen_home() {
         console.error("Error while calling CMS: ", err);
       }
     );
-
-  _id("home_screen_motd_window").addEventListener("click", function(event) {
-    if(event.currentTarget.dataset.uid)
-       engine.call('open_browser', `https://www.diabotical.com/news#${event.currentTarget.dataset.uid}`);
-   });
+  
+  //ANNOUNCEMENTS, doesn't seem to be possible to make one call where you obtain a set amount of Type A, and a set amount of Type B, so make two calls
+  PrismicJS.getApi(apiEndpoint)  
+    .then(function(api) {
+      return api.query(
+        PrismicJS.Predicates.at("document.type", "ingame_announcement"),
+        {
+          orderings: "[document.last_publication_date desc]",
+          pageSize: 4
+        }
+      );
+    })
+    .then(
+      function(response) {
+        if (response.results.length > 0) {
+          _id("home_screen_announcements_cont").style.display = "flex";
+          //If we have less than or equal to two announcements, make them both large
+          if (response.results.length <= 2){
+            for(let i=0; i<response.results.length; i++){
+              add_ingame_announcement(response.results[i].data, _id("home_screen_announcements_cont"), "large");
+            }
+          }
+          //Otherwise if we have more than 2, if there are an odd number, make the most recent one large, and the remaining small pairs
+          else if (response.results.length % 2 == 1){
+            add_ingame_announcement(response.results[0].data, _id("home_screen_announcements_cont"), "large");
+            for(let i=1; i<response.results.length; i+= 2){              
+              let smallAnnounceCont = _createElement("div", "home_screen_small_announcements_cont");
+              _id("home_screen_announcements_cont").appendChild(smallAnnounceCont);
+              add_ingame_announcement(response.results[i].data, smallAnnounceCont, "small");
+              add_ingame_announcement(response.results[i+1].data, smallAnnounceCont, "small");
+            }
+          }
+          //If there are more than 2, and an even number, make them all into small pairs
+          else{
+            for(let i=0; i<response.results.length; i+= 2){              
+              let smallAnnounceCont = _createElement("div", "home_screen_small_announcements_cont");
+              _id("home_screen_announcements_cont").appendChild(smallAnnounceCont);
+              add_ingame_announcement(response.results[i].data, smallAnnounceCont, "small");
+              add_ingame_announcement(response.results[i+1].data, smallAnnounceCont, "small");
+            }
+          }
+        }
+      },
+      function(err) {
+        console.error("Error while calling CMS: ", err);
+      }
+    );
 
    // Load the variable to show/hide the home screen tutorial button
    engine.call("initialize_checkbox_value", "lobby_tutorial_launched");
@@ -83,47 +83,118 @@ setTimeout(() => {
 }, 3000);
 */
 
-function add_ingame_announcement(announcement_data){
+function add_ingame_announcement(announcement_data, container, size){
   console.log(_dump(announcement_data));
-  _id("home_screen_patch_notes_cont").style.display = "flex";
+  _id("home_screen_announcements_cont").style.display = "flex";
+  let announcement_text_container = _createElement("div", "announcement_text_container");
+  let announcement = _createElement("div", ["announcement", size]);
 
-  let header_row = _createElement("div", "patch_header");
-  if(announcement_data.title && announcement_data.title.length){
-    let title = _createElement("div", "patch_version", announcement_data.title[0].text);  
-    header_row.appendChild(title);
+  if(announcement_data.background.hasOwnProperty('url')){     
+    announcement.style.backgroundImage = `url("${announcement_data.background.url}")`;
   }
-
-  if(announcement_data.timestamp){
-    let announcement_timestamp = new Date(announcement_data.timestamp);
-    let announcement_date = _createElement("div", "patch_date", announcement_timestamp.toDateString());
-    header_row.appendChild(announcement_date);
-  }
-
-  _id("home_screen_patch_notes_body").appendChild(header_row);
-
-  if(announcement_data.image.hasOwnProperty('url')){
-    let announcement_image = _createElement("div", "full_image");  
-    announcement_image.style.backgroundImage = `url("${announcement_data.image.url}")`;
-    announcement_image.style.paddingTop = (announcement_data.image.dimensions.height  / announcement_data.image.dimensions.width) * 100 + '%';
-    if(announcement_data.url.hasOwnProperty('url')){
-      announcement_image.addEventListener("mousedown", _play_click1);
-      announcement_image.addEventListener("mouseenter", _play_mouseover2);
-      announcement_image.addEventListener("click", function(){
-        engine.call('open_browser', announcement_data.url.url);
+  if(announcement_data.url){
+    announcement.classList.add("clickable");
+    announcement.addEventListener("mousedown", _play_click1);
+    announcement.addEventListener("mouseenter", _play_mouseover2);
+    if(announcement_data.url.startsWith("https://")){
+      announcement.addEventListener("click", function(){
+        engine.call('open_browser', announcement_data.url);
       })
+      let expand_icon = _createElement("div", "expand_icon");
+      announcement.appendChild(expand_icon);
     }
-    _id("home_screen_patch_notes_body").appendChild(announcement_image);
+    else if(announcement_data.url.startsWith("ingame://")){
+      if(announcement_data.url == "ingame://shop"){announcement.addEventListener("click", function(){open_shop()})}
+      else if(announcement_data.url.startsWith("ingame://map/")){
+        announcement.addEventListener("click", function(){
+          engine.call('console_return', "/map " + announcement_data.url.substr(13));
+        })
+        let announcement_demo = _createElement("div", "demo_now", "Demo Now");
+        announcement.appendChild(announcement_demo);
+      }
+      else if(announcement_data.url == "ingame://play_screen_quick_play"){announcement.addEventListener("click", function(){open_play('play_screen_quickplay')})}
+    }
   }
-
+  if(announcement_data.type){
+    let announcement_type = _createElement("div", "announcement_type", announcement_data.type);
+    announcement.appendChild(announcement_type);
+  }  
+  if(announcement_data.icon.hasOwnProperty('url')){
+    let announcement_icon = _createElement("div", "announcement_icon");
+    announcement_icon.style.backgroundImage = `url("${announcement_data.icon.url}")`;
+    announcement.appendChild(announcement_icon);
+    announcement.style.justifyContent = 'flex-start';
+    if(size == 'large'){
+      announcement_text_container.style.width = '70%';
+    }
+  }
+  if(announcement_data.title){
+    let announcement_title = _createElement("div", "announcement_title", announcement_data.title);
+    if(announcement_data.title_color){
+      announcement_title.style.color = announcement_data.title_color;
+    }
+    announcement_text_container.appendChild(announcement_title);
+  }
   if(announcement_data.information && announcement_data.information.length){
-    var announcement_text = announcement_data.information[0].text;
-
-    if(announcement_text.length > 0) {
-      let announcement_body = _createElement("div", "patch_section_notes")
-      announcement_body.innerHTML = createLineBreaksFromString(announcement_text);
-      _id("home_screen_patch_notes_body").appendChild(announcement_body);
+    if(size == 'large' || announcement_data.show_information_when_small) {
+      for(let info of announcement_data.information){
+        if(info.text){
+          let announcement_information = _createElement("div", "announcement_information");
+          announcement_information.innerHTML = info.text;
+          announcement_information.style.color = info.text_color;
+          announcement_text_container.appendChild(announcement_information);
+        }
+      }
     }
   }
+  
+  if(announcement_data.use_countdown && announcement_data.countdown){
+    //let countdown_target = new Date(announcement_data.countdown).getTime();
+    let countdown_target = new Date().getTime() + 3000;  //use for testing
+    let countdown_information = _createElement("div",  "announcement_countdown");
+    announcement_text_container.appendChild(countdown_information);
+    
+    let announcement_live = _createElement("div", "announcement_live", "live");
+    
+    if(countdown_target - (new Date().getTime()) > 0){
+      _for_each_with_class_in_parent(announcement_text_container, "announcement_information", function(el){
+        el.style.display = "none";
+      })
+      var countdown_interval = setInterval(function setRemainingTime(){
+        let currentTime = new Date().getTime();
+        let timeRemaining = countdown_target - currentTime;
+
+        if(timeRemaining < 0){
+          clearInterval(countdown_interval);
+          countdown_information.style.display = "none";
+          _for_each_with_class_in_parent(announcement_text_container, "announcement_information", function(el){
+            el.style.display = "flex";
+          })
+          if(announcement_data.show_live_at_end_of_countdown){announcement_live.style.display = "flex";}
+        }
+
+        //timeRemaining is in milliseconds, each value is remainder relative to larger division
+        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        countdown_information.textContent = "";
+        if(days > 0) {countdown_information.textContent += days + "d"}
+        if(days > 0 || hours > 0) {countdown_information.textContent += " " + hours + "h"}
+        if(days > 0 || hours > 0 || minutes > 0) {countdown_information.textContent += " " + minutes + "m"}
+        if(days > 0 || hours > 0 || minutes > 0 || seconds > 0) {countdown_information.textContent += " " + seconds + "s"}
+
+        return setRemainingTime;
+      }(), 1000); //use immediately invoked function expression so that the interval function fires immediately and doesnt wait for interval to pass
+    }
+    else{
+      if(announcement_data.show_live_at_end_of_countdown){announcement_live.style.display = "flex";}
+    }             
+    announcement.appendChild(announcement_live);
+  }  
+  
+  announcement.appendChild(announcement_text_container);
+  container.appendChild(announcement);
 }
 
 function insertPrismicSpan(text, spans){
@@ -213,40 +284,6 @@ function createLineBreaksFromString(contentStr) {
   let contentHTML = "";
   contentStr.split("\n").forEach(paragraph => contentHTML += "<div>" + paragraph + "</div>");
   return contentHTML;
-}
-
-function update_motd({ uid, slugs, data }) {
-  const {
-    title,
-    subtitle,
-    background,
-  } = data;
-
-  const motdView = _id("home_screen_motd_window");
-  const motdContainer = _id("home_screen_motd_container");
-  const motdBackground = _id("home_screen_motd_background");
-  const motdTitle = motdView.querySelector(".title");
-  const motdSubtitle = motdView.querySelector(".subtitle");
-
-  motdView.dataset.uid = uid;
-  motdTitle.textContent = getMultiParagraphFromCMS(title);
-  motdSubtitle.textContent = getMultiParagraphFromCMS(subtitle);
-  //motdView.querySelector(".body").innerHTML = textClamp(getMultiParagraphFromCMS((body));
-  //motdView.querySelector(".body").innerHTML = getMultiParagraphFromCMS(body);
-
-  motdContainer.style.display = "none";
-  motdView.style.display = "flex";
-  replay_css_anim(motdBackground);
-  replay_css_anim(motdTitle);
-  replay_css_anim(motdSubtitle);
-
-  req_anim_frame(() => {
-    anim_show(motdContainer, 350, "flex");
-  }, 4);
-    
-  if (background) {
-    motdBackground.style.backgroundImage = `url("${background.url}")`;
-  }
 }
 
 function getMultiParagraphFromCMS(contentArray) {
