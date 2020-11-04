@@ -839,6 +839,34 @@ game ft
 	weapon grenade_launcher 3
 }
 
+game survival
+{
+	map su_halloween_2020
+		
+	setting net_server_hitscan 0
+	setting net_max_backwards_reconciliation_ping 0
+	setting game_truce_time 0
+	setting game_enable_items 1
+	setting game_team_mode 1
+	setting game_score_limit 1
+        setting game_wipe_out_mode 2
+	
+	setting game_hp 125
+	setting game_stable_hp 100
+        setting game_ghost_limit_hp 100
+	setting game_max_hp 200
+
+	setting game_armor 75
+	setting game_stable_armor 100
+	setting game_max_armor 200
+	
+	setting game_friendly_fire 0
+	
+	weapon sword 999
+	weapon blaster 100 true
+	weapon super_shotgun 15
+}
+
 
 // DONT CHANGE ID NUMBERS ASSIGNED TO  SKILLS!
 
