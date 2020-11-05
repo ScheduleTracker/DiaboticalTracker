@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-20ecc498df90f5cfd1e904c47961e795af357e82	anticheat/equ8.db
+891b19853027516042737ea200f1e5cda832a754	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1601,7 +1601,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-aabca42784c6e8cad9d591e0291eeceafd85e8bd	diabotical.exe
+41a37c0ec557f7cce1d1488a119e68bcce45d918	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -5281,14 +5281,14 @@ f05157e48569d746e5190a0b9b5b8295f21c6cf4	ui/html/components/ingame/join_menu.js
 c91440aeff850ef7d2cf841129899ce224abec19	ui/html/components/ingame/rank_screen.js
 31b4fd8a824be87e180532c15fbaebeb0cd94f25	ui/html/components/main_menu/aim_screen.js
 f1cb2951dbb8be1cad4cbabad2dc48a82cc9dfcf	ui/html/components/main_menu/battlepass_list_screen.js
-449b932a07f19792302fd954ab06974c3cdafff7	ui/html/components/main_menu/battlepass_screen.js
+5a270d8c7ba0a38f1212c1c9399d38bd8b59fbb8	ui/html/components/main_menu/battlepass_screen.js
 98866d46b7e63839c6edec5cb06d55fc60d2b46c	ui/html/components/main_menu/battlepass_upgrade_screen.js
 6f621e4361465b68843cb3ad92de8b36169fec7c	ui/html/components/main_menu/coin_shop_screen.js
 e483a58c6f37114cef1e6cf587dec3b92bc1744e	ui/html/components/main_menu/create_screen.js
 382c4358951deb6f8193f388e966784f63962601	ui/html/components/main_menu/customize_screen.js
 7a7c5b6b83fdb501524520cd35465b9a5682ea13	ui/html/components/main_menu/friend_list.js
 d727bf3507a457073ddbb6e036f989e876b45240	ui/html/components/main_menu/gift_screen.js
-6c799aa72b0ab17afdc4e47259252e34b6b80744	ui/html/components/main_menu/home_screen.js
+26be56be9e49e500f7f749cc31224d6b5b38e596	ui/html/components/main_menu/home_screen.js
 8ca2cdeb6bab80678370d3088daf34f2980ce392	ui/html/components/main_menu/ingame_menu.js
 4b7efb0989821fb27b0c2642d09ea4dcdbf26be6	ui/html/components/main_menu/leaderboards_screen.js
 6c63d5847539d77f3f30c6227fa37a920fc2b8c6	ui/html/components/main_menu/learn_screen.js
@@ -5303,7 +5303,7 @@ b545ed239baf578cba75975637fe2321cc846971	ui/html/components/main_menu/party_box.
 5d1c0f6355c5a7dd18f5f33a6d2919a191513109	ui/html/components/main_menu/player_profile_screen.js
 27f1929b7ff77d40bcc0da4070fc42482311286e	ui/html/components/main_menu/practice_screen.js
 d5522615af1849d90962f429c40d6dcc4639cf04	ui/html/components/main_menu/shop_item_screen.js
-d9208d15ab50233b7580515b2aa5d642ff97a3b5	ui/html/components/main_menu/shop_screen.js
+66fa4469674c370d6aa48beedd13818cc38d642c	ui/html/components/main_menu/shop_screen.js
 6b85771bc50067de167ba9cbfa8ff98ad751dd1e	ui/html/components/main_menu/watch_screen.js
 9bd4692e8751a67a7e3e5866ff8b74b4a66dc848	ui/html/css/color-pickers.css
 0ed9a8464fd2ed600654a5f68ae8cca65cc0149c	ui/html/css/images/ui-icons_444444_256x240.png
@@ -8759,7 +8759,7 @@ ac46b79c7abad70a8432c40464ecab419ab5fb37	ui/html/javascript/ui_crosshair_creator
 2ede9225a269e14a8e1ec06c7a03ed813db9749a	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
 6a0d4ab150106c0d1931bf6046fc07127abd643b	ui/html/javascript/ui_fov.js
-29ee557bbcf288b34bc2556ec9e825c573a03275	ui/html/javascript/ui_helpers.js
+dc29eac3efd7c23e1e75f5a84cb1c03a0f655af1	ui/html/javascript/ui_helpers.js
 1d0eb511f897c7be929438a91d4890cffe085e5c	ui/html/javascript/ui_hud_creator.js
 dc90b0d4121b62c2fd43b67ce0e508b41e991987	ui/html/javascript/ui_hud_editor.js
 574297481d1aabd666d49192688398ff266a543a	ui/html/javascript/ui_ingame.js
@@ -9137,7 +9137,7 @@ d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list - Copy.snafu
 8939d9fba0db615229490b0571f633d9a11c05e2	ui/html/snafu/weapons_list.snafu
 eb6ce3bb6e30c33c7194911f71c6ba24b6514d73	ui/html/snafu/you_fragged.snafu
 536d2273709fe4e8bfa5d5460d33e564b3fbd6ad	ui/html/styles-hud.css
-25e5addcb6bd342e4181e685c02a0ccb4e7eafa7	ui/html/styles-index.css
+40ac0134a95a1b04ffff284ddf3ab8e5c4208fc5	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
