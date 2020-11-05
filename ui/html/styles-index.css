@@ -749,7 +749,7 @@ body, html {
     margin-bottom:0.4vh;
     margin-left:0.4vh;
     margin-right:0.4vh;
-    width:40vh;
+    width:36vh;
 }
 
 #tooltip2 .queue_mode_list {
@@ -7631,11 +7631,6 @@ h2 {
   width:100%;
   background-color: rgba(16, 17, 18, 1);
 }
-#home_screen_challenges .challenge {
-  min-height:6vh;
-  margin-top:3px;
-  margin-bottom:0;
-}
 
 #home_screen_load_tutorial {
   position:absolute;
@@ -10832,8 +10827,8 @@ h2 {
 .challenge_list .challenge {
     display:flex;
     flex-direction:row;
-    margin-top:3px;
-    min-height:7vh;
+    margin-top:2px;
+    min-height:5.5vh;
     background-color: rgba(26, 27, 31, 0.9);
     position:relative;
 }
@@ -10857,16 +10852,16 @@ h2 {
     background-repeat:no-repeat;
 }
 .challenge_list .challenge .left .xp_icon {
-    font-size:1.3vh;
+    font-size:1.2vh;
     font-weight:bold;
     background-color:rgb(37, 136, 182);
     padding:0.2vh;
-    border:0.2vh solid rgba(32, 116, 154, 1);
+    /*border:0.2vh solid rgba(32, 116, 154, 1);*/
     margin-bottom:0.4vh;
     border-radius: 0.4vh;
 }
 .challenge_list .challenge .left .xp_number {
-    font-size:1.5vh;
+    font-size:1.4vh;
     font-weight:bold;
 }
 .challenge_list .challenge .right {
@@ -10875,19 +10870,21 @@ h2 {
     flex-direction:column;
     justify-content:center;
     align-items:flex-start;
-    padding:1vh 2vh;
+    padding:0.6vh 1vh;
 }
 
 .challenge_list .challenge .right .description {
     color:#fff;
-    font-size:1.35vh;
+    font-size:1.25vh;
     margin-bottom:0.5vh;
-    padding-right:2vh;
     width:100%;
 }
 .challenge_list .challenge .right .new_quest {
     color:#ccc;
     font-size:1.2vh;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
 }
 
 .challenge_list .challenge .right .progress_cont {
@@ -10895,44 +10892,38 @@ h2 {
     flex-direction:row;
     align-items:center;
     width:100%;
+    position:relative;
 }
 .challenge_list .challenge .right .progress_cont .bar {
-    width:70%;
-    height:1.4vh;
+    flex:1;
+    height:1.8vh;
     background-color:rgba(0,0,0,0.3);
     display:flex;
     flex-direction:row;
     justify-content:flex-start;
-    margin-right:1vh;
     padding:2px;
     border-radius:4px;
 }
 .challenge_list .challenge .right .progress_cont .bar .bar_inner {
-    background-color:#fff;
-    background-image: repeating-linear-gradient(-45deg,#ccc, #fff 4vh, #ccc 8vh);
+    background-color:#2588b6;
+    background-image: repeating-linear-gradient(-45deg,#247ba3, #2588b6 4vh, #247ba3 8vh);
     height:100%;
     border-radius:4px;
 }
 .challenge_list .challenge .right .progress_cont .progress {
+    position:absolute;
+    left:0.5vh;
     display:flex;
     flex-direction:row;
     font-weight:bold;
-    font-size:1.4vh;
+    font-size:1.25vh;
+    color:rgba(255,255,255,1);
 }
-.challenge_list .challenge .right .progress_cont .progress .current {
-}
-.challenge_list .challenge .right .progress_cont .progress .separator {
-    margin:0 0.5vh;
-    color:rgba(255,255,255,0.7);
-}
-.challenge_list .challenge .right .progress_cont .progress .goal {
-    color:rgba(255,255,255,0.7);
-}
+.challenge_list .challenge .right .progress_cont .progress .current {}
+.challenge_list .challenge .right .progress_cont .progress .separator { margin:0 0.5vh; }
+.challenge_list .challenge .right .progress_cont .progress .goal {}
 .challenge_list .challenge .reroll {
-    position:absolute;
-    top:0.4vh;
-    right:0.4vh;
-    bottom:0.4vh;
+    margin:0.4vh 0.4vh 0.4vh 0;
     width:2.4vh;
     background-image:url(/html/images/icons/fa/sync-alt.svg);
     background-size:55%;

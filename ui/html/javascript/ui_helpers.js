@@ -641,6 +641,17 @@ function _numberInput(input) {
     });
 }
 
+function _timeUntilMidnight() {
+    let now = new Date();
+    let then = new Date(now);
+    then.setUTCHours(24, 0, 0, 0);
+    let total_mins = (then - now) / 6e4;
+    let hours = Math.floor(total_mins / 60);
+    let minutes = Math.ceil(total_mins % 60);
+    if (minutes < 10) minutes = "0" + minutes;
+    return hours+"h "+minutes+"m";
+}
+
 function _seconds_to_string(seconds) {
     let numyears = Math.floor(seconds / 31536000);
     let numdays = Math.floor((seconds % 31536000) / 86400); 

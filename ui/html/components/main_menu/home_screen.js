@@ -307,7 +307,7 @@ function textClamp(text) {
 }
 
 function render_home_challenges() {
-  render_daily_challenges(_id("home_screen_challenges"), global_user_battlepass.challenges, true);
+  render_daily_challenges(_id("home_screen_challenges"), global_user_battlepass.challenges, true, true);
 }
 function show_home_challenges() {
   anim_show(_id("home_screen_challenges_cont"), 350, "block");

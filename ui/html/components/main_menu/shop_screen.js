@@ -630,7 +630,7 @@ class CountdownTimer {
         this.updateTime();
         this.interval = setInterval(() => {
             if (new Date() >= this.end) {
-                stopCountdown();
+                this.stopCountdown();
                 return;
             } 
 
@@ -640,11 +640,14 @@ class CountdownTimer {
 
     stopCountdown() {
         clearInterval(this.interval);
-        this.element.textContent = "";
+        this.interval = null;
+
+        if (this.element) this.element.textContent = "";
+        this.element = null;
     }
 
     updateTime() {
-        this.element.textContent =  _time_until((this.end - new Date()) / 1000);
+        if (this.element) this.element.textContent =  _time_until((this.end - new Date()) / 1000);
     }
 }
 

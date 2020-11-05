@@ -455,10 +455,65 @@ function format_battlepass_rewards(reward_array) {
     return rewards;
 }
 
-function render_daily_challenges(c_cont, challenges, show_reroll) {
+class ChallengeResetTimer {
+    constructor(element) {
+        this.element = element;
+        this.interval = undefined;
+        this.current_ts = "";
+
+        if (this.element) this.startCountdown();
+    }
+
+    startCountdown() {
+        this.updateTime();
+        this.interval = setInterval(() => {
+            if (new Date() >= this.end) {
+                this.stopCountdown();
+                return;
+            } 
+
+            this.updateTime();
+        }, 5000);
+    }
+
+    stopCountdown() {
+        clearInterval(this.interval);
+        this.interval = null;
+
+        if (this.element) this.element.textContent = "";
+        this.element = null;
+    }
+
+    updateTime() {
+        let new_ts = _timeUntilMidnight();
+        if (new_ts == this.current_ts) return;
+
+        if (this.element) {
+            this.element.textContent = new_ts;
+            this.current_ts = new_ts;
+        } else {
+            this.stopCountdown();
+        }
+    }
+}
+
+let global_daily_challenge_ref_counter = 0;
+let global_daily_challenge_ref = {};
+function render_daily_challenges(c_cont, challenges, show_reroll, update_time) {
+
+    // Cleanup previous challenges and any ChallengeResetTimers
+    let prev = c_cont.querySelectorAll(".challenge");
+    if (prev.length) {
+        for (let i=0; i<prev.length; i++) {
+            if ("timerId" in prev[i].dataset && global_daily_challenge_ref.hasOwnProperty(prev[i].dataset.timerId)) {
+                global_daily_challenge_ref[prev[i].dataset.timerId].stopCountdown();
+                delete global_daily_challenge_ref[prev[i].dataset.timerId];
+            }
+        }
+    }
     _empty(c_cont);
     
-    let reset_time = untilMidnight();
+    let reset_time = _timeUntilMidnight();
     //console.log("render_daily_challenges", _dump(challenges), reset_time);
 
     let fragment = new DocumentFragment();
@@ -512,7 +567,14 @@ function render_daily_challenges(c_cont, challenges, show_reroll) {
 
         if (c.achieved) {
             let new_quest = _createElement("div", "new_quest");
-            new_quest.innerHTML = localize("challenges_new_challenge_in")+" "+reset_time;
+            new_quest.appendChild(_createElement("span", "", localize("challenges_new_challenge_in")+" "));
+            let timer = _createElement("span", "timer", reset_time);
+            new_quest.appendChild(timer);
+            if (update_time) {
+                global_daily_challenge_ref_counter++;
+                challenge.dataset.timerId = global_daily_challenge_ref_counter;
+                global_daily_challenge_ref[global_daily_challenge_ref_counter] = new ChallengeResetTimer(timer);
+            }
             right.appendChild(new_quest);
         } else {
             let progress_cont = _createElement("div", "progress_cont");
@@ -567,17 +629,6 @@ function render_daily_challenges(c_cont, challenges, show_reroll) {
     }
 
     c_cont.appendChild(fragment);
-
-    function untilMidnight() {
-        let now = new Date();
-        let then = new Date(now);
-        then.setUTCHours(24, 0, 0, 0);
-        let total_mins = (then - now) / 6e4;
-        let hours = Math.floor(total_mins / 60);
-        let minutes = Math.ceil(total_mins % 60);
-        if (minutes < 10) minutes = "0" + minutes;
-        return hours+"h "+minutes+"m";
-    }
 }
 
 function render_battlepass(bp) {
