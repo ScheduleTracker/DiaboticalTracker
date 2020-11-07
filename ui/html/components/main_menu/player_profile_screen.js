@@ -384,6 +384,17 @@ function player_profile_render_head(data, simple) {
             head.appendChild(msg_friend);
         }
         */
+        if (data.twitch_name && data.twitch_name.length) {
+            let watch_button = _createElement("div", ["btn", "watch", "tooltip2"]);
+            watch_button.dataset.msgId = "twitch_profile";
+            add_tooltip2_listeners(watch_button);
+            _addButtonSounds(watch_button, 1);
+            head.appendChild(watch_button);
+
+            watch_button.addEventListener("click", function() {
+                engine.call("open_browser", "https://twitch.tv/" + data.twitch_name);
+            });
+        }
         
         let show_add_button = true;
         if (data.user_id == global_self.user_id) show_add_button = false;

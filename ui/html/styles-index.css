@@ -14522,6 +14522,17 @@ h2 {
     background-image:url(/html/images/icons/fa/user-plus.svg);
 }
 
+#player_profile_screen .head .btn.watch {
+    background-image:url(/html/images/icons/fa/film.svg);
+    background-color:rgba(100, 65, 165, 1);
+}
+#player_profile_screen .head .btn.watch:hover {
+    background-color:rgba(114, 75, 187, 1);
+}
+#player_profile_screen .head .btn.watch:active {
+    background-color:rgb(137, 94, 218);
+}
+
 #player_profile_screen .page {
     position:absolute;
     top:0;
