@@ -24,7 +24,7 @@ maps\b_alchemy.rbe		30419280
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
 maps\b_crystal_cove.rbe		34952344
-maps\b_furnace.rbe		42819775
+maps\b_furnace.rbe		43027331
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
 maps\b_icefall.rbe		16865647
@@ -153,7 +153,7 @@ maps\weapon.rbe		300781
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
 maps\wo_crystal_cove.rbe		34942356
-maps\wo_furnace.rbe		42808583
+maps\wo_furnace.rbe		43016619
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
 maps\wo_refinery.rbe		35783081
