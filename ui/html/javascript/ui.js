@@ -720,6 +720,10 @@ window.addEventListener("load", function(){
     let expand_search_timeout = null;
     bind_event('set_checkbox', function (variable, value) {
 
+        if (variable == "hud_remember_chat_channel") {
+            global_remember_chat_channel = value;
+        }
+
         if (variable == "lobby_tutorial_launched") {
             home_screen_show_hide_tutorial_button(value);
             return;

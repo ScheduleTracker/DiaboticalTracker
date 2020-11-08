@@ -1968,11 +1968,24 @@
                                     </div>
                                 </div>
                                 <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_chat_remember_channel">Remember last chat channel (All/Team)</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="hud_remember_chat_channel"><div></div></div>
+                                    </div>
+                                </div>
+                                <div class="setting">
                                     <div class="label i18n" data-i18n="settings_camera_bob">Camera bob</div>
                                     <div class="ctrl">
                                         <div class="checkbox_component checkbox" data-variable="game_landing_bob_enable"><div></div></div>
                                     </div>
                                 </div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_alt_tab_mode">Minimize when alt+tabbing</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="video_alt_tab_mode"><div></div></div>
+                                    </div>
+                                </div>
+                                
                                                             
                                 <div class="setting" style="display:none;">
                                     <div class="label i18n" data-i18n="settings_enable_direction_hints">Enable direction hints</div>
@@ -2372,7 +2385,7 @@
                         <div class="setting">
                             <div class="label i18n" data-i18n="settings_video_render_scale">Render Scale</div>
                             <div class="ctrl">
-                                <div id="setting_video_scale" class="range-slider" data-variable="video_scale" data-min="0" data-max="2" data-step="0.010000" data-def="1" data-shift="100" data-stops="[0.25,0.3333333,0.5,0.6666666,0.75,1,1.25,1.5,1.75,2]"></div>
+                                <div id="setting_video_scale" class="range-slider short" data-variable="video_scale" data-min="0" data-max="2" data-step="0.010000" data-def="1" data-shift="100" data-stops="[0.25,0.3333333,0.5,0.6666666,0.75,1,1.25,1.5,1.75,2]"></div>
                             </div>
                         </div>
 
@@ -2380,7 +2393,7 @@
                             <div class="label i18n" data-i18n="settings_video_framecap">Framecap</div>
                             <div class="ctrl flex">
                                 <div id="setting_video_max_fps_cb" class="checkbox_component checkbox"><div></div></div>
-                                <div id="setting_video_max_fps" class="range-slider" data-variable="video_max_fps" data-min="0" data-max="500" data-step="1" data-def="250" data-stops="[0,30,50,60,72,90,100,125,144,200,250,300,322,360,500]"></div>
+                                <div id="setting_video_max_fps" class="range-slider short" data-variable="video_max_fps" data-min="0" data-max="500" data-step="1" data-def="250" data-stops="[0,30,50,60,72,90,100,125,144,200,250,300,322,360,500]"></div>
                             </div>
                         </div>
 
@@ -2388,7 +2401,7 @@
                             <div class="label i18n" data-i18n="settings_video_menu_framecap">Menu Framecap</div>
                             <div class="ctrl flex">
                                 <div id="setting_lobby_video_max_fps_cb" class="checkbox_component checkbox"><div></div></div>
-                                <div id="setting_lobby_video_max_fps" class="range-slider" data-variable="video_lobby_max_fps" data-min="0" data-max="250" data-step="1" data-def="125" data-stops="[30,50,60,72,90,100,125,144,200,250]"></div>
+                                <div id="setting_lobby_video_max_fps" class="range-slider short" data-variable="video_lobby_max_fps" data-min="0" data-max="250" data-step="1" data-def="125" data-stops="[30,50,60,72,90,100,125,144,200,250]"></div>
                             </div>
                         </div>
 
@@ -2461,7 +2474,7 @@
                         <div class="setting">
                             <div class="label i18n" data-i18n="settings_video_gamma">Gamma (Brightness)</div>
                             <div class="ctrl">
-                                <div id="setting_video_gamma" class="range-slider" data-variable="video_gamma" data-min="0.5" data-max="2" data-step="0.05" data-def="1"></div>
+                                <div id="setting_video_gamma" class="range-slider short" data-variable="video_gamma" data-min="0.5" data-max="2" data-step="0.05" data-def="1"></div>
                             </div>
                         </div>
 
@@ -5773,7 +5786,10 @@
     <div class="quit db-btn plain mouseover-sound4 click-sound" onclick="engine.call('quit')">Quit</div>
 </div> 
     <div id="ingame_chat_prompt">
-    <div id="ingame_chat_label"></div>
+    <div class="ingame_chat_label_cont">
+        <div id="ingame_chat_label"></div>
+        <div class="desc i18n" data-i18n="chat_tab_switch_channel">TAB to switch channel</div>
+    </div>
     <input id="ingame_chat_input" />
 </div>
     <div id=console>

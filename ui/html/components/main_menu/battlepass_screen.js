@@ -602,12 +602,14 @@ function render_daily_challenges(c_cont, challenges, show_reroll, update_time) {
         if (show_reroll && !c.achieved) {            
             let reroll = _createElement("div", "reroll");
             reroll.addEventListener("click", function() {
+                if (reroll.classList.contains("hidden")) return;
+
                 global_self.private.challenge_reroll_ts = new Date();
 
                 send_string(CLIENT_COMMAND_REROLL_CHALLENGE, c.challenge_id);
 
-                // Remove the reroll buttons
-                for (let r of rerolls) _remove_node(r);
+                // Hide the reroll buttons
+                for (let r of rerolls) r.classList.add("hidden");
             });
 
             _addButtonSounds(reroll, 1);
@@ -617,6 +619,9 @@ function render_daily_challenges(c_cont, challenges, show_reroll, update_time) {
 
             challenge.appendChild(reroll);
             rerolls.push(reroll);
+        } else {
+            let reroll = _createElement("div", ["reroll", "hidden"]);
+            challenge.appendChild(reroll);
         }
 
         fragment.appendChild(challenge);

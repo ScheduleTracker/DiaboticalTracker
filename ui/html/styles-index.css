@@ -239,14 +239,26 @@ body, html {
 #ingame_chat_prompt.active {
     display:flex;
 }
-#ingame_chat_label {
+#ingame_chat_prompt .ingame_chat_label_cont {
     padding:0 1vh;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+}
+#ingame_chat_prompt .ingame_chat_label_cont .desc {
+    font-size:1.2vh;
+    font-weight:bold;
+    opacity:0.7;
+}
+#ingame_chat_label {
     font-size:1.8vh;
     font-weight:bold;
     font-family:var(--mont-font);
     text-transform:uppercase;
-    display:flex;
-    align-items:center;
+}
+#ingame_chat_label.team {
+    color:#45EAFF;
 }
 #ingame_chat_input {
     flex:1;
@@ -10937,6 +10949,11 @@ h2 {
 .challenge_list .challenge .reroll:active {
     background-color:rgba(255,255,255,0.2);
 }
+.challenge_list .challenge .reroll.hidden {
+    visibility:hidden;
+    opacity:0;
+    height:0;
+}
 
 .battlepass_bottom_spinner {
     position:absolute;
@@ -11955,6 +11972,9 @@ h2 {
 
 .setting .range-slider {
     width:35vh;
+}
+.setting .range-slider.short {
+    width:30vh;
 }
 .setting .range-slider.no-slider { width:auto !important; }
 .setting .range-slider .input {

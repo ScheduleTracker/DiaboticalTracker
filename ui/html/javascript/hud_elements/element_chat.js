@@ -32,7 +32,6 @@ function init_element_chat() {
         addChatMessage(playerName, msg, self, team, game_time);
     });
 
-    //Need two max limits when max charaters and second max without a whitespace
 }
 
 var global_team_chat_active = false;
@@ -51,8 +50,13 @@ function set_chat(visible, team) {
         if (visible) {
             engine.call('set_chat_enabled', true);
 
-            if (team) _id("ingame_chat_label").textContent = localize("settings_controls_teamchat");
-            else _id("ingame_chat_label").textContent = localize("settings_controls_chat");
+            if (team) {
+                _id("ingame_chat_label").textContent = localize("settings_controls_teamchat");
+                _id("ingame_chat_label").classList.add("team");
+            } else {
+                _id("ingame_chat_label").textContent = localize("settings_controls_chat");
+                _id("ingame_chat_label").classList.remove("team");
+            }
 
             chatPrompt.classList.add("active");
             chatInput.focus();
@@ -157,13 +161,28 @@ function addChatMessage(playerName, msg, self, team, game_time) {
     chatMessage(div, team);    
 }
 
+let global_remember_chat_channel = false;
+let global_chat_last_channel = 0; // 0 = all chat, 1 = team chat
 function main_chat_setup() {
 
     bind_event('set_chat_visible', function (visible, team) {
+        if (visible) {
+            if (!team && global_remember_chat_channel) {
+                if (global_chat_last_channel == 0) team = false;
+                if (global_chat_last_channel == 1) team = true;
+            }
+        }
+
+        if (team && global_remember_chat_channel) global_chat_last_channel = 1;
+        
         set_chat(visible, team);
     });
 
     if (GAMEFACE_VIEW == "menu") {
+            
+        // Get the engine value and keep it in memory "global_remember_chat_channel"
+        engine.call("initialize_checkbox_value","hud_remember_chat_channel");
+
         let chatinput = _id("ingame_chat_input");
         chatinput.addEventListener("keydown", function (event) {
             // Escape
@@ -192,12 +211,17 @@ function main_chat_setup() {
             // Tab
             if (event.keyCode == 9) {
                 event.preventDefault();
+                console.log("TAB switcharoo", global_chat_last_channel);
                 if (global_team_chat_active) {
                     global_team_chat_active = false;
                     _id("ingame_chat_label").textContent = localize("settings_controls_chat");
+                    _id("ingame_chat_label").classList.remove("team");
+                    global_chat_last_channel = 0;
                 } else { 
                     global_team_chat_active = true;
                     _id("ingame_chat_label").textContent = localize("settings_controls_teamchat");
+                    _id("ingame_chat_label").classList.add("team");
+                    global_chat_last_channel = 1;
                 }
             }
         });
