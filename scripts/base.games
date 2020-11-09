@@ -846,6 +846,8 @@ game survival
 	setting net_server_hitscan 0
 	setting net_max_backwards_reconciliation_ping 0
 	setting game_truce_time 0
+	setting game_countdown 0
+	setting game_round_countdown 15
 	setting game_enable_items 1
 	setting game_team_mode 1
 	setting game_score_limit 1
