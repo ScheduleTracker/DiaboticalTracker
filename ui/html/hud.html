@@ -502,6 +502,28 @@
     </div>
 </div>
 
+    <div id="ingame_item_shop">
+    <div class="close i18n" data-i18n="modal_close" onclick="close_ingame_shop()">Close</div>
+    <div class="top">
+        <div class="title i18n" data-i18n="item_shop_title">Item Shop</div>
+        <div class="coins">
+            <div class="icon"></div>
+            <div id="item_shop_coin_count" class="value">210</div>
+        </div>
+    </div>
+
+    <div id="item_shop_items" class="items">
+        <!--
+        <div class="item">
+            <div class="name">Survival</div>
+            <div class="cost">5</div>
+            <div class="icon"></div>
+        </div>
+        -->
+    </div>
+    <div id="item_shop_item_desc" class="item_desc"></div>
+</div>
+
     <div id=game_over_screen>
         <div id=game_over_victory class="i18n" data-i18n="ingame_victory">VICTORY</div>
         <div id=game_over_defeat class="i18n" data-i18n="ingame_defeat">DEFEAT</div>
@@ -1578,6 +1600,7 @@
     <script inline src="components/ingame/game_report.js"></script>
     <script inline src="components/ingame/join_menu.js"></script>
     <script inline src="components/ingame/rank_screen.js"></script>
+    <script inline src="components/ingame/item_shop.js"></script>
 
     <script inline src="javascript/HUD_element.js"></script>
     <script inline src="javascript/ui_hud_creator.js"></script>

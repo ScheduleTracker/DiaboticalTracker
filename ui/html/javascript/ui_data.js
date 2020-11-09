@@ -151,6 +151,26 @@ let global_item_pickups_in_scoreboard = [
     "haste",
 ];
 
+let global_ingame_shop_item_map = {
+    "ammo":         ["ingame_shop_item_ammo",        "ingame_shop_item_ammo_desc",        "images/weapon_mac.svg",           "#ffffff" ],
+    "hp":           ["ingame_shop_item_hp",          "ingame_shop_item_hp_desc",          "images/hud_icon_hp.svg",          "#3dbc75" ],
+    "survival":     ["ingame_shop_item_survival",    "ingame_shop_item_survival_desc",    "images/powerup_siphonator.svg",   "#42fc42" ],
+    "vanguard":     ["ingame_shop_item_vanguard",    "ingame_shop_item_vanguard_desc",    "images/powerup_vanguard.svg",     "#0dffff" ],
+    "berserker":    ["ingame_shop_item_berserker",   "ingame_shop_item_berserker_desc",   "images/icons/fa/exclamation.svg", "#ff0000" ],
+    "second_wind":  ["ingame_shop_item_second_wind", "ingame_shop_item_second_wind_desc", "images/item_hpt0.svg",            "#3dbc75" ],
+    "slowfield":    ["ingame_shop_item_slowfield",   "ingame_shop_item_slowfield_desc",   "images/weapon_sw.svg",            "#28cdcd" ],
+
+    /*
+        ammo Full ammo refill (machinegun ammo icon orange)
+        hp Hp buff (cross icon green)
+        survival (Siphonator) (this requires it to last until the end of next round or only start when the next round starts, so that you don't have to time your purchase with the final second of the buy phase to not waste time, survival/siphonator icon green
+        vanguard vanguard (same as survival's requirements, vanguard icon blue)
+        berserker  extra 50% damage when below 50 hp (exclamation mark icon red)
+        second_wind second wind, going down to 0 hp instantly fills up your health once, only triggers and is only available for purchase once (item_hpt0 green)
+        slowfield slowfield weeball, can only have one at a time (weaponsw blue)
+    */
+};
+
 // weapon index to data map
 let global_weapon_idx_name_map = {
     0 : "default",

@@ -825,6 +825,7 @@ window.addEventListener("load", function(){
     // load callbacks from other files
     init_hud_screen_game_report();
     init_hud_screen_aim_report();
+    init_hud_screen_item_shop();
 
     // load shared code between menu and hud views
     init_shared();

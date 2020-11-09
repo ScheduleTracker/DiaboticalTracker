@@ -3277,6 +3277,150 @@ h2 {
     display:none;
     opacity:0;
 }
+#ingame_item_shop {
+    position:absolute;
+    top:10vh;
+    left:50%;
+    width:110vh;
+    max-width:90vw;
+    transform:translateX(-50%);
+    display:none;
+}
+
+#ingame_item_shop .close {
+    position:absolute;
+    top:-3vh;
+    right:1vh;
+    padding:0.8vh 1.6vh;
+    font-size:1.6vh;
+    text-transform:uppercase;
+    font-weight:bold;
+    background-color:rgba(255,255,255,0.3);
+}
+#ingame_item_shop .close:hover {
+    background-color:rgba(255,255,255,0.4);
+}
+#ingame_item_shop .close:active {
+    background-color:rgba(255,255,255,0.5);
+}
+
+#ingame_item_shop .top {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:flex-end;
+    text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+    /*border-bottom:0.2vh solid white;*/
+    margin-bottom:1vh;
+    margin-right:1vh;
+    margin-left:1vh;
+}
+#ingame_item_shop .top .title {
+    font-size:6vh;
+    font-weight:bold;
+    font-family:var(--mont-font);
+    text-transform:uppercase;
+}
+#ingame_item_shop .top .coins {
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-end;
+    align-items:center;
+    height:3vh;
+    margin-bottom:1vh;
+}
+#ingame_item_shop .top .coins .icon {
+    width:3vh;
+    height:3vh;
+    background-image:url(/html/images/item_coin.svg);
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    filter:drop-shadow(1px 1px 3px rgba(0,0,0,0.8));
+}
+#ingame_item_shop .top .coins .value {
+    margin-left:1vh;
+    font-size:4vh;
+    font-weight:bold;
+    color:gold;
+}
+
+#ingame_item_shop .items {
+    --label_size: 2.2vh;
+    --cost_size: 2.8vh;
+
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+#ingame_item_shop .items .item {
+    position:relative;
+    margin-right:1vh;
+    margin-left:1vh;
+    margin-bottom:2vh;
+    background-color:rgba(255,255,255,0.3);
+    width:25vh;
+    height:25vh;
+    display:flex;
+    flex-direction:column;
+}
+#ingame_item_shop .items .item:hover {
+    background-color:rgba(255,255,255,0.4);
+    box-shadow:0 0 0 0.4vh #fff;
+}
+#ingame_item_shop .items .item:active {
+    background-color:rgba(255,255,255,0.5);
+}
+
+#ingame_item_shop .items .item.locked {
+    background-color:rgba(255,255,255,0.3);
+    opacity:0.5;
+    filter:grayscale(1);
+    box-shadow:none;
+}
+
+#ingame_item_shop .items .item .name {
+    font-size: var(--label_size);
+    text-transform:uppercase;
+    position:absolute;
+    top:1vh;
+    left:1vh;
+    right:4vh;
+    font-weight:bold;
+    text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+}
+
+#ingame_item_shop .items .item .cost {
+    position:absolute;
+    top:0.8vh;
+    right:1vh;
+    font-size: var(--cost_size);
+    font-weight:bold;
+    color:gold;
+    text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+}
+#ingame_item_shop .items .item .icon {
+    flex:1;
+    margin:5vh 2vh 2vh 2vh;
+    background-image:url(/html/images/weapon_rl.svg);
+    background-size: 80%;
+    background-position:center;
+    background-repeat:no-repeat;
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.6));
+}
+
+#ingame_item_shop .item_desc {
+    align-self: center;
+    margin-top:2vh;
+    padding:0 2vh;
+    max-width:80vh;
+    text-align:center;
+    font-size:2vh;
+    text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+}
+
 .g_meter_container {
     justify-content: center;
     align-items: center;

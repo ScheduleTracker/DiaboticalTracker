@@ -27,7 +27,16 @@ ON_UPDATE
     IF IN_EDITOR
         OUTPUT 0 0 LVALUE "hint_mg_pickup"
     ELSE
-        IF game_data.game_mode != "macguffin"
+        INT show
+        show = 0
+        IF game_data.game_mode == "macguffin" 
+            show = 1
+        END IF
+        IF game_data.game_mode == "survival" 
+            show = 1
+        END IF
+
+        IF !show
             discard
         END IF
 
@@ -40,6 +49,7 @@ ON_UPDATE
 
         hint_key = "hint_" & game_data.hint
         OUTPUT 0 0 LVALUE hint_key
+        OUTPUT 0 0 VALUE game_data.hint_key
 
         OUTPUT 0 2 image game_data.hint_image 
         IF game_data.hint_image == "images/item_macguffin.svg"
