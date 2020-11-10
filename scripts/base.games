@@ -58,6 +58,7 @@ game default
 	setting game_freeze_save_time 0
 	
 	setting game_classes 0
+	setting game_pve 0
 	
 	setting game_camera_offset 0
 	setting game_camera_hor_offset 0
@@ -842,11 +843,12 @@ game ft
 game survival
 {
 	map su_halloween_2020
-		
+	
+	setting game_pve 1
 	setting net_server_hitscan 0
 	setting net_max_backwards_reconciliation_ping 0
 	setting game_truce_time 0
-	setting game_countdown 0
+	setting game_countdown 3
 	setting game_round_countdown 15
 	setting game_enable_items 1
 	setting game_team_mode 1
