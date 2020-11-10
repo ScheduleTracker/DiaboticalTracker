@@ -3133,7 +3133,7 @@ var TRANSLATION_en =
     "hint_mg_attack": "Attack {icon}",
     "hint_buy": "Buy phase - Press {key}",
     "item_shop_title":"Item Shop",
-    "ingame_shop_item_ammo":"Ammo refill",
+    "ingame_shop_item_ammo":"Ammo Buff",
     "ingame_shop_item_hp":"HP Buff" ,
     "ingame_shop_item_survival":"Siphonator",
     "ingame_shop_item_vanguard":"Vanguard",

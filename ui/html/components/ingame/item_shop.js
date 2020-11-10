@@ -100,13 +100,24 @@ function ingame_shop_render_items(items) {
         let item = _createElement("div", "item");
 
         let affordable = true;
-        if (global_item_shop_coin_count < i.cost) {
+        let out_of_price_range = false;
+        if (i.locked) {
             affordable = false;
+            item.classList.add("locked");            
+        } else if (global_item_shop_coin_count < i.cost) {
+            affordable = false;
+            out_of_price_range = true;
             item.classList.add("locked");
         }
 
         item.appendChild(_createElement("div", "name", localize(global_ingame_shop_item_map[i.item][0])));
-        item.appendChild(_createElement("div", "cost", i.cost));
+        let cost_element = _createElement("div", "cost", i.cost);
+        if (out_of_price_range){
+            cost_element.style.color = "#FF0000";
+        } else {
+            cost_element.style.color = "#00FF00";
+        }
+        item.appendChild(cost_element);
         let icon = _createElement("div", "icon");
         icon.style.backgroundImage = "url("+global_ingame_shop_item_map[i.item][2]+"?fill="+global_ingame_shop_item_map[i.item][3]+")";
         item.appendChild(icon);
