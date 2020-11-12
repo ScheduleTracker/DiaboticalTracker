@@ -1468,6 +1468,11 @@ function set_masterserver_connection_state(connected, initial) {
                     global_self.private.coins = user.user.coins
                     global_self.private.challenge_reroll_ts = (user.user.challenge_reroll_ts == null) ? null : new Date(user.user.challenge_reroll_ts);
                     update_wallet(global_self.private.coins);
+
+                    if (global_ms_connected_count <= 1) {
+                        // Custom maps
+                        load_custom_maps_list();
+                    }
                 }
             });
 
@@ -1750,11 +1755,11 @@ function open_modal_screen(id, cb, lock_modal) {
         }
     }
 
-    _id("modal_dialogs").style.display = "block";
+   _id("modal_dialogs").classList.add("active");
 
     engine.call("ui_sound", "ui_window_open");
     engine.call("set_modal", true);
-    anim_show(_id(id), 100, "flex", cb);
+    _id(id).style.display = "flex";
 
     if (id == "quit_dialog_modal_screen") {
         cancel_search("quickplay");
@@ -1781,7 +1786,7 @@ function close_modal_screen(e, selector, instant) {
         el.style.display = "none";
     } else {
         engine.call("ui_sound", "ui_window_close");
-        anim_hide(el,100);
+        el.style.display = "none";
     }
 
     // Close any open select lists
@@ -1794,7 +1799,7 @@ function close_modal_screen(e, selector, instant) {
         renderMatchList();
     }
 
-    _id("modal_dialogs").style.display = "none";
+    _id("modal_dialogs").classList.remove("active");
 }
 
 function close_modal_screen_by_selector(id, instant) {
@@ -1840,6 +1845,7 @@ function goUpALevel(){
     close_modal_screen_by_selector('zoom_mask_editor_screen');
     close_modal_screen_by_selector('crosshair_canvas_editor_screen');
     close_modal_screen_by_selector('crosshair_canvas_zoom_editor_screen');
+    close_modal_screen_by_selector('patch_notes_modal_screen');
 }
 
 function colorPickerValueUpdated(element, jscolor){

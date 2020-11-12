@@ -3291,4 +3291,21 @@ var TRANSLATION_en =
     "aim_shaft_mid_description": "Track targets that strafe around you at medium range as accurately as you can.",
     "aim_shaft_far_description": "Track targets that strafe around you at far range as accurately as you can.",
     "empty": " {value} ",
+    "create": "Create",
+
+    "map_create_title": "Create new map",
+    "map_create_id": "Map ID",
+    "map_create_name": "Map Name",
+    "map_create_type": "Map Type",
+    "toast_create_map_title": "New map",
+    "toast_create_map_success": "Map successfully created",
+    "toast_create_map_error": "Error while creating new map",
+
+    "map_publish_map": "Publish map",
+    "map_publish_map_confirm": "Are you sure you want to publish this map?",
+    "toast_publish_map_title": "Publish map",
+    "toast_publish_map_success": "Map successfully published",
+    "toast_publish_map_error": "Error while uploading file {name}",
+    "map_delete_map": "Delete map",
+    "map_delete_map_confirm": "Are you sure you want to delete this map?",
 }

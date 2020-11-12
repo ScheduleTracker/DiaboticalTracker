@@ -1510,11 +1510,14 @@ function hud_editor_save_dialog() {
     save_btn.addEventListener("click", function() {
         if (selected_index == null) return;
 
+        let title = slots[selected_index].input.value;
+        if (!title.length) title = "HUD-"+(selected_index+1);
+
         // Store the hud with the current global version
         update_hud_version(editing_hud_data);
 
         let params = {
-            "title": slots[selected_index].input.value,
+            "title": title,
             "type": global_active_hud_type,
             "hud": editing_hud_data,
         };

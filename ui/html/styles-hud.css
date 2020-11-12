@@ -168,6 +168,13 @@ body, html {
 .db-btn.twitch:hover { background-color: #724bbb; }
 .db-btn.twitch:active { background-color: #8256d4; }
 
+.db-btn.warning {
+    background-color: #8e302a;
+}
+.db-btn.warning:hover {
+    background-color: #c92f2b;
+}
+
 .big-btn {
     display:flex;
     justify-content:center;
@@ -1118,10 +1125,6 @@ h2 {
     display: none;
   }
   */
-
-
-
-
 
 
 

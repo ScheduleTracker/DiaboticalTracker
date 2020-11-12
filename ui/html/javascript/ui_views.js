@@ -370,16 +370,17 @@ function button_game_over_play_again() {
 }
 
 let global_fullscreen_spinner_state = false;
-function setFullscreenSpinner(bool) {
+
+function setFullscreenSpinner(enable) {
     let spinner = _id("fullscreen_spinner");
     if (global_fullscreen_spinner_state == false) {
-        if (bool) {
+        if (enable) {
             spinner.querySelector(".spinner-icon").classList.add("running");
             anim_show(spinner);
             global_fullscreen_spinner_state = true;
         }
     } else {
-        if (!bool) {
+        if (!enable) {
             anim_hide(spinner, 200, () => {
                 spinner.querySelector(".spinner-icon").classList.add("running");
             });

@@ -447,6 +447,7 @@
 
             <div id="fullscreen_spinner">
                 <div class="spinner-icon"></div>
+                <div id="fullscreen_spinner_message"></div>
             </div>
 
             <div id="ingame_menu_screen">
@@ -724,27 +725,23 @@
     <div class="home_screen_column">
         
       <div id="home_screen_announcements_cont">
-        <div class="home_head i18n" data-i18n="home_screen_whats_new">What's New</div>
+        <!--<div class="home_head i18n" data-i18n="home_screen_whats_new">What's New</div>-->
       </div>
-  
-      <div id="home_screen_patch_notes_cont">
-        <div class="home_head i18n" data-i18n="home_screen_patch_notes">Patch Notes</div>
-        <div class="scroll-outer" style="flex: 1 0 0" data-sb-hide-empty="true">
-          <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-          <div class="scroll-inner">                
-              <div id="home_screen_patch_notes_body">
-              </div>
-          </div>
-        </div>      
+
+      <div id="home_screen_patch_notes_banner" class="click-sound mouseover-sound4">
+        <div id="patch_notes_banner_header">
+
+        </div>
       </div>
+      <!--Patch notes modal in main-menu.html-->
     </div>
   </div>
-    
+
   <div id="home_screen_challenges_cont">
     <div class="home_head i18n" data-i18n="daily_challenges">Daily Challenges</div>
     <div id="home_screen_challenges" class="challenge_list"></div>
   </div>
-
+  
   <div id="home_screen_load_tutorial" style="display:none;">
       <div class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_button_play_tutorial" onclick="home_screen_load_tutorial();">Play the tutorial</div>
   </div>
@@ -2857,7 +2854,7 @@
             <div id="create_screen">
 
     <div class="create_screen_head">
-        <div>
+        <!--<div>
             <div class="filter_cont">
                 <div class="filter_icon"></div>
                 <input id="create_screen_filter_input" type="text" oninput='global_input_debouncers["create_screen_filter_input"].execute()'>
@@ -2871,10 +2868,20 @@
             <div id=create_screen_filter_gamemode class="select-field" data-theme="gray2">
                 <div class="i18n" data-value=all data-selected=1 data-i18n="filter_all_maps">All maps</div>
             </div>
-        </div>
+        </div>-->
 
         <div>
             <div id="create_screen_button_new" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_button_create_new" onclick="create_screen_new_map()">Create New</div>
+        </div>
+        <div>
+            <div id="create_screen_selection_options">
+                <div id="create_screen_button_publish" class="db-btn click-sound mouseover-sound4 i18n"
+                    onclick="open_modal_screen('map_publish_modal_screen')">Publish</div>
+                <div id="create_screen_button_edit" class="db-btn click-sound mouseover-sound4 i18n"
+                    onclick="create_screen_edit_map()">Edit</div>
+                <div id="create_screen_button_delete" class="db-btn warning click-sound mouseover-sound4 i18n"
+                    onclick="open_modal_screen('map_delete_modal_screen')">Delete</div>
+            </div>
         </div>
     </div>
 
@@ -2896,7 +2903,6 @@
         </div>
     -->
     </div>
-    <div class="coming_soon">Coming to open beta... ish</div>
 
 </div>
 
@@ -4282,6 +4288,19 @@
 
     <!-- MODAL DIALOGS -->
     <div id="modal_dialogs">
+
+        <div id="patch_notes_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
+            <div id="home_screen_patch_notes_cont" onclick="event.stopPropagation();">
+                <div class="home_head i18n" data-i18n="home_screen_patch_notes">Patch Notes</div>
+                <div class="scroll-outer" style="flex: 1 0 0" data-sb-hide-empty="true">
+                    <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+                    <div class="scroll-inner">                
+                        <div id="home_screen_patch_notes_body">
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </div>
         
         <div id="battlepass_rewards_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
@@ -4357,7 +4376,77 @@
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div id="map_choice_container" class="crosshair_scroll scroll-outer theme_settings" data-sb-hide-empty="true">
                     <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-                    <div id="map_choice_container_inner" class="scroll-inner"></div>
+                    <div id="map_choice_container_menu" style="display: none;">
+                        <div class="category mouseover-sound4 click-sound selected" onclick="custom_game_map_type_changed(this, 'official')">
+                            <div class="label">Official</div>
+                        </div>
+                        <div class="category mouseover-sound4 click-sound" onclick="custom_game_map_type_changed(this, 'community')">
+                            <div class="label">Community</div>
+                        </div>
+                    </div>
+                    <div id="map_choice_container_inner" class="scroll-inner">
+                        <div id="map_choice_container_inner_spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map_create_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
+            <div class="generic_modal_dialog" onclick="event.stopPropagation();">
+                <div class="generic_modal_dialog_container">
+                    <div class="generic_modal_dialog_header i18n" data-i18n="map_create_title">Create new map</div>
+                    <div class="generic_modal_dialog_body" style="max-width: 900px">
+                        <div class="grid-row">
+                            <div class="grid-col-4 grid-middle i18n" data-i18n="map_create_id">Map ID</div>
+                            <div class="grid-col-8 grid-end">
+                                <input id="map_create_id" />
+                            </div>
+                        </div>
+        
+                        <div class="grid-row">
+                            <div class="grid-col-4 grid-middle i18n" data-i18n="map_create_name">Map Name</div>
+                            <div class="grid-col-8 grid-end">
+                                <input id="map_create_name" />
+                            </div>
+                        </div>
+        
+                        <div class="grid-row">
+                            <div class="grid-col-3 grid-middle i18n" data-i18n="map_create_type">Map Type</div>
+                            <div class="grid-col-9 grid-end">
+                                <div id="map_create_mode_filter" class="select-field" data-theme="gray2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="generic_modal_dialog_action">
+                        <div class="dialog_button positive i18n" data-i18n="create" onclick="confirm_create_new_map(this)">Create</div>
+                        <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_create_modal_screen')">Cancel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map_delete_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
+            <div class="generic_modal_dialog" onclick="event.stopPropagation();">
+                <div class="generic_modal_dialog_container">
+                    <div class="generic_modal_dialog_header i18n" data-i18n="map_delete_map">Delete map</div>
+                    <div class="generic_modal_dialog_text i18n" data-i18n="map_delete_map_confirm">Are you sure you want to delete this map?</div>
+                    <div class="generic_modal_dialog_action">
+                        <div class="dialog_button positive i18n" data-i18n="delete" onclick="create_screen_confirm_delete_map()">Delete</div>
+                        <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_delete_modal_screen')">Cancel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map_publish_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
+            <div class="generic_modal_dialog" onclick="event.stopPropagation();">
+                <div class="generic_modal_dialog_container">
+                    <div class="generic_modal_dialog_header i18n" data-i18n="map_publish_map">Publish map</div>
+                    <div class="generic_modal_dialog_text i18n" data-i18n="map_publish_map_confirm">Are you sure you want to publish this map?</div>
+                    <div class="generic_modal_dialog_action">
+                        <div class="dialog_button positive i18n" data-i18n="publish" onclick="create_screen_confirm_publish_map()">Publish</div>
+                        <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_publish_modal_screen')">Cancel</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -6733,6 +6822,8 @@
 
     <script inline src="javascript/ui_shared.js"></script>
 
+    <script inline src="components/game_mode_select.js"></script>
+
     <script inline src="components/main_menu/ingame_menu.js"></script>
     <script inline src="components/main_menu/friend_list.js"></script>
     <script inline src="components/main_menu/party_box.js"></script>
@@ -6821,10 +6912,6 @@
 <script inline src="javascript/hud_elements/element_minimap.js"></script>
 <script inline src="javascript/hud_elements/element_race_timer.js"></script>
 <script inline src="javascript/hud_elements/element_net.js"></script>
-    <div id="overlay">
-    <div id="overlay_download_progress">PROGRESS</div>
-</div>
-
     
     <div id="watermark"></div>
 

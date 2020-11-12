@@ -15,10 +15,15 @@ function init_screen_home() {
     .then(
       function(response) {
         if (response.results.length > 0) {
+          generate_patch_banner(response.results[0].data); //front page patch notes button info
           for(let i=0; i<response.results.length; i++){
             add_patch_notes(response.results[i].data);
           }
-          refreshScrollbar(_id("home_screen_patch_notes_cont").querySelector(".scroll-outer"));
+          _id("home_screen_patch_notes_banner").style.display = "flex";
+          _id("home_screen_patch_notes_banner").addEventListener("click", function(){
+            open_modal_screen('patch_notes_modal_screen');
+            refreshScrollbar(_id("home_screen_patch_notes_cont").querySelector(".scroll-outer"));
+          })          
         }
       },
       function(err) {
@@ -84,7 +89,7 @@ setTimeout(() => {
 */
 
 function add_ingame_announcement(announcement_data, container, size){
-  console.log(_dump(announcement_data));
+  //console.log(_dump(announcement_data));
   _id("home_screen_announcements_cont").style.display = "flex";
   let announcement_text_container = _createElement("div", "announcement_text_container");
   let announcement = _createElement("div", ["announcement", size]);
@@ -213,8 +218,42 @@ function insertPrismicSpan(text, spans){
   return styledHTML
 }
 
+function generate_patch_banner(patch_data){
+  console.log(_dump(patch_data));
+  let patch_banner = _id("home_screen_patch_notes_banner");
+  let patch_banner_head = _id("patch_notes_banner_header");
+  if(patch_data.patch_version && patch_data.patch_version.length){
+    let patch_version = _createElement("div", "patch_version");
+    patch_version.appendChild(_createElement("div", "", localize("home_screen_patch_notes")))
+    patch_version.appendChild(_createElement("div", "", patch_data.patch_version[0].text))
+    patch_banner_head.appendChild(patch_version);
+  }
+
+  if(patch_data.timestamp){
+    let patch_timestamp = new Date(patch_data.timestamp);
+    let patch_date = _createElement("div", "patch_date", patch_timestamp.toDateString());
+    patch_banner_head.appendChild(patch_date);
+  }
+  
+  var summary_text = _createElement("div", "patch_summary", "Including updates to ");
+  for(let i=0; i < patch_data.body.length; i++){
+    let section = patch_data.body[i];   
+    if(section.patch_section_title && section.patch_section_title.length){
+        if(i == 0){
+          summary_text.textContent += section.patch_section_title[0].text;   
+        }
+        else if(i == patch_data.body.length - 1){
+          summary_text.textContent += " and " + section.patch_section_title[0].text;  
+        }
+        else{          
+          summary_text.textContent += ", " + section.patch_section_title[0].text;  
+        }
+    }     
+  }
+  patch_banner.appendChild(summary_text); 
+}
+
 function add_patch_notes(patch_data){
-  _id("home_screen_patch_notes_cont").style.display = "flex";
 
   let header_row = _createElement("div", "patch_header");
   if(patch_data.patch_version && patch_data.patch_version.length){
@@ -230,13 +269,15 @@ function add_patch_notes(patch_data){
 
   _id("home_screen_patch_notes_body").appendChild(header_row);
 
+  let patch_section_text_cont = _createElement("div", "patch_section_text_container");
+
   if(patch_data.patch_introduction && patch_data.patch_introduction.length){
     var patch_introduction_text = patch_data.patch_introduction[0].text;
 
     if(patch_introduction_text.length > 0) {
       let patch_introduction = _createElement("div", "patch_section_notes")
       patch_introduction.innerHTML = createLineBreaksFromString(patch_introduction_text);
-      _id("home_screen_patch_notes_body").appendChild(patch_introduction);
+      patch_section_text_cont.appendChild(patch_introduction);
     }
   }
 
@@ -244,12 +285,12 @@ function add_patch_notes(patch_data){
     for(const section of patch_data.body){
       if(section.patch_section_title && section.patch_section_title.length){
         let title = _createElement("div", "patch_section_title", section.patch_section_title[0].text);
-        _id("home_screen_patch_notes_body").appendChild(title);
+        patch_section_text_cont.appendChild(title);
       }  
       let content = _createElement("div", "patch_section_notes");
       let contentHTML = getPatchNoteListFromCMS(section.patch_section_notes);
       content.innerHTML = contentHTML;
-      _id("home_screen_patch_notes_body").appendChild(content);
+      patch_section_text_cont.appendChild(content);
     }
   } 
 
@@ -259,9 +300,11 @@ function add_patch_notes(patch_data){
     if(patch_outroduction_text.length > 0) {
       let patch_outroduction = _createElement("div", "patch_section_notes")
       patch_outroduction.innerHTML = createLineBreaksFromString(patch_outroduction_text);
-      _id("home_screen_patch_notes_body").appendChild(patch_outroduction);
+      patch_section_text_cont.appendChild(patch_outroduction);
     }
   }
+
+  _id("home_screen_patch_notes_body").appendChild(patch_section_text_cont);
 }
 
 function getPatchNoteListFromCMS(patchNotesArray) {
@@ -269,7 +312,8 @@ function getPatchNoteListFromCMS(patchNotesArray) {
     let list = ""
     for (let note of patchNotesArray){
       if (note.hasOwnProperty('text')){
-        list += "<div>\u2022 " + note.text + "</div>";
+        list += "<div class='patch_note_line'><div class='patch_note_bullet_point'>\u2022</div><div style='padding-right: 1.5vh'>" + note.text + "</div></div>";
+        //padding style on the text to avoid text container being mysteriously wider than it should be
       }
     }
     list += ""

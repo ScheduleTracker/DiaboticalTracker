@@ -1,4 +1,3 @@
-
 var custom_teamColors = [
     "#23c841",
     "#8438f6",
@@ -68,30 +67,18 @@ var global_lobby_init_mode = '';
 var global_lobby_admins = [];
 let global_party_leader_elements = [];
 let global_custom_datacenter_list = [];
+let global_game_maps_state = {
+    official: [],
+    community: [],
+    selected: undefined,
+    selected_category: 'official',
+};
 
 function init_custom_modes() {
-    // Add all the modes to the filter select list
-    let modes = [];
-    for (let mode in global_game_mode_map) modes.push(global_game_mode_map[mode]);
-    modes.sort(function(a,b) {
-        return a.name.localeCompare(b.name);
-    });
-
     let mode_select = _id("custom_game_setting_mode");
     _empty(mode_select);
-
-    for (let mode of modes) {
-        if (!mode.enabled) continue;
-        if (!global_lobby_init_mode.length) global_lobby_init_mode = mode.mode;
-        
-        let opt = _createElement("div", "i18n");
-        opt.dataset.i18n = mode.i18n;
-        opt.dataset.value = mode.mode;
-        opt.textContent = localize(mode.i18n);
-        mode_select.appendChild(opt);
-    }
-
-    ui_setup_select(mode_select, custom_update_variable_if_host);
+    
+    create_game_mode_select(mode_select, custom_update_variable_if_host);
 }
 
 function init_custom_game_references() {
@@ -324,42 +311,17 @@ function init_screen_custom() {
     });
     
     // Updates the maplist choices (triggered by "on_custom_game_mode_changed")
-    bind_event("set_map_choices", function (maps_json, selected) {      
-        let maps = [];  
-        try {
-            maps = JSON.parse(maps_json);
-        } catch(e) {
-            console.log("Error parsing maps_json", e.message);
-        }
-
-        if (selected.length == 0 && global_lobby_selected_map.length != 0) {
-            selected = global_lobby_selected_map;
-        }
-
-        let fragment = new DocumentFragment();
+    bind_event("set_map_choices", (maps_json, selected) => {
+        let maps = JSON.parse(maps_json);
+        maps = maps.map(map => ({ name: _format_map_name(map), map }));
         maps.sort();
 
-        for (let m of maps) {
-            let map = _createElement("div", "map");
-            map.style.backgroundImage = 'url(map_thumbnails/'+m+'.png)';
-            map.addEventListener("click", function() {
-                map_selected(map, m);
-            });
-            map.appendChild(_createElement("div", "text", _format_map_name(m)));
-            
-            if (m == selected) {
-                map.classList.add("thumb_selected");
-                map.children[0].classList.add("selected");
-            }
+        global_game_maps_state.official = maps;
+        global_game_maps_state.selected = selected;
+        global_game_maps_state.selected_category = 'official';
 
-            fragment.appendChild(map);
-        }
-        fragment.appendChild(_createElement("div", "spacer"));
-
-        let cont = _id("map_choice_container_inner");
-        _empty(cont);
-        cont.appendChild(fragment);
-    });
+        update_map_choices();
+    });      
 
     _for_each_in_class("custom_component", function (element) {
         var current_variable = element.dataset.variable;
@@ -481,18 +443,29 @@ function set_lobby_custom_map(value) {
         
         if (el.dataset.variable == "lobby_custom_map") {
             el.dataset.value = value;
-
             global_lobby_selected_map = value;
-            _html(el, "<div>"+_format_map_name(value)+"</div>");
-            el.style.backgroundImage = "url('map_thumbnails/" + value + ".png')";
 
-            // Only send update when the user selected the map manually, not when e.g. the mode is changed and the map with it, to prevent double updates
-            if (custom_lobby_map_selected) {
-                custom_game_settings_changed();
-                custom_lobby_map_selected = false;
+            if (global_game_maps_state.selected_category === 'community') {
+                const map = global_game_maps_state.community.find(m => m.map === value);
+
+                _html(el, "<div>" + map.name + "</div>");
+                const map_thumbnail =
+                    global_game_maps_state.selected_category === 'official' ? `${value}.png` : 'mg_test.png';
+                el.style.backgroundImage = `url('map_thumbnails/${map_thumbnail}')`;
+            }
+            else if (global_game_maps_state.selected_category === 'official') {
+                _html(el, "<div>"+_format_map_name(value)+"</div>");
+                el.style.backgroundImage = "url('map_thumbnails/" + value + ".png')";
+            } 
+            else {
+                console.error("Invalid map category");
             }
         }
-        
+        // Only send update when the user selected the map manually, not when e.g. the mode is changed and the map with it, to prevent double updates
+        if (custom_lobby_map_selected) {
+            custom_game_settings_changed();
+            custom_lobby_map_selected = false;
+        }
     });
 }
 
@@ -672,8 +645,25 @@ function teamColorChanged(team_idx, newColor) {
 
 function start_custom_game(btn) {
     if (btn.classList.contains("locked")) return;
-    
-    send_json_data({"action": "lobby-start"});
+    if (global_game_maps_state.selected_category == "official") {
+        send_json_data({"action": "lobby-start"});
+    } else {
+        setFullscreenSpinner(true);
+
+        RemoteResources.load_remote_map(
+            global_customSettingElements["map"].dataset.value,
+            () => {
+                setFullscreenSpinner(false);
+
+                send_json_data({"action": "lobby-start"});
+            },
+            () => {
+                setFullscreenSpinner(false);
+
+                console.error("Failed on remote loading");
+            }
+        );
+    }
 }
 
 function custom_game_settings_changed(send_only) {
@@ -935,10 +925,11 @@ function thumbnail_button_map(element) {
     });
 }
 
-function map_selected(element, map_name) {
+function map_selected(element, { map, name }) {
     if (bool_am_i_host) {
         custom_lobby_map_selected = true;
-        engine.call("custom_game_map_selected", map_name);
+        engine.call("custom_game_map_selected", map, name);
+
         _for_each_with_class_in_parent(element.parentElement, 'thumb_selected', function(el) {
             el.classList.remove('thumb_selected');
             el.children[0].classList.remove('selected');
@@ -1954,4 +1945,72 @@ function slotIDXToTeamSlot(slot_idx, max_slots) {
 // Convert e.g. team 2/slot 3 (max 4 slots per team) -> global slot index 11 (every index is zero based)
 function teamSlotToSlotIDX(team, slot, max_slots) {
     return team * max_slots + slot;
+}
+
+/* Update map choices based on global_game_maps_state */
+function update_map_choices() {
+    const category = global_game_maps_state.selected_category;
+    const maps = global_game_maps_state[category];  
+    const selected = global_game_maps_state.selected;
+
+    let fragment = new DocumentFragment();
+    maps.sort();
+
+    for (let m of maps) {
+        let map = _createElement("div", "map");
+        const map_thumbnail = category === 'official' ? `${m.map}.png` : 'mg_test.png';
+        map.style.backgroundImage = `url(map_thumbnails/${map_thumbnail})`;
+
+        map.addEventListener("click", function() {
+            map_selected(map, m);
+        });
+
+        map.appendChild(_createElement("div", "text", m.name));
+
+        if (m == selected) {
+            map.classList.add("thumb_selected");
+            map.children[0].classList.add("selected");
+        }
+
+        fragment.appendChild(map);
+    }
+    fragment.appendChild(_createElement("div", "spacer"));
+
+    let cont = _id("map_choice_container_inner");
+    _empty(cont);
+    cont.appendChild(fragment);
+}
+
+function custom_game_map_type_changed(btn, category) {
+    if (btn) {
+        let prev = btn.parentElement.querySelector(".selected");
+        if (prev) prev.classList.remove("selected");
+        btn.classList.add("selected");
+    }
+
+    let spinner_cont = _id("map_choice_container_inner");
+    _empty(spinner_cont);
+    spinner_cont.appendChild(_createSpinner());
+    
+    global_game_maps_state.selected_category = category;
+    if (category !== 'official') {
+        const mode = global_customSettingElements["mode"].dataset.value || 'ffa';
+
+        api_request("GET",
+                    `/content/maps?mode=${mode}`,
+                    {},
+                    (maps) => {
+                        _empty(spinner_cont);
+
+                        global_game_maps_state[category] = 
+                            maps.map(map => ({ map: map.map_id,
+                                               name: map.name,
+                                               author: map.author
+                                            }));
+                        update_map_choices();
+                    });
+    } else {
+        _empty(spinner_cont);
+        update_map_choices();
+    }
 }

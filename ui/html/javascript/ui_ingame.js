@@ -572,6 +572,8 @@ window.addEventListener("load", function(){
         } else if (key == "observe") {
             if (value1) addServerChatMessage(localize_ext("ingame_chat_msg_observing", {"name": value1}));
             else addServerChatMessage(localize("ingame_chat_msg_observing_stopped"));
+        } else if (key == "passthrough") {
+            addServerChatMessage(value1);
         }
     });
 

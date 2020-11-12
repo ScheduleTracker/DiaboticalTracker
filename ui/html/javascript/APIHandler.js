@@ -17,6 +17,7 @@ function apiHandler() {
         updateToken(token) {
             this.token = token;
             this.token_time = performance.now();
+            engine.call("set_api_key", token);
         }
 
         getToken() {
