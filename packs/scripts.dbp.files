@@ -65,7 +65,7 @@ scripts\particles\firefly.particles		397
 scripts\particles\flak.particles		0
 scripts\particles\flak_particles.particles		10521
 scripts\particles\ghost.particles		3927
-scripts\particles\gl_bullet.particles		9198
+scripts\particles\gl_bullet.particles		9266
 scripts\particles\gl_impact.particles		8122
 scripts\particles\gl_impact_v2.particles		13421
 scripts\particles\gl_muzzle.particles		4460
