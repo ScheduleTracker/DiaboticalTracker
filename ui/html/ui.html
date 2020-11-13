@@ -1219,6 +1219,10 @@
                                     <div class="controls_header i18n" data-i18n="settings_controls_editor_refresh_selection">Refresh selection</div>
                                     <div class="controls_value" data-db-binding="reload_selection" data-db-binding-mode="editor"></div>
                                 </div>
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_editor_cycle">Cycle selection preview</div>
+                                    <div class="controls_value" data-db-binding="cycle" data-db-binding-mode="editor"></div>
+                                </div>
                             </div>
                             <div class="controls_row">
                                 <div class="controls_pair">
@@ -2872,7 +2876,9 @@
 
         <div>
             <div id="create_screen_button_new" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_button_create_new" onclick="create_screen_new_map()">Create New</div>
-        </div>
+            &nbsp;
+            <div id="create_screen_open_map_folder" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_button_open_map_folder" onclick="create_screen_open_map_folder()">Open Map Folder</div>
+        </div>1
         <div>
             <div id="create_screen_selection_options">
                 <div id="create_screen_button_publish" class="db-btn click-sound mouseover-sound4 i18n"
@@ -4059,7 +4065,7 @@
                 <div class="icon"></div>
             </div>
 
-            <div id="mm_create" onclick='open_create()' class="main_menu_icon left mouseover-sound2 click-sound tooltip" style="display: none;">
+            <div id="mm_create" onclick='open_create()' class="main_menu_icon left mouseover-sound2 click-sound tooltip" style="display: flex;">
                 <span data-i18n="menu_top_create" class="tip_inner i18n">Create</span>
                 <div class="icon"></div>
             </div>
@@ -4376,11 +4382,11 @@
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div id="map_choice_container" class="crosshair_scroll scroll-outer theme_settings" data-sb-hide-empty="true">
                     <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-                    <div id="map_choice_container_menu" style="display: none;">
-                        <div class="category mouseover-sound4 click-sound selected" onclick="custom_game_map_type_changed(this, 'official')">
+                    <div id="map_choice_container_menu" style="display: flex;">
+                        <div id="map_choice_official" class="category mouseover-sound4 click-sound selected" onclick="custom_game_map_type_changed(this, 'official')">
                             <div class="label">Official</div>
                         </div>
-                        <div class="category mouseover-sound4 click-sound" onclick="custom_game_map_type_changed(this, 'community')">
+                        <div id="map_choice_community" class="category mouseover-sound4 click-sound" onclick="custom_game_map_type_changed(this, 'community')">
                             <div class="label">Community</div>
                         </div>
                     </div>
@@ -4395,24 +4401,28 @@
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div class="generic_modal_dialog_container">
                     <div class="generic_modal_dialog_header i18n" data-i18n="map_create_title">Create new map</div>
-                    <div class="generic_modal_dialog_body" style="max-width: 900px">
+                    <div class="generic_modal_dialog_body" style="max-width: 1000px">
                         <div class="grid-row">
-                            <div class="grid-col-4 grid-middle i18n" data-i18n="map_create_id">Map ID</div>
-                            <div class="grid-col-8 grid-end">
+                            <div class="grid-col-4 grid-start i18n" data-i18n="map_create_id">Map ID</div>
+                            <div class="grid-col-8 grid-end map_create_input">
                                 <input id="map_create_id" />
+                                <div class="desc i18n" data-i18n="map_create_id_label">Choose an unique identifier (Only alphanumeric and underscores are allowed)</div>
+                                <div class="example i18n" data-i18n="map_create_id_example">(Example: tt_temple_escape)</div>
                             </div>
                         </div>
         
                         <div class="grid-row">
-                            <div class="grid-col-4 grid-middle i18n" data-i18n="map_create_name">Map Name</div>
-                            <div class="grid-col-8 grid-end">
+                            <div class="grid-col-4 grid-start i18n" data-i18n="map_create_name">Map Name</div>
+                            <div class="grid-col-8 grid-end map_create_input">
                                 <input id="map_create_name" />
+                                <div class="desc i18n" data-i18n="map_create_name_label">Choose a name for your map (Max. size 20 chars)</div>
+                                <div class="example i18n" data-i18n="map_create_name_example">(Example: Temple Escape)</div>
                             </div>
                         </div>
         
                         <div class="grid-row">
-                            <div class="grid-col-3 grid-middle i18n" data-i18n="map_create_type">Map Type</div>
-                            <div class="grid-col-9 grid-end">
+                            <div class="grid-col-6 grid-middle i18n" data-i18n="map_create_type">Map Type</div>
+                            <div class="grid-col-6 grid-end">
                                 <div id="map_create_mode_filter" class="select-field" data-theme="gray2"></div>
                             </div>
                         </div>
@@ -4420,6 +4430,9 @@
                     <div class="generic_modal_dialog_action">
                         <div class="dialog_button positive i18n" data-i18n="create" onclick="confirm_create_new_map(this)">Create</div>
                         <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_create_modal_screen')">Cancel</div>
+                    </div>
+                    <div id="map_create_modal_error" class="generic_modal_error">
+                        Blank spaces are not allowed for map ID
                     </div>
                 </div>
             </div>

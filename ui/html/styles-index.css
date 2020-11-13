@@ -1516,6 +1516,13 @@ body, html {
     flex-direction: column;
 }
 
+ .generic_modal_error {
+    display: flex;
+    margin-top: 1rem;
+    color: orangered;
+    font-weight: bold;
+ }
+
 #hud_editor_delete_modal_screen .generic_modal_dialog,
 #reset_hud_modal .generic_modal_dialog,
 #disconnect_dialog_modal_screen .generic_modal_dialog,
@@ -1538,6 +1545,28 @@ body, html {
     width:100vh;
     max-width:70vw;
 }
+
+#map_create_modal_screen .map_create_input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#map_create_modal_screen .desc {
+    padding-top: 0.25rem;
+    font-size: 0.9rem;
+}
+
+#map_create_modal_screen .example {
+    padding-top: 0.25rem;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+#map_create_modal_screen input {
+    width: 100%;
+}
+
 .generic_modal_dialog input {
     display:flex;
     flex-direction:row;
@@ -1912,6 +1941,25 @@ body, html {
     height: 100%;
     padding-right:0;
 }
+
+#map_choice_container_inner .map_preview_background {
+    width: 100%;
+    height: var(--customlist_height) ;
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.400000);
+    background-color: rgba(34, 34, 34, 0.600000);
+    color: rgba(255, 255, 255, 0.400000);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+    height: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 #map_choice_container_inner .map {
     width: calc(14px * var(--onevh) * (16/9));
     height: calc(14px * var(--onevh));
@@ -7599,12 +7647,17 @@ h2 {
   background-position: center center;
   animation: zoom 10s ease;
 }
-
+#home_screen_patch_notes_body {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
 #home_screen_patch_notes_cont{
   height: 80vh;
   width: 90vh;
   max-width: 90vw;
-  background-color: rgba(26, 27, 31, 1);  
+  background-color: rgb(39, 40, 44);  
   box-shadow: 0px 2px 27px 0px rgba(0, 0, 0, 0.55);
   overflow: hidden;
   flex-direction: column;
@@ -7612,7 +7665,8 @@ h2 {
 
 #home_screen_patch_notes_cont .patch_header{
   align-items: center;
-  height: 3vh;
+  width:100%;
+  height: 5vh;
   background-color: rgb(17, 18, 20);
   font-weight: 700;
   font-size: 1.5vh;
@@ -7625,6 +7679,7 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size:2vh;
 }
 
 #home_screen_patch_notes_cont .patch_date{
@@ -7635,9 +7690,9 @@ h2 {
 }
 
 #home_screen_patch_notes_cont .patch_section_text_container{  
-  background-color: rgb(39, 40, 44);  
-  padding-top: 0.5vh;
-  padding-bottom: 1.5vh;
+  max-width:70vh;
+  padding-top: 2vh;
+  padding-bottom: 5vh;
   padding-left: 1vh;
   padding-right: 1vh;
 }
@@ -7659,6 +7714,7 @@ h2 {
   flex-direction: column;
   padding: 0vh 2vh;
   font-size: 1.3vh;
+  color:rgba(255,255,255,0.94);
 }
 
 #home_screen_patch_notes_cont .patch_note_line{
@@ -14441,7 +14497,7 @@ h2 {
     filter:brightness(1.3);
 }
 #create_screen_list .create_map_preview.selected {
-    filter:brightness(1.5);
+    filter:brightness(1.75);
 }
 
 #create_screen_list .create_map_preview img {
@@ -14450,6 +14506,23 @@ h2 {
     box-shadow:1px 1px 10px 0 rgba(0,0,0,0.4);
     background-color:#222;
 }
+
+#create_screen_list .map_preview_background {
+    width: 100%;
+    height: var(--customlist_height) ;
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.400000);
+    background-color: rgba(34, 34, 34, 0.600000);
+    color: rgba(255, 255, 255, 0.400000);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 2.500000rem;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
 #create_screen_list .create_map_preview .gamemode {
     position:absolute;
     left:1vh;

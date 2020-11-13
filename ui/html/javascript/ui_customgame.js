@@ -915,15 +915,13 @@ function moveSlotToRightTeam(teamSize, numOfTeams) {
 
 function thumbnail_button_map(element) {
     engine.call("set_modal", true);
-
     open_modal_screen("map_choice_modal_screen", function() {
-        
+        custom_game_map_type_changed(_id("map_choice_official"), "official");
         refreshScrollbar(_id("map_choice_container"));
         /*
         resetScrollbar(_id("map_choice_container"));
         */
-    });
-}
+    });}
 
 function map_selected(element, { map, name }) {
     if (bool_am_i_host) {
@@ -1958,8 +1956,15 @@ function update_map_choices() {
 
     for (let m of maps) {
         let map = _createElement("div", "map");
-        const map_thumbnail = category === 'official' ? `${m.map}.png` : 'mg_test.png';
-        map.style.backgroundImage = `url(map_thumbnails/${map_thumbnail})`;
+        
+        if (category === 'official') {
+            const map_thumbnail = category === 'official' ? `${m.map}.png` : 'mg_test.png';
+            map.style.backgroundImage = `url(map_thumbnails/${map_thumbnail})`;
+        } else {
+            let background = _createElement("span", ["map_preview_background"]);
+            background.innerHTML = localize("map_community_preview");
+            map.appendChild(background);
+        }
 
         map.addEventListener("click", function() {
             map_selected(map, m);
@@ -2002,11 +2007,13 @@ function custom_game_map_type_changed(btn, category) {
                     (maps) => {
                         _empty(spinner_cont);
 
-                        global_game_maps_state[category] = 
-                            maps.map(map => ({ map: map.map_id,
-                                               name: map.name,
-                                               author: map.author
-                                            }));
+                        global_game_maps_state[category] =
+                            maps.filter(map => map.create_ts !== map.update_ts)
+                                .map(map => ({
+                                    map: map.map_id,
+                                    name: map.name,
+                                    author: map.author
+                                }));
                         update_map_choices();
                     });
     } else {

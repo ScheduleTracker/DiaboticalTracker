@@ -1,10 +1,12 @@
-function create_game_mode_select(parent_node, on_change) {
+function create_game_mode_select(parent_node, on_change, on_init) {
     let modes = [];
 
     for (let mode in global_game_mode_map) modes.push(global_game_mode_map[mode]);
     modes.sort(function(a,b) {
         return a.name.localeCompare(b.name);
     });
+
+    if(on_init) on_init(modes);
 
     for (let mode of modes) {
         if (!mode.enabled) continue;

@@ -1765,6 +1765,8 @@ function open_modal_screen(id, cb, lock_modal) {
         cancel_search("quickplay");
         cancel_search("ranked");
     }
+
+    if (cb) req_anim_frame(cb, 2);
 }
 
 var global_manual_modal_close_disabled = false;

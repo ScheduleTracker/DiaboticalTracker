@@ -12,24 +12,55 @@ function init_screen_create() {
     let smallerval = (_120vh < _90vw) ? _120vh : _90vw;
     let map_preview_height = ((smallerval - (window.outerHeight / 100 * 6)) / 3) * (9/16);
     _id("create_screen_list").style.setProperty("--customlist_height", map_preview_height+"px");
+
+    const map_create_mode_filter = _id("map_create_mode_filter");
+    _empty(map_create_mode_filter);
+    create_game_mode_select(
+        map_create_mode_filter,
+        (opt, value) => {
+            global_create_screen.selected_mode = opt.dataset.value;
+        },
+        (initValues) => {
+            console.log(JSON.stringify(initValues[0]));
+            global_create_screen.selected_mode = initValues[0].mode;
+        }
+    );
 }
 
 function create_screen_new_map() {
-    open_modal_screen("map_create_modal_screen", function() {
-        let map_create_mode_filter = _id("map_create_mode_filter");
-
-        _empty(map_create_mode_filter);
-        create_game_mode_select(
-            map_create_mode_filter,
-            (opt, value) => { global_create_screen.selected_mode = opt.dataset.value; }
-        );
+    open_modal_screen("map_create_modal_screen", function () {
+        _empty(_id("map_create_modal_error"));        
     });
 }
 
+function create_screen_open_map_folder() {
+    engine.call("open_map_folder");
+}
+
 function confirm_create_new_map() {
+    const MAX_NAME_LENGTH = 20;
+
     const mode = global_create_screen.selected_mode;
     const id = _id("map_create_id").value;
     const name = _id("map_create_name").value;
+
+    /* Input validations */
+    if(!mode || mode.length === 0) {
+        _id("map_create_modal_error").innerHTML = localize("map_error_no_mode");    
+        return;
+    }
+    if (id.match(/^[a-z0-9_]+$/) == null) {
+        _id("map_create_modal_error").innerHTML = localize("map_error_id_invalid");    
+        return;
+    }
+    if (name.length === 0) {
+        _id("map_create_modal_error").innerHTML = localize("map_error_name_empty");    
+        return;
+    }
+    if (name.length > MAX_NAME_LENGTH) {
+        _id("map_create_modal_error").innerHTML = localize("map_error_name_too_large");    
+        return;
+    }
 
     RemoteResources.create_remote_map(id, name, mode, (ret) => {
         if(ret.success) {
@@ -39,10 +70,17 @@ function confirm_create_new_map() {
                 "msg": localize("toast_create_map_success"),
             });
         } else {
-            queue_dialog_msg({
-                "title": localize("toast_create_map_title"),
-                "msg": localize("toast_create_map_error"),
-            });
+            _id("map_create_modal_error").innerHTML = localize("map_error_id_taken");
+            if (ret.reason)
+                queue_dialog_msg({
+                    "title": localize("toast_map_error_title"),
+                    "msg": localize(ret.reason),
+                });
+            else
+                queue_dialog_msg({
+                    "title": localize("toast_map_error_title"),
+                    "msg": localize("toast_map_error_body"),
+                });
         }
         close_modal_screen_by_selector('map_create_modal_screen')
     });
@@ -53,7 +91,6 @@ function onCreateScreenFilter() {
 }
 
 function load_custom_maps_list() {
-    /// #if BUILD_ENV == 'honeycreeper'
     RemoteResources.list_player_remote_maps_paginated(0, (data) => {
         render_create_screen_maps_list(
             data.map(map => ({
@@ -62,11 +99,11 @@ function load_custom_maps_list() {
                 name: map.name,
                 image: "mg_test.png",
                 author: map.author,
+                created_at: new Date(map.create_ts),
                 last_edit: new Date(map.update_ts)
             }))
         );
     }); 
-    /// #endif
 }
 
 function render_create_screen_maps_list(maps) {
@@ -79,9 +116,12 @@ function render_create_screen_maps_list(maps) {
         map_el.dataset.map_name = map.name;
         map_el.dataset.map_id = map.id;
 
-        let img = _createElement("img");
-        img.src = "/html/map_thumbnails/" + map.image;
-        map_el.appendChild(img);
+       // let img = _createElement("img");
+        //img.src = "/html/map_thumbnails/" + map.image;
+        //map_el.appendChild(img);
+        let background = _createElement("div", ["map_preview_background"]);
+        background.innerHTML = localize("map_community_preview");
+        map_el.appendChild(background);
 
         let gt = _createElement("div", ["gamemode", "i18n"]);
         gt.dataset.i18n = global_game_mode_map[map.mode].i18n
@@ -128,7 +168,6 @@ function render_create_screen_maps_list(maps) {
 }
 
 function create_screen_edit_map() {
-/// #if BUILD_ENV == 'honeycreeper'
     setFullscreenSpinner(true);
 
     RemoteResources.load_remote_map(global_create_screen.selected_map,
@@ -144,11 +183,9 @@ function create_screen_edit_map() {
                 "msg": localize_ext("toast_publish_map_error", {"name": key})
             });
         });
-/// #endif
 }
 
 function create_screen_confirm_delete_map() {
-/// #if BUILD_ENV == 'honeycreeper'
     close_modal_screen_by_selector('map_delete_modal_screen')
     setFullscreenSpinner(true);
 
@@ -157,11 +194,9 @@ function create_screen_confirm_delete_map() {
             setFullscreenSpinner(false);
             load_custom_maps_list();
         });
-/// #endif
 }
 
 function create_screen_confirm_publish_map() {
-/// #if BUILD_ENV == 'honeycreeper'
     close_modal_screen_by_selector('map_publish_modal_screen')
     setFullscreenSpinner(true);
 
@@ -181,5 +216,4 @@ function create_screen_confirm_publish_map() {
                 "msg": localize_ext("toast_publish_map_error", {"name": key})
             });
         });
-/// #endif
 }
