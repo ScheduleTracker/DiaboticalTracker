@@ -1,0 +1,53 @@
+
+///////////////////////////////////////////////////////////////////////--------------------MAGNET TRAP-----------------------------///////////////////////////////////////////////////////////////////
+magnet_trap
+{
+	map particle_sheet3.png
+		region region s3_rl_muzzle_2
+		animation_speed 50
+		animation_start 10
+		max_particles 50
+		max_emissions 0
+		lifetime 4
+		fade_in 0.5
+		blend add
+		fade_out 0.01
+		period 0.3
+		color_start 0.5 1 1 0.01 
+		color_end 0 1 1 0.0
+		scale_start 1.5 3
+		scale_end 1 2
+		rotation_start 0
+		aspect_start  0.5 1
+		fade_out 0.2
+		velocity_angles -90 5 5 -90 -5 -5
+		speed_start 1
+		speed_end 0
+		//auto_orient true
+		//turbulence 2000 1000 2000
+		//acceleration 0 -5 0 0 -2 0
+		
+		emitter horizontal_circle 40
+		position 0 -7 0
+		range 500
+}
+magnet_trap_2 magnet_trap
+{
+scale_start  1.5 3
+	scale_end 1 2
+
+}
+magnet_trap_3 magnet_trap
+{
+max_particles 10
+position 0 2 0
+speed_start 2
+lifetime 3
+}
+magnet_trap_field
+{
+subsystem magnet_trap
+subsystem magnet_trap_2
+subsystem  magnet_trap_3 
+}
+
