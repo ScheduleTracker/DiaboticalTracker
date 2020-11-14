@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-23f9b962079c3362c1a76d985d02016c07b023b5	anticheat/equ8.db
+ef3bf1d91b479300dbda6ea4bd37bd493de610a7	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1659,7 +1659,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-55b9cc700adbe79c665c66b7472dd080dfa8c26f	diabotical.exe
+9e64a2e8ee6b76ce6960f30a07391ec0d4e13230	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1688,7 +1688,7 @@ facdedb08a2c03e3ad6cc4198417ac45c03165d4	packs/models_weapons.dbp
 c782befffe28597f53b988f1cf16791af746c405	packs/models_weapons_crossbow.dbp
 e3059f7e2e514982f6fd7c64671712dddd5645cf	packs/models_weapons_rocket_launcher.dbp
 576bcaf29e6e108be9b2c9f9abf755fbd63e52cf	packs/models_weapons_shaft.dbp
-04ba8d2e9abd6b2dd4b4fceccde010415049bd10	packs/scripts.dbp
+d99701080682d7c82e1252c2d30b404d4f46e1eb	packs/scripts.dbp
 41e4e5eb57864cb401c1712e39c91c40a577d37f	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 676e37d176b95b1102506499d5934c291a070dc0	packs/textures_customization.dbp
@@ -5344,7 +5344,7 @@ f1cb2951dbb8be1cad4cbabad2dc48a82cc9dfcf	ui/html/components/main_menu/battlepass
 bd8efb73763675944acfe217ff2249683f81dc3d	ui/html/components/main_menu/battlepass_screen.js
 98866d46b7e63839c6edec5cb06d55fc60d2b46c	ui/html/components/main_menu/battlepass_upgrade_screen.js
 6f621e4361465b68843cb3ad92de8b36169fec7c	ui/html/components/main_menu/coin_shop_screen.js
-b2a91fa423cd37312d1a21a902e3be64d6b66587	ui/html/components/main_menu/create_screen.js
+2e1f00fe5902bb9d3b20ab2965ac9b84ba4b63b5	ui/html/components/main_menu/create_screen.js
 382c4358951deb6f8193f388e966784f63962601	ui/html/components/main_menu/customize_screen.js
 7a7c5b6b83fdb501524520cd35465b9a5682ea13	ui/html/components/main_menu/friend_list.js
 d727bf3507a457073ddbb6e036f989e876b45240	ui/html/components/main_menu/gift_screen.js
@@ -8869,7 +8869,7 @@ f35cae801bfb244e5b27d555b2d571004df0f3f2	ui/html/javascript/ui.js
 aaa6b0c3cf1486d4b388b8557c05b1582be520ac	ui/html/javascript/ui_br.js
 6f63ec7b3774041f5b8f9f7a7e188f95e2cf7781	ui/html/javascript/ui_contextmenu.js
 ac46b79c7abad70a8432c40464ecab419ab5fb37	ui/html/javascript/ui_crosshair_creator.js
-27fa2dc93f2ae13db5577de948313e848a78f887	ui/html/javascript/ui_customgame.js
+58a133bea119ff76832f0749279b747815a3a15e	ui/html/javascript/ui_customgame.js
 7805bc091abae5f560614597477166d5fa137e7f	ui/html/javascript/ui_data.js
 2ede9225a269e14a8e1ec06c7a03ed813db9749a	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
@@ -9252,7 +9252,7 @@ d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list - Copy.snafu
 8939d9fba0db615229490b0571f633d9a11c05e2	ui/html/snafu/weapons_list.snafu
 eb6ce3bb6e30c33c7194911f71c6ba24b6514d73	ui/html/snafu/you_fragged.snafu
 56895596eed9af37f7695b9bc7e63fff38e6c326	ui/html/styles-hud.css
-fea69cd29181923741a77e6c3eb0e6b56427c4ca	ui/html/styles-index.css
+fdf5b77f7bf84d98500be77046ba5320784b5744	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
@@ -9272,7 +9272,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 4bf8dc93589fb97321e114e6c1c24b5ea49cc8d0	ui/html/translations/strings_play.json
 67a7bfd9e31f2a5f98a215fe2d48f7fe3112d175	ui/html/translations/translation-de.js
-f42f3b94b30c64d2f4f3077138c97d77497651af	ui/html/translations/translation-en.js
+7e06640a9911fa78f8cb0a12564c6c1535a4f488	ui/html/translations/translation-en.js
 6243d7a90a345c85f40707e31d288fe517bb2855	ui/html/translations/translation-es-ES.js
 c3f300d1f185fd9825f4e32d9c00180fc856bb30	ui/html/translations/translation-es-MX.js
 c1e290c09a8d221fdc9ba0dfd4a05998648071b2	ui/html/translations/translation-fr.js
