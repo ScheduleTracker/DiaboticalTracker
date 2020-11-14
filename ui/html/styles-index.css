@@ -1942,7 +1942,7 @@ body, html {
     padding-right:0;
 }
 
-#map_choice_container_inner .map_preview_background {
+.map_preview_background {
     width: 100%;
     height: var(--customlist_height) ;
     box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.400000);
@@ -2015,6 +2015,18 @@ body, html {
     color: rgb(40,40,40);
     text-shadow:none;
 }
+#map_choice_container_inner .map .map_under_review {
+    top: 0px;
+    width: 100%;
+    color: rgba(255,255,255,0.5);
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 #map_choice_container_inner .spacer {
     height:2px; 
     width:100%; 
@@ -2024,6 +2036,7 @@ body, html {
 #map_choice_container_inner .spinner {
     width:100%;
 }
+
 
 #map_choice_container_menu {
     display: flex;
@@ -10476,6 +10489,20 @@ h2 {
 #custom_game_setting_password {
     display:none;
 }
+
+#custom_game_setting_map {
+    position: relative;
+}
+
+#custom_game_setting_map .map_preview_background {
+    position: absolute;
+    z-index: 0;
+}
+
+#custom_game_setting_map  > div{
+    z-index: 1;
+}
+
 #play_screen_customlist {
     display: none;
 

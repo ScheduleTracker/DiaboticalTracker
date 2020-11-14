@@ -448,10 +448,8 @@ function set_lobby_custom_map(value) {
             if (global_game_maps_state.selected_category === 'community') {
                 const map = global_game_maps_state.community.find(m => m.map === value);
 
-                _html(el, "<div>" + map.name + "</div>");
-                const map_thumbnail =
-                    global_game_maps_state.selected_category === 'official' ? `${value}.png` : 'mg_test.png';
-                el.style.backgroundImage = `url('map_thumbnails/${map_thumbnail}')`;
+                _html(el, "<div>" + map.name + "</div><span class='map_preview_background'>Community map</span>");
+                el.style.backgroundImage = ``;
             }
             else if (global_game_maps_state.selected_category === 'official') {
                 _html(el, "<div>"+_format_map_name(value)+"</div>");
@@ -1722,6 +1720,8 @@ function update_custom_game_settings(settings, init) {
         }
     }
 
+    console.log(JSON.stringify(settings));
+
     if (global_customSettingElements["map"].dataset.value != settings.map) {
         if (settings.map) {
             global_lobby_selected_map = settings.map;
@@ -1958,18 +1958,23 @@ function update_map_choices() {
         let map = _createElement("div", "map");
         
         if (category === 'official') {
-            const map_thumbnail = category === 'official' ? `${m.map}.png` : 'mg_test.png';
-            map.style.backgroundImage = `url(map_thumbnails/${map_thumbnail})`;
+            map.style.backgroundImage = `url(map_thumbnails/${m.map}.png)`;
         } else {
             let background = _createElement("span", ["map_preview_background"]);
             background.innerHTML = localize("map_community_preview");
             map.appendChild(background);
+
+            if (!m.reviewed) {
+                const review_warn = _createElement("span", ["map_under_review"]);
+                review_warn.innerHTML = localize("map_under_review");
+                map.appendChild(review_warn);
+            }
         }
 
         map.addEventListener("click", function() {
             map_selected(map, m);
         });
-
+        
         map.appendChild(_createElement("div", "text", m.name));
 
         if (m == selected) {
@@ -2011,8 +2016,9 @@ function custom_game_map_type_changed(btn, category) {
                             maps.filter(map => map.create_ts !== map.update_ts)
                                 .map(map => ({
                                     map: map.map_id,
-                                    name: map.name,
-                                    author: map.author
+                                    name: map.reviewed ? map.name : map.random_name.replace('_', ' '),
+                                    author: map.author,
+                                    reviewed: map.reviewed
                                 }));
                         update_map_choices();
                     });

@@ -97,6 +97,7 @@ function load_custom_maps_list() {
                 id: map.map_id,
                 mode: map.mode_name,
                 name: map.name,
+                random_name: map.random_name,
                 image: "mg_test.png",
                 author: map.author,
                 created_at: new Date(map.create_ts),
@@ -132,7 +133,7 @@ function render_create_screen_maps_list(maps) {
 
         let div = _createElement("div");
         let name = _createElement("div", "name");
-        name.innerHTML = map.name;
+        name.innerHTML = map.name + "<br>(Temporarily named <i>" + map.random_name.replace('_', ' ').toUpperCase() + "</i> pending name moderation)";
         div.appendChild(name);
         let author = _createElement("div", "author");
         author.innerHTML = map.author;

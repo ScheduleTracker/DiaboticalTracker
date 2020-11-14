@@ -3325,5 +3325,6 @@ var TRANSLATION_en =
     "map_create_name_label": "Choose a name for your map. Maximum size: 20 characters.",
     "map_create_name_example": "(Example: Temple Escape)",
     "map_create_id_example": "(Example: tt_temple_escape)",
-    "map_community_preview": "Community map"
+    "map_community_preview": "Community map",
+    "map_under_review": "Name pending moderation. Temporary name shown."
 }
