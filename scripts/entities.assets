@@ -496,6 +496,8 @@ asset weaponiw
 	scale 1.4
 	pfx weapon_pickup_pfx_iw
 	pickup_size large
+	selection_size_override 18
+    selection_vertical_offset 18
 }
 asset weaponsw
 {
@@ -503,6 +505,8 @@ asset weaponsw
 	scale 1.4
 	pfx weapon_pickup_pfx_sw
 	pickup_size large
+	selection_size_override 18
+    selection_vertical_offset 18
 }
 asset weaponbw
 {
@@ -510,6 +514,8 @@ asset weaponbw
 	scale 1.4
 	pfx weapon_pickup_pfx_bw
 	pickup_size large
+	selection_size_override 18
+    selection_vertical_offset 18
 }
 asset weaponhw
 {
@@ -517,6 +523,8 @@ asset weaponhw
 	scale 1.4
 	pfx weapon_pickup_pfx_hw
 	pickup_size large
+	selection_size_override 18
+    selection_vertical_offset 18
 }
 asset weaponsmw
 {
@@ -524,6 +532,8 @@ asset weaponsmw
 	scale 1.4
 	pfx weapon_pickup_pfx_smw
 	pickup_size large
+	selection_size_override 18
+    selection_vertical_offset 18
 }
 asset weaponkw
 {
@@ -531,6 +541,8 @@ asset weaponkw
 	scale 1.4
 	pfx weapon_pickup_pfx_kw
 	pickup_size large
+	selection_size_override 18
+    selection_vertical_offset 18
 }
 asset macguffin
 {
@@ -538,4 +550,6 @@ asset macguffin
   scale 1.4
   pickup_size large
   pfx macguffin_pfx 0 10 0
+  selection_size_override 22
+  selection_vertical_offset 20
 }
