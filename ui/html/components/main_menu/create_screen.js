@@ -133,7 +133,11 @@ function render_create_screen_maps_list(maps) {
 
         let div = _createElement("div");
         let name = _createElement("div", "name");
-        name.innerHTML = map.name + "<br>(Temporarily named <i>" + map.random_name.replace('_', ' ').toUpperCase() + "</i> pending name moderation)";
+        let temp_name_message = "";
+        if (map.random_name){
+            temp_name_message = "<br>(Temporarily named <i>" + map.random_name.replace('_', ' ').toUpperCase() + "</i> pending name moderation)";
+        }
+        name.innerHTML = map.name + temp_name_message;
         div.appendChild(name);
         let author = _createElement("div", "author");
         author.innerHTML = map.author;
