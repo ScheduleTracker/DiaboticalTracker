@@ -1855,6 +1855,14 @@ models\test\testbeam\testbeam_tile.dbm		2996
 models\test\testbeam\testbeam_tile.fbx		24816
 models\test_roof.dbm		793637
 models\test_roof.fbx		161456
+models\traps\magnetic\magnetic_trap.assets		186
+models\traps\magnetic\magnetic_trap.fbx		260320
+models\traps\magnetic\magnetic_trap.shader		838
+models\traps\magnetic\magnetic_trap_d.png		89766
+models\traps\magnetic\magnetic_trap_n.png		164568
+models\traps\magnetic\magnetic_trap_s.png		51677
+models\traps\magnetic\magnetic_trap_vercol.ani		10
+models\traps\magnetic\magnetic_trap_vercol.fbx		166016
 models\tripledamage.dbm		175550
 models\tripledamage.fbx		124832
 models\wave.dbm		757441
