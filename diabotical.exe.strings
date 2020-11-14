@@ -45447,7 +45447,7 @@ lobby_custom_instagib
 lobby_team_offset_3
 Offset of third eggbot in menu in relation to first one.
 Format: x,z,yaw (No spaces)
-0.20.407
+0.20.407b
  depth=
 POSITION
 <><><><<>>><>>>>>> Initializing Vertex Shader 
@@ -48808,7 +48808,6 @@ ffffff
 ?333333
 @333333
 l~~~~~~~~~~~~~~~~
-RSDS$1
 C:\reborn\tracked\tmp_symbols_EVE_Release\diabotical.pdb
 .text
 .text$di
