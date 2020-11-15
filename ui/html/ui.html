@@ -1234,6 +1234,16 @@
                                     <div class="controls_value_empty"></div>
                                 </div>
                             </div>
+                            <div class="controls_row">
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_analyze_lighting">Analyze Lighting</div>
+                                    <div class="controls_value" data-db-binding="toggle editor_inspect_lights" data-db-binding-mode="editor"></div>
+                                </div>
+                                <div class="controls_pair">
+                                    <div class="controls_header_empty"></div>
+                                    <div class="controls_value_empty"></div>
+                                </div>
+                            </div>
 
                             <div class="controls_category settings_header i18n" data-i18n="settings_controls_section_communication" style="margin-top:2vh;">Communication</div>
                             <div class="controls_row">
@@ -2891,25 +2901,27 @@
         </div>
     </div>
 
-    <div id="create_screen_list" style="--customlist_height:100px;">
-    <!-- example html:
-        <div class="create_map_preview">
-            <img src="/html/map_thumbnails/tdm_alchemy.png">
-            <div class="gametype">TDM</div>
-            <div class="bottom">
-                <div>
-                    <div class="name">tdm_alchemy</div>
-                    <div class="author">promEUs</div>
-                </div>
-                <div class="edit_info">
-                    <div class="last_edit">Last edit</div>
-                    <div>2 days ago</div>
+    <div class="scroll-outer">
+        <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+        <div id="create_screen_list" style="--customlist_height:100px;" class="scroll-inner">
+        <!-- example html:
+            <div class="create_map_preview">
+                <img src="/html/map_thumbnails/tdm_alchemy.png">
+                <div class="gametype">TDM</div>
+                <div class="bottom">
+                    <div>
+                        <div class="name">tdm_alchemy</div>
+                        <div class="author">promEUs</div>
+                    </div>
+                    <div class="edit_info">
+                        <div class="last_edit">Last edit</div>
+                        <div>2 days ago</div>
+                    </div>
                 </div>
             </div>
+        -->
         </div>
-    -->
     </div>
-
 </div>
 
             <div id="practice_screen">

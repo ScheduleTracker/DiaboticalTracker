@@ -2083,6 +2083,7 @@ var TRANSLATION_en =
     "settings_controls_teamchat_short":"Team",
     "settings_controls_teamchat":"Team Chat",
     "settings_controls_team_voice_chat":"Team Voice Chat",
+    "settings_controls_analyze_lighting":"Analyze Lighting",
     "settings_controls_shoot":"Shoot",
     "settings_controls_jump":"Jump",
     "settings_controls_zoom":"Zoom",

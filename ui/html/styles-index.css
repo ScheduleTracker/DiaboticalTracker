@@ -14472,7 +14472,7 @@ h2 {
 
 #create_screen {
     position:absolute;
-    top:18vh;
+    top:12vh;
     display:none;
     flex-direction:column;
     align-self:center;
@@ -14510,6 +14510,7 @@ h2 {
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
+    height: 70vh;
 }
 #create_screen_list .create_map_preview {
     width: 33.333333%;
