@@ -131,14 +131,17 @@ function render_create_screen_maps_list(maps) {
 
         let bottom = _createElement("div", "bottom");
 
-        let div = _createElement("div");
+        let div = _createElement("div", "details");
         let name = _createElement("div", "name");
-        let temp_name_message = "";
-        if (map.random_name){
-            temp_name_message = "<br>(Temporarily named <i>" + map.random_name.replace('_', ' ').toUpperCase() + "</i> pending name moderation)";
-        }
-        name.innerHTML = map.name + temp_name_message;
+        name.innerHTML = map.name;
         div.appendChild(name);
+
+        if (map.random_name){
+            let temp_name = _createElement("div", "temp_name");
+            temp_name.innerHTML = "Temporarily named <i>" + map.random_name.replace('_', ' ').toUpperCase() + "</i> Pending name moderation";
+            div.appendChild(temp_name);
+        }
+
         let author = _createElement("div", "author");
         author.innerHTML = map.author;
         div.appendChild(author);
@@ -161,6 +164,9 @@ function render_create_screen_maps_list(maps) {
             const el = event.currentTarget;
             _for_each_in_class("create_map_preview", el => el.classList.remove("selected"))
             el.classList.add("selected");
+
+            _for_each_in_class("map_preview_background", el => el.classList.remove("selected"))
+            _for_each_with_class_in_parent(el, "map_preview_background", sub_el => sub_el.classList.add("selected"));
 
             if (_id("create_screen_selection_options").style.display !== 'flex')
                 anim_show(_id("create_screen_selection_options"));
