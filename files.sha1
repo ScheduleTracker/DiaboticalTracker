@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-19d72edf300e06d4c4dbdc14e3b1997136d90360	anticheat/equ8.db
+e0ae40790500fac731f0689ddb9e5ce742df5a77	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1659,7 +1659,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-188af26bb93b5f88fd0a5f77d9e264bb6e757c33	diabotical.exe
+d5b62cf3593b0a18f341880ccbb7304414b97a24	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -5344,7 +5344,7 @@ f1cb2951dbb8be1cad4cbabad2dc48a82cc9dfcf	ui/html/components/main_menu/battlepass
 bd8efb73763675944acfe217ff2249683f81dc3d	ui/html/components/main_menu/battlepass_screen.js
 98866d46b7e63839c6edec5cb06d55fc60d2b46c	ui/html/components/main_menu/battlepass_upgrade_screen.js
 6f621e4361465b68843cb3ad92de8b36169fec7c	ui/html/components/main_menu/coin_shop_screen.js
-21a724efe16ca7305814890970f883df9c891cec	ui/html/components/main_menu/create_screen.js
+87146fce4060472e36fa8a8b00b2ffa9dad5c9fa	ui/html/components/main_menu/create_screen.js
 382c4358951deb6f8193f388e966784f63962601	ui/html/components/main_menu/customize_screen.js
 7a7c5b6b83fdb501524520cd35465b9a5682ea13	ui/html/components/main_menu/friend_list.js
 d727bf3507a457073ddbb6e036f989e876b45240	ui/html/components/main_menu/gift_screen.js
@@ -8244,7 +8244,7 @@ aaba09053cc112fc9a475b6c67e88f5e76dcb2e7	ui/html/customization_pack/triker_weapo
 d1de6ff5947dda46f2cb1a8382a34f2416f5350d	ui/html/customization_pack/triker_weapon_pack_half_1.png
 8bb4efedef4945c13aa5ef8d1e09e953526c4390	ui/html/customization_pack/triker_weapon_pack_half_2.png
 bb7c24e86e64a7f7554faaf451f1bd2f3618506f	ui/html/editpad.html
-09b15d691927444bade9207b48f71d5ecbd497e1	ui/html/editpad_gf.html
+8057b9a6524fbbd06d0ce12597c519919426fb64	ui/html/editpad_gf.html
 0824393f032da9b14a25ed3a83e6907e4051cd1b	ui/html/fonts/CPMono_v07-Bold.otf
 bd4fa7f07e98aa83a4f2d943ec9d9cb3c3d601e6	ui/html/fonts/CPMono_v07-Plain.otf
 0f46d7eeb0a96d304059f4ae9dc28771d50fa5fa	ui/html/fonts/DroidSans-Bold.ttf
@@ -9252,7 +9252,7 @@ d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list - Copy.snafu
 8939d9fba0db615229490b0571f633d9a11c05e2	ui/html/snafu/weapons_list.snafu
 eb6ce3bb6e30c33c7194911f71c6ba24b6514d73	ui/html/snafu/you_fragged.snafu
 56895596eed9af37f7695b9bc7e63fff38e6c326	ui/html/styles-hud.css
-19855ee231133a2c5ca9f6721cc4f8c8cefb3980	ui/html/styles-index.css
+c5f9d143187e41450e12ff628c39c5bbed94a76f	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
@@ -9283,7 +9283,7 @@ b2a168b06844e6276ca0bdec24c6b9faa2ffae0f	ui/html/translations/translation-ko.js
 12ec265e9d92ef7072e2a5b1b4188899c1899f1f	ui/html/translations/translation-ru.js
 d973b3351a6b315cd672470925e8084e3596a741	ui/html/translations/translation-zh-CN.js
 44b49e0cdd2ba214dc3c0f25fbb7ea092b827c6f	ui/html/translations/translation-zh-TW.js
-65b34a2bd65a034e78ec885ab33293fbfab94673	ui/html/ui.html
+d2e174dea787489d6ac5a91d4da5a39d36451547	ui/html/ui.html
 18c61eaa43f0b2d2d56cabd10bfb4191336debf7	ui/html/vendors/anime/anime.min.js
 9737735e4a7e3a0db1fd7aec9c9670a94e31e035	ui/html/vendors/chartjs/_Chart.bundle.js
 388ec557ec1e260c59ce61d819077cb52949bd02	ui/html/vendors/fetch.umd.js
