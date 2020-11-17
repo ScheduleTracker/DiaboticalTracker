@@ -24,10 +24,10 @@ maps\b_alchemy.rbe		4999084
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
 maps\b_crystal_cove.rbe		6834159
-maps\b_furnace.rbe		6017278
+maps\b_furnace.rbe		6018585
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
-maps\b_icefall.rbe		2627219
+maps\b_icefall.rbe		2628580
 maps\b_marina-b.png		8774
 maps\b_marina-h.png		373884
 maps\b_marina.rbe		4399492
@@ -141,7 +141,7 @@ maps\tdm_alchemy_wip-h.png		473873
 maps\tdm_alchemy_wip.rbe		5175407
 maps\tdm_icefall-b.png		3456
 maps\tdm_icefall-h.png		481103
-maps\tdm_icefall.rbe		2627383
+maps\tdm_icefall.rbe		2628583
 maps\tdm_oxide.rbe		4027117
 maps\template_islands-b.png		2198
 maps\template_islands-h.png		361693
@@ -176,7 +176,7 @@ maps\weapon.rbe		30512
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
 maps\wo_crystal_cove.rbe		6832897
-maps\wo_furnace.rbe		6015151
+maps\wo_furnace.rbe		6016769
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
 maps\wo_refinery.rbe		6277732

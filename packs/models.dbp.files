@@ -1627,7 +1627,7 @@ models\Sonny_Animations\Void Cannon\Old\weaponvc.dbm		2332289
 models\Sonny_Animations\Void Cannon\Old\weaponvc.fbx		5917312
 models\Sonny_Animations\Void Cannon\weaponvc.dbm		2230360
 models\Sonny_Animations\Void Cannon\weaponvc.fbx		1724896
-models\sound\sound_entities.assets		6380
+models\sound\sound_entities.assets		6584
 models\sound\sphere.dbm		30234
 models\sound\sphere.obj		8753
 models\sphere.dbm		30234
@@ -1855,27 +1855,27 @@ models\test\testbeam\testbeam_tile.dbm		2996
 models\test\testbeam\testbeam_tile.fbx		24816
 models\test_roof.dbm		793637
 models\test_roof.fbx		161456
-models\traps\fire\fire_trap.assets		488
-models\traps\fire\fire_trap.fbx		194656
+models\traps\fire\fire_trap.assets		434
 models\traps\fire\fire_trap.shader		1195
-models\traps\fire\fire_trap_01_vfx_vercol.fbx		99728
-models\traps\fire\fire_trap_02_vfx_vercol.fbx		68192
+models\traps\fire\fire_trap_01_vfx_vercoltemp.fbx		99728
+models\traps\fire\fire_trap_02_vfx_vercoltemp.fbx		68192
 models\traps\fire\fire_trap_vfx_d.png		208794
+models\traps\fire\fire_traptemp.fbx		194656
 models\traps\fire\firetrap_d.png		303311
 models\traps\fire\firetrap_n.png		338434
 models\traps\fire\firetrap_s.png		158884
-models\traps\magnetic\magnetic_trap.assets		188
-models\traps\magnetic\magnetic_trap.fbx		260320
+models\traps\magnetic\magnetic_trap.assets		170
 models\traps\magnetic\magnetic_trap.shader		838
 models\traps\magnetic\magnetic_trap_d.png		89766
 models\traps\magnetic\magnetic_trap_n.png		164568
 models\traps\magnetic\magnetic_trap_s.png		51677
 models\traps\magnetic\magnetic_trap_vercol.ani		10
-models\traps\magnetic\magnetic_trap_vercol.fbx		166016
+models\traps\magnetic\magnetic_trap_vercoltemp.fbx		166016
+models\traps\magnetic\magnetic_traptemp.fbx		260320
 models\traps\spike\spike_trap.ani		11
-models\traps\spike\spike_trap.assets		147
-models\traps\spike\spike_trap.fbx		671152
+models\traps\spike\spike_trap.assets		129
 models\traps\spike\spike_trap.shader		440
+models\traps\spike\spike_traptemp.fbx		671152
 models\traps\spike\spiketrap_d.png		580335
 models\traps\spike\spiketrap_n.png		262827
 models\traps\spike\spiketrap_s.png		744827
