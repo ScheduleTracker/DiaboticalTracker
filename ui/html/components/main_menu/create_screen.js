@@ -183,7 +183,6 @@ function create_screen_edit_map() {
 
     RemoteResources.load_remote_map(global_create_screen.selected_map,
         (success) => {
-            console.log(JSON.stringify(success));
             setFullscreenSpinner(false);
             engine.call("edit_community_map", global_create_screen.selected_map);
         },

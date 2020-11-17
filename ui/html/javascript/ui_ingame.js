@@ -401,7 +401,6 @@ window.addEventListener("load", function(){
             make_hud_in_element("spec_hud", false, true);
         }
         setup_hud_references();
-        gameface_strafe_prefetch_check();
     });
 
     engine.call('get_hud_json', HUD_PLAYING).then(function (jsonStr) {

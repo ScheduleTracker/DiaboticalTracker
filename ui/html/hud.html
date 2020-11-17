@@ -479,26 +479,6 @@
 
     <div id="join_menu" onclick="join_menu_visible(false)">
     <div class="inner" onclick="event.stopPropagation();">
-        <!--
-        <div class="left">
-            <div class="join_header">
-                <div class="header_team">Teams</div>
-                <div class="header_count">Players</div>
-            </div>
-            <div class="join_row" data-bind-for="team_iter:{{game_data.teams}}">
-                <div class="team" data-bind-i18n="'team_with_idx:'+({{team_iter.team_id}} + 1)"></div>
-                <div class="count" data-bind-value="{{team_iter.players}}.length"></div>
-                <div class="join">
-                    <div class="join_btn" data-bind-i18n="'ingame_menu_join:'+{{team_iter.team_id}}" data-bind-click="join_menu_join_team({{team_iter.team_id}})">Join</div>
-                </div>
-            </div>
-
-        </div>
-        <div class="right">
-            <div class="join_match mouseover-sound4 click-sound i18n" data-i18n="ingame_menu_join_match" onclick="join_menu_join_match()">Join Match</div>
-            <div class="spectate i18n" data-i18n="ingame_menu_spectate" data-bind-if="{{game_data.team_switching}} == 2" onclick="join_menu_spectate()">Spectate</div>
-        </div>
-        -->
     </div>
 </div>
 
@@ -794,23 +774,6 @@
     [[/if]]
 </script>
 
-<!--<div class="stack_hp_overtip"      [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.min(100, 200-{{battle_data.self.hp}}) + '%'"[[/if]]></div>-->
-<!--
-<script id="hud_stack_bar" type="text/x-jsrender">
-    <div class="ha_bar_container"        [[if !hudPreview]] data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]] style="background-color:rgba(0,0,0,0.3);transform: [[if rightToLeft==1]]scaleX(-1)[[/if]] [[if armorOnTop==1]]scaleY(-1)[[/if]];">
-      
-      <div class="stack_hp_overbase"     [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.max(  0, {{battle_data.self.hp}}-100) + '%'"[[/if]] style="background-color:[[:hpColour]]"></div>
-      <div class="stack_hp_overbase"     [[if !hudPreview]] data-bind-if="{{battle_data.self.hp}}>100" data-bind-style-width="Math.max(  0, {{battle_data.self.hp}}-100) + '%'"[[/if]] style="background-color:rgba(255,255,255,0.3)"></div>
-      <div class="stack_hp_base"         [[if !hudPreview]] data-bind-style-width="Math.min({{battle_data.self.hp}},100) + '%'" [[/if]] style="--base_health_color_state:[[:hpColour]]"></div>
-      <div [[if !hudPreview]] data-bind-style-width="Math.min({{battle_data.self.hp}},100) + '%'" [[/if]] style="background-color:[[:hpColour]];position:absolute;left:0;top:25%;bottom:50%"></div>
-      <div class="stack_armor"           [[if !hudPreview]] data-bind-style-width="( {{battle_data.self.armor}}/2 ) + '%'" [[/if]] style="background-color:[[:armorColour]]">
-          <div class="stack_armor_waste" [[if !hudPreview]] data-bind-style-width="( 100*Math.max( {{battle_data.self.armor}}-({{battle_data.self.hp}}*2) , 0 ) / {{battle_data.self.armor}} ) + '%'" [[/if]]></div>
-      </div>
-      <div class="stack_armor_over"      [[if !hudPreview]] data-bind-style-width="( Math.max(Math.min( {{battle_data.self.armor}} - 100 , {{battle_data.self.hp}}*2 - 100 ),0) / 2 ) + '%'" [[/if]]></div>
-    </div>
-</script>
--->
-
 <script id="hud_placeholder" type="text/x-jsrender">
 </script>
 
@@ -830,152 +793,6 @@
 
 </script>
 
-
-<script id="hud_throttle" type="text/x-jsrender">
-    [[if !(hidePercent==1)]]
-    <div [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]] 
-         data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="true?strafe_data.efficiency:{{frame_data.speed}}" style="opacity:[[:opacity]]">0</div>
-    <div [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]]
-         data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" style="font-size:0.4em;opacity:[[:opacity]]" class="need_strafe_calc">%</div>
-
-    [[else]]
-    <div class="need_strafe_calc" [[if !hudPreview]]data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}"[[/if]] 
-         style="display:flex;justify-content:center;opacity:[[:opacity]];width:calc([[:barWidth]]vh*var(--ratio));height:calc([[:barHeight]]vh*var(--ratio));border: 1px solid rgba(255,255,255,0.25);[[if !(reversed==1)]]transform:scaleX(-1)[[/if]]">
-        <div data-bind-style-background-color="true?strafe_data.color:{{frame_data.speed}}"
-             data-bind-style-width="true?strafe_data.throttle:{{frame_data.speed}}"
-             data-bind-class-toggle="right:(true?strafe_data.spin:{{frame_data.speed}})"
-             style="position:absolute;height:100%;z-index:-1"
-             class="throttle_bar">
-        </div>
-        <div style="width:0;height:100%;border-left:1px solid rgba(0,0,0,0.25);border-right:1px solid rgba(0,0,0,0.25)"></div>
-    </div>
-    [[/if]]
-</script>
-
-<script id="hud_g_meter" type="text/x-jsrender">
-    <div data-bind-class-toggle="databound_set_invisible:!{{common_game_data.self_alive}}" 
-       [[if !hudPreview && showIn3D==1]]
-         data-bind-style-width ="Math.max({{frame_data.speed}}/320,1)*[[:size]] + 'vh'" 
-         data-bind-style-height="Math.max({{frame_data.speed}}/320,1)*[[:size]] + 'vh'"
-         data-bind-property="'--efficiency_dot_size_ref:'+(32000/Math.max(320,{{frame_data.speed}})+'%')"
-       [[/if]]
-         class="g_meter_container [[if showIn3D==1]]need_pitch_calc[[/if]] need_strafe_calc" 
-         style="opacity:[[:opacity]];--inner_ring_percentage:[[:ringInnerSize]]%;[[if hudPreview || !(showIn3D==1)]]width:calc([[:size]]vh*var(--ratio));height:calc([[:size]]vh*var(--ratio))[[/if]][[if showIn3D==1]];transform:rotate(360deg)[[/if]]">
-        <div class="jumppress_indicator"   data-bind-if="true?strafe_data.jump  :{{frame_data.speed}}"></div>
-        <div class="crouchpress_indicator" data-bind-if="true?strafe_data.crouch:{{frame_data.speed}}"></div>
-        <div class="groundstate_indicator" data-bind-if="true?strafe_data.cj    :{{frame_data.speed}}" data-bind-style-opacity="strafe_cj_opacity({{frame_data.speed}},[[:cjspeed]])"></div>
-      [[if !(hideKeypress==1||showIn3D==1)]]
-        <div class="g_meter_outer_ring" data-bind-class-toggle="heated:(strafe_data.cj&&({{frame_data.speed}}>[[:cjspeed]]))"
-                                        style="z-index:-1;background-image:radial-gradient(circle closest-side, black var(--inner_ring_percentage), rgba(255,255,255,0.25) calc(var(--inner_ring_percentage) + 1%), rgba(255,255,255,0.05) 100%, transparent 100.001%)">
-        </div>
-        <div class="g_meter_outer_ring" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}" style="border-radius:50%">
-            <div class="g_meter_outer_ring" style="transform:rotate(45deg);align-items:flex-start;justify-content:flex-start">
-                <div class="g_meter_outer_ring_highlight" data-bind-property="'--efficiency_color:'+(true?strafe_data.color:{{frame_data.speed}})"></div>
-                <div class="g_meter_outer_ring" style="transform:rotate( -45deg)">
-                    <div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*0.992773891679)) scale(calc([[:ringInnerSize]]/100))"></div>
-                <!--<div class="accel_dot_indicator_shadow" style="transform:translateY(calc(calc(var(--inner_ring_percentage)/(-2))*1)) scale(calc([[:ringInnerSize]]/100))"
-                         data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.shadowcolor:{{common_game_data.self_alive}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
-                    </div>-->
-                </div>
-            </div>
-        </div>
-        <div class="g_meter_outer_ring" style="transform:rotate(  45deg)"><div class="g_meter_vert_line"></div></div>
-        <div class="g_meter_outer_ring" style="transform:rotate( -45deg)"><div class="g_meter_vert_line"></div></div>
-        <div class="g_meter_outer_ring" style="transform:rotate(  90deg)"><div class="g_meter_vert_line"></div></div>
-        <div class="g_meter_outer_ring" style="transform:rotate( -90deg)"><div class="g_meter_vert_line"></div></div>
-        <div class="g_meter_outer_ring" style="transform:rotate( 135deg)"><div class="g_meter_vert_line"></div></div>
-        <div class="g_meter_outer_ring" style="transform:rotate(-135deg)"><div class="g_meter_vert_line"></div></div>
-        <div class="g_meter_outer_ring" style="transform:rotate( 180deg)"><div class="g_meter_vert_line"></div></div>
-        <div class="g_meter_outer_ring" style="transform:rotate( 360deg)"><div class="g_meter_vert_line"></div></div>
-      [[/if]]
-      [[if !(showSpeed==4)]][[if showSpeed==1||showSpeed==3]]
-        [[if showSpeed==3]]
-        <div style="position:absolute;display:flex;align-items:center;justify-content:center;transform:translateY(-150%)">
-             <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="true?strafe_data.efficiency:{{frame_data.speed}}" style="font-size:0.4em"></div>
-             <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" style="font-size:0.3em">%</div>
-        </div>
-        [[/if]]
-        <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="{{frame_data.speed}}">0</div>
-        <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" style="font-size:0.4em;position:absolute;transform:translateY(125%)">ups</div>
-      [[else]]
-        <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="true?strafe_data.efficiency:{{frame_data.speed}}">0</div>
-        <div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" style="font-size:0.4em">%</div>
-        [[if showSpeed==2]]<div data-bind-style-color="true?strafe_data.color:{{frame_data.speed}}" data-bind-value="{{frame_data.speed}}+'ups'" style="font-size:0.4em;position:absolute;transform:translateY(150%)"></div>[[/if]]
-      [[/if]][[/if]]
-        <div class="g_meter_inner_ring">
-        [[if hideKeypress==1||showIn3D==1]]
-          <div class="g_meter_octagon" data-bind-class-toggle="heated:(strafe_data.cj&&({{frame_data.speed}}>[[:cjspeed]]))"><div class="g_meter_vert_line"></div></div>
-          <div class="g_meter_octagon" style="border:none;transform:rotate(  45deg)"><div class="g_meter_vert_line"></div></div>
-          <div class="g_meter_octagon" style="border:none;transform:rotate( -45deg)"><div class="g_meter_vert_line"></div></div>
-          <div class="g_meter_octagon" style="border:none;transform:rotate(  90deg)"><div class="g_meter_vert_line"></div></div>
-          <div class="g_meter_octagon" style="border:none;transform:rotate( -90deg)"><div class="g_meter_vert_line"></div></div>
-          <div class="g_meter_octagon" style="border:none;transform:rotate( 135deg)"><div class="g_meter_vert_line"></div></div>
-          <div class="g_meter_octagon" style="border:none;transform:rotate(-135deg)"><div class="g_meter_vert_line"></div></div>
-          <div class="g_meter_octagon" style="border:none;transform:rotate( 180deg)"><div class="g_meter_vert_line"></div></div>
-        [[/if]]
-          <div class="sound_barrier" data-bind-style-transform-rotate="true?strafe_data.veldir:{{frame_data.speed}}">
-             <div class="airstate_indicator" data-bind-style-opacity="true?strafe_data.arrowopa:{{frame_data.speed}}" data-bind-class-toggle="active:{{frame_data.bolt_recharging_progress}}>0"></div>
-             <div class="g_meter_ripple g_meter_ripple_animation" data-bind-style-opacity="true?strafe_data.rippleopa:{{frame_data.speed}}"></div>
-             <div class="sound_barrier_wall"        data-bind-style-height="true?strafe_data.wallheight:{{frame_data.speed}}" data-bind-if="true?strafe_data.abovebase:{{frame_data.speed}}">
-               <div class="sound_barrier_inner_wall" data-bind-style-width="true?strafe_data.wallwidth :{{frame_data.speed}}"></div>
-               <div class="sound_barrier_inner_back" style="left:0%"></div>
-               <div class="sound_barrier_inner_back" style="left:10%"></div>
-               <div class="sound_barrier_inner_back" style="left:20%"></div>
-               <div class="sound_barrier_inner_back" style="left:30%"></div>
-               <div class="sound_barrier_inner_back" style="left:40%"></div>
-               <div class="sound_barrier_inner_back" style="right:0%"></div>
-               <div class="sound_barrier_inner_back" style="right:10%"></div>
-               <div class="sound_barrier_inner_back" style="right:20%"></div>
-               <div class="sound_barrier_inner_back" style="right:30%"></div>
-               <div class="sound_barrier_inner_back" style="right:40%"></div>
-             </div>
-          </div>
-          <div style="position:absolute;width:100%;height:100%;" data-bind-style-transform-rotate="true?strafe_data.keydir:{{frame_data.speed}}">
-               [[if hideKeypress==1 || showIn3D==1]]
-               <div class="g_meter_vert_line"  style="height:50%" 
-                    data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}" 
-                    data-bind-style-background-color="(true?strafe_data.color:{{frame_data.speed}})">
-               </div>
-               [[else]]
-               <div class="g_meter_vert_line"  style="height:50%;display:flex;align-items:flex-end;background-color:rgba(100,100,100,0.75)" data-bind-if="true?strafe_data.haskey:{{frame_data.speed}}">
-                    <div style="width:100%;" data-bind-style-height="true?strafe_data.lineheight:{{frame_data.speed}}" data-bind-style-background-color="(true?strafe_data.color:{{frame_data.speed}})"></div>
-               </div>
-               [[/if]]
-               [[if showIn3D==1]]
-               <div class="accel_dot_indicator_circle" style="background-image:none;display:flex;align-items:center;justify-content:center"
-                    data-bind-property="'--eff_dot_trans:'+(true?strafe_data.dot_trans:{{frame_data.speed}})">
-                   <div class="accel_dot_indicator_circle" style="transform:none"
-                        data-bind-style-width ="Math.min(32000/{{frame_data.speed}},100) + '%'" 
-                        data-bind-style-height="Math.min(32000/{{frame_data.speed}},100) + '%'"
-                        data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.color:{{frame_data.speed}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
-                   </div>
-               </div>
-               [[else]]
-               <div class="accel_dot_indicator_circle" 
-                    data-bind-property="'--eff_dot_trans:'+(true?strafe_data.dot_trans:{{frame_data.speed}})"
-                    data-bind-style-background-image-url="'images/g_meter_dot.svg?fill=' + (true?strafe_data.color:{{frame_data.speed}}) + '&stroke=#000000&stroke-width=2.5&stroke-opacity=1&fill-opacity=1&paint-order=stroke%20fill'">
-               </div>
-               [[/if]]
-          </div>
-        </div>
-    </div>
-</script>
-
-<script id="hud_yaw_ruler" type="text/x-jsrender">
-    [[if hudPreview]]
-    <div style="color:[[:bandColor]]">Aim Helper</div>
-    [[else]]
-    <div data-bind-style-height="true?strafe_data.pitch_clip:{{frame_data.speed}}" [[if crop==1]]data-bind-style-width="true?strafe_data.pitch_crop:{{frame_data.speed}}"[[/if]]
-         data-bind-if="{{common_game_data.self_alive}}"
-         style="overflow:hidden;transform:translateY(50%);display:flex;justify-content:center;align-items:flex-start">
-        <div data-bind-style-width="true?strafe_data.pitch_diam:{{frame_data.speed}}" 
-             data-bind-style-height="true?strafe_data.pitch_diam:{{frame_data.speed}}"
-             style="border-radius:50%;border:1px solid [[:bandColor]]">
-        </div>
-    </div>
-    [[/if]]
-    <div class="need_pitch_calc" style="display:none"></div>
-</script>
 
 <script id="hud_team_pickups" type="text/x-jsrender">  
 
@@ -1604,7 +1421,6 @@
 
     <script inline src="javascript/HUD_element.js"></script>
     <script inline src="javascript/ui_hud_creator.js"></script>
-    <script inline src="javascript/ui_strafe.js"></script>
     <script inline src="javascript/ui_fov.js"></script> <!-- FILM notation code used for focal length calc for onscreen indicators-->
     <script inline src="javascript/ui_crosshair_creator.js"></script>
 

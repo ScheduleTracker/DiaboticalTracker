@@ -342,12 +342,6 @@ async function update_fov_converter_preview(t_p, p_f, s_f, r_h, r_v){
 
 }
 
-function strafe_hud(name){
-    if (name == "g_meter" || name == "throttle" || name == "accelmeter" || name == "accelMeter") {
-	      return true;
-    } return false;
-}
-
 function update_fov_preview(){
   var fovHip  = _id('setting_fov').dataset.value;
   var fovZoom = _id('setting_zoom_fov').dataset.value;

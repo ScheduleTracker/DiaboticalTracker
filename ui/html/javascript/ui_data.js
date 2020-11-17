@@ -253,10 +253,6 @@ let global_weapon_reload_times = {
     18: 850,
 };
 
-var global_hud_need_strafe_calculations = false;
-var global_hud_need_pitch_calculations = false;
-var global_hud_direction_hints_enabled = false;
-
 let global_report_reasons = [
     {"id": 0, "i18n": "report_reason_offensive_sticker_setup" },
     {"id": 1, "i18n": "report_reason_cheating" },

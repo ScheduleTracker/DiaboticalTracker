@@ -401,28 +401,7 @@ function _process_hud_element_text(container_element, type, element, isPreview, 
 
 function element_property_override_filter(input) {
     var output = input;
-    if (output["t"] == "yaw_ruler") {
-        output["x"] = "50";
-        output["y"] = "50";
-        output["pivot"] = "center";
-    } else if (strafe_hud(output["t"])) {
-        if (output["t"] == "g_meter") {
-            output["cjspeed"] = isNaN(output["cjspeed"]) ? "390" : output["cjspeed"];
-            output["ringInnerSize"] = _clamp(output["ringInnerSize"], 0, 90);
-            if (output["rotateWithKeypress"]==1) {
-                output["t"] = "throttle";
-                output["barWidth"] = output["size"];
-                output["barHeight"] = "1";
-                output["reversed"] = "1";
-                output["opacity"] = "1";
-                output["hidePercent"] = 1;
-            }
-        } else if (output["t"] == "throttle") {
-            output["fontSize"] = _clamp(output["fontSize"], 0, 2*output["height"]);
-        } else {
-            output = {};
-        }
-    } else if (output["t"] == "fps") {
+    if (output["t"] == "fps") {
         engine.call("set_real_variable", "hud_fps", 0);
     }
     return output;

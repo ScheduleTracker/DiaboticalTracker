@@ -643,25 +643,8 @@ function teamColorChanged(team_idx, newColor) {
 
 function start_custom_game(btn) {
     if (btn.classList.contains("locked")) return;
-    if (global_game_maps_state.selected_category == "official") {
-        send_json_data({"action": "lobby-start"});
-    } else {
-        setFullscreenSpinner(true);
 
-        RemoteResources.load_remote_map(
-            global_customSettingElements["map"].dataset.value,
-            () => {
-                setFullscreenSpinner(false);
-
-                send_json_data({"action": "lobby-start"});
-            },
-            () => {
-                setFullscreenSpinner(false);
-
-                console.error("Failed on remote loading");
-            }
-        );
-    }
+    send_json_data({"action": "lobby-start"});
 }
 
 function custom_game_settings_changed(send_only) {
@@ -1719,8 +1702,6 @@ function update_custom_game_settings(settings, init) {
             custom_lobby_local_var_update = false;
         }
     }
-
-    console.log(JSON.stringify(settings));
 
     if (global_customSettingElements["map"].dataset.value != settings.map) {
         if (settings.map) {

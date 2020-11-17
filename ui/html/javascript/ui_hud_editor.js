@@ -874,41 +874,12 @@ function preview_hud_clear_properties() {
 }
 
 function reset_hud_properties() {
-    global_hud_need_strafe_calculations = false;
-    global_hud_need_pitch_calculations = false;
-    global_hud_direction_hints_enabled = false;
     if (editing_hud_data.elements) {
         var elements = editing_hud_data.elements;
         for (var i = 0; i < elements.length; i++) {
-            if (strafe_hud(elements[i].t)) {
-                if (elements[i].t == "g_meter") {
-                    global_hud_need_strafe_calculations = true;
-                    global_hud_direction_hints_enabled = true;
-                } else if (elements[i].t == "throttle") {
-                    global_hud_need_strafe_calculations = true;
-               	} else {
-                    elements.splice(i,1);
-                    refresh_preview_hud();
-                    i--;
-                }
-            }
-            
             element_property_override_filter(elements[i]);
         }
     }
-
-    /*
-    var checkbox = _id('enable_direction_hints');
-    if (global_hud_direction_hints_enabled){
-        checkbox.dataset.enabled = true;
-        checkbox.classList.add("checkbox_enabled");
-        checkbox.firstElementChild.classList.add("inner_checkbox_enabled");
-    } else {
-        checkbox.dataset.enabled = false;
-        checkbox.classList.remove("checkbox_enabled");
-        checkbox.firstElementChild.classList.remove("inner_checkbox_enabled");
-    }
-    */
 }
 
 function refresh_preview_element(type, idx) {
@@ -1065,49 +1036,6 @@ function fetchFriendlyElementName(type_string, debug){
     }
     return friendlyname;
 }
-
-/*
-function place_direction_hints_element(value, data, noupdate){ 
-    if (!data) data = editing_hud_data;
-    if (!(value||global_hud_direction_hints_enabled)||noupdate) {        
-        if (!data.elements) {
-             data.elements = [];
-        }  
-        var new_element = {
-            t: 'g_meter',
-            gid: -1,
-            x: 0,
-            y: 0,
-        };
-        var result = hud_elements.filter(obj => {
-            return obj.type === 'g_meter';
-        });
-        if (result.length > 0) {
-            result[0].setDefaultValues(new_element);
-        } 
-        data.elements.push(new_element);
-    }
-    let elements = data.elements;
-    for (let i = 0; i < elements.length; i++) {
-        if (elements[i].t === "g_meter") {
-            if (value) {
-                elements.splice(i,1);
-                i--;
-            } else {
-                elements[i].x="50";
-                elements[i].y="77";
-                elements[i].showSpeed="2";
-                value=true;
-                write_misc_hud_preference('dirhint','1');
-            }
-        } else if (elements[i].t === "coins"){
-                elements[i].y="20";
-        }
-    }
-    if (noupdate) return;
-    refresh_preview_hud();
-}
-*/
 
 let global_misc_hud_preference = {
     "hudaspect":'default',
