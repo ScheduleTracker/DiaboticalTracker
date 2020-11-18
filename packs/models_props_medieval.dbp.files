@@ -888,10 +888,14 @@ models\props\medieval\med_stained_glass_motif\med_window_round_glass_02_b1.fbx		
 models\props\medieval\med_stained_glass_motif\med_window_round_glass_02_b10.fbx		48416
 models\props\medieval\med_stained_glass_motif\med_window_round_glass_03_b1.fbx		52720
 models\props\medieval\med_stained_glass_motif\med_window_round_glass_03_b10.fbx		54496
+models\props\medieval\med_staircase\concrete_staircase_spiral-col.fbx		80192
+models\props\medieval\med_staircase\concrete_staircase_spiral.fbx		32240
+models\props\medieval\med_staircase\concrete_staircase_spiral_flipped-col.fbx		80224
+models\props\medieval\med_staircase\concrete_staircase_spiral_flipped.fbx		32336
 models\props\medieval\med_staircase\med_staircase-col.obj		35832
-models\props\medieval\med_staircase\med_staircase.assets		810
+models\props\medieval\med_staircase\med_staircase.assets		1104
 models\props\medieval\med_staircase\med_staircase.fbx		50912
-models\props\medieval\med_staircase\med_staircase.shader		5572
+models\props\medieval\med_staircase\med_staircase.shader		6360
 models\props\medieval\med_staircase\med_staircase_flipped-col.fbx		80144
 models\props\medieval\med_staircase\med_staircase_flipped.fbx		50848
 models\props\medieval\med_staircase\med_staircase_large-col.obj		71422
