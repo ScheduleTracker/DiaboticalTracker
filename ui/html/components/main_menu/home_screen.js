@@ -1,5 +1,8 @@
-function init_screen_home() {
-  const apiEndpoint = "https://dbgg.prismic.io/api/v2";
+var latest_patch_notes_read = "";  //for showing new patch notes indicator
+
+function init_screen_home() {  
+  const apiEndpoint = "https://dbgg.prismic.io/api/v2";  
+  engine.call("initialize_custom_component_value", "lobby_last_patch_notes_read");
 
   //PATCH NOTES
   PrismicJS.getApi(apiEndpoint)
@@ -23,6 +26,9 @@ function init_screen_home() {
           _id("home_screen_patch_notes_banner").addEventListener("click", function(){
             open_modal_screen('patch_notes_modal_screen');
             refreshScrollbar(_id("home_screen_patch_notes_cont").querySelector(".scroll-outer"));
+            if(response.results[0].data.patch_version && response.results[0].data.patch_version.length){
+              engine.call("set_string_variable", "lobby_last_patch_notes_read", response.results[0].data.patch_version[0].text);
+            }
           })          
         }
       },
@@ -93,14 +99,22 @@ function add_ingame_announcement(announcement_data, container, size){
   _id("home_screen_announcements_cont").style.display = "flex";
   let announcement_text_container = _createElement("div", "announcement_text_container");
   let announcement = _createElement("div", ["announcement", size]);
+  let announcement_background = _createElement("div", "announcement_background");
 
   if(announcement_data.background.hasOwnProperty('url')){     
-    announcement.style.backgroundImage = `url("${announcement_data.background.url}")`;
+    announcement_background.style.backgroundImage = `url("${announcement_data.background.url}")`;
   }
   if(announcement_data.url){
     announcement.classList.add("clickable");
     announcement.addEventListener("mousedown", _play_click1);
-    announcement.addEventListener("mouseenter", _play_mouseover2);
+    announcement.addEventListener("mouseenter", function(){
+      _play_mouseover2();
+      announcement_background.classList.add("hovered");
+    });
+    announcement.addEventListener("mouseleave", function(){
+      announcement_background.classList.remove("hovered");
+    })
+
     if(announcement_data.url.startsWith("https://")){
       announcement.addEventListener("click", function(){
         engine.call('open_browser', announcement_data.url);
@@ -198,6 +212,7 @@ function add_ingame_announcement(announcement_data, container, size){
     announcement.appendChild(announcement_live);
   }  
   
+  announcement.appendChild(announcement_background);
   announcement.appendChild(announcement_text_container);
   container.appendChild(announcement);
 }
@@ -219,21 +234,35 @@ function insertPrismicSpan(text, spans){
 }
 
 function generate_patch_banner(patch_data){
-  console.log(_dump(patch_data));
+  //console.log(_dump(patch_data));
   let patch_banner = _id("home_screen_patch_notes_banner");
   let patch_banner_head = _id("patch_notes_banner_header");
+
+  let patch_version = _createElement("div", "patch_column_left");
+  patch_version.appendChild(_createElement("div", "", localize("home_screen_patch_notes")));  
+  patch_banner_head.appendChild(patch_version);
+
+  let patch_date = _createElement("div", "patch_column_right");  
+  patch_banner_head.appendChild(patch_date);
+
   if(patch_data.patch_version && patch_data.patch_version.length){
-    let patch_version = _createElement("div", "patch_version");
-    patch_version.appendChild(_createElement("div", "", localize("home_screen_patch_notes")))
     patch_version.appendChild(_createElement("div", "", patch_data.patch_version[0].text))
-    patch_banner_head.appendChild(patch_version);
   }
 
   if(patch_data.timestamp){
     let patch_timestamp = new Date(patch_data.timestamp);
-    let patch_date = _createElement("div", "patch_date", patch_timestamp.toDateString());
-    patch_banner_head.appendChild(patch_date);
+    patch_date.appendChild(_createElement("div", "", patch_timestamp.toDateString()));
   }
+
+  if(latest_patch_notes_read != patch_data.patch_version[0].text){    
+    let patch_new = _createElement("div", "patch_new", localize("home_screen_new_exclamation"));
+    patch_date.appendChild(patch_new);
+    patch_banner.addEventListener("click", function(){
+      patch_new.style.display = "none";
+    })
+  }
+
+  patch_date.appendChild(_createElement("div"))
   
   var summary_text = _createElement("div", "patch_summary", "Including updates to ");
   for(let i=0; i < patch_data.body.length; i++){

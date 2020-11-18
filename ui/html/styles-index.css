@@ -1985,10 +1985,9 @@ body, html {
 }
 #map_choice_container_inner .map:hover {
     box-shadow: 0 0 0 0.2vh rgb(255,255,255);
-    color: rgba(255,255,255, 1);
 }
-#map_choice_container_inner .map > div {
-	padding-top: 0.2vh;
+
+#map_choice_container_inner .map .map_info {
     padding-left:1vh;
     padding-right:1vh;
     font-size: 1.5vh;
@@ -1996,7 +1995,7 @@ body, html {
 	/*background: linear-gradient(to top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);*/
 	position: absolute;
 	bottom: 0;
-	height: 3vh;
+	height: 4vh;
 	width: 100%;
 	text-transform: uppercase;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
@@ -2007,14 +2006,20 @@ body, html {
     overflow:hidden;
     white-space:nowrap;
     font-fit-mode:shrink;
-
     background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
 }
-#map_choice_container_inner .map > div.selected {
-    background-color: rgba(255, 255, 255, 0.75);
-    color: rgb(40,40,40);
-    text-shadow:none;
+
+#map_choice_container_inner .map .map_info .author {
+    font-size: 0.75rem;
+    opacity: 0.9;
 }
+
+#map_choice_container_inner .map .map_info .author:hover {
+    color: #ffee20;
+}
+
 #map_choice_container_inner .map .map_under_review {
     top: 0px;
     width: 100%;
@@ -2024,8 +2029,8 @@ body, html {
     text-align: center;
     font-size: 0.8rem;
     padding-top: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 #map_choice_container_inner .spacer {
     height:2px; 
@@ -7553,10 +7558,11 @@ h2 {
   height: 22vh;
   margin-bottom: 1vh;  
   box-shadow: 0px 2px 27px 0px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
 }
 
 #home_screen_announcements_cont .announcement.large{
-  width: 100%;
+  width: 40vh;
   flex-direction: row;
 }
 
@@ -7564,9 +7570,34 @@ h2 {
   width: 19.5vh; /*use (width of column - margin / 2) so space-between causes gap to be equal to margin if we want*/
 }
 
-
 #home_screen_announcements_cont .announcement.clickable:hover{  
   filter: brightness(1.1);
+}
+
+#home_screen_announcements_cont .announcement .announcement_background{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22vh;
+  background-color: rgba(26, 27, 31, 1);
+  z-index: -1;
+  transition-property: transform;
+  transition-duration: 175ms;
+}
+
+#home_screen_announcements_cont .announcement.large .announcement_background{
+  width: 40vh;
+}
+
+#home_screen_announcements_cont .announcement.small .announcement_background{
+  width: 19.5vh;
+}
+
+#home_screen_announcements_cont .announcement .announcement_background.hovered{
+  transform: scale(1.08);
 }
 
 #home_screen_announcements_cont .announcement .announcement_type{
@@ -7756,13 +7787,24 @@ h2 {
   background-repeat: no-repeat;
 }
 
-#patch_notes_banner_header .patch_version{
+#patch_notes_banner_header .patch_column_left{
   display: flex;
   flex-direction: column;
 }
 
+#patch_notes_banner_header .patch_column_right{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 #home_screen_patch_notes_banner .patch_summary{
   font-size: 1.25vh;
+}
+
+#home_screen_patch_notes_banner .patch_new{
+  font-size: 1.25vh;
+  color: rgb(233, 215, 56);
 }
 
 #home_screen .body_container {

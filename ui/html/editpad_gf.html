@@ -378,12 +378,27 @@
 		engine.call("set_color_property", element.dataset.entity, element.dataset.property, String(jscolor));
 	}
 
+	function _reset_color_pickers(selector) {
+		var colorPickers = document.querySelectorAll(selector);
+
+		for(var i = 0; i < colorPickers.length; i++){
+			var cp = colorPickers[i];
+            cp.onchange = null;
+			if (cp.jscolor){
+                cp.jscolor.onFineChange = null;
+                cp.jscolor.hide();
+                cp.jscolor = null;
+            }
+
+		}
+	}
+
 	function _setup_color_pickers(selector) {
 		var colorPickers = document.querySelectorAll(selector);
 
 		for(var i = 0; i < colorPickers.length; i++){
 			var cp = colorPickers[i];
-
+    
 			cp.jscolor = new jscolor(cp);
 
 			cp.jscolor.onFineChange = function(){ 
@@ -405,6 +420,10 @@
 	engine.on('entity_details', function (content, id, header_el_id, header_content) {
 		//$("#" + id).empty();
 		//$("#" + id).html(content);
+        
+        //PITFALL: Turn off any previous color pickers, else colors can be copied around
+        _reset_color_pickers("#" + id + " .color-picker-new");
+        
 		var el = _id(id);
 		_html(el, content);
         var header_el = _id(header_el_id);

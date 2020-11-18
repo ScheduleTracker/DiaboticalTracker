@@ -448,7 +448,7 @@ function set_lobby_custom_map(value) {
             if (global_game_maps_state.selected_category === 'community') {
                 const map = global_game_maps_state.community.find(m => m.map === value);
 
-                _html(el, "<div>" + map.name + "</div><span class='map_preview_background'>Community map</span>");
+                _html(el, "<div>" + map.name + "</div><span class='map_preview_background i18n' data-i18n='map_community_preview'>Community map</span>");
                 el.style.backgroundImage = ``;
             }
             else if (global_game_maps_state.selected_category === 'official') {
@@ -1926,6 +1926,10 @@ function teamSlotToSlotIDX(team, slot, max_slots) {
     return team * max_slots + slot;
 }
 
+function custom_game_map_on_author_click(e) {
+    open_player_profile(e.currentTarget.dataset.userId);
+}
+
 /* Update map choices based on global_game_maps_state */
 function update_map_choices() {
     const category = global_game_maps_state.selected_category;
@@ -1956,7 +1960,15 @@ function update_map_choices() {
             map_selected(map, m);
         });
         
-        map.appendChild(_createElement("div", "text", m.name));
+        map_info = _createElement("div", "map_info");
+        map_info.appendChild(_createElement("div", "text", m.name));
+        if (m.author) {
+            const map_author = _createElement("div", "author", `by ${m.author}`);
+            map_author.dataset.userId = m.user_id;
+            map_author.addEventListener("click", custom_game_map_on_author_click);
+            map_info.appendChild(map_author);
+        }
+        map.appendChild(map_info);
 
         if (m == selected) {
             map.classList.add("thumb_selected");
@@ -1999,6 +2011,7 @@ function custom_game_map_type_changed(btn, category) {
                                     map: map.map_id,
                                     name: map.reviewed ? map.name : map.random_name.replace('_', ' '),
                                     author: map.author,
+                                    user_id: map.user_id,
                                     reviewed: map.reviewed
                                 }));
                         update_map_choices();

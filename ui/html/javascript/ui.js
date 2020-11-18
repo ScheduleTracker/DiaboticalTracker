@@ -1046,6 +1046,7 @@ window.addEventListener("load", function(){
         if (variable == "lobby_custom_map") set_lobby_custom_map(value);
         if (variable == "lobby_custom_commands") set_lobby_custom_commands(value);
         
+        //Initialize crosshair creator
         if (variable.startsWith('hud_zoom_crosshair_definition:') && variable.substr(30) != currentCrosshairCreatorZoomWeaponIndex) {            
             initialize_crosshair_creator(true, generateFullCrosshairDefinition(value), variable, 'none');
             currentCrosshairCreatorZoomWeaponIndex = variable.substr(30); //so we dont initialize every time the engine_variable gets updated
@@ -1055,6 +1056,10 @@ window.addEventListener("load", function(){
             currentCrosshairCreatorWeaponIndex = variable.substr(25);   //so we dont initialize every time the engine_variable gets updated
         }
 
+        //Check if latest patch notes are the latest ones read
+        if (variable == "lobby_last_patch_notes_read") {
+            latest_patch_notes_read = value;
+        }
 
         // Call the response handler for any queued callbacks
         global_variable.handleResponse("custom_component", variable, value);

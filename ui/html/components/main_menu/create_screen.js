@@ -171,7 +171,7 @@ function render_create_screen_maps_list(maps) {
             if (_id("create_screen_selection_options").style.display !== 'flex')
                 anim_show(_id("create_screen_selection_options"));
 
-            global_create_screen.selected_map = el.dataset.map_id;            
+            global_create_screen.selected_map = el.dataset.map_id;
         });
     }
 
