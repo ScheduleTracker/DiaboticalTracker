@@ -1995,7 +1995,7 @@ body, html {
 	/*background: linear-gradient(to top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);*/
 	position: absolute;
 	bottom: 0;
-	height: 4vh;
+	height: 5vh;
 	width: 100%;
 	text-transform: uppercase;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
@@ -2032,6 +2032,28 @@ body, html {
     padding-left: 2rem;
     padding-right: 2rem;
 }
+#map_choice_container_inner .map .map_rating {
+    white-space:nowrap; 
+    display: flex;
+    flex-direction: row;
+    right: 0;
+    top: 0;
+}
+#map_choice_container_inner .map .map_rating .star {
+    width:1rem;
+    height:1rem;
+    background-size:80%;
+    background-position:center;
+    background-repeat:no-repeat;
+    opacity:1;
+    position:relative;
+    mask-image: url(/html/images/icons/fa/star-solid.svg);
+    mask-position:center;
+    mask-size: 0.75rem;
+    mask-repeat:no-repeat;
+    background-color:gold;
+}
+
 #map_choice_container_inner .spacer {
     height:2px; 
     width:100%; 

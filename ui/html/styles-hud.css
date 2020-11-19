@@ -1956,6 +1956,40 @@ h2 {
 #game_report_cont .report_head .head_side.mode_map_time .map { white-space:nowrap; }
 #game_report_cont .report_head .head_side.mode_map_time .time { white-space:nowrap; }
 
+#game_report_cont .report_head .head_side.mode_map_time .rate_map { 
+    white-space:nowrap; 
+    height: 6vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+#game_report_cont .report_head .head_side.mode_map_time .rate_map_stars { 
+    white-space:nowrap; 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+#game_report_cont .report_head .head_side.mode_map_time .rate_map .text { white-space:nowrap; }
+#game_report_cont .report_head .head_side.mode_map_time .rate_map .star {
+    width:4vh;
+    height:4vh;
+    background-size:80%;
+    background-position:center;
+    background-repeat:no-repeat;
+    opacity:0.2;
+    position:relative;
+    mask-image: url(/html/images/icons/fa/star-solid.svg);
+    mask-position:center;
+    mask-size:3vh 3vh;
+    mask-repeat:no-repeat;
+    background-color:gold;
+}
+
+#game_report_cont .report_head .head_side.mode_map_time .rate_map .star:hover,
+#game_report_cont .report_head .head_side.mode_map_time .rate_map .selected {
+    opacity: 1;
+}
+
 #game_report_cont .report_top {
     position:absolute;
     top:0;

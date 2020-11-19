@@ -447,6 +447,52 @@ function create_game_report(game_status, snafu_data) {
     head_right.appendChild(_createElement("div", "map", _format_map_name(game_status.map)));
     head_right.appendChild(_createElement("div", "time", _seconds_to_digital(game_status.match_time)));
 
+    if (current_match.community_map) {
+        const rate_map = _createElement("div", "rate_map");
+        rate_map.appendChild(_createElement("div", "text", "Rate this map"));
+
+        const rate_map_stars = _createElement("div", "rate_map_stars");
+        const MAX_MAP_RATE = 5;
+
+        let map_rate = 0;
+        let current_rate = 0; // TODO Use the rate retrieved from API
+        while (map_rate < MAX_MAP_RATE) {
+            const star_icon = _createElement("div", ["star"]);
+
+            star_icon.dataset.value = map_rate;
+            star_icon.addEventListener('mouseover', (e) => {
+                const rate = e.currentTarget.dataset.value;
+                Array.from(rate_map_stars.querySelectorAll(`.star`))
+                    .forEach((i, idx) => {
+                        if (idx < rate)
+                            i.classList.add('selected')
+                        else
+                            i.classList.remove('selected');
+                    });
+                console.log(rate);
+            });
+            star_icon.addEventListener('click', (e) => {
+                current_rate = parseInt(e.currentTarget.dataset.value, 10) + 1;
+                api_request("POST", `/content/rate/maps/${game_status.map}`, { rate: current_rate });
+
+            });
+            rate_map_stars.appendChild(star_icon);
+
+            map_rate++;
+        }
+        rate_map_stars.addEventListener('mouseout', (e) => {
+            Array.from(e.currentTarget.querySelectorAll(`.star`))
+                    .forEach((i, idx) => {
+                        if (idx < current_rate)
+                            i.classList.add('selected')
+                        else
+                            i.classList.remove('selected');
+                    });
+        })
+        rate_map.appendChild(rate_map_stars);
+        head_right.appendChild(rate_map);
+    }
+
     //=================//
     // MAIN SCOREBOARD //
     //=================//

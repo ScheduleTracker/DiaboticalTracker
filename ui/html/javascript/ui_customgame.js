@@ -1345,11 +1345,12 @@ function get_lobby_settings() {
 
 	return {
         // Strings:
-        private:    (visibility) ? true : false,        
-        name:       global_customSettingElements["name"].value,
-		mode:       mode,
-		map:        global_customSettingElements["map"].dataset.value,
-        datacenter: global_customSettingElements["location"].dataset.value,
+        private:       (visibility) ? true : false,        
+        name:          global_customSettingElements["name"].value,
+		mode:          mode,
+        map:           global_customSettingElements["map"].dataset.value,
+        community_map: (global_game_maps_state.selected_category === 'community') ? 1 : 0,
+        datacenter:    global_customSettingElements["location"].dataset.value,
 
         // Array of strings (hex color codes without hash):
         colors: colors,
@@ -1948,7 +1949,7 @@ function update_map_choices() {
             let background = _createElement("span", ["map_preview_background"]);
             background.innerHTML = localize("map_community_preview");
             map.appendChild(background);
-
+           
             if (!m.reviewed) {
                 const review_warn = _createElement("span", ["map_under_review"]);
                 review_warn.innerHTML = localize("map_under_review");
@@ -1967,6 +1968,13 @@ function update_map_choices() {
             map_author.dataset.userId = m.user_id;
             map_author.addEventListener("click", custom_game_map_on_author_click);
             map_info.appendChild(map_author);
+        }
+        if (m.rate != undefined) {
+            const rating = _createElement("div", ["map_rating"]);
+            for (let i = 0; i < m.rate; i++) {
+                rating.appendChild(_createElement("div", ["star"]));
+            }
+            map_info.appendChild(rating);
         }
         map.appendChild(map_info);
 
@@ -2012,7 +2020,8 @@ function custom_game_map_type_changed(btn, category) {
                                     name: map.reviewed ? map.name : map.random_name.replace('_', ' '),
                                     author: map.author,
                                     user_id: map.user_id,
-                                    reviewed: map.reviewed
+                                    reviewed: map.reviewed,
+                                    rate: map.rate
                                 }));
                         update_map_choices();
                     });

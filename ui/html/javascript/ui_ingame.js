@@ -514,6 +514,7 @@ window.addEventListener("load", function(){
             current_match.match_type = mani.match_type;
             current_match.mode = mani.mode;
             current_match.mm_mode = mani.mm_mode;
+            current_match.community_map = mani.community_map;
             current_match.setManifest(mani);
             cleanup_match_data();
 
@@ -821,6 +822,10 @@ window.addEventListener("load", function(){
         } else {
             anim_hide(_id("play_of_the_game"));
         }
+    });
+
+    bind_event("set_hud_api_token", function (token) {
+        apiHandler().updateToken(token);
     });
 
     // load callbacks from other files

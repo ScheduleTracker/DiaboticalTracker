@@ -308,7 +308,10 @@
     padding: 0.2vh;
     border:1px solid black;
 }
-
+.block_properties {
+    display: flex;
+    flex-direction: column;
+}
 .header_content {
     display: flex;
 	flex-direction: row;
@@ -339,6 +342,30 @@
 .header_bar span {
     color: #aaffff;
 }
+
+#buttons_actions > div, .selection_action_button {
+    margin-bottom: 0.6vh;
+    background-color: rgba(255,255,255,0.1);
+    width: 13.5vh;
+    padding: 0.4vh;
+    text-align: center;
+    margin-left: 4.5vh;
+}
+.selection_action_button {
+    margin: 0.5vh;
+    margin-bottom: 0.5vh;
+    width: auto;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    background-color: rgba(255,255,255,0.17);
+}
+#buttons_actions > div:hover, .selection_action_button:hover {
+    background-color: rgba(255,255,255,0.35);
+}
+#buttons_actions > div:active, .selection_action_button:active {
+    background-color: rgba(255,128,0,0.85);
+}
+
     </style> 
 	
     <script inline src="javascript/cohtml.js"></script>
@@ -691,5 +718,9 @@
 		<div id="tabs-button-5" onclick="_section(5)"><div class=image></div><div class=label>Settings</div></div>
 		<div id="tabs-button-6" onclick="_section(6)"><div class=image></div><div class=label>Help</div></div>
 	  </div>
-	  
+	  <div id="buttons_actions">
+        <div onclick="engine.call('action_save')" class=label>Save</div>
+        <div onclick="engine.call('action_undo')" class=label>Undo</div>
+        <div onclick="engine.call('action_redo')" class=label>Redo</div>
+      </div>
 </body>
