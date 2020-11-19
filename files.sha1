@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-e52e9022084abb98a2a7ab1a89669e1969c5ce16	anticheat/equ8.db
+befd7c073eb2ad59ec71ad1c0c38abcfacc3a0a9	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1660,7 +1660,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-e549e6fbcb8a8ca08406f9dca4e09fdb0aaf7c66	diabotical.exe
+63475f0bb473b7d54e8b6e3a0f28a4e016bcb7fc	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -5336,7 +5336,7 @@ f44abfa053c6eed3dfe0e98dd62687f98b8b2108	ui/html/asset_thumbnails/xsmallpipe_hor
 845785109821a039003c21faa5727e5a11de29d9	ui/html/asset_thumbnails/xsmallpipe_vertical.png.dds
 ec178b6ee8b4d0451760dc2987fc8fea321d58e7	ui/html/components/game_mode_select.js
 712c0747ccf20f68ae692014b8242593cb03df79	ui/html/components/ingame/aim_report.js
-78502d8d3f9461e4b52543e319b81f1ba09aa2df	ui/html/components/ingame/game_report.js
+1e309ed1b58bb88632c0cbc40cad5c1e8702ff97	ui/html/components/ingame/game_report.js
 707d9f2c6cdb3dc47c44ef039ce5499f2d2d2515	ui/html/components/ingame/item_shop.js
 f05157e48569d746e5190a0b9b5b8295f21c6cf4	ui/html/components/ingame/join_menu.js
 c91440aeff850ef7d2cf841129899ce224abec19	ui/html/components/ingame/rank_screen.js
@@ -8243,7 +8243,7 @@ aaba09053cc112fc9a475b6c67e88f5e76dcb2e7	ui/html/customization_pack/triker_weapo
 d1de6ff5947dda46f2cb1a8382a34f2416f5350d	ui/html/customization_pack/triker_weapon_pack_half_1.png
 8bb4efedef4945c13aa5ef8d1e09e953526c4390	ui/html/customization_pack/triker_weapon_pack_half_2.png
 bb7c24e86e64a7f7554faaf451f1bd2f3618506f	ui/html/editpad.html
-27317c07f9dda96d798cf49db645b520f11b41ce	ui/html/editpad_gf.html
+c3df8666214f6dd58b4a18424ac817c24b1e6529	ui/html/editpad_gf.html
 0824393f032da9b14a25ed3a83e6907e4051cd1b	ui/html/fonts/CPMono_v07-Bold.otf
 bd4fa7f07e98aa83a4f2d943ec9d9cb3c3d601e6	ui/html/fonts/CPMono_v07-Plain.otf
 0f46d7eeb0a96d304059f4ae9dc28771d50fa5fa	ui/html/fonts/DroidSans-Bold.ttf
@@ -8303,7 +8303,7 @@ d5558a3f6dbc6fad73e63ed68bf6a17a33411278	ui/html/fonts/veneer.otf
 8a565b6639a2c641b73ee59562c03c32d8fb3071	ui/html/fonts/veneer_italic.otf
 5fc5bc24de0991a2ff0d27ba57a9a40e7402f89f	ui/html/fonts/veneer_italic.ttf
 f04f891170e621e61285d8bd14f3cf50edb99ebf	ui/html/hud.bundle.js
-cd1fa169ae095884cba0552a129e269eeedeaa86	ui/html/hud.html
+35edab499f4aee8577f4e765413497f7c8dd7ecc	ui/html/hud.html
 0c21b3e58ae7542e913daa6bd979f5fe06488a1d	ui/html/images/Spark.svg
 e4ecc28ff7f62d353944e047e054cbfd37d2370f	ui/html/images/aim_videos/aim_mac_flickshots.webm
 e4ecc28ff7f62d353944e047e054cbfd37d2370f	ui/html/images/aim_videos/aim_mac_flickshots.webmnop
@@ -8677,6 +8677,7 @@ beb40c2bb53a68b8436a836335d74394bf44f68c	ui/html/images/icons/fa/sort-down.svg
 048aa69f170404948a925297fbc31871779c5b56	ui/html/images/icons/fa/sort-up.svg
 e697310c0ba93695fba5688e4b1803c90920acd9	ui/html/images/icons/fa/sort.svg
 a422c0496d4eb9157b15b99ec919e37aefc03035	ui/html/images/icons/fa/spinner.svg
+1c83c6595e2ea1d296e3ba7b144ccfec0bd590b6	ui/html/images/icons/fa/star-solid.svg
 ba415d4d7d037e3acc0a4d03cf9739c155d36ad0	ui/html/images/icons/fa/stopwatch.svg
 fdab3933d32677c5fdce3b010b36f9452fc63ab2	ui/html/images/icons/fa/sync-alt.svg
 b531d0faf8eb934e65af82b9588cc76f53a45af4	ui/html/images/icons/fa/thumbs-down.svg
@@ -8702,6 +8703,7 @@ e23772654ce621d99be5e5207edd51502933851d	ui/html/images/icons/poi_c.svg
 908b00d256f15903eb874df099e8a36fc2ebe2fb	ui/html/images/icons/reborn_coin_48.png
 2c85c8e04a338bb50bb9bbc0aad0e4423295858b	ui/html/images/icons/reborn_coin_72.png
 22df27e8d7eccb08a90d09d7a091200da2b8ee65	ui/html/images/icons/spinner_oval.svg
+1c83c6595e2ea1d296e3ba7b144ccfec0bd590b6	ui/html/images/icons/star-solid.svg
 54813461d2f9f328f27b53f2308afbee6d1ef25f	ui/html/images/infoicon.png
 9a94ba63c8a0f9235fd15c3da4fb5f1545fccd88	ui/html/images/input_ctrl.svg
 e30307965434967914aad93276c056102e98627d	ui/html/images/input_lmb.svg
@@ -8868,7 +8870,7 @@ a84138605e1dba56c8b44d59317d6a3af716f794	ui/html/javascript/spectrum_custom.js
 aaa6b0c3cf1486d4b388b8557c05b1582be520ac	ui/html/javascript/ui_br.js
 6f63ec7b3774041f5b8f9f7a7e188f95e2cf7781	ui/html/javascript/ui_contextmenu.js
 ac46b79c7abad70a8432c40464ecab419ab5fb37	ui/html/javascript/ui_crosshair_creator.js
-1aeafc88433e288280fce63e1ce05da48965388a	ui/html/javascript/ui_customgame.js
+07d0111995cc7e7c0a8f39362873622287026379	ui/html/javascript/ui_customgame.js
 0fa00e2235275f0407555a964f4055452ce8dc3a	ui/html/javascript/ui_data.js
 2ede9225a269e14a8e1ec06c7a03ed813db9749a	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
@@ -8876,7 +8878,7 @@ f9ee370110434a5cbdb57566979cf5db72128c35	ui/html/javascript/ui_fov.js
 dc29eac3efd7c23e1e75f5a84cb1c03a0f655af1	ui/html/javascript/ui_helpers.js
 71aea89d4e160e666345d20b3df2e57f1a911fb2	ui/html/javascript/ui_hud_creator.js
 a9948a47183c8a9d458485b63c33dff842457960	ui/html/javascript/ui_hud_editor.js
-fad8e52bb5c4af072d3da127f46cb870efa03aa2	ui/html/javascript/ui_ingame.js
+e8812e48c34a82f6eca9685923ed70701bb9d48a	ui/html/javascript/ui_ingame.js
 d4bf49b9cc1dff18fbfe80c213ce7d7ae4d413d4	ui/html/javascript/ui_mouse.js
 888be6f8df6b06fe4aae0f0a956bd07e39b15378	ui/html/javascript/ui_ms.js
 8ef7fe4cd529480bdf328d5e03b8eb25d545d4bc	ui/html/javascript/ui_play.js
@@ -9250,8 +9252,8 @@ c4c539caa8d41f90e37bbb2b35f46d1a9b82f0c7	ui/html/snafu/time_limit.snafu
 d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list - Copy.snafu
 8939d9fba0db615229490b0571f633d9a11c05e2	ui/html/snafu/weapons_list.snafu
 eb6ce3bb6e30c33c7194911f71c6ba24b6514d73	ui/html/snafu/you_fragged.snafu
-f8a57ab215caa4cb5dc0fcc14e6c44ba6b0ddb6b	ui/html/styles-hud.css
-45d2f299e6d3108f6e52d90ba9e545bc80a6a6a6	ui/html/styles-index.css
+df6fda932e7b9981ffebac89a1cad9e90b73bb4f	ui/html/styles-hud.css
+911d91055fccacd71763ac073436194a8d092c58	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
