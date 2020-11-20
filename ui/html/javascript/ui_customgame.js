@@ -72,6 +72,7 @@ let global_game_maps_state = {
     community: [],
     selected: undefined,
     selected_category: 'official',
+    order_by: undefined
 };
 
 function init_custom_modes() {
@@ -320,7 +321,7 @@ function init_screen_custom() {
         global_game_maps_state.selected = selected;
         global_game_maps_state.selected_category = 'official';
 
-        update_map_choices();
+        render_map_choices();
     });      
 
     _for_each_in_class("custom_component", function (element) {
@@ -364,6 +365,16 @@ function init_screen_custom() {
         }
         
         send_json_data({"action": "lobby-swap", "from": from, "to": {"team": -1, "slot": 0} });
+    });
+    
+    // Create map filters
+    ui_setup_select(_id("map_choice_sort"), (opt, field) => {
+        _id("map_choice_filter_input").value = '';
+        update_map_choices({ search: _id("map_choice_filter_input").value.trim(), order: field.dataset.value });
+    });
+
+    global_input_debouncers['map_choice_filter_input'] = new InputDebouncer(() => { 
+        update_map_choices({ search: _id("map_choice_filter_input").value.trim(), order: _id("map_choice_sort").dataset.value });
     });
 }
 
@@ -1932,13 +1943,18 @@ function custom_game_map_on_author_click(e) {
 }
 
 /* Update map choices based on global_game_maps_state */
-function update_map_choices() {
+function render_map_choices(sort = true, search = undefined) {
     const category = global_game_maps_state.selected_category;
-    const maps = global_game_maps_state[category];  
+    let maps = global_game_maps_state[category];  
     const selected = global_game_maps_state.selected;
 
     let fragment = new DocumentFragment();
-    maps.sort();
+    if (sort) maps.sort();
+    if (search && search.length) {
+        //const reg = new RegExp(`^${search.toLocaleLowerCase()}`);
+        //maps = maps.filter(m => m.name.toLocaleLowerCase().match(reg));
+        maps = maps.filter(m => m.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
+    }
 
     for (let m of maps) {
         let map = _createElement("div", "map");
@@ -1999,20 +2015,34 @@ function custom_game_map_type_changed(btn, category) {
         btn.classList.add("selected");
     }
 
+    global_game_maps_state.selected_category = category;
+    update_map_choices({ order: _id("map_choice_sort").dataset.value });
+    refreshScrollbar(_id("map_choice_container"));
+}
+
+function update_map_choices(options) {
+    const category = global_game_maps_state.selected_category;
+
+    if (options && options.search) {
+        render_map_choices(false, options.search);
+        return;
+    }
+
     let spinner_cont = _id("map_choice_container_inner");
     _empty(spinner_cont);
     spinner_cont.appendChild(_createSpinner());
-    
-    global_game_maps_state.selected_category = category;
+
     if (category !== 'official') {
+        _id("map_choice_filters").style.display = "flex";
+
         const mode = global_customSettingElements["mode"].dataset.value || 'ffa';
+        const order = options && options.order ? `&order=${options.order}` : ``;
 
         api_request("GET",
-                    `/content/maps?mode=${mode}`,
+                    `/content/maps?mode=${mode}${order}`,
                     {},
                     (maps) => {
                         _empty(spinner_cont);
-
                         global_game_maps_state[category] =
                             maps.filter(map => map.create_ts !== map.update_ts)
                                 .map(map => ({
@@ -2023,10 +2053,12 @@ function custom_game_map_type_changed(btn, category) {
                                     reviewed: map.reviewed,
                                     rate: map.rate
                                 }));
-                        update_map_choices();
+                        render_map_choices(false);
                     });
     } else {
+        _id("map_choice_filters").style.display = "none";
+
         _empty(spinner_cont);
-        update_map_choices();
+        render_map_choices();
     }
 }

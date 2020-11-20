@@ -4251,18 +4251,39 @@
 
         <div id="map_choice_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
-                <div id="map_choice_container" class="crosshair_scroll scroll-outer theme_settings" data-sb-hide-empty="true">
-                    <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+                <div id="map_choice_container">
                     <div id="map_choice_container_menu" style="display: flex;">
-                        <div id="map_choice_official" class="category mouseover-sound4 click-sound selected" onclick="custom_game_map_type_changed(this, 'official')">
+                        <div id="map_choice_official" class="category mouseover-sound4 click-sound selected"
+                            onclick="custom_game_map_type_changed(this, 'official')">
                             <div class="label">Official</div>
                         </div>
-                        <div id="map_choice_community" class="category mouseover-sound4 click-sound" onclick="custom_game_map_type_changed(this, 'community')">
+                        <div id="map_choice_community" class="category mouseover-sound4 click-sound"
+                            onclick="custom_game_map_type_changed(this, 'community')">
                             <div class="label">Community</div>
                         </div>
                     </div>
-                    <div id="map_choice_container_inner" class="scroll-inner">
-                        <div id="map_choice_container_inner_spinner"></div>
+                    <div id="map_choice_filters" class="filters">
+                        <div class="filter_cont">
+                            <div class="filter_icon"></div>
+                            <input id="map_choice_filter_input" type="text"
+                                oninput='global_input_debouncers["map_choice_filter_input"].execute()'>
+                        </div>
+                        <div id="map_choice_sort" class="select-field" data-theme="gray2">
+                            <div class="i18n" data-value="newest" data-selected=1 data-i18n="order_by_newest">Newest first</div>
+                            <div class="i18n" data-value="oldest" data-i18n="order_by_oldest">Oldest first</div>
+                            <div class="i18n" data-value="most_popular" data-i18n="order_most_popular">Most popular</div>
+                            <div class="i18n" data-value="alphabetically" data-i18n="order_alphabetically">Alphabetically</div>
+                        </div>
+                    </div>
+                    <div id="map_choice_container_scrollable" class="crosshair_scroll scroll-outer theme_settings"
+                        data-sb-hide-empty="true">
+                        <div class="scroll-bar">
+                            <div class="scroll-thumb"></div>
+                        </div>
+        
+                        <div id="map_choice_container_inner" class="scroll-inner">
+                            <div id="map_choice_container_inner_spinner"></div>
+                        </div>
                     </div>
                 </div>
             </div>

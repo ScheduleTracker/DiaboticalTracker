@@ -942,6 +942,9 @@ window.addEventListener("load", function(){
         }
 
         if (variable == "lobby_custom_mode") {
+            // Reset always to official maps when mode changes
+            global_game_maps_state.selected_category = 'official';
+
             if (!value.length) {
                 engine.call("set_string_variable", "lobby_custom_mode", global_lobby_init_mode);
                 value = global_lobby_init_mode;

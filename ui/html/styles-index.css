@@ -1534,6 +1534,10 @@ body, html {
     max-height:70%;
 }
 
+#map_choice_filter_input {
+    padding-top: 0.5vh;
+}
+
 #battlepass_rewards_modal_screen .generic_modal_dialog {
     padding:6vh 10vh;
 }
@@ -1928,9 +1932,28 @@ body, html {
     height: 100%;
 }
 
-#map_choice_container .scroll-bar {
+#map_choice_container_scrollable {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#map_choice_container_scrollable .scroll-bar {
     right: -2vh;
 }
+#map_choice_container .filters {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    margin-left: 4.000000px;
+    margin-right: 4.000000px;
+    
+}
+#map_choice_container .select-field {
+    width: auto;
+}
+
 #map_choice_container_inner {
     display: flex;
     flex: 1;

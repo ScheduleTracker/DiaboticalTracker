@@ -3191,6 +3191,8 @@ var TRANSLATION_en =
     "order_by_name":"Order by Name",
     "order_by_newest":"Newest first",
     "order_by_oldest":"Oldest first",
+    "order_most_popular": "Highest rated",
+    "order_alphabetically": "Alphabetically",
     "filter_all_maps": "All maps",
     "filter_title_game_mode":"Game Mode",
     "filter_title_game_status":"Game Status",
@@ -3331,4 +3333,5 @@ var TRANSLATION_en =
     "map_create_id_example": "(Example: tt_temple_escape)",
     "map_community_preview": "Community map",
     "map_under_review": "Name pending moderation. Temporary name shown."
+
 }

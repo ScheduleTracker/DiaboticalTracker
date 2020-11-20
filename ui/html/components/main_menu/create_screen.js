@@ -25,6 +25,7 @@ function init_screen_create() {
             global_create_screen.selected_mode = initValues[0].mode;
         }
     );
+
 }
 
 function create_screen_new_map() {
