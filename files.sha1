@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-befd7c073eb2ad59ec71ad1c0c38abcfacc3a0a9	anticheat/equ8.db
+78cf8e11dcac5d2ef8ac2f980581f89b1d69cac4	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1660,7 +1660,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-63475f0bb473b7d54e8b6e3a0f28a4e016bcb7fc	diabotical.exe
+b1acb058687a9b6d6e520ef552907feb8a893f1b	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1671,7 +1671,7 @@ de0feed659f783a8555efd579685d5b16eee3bd7	libcrypto-1_1-x64.dll
 b51420f5acd33b7b0625fe9a1bd0c619a7791b08	manifest.rbd
 7952bec4fa818a443c7199e3bf46c680cc0b0c38	msvcp140.dll
 b00fb5dd258ddfcf7a757bbc0ae904c950ac50e3	packs/blocks.dbp
-f7386c71f7a0cf104f60fe20e86435aa4271775d	packs/maps.dbp
+a24e9c3f7378a16238659523c174da9eb3914d81	packs/maps.dbp
 cb25a6057b5628fae9d906a6a7830fcf4fe03aa0	packs/models.dbp
 e0c7baff04e342d3fcc1a471cf5eeaeaab854d45	packs/models_dynamic_props.dbp
 fdb1aa37f6d88bc6810899ac12b88bcef7248921	packs/models_dynamic_props_industry.dbp
@@ -1679,7 +1679,7 @@ fdb1aa37f6d88bc6810899ac12b88bcef7248921	packs/models_dynamic_props_industry.dbp
 17d7dcf0ab583d33a09eed64e4ee45df3cf3d79d	packs/models_props.dbp
 ffc92ba66faf3b23ada3c0a2212194da9d427a9c	packs/models_props_clouds.dbp
 8298aa7d0a703b31244a490bd48ef8eaa5518b1b	packs/models_props_industrial.dbp
-98ab067a6fca474220827e4ed0725479360bb955	packs/models_props_medieval.dbp
+c8e253ad6ee6856736237442098588ee4afc216b	packs/models_props_medieval.dbp
 34e5a875034c7ba10514a375cb93ea85c10c4a82	packs/models_props_production.dbp
 918e9c066dc722ccf5d3c9f50956d1ce1367f4a7	packs/models_theme.dbp
 62b32e237f21a2cb81d62e4c7f9ea3ccedf76a64	packs/models_theme_japan.dbp
@@ -5345,7 +5345,7 @@ f1cb2951dbb8be1cad4cbabad2dc48a82cc9dfcf	ui/html/components/main_menu/battlepass
 bd8efb73763675944acfe217ff2249683f81dc3d	ui/html/components/main_menu/battlepass_screen.js
 98866d46b7e63839c6edec5cb06d55fc60d2b46c	ui/html/components/main_menu/battlepass_upgrade_screen.js
 6f621e4361465b68843cb3ad92de8b36169fec7c	ui/html/components/main_menu/coin_shop_screen.js
-ae274aa822b6d86681793a5516550836bbcb37cc	ui/html/components/main_menu/create_screen.js
+eb9474d0b66dbb46e85987a2cedf010119c09f64	ui/html/components/main_menu/create_screen.js
 382c4358951deb6f8193f388e966784f63962601	ui/html/components/main_menu/customize_screen.js
 7a7c5b6b83fdb501524520cd35465b9a5682ea13	ui/html/components/main_menu/friend_list.js
 d727bf3507a457073ddbb6e036f989e876b45240	ui/html/components/main_menu/gift_screen.js
@@ -8865,12 +8865,12 @@ c40464f28f894ae3e35568400655c1ac271d99de	ui/html/javascript/i18next.min.js
 3b6aa5970acdc38124e777efefe9832614ac9224	ui/html/javascript/script_data.js
 8c8e0bc0b7ea99fedd7ae667834be60101867408	ui/html/javascript/spectrum.js
 a84138605e1dba56c8b44d59317d6a3af716f794	ui/html/javascript/spectrum_custom.js
-72182cb7ada2bcca373a4e97d72bdf933fc01185	ui/html/javascript/ui.js
+9aeb77495ebd9307b6d5d3b8aa4f49b1d682843b	ui/html/javascript/ui.js
 1e373f0163a4fb18abf55f7c7f9cd27c896b5836	ui/html/javascript/ui_anim.js
 aaa6b0c3cf1486d4b388b8557c05b1582be520ac	ui/html/javascript/ui_br.js
 6f63ec7b3774041f5b8f9f7a7e188f95e2cf7781	ui/html/javascript/ui_contextmenu.js
 ac46b79c7abad70a8432c40464ecab419ab5fb37	ui/html/javascript/ui_crosshair_creator.js
-07d0111995cc7e7c0a8f39362873622287026379	ui/html/javascript/ui_customgame.js
+b1e457e3dfcdfa0fa9ff39c56738ba1fd2118df1	ui/html/javascript/ui_customgame.js
 0fa00e2235275f0407555a964f4055452ce8dc3a	ui/html/javascript/ui_data.js
 2ede9225a269e14a8e1ec06c7a03ed813db9749a	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
@@ -9253,7 +9253,7 @@ d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list - Copy.snafu
 8939d9fba0db615229490b0571f633d9a11c05e2	ui/html/snafu/weapons_list.snafu
 eb6ce3bb6e30c33c7194911f71c6ba24b6514d73	ui/html/snafu/you_fragged.snafu
 df6fda932e7b9981ffebac89a1cad9e90b73bb4f	ui/html/styles-hud.css
-911d91055fccacd71763ac073436194a8d092c58	ui/html/styles-index.css
+b6fa40495061867c647f249a9351febb952fbbb5	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
@@ -9273,7 +9273,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 4bf8dc93589fb97321e114e6c1c24b5ea49cc8d0	ui/html/translations/strings_play.json
 11187a98974f1cbc0891ba1354fe53e759574160	ui/html/translations/translation-de.js
-0042183e22ca49679e5ad528cbbba62fc618195f	ui/html/translations/translation-en.js
+2de64a2ff1461d8cdb91634eecabb78cd276d626	ui/html/translations/translation-en.js
 a31f3a0dda18ab97bcb4ee4b3b3f15e175bf9c7f	ui/html/translations/translation-es-ES.js
 8015be2ccdaefe0025633f7b908a7679cef8ae5c	ui/html/translations/translation-es-MX.js
 cc9ce2299863e5a88ab4482a587efe63647249f6	ui/html/translations/translation-fr.js
@@ -9284,7 +9284,7 @@ b2a168b06844e6276ca0bdec24c6b9faa2ffae0f	ui/html/translations/translation-ko.js
 12ec265e9d92ef7072e2a5b1b4188899c1899f1f	ui/html/translations/translation-ru.js
 d973b3351a6b315cd672470925e8084e3596a741	ui/html/translations/translation-zh-CN.js
 44b49e0cdd2ba214dc3c0f25fbb7ea092b827c6f	ui/html/translations/translation-zh-TW.js
-a0c24d4aaade6197efcf0a87f5ccab4fb21f4b26	ui/html/ui.html
+0ba2818b3e43b2566370f4d0048b7a3da44e0b9d	ui/html/ui.html
 18c61eaa43f0b2d2d56cabd10bfb4191336debf7	ui/html/vendors/anime/anime.min.js
 9737735e4a7e3a0db1fd7aec9c9670a94e31e035	ui/html/vendors/chartjs/_Chart.bundle.js
 388ec557ec1e260c59ce61d819077cb52949bd02	ui/html/vendors/fetch.umd.js
