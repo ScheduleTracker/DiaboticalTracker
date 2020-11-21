@@ -48,6 +48,6 @@ function on_aim_report_restart() {
 }
 
 function on_aim_report_leave() {
-    button_game_over_quit();
+    button_game_over_quit(true);
     anim_hide(_id("aim_report"));
 }

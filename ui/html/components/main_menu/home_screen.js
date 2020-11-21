@@ -1,6 +1,16 @@
 var latest_patch_notes_read = "";  //for showing new patch notes indicator
 
-function init_screen_home() {  
+function init_screen_home() {
+  //Set certain values to be exact pixel values to avoid overflow:hidden spilling 1px bug
+  _id("home_screen").style.top = Math.floor(6 * (window.outerHeight / 100)) + "px";
+  let announcement_column_width = 40;
+  let announcement_margin = 1;
+  document.documentElement.style.setProperty('--home-screen-column-margin', Math.floor(3 * (window.outerHeight / 100)));
+  document.documentElement.style.setProperty('--announcement-margin', Math.floor(announcement_margin * (window.outerHeight / 100)));
+  document.documentElement.style.setProperty('--announcement-height', Math.floor(22 * (window.outerHeight / 100)));
+  document.documentElement.style.setProperty('--announcement-large-width', Math.floor(announcement_column_width * (window.outerHeight / 100)));
+  document.documentElement.style.setProperty('--announcement-small-width', Math.floor(((announcement_column_width - announcement_margin) / 2) * (window.outerHeight / 100)));
+  
   const apiEndpoint = "https://dbgg.prismic.io/api/v2";  
   engine.call("initialize_custom_component_value", "lobby_last_patch_notes_read");
 

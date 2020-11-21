@@ -1417,5 +1417,5 @@ function game_report_requeue() {
     if (global_game_report_data_game_status.hasOwnProperty("match_type")) {
         send_string(CLIENT_COMMAND_REQUEUE, global_game_report_data_game_status.match_type);
     }
-    button_game_over_quit();
+    button_game_over_quit(true);
 }

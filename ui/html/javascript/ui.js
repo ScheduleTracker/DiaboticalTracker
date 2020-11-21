@@ -351,7 +351,7 @@ window.addEventListener("load", function(){
                     handle_match_reconnect(json_data);
                     break;
                 case "match-disconnect":
-                    button_game_over_quit();
+                    button_game_over_quit(false);
                     break;
                 case "queues":
                     global_queue_groups = json_data.queue_groups;

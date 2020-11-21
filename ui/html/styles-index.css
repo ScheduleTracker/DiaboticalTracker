@@ -174,6 +174,55 @@
     --hud-editor-modal-bg-top: #1d2329;
     --hud-editor-modal-bg-bottom: #131617;
     --hud-editor-modal-border-top_color: rgba(255, 255, 255, 0.07);
+    --top_bar_height:6vh;
+}
+/* Make the header/top row smaller on low aspect ratios */
+@media (max-width: 162vh) {
+    :root {
+        --top_bar_height:5vh;
+    }
+    .main_menu_logo_end_triangle {
+        width: 9vh;
+    }
+    .main_menu_wrapper {
+        width:28vh !important;
+    }
+    #main_menu_buttons .main_menu_button {
+        font-size:1.7vh;
+    }
+
+    .main_menu_icon {
+        width:4.5vh;
+    }
+    .main_menu_icon .icon {
+        background-size:1.8vh;
+    }
+    #main_menu_buttons .main_menu_button {
+        padding-left: calc(2.5px* var(--onevh) );
+        padding-right: calc(2.5px* var(--onevh) );
+        min-width:calc(10px* var(--onevh) );
+        font-size:1.6vh;
+    }
+    #mm_profile,
+    #mm_stats {
+        margin-right:3vh;
+    }
+
+    #player_profile_nav .navlink,
+    #settings_screen_menu .subsection,
+    #customize_screen .category_list .category {
+        font-size:1.3vh;
+        margin-left:0.8vh;
+        margin-right:0.8vh;
+    }
+}
+@media (max-width: 135vh) {
+    #main_menu_buttons .main_menu_button {
+        padding-left: calc(2px* var(--onevh) );
+        padding-right: calc(2px* var(--onevh) );
+        min-width:calc(10px* var(--onevh) );
+        font-size:1.5vh;
+    }
 }
 
 body, html {
@@ -183,7 +232,7 @@ body, html {
 
 #game_version {
     position:absolute;
-    top:7vh;
+    top:calc(1vh + var(--top_bar_height));
     right:1vh;
     font-size:1.3vh;
     font-family:var(--main-font-medium);
@@ -463,7 +512,7 @@ body, html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 6vh;
+    height: var(--top_bar_height);
     box-shadow: 0 3px 3px rgba(0, 0, 0, .4);
     background-color:#232629;
 }
@@ -484,7 +533,7 @@ body, html {
     z-index:1;
 }
 #main_menu_logo {
-    height: 6vh;
+    height: var(--top_bar_height);
 
     transform:skewX(-20deg);
     display:flex;
@@ -523,7 +572,7 @@ body, html {
     vertical-align: top;
     display: flex;
     flex-direction: row;
-    height: 6vh;
+    height: var(--top_bar_height);
     justify-content: center;
     align-items: center;
     padding-right: 8vh;
@@ -535,8 +584,8 @@ body, html {
     /*min-width:14vh;*/
     min-width:calc(14px * var(--onevh));
     transform:skewX(20deg);
-    line-height: 6vh;
-    height: 6vh;
+    line-height: var(--top_bar_height);
+    height: var(--top_bar_height);
     /*padding:0 3vh;*/
     padding-top:0;
     padding-left:calc(2.4px * var(--onevh));
@@ -613,8 +662,8 @@ body, html {
     align-items: center;
 }
 .main_menu_far_right_buttons .main_menu_icon {
-    height:6vh;
-    width:6vh;
+    width: var(--top_bar_height);
+    height: var(--top_bar_height);
     padding:0;
 }
 @keyframes gear_rotate {
@@ -632,14 +681,16 @@ body, html {
     vertical-align: top;
     display: flex;
     flex-direction: row;
-    height: 6vh;
+    height: var(--top_bar_height);
     justify-content: center;
     align-items: center;
 }
 .main_menu_icon {
     font-size: 1.6vh;
-    width: 5.6vh;
-    height: 6vh;
+    /*width: 5.6vh;*/
+    /*height: 6vh;*/
+    width: calc(0.93333 * var(--top_bar_height));
+    height: var(--top_bar_height);
     padding:0;
     background-repeat: no-repeat;
     background-position: center center;
@@ -671,7 +722,7 @@ body, html {
     width:100%;
     height:100%;
     background-repeat:no-repeat;
-    background-size:2.1vh;
+    background-size:40%;
     background-position:center;
     transition-property: filter, opacity;
     transition-duration: 300ms;
@@ -695,16 +746,11 @@ body, html {
 #mm_leaderboards .icon { background-image:url("/html/images/icons/fa/trophy.svg"); }
 #mm_stats .icon        { background-image:url("/html/images/icons/fa/chart-bar.svg"); }
 #mm_profile .icon      { background-image:url("/html/images/icons/fa/user.svg"); }
-#mm_learn .icon        { background-image:url("/html/images/icons/fa/graduation-cap.svg"); }
-
-#mm_learn {
-    display:none;
-}
 
 #mm_quit {
     font-size: 1.6vh;
-    width: 6vh;
-    height: 6vh;
+    width: var(--top_bar_height);
+    height: var(--top_bar_height);
     padding:0;
     background-repeat: no-repeat;
     background-position: center center;
@@ -733,20 +779,19 @@ body, html {
     overflow:hidden;
 }
 #mm_options > .icon_cont > .icon {
-    width:10vh;
-    height:10vh;
+    width:calc(2* var(--top_bar_height) );
+    height:calc(2* var(--top_bar_height) );
     animation: gear_rotate 2400ms linear infinite;
     animation-play-state: paused;
     background-image:url("/html/images/icons/fa/cog.svg");
     background-position:center;
     background-repeat:no-repeat;
-    background-size: 2.1vh;
+    background-size: 20%;
 }
 #mm_options > .icon_cont > .icon:hover {
     animation-play-state: running;
 }
 #mm_quit {
-    padding: 1vh;
     filter:saturate(1) brightness(1);
 }
 #mm_quit:hover {
@@ -754,8 +799,8 @@ body, html {
     filter:saturate(1.2) brightness(1.2);
 }
 #mm_quit > img {
-    height: 65%;
-    width:  65%;
+    height: 40%;
+    width:  40%;
 }
 
 /*
@@ -791,43 +836,6 @@ body, html {
 #mm_ingame.main_menu_button:hover { text-shadow: 0px 0px 1vh rgba(0, 0, 0, 0.8); }
 #mm_ingame.main_menu_button:active { text-shadow: 0px 0px 3vh rgba(0, 0, 0, 1); }
 */
-
-/* Make the main menu buttons narrower on low aspect ratios */
-@media (max-width: 162vh) {
-    #main_menu_buttons #mm_learn_big.main_menu_button {
-        display:none;
-    }
-    #mm_learn {
-        display:flex;
-    }
-    .main_menu_icon {
-        width:4.5vh;
-    }
-    .main_menu_icon .icon {
-        background-size:1.8vh;
-    }
-
-    .main_menu_wrapper {
-        width:28vh !important;
-    }
-    #main_menu_buttons .main_menu_button {
-        padding-left: calc(2.5px* var(--onevh) );
-        padding-right: calc(2.5px* var(--onevh) );
-        min-width:calc(10px* var(--onevh) );
-        font-size:1.6vh;
-    }
-}
-@media (max-width: 135vh) {
-    .main_menu_wrapper {
-        width:27vh !important;
-    }
-    #main_menu_buttons .main_menu_button {
-        padding-left: calc(2px* var(--onevh) );
-        padding-right: calc(2px* var(--onevh) );
-        min-width:calc(10px* var(--onevh) );
-        font-size:1.5vh;
-    }
-}
 
 
 
@@ -998,7 +1006,7 @@ body, html {
     width: 35vh;
 
     position: absolute;
-    top: 6vh;
+    top: var(--top_bar_height);
     left: 0;
     color: rgba(160,170,180,1.0);
     opacity: 1;
@@ -1170,7 +1178,7 @@ body, html {
     width: auto;
     height: auto;
     position: absolute;
-    top: 6vh;
+    top: var(--top_bar_height);
     right: 0;
     width: 22vh;
 }
@@ -6382,9 +6390,9 @@ h2 {
 #friends_list_popup {
     background-color: rgba(14, 14, 14, 0.98);
     position: absolute;
-    height: 90vh;
-    width: 40vh;
     bottom:4vh;
+    height: calc(96vh - var(--top_bar_height) );
+    width: 40vh;
     left: 0vh;
     display: none;
     flex-direction: column;
@@ -7434,7 +7442,7 @@ h2 {
   width: 100vw;
   position: absolute;
   left: 0;
-  top: 6vh;
+  /*top: 6vh; top now set in home_screen.js to be rounded-to-nearest-pixel value*/
   bottom: 4vh;
 }
 #home_screen_column_container{
@@ -7442,8 +7450,8 @@ h2 {
   flex-direction: row;
 }
 .home_screen_column{
-  margin-top: 3vh; /* Top bar is 6vh high*/
-  margin-left: 3vh;
+  margin-top: calc(1px*var(--home-screen-column-margin));
+  margin-left: calc(1px*var(--home-screen-column-margin));
   display: flex;
   flex-direction:column;
   justify-content: flex-start;
@@ -7483,17 +7491,6 @@ h2 {
   background-color: rgba(26, 27, 31, 1);
 }
 
-#home_screen_motd_background {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  animation: zoom 10s ease;
-}
 #home_screen_patch_notes_body {
   display:flex;
   flex-direction:column;
@@ -7576,7 +7573,7 @@ h2 {
 }
 
 #home_screen_announcements_cont{
-  width: 40vh;
+  width: calc(1px*var(--announcement-large-width));
   display: flex;
   flex-direction: column;  
   /*background-color: rgb(43, 44, 46);*/
@@ -7600,19 +7597,19 @@ h2 {
   align-items: center;
   justify-content: center; /*If we don't have an icon*/
   padding: 1.5vh;
-  height: 22vh;
-  margin-bottom: 1vh;  
+  height: calc(1px*var(--announcement-height));
+  margin-bottom: calc(1px*var(--announcement-margin));  
   box-shadow: 0px 2px 27px 0px rgba(0, 0, 0, 0.55);
   overflow: hidden;
 }
 
 #home_screen_announcements_cont .announcement.large{
-  width: 40vh;
+  width: calc(1px*var(--announcement-large-width));
   flex-direction: row;
 }
 
 #home_screen_announcements_cont .announcement.small{
-  width: 19.5vh; /*use (width of column - margin / 2) so space-between causes gap to be equal to margin if we want*/
+  width: calc(1px*var(--announcement-small-width)); /*use (width of column - margin / 2) so space-between causes gap to be equal to margin if we want*/
 }
 
 #home_screen_announcements_cont .announcement.clickable:hover{  
@@ -7624,9 +7621,7 @@ h2 {
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 22vh;
+  height: calc(1px*var(--announcement-height));
   background-color: rgba(26, 27, 31, 1);
   z-index: -1;
   transition-property: transform;
@@ -7634,15 +7629,15 @@ h2 {
 }
 
 #home_screen_announcements_cont .announcement.large .announcement_background{
-  width: 40vh;
+  width: calc(1px*var(--announcement-large-width));
 }
 
 #home_screen_announcements_cont .announcement.small .announcement_background{
-  width: 19.5vh;
+  width: calc(1px*var(--announcement-small-width));
 }
 
 #home_screen_announcements_cont .announcement .announcement_background.hovered{
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 #home_screen_announcements_cont .announcement .announcement_type{
@@ -12054,10 +12049,10 @@ h2 {
 #settings_screen {
     display: none;
     position: absolute;
-    top: 6vh;
+    top:var(--top_bar_height);
     left: 0;
     width: 100%;
-    height: 90vh;
+    bottom:4vh;
 
     justify-content:center;
 
@@ -13586,7 +13581,7 @@ h2 {
 
 #customize_screen .category_list {
     position:absolute;
-    top:6vh;
+    top:var(--top_bar_height);
     left:0;
     right:0;
     display:flex;
@@ -14698,7 +14693,7 @@ h2 {
 
 #player_profile_nav {
     position:absolute;
-    top:6vh;
+    top:var(--top_bar_height);
     width:100%;
     display:flex;
     flex-direction:row;
@@ -16122,7 +16117,7 @@ h2 {
 }
 #watch_screen {
     position:absolute;
-    top:18vh;
+    top:16vh;
     display:none;
     flex-direction:column;
     align-self:center;

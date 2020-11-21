@@ -1,7 +1,6 @@
 function init_screen_learn() {
     if (typeof global_weapon_data === 'undefined' || typeof global_gamemode_data === 'undefined'){
         _id("mm_learn").style.display = "none"; //if script data doesn't exist, hide learn button and dont initialize screen
-        _id("mm_learn_big").style.display = "none";
     }
     else {
         //mouseover/out events for tabs

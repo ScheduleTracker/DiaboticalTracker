@@ -529,9 +529,21 @@ function send_string(command, string, returnaction, cb) {
 }
 
 
-function button_game_over_quit() {
-    engine.call("game_over_quit");
-    send_string(CLIENT_COMMAND_DISCONNECTED);
+function button_game_over_quit(user_call) {
+    let leave = false;
+    if (user_call) {
+        leave = true;
+    } else {
+        // gameface data-bind global variable check <- writing this here just so we can find it again in case we get rid of gameface
+        if (application_data.in_match) {
+            leave = true;
+        }
+    }
+
+    if (leave) {
+        engine.call("game_over_quit");
+        send_string(CLIENT_COMMAND_DISCONNECTED);
+    }
 }
 
 function renderCustomizationInner(screen, type_id, id, amount, lazy) {
