@@ -534,8 +534,11 @@ function button_game_over_quit(user_call) {
     if (user_call) {
         leave = true;
     } else {
-        // gameface data-bind global variable check <- writing this here just so we can find it again in case we get rid of gameface
-        if (application_data.in_match) {
+        if (GAMEFACE_VIEW == "menu") {
+            if (global_client_in_game) {
+                leave = true;
+            }
+        } else {
             leave = true;
         }
     }

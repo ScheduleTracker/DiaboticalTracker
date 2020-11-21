@@ -1,6 +1,8 @@
 
+let global_client_in_game = false;
 function init_screen_ingame_menu() {
     bind_event("set_in_game", function(bool) {
+        global_client_in_game = bool;
         if (bool) {
             // show menu screen
             open_ingame_menu(true);
