@@ -1687,7 +1687,7 @@ A_A^A]A\_^]
 |$ ATAVAWH
  A_A^A\
 UATAUAVAWH
-}|L9%)
+}|L9%i
 A_A^A]A\]
 |$ ATAVAWH
 A_A^A\
@@ -1963,7 +1963,6 @@ D$Xc&
 UAVAWH
 A_A^]
 UAVAWH
-D85A"
 A_A^]
 WAVAWH
 \$0E3
@@ -2048,7 +2047,7 @@ L$pI+
 CD$`3
 X UVWATAUAVAWH
 L$@E3
-l$8D8-
+l$8D8-1
 D$HH;
 CL$PM
 D$8H;
@@ -2064,7 +2063,8 @@ A_A^A]A\_^]
 t8@8{au#H
 9|$Hv;H
 UVWATAUAVAWH
-t$P@8=6
+t$P@8=v
+@8=-!
 D9@ }
 (D$Pf
 D9@ }
@@ -2240,7 +2240,8 @@ pA_A^A]A\_^]
 |$ UH
 UAVAWH
 D$`E3
-E0D85
+E0D85B+
+D85++
 A_A^]
 (t$ H
 L$0E3
@@ -2248,12 +2249,12 @@ L$0E3
 )t$ f
 UWAVH
 u|L9=
-L9=!R
-D8=84
+L9=!B
+D8=9_
+D8=B$
+D8=s$
 u"D8=
-u	D8=
-D8=O3
-D8=T3
+u	D8=4$
 t$ UH
 UVWAVAWH
 @A_A^_^]
@@ -2327,7 +2328,6 @@ UVWAVAWH
 A_A^_^]
 @SUVWATAUAVAWH
 L9a8t
-oD9%Iu
 L$HH3
 XA_A^A]A\_^][
 @USVWATAUAVAWH
@@ -3808,7 +3808,7 @@ WAVAWH
 u4fff
  A_A^_
 uA;C |<H;
-?H;=&
+?H;=f
 |$ UATAUAVAWH
 t$xE3
 D9t$(
@@ -3983,22 +3983,23 @@ L$PH3
 (T$ D
 (t$0A
 (T$ D
-Y=C:~
+Y=3*~
 L$XH3
-(%c8~
+(%S(~
 L$PH3
 )U@uN
 YD$PA
 )\$pD
 (\$pD
 UWAVH
-u @85
+u @85@
 D$ E3
+Y5"}~
 )|$PH
 L$@H3
 (|$PH
 UVWATAUAVAWH
-u	D8=
+u	D8=7
 A_A^A]A\_^]
 t'fff
 D$0D9H s
@@ -4334,7 +4335,7 @@ t$ E3
 (D$pf
 A_A^]
 UAVAWH
-(51f|
+(5!V|
 L9{8vlI
 L;C8r
 A_A^]
@@ -4526,8 +4527,10 @@ t$ E3
 L$`H3
 A_A^A]A\_
 x UATAUAVAWH
+Y=iy|
 |$xD8
 CT$xL
+(%R||
 nL$@E
 t$xD8
 CT$xL
@@ -4858,7 +4861,6 @@ CT$pH
 8%t&H
 L$HH+
 A_A^A]A\]
-Y5j#z
 (D$0f
 (D$0f
 L$PI+
@@ -5520,6 +5522,7 @@ A_A^_^]
 0A_A^A]A\_^]
 l$ WH
 	L;G u2
+u);5$
 (t$0L
 )D$ 3
 u+H;A
@@ -5601,6 +5604,7 @@ A_A^A]A\]
 USVWATAUAVAWH
 D$X6'
 D$XE'
+X5q%w
 A_A^A]A\_^[]
 UVWATAUAVAWH
 D$Xd&
@@ -5609,6 +5613,7 @@ z8u6A
 A_A^A]A\_^]
 VWAVH
 D$@Hc
+H;=:G
 GHH+G@H
 t$ E3
 D$ H;
@@ -5715,6 +5720,7 @@ UVWATAUAVAWH
 A9Fps
 z&u$A
 E8OEA
+Y%Qpv
 A9Nps
 z)u'A
 A8GEA
@@ -5920,7 +5926,7 @@ x UATAUAVAWH
 d$0M;
 (|$@E3
 (t$`L
-rZL9%;
+rZL9%{
 (D$@f
 (D$Pf
 (D$ f
@@ -6030,7 +6036,7 @@ L$@H3
 L$@H3
 L$@H3
 x UATAUAVAWH
-l$ H9=B
+l$ H9=
 (D$0A
 (D$@f
 D$pL;
@@ -6072,7 +6078,8 @@ L$@H3
 |$ UATAUAVAWH
 A_A^A]A\]
 |$ UATAUAVAWH
-D8=	}
+L9=Ug
+D8=Im
 A_A^A]A\]
 L$@H3
 L$@H3
@@ -6363,19 +6370,19 @@ VWAVH
 t$ UWAVH
 l$@I+
 (t$ H
-Y=l:r
+Y=T*r
 X UVWH
 )d$PD
 )l$@D
 )t$0D
 )|$ I
-Y-85r
+Y- %r
 (t$0D
 (|$ I
 UAVAWH
 A_A^]
 UATAUAVAWH
-T5Buq
+T52eq
 (L$@D
 (\$pD
 (d$`D
@@ -6398,7 +6405,7 @@ D$PI;
  A_A^A\
 )L$pD
 )\$PH
-(={\q
+(=kLq
 )d$@D
 (T$`A
 (d$@H
@@ -6416,29 +6423,28 @@ A_A^A]A\_
 UVWATAUAVAWH
 t$PE3
 L$PE3
-(=iHq
-(%bGq
-(%dFq
-(%VGq
+(=Y8q
+(5	9q
+(%R7q
+(%T6q
+(%F7q
+(-3qq
 A_A^A]A\_^]
 x UATAUAVAWH
 t$XE3
 L$XE3
-(-}<q
-(=(=q
-(%q;q
-(%t:q
-(%g;q
+(-m,q
+(%a+q
+(%d*q
+(%W+q
 A_A^A]A\]
 p WAVAWH
 L$8E3
-(%D1q
+(%4!q
 ^D$0f
 A_A^_
 UVWATAUAVAWH
 yxxxxxxxI
-(%,)q
-(-d(q
 d$ E3
 A_A^A]A\_^]
 )T$ D
@@ -6488,17 +6494,19 @@ A_A^A\_]
 UVWATAUAVAWH
 |$0M+
 A_A^A]A\_^]
-t	@85
+@85[W
+t	@85O
+H95+@
 /H9D<`t*H
 UAVAWH
 H9D$8t'H
 D;8I9
-@8=ra
+@8=gr{
 A_A^]
 UWAVH
 T$(E3
 )L$@D
-^=)}q
+D85%G
 D8t$0
 UAVAWH
 A_A^]
@@ -6649,7 +6657,7 @@ T$`H;
 T$`H;
 )L$@D
 T$`H;
-(=7Cp
+(='3p
 )L$@D
 T$`H;
 A_A^A]A\]
@@ -6669,12 +6677,10 @@ l$ AVH
 VWAVH
 0A^_^
 UVWATAUAVAWH
-D8-Tt
-D8--t
 t)D8-
 tVD8-
-tMD8-as
-uDD9-Rs
+tMD8-Pc
+uDD9-
 A_A^A]A\_^]
 x UATAUAVAWH
 T$HH+
@@ -6739,13 +6745,11 @@ L$(A+
 L$`I;
 D$pH;
 L$@E+
-W59kp
 z8u6fA
 A_A^A]A\]
 VWAVH
 )D$PH
 )D$pH
-W5>fp
 )t$0H
 (|$ H
 )D$0I
@@ -6884,7 +6888,9 @@ L$hH3
 (t$0H
 SVATAUAWH
 )t$`D
-/=Kqo
+/=3ao
+\5tdo
+/=m^o
 (l$pL
 (t$`D
 (|$PI
@@ -6930,7 +6936,7 @@ t$PLct$ H
 UVWATAUAVAWH
 t$XIc
 D$hA9
-Y5WCo
+Y5?3o
 A_A^A]A\_^]
 z0*~ H
 |$`tDA
@@ -7132,6 +7138,7 @@ t$ AWH
 GX0L;]
 GP<M;
 GPPM;
+Y-yKn
 A_A^A]A\]
 @UATAUAVAWH
 A_A^A]A\]
@@ -7158,8 +7165,8 @@ LcQpH
 AxJ;T
 0A_A^A\
 t3@8l
-9-cjy
-9-Riy
+9-cZy
+9-RYy
 @SUVWAVH
 HcOPLk
 pHcOP
@@ -7198,11 +7205,11 @@ D;O@|
 @LcQ`H
 )t$03
 )|$ 3
-X5	Ny
-X5EMy
-X-;My
-X-wLy
-X5&Jy
+X5	>y
+X5E=y
+X-;=y
+X-w<y
+X5&:y
 |$ AVH
 C0HcC
 t$ AVH
@@ -7230,7 +7237,7 @@ gfffffffI+M(H
 (t$PH
 A_A^A]_[
 |$ AVH
-t H9-h
+t H9-
 @UVWAUH
 l$ E3
 L$(E3
@@ -7258,8 +7265,8 @@ UUUUUUU
 UATAUAVAWH
 l$pD8-
 CMPE3
-@8=IY
-@8=0Y
+@8=iI
+@8=PI
 D$ E3
 CMPE3
 A_A^A]A\]
@@ -7273,7 +7280,7 @@ D$ fE
 (|$`I
 UVWATAUAVAWH
 L$`E3
-l$4L9-q
+l$4L9-
 (D$@D
 d$`fff
 (D$`f
@@ -7307,7 +7314,7 @@ u+D8opt%
 D$`E3
 B8\8Xt%H
 u1D8opt+
-t'D8-F
+t'D8-
 UVWATAUAVAWH
 yxxxxxxxH
 yxxxxxxxH
@@ -7315,6 +7322,7 @@ A_A^A]A\_^]
 UVWATAUAVAWH
 )t$pH
 yxxxxxxxH
+D8%#G
 D;O@t
 D;GHt
 L$`H3
@@ -7522,7 +7530,7 @@ l$0M;
 l$0I;
 (|$`D
 (t$pD
-^=c{l
+^=Kkl
 D9@$|
 u	D;B$}
 (|$ H
@@ -7552,7 +7560,8 @@ UVWATAUAVAWH
 )T$pH
 yxxxxxxxI
 yxxxxxxxI
-Y=Iml
+Y-i]l
+Y=1]l
 yxxxxxxxH
 SPH+SHH
 KPH+KHH
@@ -7563,14 +7572,15 @@ A_A^A]A\_^]
 D$pH;
 l$`H;
 |$ AUAVAWH
+Y%vRl
  A_A^A]
 R@H;WHt
 W@H;WHt
 W@H;WHt
 W@H;WHt(H
-Y5q_l
-Y5O^l
-Y=S]l
+Y5YOl
+Y57Nl
+Y=;Ml
 (|$pH
 t$ UH
 D$PE3
@@ -7699,6 +7709,7 @@ D$XD;
 yxxxxxxx
 yxxxxxxxH
 D$ E3
+(5mVk
 E@L9p s
 L;q s_H
 yxxxxxxx
@@ -7775,7 +7786,7 @@ L$`E3
 d$@L;
 D$PH;
 D$ E3
-(5OPj
+(5?@j
 )D$pL
 A_A^A]A\_^[]
 G0H;G8t
@@ -7826,14 +7837,13 @@ x UATAUAVAWH
 L$xE3
 ffffff
 L;C0w0H
-D;=Qn}
 D$hH;
 A_A^A]A\]
 x UATAUAVAWH
 L$hE3
-T%{Ni
-(-NNi
-T-GNi
+T%k>i
+(->>i
+T-7>i
 |$hE3
 A_A^A]A\]
 @USVWAVH
@@ -8283,9 +8293,7 @@ t$ E3
 x UATAUAVAWH
 A_A^A]A\]
 ATAUH
-(=G0g
-(=q-g
-(5&gg
+(=7 g
 UVWATAUAVAWH
 H9H s	
 D$ H9C r
@@ -8322,31 +8330,33 @@ WAVAWH
 @USVWATAUAVAWH
 oU@fD
 )u fD
-(=J{g
+o-1yg
+o-Bvg
+(54rg
+(=*kg
 )u`fD
+o-fcg
 oM fA
 oMPfA
-o%8lg
-o5|hg
-o-6_g
-o%=bg
-o-tYg
-o%6Yg
+o=hag
+o5\Xg
+o%dUg
+o-~Fg
+o-TIg
+o-b<g
 )u fE
-o%,Eg
-o-<:g
-o%L=g
-o507g
-o-H4g
-o-Y1g
+o%i0g
+o-j-g
+o%,-g
+o%u*g
+o-($g
+o-9!g
 A_A^A]A\_^[]
 @USVWATAUAVAWH
+(=b"g
 )u fD
 )]PfD
-o%;*g
 oM`fA
-(-!4g
-o5A&g
 )u0fD
 oM`fA
 oM fA
@@ -8402,32 +8412,37 @@ o|$`f
 oT$@fA
 (L$ f
 oT$Pf
+o5ppf
 \D$ f
 (l$0f
 oD$`f
 oD$Pf
-o5m}f
+o5Mmf
 \D$ f
 (l$0fA
 oD$`f
 )|$0f
-o-Uyf
+o-5if
 (|$0f
 (L$ f
 oD$Pf
 D$PfD
 D$PD;
-o%Evf
+o-alf
+o5rlf
+o%%ff
 oL$ f
 oT$@I
 oD$PD;
 )|$0f
+o-dcf
 (|$0f
 (L$ f
 oD$@f
 )|$ f
 (|$ f
 oD$`f
+o5u\f
 oD$Pf
 oD$ f
 D$PD;
@@ -8446,11 +8461,10 @@ t$ A\][
 )|$0D
 (t$@H
 @USVWATAUAVAWH
-(5unf
-(=,af
+(5U^f
 oE`fD
-o-xRf
-(%o`f
+o-XBf
+(%OPf
 ou@fD
 ou@E;
 UPfff
@@ -8466,11 +8480,11 @@ A_A^A]A\_^[]
 @USVWATAUAVAWH
 )E@fD
 M`tAD
-(5$be
 (E@fA
 oEpfD
-o5~Je
+o5^:e
 o]PfA
+(%e"e
 A_A^A]A\_^[]
 )L$`f
 )\$@D
@@ -8800,12 +8814,14 @@ CD$`3
 |$(E3
 ` UAVAWH
 t$ H95
+D+=Sou
 t$hE3
 L$8I+
 CD$(3
 CT$HL
-t	D;=
+t	D;=_uv
 A_A^]
+\%6#u
 UVWATAUAVAWH
 |$0Hc
 A_A^A]A\_^]
@@ -8835,13 +8851,14 @@ p WAVAWH
 L$hH3
 A_A^_
 )\$0D
+W=`Zc
+(5bRc
 (D$Pf
 L$@H3
 L$@H3
 UWATAVAWH
 (|$PE
 A_A^A\_]
-(=5Uc
 L$xE3
 |$0E3
 VWATAVAWH
@@ -8858,7 +8875,7 @@ UVWAWH
 )l$pD
 )t$`Hc
 YD$@A
-Y=V"c
+W=i7c
 (|$PD
 (t$`D
 (l$pD
@@ -9270,12 +9287,12 @@ ffffff
 VWAVH
  A^_^
 )D$pH
-W=|ga
+W=\Wa
 L$hH3
 (D$pH
 L$@H3
 L$@H3
-D85&It
+D85f9t
 t	D95
 8raceu	E
 UATAUAVAWH
@@ -9291,17 +9308,19 @@ A_A^A]A\]
 (D$pf
 (D$pf
 (D$pf
-C5&Dl
+C5&4l
 D$8H+
 L$ E3
-(5a6a
-(=J7a
-(=x5a
-(5O4a
-(=h4a
+(5A&a
+(=*'a
+(=p&a
+(=X%a
+(=p$a
+(5/$a
+(=H$a
 z,u*H
 UAVAWH
-|$ H9=B
+|$ H9=
 (D$ f
 (D$ f
 D$@L;C0w-H
@@ -9416,7 +9435,6 @@ A_A^A]A\_
 WAVAWH
 )t$PH
 T$0Hi
-@85^	y
 L$@H3
 (t$PI
 A_A^_
@@ -9434,7 +9452,6 @@ G@HcP
 G@HcP
 SVWATAUAVAWH
 @A_A^A]A\_^[
-L9%U)r
 d$0E3
 8wipe
 @8H+A0I
@@ -9442,7 +9459,7 @@ P8H;P@H
 P8H+P0H
 8wipe
 t$ WATAUAVAWH
-D9-/hs
+D9-oXs
 u+H;A
 A_A^A]A\_
 |$ ATAVAWH
@@ -9459,24 +9476,26 @@ L$PH;ExH
 CT$PL
 A_A^A\_]
 p UWATAVAWH
-D9%	Qs
+D9%IAs
 )D$@f
 (D$@f
 (D$@f
 )D$PD
 A_A^A\_]
 UVWATAUAVAWH
+H;=S:x
+H;=W7x
 A_A^A]A\_^]
 USVWATAUAVAWH
 t$ E3
 t$ E3
-D95/<s
-D9=88s
+D95o,s
+D9=x(s
 D$W4A
 |$ E3
 D$W4A
 )D$PfI
-C%d9k
+C%d)k
 macguffiI9
 B A9@ D
 8armou
@@ -9519,7 +9538,7 @@ l$0E3
 A_A\_^]
 USVWATAUAVAWH
 D9`pt
-t-D9%
+t-D9%.
 A_A^A]A\_^[]
 u*H;A
 VWAVH
@@ -9538,7 +9557,6 @@ macguffiI
 doubleda
 doubledaH
 macguffi
-?H;=X
 A_A^A]A\]
 USVWATAVAWH
 d$ E3
@@ -9559,9 +9577,9 @@ D9H s
 D;I r
 u{;N rvH;
 fffffff
-Y=Dg_
-Y=uf_
-Y=ke_
+Y=,W_
+Y=]V_
+Y=SU_
 t$dfff
 A_A^A]A\_^[]
 @SVWAVH
@@ -9714,7 +9732,7 @@ u`9X u
 x UATAUAVAWH
 d$ E3
 D$ E3
-uA@85
+uA@85'
 (D$pf
 A9S }
 D9@ }
@@ -9773,6 +9791,7 @@ UATAUAVAWH
 )D$PD
 D${fH
 )D$PH;
+XD9%-~q
 L$PfD
 D$W4I
 L$PfD
@@ -9798,7 +9817,6 @@ d$ E3
 d$ E3
 d$ E3
 WAVAWH
-D9=Ihq
  A_A^_
 )D$`H;
 )D$`H;
@@ -9963,7 +9981,7 @@ A_A^_^]
 WAVAWH
 A_A^_
 UATAUAVAWH
-l$(H95
+l$(H95VBv
 (D$PL
 (D$`f
 l$(E3
@@ -9982,7 +10000,7 @@ USAVH
 (|$PI
 UVWATAUAVAWH
 t$@D85
-D85Snp
+D855\p
 |$@fff
 |$pI;
 |$pI;
@@ -9994,8 +10012,7 @@ L$ H9
 (T$`D
 (L$pD
 x UATAUAVAWH
-(=&[]
-(5"Y]
+(=aI]
 A_A^A]A\]
 @SUVWAVH
 \$(H+
@@ -10061,7 +10078,7 @@ x UATAUAVAWH
 L$(E3
 d$ D8
 |$0I;
-Y5ds\
+Y5Lc\
 L$`I;
 CD$`H
 A_A^A]A\]
@@ -10081,7 +10098,7 @@ UVWATAUAVAWH
 A_A^A]A\_^]
 x UATAUAVAWH
 D$`E3
-u^D8= No
+u^D8=`>o
 D$4@2
 L$HfE
 D$,9\$0
@@ -10099,12 +10116,11 @@ UATAUAVAWH
 z4u2fA
 z+u)fE
 L$xE2
-@8=#Bo
+@8=c2o
 D$0i&
 D$0i&
 D$pE2
 \D$PA
-.5w*\
 A_A^A]A\]
 UVWATAUAVAWH
 D9|$(
@@ -10254,7 +10270,7 @@ l$ AVH
 (\$ D
 )l$ D
 )l$ D
-X=:r[
+X="b[
 )l$ D
 )|$PD
 )D$@D
@@ -10266,6 +10282,7 @@ X=:r[
 )l$0D
 (t$ I
 )D$0D
+X=wa[
 (|$@D
 (D$0D
 (L$ H
@@ -10298,11 +10315,12 @@ D$XI;
  A_A^A]A\_
 t$ UWATAUAVH
 L$(E3
-l$ D9-6Rn
+l$ D9-vBn
+D8-4Bn
 f9X s
 f9X s
 u7f;Y r1H;
-C%ytf
+C%ydf
 u*H;A
 D$0H;
 D$PH;
@@ -10314,7 +10332,6 @@ f9H s
 f;O s
 uaf9H sOH
 f;O s
-H;=@	t
 A_A^A]A\]
 UATAUAVAWH
 D$PE3
@@ -10348,8 +10365,10 @@ A_A^A]A\]
 A_A^A]A\_^]
 @USVWAVAWH
 D$8E3
-|$0D9=
+|$0D9=L
 f9x s
+D9= In
+$L9=\
 t[E8x
 u*H;A
 D$@H;
@@ -10439,9 +10458,7 @@ WAVAWH
 D$ E3
 A_A^A]A\_^[]
 H9C t"H
-;H;=Y>i
-H;=D>i
-H;=">i
+H;=b.i
 H9D$8t0H
 H9D$@t&H
 l$ VWATAVAWH
@@ -10642,8 +10659,6 @@ A^_^[]
 (\$0H
 )D$@D
 )L$0E
-Y5+fY
-Y=%iY
 (|$PD
 (D$@D
 (L$0D
@@ -10668,10 +10683,9 @@ L$@H3
 (D$`D
 (L$PH
 PXD9u
-D858*c
-u	D85()c
-Y5Q7Y
-tjD95
+u	D85(
+Y59'Y
+tjD95+1l
 t$ E3
 USVWATAWH
 (D$0f
@@ -10684,8 +10698,9 @@ L$pH3
 )l$PD
 )t$@D
 )|$0H
-(5tjX
-(-\jX
+(5dZX
+(=x[X
+(-LZX
 L$ H3
 (l$PD
 (t$@D
@@ -10752,7 +10767,7 @@ UWATAVAWH
 A_A^A\_]
 t$ UH
 UVWATAUAVAWH
-t$ @85
+t$ @85Y
 @0I+@(H
 H0H+H(H
 H0H+H(H
@@ -10832,7 +10847,7 @@ WATAUAVAWH
 WAVAWH
  A_A^_
 t$0H+
-|$X@8=j
+|$X@8=
 ` UAVAWH
 A_A^]
 x UATAUAVAWH
@@ -10853,7 +10868,6 @@ A_A^_^]
 UATAUAVAWH
 A_A^A]A\]
 UVWATAUAVAWH
-9=z"k
 D$ E3
 E H;E
 u3D9@,u-H
@@ -10924,7 +10938,7 @@ UVWATAUAVAWH
 (D$@f
 CT$pH
 A_A^A]A\_^]
-D956zj
+D95vjj
 L$@H3
 x UAVAWH
 (D$Pf
@@ -10959,7 +10973,6 @@ T$PH;
 T$xH+
 T$xH+
 \$xH+
-D95mCj
 D$xI+
 |$xH+
 L$xH+
@@ -10971,20 +10984,22 @@ t?A;D$
 t?A;D$
 {uPHcA
 HG@8pFtUH
-H95~fh
 ttA9t$
+H95HPh
 <3uwL
 <-uwL
-Y5$SV
-Y=BNV
+Y=*>V
 <&u|L
 <%uwL
 <$uwL
 <'uwL
-u.H95sDi
+u.H95
 <0u~H
 MxA9t$
+D95CYi
+D95<Wi
 t$(D"
+95=Ji
 \$ E3
 A_A^A]A\]
 UUUUUUU
@@ -11064,14 +11079,14 @@ A_A^A]A\_^]
 slowfielH9
 >ammo
 D$ E3
-l$ E3
+d$ E3
 \$DA;
 \$DA;
 u>;K |9H;
 D$DA;
 L$LA;
 D$ E3
-l$ E3
+d$ E3
 A_A^A]A\_^]
 UVWATAUAVAWH
 (D$pf
@@ -11103,7 +11118,7 @@ I(I+I H
 (D$pf
 (D$pf
 (D$pf
-D8=Q_h
+D8=!Qh
 )D$pfH
 )D$pfH
 )D$pfH
@@ -11153,17 +11168,16 @@ L$0H3
 (D$ f
 (D$ f
 A_A^A]A\]
-T%\hT
+T5PZT
 (|$PD
 (D$@D
 (L$0H
 (|$pA
-(5j+U
-_5)+U
-]-"+U
 (L$@A
 (T$PA
 )L$@E
+T-4PT
+T%,QT
 UWATAVAWH
 A_A^A\_]
 (D$Pf
@@ -11172,15 +11186,16 @@ VWAVH
 T$(E3
 (D$0f
 (D$0f
-(5SRT
-(={ST
+(%SFT
 L$@H3
+(=59T
 L$pH3
 L$pH3
-(=/CT
+(-x3T
 D$`E3
 L$pH3
-(-JAT
+(522T
+(=]1T
 L$pH3
 |$ UATAUAVAWH
 tD98t
@@ -11319,13 +11334,13 @@ A_A^A]A\]
 X UVWATAUAVAWH
 D$xL;
 CT$hH
-H95^vm
+H95.hm
 (D$Pf
 (D$Pf
 (D$Pf
 L$xI+
 CD$h3
-Y%%rT
+Y5ncT
 (D$Pf
 (D$Pf
 (D$Pf
@@ -11346,6 +11361,7 @@ A_A^A]A\]
 UATAUAVAWH
 |$PL9%
 t D8%
+D8=%zg
 \$hH;
 H9L$xuL
 |$ E3
@@ -11353,6 +11369,7 @@ D$T9D$X|
 D$\9D$`|
 A_A^A]A\]
 UAVAWH
+(=WYT
 |$ E3
 T$pH;
 A_A^]
@@ -11463,6 +11480,7 @@ CT$`L
 D$@H;
 A_A^A]A\]
 @USVWAVH
+D95W g
 (D$ f
 (D$ f
 (D$@f
@@ -11479,7 +11497,6 @@ D$PH;
 (D$@f
 (D$ f
 D$PH;
-D95h&g
 (D$@f
 (D$ f
 (D$@f
@@ -11490,7 +11507,6 @@ D$PH;
 D$PH;
 (D$@f
 (D$ f
-D953"g
 (D$@f
 (D$ f
 (D$@f
@@ -11520,7 +11536,7 @@ A^_^[]
 (D$ f
 (D$ f
 \$ UVWH
-tz95~
+tz95N
 falsu
 (D$ f
 (D$ f
@@ -11737,10 +11753,10 @@ SUVWATAUAVAWH
 (|$ H
 HA_A^A]A\_^][
 )t$0f
-o5n{R
 (D$ H
 (t$0H
 UATAUAVAWH
+L9%W{]
 (D$pf
 (L$@f
 T$PI#
@@ -11759,7 +11775,6 @@ CT$@L
 A_A^A\_^
 UVWATAUAVAWH
 UUUUUUU
-L9-"Lk
 )D$0L
 pA_A^A]A\_^]
 @SAVAWH
@@ -11791,7 +11806,6 @@ D$ @8p
 (D$ f
 D$ @8x
 (D$ f
-C%x`]
 A_A^A]A\]
 @SUWH
 |$XH;
@@ -11816,10 +11830,11 @@ SUVWATAUAVAWH
 (|$ H
 HA_A^A]A\_^][
 )t$0f
+o5n1R
 (D$ H
 (t$0H
 @UATAWH
-o%%<R
+L9%g@]
 (D$`f
 (L$0H
 (D$pH
@@ -12017,6 +12032,8 @@ A_A]A\_[]
 )t$@D
 )|$0M
 9xu'8A
+Y5PvQ
+Y='vQ
 (\$pL
 (d$`D
 (l$PD
@@ -12080,12 +12097,13 @@ VAVAWH
 )l$PE
 )t$@E
 )\$pE
-Y=x[Q
+Y5\SQ
 (|$0D
 (\$pD
 (t$@H
 A_A^^
 H USVWATAUH
+/5MHQ
 d$PE;
 A]A\_^[]
 WAVAWH
@@ -12131,7 +12149,7 @@ SxD;c`~'H
  ;s(|
 A_A]A\[
 UVWATAUAVAWH
-|$TL9-
+|$TL9-gJd
 8^ t.H
 )E@D8
 D8}Ht
@@ -12345,6 +12363,7 @@ VUUUUUUUH
 t$PH+
 SWAUH
 PA]_[
+(%ZsO
 D$@E3
 UATAUAVAWH
 G0H+G(H
@@ -12525,11 +12544,10 @@ L$@H3
 (t$PH
 fffffff
 \C fE
-X5^|O
 (|$PD
 (t$`D
 (l$pD
-:!-,tO
+Y5;cO
 \$ UH
 )l$`D
 )t$PD
@@ -12544,6 +12562,7 @@ D$PE3
 \$XH;\$`t L
 L$PH+
 z=u;fA
+Y5XNO
 D$xH;E
 U8H;U@t
 D$0H;U@t
@@ -12561,7 +12580,6 @@ A_A^A]A\_^]
 |$ ff
 t fff
 UVWATAUAVAWH
-(%m[O
 8/u&H
 L$PH;
 D$HH+
@@ -12659,13 +12677,14 @@ A_A^A]A\]
 (l$pH
 )|$PL
 )l$pfE
-H;=FQg
 (l$pD
 L$hH3
 l$`@8
 (|$0H
 x UATAUAVAWH
 d$@fD
+Y%G}a
+Y%u|a
 gfffffffH
 D8)t&fD
 XD7@f
@@ -12673,16 +12692,13 @@ XL78f
 XD70f
 A_A^A]A\]
 gfffffffL
-H+5@rg
 gfffffffL
 zznul
 z8u6I
 z>u<I
-Y=m^N
-Y=B^N
-Y=n]N
+\=^ON
 )|$pfD
-Y=H[N
+\=1LN
 UWATAVAWH
 (D$ f
 (D$ f
@@ -12697,7 +12713,6 @@ x UATAUAVAWH
 A_A^A]A\]
 Xt$ H
 0L;d$p
-W5vdN
 |$ UH
 D$0HcH
 D$0HcH
@@ -12859,7 +12874,7 @@ A_A^A]A\]
 UWAVH
 D8syu
 UWAVH
-(=	}M
+(=ynM
 XD$pfA
 D$hfH
 survivalL
@@ -13068,12 +13083,10 @@ UWATAVAWH
 A_A^A\_]
 |$ E3
 t$HE3
-@8=*i`
 t$HfA
 t$HfA
 t$HfA
 x UATAUAVAWH
-D8-u|V
 L$SE2
 D$hL;
 @0I+@(H
@@ -13120,14 +13133,13 @@ X UVWATAUAVAWH
 (D$pf
 (D$pf
 (D$pf
-Y5RSL
+^52GL
 A_A^A]A\_^]
 t$ UAVAWH
 A_A^]
 USVWATAUAVAWH
-D8-+AV
 t/D8-
-D8-C=V
+Y=17L
 A_A^A]A\_^[]
 d$ptOH
 x UATAUAVAWH
@@ -13142,15 +13154,15 @@ x UATAUAVAWH
 d$ E3
 A_A^A]A\]
 t$ AVH
-(=M=_
 )L$pD
 )T$`D
 (L$pD
 (T$`H
 UVWATAUAVAWH
-(=];_
+(=--_
 D$pE3
 L$pE3
+)=`)_
 A_A^A]A\_^]
 UWAVH
 L$ E3
@@ -13181,6 +13193,7 @@ CD$`3
 VWATAUAVH
 gfffffffI
 d$XE3
+D8%PE_
 d$XE3
 `A^A]A\_^
 h VWAVH
@@ -13318,7 +13331,6 @@ H;_pu
 (d$`D
 (\$pD
 L$ H3
-(5g@K
 AVAWH
 )t$0H
 9rollu
@@ -13382,18 +13394,17 @@ l$ AVH
 |$ E3
 |$ E3
 )t$@H
+@8-@UU
 t!@8-
-uw@8-F
+uw@8-
 (t$@H
 L$pH3
 UWATAVAWH
 )t$`H
-D8=gWU
-D8=Q6_
+D8=!(_
 (t$`I
 A_A^A\_]
 UWAVH
-D958d^
 (|$pI
 @USVWATAVAWH
 H;W t
@@ -13412,21 +13423,18 @@ UATAUAVAWH
 A_A^A]A\]
 @UAWH
 D$0fA
-W5UZK
-X=W;K
 D$HfA
 \@0fA
 /@(wgH
 UATAUAVAWH
-|$@L9=~n^
-D8=pn^
+|$@L9=N`^
+D8=@`^
 |$pE3
 survivalH9
 A_A^A]A\]
 UATAUAVAWH
 E0L;A
 u`9xx
-(594K
 t$XE3
 3333333
 A_A^A]A\]
@@ -13612,9 +13620,8 @@ H9D$8toH
 D$@H;
 D$HH;
 u$L9%
-tpD8%
-L9%X$[
-t)D8%P*\
+tpD8%g
+t)D8% 
 A_A^A]A\]
 t$ WH
 |$ UH
@@ -13635,8 +13642,7 @@ UVWATAUAVAWH
 A_A^A]A\_^]
 survivalL9
 UWAVH
-C51FT
-PXD95
+PXD95LH\
 D$PHcH
 D$PHcH
 D$PHcH
@@ -13654,9 +13660,9 @@ CD$p3
 L$`I+
 CD$P3
 A_A^A]A\_^]
+H9=['T
 D9@ s
 D;A r
-H9= 5T
 D9@ s
 D;A r
 u+H;A
@@ -13689,8 +13695,7 @@ E09H }
 H9D$@
 L$H@H
 T$PA;
-95:mW
-95ElW
+95b]W
 A_A^A]A\]
 CT$ H
 L$@H3
@@ -13699,19 +13704,19 @@ D$ E3
 A_A^A]A\_^]
 UATAUAVAWH
 u2fff
+H;=z_a
 (D$@f
 (D$@f
 D$ H;
 D$`#015
 D$d850
-D9%TJc
+D9%$<c
 A_A^A]A\]
 |$ AVH
 UATAUAVAWH
 u";Q r
 F 9C }mH9|$0
 (D$`f
-L;5@]a
 T$8A9
 Q 9P }
 @ 9A |6L;D$(t/
@@ -13727,7 +13732,6 @@ CD$`3
 L$PI+
 CD$@3
 macguffiH9
-\55ja
 D9@ }
 D;A }
 survivalL9
@@ -13735,8 +13739,10 @@ D9@ }
 D;A |
 A_A^]
 WAVAWH
+C-V$c
 L$@H3
 PA_A^_
+,-jm[
 UATAUAVAWH
 H;D$Xv
 H;C v
@@ -13826,6 +13832,7 @@ WATAUAVAWH
  A_A^A]A\_
 8raceu
 8raceu
+C-nsS
 raceu
 UVWATAUAVAWH
 CT$(L
@@ -13990,7 +13997,6 @@ H;C v
 H;C v
 H;D$Hv
 H;C v
-C=5!R
 H;C v
 H;C v
 H;C v
@@ -14018,6 +14024,7 @@ H;C v
 H;C v
 A_A^A]A\]
 UAVAWH
+L9=:9R
 CT$@L
 CT$`H
 CT$@L
@@ -14138,7 +14145,6 @@ A_A^A]A\_
 |$ ATAVAWH
  A_A^A\
 WAVAWH
-@8-<;S
 l$XE3
 +D$(;
 l$hAi
@@ -14179,6 +14185,7 @@ t6D9-
 u.;q |)H;
 t$D9y,t
 l$`twI
+^5u$F
 t$pE3
 T$xfH
 ~hfff
@@ -14198,12 +14205,11 @@ t$ fE
 (D$ f
 A_A^A\_]
 UVWATAUAVAWH
-L;=SN^
+L;=#@^
 d$ E3
 survivalH9
 A_A^A]A\_^]
 x UATAUAVAWH
-H;=3C^
 D$xD8p
 u#9P |
 D9@$r
@@ -14218,6 +14224,7 @@ VWAVH
 L$@H3
 PA^_^
 @UVATAUH
+(%^-E
 D$XE3
 A]A\^]
 x UATAUAVAWH
@@ -14259,16 +14266,14 @@ A^_^[]
 X UVWATAUAVAWH
 u4fff
 z?u=I
-X5<yE
 }bH;u
 E8fEA
 A_A^A]A\_^]
 UATAUAVAWH
-L9%HnX
-@85etX
+L9%t[W
+@855fX
 )\$PA
 YL$PA
-\=A^E
 (d$PE
 )L$PA
 Y\$PA
@@ -14277,19 +14282,20 @@ YL$PE
 (\$PA
 )L$@A
 YT$@A
+Y-cyD
+(=1yD
 D$ E3
 D$ E3
 D$ E3
 D$ E3
-(%?xD
-(-4wD
-(%!xD
-(%MtD
+(=RkD
+(5adD
+(5#`D
+(=O_D
+(==aD
 A_A^A]A\]
 VWAVH
 PA^_^
-W5O7E
-W5h6E
 survivalL9
 ` UAVAWH
 A_A^]
@@ -14297,7 +14303,7 @@ UATAUAVAWH
 /@8wI@8p(tC
 A_A^A]A\]
 \$ E3
-D9%{>X
+D9%i+X
 |$@D8g
 l$xt)
 UVWATAUAVAWH
@@ -14397,7 +14403,6 @@ seekH
 UATAUAVAWH
 (D$@f
 (D$`f
-H;=(y_
 A_A^A]A\]
 \$ UVWATAUAVAWH
 H9D$`
@@ -14612,10 +14617,12 @@ pA^_]
 x)D$ 
 x(D$ 
 @USVWATAUAVAW
+~o5 dC
+~o5ibC
 A_A^A]A\_^[]
 @USVWATAUAVAW
-~o-95C
-~o%*$C
+~o%xDC
+~o-HAC
 UptMD
 A_A^A]A\_^[]
 x)L$p
@@ -16139,7 +16146,7 @@ D$PHc
 |$0Hc
 t$ WATAW
  A_A\_
-E5qjG
+E5A\G
 t$ AV
 t$ AV
 @SVAV
@@ -17269,7 +17276,7 @@ WAVAW
 0A_A^_
 @UAVAW
  A_A^]
-tuL9=A
+tuL9=
  A_A^]
 |$ ATAVAW
 A_A^A\
@@ -17502,7 +17509,6 @@ WAVAW
  A_A^_
 UVATAUAVAW
 8A_A^A]A\^]
-o%Ql4
 8A_A^A]A\^]
 |$ AUAVAW
 uLA9X
@@ -19179,6 +19185,7 @@ L$ H+
 |$ UATAUAVAWH
 A_A^A]A\]
 UVWATAUAVAWH
+u495uT:
 A_A^A]A\_^]
 WATAUAVAW
  A_A^A]A\_
@@ -21502,20 +21509,21 @@ t$HA+
 XA]A\_[
 D$xfD
 @USVWATAUH
-D9kXt`D8-Vt
+D9kXt`D8-
 ,C<*w
 tXD9kXtRH
-D9kXt2D8-
-t8D8-P[
+D9kXt2D8-XM
+t8D8-
 t/D9kXt)H
 D9kXt?D8-
+D8-hL
 t7D9kXt1H
+D8-8L
 t7D9kXt1H
 D9k4vc
 C(B9D
 D;K4r
-D9kXt2D8-sY
-D8-VY
+D9kXt2D8-
 t/D9kXt)H
 BODA3
 D9o8t
@@ -21562,7 +21570,6 @@ s`D9s8v)H
 sPD9sLv0
 |$ UATAUAVAWH
 ,I<&w:H
-@8=6'
 t[9{XtVH
 t[9{XtVH
 tg9{XtbH
@@ -21804,7 +21811,6 @@ XA_A^A]A\
 (t$@D
 (D$ D
 @USVWATAUAVAWH
-Y-h!#
 A_A^A]A\_^[]
 @SWAUAWH
 )|$PD
@@ -21921,7 +21927,6 @@ D;|$X
 t$HA_A^A]A\_
 @UVWATAUAVAWH
 D9u<u
-Y=%?"
 H+]PD
 H+]P3
 E@D;}
@@ -22168,13 +22173,10 @@ L$HH3
 XA^_^]
 ATAUAWH
 L$@fD
-Y=Z\!
 l$Pfff
 D$@Lc
 |$@E9
 HcD$0H
-X%HU!
-X-<T!
 A_A]A\
 WAVAWH
 )d$PD
@@ -22229,9 +22231,10 @@ E9B@t
 WATAUAVAWE
 t$@A_A^A]A\_
 @UATAUAVAWH
-(5DO!
+o5X0!
 |$ H;
 t$ H;
+o%)-!
 A_A^A]A\]
 @USVWATAUAVAWH
 ~HNcT
@@ -22408,6 +22411,7 @@ WAVAWH
  A_A^_
 VWATAVAWH
 )|$ f
+o-}F 
 (|$ ;
 @A_A^A\_^
 t$PL+
@@ -29757,8 +29761,8 @@ new_pages != nullptr
 s->header.arena == arena
  ... (message truncated)
 [%s : %d] RAW: 
-Y@\]}@
-@`]}@
+Y@\M}@
+@`M}@
 Fixed/UTC
 0123456789
 0123456789
@@ -30799,7 +30803,6 @@ wP=/#
 ZW][Rb
 qsuwc;Wo?opP~|}|
 ~V|x{w
-9 	o@
 &6EUdt
 )7ESbp
 "3=N\j~
@@ -41471,18 +41474,18 @@ wipeout
 survival
 end_timer
  seconds
-groups
 Finished in 
 start_timer
 groups
 tutorial
 groups
 survival
+groups
+survival
 pivot
 height
 survival
 width
-survival
 macguffin
 announcer_common_frag_streak_50_rare
 tutorial
@@ -41511,6 +41514,7 @@ announcer_common_powerup_haste_countdown
 doubledamage
 tripledamage
 survival
+false
 announcer_common_powerup_siphonator_countdown
 announcer_macguffin_core_drop
 survival
@@ -41519,9 +41523,9 @@ extinction
 ghosthunt
 announcer_common_lead_lost
 survival
+false
 macguffin
 survival
-false
 announcer_common_lead_tied
 announcer_common_lead_lost
 announcer_common_lead_taken
@@ -41556,38 +41560,40 @@ extinction
 Your team won the round!
 false
 Your team won the round!
-false
+ opr=
 Your team lost the round!
 announcer_common_matchpoint
 survival
- opr=
+ ... 
+center
 Team 2 wins the round!
 Team 1 wins the round!
 Your team lost the round!
+ type=
 announcer_common_round_won
 announcer_common_round_lost
 LOSER TEAM 
 WINNER TEAM 
 Your team won the round!
- ... 
-center
 Your team lost the round!
- type=
 announcer_common_matchpoint
 announcer_common_matchpoint
 Team 2 wins the round!
 Team 1 wins the round!
 Your team lost the round!
+lvalue
 Your team won the round!
+value
+height
 announcer_common_matchpoint
 announcer_common_matchpoint
 announcer_common_round_won
 announcer_extinction_target_eliminated
 Your team lost the round!
 Your team won the round!
-value
-lvalue
+image
 Your team won the round!
+width
 Your team lost the round!
 announcer_common_round_won
 announcer_common_round_lost
@@ -41599,8 +41605,8 @@ user_id
 match_type
 macguffin
 match_id
-announcer_common_place_
 Error: Game requested to be prolonged even though it's not in a GS_Playing state.
+announcer_common_place_
 Game over!
 announcer_common_game_win_nodeaths
 macguffin
@@ -41626,42 +41632,39 @@ absdiff
 /game_overtime_score_threshold
 /game_overtime_score_limit
 macguffin
+clip_x
 mg-hold-counter=
+align
+clip_y
 mg-release-counter=
 enemies-in-base=
-image
-height
+color
+shadow
 survival
-width
+indent
 rocket_arena
  for round 
 practice
-align
-clip_x
 STARTING GAME
 rocket_arena
 announcer_common_round_
 wipeout
 wipeout
 survival
-color
-clip_y
 wipeout
 practice
-shadow
 announcer_4_minutes_left
-indent
-announcer_30_seconds_left
-announcer_1_minute_left
-announcer_3_minutes_left
-break
-announcer_30_seconds_left
-announcer_2_minutes_left
 align
 announcer_30_seconds_left
+double
+announcer_1_minute_left
+announcer_3_minutes_left
+begin
+announcer_30_seconds_left
+announcer_2_minutes_left
+announcer_30_seconds_left
 announcer_1_minute_left
 announcer_2_minutes_left
-begin
 announcer_3_minutes_left
 survival
 ghosthunt
@@ -41683,11 +41686,14 @@ macguffin
 start_time
 doubledamage
 vanguard
+break
  out of 
 Areas: Using area 
 Areas: No areas found. Global area used.
 it.second.team
 it.first
+clamp
+substr
 it.second.user_id
 p->steam_id
 Current game definition
@@ -41697,11 +41703,12 @@ New player
 "New player"
 macguffin
 killplane
+string
 Error: No game mode found by that name. Known modes are: 
+output
 [Server broadcast] 
 survival
-clamp
-substr
+length
 default
 p->is_spectator
 Assigned not-spectator: 
@@ -41710,37 +41717,33 @@ Assigned spectator:
 open_game
 Assigning team
 "Assigning team"
-double
 (UINT)p->team
 it.second.name
 user_it->second.team
 LAG STATE CHANGE: 
  severe_lagged=
 SEVERE LAG STATE CHANGE: 
-string
+double
 extinction
  lagged=
-output
+string
 extinction
 extinction
 extinction
 mu_pu_devilish
 teleport
-length
 Returning false on line_vs_line(). //TODO: Handle me!
 ^ff0000* Error: Select a single block.
 link_prev
-double
 link_prev
-Shadow vertex buffer has different size than visual vertex buffer.
 Loading map (2)
+Shadow vertex buffer has different size than visual vertex buffer.
  loaded.
-scale
-string
+begin
  blocks loaded.
 Loading map (1)
 # Chunk 
-:root
+begin
 decal_divider
 decal_divider_cross
 decal_divider_cross
@@ -41756,28 +41759,34 @@ ring_decal
 blob_decal
 movement
 begin
+hasher
 link_prev
+hasher
 link_next
+weapon
 /bset surface_material 
 mirrored
-begin
+False
+weapon
 Mirroring, Step 2
+weapon
 MIRROR started on 
  selected
+weapon
 Entity 
  zcentered=
 Adding style model 
 Warning: Map construction: Could not find block model: 
  blocks selected
-False
-hasher
+scale
+weapon
 decal_divider_cross
 decal_divider_cross
 atlas001prop
 models/destructible_side.fbx
 mirrored
-begin
-hasher
+:root
+weapon
 capsule
 multipickup
 jumppad
@@ -41791,10 +41800,10 @@ MIRROR geometry made on
 terrain
 no_show
 (v3::UNIT_SCALE*-it->second.selection_size_override).to_string()
-haste
+ghost
 weapon
 directional
-ghost
+haste
 weapon
 directional
 weapon
@@ -41835,37 +41844,36 @@ left_front_top
 right_back_top
 right_front_top
 left_top
-weapon
+armor
+health
 front_top
-weapon
+health
 back_top
-weapon
+health
 right_top
-weapon
+health
 left_front
 right_back
 right_front
-weapon
+ammobl
 left_back
-health
+weapon
 models\bridge_side.fbx
 default_model
 models\bridge_inside.fbx
-armor
-health
+weapon
 default_model
 Loading effect files (V)
-armor
-health
+weapon
 default_model
 Loading effect files (V)
-armor
-health
+weapon
 destructible
 surface_place
 surface_place
 surface_material
-weapon
+armor
+ammorl
 surface_style
 offset_x_rel
 offset_y_rel
@@ -41876,12 +41884,14 @@ surface_style
 ^00ffff TexU: ^ffff00
 ^00ffffStyle: ^ffff00
 material
-weapon
+armor
+ammoss
  Block type: 
 Too many blocks selected, listing cropped.
 Reached 10 blocks. Aborting report.
 ^00ffffMaterial: ^ffff00
-weapon
+armor
+ammogl
 atlas001prop
 models/destructible_side.fbx
  Orientation: 
@@ -41893,65 +41903,67 @@ models\bridge_base.fbx
 textures\core\grid.png
 props_container
 pickups_container
-weapon
+ code=
 models\bridge_corner.fbx
-weapon
+skewX
+square
 default_model
 models\bridge_corner.fbx
-armor
-ammogl
+skewY
+stroke
 default_model
 Error: Limit of 256 materials reached (A).
 offset_x
-ammobl
+round
 offset_y
-ammorl
+miter
+yellow
 camera_hint
 animation evaluator _lower_bound
-ammoss
+round
+matrix
 animation evaluator _lower_bound
- code=
+bevel
+rotate
 Nightly
 ^ff0000* Error: The Escape key cannot be binded, you need that key to get to the menu -_-
-matrix
+repeat
 control
 rcontrol
-black
-rotate
+style
+circle
 editor 
 Error 2178654 when saving binds.
-white
-square
+ pss=
+offset
 ^ffff00
 Error 2178653 when saving binds.
-scale
-stroke
+ vss=
+height
 ^00ffff
 editor 
 // Key bindings
+points
 ^ffff00
 ^00ffff
 editor 
 Error 2178652 when saving binds.
-skewX
-yellow
+green
+height
 // Mouse bindings
 ^ffff00
  (editor)
-height
+online
  (common)
-repeat
+offers
  (game)
  (game)
  (spec)
  (editor)
-skewY
-offset
+black
 Bindings.txt
 CloudSave
-height
 CloudSave
-points
 Listing all bindings
 ^00ffff
 Bindings.txt
@@ -41959,73 +41971,74 @@ Bindings.txt
 ^ff0000
  (spec)
  (common)
-circle
 backspace
-online
 num_plus
-round
-offers
+white
 num_minus
+binary
 num_period
 capslock
-miter
+scale
+deb_10
 num_multiply
 backslash
 apostrophe
 semicolon
 rbracket
-round
-binary
+slice
 lbracket
-bevel
-deb_10
+style
 control
 mouse_extra_2
 mouse_extra_1
 control
 rcontrol
-style
+width
 mouse_right
 mouse_middle
 mouse_wheel_down
- pss=
+width
+deb_11
 mouse_wheel_up
 num_return
 mouse_left
 rcontrol
- vss=
-deb_11
+Other
 num_divide
 num_lock
-green
+FALSE
+region
 it.second.command
 it.first
-slice
+ERROR
 @debugger
+opaque
 textures/corefont.png
 flat_color.ps.cso
+magnet
 vertex_color.vs.cso
 flat_color.vs.cso
+shader
 vertex_color.ps.cso
 BLENDWEIGHT
 BLENDINDICES
 LAYOUT = 
-opaque
+thorus
 BINORMAL
-style
-magnet
+trees
+period
 GENERICDATA
 TEXCOORD
-width
-region
+hills
+ SUF: 
 POSITION
-width
-shader
+peaks
+ IDC: 
 TANGENT
 keyword
  unzip 1.01 Copyright 1998-2004 Gilles Vollant - http://www.winimage.com/zLibDll
-Other
-thorus
+blend
+ SC: 
 video_info
 Shows help about a command or variable.
 gamedir
@@ -42033,7 +42046,7 @@ Debugging command that shows the current player camera position.
 printcamera
 The game installation directory is usually in 'Program Files (x86)\
 Opens the game installation directory in Windows Explorer
-period
+ AFC: 
 A command that does nothing. NOOP stands for No-Operation.
 Diabotical
 '. This is more convenient when not running in true fullscreen mode.
@@ -42048,7 +42061,7 @@ You'll find the sequence at '%APPDATA%\
 sequence_stop
 Captures an image sequence without the UI.
 sequence
-FALSE
+alpha
  SCU: 
 Captures a screenshot without the UI.
 Diabotical
@@ -42060,47 +42073,43 @@ Opens the game log.
  UPL: 
 This is useful to make bindings with confirmation.
 Executes a command and informs the user about it in the console.
-ERROR
- SUF: 
+trail
 (Script file name)
+Executes an external console script.
 The script file name must contain no slashes and it will be first searched for in the game data folder.
 (Use the command /homedir to open the data folder.) If the file isn't located in the data folder,
 the game installation directory will be searched (/gamedir).
 The file name can have any extension, but if no extension exists, a '.cfg' extension will be attached.
-Executes an external console script.
 (Variable) [Value 1] [Value 2] ...
 See /help toggle.
-Executes a toggle call and tells the new value of the variable.
 toggletell
 (Variable) [Value 1] [Value 2] ...
+Executes a toggle call and tells the new value of the variable.
+If no values are supplied, 0 and 1 are assumed. More than two values can be used and they will be cycled from left to right. If the current value isn't part of the cycle, the first value will be used.
+smoke
+modifylist
 Immediately saves the current configuration.
 Shows some technical information.
-If no values are supplied, 0 and 1 are assumed. More than two values can be used and they will be cycled from left to right. If the current value isn't part of the cycle, the first value will be used.
-trees
- IDC: 
-modifylist
 Toggles the value of a variable between a list of supplied values.
 Type '/bindreset confirm' to go through with the binds reset.
 Resets all bindings to default values.
 You don't need to use this, configuration is saved automatically on game exit. To easily access the configuration file, see the command /homedir
-peaks
- SC: 
+point
 saveconfig
-(confirmation token)
 <div style='color: black;background-color: lime;font-size:10px;font-weight:bold;padding:2px;'>Commands</div>
 bindreset
+(confirmation token)
+Assists the binding of the next key that is pressed.
 After issuing this command, press a key or mouse button,
 then complete the binding by adding a command when prompted.
 bindcapture
-Assists the binding of the next key that is pressed.
 Tip: To easily assign buttons, type /bindcapture, then press a button or key.
 bindlist
-hills
- AFC: 
+array
 Lists all keyboard and mouse bindings.
-Removes a keyboard or mouse binding.
 To list existing bindings type /bindlist/nTo find out button codes, type /bindcapture, then press a button or key.
 Remember to replace /bind with /unbind if you are unbinding something.
+Removes a keyboard or mouse binding.
 (button or key name)
 To easily assign buttons, type /bindcapture, then press a button or key.
 To list current bindings type /bindlist.
@@ -42109,7 +42118,7 @@ Bind an action to a keyboard or mouse button.
 (button or key name) (action or console command)
 actions
 Actions are special commands that can be binded,but cannot be executed through the command line.
-blend
+delay
 Lists all available actions.
 ^ffff00
 ^00ffff
@@ -42120,11 +42129,11 @@ Lists all available actions.
 Error: Command 
  not allowed in a game.
 ' for usage help.
-alpha
+range
 <div style='margin:6px;display: flex; flex-direction:column;'>
 <div style='color:magenta;margin-bottom:2px;'>
 <div style='display: flex; flex-direction:row;'>
-trail
+ SU: 
 <div style='color:lime;margin-bottom:2px;'>
 <div style='border-radius:2px;color: black;background-color: magenta;font-size:10px;font-weight:bold;padding:2px;'>Variables</div>
 : No such command or variable.
@@ -42135,7 +42144,7 @@ Adapter name:
 Camera position: 
 Battle position: 
 Entity position: 
-smoke
+ SC: 
 [Console] 
 [CONSOLE] 
 [CONSOLE] 
@@ -42144,18 +42153,21 @@ smoke
 * Error
  (Min: 
 * This variable is transient: it will reset to default on each game run.
-range
+ SI: 
+tiling
 ^ffaaff Current value: ^ffffff
- ^ffaaaa (Default: 
 There's no help for that keyword or the command/var doesn't exist.
+ ^ffaaaa (Default: 
  (Type: 
-point
+ SD: 
+tiling
 , max: 
 ^ff88ff
  ^90ff70(Overriden by server, your local value is '
 ^ffffff
  (Note: brackets indicate an optional parameter)
-array
+ MD: 
+-%s-%s
  variable. ^ffffff
 ^aaaaffNotes: 
 ^ffffff
@@ -42163,8 +42175,7 @@ array
 ' command: ^ffffff
 Total dedicated system memory: 
 ^88ff88'
-delay
-tiling
+ MC: 
 Total dedicated video memory: 
 Total shared system memory: 
 ^ff0000* Error: Missing parameters
@@ -42173,12 +42184,10 @@ Total shared system memory:
 Type /help 'command' for help on a command or type it and press Tab again.
 To see available commands and variables, press the Tab key while on the console.
  PA: 
-tiling
 ^ffff00
 ^00ffff
  (local)
  SR: 
--%s-%s
 ^ffffff
 Available maps:
 ^ff0000* Error: 
@@ -42186,27 +42195,28 @@ Available maps:
 ^ff0000* Error: Missing parameters.
 ^ffffff is not bound.
 * Button ^ffff00
- SU: 
+Error
  is not a valid button.
 * Button ^ffff00
- SC: 
+flag_
 ^ffffff is bound to command ^00ffff
 * Bindable actions:
- SI: 
+ - 0x
 ^ffff00
 ^ff0000* Error: Missing script file name parameter
 ^ffaa80Command executed: ^ffff00
- SD: 
+flag_
 ^ff0000* Error: Missing particle system name parameter
 ^ff0000* Error: Missing script file name parameter
 ^ff0000* Error: Script file not found: 
 ^ff0000* Error: Error opening file: 
 modifylist
- MD: 
+ min=
+sh_x4s
 clear_console
 Diabotical
 '. Use the command /homedir to open that folder.
- MC: 
+ max=
 You'll find the screenshot at '%APPDATA%\
 The game personal directory is '%APPDATA%\
 screenshot
@@ -42214,76 +42224,70 @@ Opens the game personal directory in Windows Explorer
 homedir
 Minimizes the game.
 Diabotical
-Clears console.
 '. This is more convenient when not running in true fullscreen mode.
 minimize
-flag_
-sh_x4s
+Win9x
+eggbot
+Clears console.
 Quits the game immediately.
+(LOG 
 bindreset
 Settings are only saved to disk when the game quits.
 ^ff0000* Error: Provide binds reset confirmation by typing '/bindreset confirm'.
-Error
+(LOG 
 confirm
 ^ff0000* Error: Missing parameters.
 ^ff0000* Error: Provide binds reset confirmation by typing '/bindreset confirm'.
-flag_
 bindreset
 ^ffff00*** Press a key or button now ***
- min=
+sh_x4s
 %20s	[%s]
 empty dictionary
-eggbot
 *Error loading geometry shader 
 shaders\
- max=
 *Error loading pixel shader 
  (GS) not found.
- - 0x
 shaders\
-Win9x
 *Error loading vertex shader 
  (PS) not found.
-(LOG 
+muzzle
 shaders\
-(LOG 
+shield
  (VS) not found.
+spawn
+weapon
 Could not load DDS texture: 
 . Error=
-sh_x4s
+shield
 Could not create TGA texture: 
 cubemaps
-weapon
+death
+player
 Could not generate mipmaps for TGA texture file: 
-weapon
+eggbot
 Reason given for DXGI_ERROR_DEVICE_REMOVED: 
 . Error=
+break
+weapon
 Could not create TGA texture 2
 Could not load TGA texture file
 Could not load TGA texture file: 
-muzzle
+weapon
 . Error=
-shield
+melee
 Failed to query interface IDXGIDevice
 [Loading Vertex Shader] File 
 Could not find texture: 
-spawn
-weapon
 . Replacing with default texture.
-shield
  Error=
  not found.
 : FAILED CREATING INPUT LAYOUT Count=
 shaders\
-break
-player
 FAILED CREATING INPUT LAYOUT
 Failed loading vertex shader: Error=
 . Error=
-eggbot
 Failed conversion to R of texture
 . Error=
-melee
 Failed conversion to R of texture 
 Loaded WIC texture 
 Perhaps a non-DDS file loaded too early?
@@ -42296,7 +42300,6 @@ Could not load WIC texture file:
 DirectX Error 9013 
  while creating depth stencil view.
 ** Creating ro-depth buffer view
-death
 DirectX Error 9013 
  while creating depth texture.
 ** Creating depth buffer view
@@ -42399,9 +42402,10 @@ General sound volume. Valid range: 0-1.
 Glow effects power.
 Specifies your mouse DPI to make the mouse_circumference setting accurate.
 Enable this to set mouse_circumference in inches. 0: Disabled. 1:Enabled
+Error
 mouse_imperial
 video_specularity_factor
-Error
+audio
 mouse_dpi
 Factor applied to all specular intensity.
 video_ambient_occlusion_radius
@@ -42412,6 +42416,7 @@ video_gamma
 video_ambient_occlusion_power
 Gamma correction, 1.0 = default, higher values are brighter.
 video_destruction
+models
 Inverts mouse control vertically. 0: Default, 1: Inverted.
 mouse_invert
 Threshold at which low/high sounds are played.
@@ -42456,8 +42461,6 @@ net_interpolation_max
 sound_binaural
 net_interpolation
 Toggle binaural panning on/off. (requires game restart) 0: Disabled. 1: Enabled.
-audio
-models
 sound_enable_music
 Determines how strongly sound attenuates with distance.
 Toggle music on/off. 0: Disabled. 1: Enabled.
@@ -42499,14 +42502,16 @@ Advanced rendering setting.
 video_scene_cloud_threshold
 Advanced rendering setting.
 Accepted values: 1 to 16
+models
 Accepted values: 0 to 16
+blocks
 video_scene_tree_bypass_level
 Accepted values: 2 or 3
 maps\
-models
+styles
 video_scene_tree_divider
 audio
-blocks
+models
 video_scene_tree_max_depth
 video_mode
 Video display mode.
@@ -42525,12 +42530,10 @@ Distance low pass filtering center frequency (Requires restart). Use a negative 
 Enables full-quality texturing. 0: Low quality. 1: High quality.
 Enables or disables antialias. 0: Disable. 1: Enable.
 Enables or disables high quality ocean. 0: Low quality. 1: High quality.
-styles
 video_antialias
-video_frame_buffering
 Sets the maximum number of frames that can be buffered.
 Higher values reduce stuttering at the cost of increased latency.
-models
+video_frame_buffering
 video_ocean_quality
 video_low_latency
 video_shadow_mapping
@@ -42580,7 +42583,9 @@ Error 1058724 changing raw input registration enabled=
 Thread 2 is running on processor 
 Error 1058723 changing raw input registration enabled=
 textures/
+  xmn=
 textures/
+ mins=
 textures/
 , attempting to construct auto_material for 
 Did not find material 
@@ -42591,12 +42596,10 @@ Did not find material
 auto_material
 [DEBUG MATERIAL] Found material definition, initing
 [DEBUG MATERIAL] loading shader 
+pitch
 [DEBUG MATERIAL] Returning from cache
  no_cache=
-  xmn=
 identity
-pitch
- mins=
 visible
 polygonoffset
 surfaceparm
@@ -42644,6 +42647,7 @@ vertex_shader_param
 uv_scale
 uv_style
 shadow_pixel_shader
+string
 !invalid_material:::
 Warning: property '
 ', stage '
@@ -42660,7 +42664,6 @@ GL_ONE_MINUS_SRC_ALPHA
 GL_DST_COLOR
 GL_ONE_MINUS_DST_COLOR
 [ EFFECTS ] 
-textures/black.png
 %%TEMPLATE_NAME%%
     {
 		map textures/white.png
@@ -42668,14 +42671,14 @@ textures/black.png
 		map textures/white.png
 		vertex_shader tile.vs.cso 111 NGT
 		pixel_shader tile.ps.cso
+textures/black.png
  effects loaded. max_stages=
  at file 
 [Effect-Validator] Material 
 [Effect-Validator] Material 
- has less than 5 maps (missing map(s)) (Autofilled with textures/black.png)
  has more than 5 maps.
+ has less than 5 maps (missing map(s)) (Autofilled with textures/black.png)
  at file 
-string
 textures/black.png
 tilemask.ps.cso
  at file 
@@ -42688,6 +42691,7 @@ tilemask.ps.cso
 tile.ps.cso
  has more than 1 map.
  at file 
+weapon
 effect parsing
 statictrans.ps.cso
 Loading effect files (Old)
@@ -42707,33 +42711,32 @@ feedback_bolt_ready
 weapon
 double_jump
 </td>
-BASE A
+weapon
 takeoff
 doublejump
 has_haste
-BASE B
+DEFEND
 doubledamage
 survival
 </td>
-weapon
+ATTACK
 vanguard
 </tr>
-weapon
+DEFEND
 armort2
 armort3
 flagrun
 trigger
 activator
-DEFEND
+BASE A
 teleport
 .html
-ATTACK
+BASE B
 teleportfx
 teleport_entry
 jumppad
 vector_z
 haste
-DEFEND
 jumppadfx
 vector_x
 haste
@@ -42779,6 +42782,7 @@ state.round_weebles.size()
 state.team_base_locations.size()
 state.team_flag_locations.size()
 survival
+-99999
 doubledamage
 tripledamage
 Client Stage=
@@ -42790,7 +42794,6 @@ server_log_message
 countdown
 pause_resume
 countdown
--99999
 round_countdown
 countdown
 announcer_common_game_countdown
@@ -42828,6 +42831,7 @@ announcer_common_powerup_td_pickup
 doubledamage
 announcer_common_powerup_db_pickup
 show_game_report
+-0.25
 _finish_play_of_the_game()
 _finish_play_of_the_game called, origin=
 vanguard
@@ -42873,7 +42877,6 @@ zombie_walk
 zombie_run
 [SERVER] 
 survival
--0.25
 ^ffffff
 ^808080
 ^00ffff
@@ -42887,6 +42890,7 @@ name change notice
 ENTITY RESPAWNS AS 
 ^ff0000RED FLAG
 ^3045ffBLUE FLAG
+51200
 ^ffffff
  has been returned.
 game_manifest
@@ -42903,8 +42907,9 @@ announcer_common_frag_first
 announcer_common_powerup_td_pickup
 announcer_common_powerup_db_countdown
 eggbot_heal_tick
+99999
 announcer_common_powerup_dd_pickup
-51200
+0.001
 eggbot_heal_tick
 player_needs_confirmation_frag
 announcer_duel_golden_frag
@@ -42912,14 +42917,12 @@ claim_reward
 claim_reward
 Enemy incursion detected!
 set_hud_rage_roll_result
-99999
+0.965
 score_drop
 score_drop
 tutorial
-0.001
 macguffin
 siphonator_disabled
-0.965
 siphonator_enabled
 announcer_common_powerup_siphonator_pickup
 jump_forward
@@ -43133,6 +43136,7 @@ Error 761291. Macguffin incoherence.
 sp_play_nice
 teleportfx
 teleport
+ffffff
 teleport_entry
 teleportfx
  has survival!
@@ -43144,58 +43148,61 @@ teleportfx
  has triple damage!
  lost triple damage.
 * Error: Your game version is outdated.
-* Connection to server established.
 You were disconnected but the map wasn't unloaded because you are editing.
 *** Disconnected from server. LowLevelCode=
 disconnected
 on_connected
  Reason=
+000000
 on_connected
+* Connection to server established.
 NameNotAvailable
-ffffff
+000000
 fire_3p
 slowfield
-000000
+ffffff
  is now 
 AMMO OF WEAPON 
 berserker
 second_wind
 vanguard
+ffffff
 vanguard
+000000
 survival
+000000
 survival
+ffffff
 survival
+ffffff
 extinction
 macguffin
 000000
 netserver::listen
+ffffff
 vanguard
-ffffff
-ammomac
-ammoshaft
-000000
-ammopncr
 000000
 ammomac
-ammopncr
-ffffff
 ammoshaft
-000000
+ff0000
+ammopncr
+ammomac
+ammopncr
+ff0000
+ammoshaft
 survival
-ffffff
+ff0000
 crystalt2
-ffffff
 crystalt3
 000000
 armort4
 crystalt1
-ffffff
 armort2
 armort3
 multipickup
 armort1
 survival
-000000
+ff0000
 tripledamage
 vanguard
 ff0000
@@ -43205,7 +43212,7 @@ ff0000
 ERROR: MACGUFFIN ALREADU TAKEN
 macguffin
 MACGUFFIN TAKEN BY 
-ff0000
+000000
 flagrun
 provides
 tripledamage
@@ -43215,51 +43222,46 @@ survival
 doubledamage
 tripledamage
 survival
-000000
+ is ready.
+ is NOT ready.
 PROPERTY_KEY_MAP_LOADED
-Disconnecting user because of invalid GREETING: 
+ toggles ready Stage=
+PROPERTY_KEY_MAP_LOADED
 ERR 9501 size=
- and egs_id=
+Disconnecting user because of invalid GREETING: 
  has name=
-steam_id
-ff0000
  prevalidation=
-toks[2]
+ and egs_id=
 Decoding name 
 Decoded name 
 Received greeting 
-ff0000
 doubledamage
 [SERVER] User disconnected: 
- state: 
-ff0000
  error_code: 
-p->is_spectator
 Assigned not-spectator (2): 
-Assigned spectator (2): 
+ state: 
+p->is_spectator
 "JOINED TEAM "
+Assigned spectator (2): 
 JOINED TEAM 
 pkg->value
- is NOT ready.
- toggles ready Stage=
- is ready.
-PROPERTY_KEY_MAP_LOADED
-SHADOW-ERROR L=
-SHADOW-ERROR L=
-SHADOW-ERROR L=
-SHADOW-ERROR L=
-SHADOW-ERROR L=
-SHADOW-ERROR L=
-SHADOW-ERROR L=
 Allocating shadow resources
 SHADOW-ERROR L=
 smb.ps.cso
 SHADOW-ERROR L=
 smc.vs.cso
 smb.vs.cso
+SHADOW-ERROR L=
+SHADOW-ERROR L=
+SHADOW-ERROR L=
+SHADOW-ERROR L=
+SHADOW-ERROR L=
+SHADOW-ERROR L=
+SHADOW-ERROR L=
+models\sphere3.fbx
 Initializing shadows start
 Initializing shadows end
-models\sphere3.fbx
+ffffff
 core_primitive_sphere_smoke_opaque
 models\sphere3.fbx
 core_primitive_sphere_smoke
@@ -43269,58 +43271,61 @@ models\sphere3.fbx
 core_bubble
 models\eggbot\shield\shield.fbx
 core_shield
-ff1c1c
-flag_drop
 ffffff
+flag_drop
+08a8ff
 ability_vampire_activation
+[UDPNET] ID_ALREADY_CONNECTED with guid llu 
+Warning: Aborting net ticking at 
+08a8ff
+sizeof messages::MsgPickup
+sizeof messages::MsgSound
+ffec00
+sizeof messages::MsgWeaponEvent
+sizeof messages::MsgEntityEvent
 sizeof messages::MsgProperty
 sizeof messages::MsgPosition
-Error 19821283 couldn't allocate network connection.
 netclient::net_client->GetMTUSize( netclient::net_client->GetSystemAddressFromGuid(netclient::server_peer))
+Error 19821283 couldn't allocate network connection.
 diaboticle_animal_game
 127.0.0.1
-7a874e
+ff8800
 [UDPNET] Ping from 
 [UDPNET] My external address is 
-ffffff
+ffa1ce
 [UDPNET] ID_CONNECTION_REQUEST_ACCEPTED to/with GUID 
 [UDPNET] ID_CONNECTION_LOST
 [UDPNET] ID_INVALID_PASSWORD
 [UDPNET] ID_NO_FREE_INCOMING_CONNECTIONS
-ffffff
+18c7ff
 [UDPNET] Connection attempt failed
 [UDPNET] We are banned from this server.
-08a8ff
+f3f723
 [UDPNET] ID_DISCONNECTION_NOTIFICATION
 [UDPNET] ID_REMOTE_NEW_INCOMING_CONNECTION
 [UDPNET] ID_REMOTE_CONNECTION_LOST
 [UDPNET] ID_REMOTE_DISCONNECTION_NOTIFICATION
 [UDPNET] ID_INCOMPATIBLE_PROTOCOL_VERSION
-08a8ff
-[UDPNET] ID_ALREADY_CONNECTED with guid llu 
-Warning: Aborting net ticking at 
-ffec00
+ff1c1c
 sizeof messages::MsgIntMessage
 sizeof messages::MsgPositionCorrection
 sizeof messages::MsgPositionVis
 sizeof messages::MsgPositionCorrectionVis
-ff8800
+ffffff
 sizeof messages::MsgFloatMessage
-ffa1ce
+7a874e
 sizeof messages::MsgPositionedEvent
 sizeof messages::MsgDamageInstance
-sizeof messages::MsgPickup
-sizeof messages::MsgSound
-18c7ff
-sizeof messages::MsgWeaponEvent
-sizeof messages::MsgEntityEvent
+peer_it.first.ToString()
+(size_t)peer_it.second
+"CLIENTS NOW"
+CLIENTS NOW
 Error ERR0988N7623D3. Peer already exists?
 %i. %s
 Remote internal IDs:
 ID_NEW_INCOMING_CONNECTION from with GUID 
 [UDPNET] our server = 
 [UDPNET] 
-f3f723
 [UDPNET] ip addresses:
 [UDPNET] 
 [UDPNET] bound addresses:
@@ -43338,10 +43343,16 @@ peers.size()
  event_type=
 Voice channel request
 Ping from %s
-peer_it.first.ToString()
-(size_t)peer_it.second
-"CLIENTS NOW"
-CLIENTS NOW
+[snafu] Error loading font 
+ from path 
+ui\html\fonts\NotoSansKR-Medium.otf
+sans-bold
+ui\html\fonts\NotoSansJP-Medium.otf
+sans-bold
+ui\html\fonts\Poppins-Regular.ttf
+sans-bold
+ui\html\fonts\Roboto-Regular.ttf
+RELOAD0
 [snafu] Error loading BITMAP image: 
 [snafu] Error loading SVG image: 
 [snafu] Preloading 
@@ -43356,8 +43367,7 @@ ui\html\
 [snafu] Error loading bitmap: 
 [snafu] Loaded font 
  from path 
-[snafu] Error loading font 
- from path 
+_huds[get_current_hud()].render_info.minimap_size
 size_in_pixels
 [snafu] Error: element of type 
  has surface size too large, skipping.
@@ -43378,26 +43388,18 @@ ui\html\fonts\NotoSansTC-Medium.otf
 sans-bold
 ui\html\fonts\NotoSansSC-Medium.otf
 sans-bold
+0.0625
 ui\html\fonts\NotoSans-Regular.ttf
 sans-bold
-ui\html\fonts\NotoSansKR-Medium.otf
-sans-bold
-ui\html\fonts\NotoSansJP-Medium.otf
-sans-bold
-ui\html\fonts\Poppins-Regular.ttf
-sans-bold
-ui\html\fonts\Roboto-Regular.ttf
-RELOAD0
-_huds[get_current_hud()].render_info.minimap_size
+0.0625
+minimap
 [Snafu] Error: Horizontal screen size is 0.
 elements
 elements
 elements
-0.0625
 [Snafu] Error loading group definition 
 . Group doesn't have gid.
 [Snafu] Error loading element. Template not known: 
-0.0625
 fontSize
 [Snafu] Error loading element in hud. Element is not an object
 [Snafu] Error parsing hud 
@@ -43406,9 +43408,15 @@ fontSize
 . Document is not an object.
 [Snafu] Error loading hud 
 . Elements array not found.
-minimap
+[snafu] Assertion error NXDF47 t=
+[snafu] Assertion error J89J3D3H t=
+[snafu] Assertion error 2192837 t=
 [snafu] Error NXDF78 (Undefined model property) t=
 [snafu] Assertion error MSUYH138 t=
+[snafu] Error MZB123 (undefined model property) t=
+[snafu] Assertion error 89034FF t=
+[snafu] Assertion error HBD623
+[snafu] Assertion error MD72JDB (Unknown nat var) t=
 [snafu] Assertion error 9812731 (Unknown sys var) t=
 [snafu] Assertion error PO12312 t=
 [snafu] Assertion error MKX1212 t=
@@ -43420,25 +43428,22 @@ minimap
 [snafu] Assertion error C90K0KDD (Unknown nat var) t=
 [snafu] Assertion error 9812731 (Unknown sys var) t=
 [snafu] Assertion error KJSAF137 t=
-[snafu] Assertion error NXDF47 t=
-[snafu] Assertion error J89J3D3H t=
-[snafu] Assertion error 2192837 t=
+ nat_type=
+ value_as_string=
+ t(ms)=
+[snafu] Assertion error 88G001
 [snafu] Assertion error 93423df (Unknown nat var) t=
 [snafu] Assertion error 456X001 var=
 [snafu] Condition 
-[snafu] Warning: Table dimension V limit exceeded: clamping data.
 [snafu] Assertion error H129X6. Unknown variable 
-[snafu] Warning: Table dimension U limit exceeded: clamping data.
+[snafu] Warning: Table dimension V limit exceeded: clamping data.
 [snafu] Assertion error K22C3D12 (Unknown nat var) t=
+[snafu] Warning: Table dimension U limit exceeded: clamping data.
 [snafu] Assertion error FG213982 (Unknown sys var) t=
 [snafu] Assertion error 4239H78 t=
 [snafu] Assertion error B234B234 t=
 [snafu] Assertion error 7231SSS t=
 [snafu] Assertion error 92355163 t=
-[snafu] Error MZB123 (undefined model property) t=
-[snafu] Assertion error 89034FF t=
-[snafu] Assertion error HBD623
-[snafu] Assertion error MD72JDB (Unknown nat var) t=
 bottom-right
 bottom-edge
 bottom-left
@@ -43452,10 +43457,6 @@ horizontal
 vertical reverse
 [snafu] ECHO identifier=
  sys_type=
- nat_type=
- value_as_string=
- t(ms)=
-[snafu] Assertion error 88G001
 [snafu] ERROR 
 [-]{0,1}[0-9\.]+
 [A-Za-z_]{1,1}[0-9A-Za-z_-]*
@@ -43465,14 +43466,14 @@ Error parsing variable
 Assertion error 192837231 str=
 Assertion error 892357682 str=
 Assertion error 94626293 str=
-Condition 2-expression not supported: 
+opacity
+border_radius
 Condition 3-expression not supported: 
 Condition N-expression not supported (FG45): 
 Condition N-expression not supported (XF1): 
 Condition N-expression not supported (XF2): 
 Condition N-expression not supported (FG45): 
-opacity
-border_radius
+Condition N-expression not supported (GH4): 
 image_color
 grayscale
 font_size
@@ -43485,48 +43486,52 @@ padding
 spec_context
 in_editor
 Assertion error MX7RGD var=
+u=Condition 2-expression not supported: 
+iterator2
+ type=
+item_direction
+cell_direction
+item_spacing
+row_align
+NORMAL
+always_visible
+cell_spacing
+duration
+COLOR
+animation
+Error parsing SETTING operand. Unknown setting: 
+Error parsing SETTING operand. Tok 2 is a string: 
+Not enough tokens for SETTING: 
+Not enough tokens for HASH: 
+Error parsing operand for ECHO: 
+Not enough tokens for HASH: 
+Error parsing destination variable for BEGIN TEXT: 
+Not enough tokens for BEGIN CHUNK: 
+INT: expected variable-type token: 
+INT: error parsing operand: 
+INT: expected non-string token: 
+&amp;
+&quot;
+INT: 1 token expected (Note: don't assign while declaring): 
+DOUBLE: expected variable-type token: 
+DOUBLE: error parsing operand: 
+DOUBLE: expected non-string token: 
+DOUBLE: 1 token expected (Note: don't assign while declaring): 
+Condition N-expression not supported (GH5): 
+Condition N-expression not supported (XC30): 
+Condition N-expression not supported (TR8): 
+Condition N-expression not supported (TR9): 
+Condition N-expression not supported (HD23): 
 Condition N-expression not supported: 
 Assertion error 6712673821.
 discard
 setting
 Error parsing SETTING operand: 
 iterator
-iterator2
-item_direction
-cell_direction
-item_spacing
-row_align
-always_visible
-cell_spacing
-duration
-animation
-Error parsing SETTING operand. Unknown setting: 
-u=Error parsing SETTING operand. Tok 2 is a string: 
-Not enough tokens for SETTING: 
-Not enough tokens for HASH: 
-Error parsing operand for ECHO: 
- type=
-Not enough tokens for HASH: 
-Error parsing destination variable for BEGIN TEXT: 
-Not enough tokens for BEGIN CHUNK: 
-INT: expected variable-type token: 
-Condition N-expression not supported (GH4): 
-Condition N-expression not supported (GH5): 
-Condition N-expression not supported (XC30): 
-Condition N-expression not supported (TR8): 
-Condition N-expression not supported (TR9): 
-Condition N-expression not supported (HD23): 
-grayscale
-NORMAL
-Can't assign into this left-value (3): 
-Error parsing variables (3) in: 
-COLOR
-Assignment 4-tok-procedure function not supported: 
-Assignment 4-tok-procedure expression not supported, expected nonstring in t=2: 
 Can't assign into this left-value (2): 
 Assignment procedure expression not supported (unsupported operator): 
 Error parsing variables (2) in: 
-false
+&apos;
 Can't assign into this left-value (H): 
 Error parsing variables (H) in: 
 Can't assign into this left-value (CLAMP): 
@@ -43537,28 +43542,24 @@ Can't assign into this left-value (NEGATE):
 Error parsing variables (NEGATE) in: 
 Assignment 4-tok-procedure function not supported: 
 Assignment 4-tok-procedure expression not supported, expected nonstring in t=2: 
-INT: error parsing operand: 
-INT: expected non-string token: 
+Can't assign into this left-value (7): 
 7-assignment procedure expression not supported (unsupported operator): 
-&amp;
-&quot;
-INT: 1 token expected (Note: don't assign while declaring): 
-DOUBLE: expected variable-type token: 
-DOUBLE: error parsing operand: 
-DOUBLE: expected non-string token: 
-DOUBLE: 1 token expected (Note: don't assign while declaring): 
+false
+Error parsing variables (7) in: 
+Assignment procedure expression not supported (operator is string): 
+Can't assign into this left-value (9): 
+7-assignment procedure expression not supported (unsupported operator): 
 STRING: expected variable-type token: 
 STRING: error parsing operand: 
 STRING: expected non-string token: 
 STRING: 1 token expected (Note: don't assign while declaring): 
 on_update
-&apos;
 Error parsing operands: 
-Destination variable is not variable type. 
 Error in first dimension. Operand should be Variable, String or Number
 Not enough tokens for DEFAULT: 
 Can't assign into this left-value: 
 Error in second dimension. Operand should be Variable, String or Number
+Destination variable is not variable type. 
 Not enough tokens for output: 
 col_output
 Error parsing operands: 
@@ -43567,96 +43568,107 @@ Error in second dimension. Operand should be Variable, String or Number
 Error parsing variables in: 
 saturate
 timestamp
+grayscale
+Can't assign into this left-value (3): 
+Error parsing variables (3) in: 
+false
+jiggas
+Assignment 4-tok-procedure function not supported: 
+Assignment 4-tok-procedure expression not supported, expected nonstring in t=2: 
+jigga
+jigger
+expr___
+template
+homos
+niggor
+template
+jigas
+niggah
+animation
+nignog
+animation
+niggur
+ Not enough parameters for font: 
+niglet
+Error parsing variables (9) in: 
+Procedure expression not supported: 
+Assignment procedure expression not supported (operator is string): 
+ doesn't have tokens
+Assignment procedure expression not supported (unsupported token count): 
+enable
+Error 182736 expression 
+jiggs
+error parsing conditional part of expression: 
+error parsing FOR token: 
+error missing parameter for FOR: 
+niggs
+error parsing procedure: 
+ LogicEntry 
+ -procedure True
+kikes
  -procedure False 
 keyframe
-false
+nigas
+niggas
 opacity
 Unknown keyframe property: 
 Invalid keyframe statement: 
 :static_root
-expr___
-template
-template
-chink
-chinks
-animation
-jiggas
-animation
-jigger
-Can't assign into this left-value (7): 
-Error parsing variables (7) in: 
-Can't assign into this left-value (9): 
-Assignment procedure expression not supported (operator is string): 
-Error parsing variables (9) in: 
-7-assignment procedure expression not supported (unsupported operator): 
-Assignment procedure expression not supported (operator is string): 
-Procedure expression not supported: 
-Assignment procedure expression not supported (unsupported token count): 
-niggor
- doesn't have tokens
-Error 182736 expression 
-jigga
-niggah
-error parsing conditional part of expression: 
-error parsing FOR token: 
-error missing parameter for FOR: 
-error parsing procedure: 
- LogicEntry 
- -procedure True
-homos
- Not enough parameters for font: 
-enable
 instance
-jigas
+fagot
+faggot
  Not enough parameters for INSTANCE: 
 translation
  Not enough parameters for TRANSLATION: 
-jiggs
+false
+nigger
 preload
  Not enough parameters for preload
  Info: Loading template 
-niggs
+nigga
+tranny
  Info: Loading hasher 
  Info: Loading animation 
+chinks
 ui\html\snafu
  Info: Loaded script file 
  Error 249873: Failed loading script file 
 #ffffff
 item_coin
+polack
 images/item_coin.svg
 mode_pickup
-kikes
-niggas
+chink
+zigabo
 #ffffff
 item_coin
-faggot
-doubledamage
-#891e94
-item_tripledamage
-nigger
-images/powerup_tripledamage.svg
-powerup
-tripledamage
-#42fc42
-item_siphonator
+polaks
+images/item_coin.svg
+mode_pickup
+#ffdfa4
+item_coin
+tranny
+images/item_coin.svg
+mode_pickup
+score_pickup_short
 images/powerup_siphonator.svg
 powerup
 survival
-nigas
-tranny
+polak
+f*ggot
 #ff5c42
 item_haste
 images/powerup_surge.svg
-false
-wigger
+whore
+f*gg*t
 powerup
 #0dffff
 item_vanguard
 images/powerup_vanguard.svg
 powerup
 vanguard
-nigga
-polack
+14/88
+retard
 #888888
 weapon_melee
 images/weapon_melee.svg
@@ -43665,20 +43677,21 @@ weaponmelee
 weapon_rocket_launcher
 images/weapon_rl.svg
 weaponrl
-polak
-zigabo
+faggy
+queers
 #7c62d1
-images/item_coin.svg
-mode_pickup
-#ffdfa4
-item_coin
-polaks
-images/item_coin.svg
-mode_pickup
-score_pickup_short
+weapon_blaster
+images/weapon_sb.svg
+weaponbl
+queer
+fagg*t
+#cc791d
+weapon_machinegun
+pakies
+images/weapon_mac.svg
 #ffdfa4
 item_score_pickup
-tranny
+fagots
 images/item_coin.svg
 mode_pickup
 score_pickup
@@ -43689,75 +43702,67 @@ mode_pickup
 score_deny
 #ffffff
 item_flag
-f*ggot
+spicks
 images/item_flag.svg
 mode_pickup
-whore
-f*gg*t
+trany
+slopey
 #f8d206
 item_macguffin
 images/item_macguffin.svg
-nignog
+wigger
 mode_pickup
 macguffin
-niggur
+eggbot
 #ffff0d
 item_diabotical
 images/powerup_diabotical.svg
 powerup
-weapongl
-14/88
-niglet
-#9bc44d
-weapon_super_shotgun
-images/weapon_ss.svg
-weaponss
-faggy
-pakies
-#b05620
+doubledamage
+#891e94
+item_tripledamage
+humpf!
+images/powerup_tripledamage.svg
+powerup
+tripledamage
+#42fc42
+item_siphonator
 weapon_minigun
 images/weapon_mg.svg
 weaponmg
-fagot
-fagots
+pakis
+Error 
 #6b318b
 weapon_w9
-spicks
+ AVG: 
 images/weapon_w9.svg
 weaponw9
-pakis
-slopey
+gooks
 #23598e
 weapon_laserpen
 images/weapon_st.svg
 weaponst
-gooks
-retard
+spiks
 #be2f83
 weapon_implosion_weeball
-spiks
-queers
+spick
 images/weapon_iw.svg
 weaponiw
-spick
-fagg*t
+spics
 #28cdcd
 weapon_slowfield_weeball
-spics
-eggbot
+spigs
 images/weapon_sw.svg
 weaponsw
-spigs
-humpf!
-weapon_blaster
-images/weapon_sb.svg
-weaponbl
-queer
-Error 
-#cc791d
-weapon_machinegun
- AVG: 
-images/weapon_mac.svg
+tards
+#b4513b
+weapon_explosive_weeball
+images/weapon_bw.svg
+weaponbw
+ hits
+#5a811e
+weapon_smoke_weeball
+images/weapon_smw.svg
 weaponmac
 #1fa8b6
 weapon_crossbow_pncr
@@ -43767,7 +43772,7 @@ weaponcb_pncr
 weapon_crossbow
 images/weapon_cb.svg
 weaponcb
-trany
+Error
 #1fa8b6
 weapon_pncr
 images/weapon_pncr.svg
@@ -43779,12 +43784,13 @@ weaponshaft
 #9d3329
 weapon_grenade_launcher
 images/weapon_gl.svg
-images/item_armort2.svg
-armort2
-#ddb625
-item_armort3
-images/item_armort3.svg
-armort3
+weapongl
+Error
+#9bc44d
+weapon_super_shotgun
+images/weapon_ss.svg
+weaponss
+#b05620
 #e51d1d
 item_armort4
 images/item_armort4.svg
@@ -43801,24 +43807,18 @@ images/item_hpt2.svg
 #3dbc75
 item_hpt3
 images/item_hpt3.svg
-#b4513b
-weapon_explosive_weeball
-tards
-images/weapon_bw.svg
-weaponbw
- hits
-#5a811e
-weapon_smoke_weeball
-images/weapon_smw.svg
+#7c62d1
+ammo_blaster
+images/weapon_bl.svg
+#cdb200
+ammo_shaft
 weaponsmw
 #67da80
 weapon_healing_weeball
 images/weapon_hw.svg
 weaponhw
-Error
 #015850
 weapon_knockback_weeball
-Error
 images/weapon_kw.svg
 weaponkw
 #777777
@@ -43830,18 +43830,13 @@ images/item_armort1.svg
 armort1
 #27b1cf
 item_armort2
-ammo_grenades
-images/weapon_gl.svg
-#555555
-tool_editpad
-images/weapon_editpad.svg
-special
+images/item_armort2.svg
+armort2
+#ddb625
+item_armort3
+images/item_armort3.svg
+armort3
 editpad
-#7c62d1
-ammo_blaster
-images/weapon_bl.svg
-#cdb200
-ammo_shaft
 images/weapon_shaft.svg
 ammoshaft
 #df1f2d
@@ -43859,6 +43854,12 @@ ammo_machinegun
 images/weapon_mac.svg
 ammomac
 #9d3329
+ammo_grenades
+images/weapon_gl.svg
+#555555
+tool_editpad
+images/weapon_editpad.svg
+special
 [snafu] JSON parse error parsing 
 [snafu] Parsed locale script 
 [snafu] error parsing locale script 
@@ -43868,7 +43869,15 @@ ammomac
  translation count=
 [snafu] Current locale loaded: 
 [snafu] Current locale not found: 
-translate
+Error %08x after %s
+Vertex buffer too small!
+<span>
+Vertex buffer too small!
+global
+POSITION
+size_x
+TEXCOORD
+global
 nonzero
 evenodd
 display
@@ -43876,13 +43885,24 @@ opacity
 fill-opacity
 stroke-width
 stroke-dasharray
+!null
+global
 stroke-dashoffset
-Error %08x after %s
-Vertex buffer too small!
-Vertex buffer too small!
-POSITION
-TEXCOORD
+global
+stroke-opacity
+stroke-linecap
+stroke-linejoin
+stroke-miterlimit
+size_x
+fill-rule
+size_y
+font-size
+global
+transform
+size_z
+stop-color
 shaders/snfvs.cso
+entity
 shaders/snfps.cso
 [snafu] Assertion error 453123. Fatal error loading HUD UI.  f=
 Create Vertex Buffer
@@ -43894,75 +43914,59 @@ create tex
 0123456789+-.eE
 %d%[%%, 	]%d%[%%, 	]%d
 magenta
-viewBox
-preserveAspectRatio
-<span>
+translate
+decal
+global
 gradientUnits
 objectBoundingBox
-global
+size_y
 gradientTransform
-size_x
+size_z
 spreadMethod
 reflect
 xlink:href
 linearGradient
 radialGradient
-stroke-opacity
-stroke-linecap
-stroke-linejoin
-stroke-miterlimit
-global
-fill-rule
-global
-font-size
-entity
-transform
-entity
-stop-color
-stop-opacity
 ellipse
 polyline
-!null
+")' >
 global
 polygon
+stop-opacity
+viewBox
+preserveAspectRatio
+global
 linearGradient
 radialGradient
 sans-bold
-size_x
+global
 sans-bold
-size_y
+entity
 ui\html\
 decal
 global
 stand_ground
 U4lOOMiqQgSaaGjTAtafj4TLkIWzKK6rdkFep5xB6uY
 b4c61212277e48a29b0a5351eedc3df8
-decal
-size_z
-36336ee97ec543bbae85abaca618182b
-")' >
+false
 global
+36336ee97ec543bbae85abaca618182b
+false
 b701ba72b92f45c28cd41703eaef085d
-size_y
 a3d939efc70848baaf996f6040d9cb19
-size_z
 Durable
 Consumable
 Unknown
-Catalog item [
-] invalid
-global
-Offer [
-Invalid checkout data
-Checkout error: 
-global
+[EGS] Auth OK
+Login Complete - User ID: 
+AccountIdx: %d Status: %d
+egs_auth_error
+close_messagebox
+[EGS] Epic Store name (CMD) is 
 Checkout completed
 New Entitlements: 
-global
 New Entitlement 
-global
 New Entitlement Invalid: 
-global
 Invalid data
 Query entitlements error: 
 Cannot get ECom interface
@@ -43978,17 +43982,18 @@ Query User Info error:
 Query User Info Complete - User ID: 
 QueryUserPresenceCompleteCallbackFn
 Query User presence error: 
-false
-[EGS] Auth OK
-Login Complete - User ID: 
-AccountIdx: %d Status: %d
-egs_auth_error
-close_messagebox
-false
-[EGS] Epic Store name (CMD) is 
+User presence Info retrieved - UserId: 
+  Status: 
+  Application: 
+  Rich Text: 
+  Platform: 
+Copy user presence error.
+PresenceChangedCallbackFn
+Presence changed: 
 [EGS] EGS.0001
 [EGS] Auth Error 1
 Waiting for PIN grant Code:%ls URI:%ls Expires: 
+event
 [EGS] Auth Error 2
 MFA Code needs to be entered before logging in
 [EGS] Auth Error 3.
@@ -44000,22 +44005,22 @@ Query offer warning:
 Query offer error: 
 Numer of offers: 
 Offer [
-Account Id To String Error: 
-exchangecode
-SDK Version 
-Initializing ...
-Diabotical
-Init Failed!
+Catalog item [
+] invalid
+Offer [
+Invalid checkout data
+Checkout error: 
 Initialized
 Setting Logging Callback ...
 Set Logging Callback Failed!
 Logging Callback Set
-Platform Create Failed!
 Client credentials are invalid, check clientid and clientsecret!
-event
+TEAM 
+Platform Create Failed!
 Initialization complete.
 Error: Can't Log In - EOS SDK Not Initialized!
 Error: Cannot get auth interface
+skill
 Initiating auth...
 USERNAME
 offline
@@ -44027,18 +44032,21 @@ invite_sent
 invite_received
 friends
 unknown
-User presence Info retrieved - UserId: 
-  Status: 
-  Application: 
-  Rich Text: 
-  Platform: 
-Copy user presence error.
-PresenceChangedCallbackFn
-Presence changed: 
+user_id
+account_status
+presence_status
+application
+in_this_application
+rich_text
+delete
+platform
+Can't Query Friends - Platform Not Initialized
 NotifyFriendsUpdateCallbackFn
 Pending...
 SubscribeToFriendUpdates
+ready
 [EOS SDK]: could not subscribe to friend status updates.
+insert
 [EOS SDK]: could not subscribe to presence updates.
 Query friends error:
 Query Friends Complete - User ID: 
@@ -44056,23 +44064,24 @@ friend_request_by_name_result
 Query User Info Complete - User ID: 
 friend_request_by_name_result
 Cannot get ECom interface
-insert
+locked
 Cannot get ECom interface
-TEAM 
-user_id
-account_status
-presence_status
-application
-in_this_application
-rich_text
-platform
-ready
-delete
-Can't Query Friends - Platform Not Initialized
+deb_04
+Account Id To String Error: 
+exchangecode
+SDK Version 
+Initializing ...
+accel
+skill1
+Diabotical
+Init Failed!
 Querying friends
-skill
+items
+editor
 friends
 set_friends_data
+slash
+skill2
 set_shop_offers
 epic_id
 epic_token
@@ -44080,7 +44089,7 @@ entitlements
 start_redeem
 Shop checkout: 
 Cannot get ECom interface
-locked
+skill3
  and item 
 Checkout started for user 
 [EOS SDK] Set presence failed: no data
@@ -44090,66 +44099,57 @@ Create presence modification failed
 Playing Diabotical
 Presence modification failed
 Terrain error 1 
-deb_04
+editor
 Terrain error 2 
-accel
-attack
+editor
 Terrain error 3 
-items
-skill1
+attack
 Terrain error 4 
-. Will create a new one in its place.
-Warning: Current heightmap has different dimensions. It will be overwriten.
-Error: Error loading heightmap 
-Warning: Current blendmap has different dimensions. It will be overwriten.
-. Will create a new one in its place.
-Error: Error loading blendmap 
-Error: Empty height map bitmap. Path = 
 Terrain error: Wrong data metrics when generating heightmap texture.
 _heightmap_texture
 Terrain error: Error while creating heightmap texture.
 _blendmap_texture
-editor
+scores
 Terrain error: Error while creating blendmap texture.
 load world
 Height map loaded
-skill2
+editor
 [Terrain] Error: No path for heightmap found.
 [Terrain] Error: No path for blendmap found.
 _blendmap_texture
-skill3
+editor
 Terrain error: Error while creating blendmap texture.
 Setup terrain
 @terrain
-slash
+pause
 editor
 testtest.png
 testtest_output.png
 testtest_output16.png
 models\experiments\grass8.fbx
 ter_grass
-scores
+editor
 models\box.fbx
 models\experiments\ter.svg
 Could not load terrain entity file.
 inkscape:label
 ellipse
+Warning: Current heightmap has different dimensions. It will be overwriten.
+. Will create a new one in its place.
+Error: Error loading heightmap 
+. Will create a new one in its place.
+Warning: Current blendmap has different dimensions. It will be overwriten.
+Error: Error loading blendmap 
+Error: Empty height map bitmap. Path = 
+valleys
+ascending_saw
 descending_saw
 binary_flicker
 flicker
-valleys
-ascending_saw
 Error: Didn't find a triangle.
 Error, more than %d vertices.
 on_update_relative_mode_state
 3d_widget,t=
-[UI] Creating editpad surface
-textures\black.png
-======== PROC GENERATION
-pause
-editor
-[UI] Creating hud
-editor
 texture_window 
 panel.ps.cso
 panel_gamma.ps.cso
@@ -44183,8 +44183,14 @@ editor
 textures\core\loading_screen.png
 greet
 editor
+[UI] Creating editpad surface
+textures\black.png
+======== PROC GENERATION
+cycle
+editor
+[UI] Creating hud
+editor
 textures/
-paste
 editor
 @particles-tube
 @particles-tube
@@ -44202,11 +44208,13 @@ editor
 @particles-normal-
 @particles-normal-
 anchors
-primitive
+max_emissions
+max_particles
+soft_destruction
 editor
-segment
-oriented
-editor
+absolute_acceleration
+auto_rotate
+allow_auto_destruction
 ' on particle system '
 ' is unrecognized.
 Warning: geometry type '
@@ -44227,13 +44235,13 @@ system_light_color
 system_light_radius
 system_light_falloff
 system_light_length
-max_emissions
-max_particles
-soft_destruction
-editor
-absolute_acceleration
-auto_rotate
-allow_auto_destruction
+system_light_position
+system_light_intensity
+Warning: not enough parameters on system_light_position on particle system '
+perlin_scale
+perlin_speed
+sync_group
+light_radius
 auto_orient_3d
 auto_orient
 hard_edges
@@ -44258,18 +44266,14 @@ editor
 subsystem
 editor
 auto_remove
-cycle
 editor
 geometry
 editor
-perspective_radius
-fade_in_start
-opacity
-fade_out
+primitive
 editor
-fade_in
-scale_start
-scale_timeline
+segment
+oriented
+editor
 angular_speed_start
 scale_end
 editor
@@ -44296,20 +44300,21 @@ Loading effect files (V)
 editor
 [particles] Preloading meshes.
 [particles] Meshes preloaded.
-system_light_position
-system_light_intensity
+particle.gs.cso
+particle.ps.cso
+particle.ps.cso
+particle.vs.cso
+particle.vs.cso
+particle_tape.gs.cso
+particle_mesh.ps.cso
 emitter
-Warning: not enough parameters on system_light_position on particle system '
-perlin_scale
-perlin_speed
-sync_group
-light_radius
 ellipse
 horizontal_circle
 editor
 ellipsoid
 editor
 cylinder
+paste
 editor
 ' on particle system '
 ' is unrecognized.
@@ -44324,21 +44329,19 @@ animation_start
 billboard
 editor
 lifetime
+attack
+perspective_radius
+fade_in_start
+opacity
+fade_out
 editor
-Error 2309254 SUPPRESSED PFX 
-ps->_dead
-editor
+fade_in
+scale_start
+scale_timeline
  UDC: 
  SC-SD: 
 editor
 get_info()
-particle.gs.cso
-particle.ps.cso
-particle.ps.cso
-particle.vs.cso
-particle.vs.cso
-particle_tape.gs.cso
-particle_mesh.ps.cso
 particle_mesh_smoke.ps.cso
 particle_mesh.vs.cso
 particle_mesh.vs.cso
@@ -44359,7 +44362,16 @@ slnoise.png
 Error 8523123 initializing particle: 
 ERROR 1892346 (suppressed pfx) 
 init_result
+Error 2309254 SUPPRESSED PFX 
+ps->_dead
+editor
+EnumProcesses
+PSAPI.DLL
 attack
+GetModuleBaseNameA
+EnumProcessModules
+Kernel32.DLL
+Unknown
 ui\cursor.cur
 Diabotical
 Diabotical
@@ -44375,61 +44387,54 @@ osver.dwBuildNumber
 Error fetching timer resolution.
 editor
 Timer resolution:
-editor
+ranked
 Diabotical
 Diabotical
 Diabotical
 kernel32
-editor
+teams
+</div>
 GetLogicalProcessorInformation
-EnumProcesses
-PSAPI.DLL
-attack
-GetModuleBaseNameA
-EnumProcessModules
-Kernel32.DLL
-Unknown
 Process32First
 CreateToolhelp32Snapshot
-editor
+color
+TEAM A
 Module32First
 Process32Next
 Module32Next
 -%08x%08x
-editor
+TEAM B
 USERDOMAIN
 Log.txt
 Log2.txt
-teams
-ranked
-sh_shoe02
-</div>
-sh_shoe03
-TEAM A
-sh_shoe01
-TEAM B
-sh_benders
-sh_gelly
 alive
 orange
-sh_shoe02
+attachment
+slot_pfx_r_foot
+slot_pfx_l_foot
+sh_gelly
+ready
 purple
-sh_shoe03
+sh_shoe02
 Africa
+sh_shoe03
+</div>
 mat_left_foot
 mat_right_foot
 models\eggbot\basic_shell\crown.fbx
 attachment
 survival
-ready
-</div>
+color
+Madrid
 models\eggbot\cosmetics\shell\fuse\fuse.fbx
 models\eggbot\shell\se_gasmask\se_gasmask.fbx
 entities/flag
 models\entities\ctf_flag\ctf_flag_vercol.fbx
+crown.fbx
+London
 attachment
-slot_pfx_r_foot
-slot_pfx_l_foot
+entities/flag
+attachment
 CYLINDER AVATAR MODEL IS NULL
 DEFAULT AVATAR MODEL IS NULL
 eggbot0
@@ -44438,15 +44443,18 @@ models/eggbot/basic_shell/eggbot_shell.fbx
 eggbot/shell/
 eggbot_hologram
 sh_shoe01
-Warsaw
+region
 sh_benders
 sh_gelly
-color
-Madrid
-\weapon_
-color
-London
-models\weapons\melee\
+<div>
+server
+sh_shoe02
+public
+sh_shoe03
+server
+sh_shoe01
+region
+sh_benders
 models\melee_shield.fbx
 melee_shield_3p
 melee_shield_3p
@@ -44457,19 +44465,22 @@ shell_FK_JNT
 blob_decal
 equip_melee
 survival
-<div>
-region
-survival
 brawl
-server
+Dallas
 survival
 shaft
-Dallas
-crown.fbx
 Moscow
-attachment
-entities/flag
-attachment
+survival
+sword
+Sydney
+survival
+%H:%M
+Warsaw
+survival_grunt
+bot_triple_damage_pfx
+bot_diabotical_pfx
+bot_ghosts_pfx
+extinction
 eggbot_trail
 eggbot_attachment_hologram
 models/eggbot/shield/broken_shield.fbx
@@ -44479,114 +44490,98 @@ player_ring_vercol
 player_ring_vercol
 foot_thruster
 survival
-sword
-Sydney
+green
+</div>
 foot_thruster
 survival
-%H:%M
-</div>
+skill
+decals
 player_
 slot_pfx_l_foot
 shell_FK_JNT
 slot_pfx_r_foot
 models\
 we_melee_
-decals
-damage_effect_instances.size()
-decals.size()
-projectiles_touched.size()
-projectiles.size()
+public
+\weapon_
+skill
+server
+models\weapons\melee\
 battle_state.weapons_bought_during_death.size()
 battle_state.items_bought_during_death.size()
 battle_state.contacted_triggers.size()
 battle_state.weapon_states.size()
-public
+region
 battle_state.inventory.size()
 battle_state.tags.size()
-green
-server
+<div>
+public
 battle_state.current_skills.size()
 battle_state.tracked_short_sounds.size()
-skill
-region
+Dubai
+server
 battle_state.damage_instances.size()
-survival
-skill
-public
-survival_grunt
-bot_triple_damage_pfx
-bot_diabotical_pfx
-bot_ghosts_pfx
-extinction
 bot_sparkles_t3_pfx
 survival
-<div>
-server
+Miami
+region
 bot_sparkles_t1_pfx
 bot_sparkles_t2_pfx
 survival
-Dubai
+Tokyo
 region
 extinction
 =============================
 "============================="
 (UINT)this->team
-Miami
 public
 this->player_id
 this->username
 (UINT)this->behavior
 history.getBufferSize()
 attached_particles.size()
-Unable to create detph texture on RenderTexture::init
+</div>
+damage_effect_instances.size()
+decals.size()
+projectiles_touched.size()
+projectiles.size()
 9223 Error creating render texture's shader resource view. Code=
-Tokyo
-server
+</div>
+Unable to create detph texture on RenderTexture::init
 8461 Error creating render texture. Code=
-region
+</div>
 736 Error creating render target view. Code=
  while creating depth shader view.
-Error 1323 dxcode=
-Unable to create detph view on RenderTexture::init
+5?Error 1323 dxcode=
+@Unable to create detph view on RenderTexture::init
+?it.second.size
+_game_files.size()
+@it.second.zip_path
+@it.first
+</div>
+]?shaders
+index files
+index packs
+textures
+png.dds
+find modified files
+ files.
+ contains 
+[Resources] dbp found: 
+[Resources] Pack 
  in pack 
-region
 header_size
 [Resources] Warning: Ignoring 0-size file 
 Pak inspected
 [Resources] Error: Out of bounds file 
  in pack 
-public
-it.second.size
-_game_files.size()
-it.second.zip_path
-it.first
-</div>
-shaders
-index files
-index packs
-5?textures
-</div>
-@find modified files
-? files.
- contains 
-@[Resources] dbp found: 
-[Resources] Pack 
-</div>
-@mods\*\
-png.dds
 Error: File in zip with size 0: 
-</div>
-]?scripts
+scripts
 autodecals
-</div>
 textures
 translations
-[Animation] Error: layer 
-Error 8345GF: Setting animation=
-Error 8493HD: Setting animation=
- not found in animation 
- SHADOW m=
- SHADOW no model dn=
+mods\*\
+WRONGFUL NODE DELETION 
  no model dn=
 _opaque_no_ao_render_queue 
 _opaque_render_queue 
@@ -44596,7 +44591,12 @@ _transparent_render_queue
 Warning 2387.
 TRANSPARENT QUEUE
 TRANSPARENT QUEUE
-WRONGFUL NODE DELETION 
+core_hologram_animated
+core_hologram
+[Scene] Error loading core_hologram effect.
+flash_hologram
+[Scene] Error loading core_flash effect.
+[Scene] Error loading core_hologram effect.
 ERROR create empty
 ERROR mtnode model 
 ERROR 2897361: Invalid registree metrics: on 
@@ -44605,23 +44605,19 @@ ERROR mtnode pfx
 "checking portals"
 shell_FK_JNT
 Error 0945161 n=
-node->visible
-node->particle_system->def.name
-node->model->name
-===================================================================================
+[Animation] Error: layer 
+Error 8345GF: Setting animation=
+Error 8493HD: Setting animation=
+ not found in animation 
+ SHADOW m=
+ SHADOW no model dn=
 ===================================================================================
 END OF SCENE REPORT
 START OF SCENE REPORT
-core_hologram_animated
-===================================================================================
-===================================================================================
-core_hologram
-[Scene] Error loading core_hologram effect.
-flash_hologram
-[Scene] Error loading core_flash effect.
-[Scene] Error loading core_hologram effect.
-[Scene] Error loading core_flash effect.
 core_flash_animated
+===================================================================================
+===================================================================================
+[Scene] Error loading core_flash effect.
  NC-ND=
 ---------------------------------------------------
 ---------------------------------------------------
@@ -44631,11 +44627,11 @@ node->tag2
 node->debug_name
 node->hidden_mask
 node->children.size()
+node->visible
+node->particle_system->def.name
+===================================================================================
+node->model->name
 Error 9469285 building animator hierarchy.
-: No such setting (getting).
-integer
-floating
-: No such setting (setting).
 //Automatically generated on 
 Error saving settings to 
 Ini file loaded.
@@ -44645,25 +44641,21 @@ Loading ini file at
 Registering on-exit settings-saving hook.
 Loading settings from disk.
 <tr class='altered'>
-CloudSave
-Settings.txt
 <td><nobr>
 &mdash;
 </small></td>
 </nobr></td>
 <td><small>
+CloudSave
+Settings.txt
+: No such setting (getting).
+integer
+floating
+: No such setting (setting).
 config_
 </table>
 </body></html>
 sky material loaded
-aa1.ps.cso
-aa2.vs.cso
-dispcomp.ps.cso
-aa1.vs.cso
-aa3.ps.cso
-aaoff.vs.cso
-aa2.ps.cso
-aa3.vs.cso
 bldn4.ps.cso
 postcolor.ps.cso
 aaoff.ps.cso
@@ -44682,13 +44674,17 @@ Error mapping postcolor buffer data
 textures\smaas.dds
 disp.ps.cso
 textures\smaaa2.dds
+aa1.ps.cso
+aa2.vs.cso
+dispcomp.ps.cso
+aa1.vs.cso
+aa3.ps.cso
+aaoff.vs.cso
+aa2.ps.cso
+aa3.vs.cso
 @hud_player_pin
 textures/core/player_pin.png
 hud_minimap
-textures\core\items\weapon
-textures\core\lag_state.png
-textures\core\idle_chat.png
-armort4
 doubledamage
 tripledamage
 armort2
@@ -44708,18 +44704,22 @@ vanguard
 #ffffff0d
 doubledamage
 #ff891e94
+#ff42fc42
+survival
+#ff0dffff
+survival
+#ffffffff
+#ffff5c42
 textures\core\team_indicator.png
 textures\core\entity_pin.png
 textures\core\idle_menu.png
 textures\core\idle_desktop.png
 textures\core\idle_console.png
 textures\core\items\exclamation.png
-DELIVER A
-DELIVER B
-POWERUP
-doubledamage
-POWERUP
-vanguard
+textures\core\items\weapon
+textures\core\lag_state.png
+textures\core\idle_chat.png
+armort4
 macguffin
 POWERUP
 tripledamage
@@ -44729,12 +44729,6 @@ survival
 POWERUP
 POWERUP
 POWERUP
-#ff42fc42
-survival
-#ff0dffff
-survival
-#ffffffff
-#ffff5c42
 macguffin
 survival
 TEAM BASE
@@ -44748,12 +44742,22 @@ DELIVER
 ENEMY BASE
 TEAM BASE
 ENEMY BASE
+DELIVER A
+DELIVER B
+POWERUP
+doubledamage
+POWERUP
+vanguard
 #lagometer
 phy_speed
 phy_deceleration_ground
 Base player speed.
-phy_speed_start_boost
-phy_speed_start_boost_power
+Brake rate on water.
+phy_deceleration_water
+Brake rate on ground.
+phy_lateral_speed_multiplier
+Corner clipping grace period after last landing.
+phy_corner_clipping_time
 phy_max_hor_speed
 phy_speed_start_boost_threshold
 phy_max_ground_speed
@@ -44769,12 +44773,12 @@ phy_2nd_friction
 Maximum sprint velocity.
 phy_sprint_max
 2nd layer of physics friction rate.
-Brake rate on water.
-phy_deceleration_water
-Brake rate on ground.
-phy_lateral_speed_multiplier
-Corner clipping grace period after last landing.
-phy_corner_clipping_time
+phy_accel_ground
+Rate of sprinting.
+phy_sprint_rate
+phy_accel_air
+Ground acceleration. 
+Valid range: 0 - 1000.
 phy_back_speed_multiplier
 Base player lateral speed multiplier.
 Inventory slots. 0 = Infinite.
@@ -44791,13 +44795,8 @@ phy_speed_filtering_start.
 phy_speed_filtering_yank_power
 phy_speed_filtering_minimum.
 phy_speed_filtering_minimum
-Sequence of values for air steering control in different directions.
-phy_air_steering_torque_anisotropy
-Sequence of multipliers to air accel in different directions.
-phy_fly
-Surface friction. 
-Valid range: 0 - 1000.
-phy_surface_friction
+phy_speed_start_boost
+phy_speed_start_boost_power
 Sprint mode. 0: Press-to-activate. 1:Auto.
 phy_sprint_mode
 Forces flying mode. 0: Disabled. 1:Enabled.
@@ -44814,12 +44813,10 @@ Defines whether a weapon uses custom settings. 0: No, use defaults. 1: Yes, over
 game_zoom_mode
 Defines whether a weapon uses custom settings. 0: No, use defaults. 1: Yes, override defaults.
 game_custom_weapon_sounds
-phy_accel_ground
-Rate of sprinting.
-phy_sprint_rate
-phy_accel_air
-Ground acceleration. 
-Valid range: 0 - 1000.
+Defines whether a weapon uses custom settings. 0: No, use defaults. 1: Yes, override defaults.
+game_custom_weapon_visuals
+Defines whether the zoom button is push-to-enable or a toggle. 0: Push to enable. 1: Toggle.
+game_weapon_position
 Valid range: 0 - 1000.
 phy_lateral_only_accel_air
 Air acceleration. 
@@ -44828,20 +44825,24 @@ phy_decel
 Valid range: 0 - 1000.
 phy_lateral_only_air_speed_multiplier
 phy_accel_air_lateral_multiplier
+Air acceleration slow down limit.
 Deceleration (in use when strafe_jumping is off). 
 Valid range: 0 - 1000.
-Air acceleration slow down limit.
 phy_accel_air_factor_limit
+Air acceleration minimum slowdown multiplier.
+phy_air_steering_torque_anisotropy
 Multiplier of air acceleration when moving laterally. 
 Valid range: 0 - 1000.
 phy_air_speed_anisotropy
-Air acceleration minimum slowdown multiplier.
 phy_accel_air_minimum_factor
 phy_accel_air_anisotropy
 Sequence of multipliers to air speed in different directions.
-game_ping_waypoints
-game_weapon_waypoints
-game_player_ring_mode
+Sequence of values for air steering control in different directions.
+Sequence of multipliers to air accel in different directions.
+phy_fly
+Surface friction. 
+Valid range: 0 - 1000.
+phy_surface_friction
 phy_double_jump
 Crouching camera transition speed.
 Enables or disables double-keypress jumping. 0: Disabled. 1:Enabled.
@@ -44853,28 +44854,25 @@ phy_ground_boosting_max
 phy_ground_boosting_factor
 phy_ground_boosting_min
 phy_multi_jump
-game_weapon_position
-Defines whether a weapon uses custom settings. 0: No, use defaults. 1: Yes, override defaults.
-game_custom_weapon_visuals
-Defines whether the zoom button is push-to-enable or a toggle. 0: Push to enable. 1: Toggle.
+phy_multi_jump_time
+phy_step_distance
+phy_triple_jump
 game_zoom_out_time
 game_zoom_in_time
-Strafe jumping multiplier, set to 0 to disable strafe jump. 0: Disabled. 1:100%. 1.5:150%, etc.
 phy_strafe_jumping
+Strafe jumping multiplier, set to 0 to disable strafe jump. 0: Disabled. 1:100%. 1.5:150%, etc.
 phy_strafe_mode
 phy_strafe_cycles
-Enables or disables position smoothing. 0: Disabled. 1:Enabled.
 phy_smoothing
+game_landing_bob_enable
+Enables or disables position smoothing. 0: Disabled. 1:Enabled.
 Enables or disables auto jumping. 0: Disabled. 1:Enabled.
 phy_auto_jump
 Frequency of acceleration evaluation that affects strafe jumping feel.
-game_landing_bob_enable
+game_ping_waypoints
 Enables or disables camera landing bob. 0: Disabled. 1:Enabled.
-Degree of sliding maneuravility.
-phy_roll_control
-Duration of the slide skill.
-phy_roll_duration
-Degree of alpha jumping maneuravility while using Haste. 0 to disable.
+game_weapon_waypoints
+game_player_ring_mode
 game_landing_bob_time
 Vertical distance travelled by the camera on landing.
 game_landing_bob_offset
@@ -44890,9 +44888,12 @@ game_waypoint_scale
 Footstep range.
 Character's inner sphere scale.
 game_player_inner_size
-phy_multi_jump_time
-phy_step_distance
-phy_triple_jump
+game_player_hitbox_hover_offset
+Character's scale. 1: Default size
+game_player_model_scale
+Vertical player environment collision radius.
+game_player_col_radius_ver_bottom
+Character vertical hit offset.
 Enables wall jumping. 0: Disabled 1: Enabled
 phy_wall_jumping
 Speedup granted while jumping forward.
@@ -44908,11 +44909,11 @@ phy_air_steering_dottenuation
 phy_haste_air_torque
 Death explosion intensity power.
 phy_death_explosion_intensity
-Target tickrate for acceleration calculations.
-phy_target_tickrate
-phy_ramp_rel_impulse_up
-Ramp impulse factor going up.
-phy_ramp_impulse_up
+Degree of sliding maneuravility.
+phy_roll_control
+Degree of alpha jumping maneuravility while using Haste. 0 to disable.
+Duration of the slide skill.
+phy_roll_duration
 phy_ramp_down_speed
 phy_ramp_up_speed
 phy_ramp_speed_multiplier
@@ -44924,12 +44925,11 @@ phy_air_pushback
 phy_dfa_angle_cap
 Minimum speed on air.
 phy_air_minimum_speed
-game_player_hitbox_hover_offset
-Character's scale. 1: Default size
-game_player_model_scale
-Vertical player environment collision radius.
-game_player_col_radius_ver_bottom
-Character vertical hit offset.
+Degree of sliding maneuravility.
+phy_double_jump_impulse
+Death from above angle cap.
+Degree of alpha jumping strength.
+phy_air_steering_bonus
 Vertical player environment collision top radius.
 game_player_col_radius_ver_top
 game_player_view_height
@@ -44946,12 +44946,11 @@ phy_gravity
 Power jump impulse.
 phy_powerjump_impulse
 Regular jump impulse.
-phy_bolt_extra_accel
-Bolt ability reactivation time.
-phy_bolt_activation_time
-Extra air acceleration time for Bolt.
-phy_bolt_extra_accel_time
-Extra air acceleration for Bolt.
+Target tickrate for acceleration calculations.
+phy_target_tickrate
+phy_ramp_rel_impulse_up
+Ramp impulse factor going up.
+phy_ramp_impulse_up
 Extra air acceleration time for Bolt.
 phy_bolt_kinetic_energy
 phy_bolt_cooldown_recovery
@@ -44964,11 +44963,11 @@ phy_bolt_pre_activation_window
 game_zoom_toggle_behavior
 phy_bolt_post_deactivation_window
 game_zoom_weapon_scaling
-Degree of sliding maneuravility.
-phy_double_jump_impulse
-Death from above angle cap.
-Degree of alpha jumping strength.
-phy_air_steering_bonus
+Bolt type. 0: Disabled. 1: Abrupt. 2: Inertial
+phy_bolt_type
+phy_slide_duration_eigenvalue
+Enables slide. 0: Disabled. 1: Enabled
+phy_slide
 phy_bolt_extra_speed
 Bolt ability base speed.
 phy_bolt_base_speed
@@ -44985,11 +44984,12 @@ phy_bolt_pitch
 Intensity of the blink pushback effect.
 Bolt ability internal cooldown.
 phy_bolt_cooldown
-Speed of the hook ability.
-phy_hook_speed
-Strength of the charge ability.
-Cap for the speed an user can have on release of the hook.
-phy_hook_momentum_max
+phy_bolt_extra_accel
+Bolt ability reactivation time.
+phy_bolt_activation_time
+Extra air acceleration time for Bolt.
+phy_bolt_extra_accel_time
+Extra air acceleration for Bolt.
 game_friendly_fire
 Pitch variation of hit sounds.
 game_hit_pitch_variation
@@ -45005,11 +45005,12 @@ game_ghost_limit_hp
 HP won't degenerate below this value (server variable).
 Armor won't degenerate below this value (server variable).
 game_stable_armor
-Bolt type. 0: Disabled. 1: Abrupt. 2: Inertial
-phy_bolt_type
-phy_slide_duration_eigenvalue
-Enables slide. 0: Disabled. 1: Enabled
-phy_slide
+game_freeze_save_time
+Time to death after freezing in tag modes, set to 0 to disable tag.
+game_freeze_time
+Enables or disables self damage with splash weapons.
+game_self_damage
+Time that it takes to be melted by a teammate in tag modes.
 phy_slide_duration_max
 phy_slide_duration_gamma
 phy_slide_friction
@@ -45021,9 +45022,11 @@ phy_haste_duration
 phy_charge_impulse
 Duration of the charge ability.
 phy_charge_duration
-game_damage_numbers_color_mode
-game_spec_follow_poi
-game_spec_follow_fragger
+Speed of the hook ability.
+phy_hook_speed
+Strength of the charge ability.
+Cap for the speed an user can have on release of the hook.
+phy_hook_momentum_max
 game_show_actual_damage
 game_show_player_lag
 game_max_armor
@@ -45037,13 +45040,12 @@ game_high_armor
 game_energy_rate
 Starting player energy (server variable).
 game_energy
-game_freeze_save_time
-Time to death after freezing in tag modes, set to 0 to disable tag.
-game_freeze_time
-Enables or disables self damage with splash weapons.
-game_self_damage
-Time that it takes to be melted by a teammate in tag modes.
+Energy will increase twice as fast up below this point (server variable).
+game_fast_energy
+game_max_energy
 Enables or disables invulnerability with double damage.
+Time that it takes for a player to gain an energy charge in seconds.
+Maximum player energy (server variable).
 game_double_damage_invulnerability
 game_damage_numbers_grouping
 game_damage_numbers
@@ -45054,12 +45056,9 @@ game_player_names_uppercase
 game_enemy_names_color_mode
 game_weapon_switch_mode
 game_team_names_color_mode
-game_initial_item_time
-Duration of truce at the start of the game.
-game_truce_time
-Warmup time in seconds before a start is forced. 0 means no countdown, -1 means infinite.
-game_warmup_time
-Initial item spawn time.
+game_damage_numbers_color_mode
+game_spec_follow_poi
+game_spec_follow_fragger
 Maximum respawn time.
 game_maximum_respawn_time_ms
 game_weapon_respawn_time
@@ -45075,13 +45074,13 @@ game_bot_dodge_desired_distance
 Maximum time per round of drafting.
 game_draft_time
 Time it takes the bot to reach 320 speed on ground.
-Energy will increase twice as fast up below this point (server variable).
-game_fast_energy
-game_max_energy
-Game frag limit.
-Time that it takes for a player to gain an energy charge in seconds.
-Maximum player energy (server variable).
+Game countdown in seconds.
+game_countdown
+game_logging
+Game countdown in seconds.
+game_round_countdown
 game_life_count
+Game frag limit.
 game_score_limit
 game_bounty_limit
 Game life limit.
@@ -45092,11 +45091,12 @@ game_pve
 Game mercy limit.
 Seconds to be subtracted from or added to timelimit for the tide mechanic.
 game_tide_bonus
-If enabled, game is free for all. If disabled, it's a two-team game.
-game_free_for_all
-Maximum player count. 0 = unlimited.
-game_require_ready
-Sets whether all participants are required to ready up before the game starts.
+game_initial_item_time
+Duration of truce at the start of the game.
+game_truce_time
+game_warmup_time
+Warmup time in seconds before a start is forced. 0 means no countdown, -1 means infinite.
+Initial item spawn time.
 game_deposit_coins
 game_full_charge
 Sets whether chargeable weapons (pncr) are always at full charge.
@@ -45108,13 +45108,14 @@ game_spawn_farthest_chance
 game_damage_numbers_scale
 game_player_names_scale
 game_spawn_safety_radius
-Weighted probability of selecting the 'farthest from foe' spawning strategy.
 game_spawn_farthest_foe_chance
-Game countdown in seconds.
-game_countdown
-game_logging
-Game countdown in seconds.
-game_round_countdown
+game_confirmation_frag
+Weighted probability of selecting the 'farthest from foe' spawning strategy.
+Weighted probability of selecting the 'random' spawning strategy.
+game_spawn_random_chance
+Enables drop weapon. 0: Disabled, 1: Enabled
+game_enable_drop
+Enables confirmation frag mechanic. 0: Disabled, 1: Enabled
 Enable or disable picking and dropping of items.
 game_enable_items
 Enables writing of JSON game events to the game.log file.
@@ -45125,15 +45126,17 @@ Overtime in seconds.
 game_overtime
 Overtime-triggered extra score limit in points.
 game_overtime_score_limit
-game_wipe_out_mode
 Enables or disable wipe out mode, in which players don't respawn until the next round starts.
 1: Clan Arena mode, 2: Pure wipe out mode
+game_wipe_out_mode
 game_max_players
 Enable or disable team mode.
 game_team_mode
-hud_crosshair_definition
-hud_crosshair_size
-hud_zoom_crosshair_definition
+game_free_for_all
+If enabled, game is free for all. If disabled, it's a two-team game.
+Maximum player count. 0 = unlimited.
+Sets whether all participants are required to ready up before the game starts.
+game_require_ready
 hud_crosshair_stroke_width
 Size of crosshair.
 Sets default crosshair type.
@@ -45150,12 +45153,11 @@ Size of crosshair 2.
 hud_crosshair_color2
 Sets default crosshair 2 type.
 hud_crosshair_type2
-game_confirmation_frag
-Weighted probability of selecting the 'random' spawning strategy.
-game_spawn_random_chance
-Enables drop weapon. 0: Disabled, 1: Enabled
-game_enable_drop
-Enables confirmation frag mechanic. 0: Disabled, 1: Enabled
+hud_crosshair_stroke2
+A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
+Size of crosshair 3.
+hud_crosshair_size3
+A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 Shows player speed on screen. 0: Disabled. 1:Enabled.
 hud_speedometer
 hud_remember_chat_channel
@@ -45171,32 +45173,30 @@ game_haste_expiration
 Sets crosshair type in editing mode.
 hud_editing_crosshair_type
 Expiration time of the haste skill since it's first activated.
-hud_zoom_crosshair_size2
-A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
-hud_zoom_crosshair_stroke
-hud_zoom_crosshair_stroke_width2
-Size of crosshair 2.
+hud_crosshair_definition
+hud_crosshair_size
+hud_zoom_crosshair_definition
 Sets default crosshair 2 type.
 hud_zoom_crosshair_type2
 Thickness of crosshair stroke.
 hud_zoom_crosshair_stroke2
+Thickness of crosshair stroke.
+hud_zoom_crosshair_stroke_width3
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 hud_zoom_crosshair_color2
 hud_zoom_crosshair_size3
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
-Thickness of crosshair stroke.
-hud_zoom_crosshair_stroke_width3
 Size of crosshair 3.
 hud_zoom_crosshair_color3
 Sets default crosshair 3 type.
 hud_zoom_crosshair_type3
 hud_zoom_crosshair_stroke3
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
-hud_crosshair_stroke2
-Size of crosshair 3.
+hud_crosshair_mask_aperture
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
-hud_crosshair_size3
-A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
+hud_crosshair_mask_color
+133.33333
+hud_crosshair_mask_diameter
 hud_crosshair_type3
 Thickness of crosshair stroke.
 hud_crosshair_stroke_width3
@@ -45211,12 +45211,13 @@ hud_zoom_crosshair_size
 Sets default crosshair type.
 hud_zoom_crosshair_type
 Thickness of crosshair stroke.
-Sets zoom hud crosshair hit style.
+hud_zoom_crosshair_stroke_width2
 A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
 hud_zoom_crosshair_color
-hud_zoom_crosshair_mask_color
-133.33333
-hud_zoom_crosshair_hit_style
+hud_zoom_crosshair_size2
+A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
+hud_zoom_crosshair_stroke
+Size of crosshair 2.
 hud_zoom_crosshair_hit_style3
 Sets zoom hud crosshair hit style.
 hud_zoom_crosshair_hit_style2
@@ -45232,11 +45233,12 @@ default
 Enables or disables the minimap. 0: Disable, 1: Enabled.
 hud_minimap
 Hit sound.
-hud_crosshair_mask_aperture
-A RGB hex color code in the format RRGGBB. For example, FFFFFF is white.
-hud_crosshair_mask_color
-133.33333
-hud_crosshair_mask_diameter
+editor_hide_list
+A comma separated list of entity name tokens to lock matching entities.
+editor_lock_list
+liquid_ocean,prop_terrain_mountains_mou,prop_terrain_mountains_mou_1,prop_terrain_mountains_mou_2
+ui_current_decal
+A comma separated list of entity name tokens to hide matching entities.
 Sets hud crosshair hit style.
 hud_crosshair_hit_style
 Sets hud crosshair hit style.
@@ -45248,28 +45250,26 @@ hud_crosshair_hit_color2
 hud_crosshair_hit_color3
 hud_zoom_crosshair_mask_diameter
 hud_zoom_crosshair_mask_aperture
-game_weapon_priority
-movies_clean_mode
-Alternative path to save movie sequences to.
-movies_sequence_path
+hud_zoom_crosshair_mask_color
+133.33333
+Sets zoom hud crosshair hit style.
+hud_zoom_crosshair_hit_style
 net_ips
-net_tickrate_ratio
 Disables HUD, nameplates, damage numbers and other indicators for movie recording.
-net_server_knockback
+net_tickrate_ratio
 Extra IP addresses to make available in the custom game dialog.
+net_server_knockback
 net_server_hitscan
 net_projectile_prediction_window
 net_max_client_extrapolation
 This option has no effect in this build.
 net_prediction_window
 net_max_backwards_reconciliation_ping
-editor_hide_list
-A comma separated list of entity name tokens to lock matching entities.
-editor_lock_list
-liquid_ocean,prop_terrain_mountains_mou,prop_terrain_mountains_mou_1,prop_terrain_mountains_mou_2
-ui_current_decal
-A comma separated list of entity name tokens to hide matching entities.
+game_auto_switch_ooa
+This option has no effect in this build.
+game_equip_empty_weapons
 Currently selected song for the Diabotical upgrade.
+Enables or disables auto switch when running out of ammo. 0: Disabled; 1: Switch when out of ammo; 2: Switch when shooting out of ammo
 music_dd
 customization_song
 Runtime variable: currently selected decal.
@@ -45279,19 +45279,18 @@ ui_current_decal_size
 game_weapon_mode
 Game mode.
 Machine generated string that stores the hud definition.
-{"default_hud":true,"version":1.3,"elements":[{"t":"item_picked","x":8,"y":5,"fontSize":"2.2","shadow":1,"icon":1,"owner":1,"pivot":"bottom-left","iconWidth":3.5,"gid":6,"name":1,"iconBackground":"#0000008D","font":"montserrat"},{"t":"chat","x":4,"y":78,"height":30,"width":50,"fontSize":"1.6","align":"left","color":"white","pivot":"bottom-left"},{"t":"hp_bar","x":8,"y":33,"width":23,"height":2.6,"color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"armor_bar","x":8,"y":67.5,"width":23,"height":2.6,"color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"hp","x":59,"y":32.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","shadow":1,"pivot":"right-edge","gid":6,"font":"montserrat"},{"t":"armor","x":59,"y":67.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","shadow":1,"pivot":"right-edge","hideIf0":"0","gid":6,"font":"montserrat"},{"t":"you_fragged","x":50,"y":66,"fontSize":"3","font":"veneer-italic","color":"white","pivot":"top-edge","align":"center"},{"t":"frag_feed","x":96,"y":3,"height":20,"width":30,"fontSize":"1.6","v_align":"flex-end","bottomUp":"0","direction":"bottom","pivot":"top-right","font":"montserrat-bold"},{"t":"game_timer","x":50,"y":6,"fontSize":"4.5","shadow":"1","color":"#FFFFFFFC","gid":5,"pivot":"top-edge","font":"roboto-bold"},{"t":"time_limit","x":50,"y":49.25,"fontSize":"1.5","font":"roboto-bold","shadow":"1","pivot":"top-edge","align":"center","gid":5,"color":"#FFFFFF"},{"t":"dodge","x":50,"y":61,"fontSize":"1.5","iSize":"5","mC":"#FFFFFF","icon_inactive_opacity":"0.2","bRadius":"0.8","cCode":"15","bWidth":"0","bgC":"#00000000","aT":"2","pivot":"center"},{"t":"item","x":50,"y":92,"fontSize":"1","iSize":"10","mC":"#FFFFFFC2","bRadius":"10","cCode":"15","bWidth":"3","bgC":"#00000063","pivot":"center","style":"default","iC":"custom","font":"roboto-bold","iCCustom":"#FFFFFF","name":1,"keybind":1,"iShadow":0,"flip":0},{"t":"weapons_list","gid":-1,"x":96,"y":77,"mode":"all","direction":"vertical reverse","wDirection":"horizontal","font":"montserrat","fontSize":"2","aWidth":"5.5","aPadding":"0","aAlign":"center","accShow":0,"accFontSize":"1","iHeight":"40","iWidth":"55","wSepWidth":"0.2","sepWidth":"24","cBitWidth":"0","keybindShow":1,"aKeybindShow":"0","aBarShow":0,"aBarWidth":"0.6","aBarWC":0,"iOpacityInactive":"1","aOpacityInactive":"1","iC":"custom","iCCustom":"#FFFFFFCC","iCActive":"weapon","iCActiveCustom":"#FFFFFF","iBGC":"custom","iBGCCustom":"#0000003D","iBGCActive":"custom","iBGCActiveCustom":"#00000094","aC":"custom","aCCustom":"#FFFFFFBF","aCActive":"custom","aCActiveCustom":"#FFFFFF","aBGC":"custom","aBGCCustom":"#00000012","aBGCActive":"weapon","aBGCActiveCustom":"#00000000","pivot":"bottom-right","iShadow":0},{"t":"powerup","gid":6,"x":72,"y":15,"fontSize":"2.5","iSize":"7","mC":"white","bRadius":"10","cCode":"15","bWidth":0.2,"bgC":"#24232188","iC":"custom","iCCustom":"#ffffff","style":"default","pivot":"top-edge","font":"roboto-bold","cP":"3"},{"t":"rect","gid":4,"pivot":"left-edge","x":57,"y":"50","width":"0.2","height":5,"bRadius":"0","cCode":"15","skewX":"0","skewY":"0","bgC":"custom","bgCCustom":"#FFFFFFAC","hide_dead":"1","bCCustom":"#FFFFFF"},{"t":"current_weapon_icon","gid":4,"x":100,"y":50,"width":5,"height":5,"weapon_fill":0,"fill":"#FFFFFF","pivot":"right-edge","shadow":1,"iconShadow":0,"size":"5"},{"t":"current_ammo","gid":4,"x":"42","y":"50","fontSize":"5","align":"center","aC":"custom","aCCustom":"#FFFFFF","threshold":"0.16","lowAC":"custom","lowACCustom":"#FF0000","font":"montserrat","shadow":1,"pivot":"right-edge"},{"t":"fps","gid":-1,"x":0,"y":0,"fontSize":"2","font":"montserrat-bold","pivot":"top-left","shadow":1,"color":"#FFFFFF"},{"t":"icon","gid":6,"x":64,"y":32.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#2CD86B","icon":"hp","shadow":"1","hide_dead":"1","iconShadow":1,"pivot":"right-edge"},{"t":"icon","gid":6,"x":64,"y":67.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#FFFFFF","icon":"armor","shadow":"1","hide_dead":"1","pivot":"right-edge","iconShadow":1},{"t":"coins","gid":-1,"x":50,"y":81,"fontSize":"4","color":"#ffffff","scaleOnPickup":"1","font":"montserrat-bold"},{"t":"player_name","gid":6,"x":7,"y":100,"fontSize":"3","pivot":"top-left","color":"#FFFFFF","shadow":1,"teamColor":1,"font":"montserrat-bold","vis":"s","pre":1,"uc":0},{"t":"score","gid":5,"x":11,"y":0,"width":"8","height":"5","fontSize":"3","team":"own","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-left","font":"montserrat-bold"},{"t":"score","gid":5,"x":89,"y":1,"width":"8","height":"5","fontSize":"3","team":"enemy","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-right","direction":"horizontal reverse","font":"montserrat-bold"},{"t":"own_players","gid":5,"x":9,"y":1,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-right"},{"t":"enemy_players","gid":5,"x":91,"y":0,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal reverse","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-left"},{"t":"steal_progress","gid":-1,"x":50,"y":25,"height":"2.4","width":"30"},{"t":"overtime_progress","gid":-1,"x":50,"y":21,"height":"2.4","width":"30","txt":"1"},{"t":"hint","gid":-1,"x":"50","y":"15","pivot":"center","fontSize":2,"font":"montserrat-bold"},{"t":"low_ammo_warning","gid":4,"x":"50","y":0,"fontSize":"2","color":"#ff0000","font":"montserrat-bold","threshold":0.16,"shadow":1,"uc":1},{"t":"voicechat","gid":-1,"x":3,"y":32,"fontSize":"2","font":"montserrat-bold","color":"#ffffff","pivot":"top-left","iC":"#00FF00"},{"t":"minimap","gid":-1,"x":1,"y":1,"pivot":"top-left","size":"30","lc":"#32323c","mc":"#4b4b4b","hc":"#645a5a","oc":"#FFFFFF","ot":0.1,"tlo":1,"ci":1,"stll":1,"opo":0.5},{"t":"teammates_alive","x":18.8,"y":62.5,"fontSize":"1.5","color":"#2CD86B","align":"center","shadow":1,"aliveText":"1","teamColor":"1","pivot":"top-edge","gid":5,"font":"roboto-bold"},{"t":"enemies_alive","x":80.4,"y":62.5,"fontSize":"1.5","color":"#c80f0f","align":"center","shadow":1,"aliveText":1,"pivot":"top-edge","teamColor":1,"gid":5,"font":"roboto-bold"}],"groups":[{"gid":4,"groupName":"Ammo","x":"96","y":"95","width":18,"height":10,"pivot":"bottom-right"},{"gid":5,"groupName":"Match Info","x":"50","y":4,"width":50,"height":10,"pivot":"top-edge"},{"gid":6,"groupName":"Health and Armor","x":"4","y":"95","width":60,"height":10,"pivot":"bottom-left"}],"misc":{"hudaspect":"default","fl":"1","film":"vML?1?vML?1","fovbkg":"depot"}}
 hud_definition
 game_weapon_definition
-Machine generated string that stores the spectating hud definition.
 {"default_hud":true,"version":1.3,"elements":[{"t":"item_picked","x":8,"y":5,"fontSize":"2.2","shadow":1,"icon":1,"owner":1,"pivot":"bottom-left","iconWidth":3.5,"gid":6,"name":1,"iconBackground":"#0000008D","font":"montserrat"},{"t":"chat","x":4,"y":78,"height":30,"width":50,"fontSize":"1.6","align":"left","color":"white","pivot":"bottom-left"},{"t":"hp_bar","x":8,"y":33,"width":23,"height":2.6,"color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"armor_bar","x":8,"y":67.5,"width":23,"height":2.6,"color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"hp","x":59,"y":32.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","shadow":1,"pivot":"right-edge","gid":6,"font":"montserrat"},{"t":"armor","x":59,"y":67.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","shadow":1,"pivot":"right-edge","hideIf0":"0","gid":6,"font":"montserrat"},{"t":"you_fragged","x":50,"y":66,"fontSize":"3","font":"veneer-italic","color":"white","pivot":"top-edge","align":"center"},{"t":"frag_feed","x":96,"y":3,"height":20,"width":30,"fontSize":"1.6","v_align":"flex-end","bottomUp":"0","direction":"bottom","pivot":"top-right","font":"montserrat-bold"},{"t":"game_timer","x":50,"y":6,"fontSize":"4.5","shadow":"1","color":"#FFFFFFFC","gid":5,"pivot":"top-edge","font":"roboto-bold"},{"t":"time_limit","x":50,"y":49.25,"fontSize":"1.5","font":"roboto-bold","shadow":"1","pivot":"top-edge","align":"center","gid":5,"color":"#FFFFFF"},{"t":"dodge","x":50,"y":61,"fontSize":"1.5","iSize":"5","mC":"#FFFFFF","icon_inactive_opacity":"0.2","bRadius":"0.8","cCode":"15","bWidth":"0","bgC":"#00000000","aT":"2","pivot":"center"},{"t":"item","x":50,"y":92,"fontSize":"1","iSize":"10","mC":"#FFFFFFC2","bRadius":"10","cCode":"15","bWidth":"3","bgC":"#00000063","pivot":"center","style":"default","iC":"custom","font":"roboto-bold","iCCustom":"#FFFFFF","name":1,"keybind":1,"iShadow":0,"flip":0},{"t":"weapons_list","gid":-1,"x":96,"y":77,"mode":"all","direction":"vertical reverse","wDirection":"horizontal","font":"montserrat","fontSize":"2","aWidth":"5.5","aPadding":"0","aAlign":"center","accShow":0,"accFontSize":"1","iHeight":"40","iWidth":"55","wSepWidth":"0.2","sepWidth":"24","cBitWidth":"0","keybindShow":1,"aKeybindShow":"0","aBarShow":0,"aBarWidth":"0.6","aBarWC":0,"iOpacityInactive":"1","aOpacityInactive":"1","iC":"custom","iCCustom":"#FFFFFFCC","iCActive":"weapon","iCActiveCustom":"#FFFFFF","iBGC":"custom","iBGCCustom":"#0000003D","iBGCActive":"custom","iBGCActiveCustom":"#00000094","aC":"custom","aCCustom":"#FFFFFFBF","aCActive":"custom","aCActiveCustom":"#FFFFFF","aBGC":"custom","aBGCCustom":"#00000012","aBGCActive":"weapon","aBGCActiveCustom":"#00000000","pivot":"bottom-right","iShadow":0},{"t":"powerup","gid":6,"x":72,"y":15,"fontSize":"2.5","iSize":"7","mC":"white","bRadius":"10","cCode":"15","bWidth":0.2,"bgC":"#24232188","iC":"custom","iCCustom":"#ffffff","style":"default","pivot":"top-edge","font":"roboto-bold","cP":"3"},{"t":"rect","gid":4,"pivot":"left-edge","x":57,"y":"50","width":"0.2","height":5,"bRadius":"0","cCode":"15","skewX":"0","skewY":"0","bgC":"custom","bgCCustom":"#FFFFFFAC","hide_dead":"1","bCCustom":"#FFFFFF"},{"t":"current_weapon_icon","gid":4,"x":100,"y":50,"width":5,"height":5,"weapon_fill":0,"fill":"#FFFFFF","pivot":"right-edge","shadow":1,"iconShadow":0,"size":"5"},{"t":"current_ammo","gid":4,"x":"42","y":"50","fontSize":"5","align":"center","aC":"custom","aCCustom":"#FFFFFF","threshold":"0.16","lowAC":"custom","lowACCustom":"#FF0000","font":"montserrat","shadow":1,"pivot":"right-edge"},{"t":"fps","gid":-1,"x":0,"y":0,"fontSize":"2","font":"montserrat-bold","pivot":"top-left","shadow":1,"color":"#FFFFFF"},{"t":"icon","gid":6,"x":64,"y":32.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#2CD86B","icon":"hp","shadow":"1","hide_dead":"1","iconShadow":1,"pivot":"right-edge"},{"t":"icon","gid":6,"x":64,"y":67.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#FFFFFF","icon":"armor","shadow":"1","hide_dead":"1","pivot":"right-edge","iconShadow":1},{"t":"coins","gid":-1,"x":50,"y":81,"fontSize":"4","color":"#ffffff","scaleOnPickup":"1","font":"montserrat-bold"},{"t":"player_name","gid":6,"x":7,"y":100,"fontSize":"3","pivot":"top-left","color":"#FFFFFF","shadow":1,"teamColor":1,"font":"montserrat-bold","vis":"s","pre":1,"uc":0},{"t":"score","gid":5,"x":11,"y":0,"width":"8","height":"5","fontSize":"3","team":"own","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-left","font":"montserrat-bold"},{"t":"score","gid":5,"x":89,"y":1,"width":"8","height":"5","fontSize":"3","team":"enemy","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-right","direction":"horizontal reverse","font":"montserrat-bold"},{"t":"own_players","gid":5,"x":9,"y":1,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-right"},{"t":"enemy_players","gid":5,"x":91,"y":0,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal reverse","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-left"},{"t":"steal_progress","gid":-1,"x":50,"y":25,"height":"2.4","width":"30"},{"t":"overtime_progress","gid":-1,"x":50,"y":21,"height":"2.4","width":"30","txt":"1"},{"t":"hint","gid":-1,"x":"50","y":"15","pivot":"center","fontSize":2,"font":"montserrat-bold"},{"t":"low_ammo_warning","gid":4,"x":"50","y":0,"fontSize":"2","color":"#ff0000","font":"montserrat-bold","threshold":0.16,"shadow":1,"uc":1},{"t":"voicechat","gid":-1,"x":3,"y":32,"fontSize":"2","font":"montserrat-bold","color":"#ffffff","pivot":"top-left","iC":"#00FF00"},{"t":"minimap","gid":-1,"x":1,"y":1,"pivot":"top-left","size":"30","lc":"#32323c","mc":"#4b4b4b","hc":"#645a5a","oc":"#FFFFFF","ot":0.1,"tlo":1,"ci":1,"stll":1,"opo":0.5},{"t":"teammates_alive","x":18.8,"y":62.5,"fontSize":"1.5","color":"#2CD86B","align":"center","shadow":1,"aliveText":"1","teamColor":"1","pivot":"top-edge","gid":5,"font":"roboto-bold"},{"t":"enemies_alive","x":80.4,"y":62.5,"fontSize":"1.5","color":"#c80f0f","align":"center","shadow":1,"aliveText":1,"pivot":"top-edge","teamColor":1,"gid":5,"font":"roboto-bold"}],"groups":[{"gid":4,"groupName":"Ammo","x":"96","y":"95","width":18,"height":10,"pivot":"bottom-right"},{"gid":5,"groupName":"Match Info","x":"50","y":4,"width":50,"height":10,"pivot":"top-edge"},{"gid":6,"groupName":"Health and Armor","x":"4","y":"95","width":60,"height":10,"pivot":"bottom-left"}],"misc":{"hudaspect":"default","fl":"1","film":"vML?1?vML?1","fovbkg":"depot"}}
 hud_definition_spec
+Machine generated string that stores the spectating hud definition.
+{"default_hud":true,"version":1.3,"elements":[{"t":"item_picked","x":8,"y":5,"fontSize":"2.2","shadow":1,"icon":1,"owner":1,"pivot":"bottom-left","iconWidth":3.5,"gid":6,"name":1,"iconBackground":"#0000008D","font":"montserrat"},{"t":"chat","x":4,"y":78,"height":30,"width":50,"fontSize":"1.6","align":"left","color":"white","pivot":"bottom-left"},{"t":"hp_bar","x":8,"y":33,"width":23,"height":2.6,"color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"armor_bar","x":8,"y":67.5,"width":23,"height":2.6,"color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","segments":"14","bRadius":"0","cCode":"15","rightToLeft":0,"pivot":"left-edge","boxShadow":1,"skewX":0,"skewY":0,"gid":6,"bC":"#00000033","gap":"2"},{"t":"hp","x":59,"y":32.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#2CD86B","threshold":"100","thresholdColor":"#2CD86B","shadow":1,"pivot":"right-edge","gid":6,"font":"montserrat"},{"t":"armor","x":59,"y":67.5,"width":9.5,"fontSize":"3.3","scaleOnPickup":"1","color":"#FFFFFF","threshold":"100","thresholdColor":"#FFFFFF","shadow":1,"pivot":"right-edge","hideIf0":"0","gid":6,"font":"montserrat"},{"t":"you_fragged","x":50,"y":66,"fontSize":"3","font":"veneer-italic","color":"white","pivot":"top-edge","align":"center"},{"t":"frag_feed","x":96,"y":3,"height":20,"width":30,"fontSize":"1.6","v_align":"flex-end","bottomUp":"0","direction":"bottom","pivot":"top-right","font":"montserrat-bold"},{"t":"game_timer","x":50,"y":6,"fontSize":"4.5","shadow":"1","color":"#FFFFFFFC","gid":5,"pivot":"top-edge","font":"roboto-bold"},{"t":"time_limit","x":50,"y":49.25,"fontSize":"1.5","font":"roboto-bold","shadow":"1","pivot":"top-edge","align":"center","gid":5,"color":"#FFFFFF"},{"t":"dodge","x":50,"y":61,"fontSize":"1.5","iSize":"5","mC":"#FFFFFF","icon_inactive_opacity":"0.2","bRadius":"0.8","cCode":"15","bWidth":"0","bgC":"#00000000","aT":"2","pivot":"center"},{"t":"item","x":50,"y":92,"fontSize":"1","iSize":"10","mC":"#FFFFFFC2","bRadius":"10","cCode":"15","bWidth":"3","bgC":"#00000063","pivot":"center","style":"default","iC":"custom","font":"roboto-bold","iCCustom":"#FFFFFF","name":1,"keybind":1,"iShadow":0,"flip":0},{"t":"weapons_list","gid":-1,"x":96,"y":77,"mode":"all","direction":"vertical reverse","wDirection":"horizontal","font":"montserrat","fontSize":"2","aWidth":"5.5","aPadding":"0","aAlign":"center","accShow":0,"accFontSize":"1","iHeight":"40","iWidth":"55","wSepWidth":"0.2","sepWidth":"24","cBitWidth":"0","keybindShow":1,"aKeybindShow":"0","aBarShow":0,"aBarWidth":"0.6","aBarWC":0,"iOpacityInactive":"1","aOpacityInactive":"1","iC":"custom","iCCustom":"#FFFFFFCC","iCActive":"weapon","iCActiveCustom":"#FFFFFF","iBGC":"custom","iBGCCustom":"#0000003D","iBGCActive":"custom","iBGCActiveCustom":"#00000094","aC":"custom","aCCustom":"#FFFFFFBF","aCActive":"custom","aCActiveCustom":"#FFFFFF","aBGC":"custom","aBGCCustom":"#00000012","aBGCActive":"weapon","aBGCActiveCustom":"#00000000","pivot":"bottom-right","iShadow":0},{"t":"powerup","gid":6,"x":72,"y":15,"fontSize":"2.5","iSize":"7","mC":"white","bRadius":"10","cCode":"15","bWidth":0.2,"bgC":"#24232188","iC":"custom","iCCustom":"#ffffff","style":"default","pivot":"top-edge","font":"roboto-bold","cP":"3"},{"t":"rect","gid":4,"pivot":"left-edge","x":57,"y":"50","width":"0.2","height":5,"bRadius":"0","cCode":"15","skewX":"0","skewY":"0","bgC":"custom","bgCCustom":"#FFFFFFAC","hide_dead":"1","bCCustom":"#FFFFFF"},{"t":"current_weapon_icon","gid":4,"x":100,"y":50,"width":5,"height":5,"weapon_fill":0,"fill":"#FFFFFF","pivot":"right-edge","shadow":1,"iconShadow":0,"size":"5"},{"t":"current_ammo","gid":4,"x":"42","y":"50","fontSize":"5","align":"center","aC":"custom","aCCustom":"#FFFFFF","threshold":"0.16","lowAC":"custom","lowACCustom":"#FF0000","font":"montserrat","shadow":1,"pivot":"right-edge"},{"t":"fps","gid":-1,"x":0,"y":0,"fontSize":"2","font":"montserrat-bold","pivot":"top-left","shadow":1,"color":"#FFFFFF"},{"t":"icon","gid":6,"x":64,"y":32.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#2CD86B","icon":"hp","shadow":"1","hide_dead":"1","iconShadow":1,"pivot":"right-edge"},{"t":"icon","gid":6,"x":64,"y":67.5,"width":2.4,"height":2.4,"stroke":"#00000000","stroke_width":"15","fill":"#FFFFFF","icon":"armor","shadow":"1","hide_dead":"1","pivot":"right-edge","iconShadow":1},{"t":"coins","gid":-1,"x":50,"y":81,"fontSize":"4","color":"#ffffff","scaleOnPickup":"1","font":"montserrat-bold"},{"t":"player_name","gid":6,"x":7,"y":100,"fontSize":"3","pivot":"top-left","color":"#FFFFFF","shadow":1,"teamColor":1,"font":"montserrat-bold","vis":"s","pre":1,"uc":0},{"t":"score","gid":5,"x":11,"y":0,"width":"8","height":"5","fontSize":"3","team":"own","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-left","font":"montserrat-bold"},{"t":"score","gid":5,"x":89,"y":1,"width":"8","height":"5","fontSize":"3","team":"enemy","sType":"score","shadow":"0","bRadius":"0","align":"center","sC":"custom","sCCustom":"#ffffff","bgC":"team","bgCCustom":"blue","hide_dead":"0","rS":"1","fS":"1","mS":"1","pivot":"top-right","direction":"horizontal reverse","font":"montserrat-bold"},{"t":"own_players","gid":5,"x":9,"y":1,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-right"},{"t":"enemy_players","gid":5,"x":91,"y":0,"nWidth":"24","height":"5","align":"center","font":"montserrat-bold","fontSize":"2.2","direction":"horizontal reverse","name_bg_opacity":"BF","stockIcon":"0","sL":"1","pivot":"top-left"},{"t":"steal_progress","gid":-1,"x":50,"y":25,"height":"2.4","width":"30"},{"t":"overtime_progress","gid":-1,"x":50,"y":21,"height":"2.4","width":"30","txt":"1"},{"t":"hint","gid":-1,"x":"50","y":"15","pivot":"center","fontSize":2,"font":"montserrat-bold"},{"t":"low_ammo_warning","gid":4,"x":"50","y":0,"fontSize":"2","color":"#ff0000","font":"montserrat-bold","threshold":0.16,"shadow":1,"uc":1},{"t":"voicechat","gid":-1,"x":3,"y":32,"fontSize":"2","font":"montserrat-bold","color":"#ffffff","pivot":"top-left","iC":"#00FF00"},{"t":"minimap","gid":-1,"x":1,"y":1,"pivot":"top-left","size":"30","lc":"#32323c","mc":"#4b4b4b","hc":"#645a5a","oc":"#FFFFFF","ot":0.1,"tlo":1,"ci":1,"stll":1,"opo":0.5},{"t":"teammates_alive","x":18.8,"y":62.5,"fontSize":"1.5","color":"#2CD86B","align":"center","shadow":1,"aliveText":"1","teamColor":"1","pivot":"top-edge","gid":5,"font":"roboto-bold"},{"t":"enemies_alive","x":80.4,"y":62.5,"fontSize":"1.5","color":"#c80f0f","align":"center","shadow":1,"aliveText":1,"pivot":"top-edge","teamColor":1,"gid":5,"font":"roboto-bold"}],"groups":[{"gid":4,"groupName":"Ammo","x":"96","y":"95","width":18,"height":10,"pivot":"bottom-right"},{"gid":5,"groupName":"Match Info","x":"50","y":4,"width":50,"height":10,"pivot":"top-edge"},{"gid":6,"groupName":"Health and Armor","x":"4","y":"95","width":60,"height":10,"pivot":"bottom-left"}],"misc":{"hudaspect":"default","fl":"1","film":"vML?1?vML?1","fovbkg":"depot"}}
 game_weapons
+game_weapon_priority
 Machine generated string that stores the weapon skin definition.
-game_team8_color_override
-Hex color override code for team 7.
-game_team7_color_override
-game_damage_numbers_color
-Hex color override code for team 8.
+movies_clean_mode
+Alternative path to save movie sequences to.
+movies_sequence_path
 game_enemy_names_color
 game_skin_color
 game_team_names_color
@@ -45304,11 +45303,12 @@ editor_discovery_radius
 editor_inspect_lights
 Editing toggle: allows to edit invisible objects.
 editor_edit_invisible
-game_auto_switch_ooa
-This option has no effect in this build.
-game_equip_empty_weapons
+Editing setting: Set levels of undo. A value of 0 will disable undo functionality.
+editor_undo_levels
+phy_roll_type
+Makes wall sliding horizontal. 0: Disabled. 1:Enabled.
+phy_roll_horizontal
 game_force_enemy_colors
-Enables or disables auto switch when running out of ammo. 0: Disabled; 1: Switch when out of ammo; 2: Switch when shooting out of ammo
 game_auto_equip
 game_team1_color_override
 Hex color override code for team 2.
@@ -45323,31 +45323,32 @@ Hex color override code for team 4.
 Hex color override code for team 6.
 game_team6_color_override
 Hex color override code for team 5.
-dev_debug_hit
-Enables or disables volumetric lighting debugging. 0: Disabled. 1:Enabled.
-Enables or disables sound debugging. 0: Disabled. 1:Enabled.
-dev_debug_sounds
+game_team8_color_override
+Hex color override code for team 7.
+game_team7_color_override
+game_damage_numbers_color
+Hex color override code for team 8.
 dev_auto_load_scripts
-Enables or disables collision envelope display. 0: Disabled. 1:Enabled.
 dev_debug_collision
+Enables or disables collision envelope display. 0: Disabled. 1:Enabled.
 0: Disabled. 1:Enabled.
 dev_profile_snafu
 0: Disabled. 1:Enabled.
-dev_enable_coaching
 Enables or disables the coaching cursor. 0: Disabled. 1:Enabled.
+dev_enable_coaching
 dev_web_support
 Disables updating of the game loop. 0: Disabled. 1:Enabled.
 dev_freeze
-dev_show_hidden_blocks
 (Not working) Enables showing of hidden blocks. 0: Disabled. 1:Enabled.
+dev_show_hidden_blocks
 Enables loading of new web surfaces. 0: Disabled. 1:Enabled.
-editor_undo_levels
 Makes the block components smaller so you can see the boundaries.
 dev_explode
-Editing setting: Set levels of undo. A value of 0 will disable undo functionality.
-phy_roll_type
-Makes wall sliding horizontal. 0: Disabled. 1:Enabled.
-phy_roll_horizontal
+dev_show_hitboxes
+Enables netcode debugging.
+dev_show_net
+game_camera_offset
+Shows enemy hitbox boundaries.
 Speed of weapon sway.
 game_weapon_sway_speed
 Selects type of sliding. 0: Floor-only. 1:Floor and wall.
@@ -45364,18 +45365,18 @@ dev_gizmos
 dev_debug_volumes
 Enable shooting timing aid. 0: Disabled. 1:Enabled.
 dev_time_shooting
-Enables or disabling showing the test location. 0: Disabled. 1:Enabled.
-support_show_test_location
-Camera pitch angle in degrees for 3rd person mode.
-net_enable
-game_aim_mode
+dev_debug_hit
+Enables or disables volumetric lighting debugging. 0: Disabled. 1:Enabled.
+Enables or disables sound debugging. 0: Disabled. 1:Enabled.
+dev_debug_sounds
 game_time_scale
+editor_force_threads
 Enables or disabling networking. 0: Disabled. 1:Enabled.
 Disable this if you don't want anybody connecting to any new games you create.
 Requires server restart.
 Lifesteal.
 game_lifesteal
-editor_force_threads
+mouse_sensitivity
 Game timescale. 1 is normal time, higher is faster, lower is slower.
 editor_play
 Optionally forces the number of threads that the baking process will use.
@@ -45388,13 +45389,12 @@ editor_tool
 Enables or disables gameplay testing mode while editing. 0: Disabled. 1:Enabled.
 Specifies your camera's angle of vision.
 game_fov
-mouse_sensitivity
 game_hit_sounds
-dev_show_hitboxes
-Enables netcode debugging.
-dev_show_net
-game_camera_offset
-Shows enemy hitbox boundaries.
+1.35875
+mouse_zoom_sensitivity
+Mouse sensitivity.
+mouse_accel_offset
+Mouse zoom sensitivity.
 Camera offset distance. Any value greater than 0 enables 3rd person.
 game_camera_hor_offset
 Camera offset distance. Any value greater than 0 enables 3rd person.
@@ -45411,9 +45411,11 @@ Show splash radius debugging sphere.
 dev_show_splash
 game_camera_pitch
 Amount of air braking on movement control keys release.
-mouse_accel_bias_y
-mouse_accel_bias_x
-mouse_accel_stigma_x
+Enables or disabling showing the test location. 0: Disabled. 1:Enabled.
+support_show_test_location
+Camera pitch angle in degrees for 3rd person mode.
+net_enable
+game_aim_mode
 mouse_accel_stigma_y
 game_zoom_fov
 mouse_accel_norm
@@ -45427,11 +45429,11 @@ lobby_search_qp_ffa
 Lobby matchmaking user setting.
 lobby_search_qp_brawl_3
 Lobby matchmaking user setting.
-1.35875
-mouse_zoom_sensitivity
-Mouse sensitivity.
-mouse_accel_offset
-Mouse zoom sensitivity.
+Lobby matchmaking user setting.
+lobby_search_qp_wo_5
+lobby_search_qp_instagib_5
+Lobby matchmaking user setting.
+lobby_search_qp_instagib_ffa
 mouse_accel_post_scale_x
 mouse_accel_cap
 mouse_accel_post_scale_y
@@ -45440,11 +45442,9 @@ mouse_accel_domain
 mouse_accel_ramp
 mouse_accel_gamma
 mouse_accel_toe
-Lobby matchmaking user setting.
-lobby_search_r_ca_1
-Lobby matchmaking user setting.
-Lobby matchmaking user setting.
-lobby_search_r_shaft_arena_1
+mouse_accel_bias_y
+mouse_accel_bias_x
+mouse_accel_stigma_x
 lobby_search_r_team
 Lobby matchmaking user setting.
 lobby_search_r_duel
@@ -45461,11 +45461,12 @@ lobby_search_qp_ca_2
 Lobby matchmaking user setting.
 Lobby matchmaking user setting.
 lobby_search_qp_ca_3
+lobby_search_r_ca_2
 Lobby matchmaking user setting.
-lobby_search_qp_wo_5
-lobby_search_qp_instagib_5
+lobby_search_qp_ca_4
 Lobby matchmaking user setting.
-lobby_search_qp_instagib_ffa
+lobby_search_r_ca_3
+Lobby matchmaking user setting.
 Lobby matchmaking user setting.
 lobby_search_qp_rocket_arena_1
 Lobby matchmaking user setting.
@@ -45483,10 +45484,10 @@ lobby_search_r_wo_3
 Lobby matchmaking user setting.
 lobby_search_r_wo_5
 Lobby matchmaking user setting.
-lobby_search_r_tdm_4
-lobby_search_qp_ctf_4
+lobby_search_r_ca_1
 Lobby matchmaking user setting.
-lobby_search_r_ctf_4
+Lobby matchmaking user setting.
+lobby_search_r_shaft_arena_1
 Lobby matchmaking user setting.
 lobby_search_qp_ctf_5
 Lobby matchmaking user setting.
@@ -45503,12 +45504,11 @@ lobby_custom_teams
 lobby_custom_intro
 Lobby custom games user setting.
 lobby_custom_continuous
-lobby_search_r_ca_2
-Lobby matchmaking user setting.
-lobby_search_qp_ca_4
-Lobby matchmaking user setting.
-lobby_search_r_ca_3
-Lobby matchmaking user setting.
+Lobby custom games user setting.
+lobby_custom_team_switching
+Lobby custom games user setting.
+Lobby custom games user setting.
+lobby_custom_ready_percentage
 Lobby matchmaking user setting.
 lobby_search_r_ca_4
 lobby_search_qp_instagib_3
@@ -45525,31 +45525,30 @@ lobby_search_qp_tdm_4
 Lobby matchmaking user setting.
 lobby_search_r_tdm_3
 Lobby matchmaking user setting.
-lobby_custom_map
-Lobby custom games user setting
-lobby_custom_commands
-Lobby custom games user setting
-lobby_custom_datacenter
-Lobby custom games user setting
+Lobby matchmaking user setting.
+lobby_search_r_tdm_4
+lobby_search_qp_ctf_4
+Lobby matchmaking user setting.
+lobby_search_r_ctf_4
 60,-5,-10,-27,0
+lobby_menu_camera_3
 Position and orientation string for the customization camera.
 Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
 lobby_customization_camera
-lobby_menu_camera_3
 62,-21,-2,-22,-6
+lobby_menu_camera_2
 Position and orientation string for the menu camera for 2-size parties.
 Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
-lobby_menu_camera_2
+lobby_team_offset_2
 Offset of second eggbot in menu in relation to first one.
 Format: x,z,yaw (No spaces)
-lobby_team_offset_2
 62,-21,-2,-25,-6
-110,15,120
-lobby_team_offset_3
 Position and orientation string for the menu camera for 3-size or more parties.
 Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
+110,15,120
 Offset of third eggbot in menu in relation to first one.
 Format: x,z,yaw (No spaces)
+lobby_team_offset_3
 70,-10,140
 lobby_custom_physics
 Lobby custom games user setting.
@@ -45558,10 +45557,9 @@ Lobby custom games user setting.
 lobby_custom_spawn_logic
 Lobby custom games user setting.
 Lobby custom games user setting.
-lobby_custom_team_switching
-Lobby custom games user setting.
-Lobby custom games user setting.
-lobby_custom_ready_percentage
+lobby_visibility
+game_player_hitbox_width
+game_player_hitbox_height
 lobby_custom_min_players
 Lobby custom games user setting.
 lobby_custom_warmup_time
@@ -45578,12 +45576,14 @@ lobby_region_search_nearby
 Lobby custom games user setting.
 Lobby custom games user setting
 lobby_custom_mode
-Lobby custom games user setting.
-lobby_visibility
-game_player_hitbox_width
-game_player_hitbox_height
+lobby_custom_map
+Lobby custom games user setting
+lobby_custom_commands
+Lobby custom games user setting
+lobby_custom_datacenter
+Lobby custom games user setting
 game_player_model_bottom
-0.20.414
+0.20.414c
 <><><><<>>><>>>>>> Initializing Vertex Shader 
  depth=
 BINORMAL
@@ -45593,12 +45593,11 @@ BLENDINDICES
 GENERICDATA
 TEXCOORD
 BLENDWEIGHT
+enabled
+disabled
+disable
 0123456789
 0123456789.
-chinkys
-chinkies
-trannys
-trannies
 jigaboo
 jiggabo
 fagging
@@ -45606,17 +45605,16 @@ jiggabos
 jiggers
 jigaboos
 niggahs
-enabled
-disabled
-disable
+niglets
+nignogs
+niggors
+niggurs
 faggots
 niggers
-wetbacks
-wiggers
-whigger
-towelhead
-towelheads
-wetback
+chinkys
+chinkies
+trannys
+trannies
 whiggers
 zigabos
 zigaboo
@@ -45627,10 +45625,9 @@ zipperheads
 faggies
 sieg heil
 heil hitler
-niglets
-nignogs
-niggors
-niggurs
+retarded
+trannies
+tranies
 slopehead
 slopeheads
 slopeys
@@ -45640,9 +45637,12 @@ spigotys
 spigoties
 spigotty
 spigottys
-retarded
-trannies
-tranies
+wetbacks
+wiggers
+whigger
+towelhead
+towelheads
+wetback
 flowers
 rainbows
 smileyblue
@@ -45664,9 +45664,6 @@ Error initializing freetype.
 FT_Load_Char(1) returned:
 FT_Load_Char(2) returned:
 Invalid font format on: 
-TIMING RECORDS REPORT
-Fatal error: Could not query system frequency.
-Fatal error: System frequency is 0.
  AVG FRAME: 
  ms FREQ=
 [QPTime 
@@ -45680,6 +45677,9 @@ Fatal error: System frequency is 0.
 [QPTime 
 [QPTime 
  ms FREQ=
+TIMING RECORDS REPORT
+Fatal error: Could not query system frequency.
+Fatal error: System frequency is 0.
 DIVISION BY 0
 </span>
 console_echo
@@ -45694,8 +45694,6 @@ set_chat_visible
 set_chat_visible
 set_chat_visible
 authors
-static_prop
-static prop
  onmousedown='asset_click(event, this, "
 material
 dynprop
@@ -45712,6 +45710,11 @@ ui/html/asset_thumbnails
 .png.dds" >
 <img class="asset_icon" src="asset_thumbnails/
 </span>
+.png.dds
+../resources/asset_thumbnails/
+<img class="asset_icon" src="
+</span>
+<span class="asset_name">
 rotation_x
 rotation_x
 rotation_y
@@ -45722,11 +45725,9 @@ dynamic prop
 rotation_y
 rotation_z
 surface_accent
-.png.dds
-../resources/asset_thumbnails/
-<img class="asset_icon" src="
-</span>
-<span class="asset_name">
+static_prop
+static prop
+ui/html/asset_thumbnails
 <span class="asset_name">
 </span></div>
 <span class="type_label asset_type_label_
@@ -45739,12 +45740,6 @@ editpad_filter_reply
 /add pivot
 /mirror
 /mirror radial
-dynprop
-', type: '
-$("#drop_container_
-window.asset_data = [
-', type: 'material' },
-{name: '
 {name: '
 populate();
 set_body_visible
@@ -45752,7 +45747,6 @@ set_body_visible
 ', type: 'entity' },
 {name: '
 ', type: 'decal' },
-ui/html/asset_thumbnails
 entity_details
 entity_details
 header_content_3
@@ -45774,6 +45768,12 @@ $(".droppable").droppable("destroy");$('#surface_palette').empty();var element =
 <div class=thumbnail_container  onclick="palette_click(event, this, 
 </span></div></div>
 "><div class=thumbnail class=empty_thumbnail><span class=shortcut>
+dynprop
+', type: '
+$("#drop_container_
+window.asset_data = [
+', type: 'material' },
+{name: '
 set_weapon_stat
 </span>
 <span style='font-size:60%;'>
@@ -45788,6 +45788,14 @@ set_ammo_visible
 set_hud_weapon
 set_respawn_timer
 set_respawn_timer
+set_hud_revenge_money
+set_hud_rage
+set_hud_rage_reward
+set_shop_class
+set_zoom
+set_hud_hp
+set_hud_armor
+set_hud_money
 survival
 set_hud_game_mode
 announce
@@ -45796,9 +45804,6 @@ announce_message
 game_start
 game_mode
 [JSON-Event] 
-#ffffff
-#ffffff
-tutorial
 mg_round_started
 mg_spawning_soon
 mg_bring
@@ -45821,14 +45826,14 @@ mg_contest
 mg_contest
 mg_contest
 mg_defend
-set_hud_revenge_money
-set_hud_rage
-set_hud_rage_reward
-set_shop_class
-set_zoom
-set_hud_hp
-set_hud_armor
-set_hud_money
+images/icons/poi_b.svg
+mg_pickup
+images/item_macguffin.svg
+#f8d206
+mg_contest
+mg_attack
+mg_attack
+images/icons/poi_a.svg
 set_crosshair_definition
 set_crosshair
 set_crosshair
@@ -45853,7 +45858,9 @@ wipeout
 images/powerup_surge.svg
 #ff5c42
 images/powerup_diabotical.svg
-[Unassigned]
+#ffffff
+#ffffff
+tutorial
 images/weapon_iw.svg
 weapon_implosion_weeball
 #be2f83
@@ -45873,14 +45880,12 @@ item_flag
 images/weapon_bw.svg
 weapon_knockback_weeball
 images/item_macguffin.svg
-images/icons/poi_b.svg
-mg_pickup
-images/item_macguffin.svg
-#f8d206
-mg_contest
-mg_attack
-mg_attack
-images/icons/poi_a.svg
+game_data
+common_game_data
+frame_data
+battle_data
+images/weapon_
+weapon 
 wipeout
 survival
 survival
@@ -45892,23 +45897,12 @@ set_game_report
 mouse_extra_2
 mouse_right
 mouse_extra_1
-survival
-survival
-vanguard
-vanguard
-berserker
-berserker
+[Unassigned]
 set_shop_visible
 survival
 vanguard
 slowfield
 second_wind
-game_data
-common_game_data
-frame_data
-battle_data
-images/weapon_
-weapon 
 show_shop
 show_non_editing_game_hud
 tickrate
@@ -45925,9 +45919,12 @@ macguffin
 set_ammo
 chat_message
 show_score
-move_right
-move_forward
-move_left
+survival
+survival
+vanguard
+vanguard
+berserker
+berserker
 move_down
 move_back
 move_up
@@ -45937,14 +45934,16 @@ move_up
 set_binding_list
 Error KJ289414. Incorrect mode: 
 </span>
-weapon 6
-weapon 7
-weapon 4
-weapon 5
+move_right
+move_forward
+move_left
 restart
 weapon 8
 weapon 9
 respawn
+move_left
+move_right
+console
 teamchat
 toggle_inventory
 weapon_next
@@ -45954,8 +45953,10 @@ weapon 2
 weapon 3
 weapon_prev
 weapon 1
-extend back
-extend front
+weapon 6
+weapon 7
+weapon 4
+weapon 5
 slicepush
 pastefile
 op tool 1
@@ -45966,9 +45967,10 @@ op brush_smaller
 op brush_bigger
 op tool 3
 op tool 4
-move_left
-move_right
-console
+bset offset_x_rel -1
+bset offset_x_rel 1
+bset offset_y_rel 1
+bset offset_y_rel -1
 move_up
 move_down
 move_forward
@@ -45981,18 +45983,12 @@ extend left
 extend right
 extend up
 extend down
-follow 6
-follow 7
-follow 4
-follow 5
+extend back
+extend front
 follow 10
 casterlock
 follow 8
 follow 9
-bset offset_x_rel -1
-bset offset_x_rel 1
-bset offset_y_rel 1
-bset offset_y_rel -1
 toggle dev_debug 0 1 2
 toggle phy_fly
 toggle editor_inspect_lights
@@ -46003,14 +45999,10 @@ follow 2
 follow 3
 move_up
 follow 1
-in_match
-GameData
-own_team
-enemy_team
-CommonGameData
-spectating
-self_alive
-ApplicationData
+follow 6
+follow 7
+follow 4
+follow 5
 show_respawn_timers
 game_mode
 round_mode
@@ -46032,6 +46024,10 @@ WeaponGroup
 instagib
 physics
 spawn_logic
+max_ammo
+weapons
+WeaponData
+icon_url
 player_id
 PlayerData
 team_id
@@ -46041,10 +46037,14 @@ is_self
 user_id
 voip_muted
 TeamData
-max_ammo
-weapons
-WeaponData
-icon_url
+in_match
+GameData
+own_team
+enemy_team
+CommonGameData
+spectating
+self_alive
+ApplicationData
 accuracy
 current
 unlimited_ammo
@@ -46069,12 +46069,10 @@ game_data
 common_game_data
 frame_data
 battle_data
-set_range
-set_checkbox
-reset_shop
-show_team_progress
-flash_hp
-flash_armor
+menu_enabled
+menu_enabled
+Failed loading data for menu view.
+Failed loading data for hud view.
 set_custom_component
 message_press_button_to_bind
 close_messagebox
@@ -46095,10 +46093,13 @@ $('#skill_container_
 document.getElementById('skill_container_
 ').html('<div class=lock_icon></div>');
 $('#skill_container_
-menu_enabled
-menu_enabled
-Failed loading data for menu view.
-Failed loading data for hud view.
+').dataset.skill=
+document.getElementById('skill_container_
+").innerHTML = '
+document.getElementById("skill_draft_shortcut_
+$('#skill_container_
+').removeAttr('title');
+$('#skill_container_
 load_custom_game_screen_as_guest
 </span>
 set_custom_game_lobby
@@ -46117,23 +46118,22 @@ set_hud_element_size
 set_notification
 notification_message
 set_draft_countdown
-NA-West
-NA-Central
-EU-West
-EU-Russia
+set_range
+set_checkbox
+reset_shop
+show_team_progress
+flash_hp
+flash_armor
 NA-East
 EU-East
 Oceania
 EU-West
 NA-Central
 Middle East
-').dataset.skill=
-document.getElementById('skill_container_
-").innerHTML = '
-document.getElementById("skill_draft_shortcut_
-$('#skill_container_
-').removeAttr('title');
-$('#skill_container_
+EU-Russia
+EU-West
+NA-West
+NA-West
 process_server_json_data
 process_server_json_data
 set_restart_required
@@ -46145,10 +46145,11 @@ update_modding_settings
 EU-West
 <div class=mod_row><div onclick="engine.call('toggle_mod', '
 class='checkbox'><div>
-Chicago
 class='checkbox checkbox_enabled'><div class='inner_checkbox_enabled'>
-Singapore
-Johannesburg
+NA-West
+NA-Central
+EU-West
+EU-Russia
 Santa Clara
 Santiago de Chile
 Seattle
@@ -46156,10 +46157,9 @@ Yekaterinburg
 location
 official
 detected
-EU-Russia
-EU-West
-NA-West
-NA-West
+location
+official
+detected
 Frankfurt
 Rotterdam
 NA-East
@@ -46168,20 +46168,15 @@ Ashburn
 Los Angeles
 Hong Kong
 S&atilde;o Paulo
-set_egs_language
-set_version
-on_egs_authenticated
-</option>
-set_locations
-set_arguments
-set_egs_language
-set_arguments
+Singapore
+Chicago
+Johannesburg
 <div data-value="
-Flip fullscreen mode is not available in this computer. It's recommended to upgrade to Windows 10 April 2018 update (1803) or later to use it. Flip fullscreen mode combines the advantages of exclusive fullscreen and borderless fullscreen, giving you both full screen performance and instant alt+tab.
-set_display_mode_warning
 ">Exclusive fullscreen</div>
 <option value="
 set_avatar_options
+Flip fullscreen mode is not available in this computer. It's recommended to upgrade to Windows 10 April 2018 update (1803) or later to use it. Flip fullscreen mode combines the advantages of exclusive fullscreen and borderless fullscreen, giving you both full screen performance and instant alt+tab.
+set_display_mode_warning
 ">Flip fullscreen</div>
 <div data-value="default" selected>default</div>
 hit_sound
@@ -46192,9 +46187,13 @@ set_display_mode_options
 add_character_folder
 <div data-value="
 set_hit_sound_options
-location
-official
-detected
+<div class='cannot_buy revenge_item'  style="--weapon-color: #
+set_shop_revenge_items
+' style='background-image:url("coui://ui/resources/
+</div></div>
+.svg#Layer_1"></use></svg><div class='shop_shortcut'>
+"  data-name="item_name"  data-description="item_description" ><svg version="1.1" viewBox="0 0 256 256"><use xlink:href="images/
+"  data-item-category="revenge"  data-cost="
 location
 official
 detected
@@ -46203,12 +46202,17 @@ official
 location
 detected
 set_server_menu_content
-<div class='shop_category'  id='shop_category_
-<div class='shop_class_selection_title'>
-<div class='shop_class_selection_skills'>
+set_egs_language
+set_version
+on_egs_authenticated
+</option>
+set_locations
+set_arguments
+set_egs_language
+set_arguments
+<div id='devops_shop'>Dev Ops - Set class: <a onclick='engine.call("select_class",0)'>[SUP]</a> <a onclick='engine.call("select_class",1)'>[TAC]</a> <a onclick='engine.call("select_class",2)'>[ASS]</a> - <a onclick='engine.call("cheat_cash")'>[Cash]</a></div>
 set_shop_skills
 set_screen_aspect_ratio
-<div id='devops_shop'>Dev Ops - Set class: <a onclick='engine.call("select_class",0)'>[SUP]</a> <a onclick='engine.call("select_class",1)'>[TAC]</a> <a onclick='engine.call("select_class",2)'>[ASS]</a> - <a onclick='engine.call("cheat_cash")'>[Cash]</a></div>
 view_data_received
 view_data_received
 on_masterclient_ghosted
@@ -46223,16 +46227,9 @@ set_masterserver_connection_state
 on_masterclient_outdated
 on_masterclient_disabled
 on_masterclient_unverified
-<div class='cannot_buy revenge_item'  style="--weapon-color: #
-set_shop_revenge_items
-' style='background-image:url("coui://ui/resources/
-</div></div>
-.svg#Layer_1"></use></svg><div class='shop_shortcut'>
- data-container='no' data-skill="
-"  data-name="item_name"  data-description="item_description" ><svg version="1.1" viewBox="0 0 256 256"><use xlink:href="images/
-"  data-item-category="revenge"  data-cost="
 " data-name="
 " data-item-category="favor" data-cost="
+ data-container='no' data-skill="
 <div class='shop_skill_choice cannot_buy' title='
  onmousedown="shop_skill_buy(event)" 
 " data-description="
@@ -46245,14 +46242,18 @@ Hybrid class with game control abilities.
 '  onmousedown='_shop_category_click(this)'  onmouseenter='shop_category_over("
 ' id='shop_class_selection_category_
 <div class='shop_class_selection_category' data-category='
-</div>
 Assault
 Offensive class.
 ")'  onmouseleave='shop_category_out()' >
-(W/S)encoder complexity.  (N)oise filter on/off. (V)AD on/off. (B)vbr on/off.
+<div class='shop_category'  id='shop_category_
+<div class='shop_class_selection_title'>
+</div>
+<div class='shop_class_selection_skills'>
+</div>
 Complexity=%3d Noise filter=%3s VAD=%3s VBR=%3s
-[Audio/Glitch/Voice] Opening channel for player id 
+(W/S)encoder complexity.  (N)oise filter on/off. (V)AD on/off. (B)vbr on/off.
 [Audio/Error/Glitch] Error AS6783 occurred while initializing voip.
+[Audio/Glitch/Voice] Opening channel for player id 
 encode failed: %s
 failed to create an encoder: %s
 failed to create a decoder: %s
@@ -46266,13 +46267,9 @@ Setting encoder parameter enc=%d %d=%d
 "failed to reset encoder state: "
 opus_strerror(err)
 failed to reset encoder state: 
-channel->incomingMessageNumber
-failed to reset state bitrate: 
-"failed to reset state bitrate: "
 "DONE"
 "null voice, aborting"
 channel->incomingWriteIndex
-Error
 [Audio/Error/Glitch] Warning: voice adapter was already set up. Continuing...
 null voice, aborting
 FLUSHING DECODER
@@ -46283,9 +46280,10 @@ channel->incomingReadIndex
 opus_strerror(err)
 opus_strerror(err)
 failed to reset state bitrate: 
-Error 201 rendering V.L. RC=
-Error 165 rendering V.L. RC=
-Error 204 rendering V.L. RC=
+channel->incomingMessageNumber
+failed to reset state bitrate: 
+"failed to reset state bitrate: "
+Error
 Error 129 starting V.L. RC=
 Error 200 rendering V.L. RC=
 Error 1289736 releasing V.L. RC=
@@ -46293,9 +46291,9 @@ Error
 white
 Error
 Error 128 starting V.L. RC=
- voxels
-  error allocating memory
-  read 
+Error 201 rendering V.L. RC=
+Error 165 rendering V.L. RC=
+Error 204 rendering V.L. RC=
 ] instead of [#binvox]
 #binvox
 reading binvox version 
@@ -46306,10 +46304,12 @@ Error: first line reads [
   error reading header
 scale
 translate
+ voxels
+  error allocating memory
+  read 
 fire_loop
 fire_stop
-models\spraycan.fbx
-spraycan_1p
+ability_hook
 shaft
 [Battle] L.M.G.
 [Battle] L.K.W.
@@ -46325,9 +46325,10 @@ fire_loop
 [Battle] L.SC.
 [Battle] Waypoint icons
 [Battle] Game state
-fire_loop
-fire_stop
-ability_hook
+unequipped
+unequip
+equip
+equip
 weaponbw_1p
 models\weaponsw.fbx
 weaponsmw_1p
@@ -46348,12 +46349,10 @@ static
 static
 macguffin
 models\macguffin.fbx
-[Battle] Assertion error 9832487
-[Battle] Assertion error 93481234
-upgrade
-weaponiw_1p_mat_weeble
-reload_throwable
-weaponiw_1p_mat_weeble
+fire_loop
+fire_stop
+models\spraycan.fbx
+spraycan_1p
 fire_loop
 fire_repeat
 fire_stop
@@ -46364,10 +46363,10 @@ fire_repeat
 fire_repeat_b
 unequip
 equip
-unequipped
-unequip
-equip
-equip
+hook_wind_loop
+hook_impact
+hook_pull
+fire_loop
 survival
 MT-Error: Special effect supressed
 smoke_weeble_impact
@@ -46379,20 +46378,17 @@ _trail
 [Battle] Assertion error 9247123
 weaponiw_1p_mat_weeble
 throw
-jumppad
- ^ffffff
- swap charges remaining.
-^ffaa80You don't have any swap charges.
-static
+[Battle] Assertion error 9832487
+[Battle] Assertion error 93481234
+upgrade
+weaponiw_1p_mat_weeble
+reload_throwable
+weaponiw_1p_mat_weeble
 state.current_weapon
 (int)result
 You have ^00ffff
 tested_weapon+1
 Error 812479: Weapon won't be indicated.
-hook_wind_loop
-hook_impact
-hook_pull
-fire_loop
 hook_activation
 hook_connect
 weeble
@@ -46405,6 +46401,11 @@ sp_play_nice
 hook_shot
 hook_activation
 hook_launch_loop
+jumppad
+ ^ffffff
+ swap charges remaining.
+^ffaa80You don't have any swap charges.
+static
  hook 
   	//group 7 
  	speed 4000 
@@ -48062,21 +48063,20 @@ hook_launch_loop
  	single_missile_sound weeble_airbound1 weeble_airbound2 weeble_airbound3 weeble_airbound4 weeble_airbound5 weeble_airbound6 weeble_airbound7 
  	detached_shot_particles false 
  // File left empty for backwards compatibility. 
+[UI] Error 120948701. No local resource handler present.
+[UI] Web query requested: 
+[UI] Error 871219127. Remote, async, stream requests are not implemented yet.
+[UI] Error 95512941. Aborting resource requests is not implemented.
+[UI] Error 982347298347. No local resource handler present.
 code=
 text=
 [UI] Dumping returned web data because -uilog is enabled...
 elapsed=
 error=
-[UI] Error 120948701. No local resource handler present.
-[UI] Error 871219127. Remote, async, stream requests are not implemented yet.
-[UI] Error 95512941. Aborting resource requests is not implemented.
-[UI] Web query requested: 
-[UI] Error 982347298347. No local resource handler present.
 widget_editpad_bg
 widget_editpad
 ui\hud\editpad_bg.png
 >}?5?
-1.2.8
 Qkkbal
 wn>Jj
 Z* ,	
@@ -48100,19 +48100,13 @@ OZw3(?
 V_:X1:
 NJ2"v
 O*9y]
+1.2.8
 								
-Extra compression data
-Truncated compressed data in IDAT
-save_size overflowed in pngpread
-save_size overflowed in pngpread
-Decompression error in IDAT
-Extra compressed data in IDAT
-No IDAT data (internal error)
 Invalid IHDR length
-Missing IHDR before IDAT
-Not a PNG file
 PNG file corrupted by ASCII conversion
 save_buffer error
+Missing IHDR before IDAT
+Not a PNG file
 Not enough compressed data
 Potential overflow of save_buffer
 Insufficient memory for save_buffer
@@ -48120,6 +48114,13 @@ Missing PLTE before IDAT
 Too many IDAT's found
 Missing PLTE before IDAT
 Missing IHDR before IDAT
+Extra compression data
+Decompression error in IDAT
+Extra compressed data in IDAT
+No IDAT data (internal error)
+Truncated compressed data in IDAT
+save_size overflowed in pngpread
+save_size overflowed in pngpread
 invalid chunklength
 Exceeded size limit while expanding chunk
 Data error in compressed datastream in %s chunk
@@ -48136,14 +48137,14 @@ Unknown zTXt compression type %d
 Out of place IHDR
 png_inflate logic error
 Not enough memory to decompress chunk.
-Invalid iCCP after IDAT
-Out of place iCCP chunk
-Ignoring incorrect cHRM value when sRGB is also present
-Missing IHDR before iCCP
-Ignoring incorrect gAMA value when sRGB is also present
-incorrect gamma=(%d/100000)
-Incorrect sRGB chunk length
-Unknown sRGB intent
+Incorrect IEND chunk length
+Missing IHDR before gAMA
+Truncating incorrect info tRNS chunk length
+No image in file
+Invalid palette chunk
+Truncating incorrect tRNS chunk length
+Ignoring PLTE chunk in grayscale PNG
+Invalid palette chunk
 Missing IHDR before sPLT
 Invalid sPLT after IDAT
 Ignoring truncated iCCP profile.
@@ -48168,14 +48169,14 @@ Incorrect tRNS chunk length
 Zero length tRNS chunk
 Incorrect tRNS chunk length
 Missing PLTE before tRNS
-Incorrect IEND chunk length
-Missing IHDR before gAMA
-Truncating incorrect info tRNS chunk length
-No image in file
-Invalid palette chunk
-Truncating incorrect tRNS chunk length
-Ignoring PLTE chunk in grayscale PNG
-Invalid palette chunk
+Duplicate hIST chunk
+Incorrect hIST chunk length
+Invalid hIST after IDAT
+Missing PLTE before hIST
+Incorrect bKGD chunk index value
+Missing IHDR before hIST
+Duplicate bKGD chunk
+Incorrect bKGD chunk length
 gamma = (%d/100000)
 Missing IHDR before sBIT
 Ignoring gAMA chunk with gamma=0
@@ -48200,14 +48201,14 @@ wx=%f, wy=%f, rx=%f, ry=%f
 gx=%f, gy=%f, bx=%f, by=%f
 Incorrect cHRM chunk length
 Ignoring incorrect cHRM value when sRGB is also present
-Missing IHDR before tEXt
-No memory to process text chunk.
-Incorrect tIME chunk length
-No space in chunk cache for tEXt
-Out of place tIME chunk
-Duplicate tIME chunk
-malformed height string in sCAL chunk
-Invalid sCAL data
+Invalid iCCP after IDAT
+Out of place iCCP chunk
+Ignoring incorrect cHRM value when sRGB is also present
+Missing IHDR before iCCP
+Ignoring incorrect gAMA value when sRGB is also present
+incorrect gamma=(%d/100000)
+Incorrect sRGB chunk length
+Unknown sRGB intent
 Unknown compression type in zTXt chunk
 Not enough memory to process zTXt chunk.
 Out of memory processing zTXt chunk.
@@ -48230,14 +48231,6 @@ Decompression Error
 Extra compressed data.
 Not enough image data
 Extra compressed data.
-Duplicate hIST chunk
-Incorrect hIST chunk length
-Invalid hIST after IDAT
-Missing PLTE before hIST
-Incorrect bKGD chunk index value
-Missing IHDR before hIST
-Duplicate bKGD chunk
-Incorrect bKGD chunk length
 Duplicate oFFs chunk
 Incorrect oFFs chunk length
 Missing IHDR before oFFs
@@ -48262,14 +48255,14 @@ Invalid sCAL after IDAT
 Duplicate sCAL chunk
 Invalid pCAL data
 Missing IHDR before sCAL
-DXBC'
-PerPrimitivePS
-ShaderType
-Microsoft (R) HLSL Shader Compiler 10.1
-ISGNP
-SV_POSITION
-TEXCOORD
-STATt
+Missing IHDR before tEXt
+No memory to process text chunk.
+Incorrect tIME chunk length
+No space in chunk cache for tEXt
+Out of place tIME chunk
+Duplicate tIME chunk
+malformed height string in sCAL chunk
+Invalid sCAL data
 txBufferSampler
 txBuffer
 txBuffer1
@@ -48292,6 +48285,14 @@ PrimProps1
 Coefficients
 PixelOffsets
 Microsoft (R) HLSL Shader Compiler 10.1
+SV_POSITION
+TEXCOORD
+STATt
+DXBC'
+PerPrimitivePS
+ShaderType
+Microsoft (R) HLSL Shader Compiler 10.1
+ISGNP
 SV_POSITION
 TEXCOORD
 STATt
@@ -48615,40 +48616,36 @@ P?X94?
 option
 boost::bad_any_cast: failed conversion using boost::any_cast
 rgba(%d,%d,%d,%.3f)
-#4b4b4bff
-#32323cff
 #ffffff80
 #00000040
 #645a5aff
+#4b4b4bff
+#32323cff
 {0:.12g}
-original_price
-current_price
-is_price_valid
-currency_code
 is_available
 purchase_limit
 purchase_count
 isRedeemed
 [EGS] [Lvl2] 
 title
+original_price
+current_price
+is_price_valid
+currency_code
 png_get_tRNS() failed
 png_get_gAMA() failed
-color type and/or bit depth mismatch in png::consumer::read()
-1.2.59
 istream::read() failed
 read_data: caught something wrong
 ostream::flush() failed
 flush_data: caught something wrong
 ostream::write() failed
 write_data: caught something wrong
+color type and/or bit depth mismatch in png::consumer::read()
+1.2.59
 system
 unknown error
 ; Z: 
 ; Y: 
-set_symmetry_plane
-set_color_property
-asset_click
-asset_double_click
 set_bool_property
 set_color_property_preview
 set_string_property
@@ -48660,14 +48657,15 @@ reset_size
 action_set_block
 on_dropper_tool
 on_editpad_loaded
-editpad_filter_request
-[UI/Editpad] Doc loaded: 
 action_redo
 action_save
 action_undo
-aim1_obstacles
-aim_shaft
-practice
+editpad_filter_request
+[UI/Editpad] Doc loaded: 
+set_symmetry_plane
+set_color_property
+asset_click
+asset_double_click
 hud_definition
 hud_changed
 deb_05
@@ -48677,13 +48675,16 @@ set_preview_weapon_skin
 stat:
 update_custom_game
 "set_preview_weapon_skin"
+app setup post_load_finished
+Starting menu music
+Engine load time: 
+Load time including UI: 
 party
 /teamsay 
 /say 
-[UI ERROR] 
-[UI ERROR] Unknown UI error
-Disconnected from server
-SERVER_DISCONNECTED
+aim1_obstacles
+aim_shaft
+practice
 message_press_button_to_bind
 cancellable_messagebox
 [UI] 
@@ -48693,10 +48694,10 @@ deb_07
 sensitivity
 game_hit_sound
 game_critical_hit_sound
-app setup post_load_finished
-Starting menu music
-Engine load time: 
-Load time including UI: 
+zoom_sensitivity
+mouse_zoom_circumference:
+mouse_circumference:
+mouse_imperial
 #settings_changed 
 /sound_restart
 Started menu music
@@ -48707,10 +48708,10 @@ Unable to parse HUD definition
 PARSE_HUD_ERROR
 API Request failed
 API_REQUEST_ERROR
-download_progress
-download_remote_resource_error
-set_hud_api_token
-download_remote_resource_success
+[UI ERROR] 
+[UI ERROR] Unknown UI error
+Disconnected from server
+SERVER_DISCONNECTED
 console_complete
 console_down
 [UI/Hud] Doc loaded: 
@@ -48723,10 +48724,10 @@ leave_custom_game_lobby
 invite_friends
 set_blur
 load_custom_screen
-zoom_sensitivity
-mouse_zoom_circumference:
-mouse_circumference:
-mouse_imperial
+ui_stop_sounds
+ui_sound_tracked
+party_invite_friends
+accept_invitation
 DownloadCache
 sound_volume
 ui_volume_bell
@@ -48736,10 +48737,10 @@ Starting map...
 upload_remote_resource_success
 -b.png
 -h.png
-drop_inventory_slot
-on_custom_game_mode_changed
-game_over_quit
-drop_slot
+download_progress
+download_remote_resource_error
+set_hud_api_token
+download_remote_resource_success
 initialize_checkbox_value
 initialize_toggle_value
 capture_bind
@@ -48752,10 +48753,10 @@ weapon_settings_tab_changed
 delete_bindings
 set_real_variable
 set_string_variable
-ui_stop_sounds
-ui_sound_tracked
-party_invite_friends
-accept_invitation
+add_skin_model_rotation
+add_decals_model_rotation
+set_menu_view
+send_view_data
 ui_sound
 ui_music
 on_item_bought
@@ -48767,10 +48768,10 @@ ui_sound_queue
 custom_game_settings_changed
 game_chat_return
 aim_report_restart
-signal
-join_team
-set_modal
-set_chat_enabled
+drop_inventory_slot
+on_custom_game_mode_changed
+game_over_quit
+drop_slot
 weapon_customization_select_weapon
 add_weapon_customization_model_rotation
 hud_mouse_control
@@ -48783,10 +48784,7 @@ skins_eggbot_hovered
 custom_game_map_selected
 cheat_cash
 select_revenge_weapon
-add_skin_model_rotation
-add_decals_model_rotation
-set_menu_view
-send_view_data
+set_input_focus
 decals_zoom_out
 start_mmb_dragging
 decal_click
@@ -48799,10 +48797,10 @@ send_json
 set_avatar_camera_main
 skill_selection_closed
 set_skill
-set_console_enabled
-copy_text
-request_locations_ping
-apply_mod_changes
+signal
+join_team
+set_modal
+set_chat_enabled
 set_music_post_volume
 ui_stop_sound
 set_party_size
@@ -48815,12 +48813,15 @@ on_show_customization_screen
 get_crosshair_draw_list_return
 friend_decline
 friend_remove
-set_input_focus
+set_player_color_override
+set_player_decals_override
+set_stage_map_camera
+reset_locker_agent_rotation
 [UI/Menu] Doc loaded: 
-reset_hud
-set_preview_weapon_attachment
-set_hud_json
-on_hud_edited
+set_console_enabled
+copy_text
+request_locations_ping
+apply_mod_changes
 flash_taskbar
 set_user_muted
 set_preview_shell
@@ -48833,10 +48834,7 @@ start_remote_map
 edit_community_map
 set_api_key
 download_remote_resource
-set_player_color_override
-set_player_decals_override
-set_stage_map_camera
-reset_locker_agent_rotation
+publish_community_map
 show_draft
 load_tutorial
 arrange_decal_selection
@@ -48849,11 +48847,10 @@ edit_new_map
 set_hud_editor
 load_aim_shaft_close
 load_aim_mac_flickshots
-publish_community_map
-Unable to find index buffer to update!
-Unable to create index buffer!
-Unable to find vertex buffer to update!
-Unable to create vertex buffer!
+reset_hud
+set_preview_weapon_attachment
+set_hud_json
+on_hud_edited
 Unable to find texture!
 Unable to find sampler!
 Unable to find PSO!
@@ -48866,16 +48863,20 @@ Unable to create Depth Stencil View!
 Unable to create Depth Texture!
 Unable to create RTV!
 Unable to create SRV!
+Unknown constant buffer update requested! CB id 
+Unknown primitive topology!
+Unable to create sampler!
+Unable to find textures for solving!
 Unable to create Pixel Shader
 Unable to create Vertex Shader
 Unknown vertex type!
 Unsupported shaders!
 TEXCOORD
 POSITION
-Unknown constant buffer update requested! CB id 
-Unknown primitive topology!
-Unable to create sampler!
-Unable to find textures for solving!
+Unable to find index buffer to update!
+Unable to create index buffer!
+Unable to find vertex buffer to update!
+Unable to create vertex buffer!
 Unable to create end query for performance measurement!
 Unable to create start query for performance measurement!
 Unable to create disjoint query for performance measurement!
@@ -48965,6 +48966,7 @@ ffffff
 ?333333
 @333333
 l~~~~~~~~~~~~~~~~
+RSDSrf
 C:\reborn\tracked\tmp_symbols_EVE_Release\diabotical.pdb
 .text
 .text$di
@@ -49019,6 +49021,8 @@ _RDATA
 .rsrc$01
 .rsrc$02
 f f"f$f&f(f**
+@08~_
+P6m p
 M"@.B}
 DdF.D\
 R6TDR
@@ -49026,14 +49030,14 @@ V,X!(Z.\
 Z~L2NxLM
 ,F2,4	
 NpPPN
-`6l.p
+`6,*p
+P6M1p
  x"\ 
+`6\;p
 : l>5
  |,z.
 0 z,~.^0
 *F,*.
-`^$Rp
-`6|Wp
 ""j$N
 "&v(T
 (*v,Z
@@ -49057,17 +49061,16 @@ NpPPN
 (rvtZ
 (v|xZ
 (zv|Z
-P6hvp
-@6<}p
 ( ("($X,
 0~.f4
 B:@:>
 %$2&(
+@HP^_
 n,^ ,
 8@HPX`hpx
 4h(j(
 6r(t(
-8@HP^
+8@HP^_
 8@HPR
 <((*(
 ,H.,*,
@@ -49081,7 +49084,7 @@ l2,.,*,
 (^8`:
 @dB,@
 >|FfH
-08@P^
+08@P^_
 N H(H*P,
 N H(H*P0
  X"d$
@@ -49092,6 +49095,7 @@ FdHdJdL
 .l0$.y
 .l0$.-
 @HPX`hpz
+P08~_
 .40".
 8\6)	8&6
 <(>(@
@@ -49111,8 +49115,6 @@ $l&F(H&B*=
 :><4:(@
 (8*x,	
 lPn0p(r.t.v
-P6|-q
-@6!>q
 (x,X.:,N
 8z<X>:<N
 N.P.R.VhZB
@@ -49122,11 +49124,11 @@ x.z.|.
 $\(d*:(N
 4^(H86(J
 2:x<^>
+=	XDq
 *r.F2
 L0NnP
 L(RXV
 L(RXp
-MUoiq
 &$(& (
 &,(. 0
 &4(6 8
@@ -49142,6 +49144,7 @@ MUoiq
  N,P&R&T(V&X(Z&\.^&`
 2N$P,R&T"V(X&Z(\&^.`&b
  N,P&R&T(V&X(Z&\.^&`
+	><yq
 ( $"($.&&(
 (* , .,0.2&4
 (8 :,<.>&@
@@ -49222,17 +49225,19 @@ XN.P(R
 XN.P R
 @".$ &
 H""$2
-H6>'r
-`6l(r
+p6|(r
+`^"-r
 N"P R
 d"f h
-`6|Br
-`6\Dr
-`6lEr
+@6<@r
+@6\@r
+P6,Br
 4,6x8
-P6tLr
+@f(Lr
+`6iLr
+@8@N_
 @HPX`bp
-@F,Rr
+P>LRr
 ("($N
 "&"(H
 "*",H
@@ -49350,9 +49355,7 @@ V(X(Z \
 t$v(tB:Pt$v
 xF<Fz:<>|(~$
 <dxF<Fz:<>|(~$
--1,.s
-=9R/s
-MSI2s
+}=[.s
 $(&b$D
 T((*j(j
 @@(Bh@V
@@ -49364,12 +49367,12 @@ vnp:z(|6z:pn
 r"p$=
 6$8&6
 @:.>e
-B4D,F,H(J.L&N.P&R.T&V
-B.X.Z.\.^.`.b(d
-B6h6j8l
-n.p&nU
+BLD.F.H.J.L.N.P(R
+B6T6V6X
+Z.\&Za
 4,6,8(:.<&>.@ B(D F
 2"x$^&
+`:@b<
  2"~$
 |*x,v.
 ( ("($
@@ -49378,12 +49381,11 @@ H((*$,&.&0&2@4.6.8&:.<.>&@.B.D&F.H.J(L(N P.R0T(V X(Z \
 $`&~$-
 0*8B:E
 <*DBFM
+`6|us
 ,\*j$
-m	[~s
+m	K|s
 P8@HP
 ( @"($(&((`*`,`.`0`2(4@6(8(:(<`>`@`B`D`F(H@J(L(N(P`R`T`V`X`Z(\@^(`(b(d`f`h`j`l`n(p@r(t(v(x`z`|`~`
-@:pS?
-`rpS?
 X B"@$
 `,X.f0
 `:X<f>
@@ -49401,8 +49403,6 @@ X f"
 `H^JfL
 `V^XfZ
 `d^ffh
-`: %B
-	:P&C
 (Z*>(
 0f6^8
 :N<F>)
@@ -49471,14 +49471,9 @@ l"nlpFrBp
 (r(tZ
 (v(xZ
 (z(|Z
-@20{I
-`b0{I
-@20{I
-@20{I
-`b0{I
  P"R$
 4X6H4
-`frPt
+`fbNt
 b b"b$b&b(b*b,b.b0b2b4b6b8b:b<b>b@bBbDbFbHbJbLbNbPbRbTbVbXbZP\6
 &.((* ,*.
 4\6$:v<
@@ -49487,16 +49482,17 @@ FnDj4U
 H0J0L.N P(R"T.V$X(Z
 z^(`.b.d(f
 ^ j,l$n.p*r t.v x(z&|.~(
-!	vHbt
+!	v8`t
 ", ~"( 
 0(r*R,
-pf)qt
 *t.R0t4
 D`FtJTND
-@hxB`AN
-@hxBP
-@:PbN
-@:`uN
+p20@N
+@8@N_
+P8:0@N
+P8:0@N
+@:PtN
+@:ptN
  M",X.X0F
 ,X.X0F
 ?	U.S)
@@ -50809,11 +50805,11 @@ incorrect header check
 .?AV?$FieldProperty@PEQTeamData@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXMM@Z@cohtml@@
 .?AV?$_Func_impl_no_alloc@V<lambda_8d8089edf8787edbe372db486891fe75>@@X_KPEBURemoteResource@remote_resources@@HH@std@@
-.?AV?$EventHandler@P8CallHandler@coui@@EAAX_NMMMM@Z@cohtml@@
 .?AV?$FieldProperty@PEQPlayerData@@H@cohtml@@
-.?AV?$EventHandler@P8CallHandler@coui@@EAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ@cohtml@@
-.?AV?$FieldProperty@PEQGameData@@V?$vector@UTeamData@@V?$allocator@UTeamData@@@std@@@std@@@cohtml@@
 .?AV?$_Func_impl_no_alloc@V<lambda_bcfb77310381ce90ddb9d48026557917>@@XPEBURemoteResource@remote_resources@@@std@@
+.?AV?$EventHandler@P8CallHandler@coui@@EAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ@cohtml@@
+.?AV?$EventHandler@P8CallHandler@coui@@EAAX_NMMMM@Z@cohtml@@
+.?AV?$FieldProperty@PEQGameData@@V?$vector@UTeamData@@V?$allocator@UTeamData@@@std@@@std@@@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V34@@Z@cohtml@@
 .?AVHudViewListener@coui@@
@@ -50821,50 +50817,50 @@ incorrect header check
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z@cohtml@@
 .?AV?$FieldProperty@PEQCommonGameData@@_N@cohtml@@
 .?AV?$FieldProperty@PEQGameData@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@cohtml@@
-.?AV?$EventHandler@P8CallHandler@coui@@EAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXXZ@cohtml@@
 .?AVProperty@cohtml@@
-.?AV?$_Func_impl_no_alloc@V<lambda_ba6b493b3f12e43c5279056a4e35e2fb>@@XPEBURemoteResource@remote_resources@@@std@@
+.?AV?$EventHandler@P8CallHandler@coui@@EAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z@cohtml@@
 .?AV<lambda_915f45b08feb67481893e46df12fe293>@@
 .?AV?$_Func_impl_no_alloc@V<lambda_915f45b08feb67481893e46df12fe293>@@XJAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBURemoteResource@remote_resources@@@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_ba6b493b3f12e43c5279056a4e35e2fb>@@XPEBURemoteResource@remote_resources@@@std@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@M@Z@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAX_N@Z@cohtml@@
 .?AV?$FieldProperty@PEQTeamData@@V?$vector@UPlayerData@@V?$allocator@UPlayerData@@@std@@@std@@@cohtml@@
-.?AV?$TypedProperty@AEBH@cohtml@@
 .?AV<lambda_bcfb77310381ce90ddb9d48026557917>@@
+.?AV?$TypedProperty@AEBH@cohtml@@
+.?AV?$_Func_impl_no_alloc@V<lambda_a67e0a8b57805acfb640b181215be315>@@XJAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBURemoteResource@remote_resources@@@std@@
 .?AV?$FieldProperty@PEQApplicationData@@_N@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAA_NXZ@cohtml@@
-.?AV?$_Func_impl_no_alloc@V<lambda_a67e0a8b57805acfb640b181215be315>@@XJAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBURemoteResource@remote_resources@@@std@@
-.?AV?$FieldProperty@PEQBattleData@@UPlayerData@@@cohtml@@
-.?AV?$EventHandler@P8CallHandler@coui@@EAAXHH@Z@cohtml@@
 .?AV?$FieldProperty@PEQGameData@@UTeamData@@@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXH@Z@cohtml@@
+.?AV?$FieldProperty@PEQBattleData@@UPlayerData@@@cohtml@@
+.?AV?$EventHandler@P8CallHandler@coui@@EAAXHH@Z@cohtml@@
+.?AV?$EventHandler@P8CallHandler@coui@@EAAXH_N@Z@cohtml@@
 .?AV?$TypedProperty@AEBV?$vector@UTeamData@@V?$allocator@UTeamData@@@std@@@std@@@cohtml@@
 .?AV?$TypedProperty@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@cohtml@@
-.?AV?$EventHandler@P8CallHandler@coui@@EAAXH_N@Z@cohtml@@
 .?AV?$TypedProperty@AEBUTeamData@@@cohtml@@
 .?AV?$TypedProperty@AEBN@cohtml@@
-.?AV?$FieldProperty@PEQGameData@@_N@cohtml@@
-.?AV?$_Func_impl_no_alloc@V<lambda_a49c15f2cb14beeb93e2a68ebc90de33>@@X_KPEBURemoteResource@remote_resources@@HH@std@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_KI0@Z@cohtml@@
+.?AV?$_Func_impl_no_alloc@V<lambda_a49c15f2cb14beeb93e2a68ebc90de33>@@X_KPEBURemoteResource@remote_resources@@HH@std@@
 .?AV?$FieldProperty@PEQFrameData@@N@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z@cohtml@@
+.?AV?$FieldProperty@PEQGameData@@_N@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@@Z@cohtml@@
-.?AV?$TypedProperty@AEBV?$vector@UPlayerData@@V?$allocator@UPlayerData@@@std@@@std@@@cohtml@@
 .?AV?$FieldProperty@PEQGameData@@V?$vector@UPlayerData@@V?$allocator@UPlayerData@@@std@@@std@@@cohtml@@
+.?AV?$TypedProperty@AEBV?$vector@UPlayerData@@V?$allocator@UPlayerData@@@std@@@std@@@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z@cohtml@@
 .?AV?$EventHandler@P8CallHandler@coui@@EAAXN@Z@cohtml@@
-.?AV?$EventHandler@P8CallHandler@coui@@EAAX_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z@cohtml@@
 .?AV?$TypedProperty@AEB_N@cohtml@@
 .?AV?$FieldProperty@PEQTeamData@@H@cohtml@@
+.?AV?$EventHandler@P8CallHandler@coui@@EAAX_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z@cohtml@@
 .?AVPluginInterface2@SLNet@@
 .?AVRakVoice@SLNet@@
 .?AV?$_Func_impl_no_alloc@V<lambda_b07d6bc61ff4bea3c75c56d301e7e7b1>@@X$$V@std@@
 .?AV<lambda_b07d6bc61ff4bea3c75c56d301e7e7b1>@@
 .?AV?$_Func_impl_no_alloc@V?$_Fake_no_copy_callable_adapter@V<lambda_a2f5b3fe2ae10c6faa3dff8c14694ec3>@@VUrl@cpr@@VVerifySsl@3@V?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@UCaseInsensitiveCompare@cpr@@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@2@@std@@@std@@VResponse@cpr@@$$V@std@@
-.?AV?$_Fake_no_copy_callable_adapter@V<lambda_a2f5b3fe2ae10c6faa3dff8c14694ec3>@@VUrl@cpr@@VVerifySsl@3@V?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@UCaseInsensitiveCompare@cpr@@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@2@@std@@@std@@
 .?AU?$_InitialTaskHandle@XV<lambda_2fe2f5f4f26a070d3713d6ae857858b0>@@U_TypeSelectorNoAsync@details@Concurrency@@@?$task@E@Concurrency@@
+.?AV?$_Fake_no_copy_callable_adapter@V<lambda_a2f5b3fe2ae10c6faa3dff8c14694ec3>@@VUrl@cpr@@VVerifySsl@3@V?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@UCaseInsensitiveCompare@cpr@@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@2@@std@@@std@@
 .?AV?$_Func_impl_no_alloc@V?$_Fake_no_copy_callable_adapter@V<lambda_8d9762047e0c25321890a3338cc7a466>@@VUrl@cpr@@VVerifySsl@3@VBody@3@V?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@UCaseInsensitiveCompare@cpr@@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@2@@std@@@std@@VResponse@cpr@@$$V@std@@
 .?AV?$_Fake_no_copy_callable_adapter@V<lambda_8d9762047e0c25321890a3338cc7a466>@@VUrl@cpr@@VVerifySsl@3@VBody@3@V?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@UCaseInsensitiveCompare@cpr@@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@std@@@2@@std@@@std@@
 .?AU?$_PPLTaskHandle@EU?$_InitialTaskHandle@XV<lambda_b07d6bc61ff4bea3c75c56d301e7e7b1>@@U_TypeSelectorNoAsync@details@Concurrency@@@?$task@E@Concurrency@@U_TaskProcHandle@details@3@@details@Concurrency@@
