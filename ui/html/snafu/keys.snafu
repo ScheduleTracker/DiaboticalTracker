@@ -1,0 +1,40 @@
+BEGIN TEMPLATE coins
+    SETTING cell_direction "horizontal"
+    SETTING align pivot
+
+    //Icon    
+    COL_OUTPUT 0 image "images/item_coin.svg"
+    COL_OUTPUT 0 image_color "#ffd700"
+    COL_OUTPUT 0 image_width fontSize
+    COL_OUTPUT 0 image_height fontSize
+    COL_OUTPUT 0 width fontSize
+    COL_OUTPUT 0 height fontSize
+
+    //Separator
+    DOUBLE separator_width
+    separator_width = fontSize / 2
+    COL_OUTPUT 1 width separator_width
+
+    //Coin Count
+    DOUBLE width
+    width = fontSize * 2
+    COL_OUTPUT 2 color color
+    COL_OUTPUT 2 font font
+    COL_OUTPUT 2 shadow 1
+    COL_OUTPUT 2 align "left-edge"
+
+ON_UPDATE
+
+    IF !common_game_data.self_alive 
+        discard
+    END IF
+    IF battle_data.self.coins == 0 
+        discard
+    END IF
+
+    // Coin Count value
+    STRING value
+    value = "×" & battle_data.self.coins
+    OUTPUT 0 2 value value
+    
+END TEMPLATE

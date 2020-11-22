@@ -2365,6 +2365,7 @@ var TRANSLATION_en =
     "settings_hud_round_mvp":"Round MVP",
     "settings_hud_steal_progress":"Steal Progress",
     "settings_hud_overtime_progress":"Overtime Progress",
+    "settings_hud_controls":"Controls",
     "settings_hud_hint":"Hint",
     "settings_hud_own_players": "Ally Players",
     "settings_hud_enemy_players": "Enemy Players",

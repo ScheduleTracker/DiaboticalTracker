@@ -22,6 +22,13 @@ PRELOAD "images/hud_icon_armor.svg"
 PRELOAD "images/hud_icon_speed.svg"
 PRELOAD "images/hud_icon_wrench.svg"
 
+PRELOAD "images/controls_back.svg"
+PRELOAD "images/controls_down.svg"
+PRELOAD "images/controls_forward.svg"
+PRELOAD "images/controls_left.svg"
+PRELOAD "images/controls_right.svg"
+PRELOAD "images/controls_up.svg"
+
 PRELOAD "images/item_coin.svg"
 PRELOAD "images/item_flag.svg"
 PRELOAD "images/item_macguffin.svg"
