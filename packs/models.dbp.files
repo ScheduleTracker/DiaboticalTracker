@@ -176,10 +176,12 @@ models\cubebot\cubebot.shader		700
 models\cylinderbot\base_shell\base_shell_d.png		97893
 models\cylinderbot\base_shell\base_shell_n.png		472107
 models\cylinderbot\cylinder_test_proportions.fbx		378048
+models\cylinderbot\cylinderbot - Copy.fbx		9280336
 models\cylinderbot\cylinderbot.ani		2162
 models\cylinderbot\cylinderbot.assets		456
 models\cylinderbot\cylinderbot.dbm		9655054
-models\cylinderbot\cylinderbot.fbx		9280336
+models\cylinderbot\cylinderbot.fbm\eggbot_d.png		574974
+models\cylinderbot\cylinderbot.fbx		17513856
 models\cylinderbot\cylinderbot.shader		402
 models\cylinderbot\cylinderbot_d.png		1311114
 models\cylinderbot\cylinderbot_n.png		2577071
