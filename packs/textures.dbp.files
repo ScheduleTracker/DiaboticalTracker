@@ -328,10 +328,14 @@ textures\display_1.png.dds		87556
 textures\dust.dds		349700
 textures\dust.png		299494
 textures\earth_night_cubemap.dds		100663444
+textures\editor\billboard.png.dds		87556
+textures\editor\camera.png.dds		87556
+textures\editor\decal.png.dds		87556
 textures\editor\entity.png.dds		87556
 textures\editor\light.png.dds		87556
 textures\editor\light_selected.png.dds		87556
 textures\editor\multipickup.png.dds		87556
+textures\editor\sound.png.dds		87556
 textures\editor\spawn.png.dds		87556
 textures\effect_cross.dds		349700
 textures\effect_cross.png.dds		349700
