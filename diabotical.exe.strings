@@ -45589,9 +45589,9 @@ lobby_customization_camera
 Position and orientation string for the menu camera for 3-size or more parties.
 Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
 62,-21,-2,-22,-6
+0.20.416b
 Position and orientation string for the menu camera for 2-size parties.
 Format: distance,yaw,pitch,view_yaw,view_pitch (No spaces)
-0.20.416
 POSITION
 <><><><<>>><>>>>>> Initializing Vertex Shader 
  depth=
@@ -48977,7 +48977,6 @@ ffffff
 ?333333
 @333333
 l~~~~~~~~~~~~~~~~
-RSDS7Q
 C:\reborn\tracked\tmp_symbols_EVE_Release\diabotical.pdb
 .text
 .text$di
