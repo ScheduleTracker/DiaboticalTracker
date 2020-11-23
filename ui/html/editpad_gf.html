@@ -103,6 +103,9 @@
 		.asset_type_label_dynprop {
 			background-color: #de25e5;
 		}
+        .tooltip_help {
+            color: #ffff30;
+        }
 		#browser_status {
 			position: absolute;
 			top: 23vh;
@@ -381,6 +384,28 @@
 		next_tab_input: null
 	};
 
+    var saved_header_element_id = "";
+    var saved_header_content = "";
+    function show_tooltip(str){
+        if (str.length){
+            $(".header_bar").html(str);
+        } else {
+        //$(".header_bar").each(function (i) {
+			//_html(this, this.dataset.content);
+        //}}
+        
+        _for_each_in_class("header_bar", function(el) {
+            _html(el, el.dataset.content);
+        });
+
+}
+        
+        //header_el.dataset.content
+          //  var header_el = _id(saved_header_element_id);
+//            if (header_el) _html(header_el, saved_header_content);
+  //      }
+    }
+    
 	window.addEventListener("load", function () {
 		//$('#filter_input').on("input", function () {
 		//	populate();
@@ -454,7 +479,13 @@
 		var el = _id(id);
 		_html(el, content);
         var header_el = _id(header_el_id);
-        if (header_el) _html(header_el, header_content);
+        if (header_el){
+            _html(header_el, header_content);
+            header_el.dataset.content = header_content;
+        }
+        
+        saved_header_element_id = header_el_id;
+        saved_header_content = header_content;
         
 		_setup_color_pickers("#" + id + " .color-picker-new");
 
