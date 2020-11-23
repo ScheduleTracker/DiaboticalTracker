@@ -72,7 +72,20 @@ let global_game_maps_state = {
     community: [],
     selected: undefined,
     selected_category: 'official',
-    order_by: undefined
+    order_by: undefined,
+    last_api_options: {},
+
+    infiniteScroll: {
+        community_page: 0,
+        requesting: false,
+        last_page_reached: false,
+    },
+
+    resetInfiniteScroll: () => {
+        global_game_maps_state.infiniteScroll.last_page_reached = false;
+        global_game_maps_state.infiniteScroll.requesting = false;
+        global_game_maps_state.infiniteScroll.community_page = 0;
+    }
 };
 
 function init_custom_modes() {
@@ -375,6 +388,22 @@ function init_screen_custom() {
 
     global_input_debouncers['map_choice_filter_input'] = new InputDebouncer(() => { 
         update_map_choices({ search: _id("map_choice_filter_input").value.trim(), order: _id("map_choice_sort").dataset.value });
+    });
+
+    _id("map_choice_container_inner").addEventListener("scroll", function(event) {
+        const threshold = 150; // pixels
+        const containerHeight = event.target.getBoundingClientRect().height;
+        const windowBottom = (event.target.scrollTop + containerHeight);
+
+        if (!global_game_maps_state.infiniteScroll.requesting  &&
+            !global_game_maps_state.infiniteScroll.last_page_reached &&
+            windowBottom > (event.target.scrollHeight - threshold)) 
+        {
+            global_game_maps_state.infiniteScroll.requesting = true;
+            global_game_maps_state.infiniteScroll.community_page++;
+
+            update_map_choices_page();
+        }
     });
 }
 
@@ -1943,19 +1972,14 @@ function custom_game_map_on_author_click(e) {
 }
 
 /* Update map choices based on global_game_maps_state */
-function render_map_choices(sort = true, search = undefined) {
+function render_map_choices(sort = true) {
     const category = global_game_maps_state.selected_category;
     let maps = global_game_maps_state[category];  
     const selected = global_game_maps_state.selected;
 
     let fragment = new DocumentFragment();
     if (sort) maps.sort();
-    if (search && search.length) {
-        //const reg = new RegExp(`^${search.toLocaleLowerCase()}`);
-        //maps = maps.filter(m => m.name.toLocaleLowerCase().match(reg));
-        maps = maps.filter(m => m.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
-    }
-
+   
     for (let m of maps) {
         let map = _createElement("div", "map");
         
@@ -2020,13 +2044,46 @@ function custom_game_map_type_changed(btn, category) {
     refreshScrollbar(_id("map_choice_container"));
 }
 
+function update_map_choices_page() {
+    const options = {
+        ...global_game_maps_state.last_api_options,
+    };
+
+    const category = global_game_maps_state.selected_category;
+    const mode = global_customSettingElements["mode"].dataset.value || 'ffa';
+    const order = options && options.order && options.order.length ? `&order=${options.order}` : ``;
+    const search = options && options.search && options.search.length ? `&search=${encodeURI(options.search)}` : ``;
+
+    const page = `&page=${global_game_maps_state.infiniteScroll.community_page}`;
+
+    global_game_maps_state.infiniteScroll.requesting = true;
+    api_request("GET",
+        `/content/maps?mode=${mode}${order}${search}${page}`,
+        {},
+        (maps) => {
+            const newMaps = maps
+                .filter(map => map.create_ts !== map.update_ts)
+                .map(map => ({
+                    map: map.map_id,
+                    name: map.reviewed ? map.name : map.random_name.replace('_', ' '),
+                    author: map.author,
+                    user_id: map.user_id,
+                    reviewed: map.reviewed,
+                    rate: map.rate
+                }));
+
+            global_game_maps_state.infiniteScroll.last_page_reached = newMaps.length === 0;
+            if (global_game_maps_state.infiniteScroll.last_page_reached) console.log("LAST PAGE REACHED");
+            global_game_maps_state[category].push(
+                ...newMaps
+            );
+            render_map_choices(false);
+            global_game_maps_state.infiniteScroll.requesting = false;
+        });
+}
+
 function update_map_choices(options) {
     const category = global_game_maps_state.selected_category;
-
-    if (options && options.search) {
-        render_map_choices(false, options.search);
-        return;
-    }
 
     let spinner_cont = _id("map_choice_container_inner");
     _empty(spinner_cont);
@@ -2035,14 +2092,24 @@ function update_map_choices(options) {
     if (category !== 'official') {
         _id("map_choice_filters").style.display = "flex";
 
+        options = {
+            ...global_game_maps_state.last_api_options,
+            ...options
+        };
+        global_game_maps_state.resetInfiniteScroll();
+        global_game_maps_state.last_api_options = options;
+
         const mode = global_customSettingElements["mode"].dataset.value || 'ffa';
-        const order = options && options.order ? `&order=${options.order}` : ``;
+
+        const order = options && options.order && options.order.length ? `&order=${options.order}` : ``;
+        const search = options && options.search && options.search.length ? `&search=${encodeURI(options.search)}` : ``;
 
         api_request("GET",
-                    `/content/maps?mode=${mode}${order}`,
+                    `/content/maps?mode=${mode}${order}${search}`,
                     {},
                     (maps) => {
                         _empty(spinner_cont);
+
                         global_game_maps_state[category] =
                             maps.filter(map => map.create_ts !== map.update_ts)
                                 .map(map => ({
@@ -2054,6 +2121,8 @@ function update_map_choices(options) {
                                     rate: map.rate
                                 }));
                         render_map_choices(false);
+                        refreshScrollbar(_id("map_choice_container_scrollable"));
+                        resetScrollbar(_id("map_choice_container_scrollable"));
                     });
     } else {
         _id("map_choice_filters").style.display = "none";
