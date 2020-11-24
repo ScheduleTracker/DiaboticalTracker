@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-597007a7a5ba144b8d884672fdfd31092b822312	anticheat/equ8.db
+abf31c8cc230276d879f9a4658c45740f0ebfa7a	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1665,7 +1665,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-ecf25329692813e145b6f5f7c5c4a88e45624536	diabotical.exe
+e9b8451dad60bcd4c0c98985e1f7efabbc0169c8	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1769,7 +1769,7 @@ f2df32b4efdadaae5b1a9843777d835cb452855d	shaders/ocean_surf.vs.cso
 23175602875cf8bdb77c96ba44eaf86a99db0cc1	shaders/ocean_surf_lq.ps.cso
 f8165ea991787d2c29465aa4642373031943e86c	shaders/ocean_surf_lq.vs.cso
 c8d3a69764b571e72a5ff0d60e6067c2612a89dd	shaders/panel.ps.cso
-d993f8e63bf9dfe53457eb85d506d181a16b6c1e	shaders/panel.vs.cso
+08e4557fd0278c15b8184edfe609fc6f7ec844c1	shaders/panel.vs.cso
 fd2ae9ab2f7aff3897d976125b0a169743ebf36d	shaders/panel_blur.ps.cso
 3693aa578e72a76ba1122858eea56505780edf6f	shaders/panel_gamma.ps.cso
 3d3324da24b8fdb318c793949c89598cb9d9d013	shaders/panel_monitor.ps.cso
@@ -8262,7 +8262,7 @@ aaba09053cc112fc9a475b6c67e88f5e76dcb2e7	ui/html/customization_pack/triker_weapo
 d1de6ff5947dda46f2cb1a8382a34f2416f5350d	ui/html/customization_pack/triker_weapon_pack_half_1.png
 8bb4efedef4945c13aa5ef8d1e09e953526c4390	ui/html/customization_pack/triker_weapon_pack_half_2.png
 bb7c24e86e64a7f7554faaf451f1bd2f3618506f	ui/html/editpad.html
-f67a054e4d1c33a66c585fefb78708375478038e	ui/html/editpad_gf.html
+7b7ab6fc3ab581265c62c37c76b0ab1ed913b1d5	ui/html/editpad_gf.html
 0824393f032da9b14a25ed3a83e6907e4051cd1b	ui/html/fonts/CPMono_v07-Bold.otf
 bd4fa7f07e98aa83a4f2d943ec9d9cb3c3d601e6	ui/html/fonts/CPMono_v07-Plain.otf
 0f46d7eeb0a96d304059f4ae9dc28771d50fa5fa	ui/html/fonts/DroidSans-Bold.ttf
@@ -8896,7 +8896,7 @@ c02a6901096fda46181b922c0ef1bab25eba2306	ui/html/javascript/ui.js
 aaa6b0c3cf1486d4b388b8557c05b1582be520ac	ui/html/javascript/ui_br.js
 6f63ec7b3774041f5b8f9f7a7e188f95e2cf7781	ui/html/javascript/ui_contextmenu.js
 ac46b79c7abad70a8432c40464ecab419ab5fb37	ui/html/javascript/ui_crosshair_creator.js
-220f24ccf3993361d6500e1f5b9866c6915ad413	ui/html/javascript/ui_customgame.js
+e2af84f1c8cdcfffb364841121b6f6904790798b	ui/html/javascript/ui_customgame.js
 0fa00e2235275f0407555a964f4055452ce8dc3a	ui/html/javascript/ui_data.js
 2ede9225a269e14a8e1ec06c7a03ed813db9749a	ui/html/javascript/ui_dialog_component.js
 c30e0487d6e57f0983cdb236952b1963ef703c6b	ui/html/javascript/ui_dragging.js
@@ -9282,7 +9282,7 @@ d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list - Copy.snafu
 8939d9fba0db615229490b0571f633d9a11c05e2	ui/html/snafu/weapons_list.snafu
 eb6ce3bb6e30c33c7194911f71c6ba24b6514d73	ui/html/snafu/you_fragged.snafu
 df6fda932e7b9981ffebac89a1cad9e90b73bb4f	ui/html/styles-hud.css
-5581ca99e421a1ad54bb86a65f3cb21b376313fe	ui/html/styles-index.css
+bd0fe4a15a23055346a930d0d26d743e54716938	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
