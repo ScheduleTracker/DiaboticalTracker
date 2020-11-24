@@ -370,6 +370,20 @@ asset sound
   command /add sound
 }
 
+asset volumetric
+{
+  listed true
+  type entity
+  command multi /add volumetric; /resize !last 40 40 40
+}
+
+asset billboard
+{
+  listed true
+  type entity
+  command multi /add billboard; /resize !last 40 40 1
+}
+
 asset jumppad
 {
   listed true

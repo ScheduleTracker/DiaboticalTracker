@@ -39,6 +39,19 @@ billboard_glow2
 	}
 }
 
+volumetric
+{
+	{
+		map textures/decals/volumetric.png
+		map textures/flat_normal.png
+		map textures/black.png
+		vertex_shader tilestatic.vs.cso 111 NGT
+		vertex_shader_param inverse
+		vertex_shader_param camera
+		pixel_shader tiledecal.ps.cso
+	}
+}
+
 display1
 {
 	{
