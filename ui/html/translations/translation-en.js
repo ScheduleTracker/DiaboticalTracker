@@ -1357,6 +1357,8 @@ var TRANSLATION_en =
     "customization_av_68260670-1f8d-4e5d-ba0f-91a24de0b5f6": "Jagriff",
     "customization_av_5c14e4f7-2943-447e-b2e3-428a7c3b4020": "caljer Viewer",
     "customization_av_471e349d-5bdf-4f74-be6d-8168a98188f5": "caljer",
+	"customization_av_5f0fc41d-c7bc-4230-8141-e917b294fe44": "HilikusNP Viewer",
+    "customization_av_e706228a-0d62-449e-a13e-b37e33dcfcf9": "QLChill Viewer",
 	"customization_av_AT1_5": "Stabbybot",
     "customization_av_AT1_23": "Ghostly Eggbot",
 	"customization_av_AT1_29": "Halloween Devil Weeball",

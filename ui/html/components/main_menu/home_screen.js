@@ -111,9 +111,13 @@ function add_ingame_announcement(announcement_data, container, size){
   let announcement = _createElement("div", ["announcement", size]);
   let announcement_background = _createElement("div", "announcement_background");
 
-  if(announcement_data.background.hasOwnProperty('url')){     
+  if(size == "small" && announcement_data.background_small.hasOwnProperty('url')){     
+    announcement_background.style.backgroundImage = `url("${announcement_data.background_small.url}")`;
+  }
+  else if(announcement_data.background.hasOwnProperty('url')){     
     announcement_background.style.backgroundImage = `url("${announcement_data.background.url}")`;
   }
+
   if(announcement_data.url){
     announcement.classList.add("clickable");
     announcement.addEventListener("mousedown", _play_click1);
