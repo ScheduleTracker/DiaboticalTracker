@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-a4053fe9e6dc6bc56bc012ed4fc54a251d3bbd1b	anticheat/equ8.db
+a7ecd38cfc40dc169181312768055bd59f3376a2	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1665,7 +1665,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-75d1dd7d29ec79c4ad2c38b0c9c1bcd39e9ae769	diabotical.exe
+786c625a031f61aa36bd9042bc7f069a21f2f45d	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1694,8 +1694,8 @@ facdedb08a2c03e3ad6cc4198417ac45c03165d4	packs/models_weapons.dbp
 c782befffe28597f53b988f1cf16791af746c405	packs/models_weapons_crossbow.dbp
 e3059f7e2e514982f6fd7c64671712dddd5645cf	packs/models_weapons_rocket_launcher.dbp
 576bcaf29e6e108be9b2c9f9abf755fbd63e52cf	packs/models_weapons_shaft.dbp
-77bdb25fd112bb2b19820bb8efd688845759be61	packs/scripts.dbp
-c9f680da8684360906058141ba7dc76824fe5a59	packs/textures.dbp
+957135f21c4c07e561788f2439e02d669ea3172e	packs/scripts.dbp
+f65154ebeec31886c7b53ce3d6e799ab27bee8da	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 676e37d176b95b1102506499d5934c291a070dc0	packs/textures_customization.dbp
 74662ae0b09e8d2830af24335f87e05ed0a01540	packs/textures_industrial.dbp
@@ -1741,7 +1741,7 @@ de3019423b7418570472ce704af9ad7f524c28ec	shaders/effervanim.vs.cso
 658167fba0adcc7255aa85532223d26b1ff3365d	shaders/fft_512x512_c2c.cs.cso
 e9c19113a8666f8ead364e829570e16fca851458	shaders/fft_512x512_c2c_2.cs.cso
 a8123b38a19e224eab3d330d3e4acd53b600a3f0	shaders/flat_color.ps.cso
-50e84301408d3562c2283ae9e70bd765a71a95bd	shaders/flat_color.vs.cso
+34833af479288fa5ec1b4c533ccc197f7efdc404	shaders/flat_color.vs.cso
 e26d558c9f73441f421ccc1f81d036e8c339d930	shaders/forcefield.ps.cso
 ea5848f7cdb159c2553e33d2e43501e9f6957e93	shaders/fsbl.ps.cso
 99871ff44e200eab3a8e6976f4b8133c1dd2376d	shaders/fsblv.ps.cso
@@ -1769,7 +1769,7 @@ f2df32b4efdadaae5b1a9843777d835cb452855d	shaders/ocean_surf.vs.cso
 23175602875cf8bdb77c96ba44eaf86a99db0cc1	shaders/ocean_surf_lq.ps.cso
 f8165ea991787d2c29465aa4642373031943e86c	shaders/ocean_surf_lq.vs.cso
 c8d3a69764b571e72a5ff0d60e6067c2612a89dd	shaders/panel.ps.cso
-169bc1ecaabfe84f46a60bcfd58fcf3e5df8740b	shaders/panel.vs.cso
+d993f8e63bf9dfe53457eb85d506d181a16b6c1e	shaders/panel.vs.cso
 fd2ae9ab2f7aff3897d976125b0a169743ebf36d	shaders/panel_blur.ps.cso
 3693aa578e72a76ba1122858eea56505780edf6f	shaders/panel_gamma.ps.cso
 3d3324da24b8fdb318c793949c89598cb9d9d013	shaders/panel_monitor.ps.cso
@@ -1868,7 +1868,7 @@ de7fd429db1f32279eabfd802a9d4af3c8fa798e	shaders/uifxholo.vs.cso
 d1556ce67c7d378191892668605e7dd5962a5c68	shaders/uifxpie.ps.cso
 1f950234d233c30dceaa7b49a335a45c7420c48a	shaders/uifxverpro.ps.cso
 60d12c264cc7c6976cd83efd119e5d67e803c42d	shaders/vertex_color.ps.cso
-1525c5fd81f65f71155c889da979e2d5a23540d4	shaders/vertex_color.vs.cso
+113e8b42f01a43fe838d9f3f52561417a678b7cc	shaders/vertex_color.vs.cso
 506146908d1bb5be8480ea11c6012f048c18e529	shaders/water.ps.cso
 190c18754a9e3485309c9a70482c1b9dcb78a53a	shaders/water.vs.cso
 638133a2e64185475d718152c487086093831aaf	shaders/white.ps.cso
@@ -5354,7 +5354,7 @@ eb9474d0b66dbb46e85987a2cedf010119c09f64	ui/html/components/main_menu/create_scr
 382c4358951deb6f8193f388e966784f63962601	ui/html/components/main_menu/customize_screen.js
 7a7c5b6b83fdb501524520cd35465b9a5682ea13	ui/html/components/main_menu/friend_list.js
 d727bf3507a457073ddbb6e036f989e876b45240	ui/html/components/main_menu/gift_screen.js
-d9994e63660dfddfe7b3fc1fd6d0c1b6d1fe407b	ui/html/components/main_menu/home_screen.js
+8651ed0471688adb8ae56ff8c12a6e55865f9aea	ui/html/components/main_menu/home_screen.js
 39f1010f7e046e36c48ac37a3d189e5c9a5ae4a3	ui/html/components/main_menu/ingame_menu.js
 4b7efb0989821fb27b0c2642d09ea4dcdbf26be6	ui/html/components/main_menu/leaderboards_screen.js
 1aaff2e9e445f681886e6b443b10f2e8d29731ea	ui/html/components/main_menu/learn_screen.js
@@ -6038,6 +6038,8 @@ e5c7ff7e9790d7cca03184a7920591b868b2900c	ui/html/customization/avatar/av_5ea69d9
 e8b8e3bbc7e4104cc8cf272b8b1723b6dcecc77f	ui/html/customization/avatar/av_5ed2b691-7156-46f5-9f25-a512605fd73a.png.dds
 ffe4c72843222efa09a6299a005b47b8e0f0633b	ui/html/customization/avatar/av_5ed3f66a-d96c-453c-a082-16ed4b0686b6.png
 bc02ee2c4927385dfc43b98415b357d920064082	ui/html/customization/avatar/av_5ed3f66a-d96c-453c-a082-16ed4b0686b6.png.dds
+32792b12855b9313cd09441162c9cac9cfc944c9	ui/html/customization/avatar/av_5f0fc41d-c7bc-4230-8141-e917b294fe44.png
+a707f6f1b069a28b95525b210a5c0147ecb7a08d	ui/html/customization/avatar/av_5f0fc41d-c7bc-4230-8141-e917b294fe44.png.dds
 55a6a72c54afbeed728999c3727b7d8bfc92fe45	ui/html/customization/avatar/av_5f2c2313-1560-4e1d-bb8e-3a18c99938ec.png
 f5111c7b7904fc96f57e44a48dd0361f65fc0b33	ui/html/customization/avatar/av_5f2c2313-1560-4e1d-bb8e-3a18c99938ec.png.dds
 0d166d79bfe693e50edb245393770d8d36f54c5e	ui/html/customization/avatar/av_5f3fd36c-9648-42e2-885b-0885a95088aa.png
@@ -7051,6 +7053,8 @@ abe65dc85fd5a94571f1436dfc8ff66f56f32668	ui/html/customization/avatar/av_e5e3d64
 614f47de6e23c259024e49451921ca6a08f7d1a8	ui/html/customization/avatar/av_e5e3d643-0dbf-4620-a26a-8657af90f2a2.png.dds
 1e2722aaa76b41b5bd772dfc884b5c8447fc2aac	ui/html/customization/avatar/av_e60bec14-1dac-48a9-8cbd-95b93cbbc250.png
 955e3374eb3872846867e2d33309da9d75e2727e	ui/html/customization/avatar/av_e60bec14-1dac-48a9-8cbd-95b93cbbc250.png.dds
+38fb607ea650e516407ba2f4aadec59e5c34db41	ui/html/customization/avatar/av_e706228a-0d62-449e-a13e-b37e33dcfcf9.png
+a9fddfa8d8e60d11d61d8d5f1e27714b56aec112	ui/html/customization/avatar/av_e706228a-0d62-449e-a13e-b37e33dcfcf9.png.dds
 47d586e39cc522c2e593c30ad619a7992fa2b31b	ui/html/customization/avatar/av_e739b7aa-8d94-4c24-a09e-d324133ea5ef.png
 91d8a8b51bbf5e37291d52a43f206c7c1e09cf9c	ui/html/customization/avatar/av_e739b7aa-8d94-4c24-a09e-d324133ea5ef.png.dds
 0f8433b8288de247efedf73ca8881be909d8a804	ui/html/customization/avatar/av_e749ae25-f8bf-4e60-b430-e4bff91469b8.png
@@ -9298,7 +9302,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 4bf8dc93589fb97321e114e6c1c24b5ea49cc8d0	ui/html/translations/strings_play.json
 1fae4fcf9f79f8f7700a3c99f1780389b631cb85	ui/html/translations/translation-de.js
-820dd6ea32021a4629eff549cd69cb85651a5a88	ui/html/translations/translation-en.js
+845fa336f48398fad46b94d36cabfc23a040ebbd	ui/html/translations/translation-en.js
 b3f107d94528bb8d060129fbf6582bcd0e606b21	ui/html/translations/translation-es-ES.js
 9b4f6b197246c7f9869d90a2cdacf50b78c6e179	ui/html/translations/translation-es-MX.js
 cc9ce2299863e5a88ab4482a587efe63647249f6	ui/html/translations/translation-fr.js
