@@ -451,7 +451,11 @@
 		for(var i = 0; i < colorPickers.length; i++){
 			var cp = colorPickers[i];
     
-			cp.jscolor = new jscolor(cp);
+            if (cp.dataset.alpha == "true"){
+                cp.jscolor = new jscolor(cp, {'format':'rgba'}, null, true);
+            } else {
+                cp.jscolor = new jscolor(cp);
+            }
 
 			cp.jscolor.onFineChange = function(){ 
 				engine.call("set_color_property_preview", cp.dataset.entity, cp.dataset.property, String(cp.jscolor));

@@ -2016,6 +2016,10 @@ function render_map_choices(sort = true) {
             }
             map_info.appendChild(rating);
         }
+        if (m.updated_at != undefined) {
+            map_info.appendChild(_createElement("div", "update_at", `Updated ${moment(m.updated_at).fromNow()} (v${m.revision})`));
+
+        }
         map.appendChild(map_info);
 
         if (m == selected) {
@@ -2069,7 +2073,9 @@ function update_map_choices_page() {
                     author: map.author,
                     user_id: map.user_id,
                     reviewed: map.reviewed,
-                    rate: map.rate
+                    rate: map.rate,
+                    revision: map.revision,
+                    updated_at: new Date(map.update_ts)
                 }));
 
             global_game_maps_state.infiniteScroll.last_page_reached = newMaps.length === 0;
@@ -2118,7 +2124,9 @@ function update_map_choices(options) {
                                     author: map.author,
                                     user_id: map.user_id,
                                     reviewed: map.reviewed,
-                                    rate: map.rate
+                                    rate: map.rate,
+                                    revision: map.revision,
+                                    updated_at: new Date(map.update_ts)
                                 }));
                         render_map_choices(false);
                         refreshScrollbar(_id("map_choice_container_scrollable"));
