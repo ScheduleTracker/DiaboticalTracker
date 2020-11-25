@@ -2041,6 +2041,39 @@ body, html {
     display: flex;
     flex-direction: column;
 }
+#map_choice_container_inner .map .map_info_community {
+    padding-left:1vh;
+    padding-right:1vh;
+    font-size: 1.5vh;
+    font-family:var(--mont-font);
+	/*background: linear-gradient(to top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);*/
+	position: absolute;
+	bottom: 0;
+	height: 5vh;
+	width: 100%;
+	text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+	display: flex;
+    overflow:hidden;
+    white-space:nowrap;
+    font-fit-mode:shrink;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: row;
+}
+
+#map_choice_container_inner .map .map_info_community .left_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#map_choice_container_inner .map .map_info_community .right_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 
 #map_choice_container_inner .map .map_info .author {
     font-size: 0.75rem;
@@ -14401,7 +14434,6 @@ h2 {
 #create_screen_list .create_map_preview.selected {
     filter:brightness(1.75);
 }
-
 #create_screen_list .create_map_preview img {
     width:100%;
     height:var(--customlist_height);
@@ -14427,6 +14459,7 @@ h2 {
 #create_screen_list .map_preview_background.selected {
     box-shadow: 0 0.65vh 0 0 rgba(255, 255, 128, 1) inset;
 }
+#create_screen_list .create_map_preview .pending_publish,
 #create_screen_list .create_map_preview .gamemode {
     position:absolute;
     left:1vh;
@@ -14438,6 +14471,12 @@ h2 {
     background-color:#31323b;
     box-shadow:2px 1px 6px 0 rgba(0,0,0,0.8);
 }
+#create_screen_list .create_map_preview .pending_publish {
+    background-color: purple;
+    right: 1vh;
+    left: auto;
+}
+
 #create_screen_list .create_map_preview .bottom {
     position:absolute;
     bottom:0;
@@ -14480,8 +14519,9 @@ h2 {
 #create_screen_list .create_map_preview .bottom .edit_info {
     text-align:right;
 }
-#create_screen_list .create_map_preview .bottom .last_edit {
+#create_screen_list .create_map_preview .bottom .text_info {
     margin-bottom:0.1vh;
+    font-weight: bold;
 }
 
 #create_screen #create_screen_selection_options {

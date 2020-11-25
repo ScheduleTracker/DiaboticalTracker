@@ -3342,6 +3342,9 @@ var TRANSLATION_en =
     "map_create_name_example": "(Example: Temple Escape)",
     "map_create_id_example": "(Example: tt_temple_escape)",
     "map_community_preview": "Community map",
-    "map_under_review": "Name pending moderation. Temporary name shown."
-
+    "map_under_review": "Name pending moderation. Temporary name shown.",
+    "map_never_edited": "Never edited",
+    "map_pending_publication": "Unpublished",
+    "map_last_publish": "Last published",
+    "map_last_edit": "Last edited"
 }

@@ -21,11 +21,13 @@ function init_screen_create() {
             global_create_screen.selected_mode = opt.dataset.value;
         },
         (initValues) => {
-            console.log(JSON.stringify(initValues[0]));
             global_create_screen.selected_mode = initValues[0].mode;
         }
     );
 
+    engine.on("saved_map", function() {
+        update_custom_maps_list();
+    });
 }
 
 function create_screen_new_map() {
@@ -65,7 +67,7 @@ function confirm_create_new_map() {
 
     RemoteResources.create_remote_map(id, name, mode, (ret) => {
         if(ret.success) {
-            load_custom_maps_list();
+            update_custom_maps_list();
             queue_dialog_msg({
                 "title": localize("toast_create_map_title"),
                 "msg": localize("toast_create_map_success"),
@@ -91,21 +93,28 @@ function onCreateScreenFilter() {
     console.log("filter the map list!");
 }
 
-function load_custom_maps_list() {
-    RemoteResources.list_player_remote_maps_paginated(0, (data) => {
-        render_create_screen_maps_list(
-            data.map(map => ({
-                id: map.map_id,
-                mode: map.mode_name,
-                name: map.name,
-                random_name: map.random_name,
-                image: "mg_test.png",
-                author: map.author,
-                created_at: new Date(map.create_ts),
-                last_edit: new Date(map.update_ts)
-            }))
-        );
-    }); 
+function update_custom_maps_list() {
+    engine.call("list_local_maps").then(data => {
+        const local_maps = JSON.parse(data);
+
+        RemoteResources.list_player_remote_maps_paginated(0, (data) => {
+            render_create_screen_maps_list(
+                data.map(map => {
+                    const local_map = local_maps.find(m => m.filename === map.map_id + ".rbe");
+                    return {
+                        id: map.map_id,
+                        mode: map.mode_name,
+                        name: map.name,
+                        random_name: map.random_name,
+                        image: "mg_test.png",
+                        author: map.author,
+                        created_at: new Date(map.create_ts),
+                        updated_at: new Date(map.update_ts),
+                        local_edit_at: local_map ? new Date(local_map.updated_at * 1000) : null
+                    };
+                }));
+        });
+    });
 }
 
 function render_create_screen_maps_list(maps) {
@@ -149,14 +158,35 @@ function render_create_screen_maps_list(maps) {
         bottom.appendChild(div);
 
         let edit_info = _createElement("div", "edit_info");
-        let last_edit_title = _createElement("div", "last_edit");
-        last_edit_title.innerHTML = "Last edit"; // TODO localize(...) string
-        edit_info.appendChild(last_edit_title);
-        let last_edit = _createElement("div");
-        last_edit.innerHTML = map.last_edit.toLocaleDateString();
-        edit_info.appendChild(last_edit);
-        bottom.appendChild(edit_info);
+        if (map.updated_at.getTime() !== map.created_at.getTime()) {
+            let last_publish_title = _createElement("div", "text_info");
+            last_publish_title.innerHTML = localize("map_last_publish");
+            edit_info.appendChild(last_publish_title);
 
+            let last_publish_time = _createElement("div");
+            last_publish_time.innerHTML = moment(map.updated_at).fromNow();
+            edit_info.appendChild(last_publish_time);
+        }
+        if (map.local_edit_at) {
+            let last_edit_title = _createElement("div", "text_info");
+            last_edit_title.innerHTML = localize("map_last_edit");
+            edit_info.appendChild(last_edit_title);
+
+            let last_edit_text = _createElement("div");
+            last_edit_text.innerHTML = moment(map.local_edit_at).fromNow();
+            edit_info.appendChild(last_edit_text);
+        }
+        bottom.appendChild(edit_info);
+        
+        if (map.local_edit_at === null) {
+            let pending_publish_warn = _createElement("div", "pending_publish");
+            pending_publish_warn.innerHTML = localize("map_never_edited");
+            map_el.appendChild(pending_publish_warn);
+        } else if (map.local_edit_at > map.updated_at) {
+            let pending_publish_warn = _createElement("div", "pending_publish");
+            pending_publish_warn.innerHTML =  localize("map_pending_publication");
+            map_el.appendChild(pending_publish_warn);
+        }
         map_el.appendChild(bottom);
 
         fragment.appendChild(map_el);
@@ -203,7 +233,7 @@ function create_screen_confirm_delete_map() {
     RemoteResources.delete_remote_map(global_create_screen.selected_map,
         () => {
             setFullscreenSpinner(false);
-            load_custom_maps_list();
+            update_custom_maps_list();
         });
 }
 
@@ -219,6 +249,7 @@ function create_screen_confirm_publish_map() {
                 "title": localize("toast_publish_map_title"),
                 "msg": localize("toast_publish_map_success")
             });
+            update_custom_maps_list();
         }, 
         (key) => {
             setFullscreenSpinner(false);

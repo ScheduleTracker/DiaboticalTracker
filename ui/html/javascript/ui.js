@@ -1479,7 +1479,7 @@ function set_masterserver_connection_state(connected, initial) {
 
                     if (global_ms_connected_count <= 1) {
                         // Custom maps
-                        load_custom_maps_list();
+                        update_custom_maps_list();
                     }
                 }
             });
