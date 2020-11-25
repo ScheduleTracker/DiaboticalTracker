@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-abf31c8cc230276d879f9a4658c45740f0ebfa7a	anticheat/equ8.db
+2ab00f5291dbe002550a894c84e9723e08dc52c5	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1665,7 +1665,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-e9b8451dad60bcd4c0c98985e1f7efabbc0169c8	diabotical.exe
+e2345c7df482c9b451b931eb2dd3bc8fab9a103e	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -5350,7 +5350,7 @@ f1cb2951dbb8be1cad4cbabad2dc48a82cc9dfcf	ui/html/components/main_menu/battlepass
 bd8efb73763675944acfe217ff2249683f81dc3d	ui/html/components/main_menu/battlepass_screen.js
 98866d46b7e63839c6edec5cb06d55fc60d2b46c	ui/html/components/main_menu/battlepass_upgrade_screen.js
 6f621e4361465b68843cb3ad92de8b36169fec7c	ui/html/components/main_menu/coin_shop_screen.js
-eb9474d0b66dbb46e85987a2cedf010119c09f64	ui/html/components/main_menu/create_screen.js
+42e6f564bac04a6a36f377693d1af5b7e842a6e6	ui/html/components/main_menu/create_screen.js
 382c4358951deb6f8193f388e966784f63962601	ui/html/components/main_menu/customize_screen.js
 7a7c5b6b83fdb501524520cd35465b9a5682ea13	ui/html/components/main_menu/friend_list.js
 d727bf3507a457073ddbb6e036f989e876b45240	ui/html/components/main_menu/gift_screen.js
@@ -8891,7 +8891,7 @@ c40464f28f894ae3e35568400655c1ac271d99de	ui/html/javascript/i18next.min.js
 3b6aa5970acdc38124e777efefe9832614ac9224	ui/html/javascript/script_data.js
 8c8e0bc0b7ea99fedd7ae667834be60101867408	ui/html/javascript/spectrum.js
 a84138605e1dba56c8b44d59317d6a3af716f794	ui/html/javascript/spectrum_custom.js
-c02a6901096fda46181b922c0ef1bab25eba2306	ui/html/javascript/ui.js
+8adba06e3953ad22f5c01ee18000f511560061db	ui/html/javascript/ui.js
 1e373f0163a4fb18abf55f7c7f9cd27c896b5836	ui/html/javascript/ui_anim.js
 aaa6b0c3cf1486d4b388b8557c05b1582be520ac	ui/html/javascript/ui_br.js
 6f63ec7b3774041f5b8f9f7a7e188f95e2cf7781	ui/html/javascript/ui_contextmenu.js
@@ -9282,7 +9282,7 @@ d216aba85628adfe71728b79945f50b67e9fec07	ui/html/snafu/weapons_list - Copy.snafu
 8939d9fba0db615229490b0571f633d9a11c05e2	ui/html/snafu/weapons_list.snafu
 eb6ce3bb6e30c33c7194911f71c6ba24b6514d73	ui/html/snafu/you_fragged.snafu
 df6fda932e7b9981ffebac89a1cad9e90b73bb4f	ui/html/styles-hud.css
-bd0fe4a15a23055346a930d0d26d743e54716938	ui/html/styles-index.css
+ca374dcb3ccc422fd6fcc8e9b75158580cf6ebbe	ui/html/styles-index.css
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
@@ -9302,7 +9302,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 4bf8dc93589fb97321e114e6c1c24b5ea49cc8d0	ui/html/translations/strings_play.json
 1fae4fcf9f79f8f7700a3c99f1780389b631cb85	ui/html/translations/translation-de.js
-845fa336f48398fad46b94d36cabfc23a040ebbd	ui/html/translations/translation-en.js
+9ebafa2abd70eadac4166ee6b52e171ff573e799	ui/html/translations/translation-en.js
 b3f107d94528bb8d060129fbf6582bcd0e606b21	ui/html/translations/translation-es-ES.js
 9b4f6b197246c7f9869d90a2cdacf50b78c6e179	ui/html/translations/translation-es-MX.js
 cc9ce2299863e5a88ab4482a587efe63647249f6	ui/html/translations/translation-fr.js
