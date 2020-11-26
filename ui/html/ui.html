@@ -1926,6 +1926,13 @@
                                     </div>
                                 </div>
                                 
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="settings_spec_zoom">Spectate player zoom</div>
+                                    <div class="ctrl">
+                                        <div class="checkbox_component checkbox" data-variable="game_spec_zooming"><div></div></div>
+                                    </div>
+                                </div>
+                                
                                 <!-- OVERHEAD NAMES -->
                                 <div class="settings_header i18n" data-i18n="settings_overhead_names" style="margin-top:2vh;">Overhead names</div>
                                 <div class="setting">
@@ -2728,35 +2735,20 @@
 </div>
 
             <div id="create_screen">
-
     <div class="create_screen_head">
-        <!--<div>
-            <div class="filter_cont">
-                <div class="filter_icon"></div>
-                <input id="create_screen_filter_input" type="text" oninput='global_input_debouncers["create_screen_filter_input"].execute()'>
-            </div>
-            <div class="separator"></div>
-            <div id=create_screen_sort class="select-field" data-theme="gray2">
-                <div class="i18n" data-value=newest data-selected=1 data-i18n="order_by_newest">Newest first</div>
-                <div class="i18n" data-value=oldest data-i18n="order_by_oldest">Oldest first</div>
-            </div>
-            <div class="separator"></div>
-            <div id=create_screen_filter_gamemode class="select-field" data-theme="gray2">
-                <div class="i18n" data-value=all data-selected=1 data-i18n="filter_all_maps">All maps</div>
-            </div>
-        </div>-->
-
         <div>
-            <div id="create_screen_button_new" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_button_create_new" onclick="create_screen_new_map()">Create New</div>
+            <div id="create_screen_button_new" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_button_create_new" onclick="content_creation_page.show_new()">Create New</div>
             &nbsp;
-            <div id="create_screen_open_map_folder" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_button_open_map_folder" onclick="create_screen_open_map_folder()">Open Map Folder</div>
+            <div id="create_screen_open_map_folder" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_button_open_map_folder" onclick="content_creation_page.open_map_folder()">Open Map Folder</div>
         </div>
         <div>
             <div id="create_screen_selection_options">
                 <div id="create_screen_button_publish" class="db-btn click-sound mouseover-sound4 i18n"
                     onclick="open_modal_screen('map_publish_modal_screen')">Publish</div>
                 <div id="create_screen_button_edit" class="db-btn click-sound mouseover-sound4 i18n"
-                    onclick="create_screen_edit_map()">Edit</div>
+                    onclick="content_creation_page.show_update()">Update</div>
+                <div id="create_screen_button_edit" class="db-btn click-sound mouseover-sound4 i18n"
+                    onclick="content_creation_page.show_edit()">Edit</div>
                 <div id="create_screen_button_delete" class="db-btn warning click-sound mouseover-sound4 i18n"
                     onclick="open_modal_screen('map_delete_modal_screen')">Delete</div>
             </div>
@@ -2765,24 +2757,7 @@
 
     <div class="scroll-outer">
         <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-        <div id="create_screen_list" style="--customlist_height:100px;" class="scroll-inner">
-        <!-- example html:
-            <div class="create_map_preview">
-                <img src="/html/map_thumbnails/tdm_alchemy.png">
-                <div class="gametype">TDM</div>
-                <div class="bottom">
-                    <div>
-                        <div class="name">tdm_alchemy</div>
-                        <div class="author">promEUs</div>
-                    </div>
-                    <div class="edit_info">
-                        <div class="last_edit">Last edit</div>
-                        <div>2 days ago</div>
-                    </div>
-                </div>
-            </div>
-        -->
-        </div>
+        <div id="create_screen_list" style="--customlist_height:100px;" class="scroll-inner"></div>
     </div>
 </div>
 
@@ -4287,7 +4262,7 @@
             </div>
         </div>
 
-        <div id="map_create_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
+        <div id="map_create_modal_screen" class="generic_modal custom_map_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div class="generic_modal_dialog_container">
                     <div class="generic_modal_dialog_header i18n" data-i18n="map_create_title">Create new map</div>
@@ -4318,7 +4293,7 @@
                         </div>
                     </div>
                     <div class="generic_modal_dialog_action">
-                        <div class="dialog_button positive i18n" data-i18n="create" onclick="confirm_create_new_map(this)">Create</div>
+                        <div class="dialog_button positive i18n" data-i18n="create" onclick="content_creation_page.confirm_create_map(this)">Create</div>
                         <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_create_modal_screen')">Cancel</div>
                     </div>
                     <div id="map_create_modal_error" class="generic_modal_error">
@@ -4328,13 +4303,13 @@
             </div>
         </div>
 
-        <div id="map_delete_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
+        <div id="map_delete_modal_screen" class="generic_modal custom_map_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div class="generic_modal_dialog_container">
                     <div class="generic_modal_dialog_header i18n" data-i18n="map_delete_map">Delete map</div>
                     <div class="generic_modal_dialog_text i18n" data-i18n="map_delete_map_confirm">Are you sure you want to delete this map?</div>
                     <div class="generic_modal_dialog_action">
-                        <div class="dialog_button positive i18n" data-i18n="delete" onclick="create_screen_confirm_delete_map()">Delete</div>
+                        <div class="dialog_button positive i18n" data-i18n="delete" onclick="content_creation_page.confirm_delete_map()">Delete</div>
                         <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_delete_modal_screen')">Cancel</div>
                     </div>
                 </div>
@@ -4347,8 +4322,40 @@
                     <div class="generic_modal_dialog_header i18n" data-i18n="map_publish_map">Publish map</div>
                     <div class="generic_modal_dialog_text i18n" data-i18n="map_publish_map_confirm">Are you sure you want to publish this map?</div>
                     <div class="generic_modal_dialog_action">
-                        <div class="dialog_button positive i18n" data-i18n="publish" onclick="create_screen_confirm_publish_map()">Publish</div>
+                        <div class="dialog_button positive i18n" data-i18n="publish" onclick="content_creation_page.confirm_publish_map()">Publish</div>
                         <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_publish_modal_screen')">Cancel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="map_update_modal_screen" class="generic_modal custom_map_modal" onclick="close_modal_screen(event);">
+            <div class="generic_modal_dialog" onclick="event.stopPropagation();">
+                <div class="generic_modal_dialog_container">
+                    <div class="generic_modal_dialog_header i18n" data-i18n="map_update_title">Update map </div>
+                    <div class="generic_modal_dialog_body" style="max-width: 1000px">
+                        <div class="grid-row">
+                            <div class="grid-col-4 grid-start i18n" data-i18n="map_create_name">Map Name</div>
+                            <div class="grid-col-8 grid-end map_create_input">
+                                <input id="map_update_name" />
+                                <div class="desc i18n" data-i18n="map_create_name_label">Choose a name for your map (Max. size 20 chars)</div>
+                                <div class="example i18n" data-i18n="map_create_name_example">(Example: Temple Escape)</div>
+                            </div>
+                        </div>
+        
+                        <div class="grid-row">
+                            <div class="grid-col-6 grid-middle i18n" data-i18n="map_create_type">Map Type</div>
+                            <div class="grid-col-6 grid-end">
+                                <div id="map_update_mode_filter" class="select-field" data-theme="gray2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="generic_modal_dialog_action">
+                        <div class="dialog_button positive i18n" data-i18n="update" onclick="content_creation_page.confirm_update_map()"">Update</div>
+                        <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_update_modal_screen')">Cancel</div>
+                    </div>
+                    <div id="map_update_modal_error" class="generic_modal_error">
+                        Blank spaces are not allowed for map ID
                     </div>
                 </div>
             </div>

@@ -611,6 +611,7 @@ var TRANSLATION_es_ES =
     "settings_hud_round_mvp": "MVP de la ronda",
     "settings_hud_steal_progress": "Progreso de Robo",
     "settings_hud_overtime_progress": "Tiempo Extra",
+    "settings_hud_controls": "Controles",
     "settings_hud_hint": "Pista",
     "settings_hud_own_players": "Jugadores Aliados",
     "settings_hud_enemy_players": "Jugadores Enemigos",
@@ -1577,4 +1578,8 @@ var TRANSLATION_es_ES =
     "map_create_id_example": "(Ejemplo: tt_temple_escape)",
     "map_community_preview": "Mapa de la comunidad",
     "map_under_review": "Esperando moderación de nombre. Será mostrado un nombre temporal.",
+    "map_never_edited": "Nunca editado",
+    "map_pending_publication": "Sin publicar",
+    "map_last_publish": "Última publicación",
+    "map_last_edit": "Última edición",
 }

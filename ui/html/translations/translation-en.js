@@ -2263,6 +2263,7 @@ var TRANSLATION_en =
     "settings_seventh_enemy_team_color_override":"7th enemy team color override",
     "settings_auto_spec_fragger": "Automatically follow fragger on death",
     "settings_auto_spec_poi": "Automatically follow a player of interest",
+	"settings_spec_zoom": "Spectate player zoom",
     "settings_show_chat": "Show chat",
     "settings_show_chat_team": "Show only team messages",
     "settings_show_chat_all": "Show all messages",
@@ -3346,5 +3347,6 @@ var TRANSLATION_en =
     "map_never_edited": "Never edited",
     "map_pending_publication": "Unpublished",
     "map_last_publish": "Last published",
-    "map_last_edit": "Last edited"
+    "map_last_edit": "Last edited",
+    "map_update_title": "Update map"
 }

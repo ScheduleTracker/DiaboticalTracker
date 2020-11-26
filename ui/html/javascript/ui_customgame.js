@@ -1383,13 +1383,24 @@ function get_lobby_settings() {
         });
     }
 
+    const map_id = global_customSettingElements["map"].dataset.value;
+    const is_community_map = global_game_maps_state.selected_category === 'community' ? 1 : 0;
+    let map_name =  "";
+    if (is_community_map) {
+        const community_map = global_game_maps_state.community.find(m => m.map === map_id);
+        map_name = community_map ? community_map.name : "";
+    } else {
+        map_name = _format_map_name(map_id);
+    }
+
 	return {
         // Strings:
         private:       (visibility) ? true : false,        
         name:          global_customSettingElements["name"].value,
 		mode:          mode,
-        map:           global_customSettingElements["map"].dataset.value,
-        community_map: (global_game_maps_state.selected_category === 'community') ? 1 : 0,
+        map:           map_id,
+        map_name:      map_name,
+        community_map: is_community_map,
         datacenter:    global_customSettingElements["location"].dataset.value,
 
         // Array of strings (hex color codes without hash):

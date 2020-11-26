@@ -1153,6 +1153,8 @@ var jsc = {
 					this.styleElement.style.backgroundImage = 'none';
 					this.styleElement.style.backgroundColor = bgColor;
 					this.styleElement.style.color = fgColor;
+                    this.styleElement.style.fontWeight = "bold";
+                    this.styleElement.style.textShadow = this.isLight() ? '0px 0px 4px #ffffff' : '' ;
 
 					if (this.overwriteImportant) {
 						this.styleElement.setAttribute('style',

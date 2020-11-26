@@ -1558,24 +1558,24 @@ body, html {
     max-width:70vw;
 }
 
-#map_create_modal_screen .map_create_input {
+.custom_map_modal .map_create_input {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-#map_create_modal_screen .desc {
+.custom_map_modal .desc {
     padding-top: 0.25rem;
     font-size: 0.9rem;
 }
 
-#map_create_modal_screen .example {
+.custom_map_modal .example {
     padding-top: 0.25rem;
     font-size: 0.8rem;
     font-style: italic;
 }
 
-#map_create_modal_screen input {
+.custom_map_modal input {
     width: 100%;
 }
 

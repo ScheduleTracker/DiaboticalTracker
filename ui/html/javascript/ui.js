@@ -1295,7 +1295,9 @@ window.addEventListener("load", function(){
 
                     inc_X_by = mouse_X - X_prev;
                     let string = container.style.backgroundPosition;
-                    if (string != undefined) {
+
+                    if (string != undefined && string != "auto auto") { 
+                        //&& string != "auto auto" to deal with weird fact that empty .style throws up .backgroundPosition = auto auto on this version of gameface
                         pos = Number(string.split("px 50")[0]);
                     } else {
                         pos = 0;
@@ -1410,12 +1412,12 @@ window.addEventListener("load", function(){
     init_screen_customize();
     init_screen_battlepass_list();
     init_screen_battlepass();
-    init_screen_create();
     init_screen_play_customlist();
     init_screen_play();
     init_screen_custom();
     init_watch_screen();
     init_legal();
+    content_creation_page.init();
 
     console.log("LOAD209");
 
@@ -1478,8 +1480,7 @@ function set_masterserver_connection_state(connected, initial) {
                     update_wallet(global_self.private.coins);
 
                     if (global_ms_connected_count <= 1) {
-                        // Custom maps
-                        update_custom_maps_list();
+                        content_creation_page.update_maps_list();
                     }
                 }
             });

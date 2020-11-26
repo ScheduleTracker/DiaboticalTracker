@@ -611,6 +611,7 @@ var TRANSLATION_ru =
     "settings_hud_round_mvp": "MVP Раунда",
     "settings_hud_steal_progress": "Прогресс похищения",
     "settings_hud_overtime_progress": "Прогресс овертайма",
+    "settings_hud_controls": "Управление",
     "settings_hud_hint": "Подсказка",
     "settings_hud_own_players": "Союзные игроки",
     "settings_hud_enemy_players": "Вражеские игроки",
@@ -1577,4 +1578,8 @@ var TRANSLATION_ru =
     "map_create_id_example": "(Пример: tt_temple_escape)",
     "map_community_preview": "Карта сообщества",
     "map_under_review": "Название проходит модерацию. Показано временное название.",
+    "map_never_edited": "Не редактировалась",
+    "map_pending_publication": "Не опубликована",
+    "map_last_publish": "Последняя публикация",
+    "map_last_edit": "Последнее изменение",
 }

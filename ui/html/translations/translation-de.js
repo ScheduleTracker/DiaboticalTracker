@@ -611,6 +611,7 @@ var TRANSLATION_de =
     "settings_hud_round_mvp": "Runden-MVP",
     "settings_hud_steal_progress": "Fortschritt beim Stehlen",
     "settings_hud_overtime_progress": "Fortschritt der Verlängerung",
+    "settings_hud_controls": "Steuerung",
     "settings_hud_hint": "Hinweis",
     "settings_hud_own_players": "Verbündete Spieler",
     "settings_hud_enemy_players": "Gegnerische Spieler",
@@ -1577,4 +1578,8 @@ var TRANSLATION_de =
     "map_create_id_example": "(Beispiel: tt_temple_escape)",
     "map_community_preview": "Community-Map",
     "map_under_review": "Der Name wartet auf Freigabe. Temporärer Name wird angezeigt.",
+    "map_never_edited": "Nie bearbeitet",
+    "map_pending_publication": "Unveröffentlicht",
+    "map_last_publish": "Zuletzt veröffentlicht",
+    "map_last_edit": "Zuletzt bearbeitet",
 }
