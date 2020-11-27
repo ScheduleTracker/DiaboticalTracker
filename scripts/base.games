@@ -432,6 +432,27 @@ game duel
 	weapon machinegun 100
 }
 
+game duelc
+{
+	setting game_initial_item_time 0
+	setting game_truce_time 0
+	setting game_time_limit 600
+	setting game_weapon_respawn_time 5
+	setting game_mercy_limit 20
+	
+	map duel_bioplant
+	map duel_f1sks_house
+	map duel_frontier
+	map duel_kasbah
+	map duel_outpost_dunia
+	map duel_perilous
+	map duel_skybreak
+	map duel_monolith
+
+	weapon sword 999
+	weapon machinegun 100
+}
+
 //game ad
 //{
 //	setting game_team_mode 1
@@ -730,13 +751,28 @@ game coinrun
 game tdm
 {
 	setting game_team_mode 1
-	setting game_friendly_fire 0
-	setting game_weapon_respawn_time 15
+	setting game_friendly_fire 1
+	setting game_weapon_respawn_time 10
 	setting game_hp 125
-	setting game_time_limit 720
-	setting game_overtime_score_limit 10
-	setting game_overtime_score_threshold 10
-	setting game_mercy_limit 30
+	setting game_time_limit 600
+	setting game_mercy_limit 50
+
+	map tdm_icefall
+	map tdm_oxide
+	map tdm_alchemy
+	
+	weapon sword 999
+	weapon machinegun 100
+}
+
+game tdmc
+{
+	setting game_team_mode 1
+	setting game_friendly_fire 1
+	setting game_weapon_respawn_time 30
+	setting game_hp 125
+	setting game_time_limit 900
+	setting game_mercy_limit 50
 
 	map tdm_icefall
 	map tdm_oxide
