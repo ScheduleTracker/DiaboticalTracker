@@ -1735,6 +1735,16 @@ function set_console(visible) {
         window.console_prompt.value='';
         window.console_view.style.display='none';
         window.console_prompt.blur();
+
+        if (global_view_active) {
+            if (global_main_chat_open && global_main_ref_chat_input) {
+                global_main_ref_chat_input.focus();
+            }
+        } else {
+            if (global_main_chat_active) {
+                _id("ingame_chat_input").focus();
+            }
+        }
     }
 }
 

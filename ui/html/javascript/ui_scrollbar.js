@@ -224,6 +224,23 @@ function scrollbarScrollBottom(el) {
     }
 }
 
+function createScrollBar(el) {
+    let scroll_outer = _createElement("div", "scroll-outer");
+    scroll_outer.setAttribute('data-sb-hide-empty', true);
+    
+    let sb = _createElement("div", ["scroll-bar", "scroll-bar-hidden"]);
+    sb.appendChild(_createElement("div", "scroll-thumb"));
+    scroll_outer.appendChild(sb);
+
+    let sb_inner = _createElement("div", "scroll-inner");
+    scroll_outer.appendChild(sb_inner);
+
+    el.appendChild(scroll_outer);
+
+    new Scrollbar(el, global_scrollbarTrackerId++, true);
+
+    return sb_inner;
+}
 
 // Lookup map for scrollbooster instances
 var global_scrollboosters = {};

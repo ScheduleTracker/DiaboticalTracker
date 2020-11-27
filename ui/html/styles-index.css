@@ -2410,6 +2410,7 @@ body, html {
 }
 .jscolor_hide_text{
     color: transparent !important;
+    text-shadow:0 0 0 transparent !important;
 }
 .jscolor_disabled{
     pointer-events: none;
@@ -10883,6 +10884,7 @@ h2 {
     background-color:rgba(46, 46, 46, 0.48);
     border:1px solid rgba(67,67,67,0.47);
     padding:0.6vh 1vh;
+    max-height: 20vh;
 }
 #customlist_match_preview .settings .settings_warning {
     padding:0.2vh 0 0.4vh 0;

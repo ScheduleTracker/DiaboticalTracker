@@ -127,17 +127,17 @@ function renderMatchList() {
         row.addEventListener("click", function() {
             engine.call('ui_sound', 'ui_click1');
 
+            customListRenderMatchPreview(-1);
+
             if (row.classList.contains("selected")) {
                 row.classList.remove("selected");
 
-                customListRenderMatchPreview(-1);
                 global_custom_list_selected_match = -1;
             } else {
                 let prev = list.querySelector(".row.selected");
                 if (prev) prev.classList.remove("selected");
                 row.classList.add("selected");
 
-                customListRenderMatchPreview(match.session_id);
                 global_custom_list_selected_match = match.session_id;
 
                 send_string(CLIENT_COMMAND_GET_MATCH_INFO, match.session_id);
@@ -344,11 +344,13 @@ function customListRenderMatchPreview(session_id) {
 
     // Match settings
     let preview_settings = _createElement("div", "settings");
-    preview_cont.appendChild(preview_settings);
+        preview_cont.appendChild(preview_settings);
 
+        let preview_settings_inner = createScrollBar(preview_settings);
     if (!settings_default) {
-        preview_settings.appendChild(_createElement("div", "settings_warning", localize("custom_game_settings_customized")));
+        preview_settings_inner.appendChild(_createElement("div", "settings_warning", localize("custom_game_settings_customized")));
     }
+
 
     let stats = ["location", "timelimit", "scorelimit", "teamcount", "teamsize", "maxcount"];
     if (m.modifier_instagib != 0) stats.push("instagib");
@@ -382,13 +384,14 @@ function customListRenderMatchPreview(session_id) {
         let label = _createElement("div", "label", label_txt);
         let value = _createElement("div", "value", value_txt);
 
+     
         if (stat == "commands") {
             for (let c of m.commands) value.appendChild(_createElement("div", "", c.key+": "+c.value));
         }
-
         row.appendChild(label);
         row.appendChild(value);
-        preview_settings.appendChild(row);
+
+        preview_settings_inner.appendChild(row);
     }
 
     preview_placeholder.style.display = "none";

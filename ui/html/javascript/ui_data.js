@@ -335,6 +335,16 @@ var global_game_mode_map = {
         "image": "duel_loop.jpg",
         "icon": "/html/images/gamemodes/duel.svg"
     },
+    "duelc": {
+        "mode": "duelc",
+        "name": "Duel Classic",
+        "i18n": "game_mode_duel_classic",
+        "desc_i18n": "game_mode_desc_duel_classic",
+        "announce": "announcer_common_gamemode_duel",
+        "enabled": true,
+        "image": "duel_loop.jpg",
+        "icon": "/html/images/gamemodes/duel.svg"
+    },
     "ca": {
         "mode": "ca",
         "name": "Aim Arena",
@@ -455,13 +465,13 @@ var global_game_mode_map = {
         "image": "brawl_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
     },
-    "protdm": {
-        "mode": "protdm",
-        "name": "Pro-Team Deathmatch",
-        "i18n": "game_mode_protdm",
-        "desc_i18n": "game_mode_desc_protdm",
+    "tdmc": {
+        "mode": "tdmc",
+        "name": "Team Deathmatch Classic",
+        "i18n": "game_mode_tdmc",
+        "desc_i18n": "game_mode_desc_tdm_classic",
         "announce": "announcer_common_gamemode_tdm",
-        "enabled": false,
+        "enabled": true,
         "image": "brawl_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
     },
