@@ -194,25 +194,25 @@ function set_hud_zoom_weapon_crosshair(settings_zoom_weapon_crosshair_index) {
 }
 
 function handlePostMatchUpdates(data) {
-    //console.log("post-match-updates", _dump(data));
+    //console.log("post-match-updates", _dump(data), _dump(current_match));
     if (current_match.match_id == data.match_id) {
-        if ("mmr_updates" in data && data.mmr_updates.ranked) {
-            global_show_rank_change = true;
+        if ("mmr_updates" in data) {
             renderRankScreen(data.mmr_updates);
 
             let mmr_data = data.mmr_updates;
-            if (mmr_data.mode in global_self.mmr) {
-                global_self.mmr[mmr_data.mode].rank_tier = mmr_data.to.rank_tier;
-                global_self.mmr[mmr_data.mode].rank_position = mmr_data.to.rank_position;
+            if (mmr_data.mmr_key in global_self.mmr) {
+                if (mmr_data.to.hasOwnProperty("rating")) global_self.mmr[mmr_data.mmr_key].rating = mmr_data.to.rating;
+                if (mmr_data.to.hasOwnProperty("rank_tier")) global_self.mmr[mmr_data.mmr_key].rank_tier = mmr_data.to.rank_tier;
+                if (mmr_data.to.hasOwnProperty("rank_position")) global_self.mmr[mmr_data.mmr_key].rank_position = mmr_data.to.rank_position;
             } else {
-                global_self.mmr[mmr_data.mode] = {
-                    "rating": null,
+                global_self.mmr[mmr_data.mmr_key] = {
+                    "rating": mmr_data.to.rating,
                     "rank_tier": mmr_data.to.rank_tier,
                     "rank_position": mmr_data.to.rank_position,
-                }
+                };
             }
 
-            updateGameReportRank(mmr_data.mode);
+            updateGameReportRank(mmr_data.mode, mmr_data.mmr_key);
         }
 
         // clear the previous progression update
@@ -349,6 +349,10 @@ window.addEventListener("load", function(){
 
             if (json_data.action == "rematch-status") {
                 game_report_handle_rematch_update(json_data);
+            }
+
+            if (json_data.action == "queues") {
+                parse_modes(json_data);
             }
 
             if (json_data.action == "party-status") {
@@ -859,48 +863,48 @@ function init_debug_listeners() {
         if (id == "0") {
             mmr_updates = {
                 "from": {
-                    "rating": 1500,
-                    "rank_tier": 25,
-                    "rank_position": 1,
-                    "cur_tier_req": 1610,
-                    "next_tier_req": 1650
+                    cur_tier_req:0,
+                    next_tier_req:0,
+                    placement_matches:'0111',
+                    rank_position:null,
+                    rank_tier:null,
                 },
                 "to": {
-                    "rating": 1520,
-                    "rank_tier": 25,
-                    "rank_position": 1,
-                    "cur_tier_req": 1610,
-                    "next_tier_req": 1650
+                    cur_tier_req:1650,
+                    next_tier_req:1690,
+                    placement_matches:'01111',
+                    rank_position:null,
+                    rank_tier:26,
+                    rating:1647.3734941080734,
                 },
-                "mode": "r_duel",
-                "match_type": 2,
-                "placement_match": 0,
-                "ranked": true
+                "mode": "md_duel",
+                "mmr_key": "sr_duel",
+                "placement_matches": 5,
+                "placement_match": 1,
             };
             timeout = 10000;
         }
         if (id == "1") {
             mmr_updates = {
                 "from": {
-                    "rating": 1547.7387406072,
-                    "rank_tier": 25,
+                    "rating": 1648.1891687632,
+                    "rank_tier": 26,
                     "rank_position": null,
-                    "cur_tier_req": 1610,
-                    "next_tier_req": 1650
+                    "cur_tier_req": 1650,
+                    "next_tier_req": 1690
                 },
                 "to": {
-                    "rating": 1573.6258831622672,
-                    "rank_tier": 40,
-                    "rank_position": 7,
-                    "cur_tier_req": 1610,
-                    "next_tier_req": 1650
+                    "rating": 1663.2612642377014,
+                    "rank_tier": 27,
+                    "rank_position": null,
+                    "cur_tier_req": 1690,
+                    "next_tier_req": 1730
                 },
-                "mode": "r_duel",
-                "match_type": 2,
-                "placement_match": 0,
-                "ranked": true
+                "mode": "md_duel",
+                "mmr_key": "sr_duel",
+                "placement_match": 0
             };
-            timeout = 12000;
+            timeout = 10000;
         }
         if (id == "2") {
             mmr_updates = {
@@ -918,10 +922,10 @@ function init_debug_listeners() {
                     "cur_tier_req": 1610,
                     "next_tier_req": 1650
                 },
-                "mode": "r_duel",
-                "match_type": 2,
+                "mode": "md_duel",
+                "mmr_key": "sr_duel",
+                "placement_matches": 5,
                 "placement_match": 0,
-                "ranked": true
             };
             timeout = 10000;
         }
@@ -932,31 +936,7 @@ function init_debug_listeners() {
                     "rank_position": null,
                     "cur_tier_req": 0,
                     "next_tier_req": 0,
-                    "placement_matches": "1010111"
-                },
-                "to": {
-                    "rank_tier": null,
-                    "rank_position": null,
-                    "cur_tier_req": 0,
-                    "next_tier_req": 0,
-                    "placement_matches": "10101110"
-                },
-                "mode": "r_solo",
-                "match_type": 2,
-                "placement_matches": 10,
-                "placement_match": 1,
-                "ranked": true
-            };
-            timeout = 10000;
-        }
-        if (id == "4") {
-            mmr_updates = {
-                "from": {
-                    "rank_tier": null,
-                    "rank_position": null,
-                    "cur_tier_req": 1610,
-                    "next_tier_req": 1650,
-                    "placement_matches": "101011101"
+                    "placement_matches": "1010"
                 },
                 "to": {
                     "rating": 1693,
@@ -964,13 +944,34 @@ function init_debug_listeners() {
                     "rank_position": null,
                     "cur_tier_req": 1610,
                     "next_tier_req": 1650,
-                    "placement_matches": "1010111011"
+                    "placement_matches": "10101"
                 },
-                "mode": "r_duel",
-                "match_type": 2,
-                "placement_matches": 10,
+                "mode": "md_duel",
+                "mmr_key": "sr_duel",
+                "placement_matches": 5,
                 "placement_match": 1,
-                "ranked": true
+            };
+            timeout = 10000;
+        }
+        if (id == "4") {
+            mmr_updates = {
+                "from": {
+                    "rating": 1457.4097274535,
+                    "rank_tier": 22,
+                    "rank_position": null,
+                    "cur_tier_req": 1490,
+                    "next_tier_req": 1530
+                },
+                "to": {
+                    "rating": 1442.0972441233573,
+                    "rank_tier": 22,
+                    "rank_position": null,
+                    "cur_tier_req": 1490,
+                    "next_tier_req": 1530
+                },
+                "mode": "md_duel",
+                "mmr_key": "sr_duel",
+                "placement_match": 0
             };
             timeout = 18000;
         }
@@ -990,10 +991,10 @@ function init_debug_listeners() {
                     "cur_tier_req": 1610,
                     "next_tier_req": 1650
                 },
-                "mode": "r_duel",
-                "match_type": 3,
+                "mode": "md_duel",
+                "mmr_key": "sr_duel",
+                "placement_matches": 5,
                 "placement_match": 0,
-                "ranked": true
             };
             timeout = 10000;
         }
@@ -1013,10 +1014,10 @@ function init_debug_listeners() {
                     "cur_tier_req": 1610,
                     "next_tier_req": 1650
                 },
-                "mode": "r_duel",
-                "match_type": 3,
+                "mode": "md_duel",
+                "mmr_key": "sr_duel",
+                "placement_matches": 5,
                 "placement_match": 0,
-                "ranked": true
             };
             timeout = 10000;
         }
@@ -1036,10 +1037,10 @@ function init_debug_listeners() {
                     "cur_tier_req": 1610,
                     "next_tier_req": 1650
                 },
-                "mode": "r_duel",
-                "match_type": 3,
+                "mode": "md_duel",
+                "mmr_key": "sr_duel",
+                "placement_matches": 5,
                 "placement_match": 0,
-                "ranked": true
             };
             timeout = 13000;
         }
@@ -1059,10 +1060,10 @@ function init_debug_listeners() {
                     "cur_tier_req": 1610,
                     "next_tier_req": 1650
                 },
-                "mode": "r_duel",
-                "match_type": 3,
+                "mode": "md_duel",
+                "mmr_key": "sr_duel",
+                "placement_matches": 5,
                 "placement_match": 0,
-                "ranked": true
             };
             timeout = 10000;
         }
@@ -1072,7 +1073,6 @@ function init_debug_listeners() {
 }
 
 function hudUITestRankScreen(mmr_updates, delay) {
-    global_show_rank_change = true;
     global_hud_view_active = true;
     renderRankScreen(mmr_updates);
     
@@ -1080,15 +1080,16 @@ function hudUITestRankScreen(mmr_updates, delay) {
 
     if (global_show_rank_change) {
         showRankScreen(null, true);
-
-        anim_show(_id("game_report_cont"), 500, "flex");
-        global_show_rank_change = false;
-
-        setTimeout(function() {
-            anim_hide(_id("game_report"));
-            anim_hide(_id("game_report_cont"));
-        }, delay)
     }
+    
+    anim_show(_id("game_report_cont"), 500, "flex");
+    global_show_rank_change = false;
+
+    setTimeout(function() {
+        anim_hide(_id("game_report"));
+        anim_hide(_id("game_report_cont"));
+    }, delay)
+    
 }
 
 function play_tracked_sound(sound_key) {

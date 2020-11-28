@@ -604,16 +604,16 @@
 
       <div id="home_screen_patch_notes_banner" class="click-sound mouseover-sound4">
         <div id="patch_notes_banner_header">
-
         </div>
       </div>
-      <!--Patch notes modal in main-menu.html-->
-    </div>
-  </div>
+      <!--Patch notes modal in main-menu.html-->      
 
-  <div id="home_screen_challenges_cont">
-    <div class="home_head i18n" data-i18n="daily_challenges">Daily Challenges</div>
-    <div id="home_screen_challenges" class="challenge_list"></div>
+      <div id="home_screen_challenges_cont">
+        <div class="home_head i18n" data-i18n="daily_challenges">Daily Challenges</div>
+        <div id="home_screen_challenges" class="challenge_list"></div>
+      </div>
+      
+    </div>
   </div>
   
   <div id="home_screen_load_tutorial" style="display:none;">
@@ -1078,7 +1078,7 @@
                                     <div class="controls_value" data-db-binding="bset offset_y_rel -1" data-db-binding-mode="editor"></div>
                                 </div>
                             </div>
-                            <div class="controls_row terminal_row">
+                            <div class="controls_row">
                                 <div class="controls_pair">
                                     <div class="controls_header i18n" data-i18n="settings_controls_editor_scroll_texture_left">Scroll texture left</div>
                                     <div class="controls_value" data-db-binding="bset offset_x_rel -1" data-db-binding-mode="editor"></div>
@@ -1086,6 +1086,16 @@
                                 <div class="controls_pair">
                                     <div class="controls_header i18n" data-i18n="settings_controls_editor_scroll_texture_right">Scroll texture right</div>
                                     <div class="controls_value" data-db-binding="bset offset_x_rel 1" data-db-binding-mode="editor"></div>
+                                </div>
+                            </div>
+                            <div class="controls_row terminal_row">
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_editor_rotate_texture_counterclockwise">Rotate texture counterclockwise</div>
+                                    <div class="controls_value" data-db-binding="bset offset_rot_rel -1" data-db-binding-mode="editor"></div>
+                                </div>
+                                <div class="controls_pair">
+                                    <div class="controls_header i18n" data-i18n="settings_controls_editor_rotate_texture_clockwise">Rotate texture clockwise</div>
+                                    <div class="controls_value" data-db-binding="bset offset_rot_rel 1" data-db-binding-mode="editor"></div>
                                 </div>
                             </div>
                             <div class="controls_row">
@@ -2775,6 +2785,7 @@
         <div>
             <div class="db-btn plain back mouseover-sound4 click-sound" onclick="historyBack();"></div>
             <div id=leaderboards_screen_filter_gamemode class="select-field" data-theme="gray2"></div>
+            <div class="db-btn plain click-sound mouseover-sound2 i18n" data-i18n="menu_title_rank_legend" onclick="showRankOverview()"></div>
             <!--
             <div class="separator"></div>
             <div id="leaderboards_filter_friends_button" class="db-btn click-sound mouseover-sound4 plain"><span class="icon"></span><span class="i18n" data-i18n="menu_button_only_friends">Friends only</span></div>
@@ -3026,81 +3037,103 @@
 
 </div>
 
-            <div id="play_panel">
-                <div class="bar_panel">
-                    <div class="button_cont left">
-                        <div id="play_menu_tab_quickplay" class="play_screen_button mouseover-sound2 click-sound active" onclick="play_menu_change_tab(this, _id('play_screen_quickplay'))">
-                            <span class="i18n" data-i18n="play_menu_quick_play">Quick play</span>
-                        </div>
+            <div id="play_screen_combined">
+    <div id="play_screen_combined_offline" class="i18n" data-i18n="unavailable_while_offline"></div>
+    <div id="play_screen_combined_online">
+        <div class="double_section" style="min-height:26vh;">
+            <div class="section section_queues">
+                <div class="header"><div class="title i18n" data-i18n="daily_playlist">Daily playlist</div></div>
+                <div class="line"></div>
+                <div id="queues_container" class="container queues">
+                    <!--
+                    <div class="queue">
+                        <div class="name">Wipeout</div>
+                        <div class="format">4v4</div>
+                        <div class="checkbox_box"><div class="checkbox_mark"></div></div>
                     </div>
-<!--
-                    <div class="button_cont">
-                        <div id="play_menu_tab_ranked" class="play_screen_button mouseover-sound2 click-sound locked" onclick="play_menu_change_tab(this, _id('play_screen_ranked'))">
-                            <span class="i18n" data-i18n="play_menu_competitive">Competitive</span><span class="lock"></span>
-                        </div>
-                    </div>
--->
-                    <div class="button_cont">
-                        <div id="play_menu_tab_ranked" class="play_screen_button mouseover-sound2 click-sound" onclick="play_menu_change_tab(this, _id('play_screen_ranked'))">
-                            <span class="i18n" data-i18n="play_menu_ranked">Ranked</span>
-                        </div>
-                    </div>
-<!--
-                    <div class="button_cont">
-                        <div id="play_menu_tab_event" class="play_screen_button mouseover-sound2 click-sound" onclick="play_menu_change_tab(this, _id('play_screen_esports'))" data-i18n="play_menu_events">
-                            <span class="i18n" data-i18n="play_menu_events">Events</span>
-                        </div>
-                    </div>
--->
-                    <div class="button_cont right">
-                        <div id="play_menu_tab_custom" class="play_screen_button mouseover-sound2 click-sound" onclick="play_menu_change_tab(this, _id('play_screen_customlist'))">
-                            <span class="i18n" data-i18n="play_menu_custom_game">Custom games</span>
-                        </div>
-                    </div>
-
+                    <div class="queue"></div>
+                    <div class="queue"></div>
+                    <div class="queue"></div>
+                    -->
                 </div>
+                <div id="queues_section_desc" class="section_desc"></div>
+            </div>
 
+            <div class="section section_queues_ctrl">
+                <div class="top">
+                    <div id="play_region_select_button" class="db-btn plain click-sound mouseover-sound2 i18n" data-i18n="datacenters" onclick="open_modal_screen('region_select_modal_screen')">Datacenter</div>
+                </div>
+                <div class="buttons">
+                    <div id="play_queue_button" class="db-btn big click-sound mouseover-sound2 i18n" data-i18n="menu_find_match" onclick="play_queue(this)">Find Match</div>
+                    <div id="join_warmup_button" class="db-btn plain click-sound mouseover-sound2 i18n" data-i18n="menu_warmup" onclick="join_warmup()">Join Warmup</div>
+                    <div id="party_join_warmup_button" class="db-btn plain click-sound mouseover-sound2 i18n" data-i18n="menu_party_warmup" onclick="join_party_warmup()">Party Join Warmup</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="double_section" style="min-height:50vh;">
+            <div class="section section_customs">
+                <div class="header">
+                    <div class="title i18n" data-i18n="community_matches">Community Matches</div>
+                    <div class="spacer"></div>
+                    <div id="play_screen_refresh_info" class="refresh_info"></div>
+                    <div id="play_screen_refresh_btn_1" class="db-btn plain reload_btn click-sound mouseover-sound2" onclick="play_screen_reload_lists('matches')"></div>
+                </div>
+                <div class="line"></div>
+                <div id="play_screen_combined_match_list" class="container customs">
+                    <!--
+                    <div class="match">
+                        <div class="background"></div>
+                        <div class="gradient"></div>
+                        <div class="info">
+                            <div class="data">
+                                <div class="match_name">Just testing out this ctf thing</div>
+                                <div class="mode">
+                                    <div class="name">Capture The Flag</div>
+                                    <div class="special"></div>
+                                </div>
+                            </div>
+                            <div class="counts">6 / 10</div>
+                            <div class="datacenter">
+                                <img src="/html/customization/flag/nl.png.dds">
+                            </div>
+                        </div>
+                        <div class="join">Join</div>
+                    </div>
+                    -->
+                </div>
+                <div class="options">
+                    <div class="db-btn click-sound mouseover-sound4 i18n" data-i18n="customlist_create_lobby" onclick="create_custom_lobby()" id="play_screen_combined_create_lobby_button">Create Lobby</div>
+                    <div class="db-btn plain click-sound mouseover-sound4 tooltip2" data-msg-id="customlist_join_with_key" onclick="lobby_join_with_key()" id="play_screen_combined_join_lobby_button"></div>
+                    <div class="db-btn plain click-sound mouseover-sound4" onclick="open_play('play_screen_custom')">Server List</div>                
+                </div>
+            </div>
+
+            <div class="section_spacer"></div>
+
+            <div class="section section_pickups">
+                <div class="header">
+                    <div class="title i18n" data-i18n="pickups">Pickups</div>
+                    <div class="spacer"></div>
+                    <div id="play_screen_refresh_btn_2" class="db-btn plain reload_btn click-sound mouseover-sound2" onclick="play_screen_reload_lists('pickups')"></div>
+                </div>
+                <div class="line"></div>
+                <div id="play_screen_combined_pickup_list" class="container pickups scroll-outer" data-sb-hide-empty="true">
+                    <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+                    <div id="play_screen_combined_pickup_list_content" class="scroll-inner">
+
+                    </div>
+                </div>
+                <div class="options">
+                    <div id="create_pickup_button" class="db-btn click-sound mouseover-sound4" onclick="open_create_pickup()">Create Pickup</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div id="custom_screen">
                 <div id="play_screen_content">
-                    <div id="play_screen_quickplay" style="display:flex; opacity:1;">
-    <div class="play_cards_container"></div>
-
-    <div class="play_button_container">
-        <div class="left">
-            <div id="region_select_btn_qp" class="db-btn plain region_select_button click-sound mouseover-sound2 tooltip2" data-msg-id="menu_select_region" onclick="open_modal_screen('region_select_modal_screen')"></div>
-        </div>
-        <div id="quick_play_queue_button" class="big-btn click-sound mouseover-sound2 i18n" onclick="quick_play_queue(this)" data-i18n="menu_join_game">Join Game</div>
-        <div class="right">
-            <!--<div id="quick_play_warmup_button" class="db-btn plain warmup click-sound mouseover-sound2 i18n" onclick="join_warmup(this)" data-i18n="menu_warmup">Warmup</div>-->
-        </div>
-    </div>
-</div>
-
-
-                    <div id="play_screen_ranked">
-    <div class="play_cards_container"></div>
-<!--
-    <div class="card_sliding_container"> 
-        <div class="card_sliding_arrow left active"></div>
-        <div class="play_cards_container">
-            <div class="card_page_container"></div>
-            <div class="card_page_container"></div>
-        </div>
-        <div class="card_sliding_arrow right active"></div>
-    </div>
--->
-    <div class="play_button_container">
-        <div class="left">
-            <div class="db-btn plain warmup click-sound mouseover-sound2 i18n" data-i18n="menu_title_rank_legend" onclick="showRankOverview()"></div>
-            <div id="region_select_btn_ranked" class="db-btn plain region_select_button click-sound mouseover-sound2 tooltip2" data-msg-id="menu_select_region" onclick="open_modal_screen('region_select_modal_screen')"></div>
-        </div>
-        <div id="ranked_play_queue_button" class="big-btn click-sound mouseover-sound2 i18n" onclick="comp_play_queue(this)" data-i18n="menu_find_match">Find Match</div>
-        <div class="right">
-            <div id="ranked_play_warmup_button"class="db-btn plain warmup click-sound mouseover-sound2 i18n" onclick="join_warmup(this)" data-i18n="menu_warmup">Warmup</div>        
-        </div>
-    </div>        
-</div>
-
-
                     <div id="play_screen_custom">
     
     <div id=custom_screen_container>
@@ -3187,6 +3220,10 @@
                                 <div data-value=8>8</div>
                                 <div data-value=9>9</div>
                                 <div data-value=10>10</div>
+                                <!--
+                                <div data-value=11>11</div>
+                                <div data-value=12>12</div>
+                                -->
                             </div>
                         </span>
                     </div>
@@ -3204,6 +3241,12 @@
                                 <div data-value=6>6</div>
                                 <div data-value=7>7</div>
                                 <div data-value=8>8</div>
+                                <!--
+                                <div data-value=9>9</div>
+                                <div data-value=10>10</div>
+                                <div data-value=11>11</div>
+                                <div data-value=12>12</div>
+                                -->
                             </div>
                         </span>
                     </div>
@@ -3475,11 +3518,11 @@
         </div>
     </div>
 </div>
-
                     <div id="play_screen_customlist">
 
     <div class="customlist_head">
         <div>
+            <div class="db-btn plain back click-sound mouseover-sound4" onclick="open_play_combined(true)"></div>
             <div id="custom_play_create_lobby_button" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="customlist_create_lobby" onclick="create_custom_lobby()">Create Lobby</div>
             <div id="custom_play_link_join_lobby_button" class="db-btn plain click-sound mouseover-sound4 tooltip2" data-msg-id="customlist_join_with_key" onclick="lobby_join_with_key()"></div>
             <div class="filter_cont">
@@ -3540,16 +3583,9 @@
     -->
 
 </div>
-
-                    <!--<div id="play_screen_esports">
-
-</div>-->
                 </div>
-                
                 <div id="play_screen_unavailable" class="i18n" data-i18n="unavailable_while_offline"></div>
             </div>
-
-
 
             <div id="customize_screen">
 
@@ -3834,39 +3870,17 @@
 
         </div>
 
-        <div id="party_box">
-
-</div>
-
         <div class="game_queue_info_area">
-            <div class="queue_time_box" id="queue_quickplay_box">
-                <div class="queue_cancel_box"  onclick="cancel_search('quickplay')"></div>
-                <div class="queue_info quickplay">
-                    <div class="queue_info_queuetype">
-                        <div class="queue_for i18n" data-i18n="queuing_for">Queuing for</div>
-                        <div class="i18n" data-i18n="match_type_quickplay" style="text-transform:uppercase;">QUICKPLAY</div>
+            <div class="queue_time_box" id="queue_mm_box">
+                <div class="inner">
+                    <div class="queue_cancel_box" onclick="cancel_search()"></div>
+                    <div class="queue_info ranked">
+                        <div class="queue_info_queuetype">Searching playlists</div>
+                        <div class="queue_queue_time">00:00</div>
+                        <div class="queue_info_icon tooltip2" data-msg-html-id="queue_info"></div>
                     </div>
-                    <div class="queue_queue_time">00:00</div>
-                    <div class="queue_info_icon tooltip2" data-msg-html-id="queue_info_quickplay"></div>
                 </div>
-                <div class="queue_match_found">
-                    <div><span><!--GAME NAME HERE--></span>MATCH FOUND</div>
-                </div>
-            </div>
-
-            <div class="queue_time_box"  id="queue_mm_box">
-                <div class="queue_cancel_box"  onclick="cancel_search('ranked')"></div>
-                <div class="queue_info ranked">
-                    <div class="queue_info_queuetype">
-                        <div class="queue_for i18n" data-i18n="queuing_for">Queuing for</div>
-                        <div class="i18n" data-i18n="match_type_ranked" style="text-transform:uppercase;">RANKED</div>
-                    </div>
-                    <div class="queue_queue_time">00:00</div>
-                    <div class="queue_info_icon tooltip2" data-msg-html-id="queue_info_ranked"></div>
-                </div>
-                <div class="queue_match_found">
-                    <div><span><!--GAME NAME HERE--></span>MATCH FOUND</div>
-                </div>
+                <div id="queue_indicator_party_join_warmup" class="join_warmup db-btn plain click-sound mouseover-sound4 i18n" data-i18n="menu_warmup" onclick="join_warmup()">Join Warmup</div>
             </div>
         </div>
 
@@ -3888,7 +3902,7 @@
             </div>
 
             <div id="mm_ingame" class="main_menu_button click-sound mouseover-sound2 hidden" onclick='open_ingame_menu(false)' data-bind-class-toggle="visible:{{application_data.in_match}}"><div class="inner i18n" data-i18n="menu_top_match">Match</div></div>
-            <div id="mm_play" class="main_menu_button click-sound mouseover-sound2" onclick='open_play()'><div class="inner i18n" data-i18n="menu_top_play">Play</div></div>
+            <div id="mm_play" class="main_menu_button click-sound mouseover-sound2" onclick='open_play_combined()'><div class="inner i18n" data-i18n="menu_top_play">Play</div></div>
             <div id="mm_practice" class="main_menu_button click-sound mouseover-sound2" onclick='open_practice()'><div class="inner i18n" data-i18n="menu_top_practice">Practice</div></div>
             <div id="mm_learn" class="main_menu_button click-sound mouseover-sound2 learn_menu_button" onclick='open_learn()'><div class="inner i18n" data-i18n="menu_top_learn">Learn</div></div>
             <div id="mm_customize" class="main_menu_button click-sound mouseover-sound2" onclick='open_customization()'><div class="inner i18n" data-i18n="menu_top_locker">Locker</div><div id="customize_new_count" class="new"></div></div>
@@ -4080,7 +4094,7 @@
 </div>
 
             <!-- Legal screen button
-            <div id="open_legal_button" class="bottom_button click-sound mouseover-sound2 tooltip" data-i18n="menu_open_lobby" onclick='open_modal_screen("legal_information_modal_screen")'>
+            <div id="open_legal_button" class="bottom_button click-sound mouseover-sound2 tooltip" data-i18n="menu_open_legal" onclick='open_modal_screen("legal_information_modal_screen")'>
                 <span class="tip_inner top">Legal</span>
                 <div class="icon"></div>
             </div>
@@ -4092,7 +4106,11 @@
                 <div class="value">0</div>
             </div>
 
-            <div id="open_lobby_button" class="bottom_button click-sound mouseover-sound2 i18n" data-i18n="menu_open_lobby" onclick="open_lobby()">Lobby</div>
+            <div id="party_box">
+
+</div>
+
+            <div id="open_lobby_button" class="bottom_button click-sound mouseover-sound2 i18n" data-i18n="menu_open_lobby" onclick="open_custom()">Lobby</div>
         </div>
 
         <div id="masterserver_warning"><img src="/html/images/icons/fa/exclamation-triangle.svg"> &nbsp; <span data-i18n="not_connected_to_master" class="i18n">Not connected to masterserver (Reconnecting...)</span></div>
@@ -4266,7 +4284,7 @@
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div class="generic_modal_dialog_container">
                     <div class="generic_modal_dialog_header i18n" data-i18n="map_create_title">Create new map</div>
-                    <div class="generic_modal_dialog_body" style="max-width: 1000px">
+                    <div class="generic_modal_dialog_body map_creation_modal_body">
                         <div class="grid-row">
                             <div class="grid-col-4 grid-start i18n" data-i18n="map_create_id">Map ID</div>
                             <div class="grid-col-8 grid-end map_create_input">
@@ -4284,20 +4302,20 @@
                                 <div class="example i18n" data-i18n="map_create_name_example">(Example: Temple Escape)</div>
                             </div>
                         </div>
-        
-                        <div class="grid-row">
-                            <div class="grid-col-6 grid-middle i18n" data-i18n="map_create_type">Map Type</div>
-                            <div class="grid-col-6 grid-end">
-                                <div id="map_create_mode_filter" class="select-field" data-theme="gray2"></div>
-                            </div>
+                            
+                        <div class="grid-row padding-top padding-bottom-xl">
+                            <div class="grid-col-12 i18n" data-i18n="map_create_type">Select game modes</div>
                         </div>
-                    </div>
-                    <div class="generic_modal_dialog_action">
-                        <div class="dialog_button positive i18n" data-i18n="create" onclick="content_creation_page.confirm_create_map(this)">Create</div>
-                        <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_create_modal_screen')">Cancel</div>
-                    </div>
-                    <div id="map_create_modal_error" class="generic_modal_error">
-                        Blank spaces are not allowed for map ID
+                            
+                        <div id="map_create_modes" class="grid-row"></div>
+
+                        <div class="generic_modal_dialog_action">
+                            <div class="dialog_button positive i18n" data-i18n="create"
+                                onclick="content_creation_page.confirm_create_map(this)">Create</div>
+                            <div class="dialog_button negative i18n" data-i18n="cancel"
+                                onclick="close_modal_screen_by_selector('map_create_modal_screen')">Cancel</div>
+                        </div>
+                        <div id="map_create_modal_error" class="generic_modal_error">Blank spaces are not allowed for map ID</div>
                     </div>
                 </div>
             </div>
@@ -4333,29 +4351,30 @@
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div class="generic_modal_dialog_container">
                     <div class="generic_modal_dialog_header i18n" data-i18n="map_update_title">Update map </div>
-                    <div class="generic_modal_dialog_body" style="max-width: 1000px">
+                    <div class="generic_modal_dialog_body map_creation_modal_body">
                         <div class="grid-row">
                             <div class="grid-col-4 grid-start i18n" data-i18n="map_create_name">Map Name</div>
                             <div class="grid-col-8 grid-end map_create_input">
                                 <input id="map_update_name" />
-                                <div class="desc i18n" data-i18n="map_create_name_label">Choose a name for your map (Max. size 20 chars)</div>
+                                <div class="desc i18n" data-i18n="map_create_name_label">Choose a name for your map (Max. size
+                                    20 chars)</div>
                                 <div class="example i18n" data-i18n="map_create_name_example">(Example: Temple Escape)</div>
                             </div>
                         </div>
-        
-                        <div class="grid-row">
-                            <div class="grid-col-6 grid-middle i18n" data-i18n="map_create_type">Map Type</div>
-                            <div class="grid-col-6 grid-end">
-                                <div id="map_update_mode_filter" class="select-field" data-theme="gray2"></div>
-                            </div>
+                        <div class="grid-row padding-top padding-bottom-xl">
+                            <div class="grid-col-12 i18n" data-i18n="map_create_type">Select game modes</div>
                         </div>
-                    </div>
-                    <div class="generic_modal_dialog_action">
-                        <div class="dialog_button positive i18n" data-i18n="update" onclick="content_creation_page.confirm_update_map()"">Update</div>
-                        <div class="dialog_button negative i18n" data-i18n="cancel" onclick="close_modal_screen_by_selector('map_update_modal_screen')">Cancel</div>
-                    </div>
-                    <div id="map_update_modal_error" class="generic_modal_error">
-                        Blank spaces are not allowed for map ID
+        
+                        <div id="map_update_modes" class="grid-row"></div>
+                        <div class="generic_modal_dialog_action">
+                            <div class="dialog_button positive i18n" data-i18n="update"
+                                onclick="content_creation_page.confirm_update_map()"">Update</div>
+                                    <div class=" dialog_button negative i18n" data-i18n="cancel"
+                                onclick="close_modal_screen_by_selector('map_update_modal_screen')">Cancel</div>
+                        </div>
+                        <div id="map_update_modal_error" class="generic_modal_error">
+                            Blank spaces are not allowed for map ID
+                        </div>
                     </div>
                 </div>
             </div>
@@ -6596,6 +6615,7 @@
     <script inline src="components/main_menu/learn_screen.js"></script>
     <script inline src="components/main_menu/aim_screen.js"></script>
     <script inline src="components/main_menu/legal_screen.js"></script>
+    <script inline src="components/main_menu/play_screen_combined.js"></script>
     <script inline src="javascript/ui_customgame.js"></script>
 
     <script inline src="javascript/ui_dragging.js"></script>

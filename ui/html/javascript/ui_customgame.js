@@ -48,6 +48,9 @@ var global_party = {
 
     // modes that you can queue for based on party size filled by masterserver
     "valid-modes": [],
+
+    // pickup ids this party is in
+    "pickup_ids": [],
 };
 var bool_am_i_host = false;
 var bool_am_i_leader = false;
@@ -98,15 +101,15 @@ function init_custom_modes() {
 function init_custom_game_references() {
         // Elements only visible to the party leader
         global_party_leader_elements = [
-            _id("quick_play_queue_button"),
-            _id("ranked_play_queue_button"),        
-            //_id("quick_play_warmup_alignment"),
-            //_id("ranked_play_warmup_alignment"),
+            _id("play_queue_button"),
+            _id("play_region_select_button"),
+            _id("create_pickup_button"),
+            _id("play_screen_combined_create_lobby_button"),
+            _id("play_screen_combined_join_lobby_button"),
+
             _id("custom_play_create_lobby_button"),
             _id("custom_play_link_join_lobby_button"),
-            _id("region_select_btn_qp"),
-            _id("region_select_btn_ranked"),
-        ]
+        ];
     
         global_customSettingElements = {
             "visibility":                _id("custom_game_setting_visibility"),
@@ -628,16 +631,15 @@ function create_custom_lobby() {
         }
 
         send_json_data({"action": "lobby-create", "settings": get_lobby_settings() });
-        open_play("play_screen_custom");
+        //open_custom();
+    } else {
+        open_custom();
     }
 }
 
 function leave_custom_lobby_action() {
-    open_play("play_screen_custom");
-}
-
-function open_lobby() {
-    open_play("play_screen_custom");
+    //open_play("play_screen_custom");
+    open_play_combined(true);
 }
 
 function leave_custom_lobby() {
@@ -1032,6 +1034,10 @@ function handle_party_event(data) {
 
         if ((init || data.init == true) && bool_am_i_leader) {
             engine.call("initialize_select_value", "lobby_region");
+
+            // Clear out the pickup id list as we shouldnt be in any after party creation
+            global_party.pickup_ids = [];
+            if (global_menu_page == "play_screen_combined") render_play_screen_pickups();
         } else {            
             if ("locations" in data) {
                 set_region_selection(false, data.locations);
@@ -1039,7 +1045,7 @@ function handle_party_event(data) {
         }
 
         if (data.init == true) {
-            process_queue_msg("all", "stop");
+            process_queue_msg("stop");
         }
 
         let update_modes = true;
@@ -1049,11 +1055,9 @@ function handle_party_event(data) {
         if (global_queue_selection === null) update_modes = false;
         if (update_modes) {
             global_party["modes"] = data.data["modes"];
-            global_party["roles"] = data.data["roles"];
-            global_party["role-reqs"] = data.data["role-reqs"];
             if (!init) {
                 set_queue_modes();
-                update_role_selection();
+                //update_role_selection();
             }
         }
         update_warmup_buttons();
@@ -1080,7 +1084,7 @@ function handle_party_event(data) {
 
     } else if (data.action == "party-queue-action") {
 
-        process_queue_msg(data.type, data.msg);
+        process_queue_msg(data.msg);
         return;
 
     }
@@ -1098,8 +1102,11 @@ function update_party_leader_status(leader) {
 
     if (bool_am_i_leader) {
         for (let el of global_party_leader_elements) el.style.display = "flex";
+        if (global_party.size > 1) _id("party_join_warmup_button").style.display = "flex";
+        else _id("party_join_warmup_button").style.display = "none";
     } else {
         for (let el of global_party_leader_elements) el.style.display = "none";
+        _id("party_join_warmup_button").style.display = "none";
     }
 
     // Change search_nearby and region selection in the party to the new leaders settings
@@ -1161,7 +1168,7 @@ function handle_lobby_event(data) {
             global_lobby_id = -1;
             main_chat_reset("lobby", true);
 
-            if (global_menu_page == "play_panel" && (global_play_menu_page == "play_screen_customlist" || global_play_menu_page == "play_screen_custom")) {
+            if (global_menu_page == "play_panel" || global_menu_page == "custom_screen") {
                 leave_custom_lobby_action();
             } else {
                 if (global_play_menu_page == "play_screen_customlist" || global_play_menu_page == "play_screen_custom") {
@@ -1180,7 +1187,7 @@ function handle_lobby_event(data) {
     if (data.action == "lobby-leave") {
         global_lobby_id = -1;
         main_chat_reset("lobby", true);
-        if (global_menu_page == "play_panel" && (global_play_menu_page == "play_screen_customlist" || global_play_menu_page == "play_screen_custom")) {
+        if (global_menu_page == "play_panel" || global_menu_page == "custom_screen") {
             leave_custom_lobby_action();
         } else {
             if (global_play_menu_page == "play_screen_customlist" || global_play_menu_page == "play_screen_custom") {

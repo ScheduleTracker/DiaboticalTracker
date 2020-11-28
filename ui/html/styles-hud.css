@@ -1485,7 +1485,7 @@ h2 {
 
 #commend_notif {
     position:absolute;
-    bottom:7vh;
+    bottom:10vh;
     right:4vh;
 }
 
@@ -2920,7 +2920,7 @@ h2 {
 #rank_screen .rank_progression .rank_icon_cont {
     width:35vh;
     height:35vh;
-    margin-top:8vh;
+    margin-top:15vh;
     position:relative;
     display: flex;
     align-items: center;
@@ -3030,7 +3030,7 @@ h2 {
 #rank_screen .placement_rank .title {
     text-transform: uppercase;
     font-size:4vh;
-    margin-top:10vh;
+    margin-top:14vh;
     font-weight:bold;
     font-family:var(--mont-font);
     text-shadow:2px 2px 4px rgba(0,0,0,0.6);
@@ -3038,7 +3038,7 @@ h2 {
 #rank_screen .placement_rank .rank_icon_cont {
     width:35vh;
     height:35vh;
-    margin-top:2vh;
+    margin-top:3vh;
     position:relative;
     display: flex;
     align-items: center;

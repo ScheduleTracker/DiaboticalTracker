@@ -59,7 +59,6 @@ function init_hud_screen_game_report() {
                     "next_tier_req": 1650
                 },
                 "mode": "r_ca_2",
-                "match_type": 2,
                 "placement_match": 0,
                 "ranked": true
             },
@@ -227,7 +226,7 @@ function set_game_report(json_game_status, json_snafu_data) {
         re_buttons.style.display = "flex";
 
         let requeue_btn = _id("game_report_requeue");
-        if (game_status.match_type == MATCH_TYPE_RANKED || game_status.match_type == MATCH_TYPE_QUICKPLAY) {
+        if (game_status.match_type == MATCH_TYPE_QUEUE) {
             if (bool_am_i_leader) requeue_btn.style.display = "flex";
             else requeue_btn.style.display = "none";
         } else {
@@ -404,11 +403,6 @@ function create_game_report(game_status, snafu_data) {
         player_lookup[p.user_id] = p;
     }
 
-    let first_user_own = undefined;
-    let first_user_enemy = undefined;
-    if (snafu_data.own_team_players.length) first_user_own = snafu_data.own_team_players[0];
-    if (snafu_data.enemy_team_players.length) first_user_enemy = snafu_data.enemy_team_players[0];
-
     //console.log("game_status", _dump(game_status));
     //console.log("snafu_data", _dump(snafu_data));
 
@@ -579,7 +573,7 @@ function create_game_report(game_status, snafu_data) {
                         }
                         head_row.appendChild(_createElement("div","label", localize("stats_time")));
                         head_row.appendChild(_createElement("div",["label", "best_w"], localize("stats_best_weapon")));
-                        if (game_status.match_type == MATCH_TYPE_RANKED || game_status.match_type == MATCH_TYPE_QUICKPLAY) {
+                        if (game_status.match_type == MATCH_TYPE_QUEUE || game_status.match_type == MATCH_TYPE_PICKUP) {
                             head_row.appendChild(_createElement("div", "label", localize("commend")));
                         }
                         head_row.appendChild(_createElement("div", ["label", "tscore"]));
@@ -673,7 +667,7 @@ function create_game_report(game_status, snafu_data) {
                         best_w.appendChild(icon);
                         player_row.appendChild(best_w);
 
-                        if (game_status.match_type == MATCH_TYPE_RANKED || game_status.match_type == MATCH_TYPE_QUICKPLAY) {
+                        if (game_status.match_type == MATCH_TYPE_QUEUE || game_status.match_type == MATCH_TYPE_PICKUP) {
                             let commend_cont = _createElement("div", ["stat"]);
                             // Check that the user_id is not in our party
                             if (p.user_id != global_self.user_id && 
@@ -739,14 +733,14 @@ function create_game_report(game_status, snafu_data) {
 }
 let global_game_report_tab_switched = false;
 
-function updateGameReportRank(mode) {
-    if (!(mode in global_self.mmr)) return;
-    if (!(mode in global_queues)) return;
+function updateGameReportRank(mode, mmr_key) {
+    if (!(mmr_key in global_self.mmr)) return;
+    if (!(mode in global_mode_definitions)) return;
 
     let self_rank = _id("game_report_cont").querySelector(".player_row.self .rank");
     if (self_rank) {
         _empty(self_rank);
-        self_rank.appendChild(renderRankIcon(global_self.mmr[mode].rank_tier, global_self.mmr[mode].rank_position, global_queues[mode].team_size, "small"));
+        self_rank.appendChild(renderRankIcon(global_self.mmr[mmr_key].rank_tier, global_self.mmr[mmr_key].rank_position, global_mode_definitions[mode].team_size, "small"));
     }
 }
 

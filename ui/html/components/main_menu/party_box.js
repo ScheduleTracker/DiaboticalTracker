@@ -1,12 +1,3 @@
-function set_party_box_visible(bool) {
-    let party_box = _id("party_box");
-    anim_remove(party_box);
-    if (bool) {
-        anim_show(party_box);
-    } else {
-        anim_hide(party_box);
-    }
-}
 
 function update_party(data) {
 
@@ -19,6 +10,8 @@ function update_party(data) {
 
     let party_box = _id("party_box");
     _empty(party_box);
+
+    party_box.appendChild(_createElement("div", "party_label", localize("party")));
 
     global_party['members'] = {};
     let count = 0;

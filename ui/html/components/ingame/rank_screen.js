@@ -9,7 +9,12 @@ function renderRankScreen(data) {
 
     global_rank_screen_queue = [];
 
+    // We decided to not show placement match progress anymore, ill keep this commented in case we change our mind
+    // Also only show rank tier changes when ranking up, not down
+    global_show_rank_change = false;
+
     if ("placement_match" in data && Number(data.placement_match) == 1 && data.to.placement_matches && data.to.placement_matches.length) {
+        /*
         // Show placement matches screen
         renderPlacementMatches(data);
 
@@ -17,6 +22,7 @@ function renderRankScreen(data) {
             "type": "placement",
             "time": (data.to.placement_matches.length * 0.55) + 3
         });
+        */
 
         if (data.to.placement_matches.length == Number(data.placement_matches)) {
             renderPlacementRank(data);
@@ -35,68 +41,85 @@ function renderRankScreen(data) {
                 "match_type": data.match_type,
                 "sound": sound
             });
+            global_show_rank_change = true;
         }
     } else {
         renderRankUpdate(data);
 
-        let type = "rank";
-        let time = 5.5;
+        let type = "";
+        let time = 0;
         let sound = '';
         if (data.from.rank_tier != null) {
             if (data.from.rank_tier < data.to.rank_tier) {
                 type = "rank-up";
-                time = 10;
+                time = 6;
                 sound = 'ui_ranked_rank_up';
             }
+            /*
             if (data.from.rank_tier > data.to.rank_tier) {
                 type = "rank-down";
                 time = 5;
                 if (data.match_type == 2) time = 7;
                 sound = 'ui_ranked_rank_down';
             }
+            */
             if (data.from.rank_position != null && data.to.rank_position != null) {
                 if (data.from.rank_position > data.to.rank_position) {
                     type = "rank-up";
-                    time = 10;
+                    time = 6;
                     sound = 'ui_ranked_rank_up';
                 }
+                /*
                 if (data.from.rank_position < data.to.rank_position) {
                     type = "rank-down";
                     time = 5;
                     if (data.match_type == 2) time = 7;
                     sound = 'ui_ranked_rank_down';
-
                 }
+                */
             }
+            /*
             if (data.from.rank_position == null && data.to.rank_position != null) {
                 type = "rank-up";
                 time = 10;
                 sound = 'ui_ranked_rank_up';
             }
+            
             if (data.from.rank_position != null && data.to.rank_position == null) {
                 type = "rank-down";
                 time = 5;
                 if (data.match_type == 2) time = 7;
                 sound = 'ui_ranked_rank_down';
             }
-
-            if (type == "rank-up" && data.to.rank_position !== null && data.to.rank_position !== undefined) {
-                if (data.to.rank_position == 1) sound = 'ui_ranked_rank_up_legend';
-                else if (data.to.rank_position <= 50) sound = 'ui_ranked_rank_up_high_warlord';
-                else if (data.to.rank_position <= 100) sound = 'ui_ranked_rank_up_grandmaster';
-                else sound = 'ui_ranked_rank_up_elite';
+            */
+        } else {
+            if (data.to.rank_tier != null) {
+                type = "rank-up";
+                time = 6;
+                sound = 'ui_ranked_rank_up';
             }
         }
 
-        global_rank_screen_queue.push({
-            "type": type,
-            "time": time,
-            "match_type": data.match_type,
-            "sound": sound
-        });
+        if (type == "rank-up" && data.to.rank_position !== null && data.to.rank_position !== undefined) {
+            if (data.to.rank_position == 1) sound = 'ui_ranked_rank_up_legend';
+            else if (data.to.rank_position <= 50) sound = 'ui_ranked_rank_up_high_warlord';
+            else if (data.to.rank_position <= 100) sound = 'ui_ranked_rank_up_grandmaster';
+            else sound = 'ui_ranked_rank_up_elite';
+        }
+
+        if (type.length) {
+            global_rank_screen_queue.push({
+                "type": type,
+                "time": time,
+                "match_type": data.match_type,
+                "sound": sound
+            });
+            global_show_rank_change = true;
+        }
     }
 }
 
+/*
 function renderPlacementMatches(data) {
     //console.log("==== renderPlacementMatches", _dump(data));
 
@@ -168,6 +191,7 @@ function renderPlacementMatches(data) {
 
     cont.appendChild(match_list);
 }
+*/
 
 
 function renderPlacementRank(data) {
@@ -209,6 +233,9 @@ function renderPlacementRank(data) {
     rank_name_cont.appendChild(rank_name);
     cont.appendChild(rank_name_cont);
 
+    cont.dataset.to_type = type;
+
+    /*
     if (data.match_type == 2) {
         let progress_cont = _createElement("div", "progress_cont");
         let progress = _createElement("div", "progress");
@@ -223,6 +250,7 @@ function renderPlacementRank(data) {
         progress_cont.appendChild(progress);
         cont.appendChild(progress_cont);
     }
+    */
 }
 
 
@@ -268,6 +296,17 @@ function renderRankUpdate(data) {
     rank_name_cont.appendChild(next_rank_name);
     cont.appendChild(rank_name_cont);
 
+
+    let type = 'image';
+    if (data.from.rating > data.to.rating) {
+        type = 'image';
+    } else {
+        if (video_url.length) type = 'video';
+    }
+
+    cont.dataset.to_type = type;
+
+    /*
     let progress_cont = _createElement("div", "progress_cont");
     let progress = _createElement("div", "progress");
     let change_icon = _createElement("div", "icon");
@@ -298,13 +337,14 @@ function renderRankUpdate(data) {
         value.dataset.to = Math.floor(Math.abs(data.to.rating - data.from.rating));
         value.textContent = 0;
     }
-    
+    */
     
     /*
     value.dataset.from = Math.floor(data.to.rating);
     value.dataset.to = Math.floor(data.to.rating);
     value.textContent = Math.floor(data.from.rating);
     */
+   /*
     let unit = _createElement("div", "unit");
     if (data.match_type == 2) {
         // Competitive
@@ -329,6 +369,7 @@ function renderRankUpdate(data) {
     }
     progress_cont.appendChild(progress);
     cont.appendChild(progress_cont);
+    */
 
 }
 
@@ -362,6 +403,7 @@ function showRankScreen(cb, initial) {
 
     let current = undefined;
 
+    /*
     if (first.type == "placement") {
         current = placement_screen;
         anim_show(placement_screen, 500, "flex", function() {
@@ -371,9 +413,10 @@ function showRankScreen(cb, initial) {
                 _for_each_with_class_in_parent(placement_screen, 'result_box', function(el) { el.classList.add("visible"); });
             },500);
         });
-
     }
+    */
 
+    /*
     if (first.type == "rank") {
         current = rank_screen;
         anim_show(rank_screen, 500, "flex", function() {
@@ -409,11 +452,13 @@ function showRankScreen(cb, initial) {
             }, 700);
         });
     }
+    */
 
     if (first.type == "rank-up") {
         current = rank_screen;
         anim_show(rank_screen, 500, "flex", function() {
             setTimeout(function() {
+                /*
                 let win = Number(rank_screen.querySelector(".progress").dataset.win);
                 let type = rank_screen.querySelector(".progress").dataset.to_type;
                 if (win == 1) {
@@ -443,7 +488,9 @@ function showRankScreen(cb, initial) {
                         "completion": function() {}
                     });
                 }
+                */
 
+                let type = rank_screen.dataset.to_type;
                 let prev = rank_screen.querySelector(".rank_icon.prev");
                 let next = '';
                 let next_pos = false;
@@ -454,24 +501,23 @@ function showRankScreen(cb, initial) {
                 }
                 let prev_name = rank_screen.querySelector(".rank_name.prev");
                 let next_name = rank_screen.querySelector(".rank_name.next");
+                anim_hide(prev, 900);
+                anim_hide(prev_name, 900);
                 setTimeout(function() {
-                    anim_hide(prev, 900);
-                    anim_hide(prev_name, 900);
-                    setTimeout(function() {
-                        if (type == "image") anim_show(next, 900);
-                        if (type == "video") {
-                            if (global_view_active) next.play();
-                            if (next_pos) setTimeout(function() { anim_show(next_pos, 500); },1500);
-                        }
-                        anim_show(next_name, 900);
+                    if (type == "image") anim_show(next, 900);
+                    if (type == "video") {
+                        if (global_view_active) next.play();
+                        if (next_pos) setTimeout(function() { anim_show(next_pos, 500); },1500);
+                    }
+                    anim_show(next_name, 900);
 
-                        play_tracked_sound(first.sound);
-                    },200);
-                },3500);
-            }, 700);
+                    play_tracked_sound(first.sound);
+                },200);
+            }, 500);
         });
     }
 
+    /*
     if (first.type == "rank-down") {
         current = rank_screen;
         anim_show(rank_screen, 500, "flex", function() {
@@ -526,13 +572,14 @@ function showRankScreen(cb, initial) {
             }, 700);
         });
     }
+    */
 
     if (first.type == "placement-rank") {
         current = placement_rank_screen;
         anim_show(placement_rank_screen, 500, "flex", function() {
 
-            let progress = placement_rank_screen.querySelector(".progress");
-            let type = progress.dataset.to_type;
+            //let progress = placement_rank_screen.querySelector(".progress");
+            let type = placement_rank_screen.dataset.to_type;
             let video_pos = placement_rank_screen.querySelector(".rank_video_position");
             setTimeout(function() {
                 // trigger showing the value and icon animations
@@ -542,7 +589,7 @@ function showRankScreen(cb, initial) {
                     if (video_pos) setTimeout(function() { anim_show(video_pos, 500); }, 1500);
                 }
                 _for_each_with_class_in_parent(placement_rank_screen, 'rank_name', function(el) { el.classList.add("visible"); });
-                progress.classList.add("visible");
+                //progress.classList.add("visible");
 
                 play_tracked_sound(first.sound);
             },700);

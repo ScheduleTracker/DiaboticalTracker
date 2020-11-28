@@ -1,7 +1,5 @@
 
 let global_custom_list_selected_match = -1;
-let global_custom_list_data = [];
-let global_custom_list_data_ts = undefined;
 let global_custom_list_search = '';
 
 function init_screen_play_customlist() {
@@ -78,11 +76,7 @@ function updateCustomMatchList() {
     customListRenderMatchPreview(-1);
 
     if (!global_custom_list_data_ts || (Date.now() - global_custom_list_data_ts) > 3000) {
-        send_string(CLIENT_COMMAND_GET_CUSTOM_MATCH_LIST, "", "get-custom-list", function(data) {
-            global_custom_list_data_ts = Date.now();
-            global_custom_list_data = data.data;
-            renderMatchList();
-        });
+        send_string(CLIENT_COMMAND_GET_COMBINED_LIST);
     } else {
         renderMatchList();
     }
@@ -184,9 +178,9 @@ function renderMatchListRow(match, row) {
     }
 
     let tr_title = _createElement("div", "title", match.name);
-    if (match.match_type == MATCH_TYPE_QUICKPLAY) {
+    if (match.match_type == MATCH_TYPE_QUEUE) {
         tr_title.classList.add("bold");
-        tr_title.textContent = localize("match_type_quickplay");
+        tr_title.textContent = localize("match_type_queue");
     }
     sub_row_1.appendChild(tr_title);
     
@@ -270,8 +264,8 @@ function customListRenderMatchPreview(session_id) {
     // Match summary 
     let name = m.name;
     let qp = false;
-    if (m.match_type == MATCH_TYPE_QUICKPLAY) {
-        name = localize("match_type_quickplay");
+    if (m.match_type == MATCH_TYPE_QUEUE) {
+        name = localize("match_type_queue");
         qp = true;
     }
     let preview_summary = _createElement("div", "summary");

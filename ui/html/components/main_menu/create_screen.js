@@ -1,16 +1,21 @@
+//const COMMUNITY_MAP_MODES = ["ffa", "brawl", "tdm", "ft", "duel", "extinction"];
+const COMMUNITY_MAP_MODES = Object.keys(global_game_mode_map).filter(m => global_game_mode_map[m].enabled);
+
 const content_creation_page = {
     state: {
         new_map: {
-            selected_mode: null,
+            selected_modes: null,
             selected_map: null
         },
         update_map: {
-            selected_mode: null,
+            selected_modes: null,
             selected_map: null
         },
         selected_map: null,
         available_maps: []
     },
+
+    $el: _id("create_screen"),
 
     init: function () {
         // All this effort just to get have image previews that keep their aspect ratio on different screen resolutions... because GameFace doesn't support height:auto on images (auto setting height while preserving aspect ratio)
@@ -20,29 +25,8 @@ const content_creation_page = {
         let map_preview_height = ((smallerval - (window.outerHeight / 100 * 6)) / 3) * (9 / 16);
         _id("create_screen_list").style.setProperty("--customlist_height", map_preview_height + "px");
 
-        const map_create_mode_filter = _id("map_create_mode_filter");
-        _empty(map_create_mode_filter);
-        create_game_mode_select(
-            map_create_mode_filter,
-            (opt, value) => {
-                this.state.new_map.selected_mode = opt.dataset.value;
-            },
-            (initValues) => {
-                this.state.new_map.selected_mode = initValues[0].mode;
-            }
-        );
-
-        const map_update_mode_filter = _id("map_update_mode_filter");
-        _empty(map_update_mode_filter);
-        create_game_mode_select(
-            map_update_mode_filter,
-            (opt, value) => {
-                this.state.update_map.selected_mode = opt.dataset.value;
-            },
-            (initValues) => {
-                this.state.update_map.selected_mode = initValues[0].mode;
-            }
-        );
+        this._create_mode_checkboxes(_id("map_create_modes"));        
+        this._create_mode_checkboxes(_id("map_update_modes"));
 
         engine.on("saved_map", () => {
             this.update_maps_list();
@@ -53,10 +37,71 @@ const content_creation_page = {
         engine.call("open_map_folder");
     },
 
-    _check_input_validations: function (id, mode, name, $errorNode) {
-        const MAX_NAME_LENGTH = 20;
+    _on_map_select: function (event) {
+        const $el = event.currentTarget;
 
-        if (!mode || mode.length === 0) {
+        _for_each_in_class("create_map_preview", $el => $el.classList.remove("selected"))
+        $el.classList.add("selected");
+
+        _for_each_in_class("map_preview_background", $el => $el.classList.remove("selected"))
+        _for_each_with_class_in_parent($el, "map_preview_background", $el => $el.classList.add("selected"));
+
+        if (_id("create_screen_selection_options").style.display !== 'flex')
+            anim_show(_id("create_screen_selection_options"));
+
+        this.state.selected_map = this.state.available_maps.find(m => m.id === $el.dataset.map_id);
+    },
+
+    _unselect_map: function() {
+        this.state.selected_map = null;
+        Array.from(this.$el.querySelectorAll(".create_map_preview")).forEach(p => p.classList.remove("selected"));
+        anim_hide(this.$el.querySelector("#create_screen_selection_options"));
+    },
+    
+    _create_mode_checkboxes: function($el) {
+        _empty($el);
+        COMMUNITY_MAP_MODES.forEach(mode => {
+            const $mode = _createElement("div", ["grid-col-6", "padding-bottom-xl"]);
+            
+            const $leftCol = _createElement("div", ["grid-col-5","grid-offset-2"]);
+            $leftCol.innerHTML = localize(global_game_mode_map[mode].i18n);
+            
+            const $checkbox = _createElement("div", ["checkbox", "checkbox_component"]);
+            $checkbox.appendChild(_createElement("div"));
+            $checkbox.dataset.value = mode;
+            $checkbox.addEventListener("click", event => {
+                const $target = event.target;
+                if ($target.classList.contains("checkbox_enabled")) {
+                    $target.classList.remove("checkbox_enabled");
+                    $target.firstChild.classList.remove("inner_checkbox_enabled");
+                } else {
+                    $target.classList.add("checkbox_enabled");
+                    $target.firstChild.classList.add("inner_checkbox_enabled");
+                }
+            });
+            const $rightCol = _createElement("div", ["grid-col-5", "grid-end"]);
+            $rightCol.appendChild($checkbox);
+
+            $mode.appendChild($leftCol);
+            $mode.appendChild($rightCol);
+            $el.appendChild($mode);
+        });
+    },
+
+    _reset_mode_chekboxes: function($el) {
+        const $checkboxes = Array.from($el.querySelectorAll("#map_create_modes .checkbox_enabled"));
+        $checkboxes.forEach($checkbox => {
+            $checkbox.classList.remove('checkbox_enabled');
+            $checkbox.firstChild.classList.remove("inner_checkbox_enabled");
+        });
+    },
+
+    _check_input_validations: function (id, modes, name, $errorNode) {
+        const MAX_NAME_LENGTH = 20;
+        
+        _empty($errorNode);
+
+        if (!modes || modes.length === 0) {
             $errorNode.innerHTML = localize("map_error_no_mode");
             return false;
         }
@@ -72,20 +117,21 @@ const content_creation_page = {
             $errorNode.innerHTML = localize("map_error_name_too_large");
             return false;
         }
+
         return true;
     },
 
     confirm_create_map: function () {
-        const mode = this.state.new_map.selected_mode;
         const id = _id("map_create_id").value;
         const name = _id("map_create_name").value;
+        const modes = Array.from(document.querySelectorAll("#map_create_modes .checkbox_enabled")).map(f => f.dataset.value);
 
-        if (!this._check_input_validations(id, mode, name, _id("map_create_modal_error"))) {
+        if (!this._check_input_validations(id, modes, name, _id("map_create_modal_error"))) {
             return;
         }
 
-        RemoteResources.create_remote_map(id, name, mode, (ret) => {
-            if (ret.success) {
+        RemoteResources.create_remote_map(id, name, modes, (ret) => {
+            if (ret && ret.success) {
                 this.update_maps_list();
                 queue_dialog_msg({
                     "title": localize("toast_create_map_title"),
@@ -93,7 +139,7 @@ const content_creation_page = {
                 });
             } else {
                 _id("map_create_modal_error").innerHTML = localize("map_error_id_taken");
-                if (ret.reason)
+                if (ret && ret.reason)
                     queue_dialog_msg({
                         "title": localize("toast_map_error_title"),
                         "msg": localize(ret.reason),
@@ -111,16 +157,18 @@ const content_creation_page = {
 
     confirm_update_map: function () {
         const new_name = _id("map_update_name").value;
-        const new_mode = _id("map_update_mode_filter").dataset.value;
-        
-        if (!this._check_input_validations(this.state.selected_map.id, new_mode, new_name, _id("map_update_modal_error"))) {
+        const new_modes = Array.from(
+            document.querySelectorAll("#map_update_modes .checkbox_enabled")
+        ).map(f => f.dataset.value);
+
+        if (!this._check_input_validations(this.state.selected_map.id, new_modes, new_name, _id("map_update_modal_error"))) {
             return;
         }
 
         close_modal_screen_by_selector('map_update_modal_screen')
         setFullscreenSpinner(true);
 
-        RemoteResources.update_remote_map(this.state.selected_map.id, new_name, new_mode, () => {
+        RemoteResources.update_remote_map(this.state.selected_map.id, new_name, new_modes, () => {
             setFullscreenSpinner(false);
             this.update_maps_list();
         });
@@ -161,17 +209,22 @@ const content_creation_page = {
     },
 
     update_maps_list: function () {
+        setFullscreenSpinner(true);
+
         engine.call("list_local_maps").then(data => {
             const local_maps = JSON.parse(data);
 
+            setFullscreenSpinner(false);
+
             RemoteResources.list_player_remote_maps_paginated(0, (data) => {
+                this._unselect_map();
                 this.state.available_maps = data.map(map => {
                     const local_map = local_maps.find(m => m.filename === map.map_id + ".rbe");
                     return {
                         id: map.map_id,
-                        mode: map.mode_name,
                         name: map.name,
                         random_name: map.random_name,
+                        modes: map.modes,
                         image: "mg_test.png",
                         author: map.author,
                         created_at: new Date(map.create_ts),
@@ -196,20 +249,36 @@ const content_creation_page = {
             map_el.dataset.map_name = map.name;
             map_el.dataset.map_id = map.id;
 
-            // let img = _createElement("img");
-            //img.src = "/html/map_thumbnails/" + map.image;
-            //map_el.appendChild(img);
             let background = _createElement("div", ["map_preview_background"]);
             background.innerHTML = localize("map_community_preview");
             map_el.appendChild(background);
 
-            let gt = _createElement("div", ["gamemode", "i18n"]);
-            gt.dataset.i18n = global_game_mode_map[map.mode].i18n
-            gt.innerHTML = global_game_mode_map[map.mode].name;
-            map_el.appendChild(gt);
+            // Render modes
+            const MAX_MODE_LINES = 4;
+            const $modes = _createElement("div", ["gamemodes"]);
+            if (map.modes) {
+                for (let [idx, mode] of map.modes) {
+                    if (idx > MAX_MODE_LINES) break;
+                }
+                map.modes.some((mode, idx) => {
+                    if ((idx + 1) > MAX_MODE_LINES) return false;
 
+                    let $mode = _createElement("div", ["gamemode", "i18n"]);
+                    $mode.dataset.i18n = global_game_mode_map[mode].i18n;
+                    $mode.innerHTML = global_game_mode_map[mode].name;
+                    $modes.appendChild($mode);
+                });
+                if (map.modes.length > MAX_MODE_LINES) {
+                    const last_mode = global_game_mode_map[map.modes[MAX_MODE_LINES]].i18n;
+                    $modes.appendChild(_createElement("div", "", `${localize(last_mode).slice(0, 3)}...`));
+                }
+                map_el.appendChild($modes);
+            } else {
+                console.warn("Ignoring map modes because you are using an old API version")
+            }
+            
+            // Render map details at the bottom
             let bottom = _createElement("div", "bottom");
-
             let div = _createElement("div", "details");
             let name = _createElement("div", "name");
             name.innerHTML = map.name;
@@ -260,25 +329,14 @@ const content_creation_page = {
 
             fragment.appendChild(map_el);
 
-            map_el.addEventListener('click', (event) => {
-                const el = event.currentTarget;
-                _for_each_in_class("create_map_preview", el => el.classList.remove("selected"))
-                el.classList.add("selected");
-
-                _for_each_in_class("map_preview_background", el => el.classList.remove("selected"))
-                _for_each_with_class_in_parent(el, "map_preview_background", sub_el => sub_el.classList.add("selected"));
-
-                if (_id("create_screen_selection_options").style.display !== 'flex')
-                    anim_show(_id("create_screen_selection_options"));
-
-                this.state.selected_map = this.state.available_maps.find(m => m.id === el.dataset.map_id);
-            });
+            map_el.addEventListener('click', this._on_map_select.bind(this));
         }
 
         list.appendChild(fragment);
     },
 
     show_new: function () {
+        this._reset_mode_chekboxes(_id("map_create_modal_screen"));
         open_modal_screen("map_create_modal_screen", function () {
             _empty(_id("map_create_modal_error"));
         });
@@ -302,15 +360,19 @@ const content_creation_page = {
     },
 
     show_update: function () {
-        _empty(_id("map_update_modal_error"));
-
+        const $modal = _id("map_update_modal_screen");
         const $name = _id("map_update_name");
-        const $type = _id("map_update_mode_filter");
 
         $name.value = this.state.selected_map.name
-        $type.dataset.value = this.state.selected_map.mode;
-        update_select($type);
-
-        open_modal_screen('map_update_modal_screen');
+        this._reset_mode_chekboxes($modal);
+        this.state.selected_map.modes.forEach(mode => {
+            const $checkbox = $modal.querySelector(`.checkbox[data-value=${mode}]`);
+            $checkbox.classList.add("checkbox_enabled");
+            $checkbox.firstChild.classList.add("inner_checkbox_enabled");
+        });
+        
+        open_modal_screen('map_update_modal_screen', function() {
+            _empty(_id("map_update_modal_error"));
+        });
     }
 };

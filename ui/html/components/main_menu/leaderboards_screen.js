@@ -1,5 +1,5 @@
 let global_leaderboards_data = {
-    "game_mode": "r_macguffin",
+    "game_mode": "md_duel",
     "friends_only": false,
     "page": 1,
     "max_per_page": 10
@@ -37,46 +37,15 @@ function init_screen_leaderboards() {
     let mode_filter = _id("leaderboards_screen_filter_gamemode");
     _empty(mode_filter);
 
-    let esports_modes = [];
-    let team_modes = [];
-    let arena_modes = [];
-    for (let mode in global_queues) {
-        if ("leaderboard" in global_queues[mode] && global_queues[mode].leaderboard == true) {
-            if (mode.startsWith("r_ca") || mode.startsWith("r_rocket_arena") || mode.startsWith("r_shaft_arena")) {
-                arena_modes.push(mode);
-            //} else if (global_queues[mode].team_size > 1) {
-            //    team_modes.push(mode);
-            } else {
-                esports_modes.push(mode);
-            }
-        }
-    }
+    for (let mode_key in global_mode_definitions) {
+        if (!global_mode_definitions[mode_key].enabled) continue;
+        if (!global_mode_definitions[mode_key].leaderboard) continue;
 
-    for (let mode of ["esports", "team", "arena"]) {
-        let modes = [];
-        let name = "";
-        if (mode == "esports") {
-            modes = esports_modes;
-            name = localize("esports");
-        }
-        if (mode == "team") {
-            modes = team_modes;
-            name = localize("game_modes_team");
-        }
-        if (mode == "arena") {
-            modes = arena_modes;
-            name = localize("game_mode_arena");
-        }
+        let opt = _createElement("div", null, global_mode_definitions[mode_key].name);
+        opt.dataset.value = mode_key;
 
-        if (modes.length) mode_filter.appendChild(_createElement("div", "select-category", name));
-        for (let mode of modes) {
-            let opt = _createElement("div");
-            opt.dataset.value = mode;
-            opt.textContent = global_queues[mode].queue_name;
-    
-            if (mode == global_leaderboards_data.game_mode) opt.dataset.selected = 1;
-            mode_filter.appendChild(opt);
-        }
+        if (mode_key == global_leaderboards_data.game_mode) opt.dataset.selected = 1;
+        mode_filter.appendChild(opt);
     }
 
     ui_setup_select(mode_filter, function(opt, field) {

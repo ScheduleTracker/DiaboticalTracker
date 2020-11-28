@@ -5,7 +5,8 @@ function init_screen_home() {
   _id("home_screen").style.top = Math.floor(6 * (window.outerHeight / 100)) + "px";
   let announcement_column_width = 40;
   let announcement_margin = 1;
-  document.documentElement.style.setProperty('--home-screen-column-margin', Math.floor(3 * (window.outerHeight / 100)));
+  document.documentElement.style.setProperty('--home-screen-column-margin-left', Math.floor(4 * (window.outerHeight / 100)));
+  document.documentElement.style.setProperty('--home-screen-column-margin-top', Math.floor(6 * (window.outerHeight / 100)));
   document.documentElement.style.setProperty('--announcement-margin', Math.floor(announcement_margin * (window.outerHeight / 100)));
   document.documentElement.style.setProperty('--announcement-height', Math.floor(22 * (window.outerHeight / 100)));
   document.documentElement.style.setProperty('--announcement-large-width', Math.floor(announcement_column_width * (window.outerHeight / 100)));
@@ -145,7 +146,7 @@ function add_ingame_announcement(announcement_data, container, size){
         let announcement_demo = _createElement("div", "demo_now", "Demo Now");
         announcement.appendChild(announcement_demo);
       }
-      else if(announcement_data.url == "ingame://play_screen_quick_play"){announcement.addEventListener("click", function(){open_play('play_screen_quickplay')})}
+      else if(announcement_data.url == "ingame://play_screen_quick_play"){announcement.addEventListener("click", function(){open_play_combined()})}
     }
   }
   if(announcement_data.type){

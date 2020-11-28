@@ -30,11 +30,10 @@ const CLIENT_COMMAND_SET_CUSTOMIZATION = 78;
 const CLIENT_COMMAND_MESSAGE_PARTY = 79;
 const CLIENT_COMMAND_MESSAGE_LOBBY = 80;
 const CLIENT_COMMAND_DISCONNECTED = 81;
-const CLIENT_COMMAND_GET_CUSTOM_MATCH_LIST = 82;
+const CLIENT_COMMAND_GET_COMBINED_LIST = 82;
 const CLIENT_COMMAND_DISMISS_RECONNECT = 83;
 const CLIENT_COMMAND_SELECT_MAP = 84;
 const CLIENT_COMMAND_GET_RANKED_MMRS = 85;
-const CLIENT_COMMAND_GET_SINGLE_RANKED_MMR = 86;
 const CLIENT_COMMAND_REQUEUE = 87;
 const CLIENT_COMMAND_SET_COLOR = 88;
 const CLIENT_COMMAND_GET_NOTIFICATIONS = 89;
@@ -58,17 +57,21 @@ const CLIENT_COMMAND_HANDLE_FRIEND_REQUEST = 107;
 const CLIENT_COMMAND_GET_FRIENDS_LIST = 108;
 const CLIENT_COMMAND_REMOVE_FRIEND = 109;
 const CLIENT_COMMAND_MESSAGE_USER = 110;
+const CLIENT_COMMAND_CREATE_PICKUP = 111;
+const CLIENT_COMMAND_LEAVE_PICKUP = 112;
+const CLIENT_COMMAND_JOIN_PICKUP = 113;
 
 const MATCH_TYPE_CUSTOM = 0;
 const MATCH_TYPE_TOURNAMENT = 1;
-const MATCH_TYPE_RANKED = 2;
-const MATCH_TYPE_QUICKPLAY = 3;
+const MATCH_TYPE_PICKUP = 2;
+const MATCH_TYPE_QUEUE = 3;
+const MATCH_TYPE_WARMUP = 4;
 
 const MATCH_TYPE = {
     0: { "i18n": "match_type_custom" },
     1: { "i18n": "match_type_tournament" },
-    2: { "i18n": "match_type_ranked" },
-    3: { "i18n": "match_type_quickplay" },
+    2: { "i18n": "match_type_pickup" },
+    3: { "i18n": "match_type_queue" },
     4: { "i18n": "match_type_warmup" },
 };
 
@@ -309,7 +312,6 @@ const CUSTOM_SOLO_MODES = ["duel","ffa"];
 const CUSTOM_ROUND_BASED_MODES = ["ca","shaft_arena","rocket_arena","wipeout","macguffin","extinction","bounty"];
 const CUSTOM_TIMELIMIT_ONLY_MODES = ["duel", "race"];
 const CUSTOM_SPECIAL_COOP_MODES = ["survival"];
-
 const CUSTOM_FRAG_LIMITS = [1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 100, 150, 200, 250, 300, 500, 1000, 0];
 const CUSTOM_ROUND_LIMITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20];
 const CUSTOM_CAPTURE_LIMITS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 0];
@@ -338,8 +340,8 @@ var global_game_mode_map = {
     "duelc": {
         "mode": "duelc",
         "name": "Duel Classic",
-        "i18n": "game_mode_duel_classic",
-        "desc_i18n": "game_mode_desc_duel_classic",
+        "i18n": "game_mode_duelc",
+        "desc_i18n": "game_mode_desc_duelc",
         "announce": "announcer_common_gamemode_duel",
         "enabled": true,
         "image": "duel_loop.jpg",
@@ -548,35 +550,11 @@ var global_game_mode_map = {
     },
 };
 
-let global_queues = {
-    /* data coming from the MS
-    "<queue_name>": {
-        "i18n": "game_mode_<mode_name>",
-        "vs": "5v5/FFA/Instagib X etc.",
-        "queue_name": localize(i18n)+" "+vs,
-        "team_size": 5,
-        "locked": false,
-        "leaderboard": true,
-        "ranked": true,
-        "roles": [
-            { "name": "attack", "i18n": "role_attack" },
-            { "name": "defend", "i18n": "role_defend" },
-        ],
-        "modes": [{
-            "maps": [
-                "mg_crystal_cove",
-                "mg_sunken",
-            ],
-            "physics": 0,
-            "instagib": false,
-            "mode_name": "macguffin",
-            "queue_name": "r_team_3",
-            "time_limit": 0,
-            "score_limit": 2,
-        }]
-    },
-    */
-};
+// Mode definitions for queues and pickups coming from the MS, see parse_modes()
+let global_mode_definitions = {};
+
+// Currently active queues, coming from the MS, see parse_modes()
+let global_queues = {};
 
 var global_general_card_data = {
     "practice": {

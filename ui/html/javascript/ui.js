@@ -17,17 +17,13 @@ var global_input_debouncers = {}
 var global_range_slider_map = {};
 
 // animationframe timestamp when queue started:
-var global_mm_queuetime_ranked = 0;
-var global_mm_queuetime_quickplay = 0;
+var global_mm_queuetime = 0;
 // queue time in seconds:
-var global_mm_time_ranked = 0;
-var global_mm_time_quickplay = 0;
+var global_mm_time = 0;
 // queue is currently active:
-var global_mm_searching_ranked = false;
-var global_mm_searching_quickplay = false;
+var global_mm_searching = false;
 // queue start timestamps:
-var global_mm_start_ranked_ts = null;
-var global_mm_start_quickplay_ts = null;
+var global_mm_start_ts = null;
 
 // currently open menu page
 var global_menu_page = "home_screen";
@@ -39,6 +35,7 @@ var global_server_regions = {};
 var global_server_locations = {};
 var global_server_selected_locations = [];
 var global_known_server_locations = [];
+var global_default_datacenter = '';
 
 var global_user_battlepass = {};
 var global_battlepass_list = [];
@@ -188,9 +185,7 @@ window.addEventListener("load", function(){
         window.console_prompt.value='';
     });
 
-    bind_event('set_console_visible', function (visible) {
-        set_console(visible);
-    });
+    bind_event('set_console_visible', set_console);
 
     // Setup listeners for the main ingame chat prompt
     main_chat_setup();
@@ -354,11 +349,9 @@ window.addEventListener("load", function(){
                     button_game_over_quit(false);
                     break;
                 case "queues":
-                    global_queue_groups = json_data.queue_groups;
-                    parse_modes(json_data.queues);
+                    parse_modes(json_data);
                     init_queues();
                     init_screen_leaderboards();
-                    updateQueueRanks();
                     break;
                 case "online-friends-data":
                     handle_friends_in_diabotical_data(json_data.data);
@@ -371,7 +364,19 @@ window.addEventListener("load", function(){
                     break;
                 case "get-ranked-mmrs":
                     global_self.mmr = json_data.data;
-                    updateQueueRanks();
+                    update_queue_ranks();
+                    break;
+                case "get-combined-list":
+                    global_updating_match_list = false;
+                    global_custom_list_data_ts = Date.now();
+                    global_custom_list_data = json_data.data.customs;
+                    global_pickup_list_data = json_data.data.pickups;
+                    global_party.pickup_ids = json_data.data.pickup_ids;
+                    if (global_menu_page == "play_screen_customlist" || global_menu_page == "custom_screen") renderMatchList();
+                    if (global_menu_page == "play_screen_combined") {
+                        render_play_screen_matchlist();
+                        render_play_screen_pickups();
+                    }
                     break;
                 case "warmup-join-error":
                     queue_dialog_msg({
@@ -381,9 +386,9 @@ window.addEventListener("load", function(){
                     break;
                 case "post-match-updates":
                     if ("mmr_updates" in json_data.data) {
-                        if ("mode" in json_data.data.mmr_updates && "to" in json_data.data.mmr_updates) {
-                            global_self.mmr[json_data.data.mmr_updates.mode] = json_data.data.mmr_updates.to;
-                            updateQueueRanks();
+                        if ("mmr_key" in json_data.data.mmr_updates && "to" in json_data.data.mmr_updates) {
+                            global_self.mmr[json_data.data.mmr_updates.mmr_key] = json_data.data.mmr_updates.to;
+                            update_queue_ranks();
                         }
                     }
                     if ("progression_updates" in json_data.data) {
@@ -448,6 +453,9 @@ window.addEventListener("load", function(){
                         "msg": localize_ext("friends_list_text_add_friend_disabled", {"name": json_data.name}),
                     });
                     break;
+                case "pickup-update":
+                    update_pickup_data(json_data.data);
+                    break;
             }
 
             // Send to single use registered response handlers
@@ -493,6 +501,10 @@ window.addEventListener("load", function(){
                         "title": localize("title_error"),
                         "msg": localize(msg_data),
                     });
+
+                    if (msg_data == "pickup_join_error_not_exists") {
+                        send_string(CLIENT_COMMAND_GET_COMBINED_LIST);
+                    }
                     break;
                 case "party-locations":
                     set_region_selection(false, msg_data);
@@ -522,6 +534,9 @@ window.addEventListener("load", function(){
                         "msg": localize("customize_preset_loaded"),
                     });
                     */
+                    break;
+                case "pickup-leave":
+                    leave_pickup(msg_data);
                     break;
             }
 
@@ -970,6 +985,7 @@ window.addEventListener("load", function(){
         }
 
         if (variable == "lobby_custom_datacenter") {
+            global_default_datacenter = value;
             value = set_lobby_datacenter(value);
         }
 
@@ -1395,6 +1411,7 @@ window.addEventListener("load", function(){
     initialize_tooltip_hovers();
     initialize_tooltip_type2();
     initialize_tooltip2_cleanup_listener();
+    initialize_play_screen_cleanup_listener();
 
     _for_each_in_class("select_setting", function (element) {
         addListener(element, function(opt, field) {
@@ -1526,6 +1543,9 @@ function set_masterserver_connection_state(connected, initial) {
         // Request match reconnect informations
         send_string(CLIENT_COMMAND_GET_RECONNECTS);
 
+        // Request match and pickup lists if we are currently on the play screen
+        if (global_menu_page == "play_screen_combined") update_custom_match_list(true);
+
         // =============================
         // Show/Hide ui containers
         // =============================
@@ -1539,6 +1559,9 @@ function set_masterserver_connection_state(connected, initial) {
         _id("customize_menu").style.display = "flex";
         _id("customize_content").style.display = "flex";
         _id("customize_offline_msg").style.display = "none";
+
+        _id("play_screen_combined_offline").style.display = "none";
+        _id("play_screen_combined_online").style.display = "block";
 
         console.log("POSTMSAUTH100");
 
@@ -1558,11 +1581,14 @@ function set_masterserver_connection_state(connected, initial) {
         _id("customize_content").style.display = "none";
         _id("customize_offline_msg").style.display = "flex";
 
+        _id("play_screen_combined_offline").style.display = "block";
+        _id("play_screen_combined_online").style.display = "none";
+
         // Remove the queues
         clear_queues();
 
         // Stop searching
-        process_queue_msg("all", "stop");
+        process_queue_msg("stop");
 
     }
 }
@@ -1608,78 +1634,6 @@ function update_variable(type, variable, value, callback_type, callback) {
     if (type == "string") engine.call("set_string_variable", variable, value);
     if (type == "bool")   engine.call("set_bool_variable", variable, value);
     if (type == "real")   engine.call("set_real_variable", variable, value);
-}
-
-function parse_modes(modes) {
-    global_queues = {};
-
-    for (let name in modes) {
-        let vs = '';
-        let i18n = 'game_mode_';
-        let mode = '';
-        var modifier = '';
-
-        if (modes[name].modes.length == 0) continue;
-        else if (modes[name].modes.length == 1) {
-            if (modes[name].modes[0].instagib && modes[name].modes[0].mode_name != "ghosthunt") modifier += localize("game_mode_type_instagib")+" ";
-            i18n += modes[name].modes[0].mode_name;
-            mode = modes[name].modes[0].mode_name;
-        } else {
-            if (modes[name].players_per_team == 1) {
-                i18n += "circuit";
-                mode = "solo_mix";
-            } else {
-                if (modes[name].max_party_size == 1) {
-                    i18n += "pickup";
-                } else {
-                    i18n += "circuit";
-                }
-                mode = "team_mix";
-            }
-        }
-
-        if (modes[name].teams == 1) {
-            vs += localize_ext("game_mode_type_players", {"count": modes[name].players_per_team});
-        } else if (modes[name].teams == 2) {
-            vs += modes[name].players_per_team+localize("game_mode_type_vs_short")+modes[name].players_per_team;
-        } else if (modes[name].teams > 2) {
-            if (modes[name].players_per_team == 1) vs += localize("game_mode_type_ffa");
-            else vs += Array(modes[name].teams).fill(modes[name].players_per_team).join(localize("game_mode_type_vs_short"));
-        }
-
-        let queue_name = '';
-        if (mode == "ffa") {
-            queue_name = vs;
-        } else {
-            queue_name = vs+" "+localize(i18n).toUpperCase();
-        }
-
-        if (modifier.length) {
-            queue_name += " "+modifier.toUpperCase();
-        }
-
-        let roles = [];
-        for (let role in modes[name].roles) {
-            roles.push({
-                "name": role,
-                "i18n": "role_"+role,
-                "players": modes[name].roles[role]
-            });
-        }
-
-        global_queues[name] = {
-            "i18n": i18n,
-            "match_type": modes[name].type,
-            "vs": vs,
-            "queue_name": queue_name,
-            "team_size": modes[name].players_per_team,
-            "modes": modes[name].modes,
-            "roles": roles,
-            "locked": modes[name].enabled ? false : true,
-            "leaderboard": modes[name].leaderboard,
-            "ranked": modes[name].ranked,
-        };
-    }
 }
 
 function handle_match_reconnect(data) {
@@ -1750,11 +1704,21 @@ function set_console(visible) {
 
 // animationFrame loop for misc purposes to not mix it with the anim library, currently only used for the queue timer (replaced anime.js)
 _last_anim_misc = Math.floor(performance.now() / 1000);
+_last_anim_misc_30s = Math.floor(performance.now() / 1000);
 function anim_misc(timestamp) {
     let ts_seconds = Math.floor(timestamp / 1000);
+    // Run something once a second
     if (_last_anim_misc != ts_seconds) {
-        // Run something once a second
-        if (global_mm_searching_ranked || global_mm_searching_quickplay) queue_timer_update();
+        if (global_mm_searching) queue_timer_update();
+
+        // Check if the match list needs updating
+        update_custom_match_list(false, timestamp);
+    }
+    // Run something once every 30s
+    if ((ts_seconds - _last_anim_misc_30s) >= 30) {
+        update_queue_countdown();
+
+        _last_anim_misc_30s = ts_seconds;
     }
     _last_anim_misc = ts_seconds;
 
@@ -1816,8 +1780,14 @@ function close_modal_screen(e, selector, instant) {
     engine.call("set_modal", false);
 
     // Update the Matchlist if we are currently looking at it
-    if (el.id == "region_select_modal_screen" && global_menu_page == "play_panel" && global_play_menu_page == "play_screen_customlist") {
-        renderMatchList();
+    if (el.id == "region_select_modal_screen") {
+        if (global_menu_page == "play_panel" && global_play_menu_page == "play_screen_customlist") {
+            renderMatchList();
+        }
+        if (global_menu_page == "play_screen_combined") {
+            render_play_screen_matchlist();
+            render_play_screen_pickups();
+        }
     }
 
     _id("modal_dialogs").classList.remove("active");
@@ -2199,4 +2169,3 @@ function verify_script_data() { //backup if script_data.js is not present
         console.log("Using backup global_gamemode_data");
     }
 }
-

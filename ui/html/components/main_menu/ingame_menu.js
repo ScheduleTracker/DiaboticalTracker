@@ -10,7 +10,7 @@ function init_screen_ingame_menu() {
             // hide menu screen
             if (global_menu_page == "ingame_menu_screen") {
                 //open_home(true);
-                open_play(undefined, true);
+                open_play_combined(true);
             }
         }
     });

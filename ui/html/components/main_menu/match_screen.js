@@ -53,8 +53,8 @@ function renderMatchScreen(match) {
     let mode_name = '';
     if (match.match_type == MATCH_TYPE_CUSTOM)     mode_name = localize("match_type_custom");
     if (match.match_type == MATCH_TYPE_TOURNAMENT) mode_name = localize("match_type_tournament");
-    if (match.match_type == MATCH_TYPE_RANKED)     mode_name = localize("match_type_ranked");
-    if (match.match_type == MATCH_TYPE_QUICKPLAY)  mode_name = localize("match_type_quickplay");
+    if (match.match_type == MATCH_TYPE_PICKUP)     mode_name = localize("match_type_pickup");
+    if (match.match_type == MATCH_TYPE_QUEUE)      mode_name = localize("match_type_queue");
     head_left.appendChild(_createElement("div", "match_type", mode_name));
 
     let head_right = _createElement("div", ["block", "right"]);

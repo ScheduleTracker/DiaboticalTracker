@@ -335,7 +335,6 @@ function open_home(silent) {
     set_blur(false);
     historyPushState({"page": "home_screen"});
     switch_screens(_id("home_screen"), silent);
-    set_party_box_visible(true);
     engine.call("set_avatar_camera_main");
 }
 
@@ -443,10 +442,6 @@ function switch_screens(dst, silent) {
         play_transition_if_hidden(dst, 'ui_transition1');
     }
 
-    if (!['home_screen','play_panel'].includes(dst.id)) {
-        set_party_box_visible(false);
-    }
-
     let menu = _id("lobby_container");
     let menu_display_computed = getComputedStyle(menu).display;
     let menu_display_set = menu.style.display;
@@ -463,7 +458,7 @@ function switch_screens(dst, silent) {
     // Contained screens
     _fade_out_if_not(_id('ingame_menu_screen'), dst);
     _fade_out_if_not(_id('settings_screen'), dst);
-    _fade_out_if_not(_id('play_panel'), dst);
+    _fade_out_if_not(_id('custom_screen'), dst);
     _fade_out_if_not(_id('home_screen'), dst);
     _fade_out_if_not(_id('customize_screen'), dst);
     _fade_out_if_not(_id('battlepass_screen'), dst);
@@ -482,6 +477,7 @@ function switch_screens(dst, silent) {
     _fade_out_if_not(_id('license_center_screen'), dst);
     _fade_out_if_not(_id('match_screen'), dst);
     _fade_out_if_not(_id('aim_screen'), dst);
+    _fade_out_if_not(_id('play_screen_combined'), dst);
 
     // Full screens
     _fade_out_if_not(_id('notification_screen'), dst);
@@ -593,12 +589,6 @@ function play_menu_change_tab(tab, newPage) {
     _fade_out_if_not(_id('play_screen_quickplay'), newPage);
     _fade_out_if_not(_id('play_screen_ranked'), newPage);
     //_fade_out_if_not(_id('play_screen_esports'), newPage);
-
-    if (global_play_menu_page == "play_screen_customlist" || global_play_menu_page == "play_screen_custom") {
-        set_party_box_visible(false);
-    } else {
-        set_party_box_visible(true);
-    }
 }
 
 let global_background_blur = false;
@@ -618,6 +608,14 @@ function highlight_play_menu(selector) {
     selector.classList.add("active");
 }
 
+function open_custom() {
+    hl_button("mm_play");
+    set_blur(true);
+    engine.call("set_avatar_camera_main");
+
+    play_screen_open_custom(true, screen);
+}
+
 function open_play(screen, silent) {
     hl_button("mm_play");
     set_blur(true);
@@ -631,12 +629,6 @@ function open_play(screen, silent) {
         play_screen_open_quick_play();
     } else {
         play_screen_open_default(silent);
-
-        if (global_play_menu_page == "play_screen_customlist" || global_play_menu_page == "play_screen_custom") {
-            set_party_box_visible(false);
-        } else {
-            set_party_box_visible(true);
-        }
     }
 
     if (global_play_menu_page == "play_screen_quickplay") play_screen_reset_cards("quickplay");
@@ -644,9 +636,32 @@ function open_play(screen, silent) {
 }
 
 function play_screen_open_custom(switch_screen, screen) {
-    play_menu_change_tab(_id("play_menu_tab_custom"), _id(screen));
+    if (global_lobby_id == -1) {
+        if (global_play_menu_page != "play_screen_customlist") {
+            play_transition_if_hidden(_id('play_screen_customlist'), 'ui_transition1');
+            _fade_out_if_not(_id('play_screen_custom'), _id('play_screen_customlist'));
+            _fade_out_if_not(_id('play_screen_customlist'), _id('play_screen_customlist'));
+
+            global_play_menu_page = "play_screen_customlist";
+            updateCustomMatchList();
+        }
+    } else {
+        if (global_play_menu_page != "play_screen_custom") {
+            play_transition_if_hidden(_id('play_screen_custom'), 'ui_transition1');
+            _fade_out_if_not(_id('play_screen_customlist'), _id('play_screen_custom'));
+            _fade_out_if_not(_id('play_screen_custom'), _id('play_screen_custom'));
+
+            global_play_menu_page = "play_screen_custom";
+        }
+    }
+
+    historyPushState({
+        "page": "custom_screen",
+        "subpage": global_play_menu_page,
+    });
+
     if (switch_screen) {
-        switch_screens(_id('play_panel'));
+        switch_screens(_id('custom_screen'));
     }
 }
 function play_screen_open_quick_play() {
@@ -665,6 +680,19 @@ function play_screen_open_default(silent) {
         "subpage": global_play_menu_page,
     });
     switch_screens(_id("play_panel"), silent);
+}
+
+function open_play_combined(silent) {
+    set_blur(true);
+    hl_button("mm_play");
+    engine.call("set_avatar_camera_main");
+    historyPushState({
+        "page": "play_screen_combined",
+        "subpage": global_play_menu_page,
+    });
+    switch_screens(_id("play_screen_combined"), silent);
+
+    update_custom_match_list(true);
 }
 
 function open_ingame_menu(silent) {
@@ -1225,51 +1253,27 @@ function party_context_select(cmd, user_id) {
 
 
 function queue_timer_update() {
-    if (!global_mm_searching_ranked && !global_mm_searching_quickplay) return;
+    if (!global_mm_searching) return;
 
     let now = Date.now();
 
-    if (global_mm_searching_ranked) {
-        let time = Math.floor((now - global_mm_start_ranked_ts) / 1000);
-        if (time != global_mm_time_ranked) {
-            global_mm_time_ranked = time;
-            let queueTimerDOM = _get_first_with_class_in_parent(_id("queue_mm_box"), 'queue_queue_time');
-            let minutes = Math.floor(time / 60);
-            let seconds = time % 60;
-            let formattedMinutes = ("0" + minutes).slice(-2);
-            let formattedSeconds = ("0" + seconds).slice(-2);
+    let time = Math.floor((now - global_mm_start_ts) / 1000);
+    if (time != global_mm_time) {
+        global_mm_time = time;
+        let queueTimerDOM = _get_first_with_class_in_parent(_id("queue_mm_box"), 'queue_queue_time');
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+        let formattedMinutes = ("0" + minutes).slice(-2);
+        let formattedSeconds = ("0" + seconds).slice(-2);
 
-            queueTimerDOM.textContent = formattedMinutes + ":" + formattedSeconds;
-        }
+        queueTimerDOM.textContent = formattedMinutes + ":" + formattedSeconds;
     }
-    if (global_mm_searching_quickplay) {
-        let time = Math.floor((now - global_mm_start_quickplay_ts) / 1000);
-        if (time != global_mm_time_quickplay) {
-            global_mm_time_quickplay = time;
-            let queueTimerDOM = _get_first_with_class_in_parent(_id("queue_quickplay_box"), 'queue_queue_time');
-            let minutes = Math.floor(time / 60);
-            let seconds = Math.floor(time % 60);
-            let formattedMinutes = ("0" + minutes).slice(-2);
-            let formattedSeconds = ("0" + seconds).slice(-2);
-
-            queueTimerDOM.textContent = formattedMinutes + ":" + formattedSeconds;
-        }
-    }
-
 }
 
-function process_queue_msg(type, msg) {
-    console.log("process_queue_msg", type, msg);
+function process_queue_msg(msg) {
+    //console.log("process_queue_msg", msg);
 
-    var elem;
-    if (type == "all") {
-        process_queue_msg("ranked", msg);
-        process_queue_msg("quickplay", msg);
-        return;
-    }
-
-    if (type == "ranked")    { elem = _id("queue_mm_box"); }
-    if (type == "quickplay") { elem = _id("queue_quickplay_box"); }
+    let elem = _id("queue_mm_box");
 
     if (msg == "start") {
 
@@ -1282,9 +1286,6 @@ function process_queue_msg(type, msg) {
         var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_cancel_box');
         queueInfoDOM.style.display = "";
 
-        var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_match_found');
-        queueInfoDOM.style.display = "none";
-
         anim_remove(elem);
         anim_start({
             element: elem,
@@ -1293,21 +1294,14 @@ function process_queue_msg(type, msg) {
             easing: easing_functions.easeOutQuad,
         });      
 
-        if (type == 'ranked') {
-            global_mm_searching_ranked = true;
-            global_mm_start_ranked_ts = Date.now();
-        }
-        if (type == 'quickplay') {
-            global_mm_searching_quickplay = true;
-            global_mm_start_quickplay_ts = Date.now();
-        }
+        global_mm_searching = true;
+        global_mm_start_ts = Date.now();
 
         queue_timer_update();
 
     } else if (msg == "stop") {
 
-        if (type == "ranked")    global_mm_searching_ranked = false;
-        if (type == "quickplay") global_mm_searching_quickplay = false;
+        global_mm_searching = false;
 
         anim_remove(elem);
         anim_start({
@@ -1329,9 +1323,6 @@ function process_queue_msg(type, msg) {
         var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_cancel_box');
         queueInfoDOM.style.display = "";
 
-        var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_match_found');
-        queueInfoDOM.style.display = "none";
-
         anim_remove(elem);
         anim_start({
             element: elem,
@@ -1340,25 +1331,20 @@ function process_queue_msg(type, msg) {
             easing: easing_functions.easeOutQuad,
         });
 
-        if (type == "ranked")    global_mm_searching_ranked = true;
-        if (type == "quickplay") global_mm_searching_quickplay = true;
+        global_mm_searching = true;
 
     } else if (msg == "found") {
 
         // Reset the inactivity timer if we are about to join a match
         engine.call("reset_inactivity_timer");
 
-        if (type == "ranked")    global_mm_searching_ranked = false;
-        if (type == "quickplay") global_mm_searching_quickplay = false;
+        global_mm_searching = false;
 
         var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_info');
         queueInfoDOM.style.display = "none";
 
         var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_cancel_box');
         queueInfoDOM.style.display = "none";
-
-        var queueInfoDOM = _get_first_with_class_in_parent(elem, 'queue_match_found');
-        queueInfoDOM.style.display = "flex";
         
         anim_remove(elem);
         anim_start({
@@ -1378,21 +1364,12 @@ function process_queue_msg(type, msg) {
     update_queue_mode_selection();
 }
 
-function cancel_search(type) {
-    if (type == "ranked")    global_mm_searching_ranked = false;
-    if (type == "quickplay") global_mm_searching_quickplay = false;
+function cancel_search() {
+    global_mm_searching = false;
 
-    var elem;
-    if (type == "ranked")    elem = _id('queue_mm_box');
-    if (type == "quickplay") elem = _id('queue_quickplay_box');
-
-    if (elem == undefined) return;
-
-    send_json_data({"action": "party-cancel-queue", "type": type });
+    send_json_data({"action": "party-cancel-queue" });
 
     update_queue_mode_selection();
-
-    //elem.style.display = "none";
 }
 
 /*
@@ -1694,12 +1671,8 @@ function generate_tt_content(el) {
         return generate_tooltip_daily_challenges();
     }
 
-    if (msg_id == "queue_info_quickplay") {
-        return generate_tooltip_queue_info("quickplay");
-    }
-
-    if (msg_id == "queue_info_ranked") {
-        return generate_tooltip_queue_info("ranked");
+    if (msg_id == "queue_info") {
+        return generate_tooltip_queue_info();
     }
 
     if (msg_id == "customization_item") {
@@ -1775,31 +1748,24 @@ function generate_tooltip_daily_challenges() {
     return list;
 }
 
-function generate_tooltip_queue_info(type) {
+function generate_tooltip_queue_info() {
     let list = _createElement("div", "queue_mode_list");
 
-    let groups = {};
+    let mode_names = [];
 
     for (let cb of global_queue_mode_checkboxes) {
         if (cb.parentElement == null) continue;
-        
-        if (cb.dataset.type == type && cb.dataset.mode.length && cb.dataset.enabled == "true") {
-            let group = cb.parentNode.parentNode.parentNode.querySelector(".card_top .title").textContent;
-            if (!(group in groups)) {
-                groups[group] = [];
-            }
-            if (cb.querySelector(".checkbox_label").children.length) {
-                let string = [];
-                for (let i=0; i<cb.querySelector(".checkbox_label").children.length; i++) {
-                    string.push(cb.querySelector(".checkbox_label").children[i].textContent);
-                }
-                groups[group].push(string.join(" "));
-            } else {
-                groups[group].push(cb.querySelector(".checkbox_label").textContent);
-            }
-        }
+        if (!global_queues.hasOwnProperty(cb.dataset.mode)) continue;
+
+        if (cb.dataset.enabled == "true") mode_names.push(global_queues[cb.dataset.mode].queue_name+" - "+global_queues[cb.dataset.mode].vs);
     }
 
+    for (let mode of mode_names) {
+        let row = _createElement("div","row",mode);
+        list.appendChild(row);
+    }
+
+    /*
     let count = 0;
     let max = Object.keys(groups).length;
     for (let g of Object.keys(groups)) {
@@ -1826,6 +1792,7 @@ function generate_tooltip_queue_info(type) {
             list.appendChild(_createElement("div", "separator"));
         }
     }
+    */
 
     return list;
 }

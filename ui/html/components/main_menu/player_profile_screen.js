@@ -758,59 +758,31 @@ function open_user_ratings_modal(name, user_id) {
 function render_user_ratings_content(ratings) {
     let rating_lookup = {};
     for (let r of ratings) {
-        rating_lookup[r.mode_name] = r;
-    }
-
-    let esports_queues = [];
-    let team_queues = [];
-    let arena_queues = [];
-    for (let mode in global_queues) {
-        if ("ranked" in global_queues[mode] && global_queues[mode].ranked == true) {
-            if (global_queues[mode].locked) continue;
-
-            if (mode.startsWith("r_ca") || mode.startsWith("r_rocket_arena") || mode.startsWith("r_shaft_arena")) {
-                arena_queues.push(mode);
-            } else if (mode === "r_wo") {
-                team_queues.push(mode);
-            } else {
-                esports_queues.push(mode);
-            }
-        }
+        rating_lookup[r.mode_key] = r;
     }
 
     let fragment = new DocumentFragment();
 
-    for (let cat of ["esports", "team", "arena"]) {
-        let queues = [];
-        if (cat == "esports") queues = esports_queues;
-        if (cat == "team") queues = team_queues;
-        if (cat == "arena") queues = arena_queues;
+    for (let r of ratings) {
+        if (!global_mode_definitions.hasOwnProperty(r.mode_key)) continue;
+        
+        let m = global_mode_definitions[r.mode_key];
 
-        for (let queue of queues) {
-            let rating = _createElement("div", "rating");
-            rating.appendChild(_createElement("div", "mode_name", global_queues[queue].queue_name));
+        let rating = _createElement("div", "rating");
+        rating.appendChild(_createElement("div", "mode_name", m.name+" - "+m.vs));
 
-            if (queue in rating_lookup && rating_lookup[queue].rank_tier !== null) {
-                rating.appendChild(renderRankIcon(rating_lookup[queue].rank_tier, rating_lookup[queue].rank_position));
-                let rank_name = _createElement("div", "rank_name");
-                rank_name.appendChild(getRankName(rating_lookup[queue].rank_tier, rating_lookup[queue].rank_position));
-                rating.appendChild(rank_name);
+        rating.appendChild(renderRankIcon(r.rank_tier, r.rank_position));
+        let rank_name = _createElement("div", "rank_name");
+        rank_name.appendChild(getRankName(r.rank_tier, r.rank_position));
+        rating.appendChild(rank_name);
 
-                if (rating_lookup[queue].hasOwnProperty("rating")) {
-                    let skill_rating_cont = _createElement("div", "skill_rating_cont");
-                    skill_rating_cont.appendChild(_createElement("div", "skill_rating", Math.floor(rating_lookup[queue].rating)));
-                    skill_rating_cont.appendChild(_createElement("div", "unit", "SR"));
-                    rating.appendChild(skill_rating_cont);
-                }
-            } else {
-                rating.appendChild(renderRankIcon(0, null, global_queues[queue].team_size));
-                let rank_name = _createElement("div", "rank_name");
-                rank_name.appendChild(_createElement("div", "", localize("rank_unranked")));
-                rating.appendChild(rank_name);
-            }
-
-            fragment.appendChild(rating);
+        if (r.hasOwnProperty("rating")) {
+            let skill_rating_cont = _createElement("div", "skill_rating_cont");
+            skill_rating_cont.appendChild(_createElement("div", "skill_rating", Math.floor(r.rating)));
+            skill_rating_cont.appendChild(_createElement("div", "unit", "SR"));
+            rating.appendChild(skill_rating_cont);
         }
+        fragment.appendChild(rating);
     }
 
     return fragment;
@@ -964,36 +936,13 @@ function player_profile_render_stats(data) {
     }
     */
 
-    let qp_queues = Object.keys(global_queues).filter(m => global_queues[m].match_type == MATCH_TYPE_QUICKPLAY);
-    let r_queues = Object.keys(global_queues).filter(m => global_queues[m].match_type == MATCH_TYPE_RANKED);
-    
-    for (let match_type of ["quickplay", "ranked"]) {
-        let queue_list = [];
-        if (match_type == "quickplay") {
-            ctrl_mode_select.appendChild(_createElement("div", "select-category", localize("quickplay_queues")));
-            queue_list = qp_queues;
-        }
-        if (match_type == "ranked") {
-            ctrl_mode_select.appendChild(_createElement("div", "select-category", localize("ranked_queues")));
-            queue_list = r_queues;
-        }
-        for (let queue of queue_list) {
-            if (global_queues[queue].locked) continue;
+    for (let mode_key in global_mode_definitions) {
+        if (!global_mode_definitions[mode_key].enabled) continue;
+        if (!stats_main.hasOwnProperty(mode_key)) continue;
 
-            if (global_queues[queue].modes.length > 1) {
-                for (let mode of global_queues[queue].modes) {
-                    let opt = _createElement("div");
-                    opt.dataset.value = mode.queue_name+"-"+mode.mode_name;
-                    opt.textContent = global_queues[queue].queue_name + " - " + localize(global_game_mode_map[mode.mode_name].i18n);
-                    ctrl_mode_select.appendChild(opt);
-                }
-            } else if (global_queues[queue].modes.length == 1) {
-                let opt = _createElement("div");
-                opt.dataset.value = global_queues[queue].modes[0].queue_name+"-"+global_queues[queue].modes[0].mode_name;
-                opt.textContent = global_queues[queue].queue_name;
-                ctrl_mode_select.appendChild(opt);
-            }
-        }
+        let opt = _createElement("div", null, global_mode_definitions[mode_key].name+" "+global_mode_definitions[mode_key].vs);
+        opt.dataset.value = mode_key;
+        ctrl_mode_select.appendChild(opt);
     }
 
     // ================
@@ -1756,7 +1705,7 @@ function prepareUserStats(name, data) {
     stats.name = name;
 
     for (let d of data) {
-        let mode_key = d.match_mm_mode+"-"+d.match_mode;
+        let mode_key = d.match_mm_mode;
         if (d.match_mode == "" && d.match_mm_mode == "") mode_key = "total";
 
         if (!(mode_key in stats)) stats[mode_key] = {};

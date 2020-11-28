@@ -940,3 +940,112 @@ function newCommend(name) {
         anim_hide(notif);
     }, 3000);
 }
+
+function getVS(team_count, team_size) {
+    let vs = '';
+    if (team_count == 1) {
+        vs += localize_ext("game_mode_type_players", {"count": team_size});
+    } else if (team_count == 2) {
+        vs += team_size + localize("game_mode_type_vs_short") + team_size;
+    } else if (team_count > 2) {
+        if (team_size == 1) vs += localize("game_mode_type_ffa");
+        else vs += Array(team_count).fill(team_size).join(localize("game_mode_type_vs_short"));
+    }
+    return vs;
+}
+
+function parse_modes(data) {
+    global_queues = {};
+
+    global_mode_definitions = data.mode_definitions;
+    global_active_queues = data.active_queues;
+
+    for (let m in global_mode_definitions) {
+        let mode = global_mode_definitions[m];
+        let name_parts = [];
+        
+        if (mode.mode_key == "md_arena_team_big") name_parts.push(localize("game_mode_ca_big"));
+        else name_parts.push(localize("game_mode_"+mode.mode_name));
+        
+        if (mode.instagib && mode.mode_name != "ghosthunt") name_parts.push(localize("game_mode_type_instagib"));
+
+        mode.name = name_parts.join(" ");
+
+        let vs = '';
+        if (mode.team_size == 1) {
+            if (mode.team_count > 2) {
+                vs = localize("game_modes_ffa");
+            } else {
+                vs = localize("game_modes_solo");
+            }
+        } else {
+            vs = localize("game_modes_team");
+        }
+
+        mode.vs = vs;
+    }
+
+    /*
+    
+    global_active_queues = json_data.active_queues;
+
+    "mode_definitions": common.MODES.mode_definitions,
+        "mode_key": m.mode_key,
+        "mmr_key": m.mmr_key,
+        "enabled": m.enabled,
+        "pickup": m.pickup,
+        "leaderboard": m.leaderboard,
+        "team_count": m.team_count,
+        "team_size": m.team_size,
+        "team_size_min": m.team_size_min,
+        "team_size_max": m.team_size_max,
+        "party_size_max": m.party_size_max,
+        "mode_name": m.mode_name,
+        "time_limit": m.time_limit,
+        "score_limit": m.score_limit,
+        "instagib": m.instagib,
+        "physics": m.physics,
+        "maps": m.maps
+    "active_queues": common.MODES.active_queues
+    */
+
+    for (let m of data.active_queues) {
+
+        if (!global_mode_definitions.hasOwnProperty(m.mode_key)) return;
+        let mode = global_mode_definitions[m.mode_key];
+
+        let vs = getVS(mode.team_count, mode.team_size);
+        let i18n = 'game_mode_'+mode.mode_name;
+        var modifier = '';
+
+        if (mode.instagib && mode.mode_name != "ghosthunt") modifier += localize("game_mode_type_instagib")+" ";
+
+        let queue_name = localize(i18n);
+        if (modifier.length) queue_name += " "+modifier.toUpperCase();
+
+        /*
+        let roles = [];
+        for (let role in modes[name].roles) {
+            roles.push({
+                "name": role,
+                "i18n": "role_"+role,
+                "players": modes[name].roles[role]
+            });
+        }
+        */
+
+        global_queues[m.mode_key] = {
+            "i18n": i18n,
+            "match_type": MATCH_TYPE_QUEUE,
+            "vs": vs,
+            "queue_name": queue_name,
+            "team_size": mode.team_size,
+            "team_count": mode.team_count,
+            "mode_name": mode.mode_name,
+            "mode_key": m.mode_key,
+            "locked": mode.enabled ? false : true,
+            "leaderboard": mode.leaderboard,
+            "physics": mode.physics
+        };
+    }
+}

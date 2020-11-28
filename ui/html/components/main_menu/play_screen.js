@@ -1,7 +1,4 @@
-// global vars
-let global_queue_mode_checkboxes = [];
-let global_queue_groups = [];
-let global_queue_selection = null;
+
 
 // on load
 function init_screen_play() {
@@ -22,6 +19,7 @@ function init_screen_play() {
     });
 }
 
+/*
 function init_queues() {
     global_queue_mode_checkboxes = [];
     renderQuickPlayCards(global_queue_groups.filter(g => g.type == "quickplay"));
@@ -29,66 +27,10 @@ function init_queues() {
     engine.call("initialize_select_value", "lobby_search");
     update_queue_modes_availability();
 }
+*/
 
-
-function set_queue_selection(json) {
-    global_queue_selection = {};
-    try {
-        global_queue_selection = JSON.parse(json);
-    } catch(e) {
-        console.error("ERROR parsing queue selection json", e.message);
-    }
-
-    if (global_queue_selection === null) global_queue_selection = {};
-
-    let something_changed = false;
-    for (let cb of global_queue_mode_checkboxes) {
-        if (cb.classList.contains("party_disabled")) continue;
-
-        let active = (cb.dataset.enabled == "true") ? 1 : 0;
-
-        let changed = false;
-        if (global_queue_selection.hasOwnProperty(cb.dataset.mode)) {
-            if (global_queue_selection[cb.dataset.mode] != active) {
-                changed = true;
-            }
-        } else {
-            global_queue_selection[cb.dataset.mode] = 1;
-            changed = true;
-        }
-
-        if (changed) {
-            something_changed = true;
-            let value = global_queue_selection[cb.dataset.mode];
-
-            cb.dataset.enabled = value == 1 ? "true" : "false";
-            (cb.dataset.enabled == "true") ? enable_mode_checkbox(cb) : disable_mode_checkbox(cb);
-        }
-    }
-
-    // cleanup unused queue settings
-    for (let queue in global_queue_selection) {
-        if (!global_queues.hasOwnProperty(queue)) delete global_queue_selection[queue];
-    }
-
-    if (something_changed && bool_am_i_leader) {
-        update_queue_modes();
-    }
-}
-function set_queue_enabled(mode, value) {
-    if (!global_queues.hasOwnProperty(mode)) return;
-
-    global_queue_selection[mode] = value ? 1 : 0;
-    update_variable("string", "lobby_search", JSON.stringify(global_queue_selection));
-}
-function set_queues_enabled(modes, value) {
-    for (let mode of modes) {
-        if (!global_queues.hasOwnProperty(mode)) continue;
-        global_queue_selection[mode] = value ? 1 : 0;
-    }
-    update_variable("string", "lobby_search", JSON.stringify(global_queue_selection));
-}
-function set_queue_modes() {    
+function set_queue_modes() {
+    //console.log("set_queue_modes", _dump(global_queue_selection), _dump(global_party));
     for (let queue in global_queue_selection) {
         if (global_party["modes"].includes(queue)) global_queue_selection[queue] = 1;
         else global_queue_selection[queue] = 0;
@@ -101,15 +43,7 @@ function set_queue_modes() {
     update_queue_mode_selection();
 }
 
-// For when no masterserver connection is available
-function clear_queues() {
-    try {
-        _empty(_id("play_screen_quickplay").querySelector(".play_cards_container"));
-        _empty(_id("play_screen_ranked").querySelector(".play_cards_container"));
-    } catch(e) {
-        console.error("clear_queues() - Error trying to clear play cards!", e.message);
-    }
-}
+
 
 // functions
 function play_screen_setup_card_sliding() {
@@ -1218,74 +1152,7 @@ function play_screen_reset_cards(type) {
     });
 }
 
-let queue_mode_update_id = 0;
-let queue_mode_confirmed_update_id = 0;
-function update_queue_modes() {    
-    let requested_modes = [];
 
-    for (let cb of global_queue_mode_checkboxes) {
-        if (cb.dataset.locked == "false" && cb.dataset.mode.length && cb.dataset.enabled == "true") {
-            requested_modes.push(cb.dataset.mode);
-        }
-    }
-
-    queue_mode_update_id++;
-    send_json_data({"action": "party-set-modes", "modes": requested_modes, "update_id": queue_mode_update_id });
-    global_update_queue_modes_timeout = null;
-}
-
-function update_queue_modes_availability() {
-    for (let cb of global_queue_mode_checkboxes) {
-        if (cb.classList.contains("disabled")) return;
-
-        let cb_times = cb.querySelector(".checkbox_times");
-        if (global_party['valid-modes'].includes(cb.dataset.mode)) {
-            cb.classList.remove("party_disabled");
-            if (cb_times) cb_times.classList.remove("party_disabled");
-        } else {
-            disable_mode_checkbox(cb);
-
-            cb.classList.add("party_disabled");
-            if (cb_times) cb_times.classList.add("party_disabled");
-        }
-    }
-}
-
-function enable_mode_checkbox(el) {
-    el.classList.add("checkbox_enabled");
-    el.dataset.enabled = true;
-
-    _for_each_with_class_in_parent(el, "checkbox_box", function(box) {
-        box.classList.add("enabled");
-        let cb = box.querySelector(".checkbox_mark")
-        if (cb) cb.classList.add("enabled");
-    });
-
-    if (el.nextSibling != null && el.nextSibling.classList.contains("card_roles")) {
-        if (el.nextSibling.firstElementChild != null) {
-            el.nextSibling.firstElementChild.classList.add("enabled");
-        }
-    }
-}
-function disable_mode_checkbox(el) {
-    el.classList.remove("checkbox_enabled");
-    el.dataset.enabled = false;
-
-    _for_each_with_class_in_parent(el, "checkbox_box", function(box) {
-        box.classList.remove("enabled");
-        let cb = box.querySelector(".checkbox_mark")
-        if (cb) cb.classList.remove("enabled");
-    });
-    if (el.nextSibling != null && el.nextSibling.classList.contains("card_roles")) {
-        _for_each_with_class_in_parent(el.nextSibling, "enabled", function(el) {
-            el.classList.remove("enabled");
-        });
-
-        _for_each_with_class_in_parent(el.nextSibling, "card_role_players", function(el) {
-            update_role_selection();
-        });
-    }
-}
 
 function update_role_selection() {
     _for_each_with_class_in_parent(_id("play_panel"), "card_role", function(r) {
@@ -1347,6 +1214,7 @@ function update_role_selection() {
     });
 }
 
+/*
 function update_queue_mode_selection() {
 
     let qp_count = 0;
@@ -1405,24 +1273,17 @@ function update_queue_mode_selection() {
         }
     }
 }
+*/
 
 function handle_mm_match_event(data) {
     //console.log("handle_mm_match_event", _dump(data));
 
     let delay = 0;
     if (data.action == "mm-match-found") {
-        if (data.type == "quickplay") {
-            process_queue_msg("quickplay", "found");
-            process_queue_msg("ranked", "stop");
-        }
-        if (data.type == "ranked") {
-            process_queue_msg("quickplay", "stop");
-            process_queue_msg("ranked", "found");
-        }
+        process_queue_msg("found");
         engine.call("flash_taskbar");
     } else if (data.action == "mm-join-match-found") {
-        process_queue_msg("quickplay", "found");
-        process_queue_msg("ranked", "stop");
+        process_queue_msg("found");
         engine.call("flash_taskbar");
     } else if (data.action == "mm-map-vote") {
         // mm-map-vote only comes after a mode-vote, so the draft screen is already visible
@@ -1453,7 +1314,7 @@ function handle_mm_match_event(data) {
 
         if (data.vote == "map" && data.mode in global_game_mode_map && data.mm_mode && data.mm_mode in global_queues) {
             icon_cont.style.backgroundImage = "url("+global_game_mode_map[data.mode].icon+"?s=6)";
-            title_cont.textContent = localize(global_game_mode_map[data.mode].i18n)+" "+global_queues[data.mm_mode].vs;
+            title_cont.textContent = localize(global_game_mode_map[data.mode].i18n)+" "+getVS(data.team_count, data.team_size);
             text_cont.textContent = localize(global_game_mode_map[data.mode].desc_i18n);
             icon_cont.style.display = "flex";
             title_cont.style.display = "flex";
@@ -1568,19 +1429,26 @@ function draft_update_vote_counts(data) {
 
 let mm_cancel_timeout = undefined;
 function mm_match_found_overlay(data) {
+    //console.log("MM_MATCH_FOUND_OVERLAY", _dump(data));
     /*
+    {
         "action": "mm-match-found",
-        "type": "quickplay",
+        "type": "pickup",
         "cancel_time": 5,
         "mode": "ca",
-        "mm_mode": "qp_ca_1",
-        "location": "mos",
-        "maps": [
-            "a_junktion",
+        "mm_mode": "md_arena_team",
+        "location": "rot",
+        "vote": "map",
+        "vote_options": [
+            "a_barrows_gate",
+            "a_bazaar",
             "a_heikam",
-            "a_barrows_gate"
+            "a_junktion"
         ]
+    } 
     */
+    cleanup_hover_info_box(true);
+
     engine.call('ui_sound', "ui_match_found");
     let splash = _id("match_found_splash");
     let type = splash.querySelector(".type");
@@ -1591,11 +1459,13 @@ function mm_match_found_overlay(data) {
     if (data.action == "mm-match-found")      cancel.dataset.type = "new-match";
     if (data.action == "mm-join-match-found") cancel.dataset.type = "join-match";
 
-    if (data.type == "quickplay")   type.textContent = localize("match_found_quickplay");
-    else if (data.type == "ranked") type.textContent = localize("match_found_ranked");
+    if (data.type == "queue") type.textContent = localize("match_found");
+    else if (data.type == "pickup") type.textContent = localize("match_found_pickup");
     else type.textContent = localize("match_found");
 
-    mode.textContent = global_queues[data.mm_mode].queue_name;
+    let mode_name = global_mode_definitions[data.mm_mode].name;
+    if (data.type == "pickup") mode_name += " "+getVS(data.team_count, data.team_size);
+    mode.textContent = mode_name;
 
     splash.style.display = "flex";
     
@@ -1716,71 +1586,7 @@ function set_draft_countdown(countdown) {
     _id("draft_screen_countdown").textContent = countdown;
 }
 
-
-function updateQueueRanks() {
-    if (Object.keys(global_self.mmr).length == 0) return;
-
-    _for_each_with_class_in_parent(_id("play_screen_quickplay"), "card_flex", function(el) {
-        let best = el.querySelector('.card_best_rank');
-        delete best.dataset.rank;
-        delete best.dataset.position;
-    });
-    _for_each_with_class_in_parent(_id("play_screen_ranked"), "card_flex", function(el) {
-        let best = el.querySelector('.card_best_rank');
-        delete best.dataset.rank;
-        delete best.dataset.position;
-    });
-
-    for (let mode of Object.keys(global_self.mmr)) {
-        if (!(mode in play_card_checkboxes)) continue;
-
-        let rank_cont = play_card_checkboxes[mode].querySelector('.checkbox_rank');
-        _empty(rank_cont);
-
-        if (global_self.mmr[mode].placement_matches != null && global_self.mmr[mode].placement_matches.length < 10) {
-            let placement_matches = _createElement("div", "rank_placements");
-            placement_matches.textContent = global_self.mmr[mode].placement_matches.length+" / 10";
-            rank_cont.appendChild(placement_matches);
-        }
-
-        let team_size = 1;
-        if (mode in global_queues) team_size = global_queues[mode].team_size;
-
-        rank_cont.appendChild(renderRankIcon(global_self.mmr[mode].rank_tier, global_self.mmr[mode].rank_position, team_size, "small"));
-
-        let best_cont = rank_cont.closest('.card_flex').querySelector('.card_best_rank');
-
-        let best_rank = 0;
-        let best_position = 99999999;
-        if ("position" in best_cont.dataset && Number(best_cont.dataset.position) > 0) best_position = Number(best_cont.dataset.position);
-        if ("rank" in best_cont.dataset && Number(best_cont.dataset.rank) >= 0) best_rank = Number(best_cont.dataset.rank);
-
-        if (global_self.mmr[mode].rank_tier != null && global_self.mmr[mode].rank_tier > best_rank) best_rank = global_self.mmr[mode].rank_tier;
-        if (global_self.mmr[mode].rank_position != null && global_self.mmr[mode].rank_position < best_position) best_position = global_self.mmr[mode].rank_position;
-
-        best_cont.dataset.rank = best_rank;
-        if (best_position == 99999999) { best_position = null };
-        best_cont.dataset.position = best_position;
-
-        _empty(best_cont);
-        if (best_rank > 0) {
-            let icon = renderRankIcon(best_rank, best_position, team_size, "");
-            best_cont.appendChild(icon);
-        }
-    }
-}
-
 function showRankOverview() {
     open_modal_screen("rank_overview_modal_screen");
 }
 
-function join_warmup() {
-    // Reset the inactivity timer if we are about to join a match
-    engine.call("reset_inactivity_timer");
-    send_string(CLIENT_COMMAND_JOIN_WARMUP, "s");
-}
-function join_party_warmup() {
-    // Reset the inactivity timer if we are about to join a match
-    engine.call("reset_inactivity_timer");
-    send_string(CLIENT_COMMAND_JOIN_WARMUP, "p")
-}

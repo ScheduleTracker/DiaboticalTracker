@@ -90,6 +90,7 @@ function historyOnPopState(obj) {
     else if (obj.page == "watch_screen")              open_watch();
     else if (obj.page == "learn_screen")              open_learn();
     else if (obj.page == "aim_screen")                open_aim();
+    else if (obj.page == "play_screen_combined")      open_play_combined();
 
     global_popstate = false;
 }
