@@ -372,10 +372,12 @@ window.addEventListener("load", function(){
                     global_custom_list_data = json_data.data.customs;
                     global_pickup_list_data = json_data.data.pickups;
                     global_party.pickup_ids = json_data.data.pickup_ids;
-                    if (global_menu_page == "play_screen_customlist" || global_menu_page == "custom_screen") renderMatchList();
-                    if (global_menu_page == "play_screen_combined") {
-                        render_play_screen_matchlist();
-                        render_play_screen_pickups();
+                    if (global_view_active) {
+                        if (global_menu_page == "play_screen_customlist" || global_menu_page == "custom_screen") renderMatchList();
+                        if (global_menu_page == "play_screen_combined") {
+                            render_play_screen_matchlist();
+                            render_play_screen_pickups();
+                        }
                     }
                     break;
                 case "warmup-join-error":

@@ -7529,6 +7529,11 @@ h2 {
     color:#ff9431;
 }
 
+@media (max-width: 130vh) {
+    #main_chat .chat_input_cont {
+        width:32vh;
+    }
+}
 
 
 #home_screen {
@@ -15766,7 +15771,7 @@ h2 {
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
-    max-width: 90vh;
+    max-width: 100vh;
     justify-content: center;
     margin-bottom:3vh;
 }
@@ -17902,10 +17907,11 @@ h2 {
     font-weight:bold;
 }
 .hover_info_box .pickup .party {
-    background-color:rgba(255,255,255,0.02);
+    background-color:rgba(255,255,255,0.1);
     padding-left:0.6vh;
     padding-right:0.6vh;
-    margin-bottom:2px;
+    margin-bottom:6px;
+    border:1px solid rgba(255,255,255,0.2);
 }
 .hover_info_box .pickup .party .row {
     display:flex;
@@ -17933,6 +17939,23 @@ h2 {
     }
     #play_screen_combined .section_customs {
         width: 84vh;
+    }
+}
+
+@media (max-width: 130vh) {
+    #play_screen_combined .section .container .queue {
+        width: 18vh;
+        height: 13vh;
+    }
+    #play_screen_combined .section .container .match {
+        width: 18vh;
+        height: calc(18vh*(9/16));
+    }
+    #play_screen_combined .section_customs {
+        width: 76vh;
+    }
+    #play_screen_combined .section .container .match .data .mode {
+        font-size:1.6vh;
     }
 }
 .dragging-clone {

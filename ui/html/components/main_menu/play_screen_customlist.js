@@ -197,8 +197,11 @@ function renderMatchListRow(match, row) {
     }
     sub_row_2.appendChild(tr_region);
 
+    let max_clients = match.team_size * match.team_count;
+    if (match.max_clients < max_clients) max_clients = match.max_clients;
+
     let tr_players = _createElement("div", "players");
-    tr_players.innerHTML = match.client_count+"/"+match.max_clients;
+    tr_players.innerHTML = match.client_count+"/"+max_clients;
     row.appendChild(tr_players);
 
     let ping_ms = global_server_locations[match.location].ping;

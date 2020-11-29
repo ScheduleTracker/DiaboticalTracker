@@ -45,6 +45,9 @@ function update_custom_match_list(manual, timestamp) {
     // Check if we are already waiting for an update
     if (global_updating_match_list) return;
 
+    // Don't do anything if the view isnt active
+    if (!global_view_active) return;
+
     let refresh = false;
     if (!manual) {
         let seconds_until_refresh = global_match_list_auto_refresh_time
@@ -70,6 +73,8 @@ function update_custom_match_list(manual, timestamp) {
 
 function update_queue_countdown() {
     //console.log("update_queue_countdown");
+    if (!global_view_active) return;
+
     let first_end_ts = null;
     for (let q of global_active_queues) {
         if (first_end_ts == null) {
@@ -398,6 +403,7 @@ function render_play_screen_matchlist() {
     let fragment = new DocumentFragment();
 
     let max_count = 12;
+    let count_rendered = 0;
     for (let count=0; count<global_custom_list_data.length; count++) {
         if (count >= max_count) break;
 
@@ -433,9 +439,11 @@ function render_play_screen_matchlist() {
 
         mdata.appendChild(_createElement("div", "map_name", _format_map_name(m.map)));
 
+        let max_clients = m.team_size * m.team_count;
+        if (m.max_clients < max_clients) max_clients = m.max_clients;
         let format = _createElement("div", "format");
         format.appendChild(_createElement("div", "icon"));
-        format.appendChild(_createElement("div", "vs", m.client_count+"/"+m.max_clients));
+        format.appendChild(_createElement("div", "vs", m.client_count+"/"+max_clients));
         info.appendChild(format);
 
         let datacenter = _createElement("div", "datacenter");
@@ -503,9 +511,10 @@ function render_play_screen_matchlist() {
         });
 
         fragment.appendChild(match);
+        count_rendered++;
     }
 
-    if (global_custom_list_data.length == 0) {
+    if (count_rendered == 0) {
         let outer = _createElement("div","no_data_cont");
         outer.appendChild(_createElement("div", "no_matches", localize("message_no_custom_matches_found")));
         fragment.appendChild(outer);
@@ -874,7 +883,11 @@ function render_play_screen_pickups() {
     if (our_pickups.length) {
         fragment.appendChild(_createElement("div", "pickups_head", localize("your_pickups")));
     }
+
+    let rendered_pickups = 0;
+
     for (let p of our_pickups) {
+        rendered_pickups++;
         fragment.appendChild(render_pickup(p, true));
     }
     if (our_pickups.length && other_pickups.length) {
@@ -884,10 +897,11 @@ function render_play_screen_pickups() {
     }
     for (let p of other_pickups) {
         if (global_server_selected_locations.indexOf(p.datacenter) == -1) continue;
+        rendered_pickups++;
         fragment.appendChild(render_pickup(p, false));
     }
 
-    if (our_pickups.length == 0 && other_pickups.length == 0) {
+    if (rendered_pickups == 0) {
         let outer = _createElement("div","no_data_cont");
         outer.appendChild(_createElement("div", "no_pickups", localize("message_no_pickups_found")));
         fragment.appendChild(outer);
@@ -1201,7 +1215,7 @@ function info_box_pickup(data) {
             else value = Math.floor(data.max_skill);
         } else if (s == "max_party_size") {
             label = localize("pickup_max_party_size");
-            value = data.team_size;
+            value = data.max_party_size;
         }
 
         let row = _createElement("div", "row");
@@ -1335,7 +1349,7 @@ function info_box_match(m) {
         preview_settings.appendChild(row);
 
         if (stat == "commands") {
-            
+
             let row = null;
             for (let i=0; i<m.commands.length; i++) {
                 if (i % 2 == 0) row = _createElement("div", ["stat_row", "commands"]);
