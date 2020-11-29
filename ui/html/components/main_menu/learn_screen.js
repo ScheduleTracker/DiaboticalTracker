@@ -1126,7 +1126,7 @@ function learn_screen_initialize_tab_gamemodes() {
                         'starting_weapons',
                         'powerup_drop',
                         'health_armor_gained_on_powerup'],
-                        'description': 'Free for All is a frag score based mode between individual players where you pick up weapons and items to help you frag your opponents.<div>Gain the edge over your opponents by taking the powerups that spawn throughout the match. At 1:00 and every 240s after, two utility powerups will spawn on the map at the same time, and at 3:00 and every 240s after, Diabotical will spawn in the centre of the map.</div><div>In FFA you will gain health and armor upon taking a powerup.</div>'
+                        'description': 'FFA is a frag score based mode between individual players where you pick up weapons and items to help you frag your opponents.<div>Gain the edge over your opponents by taking the powerups that spawn throughout the match. At 1:00 and every 240s after, two utility powerups will spawn on the map at the same time, and at 3:00 and every 240s after, Diabotical will spawn in the centre of the map.</div><div>In FFA you will gain health and armor upon taking a powerup.</div>'
                     },         
         'wipeout':  {   'entries':['spawn_health_armor',
                                     'stable_health_armor',
@@ -1160,7 +1160,7 @@ function learn_screen_initialize_tab_gamemodes() {
                                     'self_damage',
                                     'starting_weapons',
                                     'powerup_drop'],
-                        'description': "Team Deathmatch is a frag score based mode fought between two teams. Fight for control over the map and its resources to gain the upper hand over your enemies, or use your instincts to outsmart and out position stacked opponents.<div>Once the time limit has been reached, the game ends if the frag difference is greater than 10. However if the scores are within 10 frags of each other, a frag limit of 10 frags is added to the leading team's score and a team must reach this limit to be victorious."
+                        'description': "TDM is a frag score based mode fought between two teams. Fight for control over the map and its resources to gain the upper hand over your enemies, or use your instincts to outsmart and out position stacked opponents.<div>Once the time limit has been reached, the game ends if the frag difference is greater than 10. However if the scores are within 10 frags of each other, a frag limit of 10 frags is added to the leading team's score and a team must reach this limit to be victorious."
                     },*/
         'extinction':{   'entries':['spawn_health_armor',
                                     'stable_health_armor',

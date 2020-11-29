@@ -243,7 +243,8 @@ function set_queue_selection(json) {
                 changed = true;
             }
         } else {
-            global_queue_selection[cb.dataset.mode] = 1;
+            // Initialize new queues disabled
+            global_queue_selection[cb.dataset.mode] = 0;
             changed = true;
         }
 
@@ -256,7 +257,8 @@ function set_queue_selection(json) {
         }
     }
 
-    // cleanup unused queue settings
+    // remove any currently not active queues
+    // if we wanted the client to remember his last selection for rotational modes we would have to check global_mode_definitions instead
     for (let queue in global_queue_selection) {
         if (!global_queues.hasOwnProperty(queue)) delete global_queue_selection[queue];
     }

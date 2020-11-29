@@ -389,7 +389,7 @@ var global_game_mode_map = {
     },
     "ctf": {
         "mode": "ctf",
-        "name": "Capture The Flag",
+        "name": "CTF",
         "i18n": "game_mode_ctf",
         "desc_i18n": "game_mode_desc_ctf",
         "announce": "announcer_common_gamemode_ctf",
@@ -459,7 +459,7 @@ var global_game_mode_map = {
     },
     "tdm": {
         "mode": "tdm",
-        "name": "Team Deathmatch",
+        "name": "TDM",
         "i18n": "game_mode_tdm",
         "desc_i18n": "game_mode_desc_tdm",
         "announce": "announcer_common_gamemode_tdm",
@@ -469,7 +469,7 @@ var global_game_mode_map = {
     },
     "tdmc": {
         "mode": "tdmc",
-        "name": "Team Deathmatch Classic",
+        "name": "TDM Classic",
         "i18n": "game_mode_tdmc",
         "desc_i18n": "game_mode_desc_tdm_classic",
         "announce": "announcer_common_gamemode_tdm",
@@ -539,7 +539,7 @@ var global_game_mode_map = {
     },
     "ffa": {
         "mode": "ffa",
-        "name": "Free For All",
+        "name": "FFA",
         "i18n": "game_mode_ffa",
         "desc_i18n": "game_mode_desc_ffa",
         "desc_instagib_i18n": "game_mode_desc_ffa_instagib", // localization key for description of this mode  with the instagib modifier enabled

@@ -533,7 +533,7 @@ var TRANSLATION_zh_CN =
     "game_mode_ca": "Arena",
     "game_mode_flagrun": "Wee-bow Flag Run",
     "game_mode_coinrun": "Wee-bow Gold Rush",
-    "game_mode_tdm": "Team Deathmatch",
+    "game_mode_tdm": "TDM",
     "game_mode_race": "Time Trials",
     "game_mode_rocket_arena": "Rocket Arena",
     "game_mode_shaft_arena": "Shaft Arena",
