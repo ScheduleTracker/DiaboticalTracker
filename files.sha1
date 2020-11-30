@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-50f5894eb4b6785c88d8d3bb94a5158b9a7b5c2d	anticheat/equ8.db
+e8073cd600dbfeb4e76adcb3caf948829a42913a	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1665,7 +1665,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-0495ca4d554532e577ad5643c5ca1d9b40f5218c	diabotical.exe
+97c958d025c53f0290d8ae67b235b05ea9e8f9d5	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1676,7 +1676,7 @@ de0feed659f783a8555efd579685d5b16eee3bd7	libcrypto-1_1-x64.dll
 b51420f5acd33b7b0625fe9a1bd0c619a7791b08	manifest.rbd
 7952bec4fa818a443c7199e3bf46c680cc0b0c38	msvcp140.dll
 b00fb5dd258ddfcf7a757bbc0ae904c950ac50e3	packs/blocks.dbp
-fc2af88cf18fb6bab57a8620293effdc46a67587	packs/maps.dbp
+7f679b19cf806585f445e7298deda3ae4c560385	packs/maps.dbp
 c07945d3599d6d8368ea8d8e8ca1299d09c94c9f	packs/models.dbp
 e0c7baff04e342d3fcc1a471cf5eeaeaab854d45	packs/models_dynamic_props.dbp
 fdb1aa37f6d88bc6810899ac12b88bcef7248921	packs/models_dynamic_props_industry.dbp
@@ -1694,7 +1694,7 @@ facdedb08a2c03e3ad6cc4198417ac45c03165d4	packs/models_weapons.dbp
 c782befffe28597f53b988f1cf16791af746c405	packs/models_weapons_crossbow.dbp
 e3059f7e2e514982f6fd7c64671712dddd5645cf	packs/models_weapons_rocket_launcher.dbp
 576bcaf29e6e108be9b2c9f9abf755fbd63e52cf	packs/models_weapons_shaft.dbp
-57adb20fe8477ff7c896290534bacceb2bcfe0e4	packs/scripts.dbp
+eeddd43ca3a59f0df12687559984393ca50687ff	packs/scripts.dbp
 f65154ebeec31886c7b53ce3d6e799ab27bee8da	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 676e37d176b95b1102506499d5934c291a070dc0	packs/textures_customization.dbp
@@ -7080,8 +7080,8 @@ bb9dbd9f1d811f7cbba1f9e515255a59bc80ba86	ui/html/customization/avatar/av_e749ae2
 82c00b66c1bebf0281acb7d617922a78603fcd88	ui/html/customization/avatar/av_e74f7c18-211c-416c-9a8d-a3214c06fc76.png.dds
 4938e2218cd3f960eba3809c66ae56ef58108646	ui/html/customization/avatar/av_e7faa321-d93d-44fe-a095-e04f83e99166.png
 b9cc568da8e9cb574f5654da54ea5fce40b8a5ad	ui/html/customization/avatar/av_e7faa321-d93d-44fe-a095-e04f83e99166.png.dds
-ad895e259c2c865e6ea9461e19e5e2cedfc87689	ui/html/customization/avatar/av_e80cb4f4-0e0f-4f9f-b5a4-73901edc9447.png
-d4d0f20f0a7a902e41833b0960a93c49d632cdda	ui/html/customization/avatar/av_e80cb4f4-0e0f-4f9f-b5a4-73901edc9447.png.dds
+bb043b2cc828f52f55526e053ab0a32591348a64	ui/html/customization/avatar/av_e80cb4f4-0e0f-4f9f-b5a4-73901edc9447.png
+0c30932ebcde4b7235ea76d9507a5ceffcaa2c0a	ui/html/customization/avatar/av_e80cb4f4-0e0f-4f9f-b5a4-73901edc9447.png.dds
 a5ee198a4f93846af6cc54903286877de06fc22b	ui/html/customization/avatar/av_e855f50e-9f14-457d-80c7-4e6db73c63ef.png
 7584a6b7ec1fc2c86e7f0fbd43bf5076180e94d2	ui/html/customization/avatar/av_e855f50e-9f14-457d-80c7-4e6db73c63ef.png.dds
 bba87b15492498aefbea83f63ab5683b85202974	ui/html/customization/avatar/av_e86d4e77-107f-4742-8015-4270735e82f9.png
