@@ -383,6 +383,7 @@ shaft_beam_particles
 // subsystem shaft_muzzlespark3 0 0.2
 subsystem shaft_muzzleflames 0 0.5
     range 0
+	radius 800
 }
 
 
@@ -855,4 +856,5 @@ shaft_beam_particles_3p
 	subsystem shaft_beam_fat 0 2. 
 	subsystem shaft_beam_fat_2 0.9
 	range 0
+	radius 800
 }

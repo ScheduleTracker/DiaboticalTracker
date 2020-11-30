@@ -281,6 +281,8 @@ color_start 0.2 1 2 1
 	speed_end 1.5
 	auto_orient true
 	acceleration 0 -1 0 0 -2 0
+	range 0
+    radius 0
 }
 
 smoke_weeble_static_particle

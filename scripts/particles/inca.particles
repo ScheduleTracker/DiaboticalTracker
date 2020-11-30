@@ -353,6 +353,7 @@ l_sandfall
 	subsystem l_sandfall_1
 	subsystem l_sandfall_1a
 	subsystem l_sandfall_2
+	radius 450
 
 }
 
@@ -441,7 +442,7 @@ d_sandfall
 	subsystem d_sandfall_1
 	subsystem d_sandfall_1a
 	subsystem d_sandfall_2
-
+	radius 450
 }
 
 //------------------dark sand dust

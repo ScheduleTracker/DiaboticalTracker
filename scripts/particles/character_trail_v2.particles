@@ -58,4 +58,6 @@ eggbot_trail
 {
 	 subsystem ch_trail_1
 	subsystem ch_trail_2
+	range 0
+    radius 0
 }

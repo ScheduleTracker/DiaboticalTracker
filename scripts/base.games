@@ -772,7 +772,7 @@ game tdmc
 	setting game_weapon_respawn_time 30
 	setting game_hp 125
 	setting game_time_limit 900
-	setting game_mercy_limit 50
+	setting game_mercy_limit 40
 
 	map tdm_icefall
 	map tdm_oxide

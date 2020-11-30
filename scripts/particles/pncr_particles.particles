@@ -246,6 +246,7 @@ subsystem pncr_dispersion_2
 subsystem pncr_tube
 subsystem pncr_tube_2
 range 0	
+radius 0
 }
 
 
@@ -315,6 +316,7 @@ subsystem pncr_dispersion_2 0 3
 subsystem pncr_tube 0 5
 subsystem pncr_tube_2	 0 5	
 range 0
+radius 0
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 pncr_muzzle_flash

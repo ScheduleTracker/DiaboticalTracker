@@ -46,4 +46,6 @@ character_trail
     subsystem character_trail_1
 	subsystem character_trail_2
 	subsystem character_trail_m
+	range 0
+    radius 0
 }

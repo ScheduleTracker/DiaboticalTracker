@@ -188,12 +188,14 @@ gl_trail
 	scale_end 10
 	position 0 0 0
 	range 0
+	radius 0
 }
 gl_bullet_dynamic_trail
 {
 	subsystem gl_trail
 	//subsystem base_smoke_trail
 	range 0
+	radius 0
 }
 
 
@@ -287,10 +289,14 @@ weeb_trail_purple gl_trail
 
 	color_start 1.0 0.1 0.8 0.7
 	color_end  0 0 0 0
+	range 0
+    radius 0
 }
 weeb_dynamic_trail_purple
 {
 	subsystem weeb_trail_purple
+	range 0
+    radius 0
 	//subsystem base_smoke_trail
 }
 
@@ -343,10 +349,14 @@ weeb_trail_green gl_trail
 
 	color_start 0.5 1 0.1 0.7
 	color_end  0 0 0 0
+	range 0
+    radius 0
 }
 weeb_dynamic_trail_green
 {
 	subsystem weeb_trail_green
+	range 0
+    radius 0
 	//subsystem base_smoke_trail
 }
 
@@ -396,10 +406,14 @@ weeb_trail_green_heal gl_trail
 {
 	color_start 0.5 1 0.8 1.8
 	color_end  0 0 0 0
+	range 0
+    radius 0
 }
 weeb_dynamic_trail_green_heal
 {
 	subsystem weeb_trail_green_heal
+	range 0
+    radius 0
 	//subsystem base_smoke_trail
 }
 
@@ -450,9 +464,13 @@ weeb_trail_blue gl_trail
 
 	color_start 0.1 0.8 0.8 0.7
 	color_end  0 0.3 0.3 0
+	range 0
+    radius 0
 }
 weeb_dynamic_trail_blue
 {
 	subsystem weeb_trail_blue
+	range 0
+    radius 0
 	//subsystem base_smoke_trail
 }

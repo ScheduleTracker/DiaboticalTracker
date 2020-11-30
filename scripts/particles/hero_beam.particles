@@ -98,6 +98,7 @@ hero_beam
 	subsystem hero_beam1
 	subsystem hero_beam1
 	subsystem hero_beam_fat
+	radius 0
 }
 
 hero_beam_alt
@@ -106,6 +107,7 @@ hero_beam_alt
 	subsystem hero_beam1_alt
 	subsystem hero_beam1_alt
 	subsystem hero_beam_fat_alt
+	radius 0
 }
 
 hero_beam_alt_white
@@ -114,4 +116,5 @@ hero_beam_alt_white
 	subsystem hero_beam1_alt_white
 	subsystem hero_beam1_alt_white
 	subsystem hero_beam_fat_alt_white
+	radius 0
 }

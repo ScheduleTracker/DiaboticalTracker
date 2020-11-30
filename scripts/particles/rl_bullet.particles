@@ -306,5 +306,7 @@ rocket_smoke_trail
 rl_bullet_trail
 {
 	subsystem rocket_smoke_trail
+	range 0
+	radius 0
 }
 
