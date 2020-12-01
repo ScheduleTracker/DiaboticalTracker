@@ -491,8 +491,17 @@ function set_lobby_custom_map(value) {
             if (global_game_maps_state.selected_category === 'community') {
                 const map = global_game_maps_state.community.find(m => m.map === value);
 
-                _html(el, "<div>" + map.name + "</div><span class='map_preview_background i18n' data-i18n='map_community_preview'>Community map</span>");
+                _html(el, "<div>" + map.name + "</div>");
+
+                let background = _createElement("span", ["map_preview_background"]);
+                background.innerHTML = localize("map_community_preview");
+                if (map.has_thumbnail) {
+                    let background_image = _createElement("div", ["map_preview_background_image"]);
+                    background_image.style.backgroundImage =  `url("content://maps/${map.map}/${map.map}-t.png")`;
+                    background.appendChild(background_image);
+                }
                 el.style.backgroundImage = ``;
+                el.appendChild(background);
             }
             else if (global_game_maps_state.selected_category === 'official') {
                 _html(el, "<div>"+_format_map_name(value)+"</div>");
@@ -1997,15 +2006,20 @@ function render_map_choices(sort = true) {
 
     let fragment = new DocumentFragment();
     if (sort) maps.sort();
-   
+    
     for (let m of maps) {
         let map = _createElement("div", "map");
         
         if (category === 'official') {
-            map.style.backgroundImage = `url(map_thumbnails/${m.map}.png)`;
+            map.style.backgroundImage = `url("map_thumbnails/${m.map}.png")`;
         } else {
             let background = _createElement("span", ["map_preview_background"]);
             background.innerHTML = localize("map_community_preview");
+            if (m.has_thumbnail) {
+                let background_image = _createElement("div", ["map_preview_background_image"]);
+                background_image.style.backgroundImage =  `url("content://maps/${m.map}/${m.map}-t.png")`;
+                background.appendChild(background_image);
+            }
             map.appendChild(background);
            
             if (!m.reviewed) {
@@ -2093,7 +2107,8 @@ function update_map_choices_page() {
                     reviewed: map.reviewed,
                     rate: map.rate,
                     revision: map.revision,
-                    updated_at: new Date(map.update_ts)
+                    updated_at: new Date(map.update_ts),
+                    has_thumbnail: map.has_thumbnail
                 }));
 
             global_game_maps_state.infiniteScroll.last_page_reached = newMaps.length === 0;
@@ -2144,7 +2159,8 @@ function update_map_choices(options) {
                                     reviewed: map.reviewed,
                                     rate: map.rate,
                                     revision: map.revision,
-                                    updated_at: new Date(map.update_ts)
+                                    updated_at: new Date(map.update_ts),
+                                    has_thumbnail: map.has_thumbnail
                                 }));
                         render_map_choices(false);
                         refreshScrollbar(_id("map_choice_container_scrollable"));

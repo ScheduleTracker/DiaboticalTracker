@@ -2003,6 +2003,14 @@ body, html {
     height: 100%;
     text-align: center;
     text-transform: uppercase;
+    position: relative;
+}
+
+.map_preview_background .map_preview_background_image {
+    background-size: cover;
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
 }
 
 #map_choice_container_inner .map {
@@ -2112,9 +2120,8 @@ body, html {
     position: absolute;
     text-align: center;
     font-size: 0.8rem;
-    padding-top: 0.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    background-color: rgba(0, 0, 0, 0.400000);
 }
 #map_choice_container_inner .map .map_rating {
     white-space:nowrap; 
@@ -11133,6 +11140,12 @@ h2 {
     padding:0.4vh 0;
 }
 
+/* HIDE UNTIL WE KNOW A SEASON END TIME AGAIN */
+#battlepass_progression_box .progression_info .season_end {
+    display:none;
+    opacity:0;
+}
+
 #battlepass_buttons {
     margin-top:2vh;
 }
@@ -14576,6 +14589,17 @@ h2 {
     font-size:1vh;
     color:#fff;
     margin-bottom:0.1vh;
+}
+
+#create_screen_list .create_map_preview .map_preview_background {
+    position: relative;
+}
+
+#create_screen_list .create_map_preview .map_preview_background .map_preview_background_image {
+    background-size: cover;
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
 }
 
 #create_screen_list .create_map_preview .bottom .author {

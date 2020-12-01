@@ -125,6 +125,12 @@ BEGIN TEMPLATE own_players
         j = j + 1
 
         # ========================================
+        # FROZEN INDICATOR
+        IF game_data.game_mode == "ft"
+            j = j + 1
+        END IF
+
+        # ========================================
         # SELF INDICATOR
         COL_OUTPUT j image_width DOUBLE (height * 0.5)
         COL_OUTPUT j image_height DOUBLE (height * 0.5)
@@ -344,6 +350,9 @@ ON_UPDATE
         IF !own_team_players[IDX].alive
             OUTPUT IDX j GRAYSCALE 1
         END IF
+        IF own_team_players[IDX].frozen
+            OUTPUT IDX j GRAYSCALE 1
+        END IF
         j = j + 1
 
         # ========================================
@@ -352,6 +361,25 @@ ON_UPDATE
             OUTPUT IDX j opacity 0
         END IF
         j = j + 1
+
+        # ========================================
+        # FROZEN INDICATOR
+        IF game_data.game_mode == "ft"
+            OUTPUT IDX j height height
+            OUTPUT IDX j width height
+            OUTPUT IDX j x 0
+            OUTPUT IDX j fill "#2a678c99"
+
+            OUTPUT IDX j image "images/frozen.svg"
+            OUTPUT IDX j image_width DOUBLE(item_image_size * 1)
+            OUTPUT IDX j image_height DOUBLE(item_image_size * 1)
+            #OUTPUT IDX j image_color "#ffffff"
+
+            IF !own_team_players[IDX].frozen
+                OUTPUT IDX j opacity 0
+            END IF
+            j = j + 1
+        END IF
 
         # ========================================
         # SELF INDICATOR

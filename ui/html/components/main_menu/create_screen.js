@@ -248,9 +248,12 @@ const content_creation_page = {
             let map_el = _createElement("div", "create_map_preview");
             map_el.dataset.map_name = map.name;
             map_el.dataset.map_id = map.id;
-
+            
             let background = _createElement("div", ["map_preview_background"]);
             background.innerHTML = localize("map_community_preview");
+            let background_image = _createElement("div", ["map_preview_background_image"]);
+            background_image.style.backgroundImage =  `url("appdata://Maps/${map.id}-t.png")`;
+            background.appendChild(background_image);
             map_el.appendChild(background);
 
             // Render modes
