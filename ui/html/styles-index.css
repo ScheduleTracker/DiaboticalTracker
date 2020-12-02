@@ -2045,13 +2045,13 @@ body, html {
     padding-right:1vh;
     font-size: 1.5vh;
     font-family:var(--mont-font);
-	/*background: linear-gradient(to top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);*/
+	background: linear-gradient(to top, rgba(0,0,0,0.75) 0%,rgba(0,0,0,0) 100%);
 	position: absolute;
 	bottom: 0;
 	height: 5.5vh;
 	width: 100%;
-	text-transform: uppercase;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    text-transform: uppercase;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
 	display: flex;
 	flex-direction: row;
     justify-content: center;
@@ -2059,7 +2059,6 @@ body, html {
     overflow:hidden;
     white-space:nowrap;
     font-fit-mode:shrink;
-    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
 }
@@ -2068,18 +2067,17 @@ body, html {
     padding-right:1vh;
     font-size: 1.5vh;
     font-family:var(--mont-font);
-	/*background: linear-gradient(to top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);*/
+	background: linear-gradient(to top, rgba(0,0,0,0.75) 0%,rgba(0,0,0,0) 100%);
 	position: absolute;
 	bottom: 0;
 	height: 5vh;
 	width: 100%;
-	text-transform: uppercase;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    text-transform: uppercase;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
 	display: flex;
     overflow:hidden;
     white-space:nowrap;
     font-fit-mode:shrink;
-    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: row;
 }
@@ -2115,13 +2113,12 @@ body, html {
 #map_choice_container_inner .map .map_under_review {
     top: 0px;
     width: 100%;
-    color: rgba(255,255,255,0.5);
     font-weight: bold;
     position: absolute;
     text-align: center;
     font-size: 0.8rem;
     padding: 0.5rem 2rem 0.5rem 2rem;
-    background-color: rgba(0, 0, 0, 0.400000);
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
 }
 #map_choice_container_inner .map .map_rating {
     white-space:nowrap; 
@@ -7538,7 +7535,7 @@ h2 {
 
 @media (max-width: 130vh) {
     #main_chat .chat_input_cont {
-        width:32vh;
+        width:26vh;
     }
 }
 
@@ -10328,30 +10325,47 @@ h2 {
 .customgame_button_divider {
     flex:1;
 }
+#custom_game_settings_modal_screen .generic_modal_dialog {
+    padding:3vh;
+}
 .custom_more_game_settings {
-    
+}
+.custom_more_game_settings .double {
+    display:flex;
+    flex-direction:row;
+}
+.custom_more_game_settings .double .double_col {
+    --select_width:28vh;
+    padding:0 2vh;
+}
+@media (max-width: 162vh) {
+    .custom_more_game_settings .double .double_col {
+        --select_width:24vh;
+    }
 }
 .custom_more_game_settings .custom_game_setting {
     padding-bottom: 0.2vh;
     padding-top: 0.2vh;
+    /*
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: rgba(255, 255, 255, 0.05);
+    */
 }
 .custom_more_game_settings .custom_game_setting.last {
     border-bottom-width:0;
 }
 .custom_more_game_settings .setting_content {
     flex:0;
-    width:30vh;
+    width:var(--select_width);
 }
 .custom_more_game_settings .setting_title {
-    width:30vh;
+    width:var(--select_width);
 }
 .custom_more_game_settings input,
 .custom_more_game_settings .select-field {
-    max-width:30vh;
-    min-width:30vh;
+    max-width:var(--select_width);
+    min-width:var(--select_width);
 }
 
 .custom_more_game_settings .custom_setting_block {
@@ -10370,7 +10384,7 @@ h2 {
     margin-left:1vh;
 }
 .custom_more_game_settings .custom_setting_block .setting_title {
-    width:29vh;
+    width:calc(var(--select_width) - 1vh);
 }
 
 /*
@@ -17797,7 +17811,7 @@ h2 {
     padding:0.2vh 0;
 }
 .hover_info_box .match .settings .stat_row .label {
-    width:12vh;
+    width:15vh;
     font-fit-mode: shrink;
     white-space:nowrap;
 }

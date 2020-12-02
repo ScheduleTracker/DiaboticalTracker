@@ -127,6 +127,7 @@ function init_custom_game_references() {
             "team_switching":            _id("custom_game_setting_team_switching"),
             "physics":                   _id("custom_game_setting_physics"),
             "instagib":                  _id("custom_game_setting_instagib"),
+            "instaswitch":               _id("custom_game_setting_instaswitch"),
             "ready_percentage":          _id("custom_game_setting_ready_percentage"),
             "warmup_time":               _id("custom_game_setting_warmup_time"),
             "min_players":               _id("custom_game_setting_min_players"),
@@ -247,6 +248,7 @@ function init_screen_custom() {
     ui_setup_select(global_customSettingElements["score_limit"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["continuous"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["instagib"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["instaswitch"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["intro"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["auto_balance"], function() {
         if (bool_am_i_host) custom_game_settings_changed();
@@ -402,7 +404,6 @@ function init_screen_custom() {
             !global_game_maps_state.infiniteScroll.last_page_reached &&
             windowBottom > (event.target.scrollHeight - threshold)) 
         {
-            global_game_maps_state.infiniteScroll.requesting = true;
             global_game_maps_state.infiniteScroll.community_page++;
 
             update_map_choices_page();
@@ -474,6 +475,14 @@ function custom_lobby_update_datacenters(data, init) {
 
 function custom_update_variable_if_host(opt, field) {
     if (bool_am_i_host) {
+
+        // Default insta switch enabled for race/vintage physics
+        if (field.dataset.variable == "lobby_custom_physics") {
+            if (opt.dataset.value == "0") update_variable("string", "lobby_custom_insta_switch", "0");
+            else if (opt.dataset.value == "1") update_variable("string", "lobby_custom_insta_switch", "1");
+            else if (opt.dataset.value == "2") update_variable("string", "lobby_custom_insta_switch", "1");
+        }
+
         update_variable("string", field.dataset.variable, opt.dataset.value);
         custom_lobby_setting_updated(field.dataset.variable, opt.dataset.value);
     }
@@ -1250,6 +1259,8 @@ function reset_lobby_settings() {
     engine.call("initialize_select_value", "lobby_custom_datacenter");
 
     engine.call("initialize_select_value", "lobby_custom_intro");
+    engine.call("initialize_select_value", "lobby_custom_instagib");
+    engine.call("initialize_select_value", "lobby_custom_insta_switch");
     engine.call("initialize_select_value", "lobby_custom_physics");
     engine.call("initialize_select_value", "lobby_custom_continuous");
     engine.call("initialize_select_value", "lobby_custom_warmup_time");
@@ -1287,6 +1298,8 @@ function reset_lobby_settings() {
 function lobby_reset_settings_default() {
 
     update_variable("string", "lobby_custom_intro", "0");
+    update_variable("string", "lobby_custom_instagib", "0");
+    update_variable("string", "lobby_custom_insta_switch", "0");
     update_variable("string", "lobby_custom_physics", "0");
     update_variable("string", "lobby_custom_warmup_time", "-1");
     update_variable("string", "lobby_custom_min_players", "2");
@@ -1431,6 +1444,7 @@ function get_lobby_settings() {
 		team_count:     team_count,
         team_size:      parseInt(global_customSettingElements["team_size"].dataset.value),
         instagib:       parseInt(global_customSettingElements["instagib"].dataset.value),
+        instaswitch:    parseInt(global_customSettingElements["instaswitch"].dataset.value),
         continuous:     parseInt(global_customSettingElements["continuous"].dataset.value),
         auto_balance:   parseInt(global_customSettingElements["auto_balance"].dataset.value),
         intro:          parseInt(global_customSettingElements["intro"].dataset.value),
@@ -1659,6 +1673,11 @@ function update_custom_game_settings(settings, init) {
     if (parseInt(global_customSettingElements["instagib"].dataset.value) != settings.instagib) {
         global_customSettingElements["instagib"].dataset.value = settings.instagib;
         update_select(global_customSettingElements["instagib"]);
+    }
+
+    if (parseInt(global_customSettingElements["instaswitch"].dataset.value) != settings.instaswitch) {
+        global_customSettingElements["instaswitch"].dataset.value = settings.instaswitch;
+        update_select(global_customSettingElements["instaswitch"]);
     }
 
     if (parseInt(global_customSettingElements["continuous"].dataset.value) != settings.continuous) {
@@ -2117,11 +2136,15 @@ function update_map_choices_page() {
                 ...newMaps
             );
             render_map_choices(false);
+            refreshScrollbar(_id("map_choice_container_scrollable"));
+
             global_game_maps_state.infiniteScroll.requesting = false;
+            
         });
 }
 
 function update_map_choices(options) {
+    const MIN_INITIAL_MAPS = 30;
     const category = global_game_maps_state.selected_category;
 
     let spinner_cont = _id("map_choice_container_inner");
@@ -2163,8 +2186,15 @@ function update_map_choices(options) {
                                     has_thumbnail: map.has_thumbnail
                                 }));
                         render_map_choices(false);
+
                         refreshScrollbar(_id("map_choice_container_scrollable"));
                         resetScrollbar(_id("map_choice_container_scrollable"));
+
+                        // Keep requesting until we get more than MAX_INITIAL_MAPS
+                        if (global_game_maps_state[category].length < MIN_INITIAL_MAPS && maps.length !== 0) {
+                            global_game_maps_state.infiniteScroll.community_page++;
+                            update_map_choices_page();
+                        }
                     });
     } else {
         _id("map_choice_filters").style.display = "none";

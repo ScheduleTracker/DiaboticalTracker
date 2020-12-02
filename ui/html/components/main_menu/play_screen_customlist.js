@@ -156,7 +156,8 @@ function renderMatchList() {
 function renderMatchListRow(match, row) {
     let map = _createElement("div", "match_map");
     let map_gradient = _createElement("div", "map_gradient");
-    map_gradient.style.backgroundImage = 'url(map_thumbnails/'+match.map+'.png)';
+    map_gradient.style.backgroundImage = `url("map-thumbnail://${match.map}")`;
+
     map.appendChild(map_gradient);
     map.appendChild(_createElement("div", "mode_name", localize(global_game_mode_map[match.mode].i18n)));
     map.appendChild(_createElement("div", "map_name", _format_map_name(match.map)));
@@ -259,7 +260,8 @@ function customListRenderMatchPreview(session_id) {
 
     // Map image
     let preview_map = _createElement("div", "map");
-    preview_map.style.backgroundImage = 'url(map_thumbnails/'+m.map+'.png)';
+    
+    preview_map.style.backgroundImage = `url("map-thumbnail://${m.map}")`;
     preview_map.appendChild(_createElement("div", "mode_name", localize(global_game_mode_map[m.mode].i18n)));
     preview_map.appendChild(_createElement("div", "map_name", _format_map_name(m.map)));
     preview_cont.appendChild(preview_map);

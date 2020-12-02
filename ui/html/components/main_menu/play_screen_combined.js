@@ -420,7 +420,7 @@ function render_play_screen_matchlist() {
         let match = _createElement("div", "match");
         
         let background = _createElement("div", "background");
-        background.style.backgroundImage = 'url(map_thumbnails/'+m.map+'.png)';
+        background.style.backgroundImage = `url("map-thumbnail://${m.map}")`;
         match.appendChild(background);
 
         match.appendChild(_createElement("div", "gradient"));
@@ -1262,7 +1262,8 @@ function info_box_match(m) {
 
     // Map image
     let preview_map = _createElement("div", "map");
-    preview_map.style.backgroundImage = 'url(map_thumbnails/'+m.map+'.png)';
+    
+    preview_map.style.backgroundImage = `url("map-thumbnail://${m.map}")`;
     preview_map.appendChild(_createElement("div", "mode_name", localize(global_game_mode_map[m.mode].i18n)));
     preview_map.appendChild(_createElement("div", "map_name", _format_map_name(m.map)));
     box.appendChild(preview_map);
@@ -1317,7 +1318,6 @@ function info_box_match(m) {
     let stats = ["location", "timelimit", "scorelimit", "teamcount", "teamsize", "maxcount"];
     if (m.modifier_instagib != 0) stats.push("instagib");
     if (m.modifier_physics != 0) stats.push("physics");
-    if (m.commands.length) stats.push("commands");
 
     for (let stat of stats) {
         let row = _createElement("div", "stat_row");
@@ -1331,7 +1331,6 @@ function info_box_match(m) {
         if (stat == "maxcount")   label_txt = localize("custom_settings_max_clients");
         if (stat == "instagib")   label_txt = localize("custom_settings_instagib");
         if (stat == "physics")    label_txt = localize("custom_settings_physics");
-        if (stat == "commands")   label_txt = localize("custom_settings_commands");
 
         let value_txt = '';
         if (stat == "location")   value_txt = localize("datacenter_"+m.location.toLowerCase());
@@ -1349,25 +1348,42 @@ function info_box_match(m) {
         row.appendChild(label);
         row.appendChild(value);
         preview_settings.appendChild(row);
+    }
 
-        if (stat == "commands") {
+    if (m.commands.length) {
+        let commands_filtered = [];
+        for (let c of m.commands) {
+            if (c.key == "game_equip_time_ms" && c.value == 0) {
+                let row = _createElement("div", "stat_row");
+                row.appendChild(_createElement("div", "label", localize("custom_settings_instaswitch")));
+                row.appendChild(_createElement("div", "value", localize("enabled")));
+                preview_settings.appendChild(row);
+            } else {
+                commands_filtered.push(c);
+            }
+        }
 
-            let row = null;
-            for (let i=0; i<m.commands.length; i++) {
-                if (i % 2 == 0) row = _createElement("div", ["stat_row", "commands"]);
+        if (commands_filtered.length) {
+            let row = _createElement("div", "stat_row");
+            row.appendChild(_createElement("div", "label", localize("custom_settings_commands")));
+            row.appendChild(_createElement("div", "value", ""));
+            preview_settings.appendChild(row);
 
-                if (row) row.appendChild(_createElement("div", "value", m.commands[i].key+": "+m.commands[i].value));
+            let cmd_row = null;
+            for (let i=0; i<m.commands_filtered.length; i++) {
+                if (i % 2 == 0) cmd_row = _createElement("div", ["stat_row", "commands"]);
+
+                if (cmd_row) cmd_row.appendChild(_createElement("div", "value", m.commands_filtered[i].key+": "+m.commands_filtered[i].value));
 
                 if (i % 2 == 1) {
-                    preview_settings.appendChild(row);
-                    row = null;
+                    preview_settings.appendChild(cmd_row);
+                    cmd_row = null;
                 }
             }
 
-            if (row !== null) {
-                preview_settings.appendChild(row);
+            if (cmd_row !== null) {
+                preview_settings.appendChild(cmd_row);
             }
-
         }
     }
 

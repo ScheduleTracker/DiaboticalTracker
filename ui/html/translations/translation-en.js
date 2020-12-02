@@ -3092,6 +3092,7 @@ var TRANSLATION_en =
     "custom_settings_intro":"Intro",
     "custom_settings_team_switching":"Team Switching",
     "custom_settings_instagib":"Instagib",
+    "custom_settings_instaswitch":"Instant weapon switch",
     "custom_settings_physics":"Physics",
     "custom_settings_physics_title_main":"Signature Movement",
     "custom_settings_physics_title_extra":"Novelty Rulesets",
