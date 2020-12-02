@@ -426,6 +426,10 @@ models\entities\forcefield\forcefield.assets		72
 models\entities\forcefield\forcefield.dbm		2136
 models\entities\forcefield\forcefield.obj		624
 models\entities\forcefield\forcefield.shader		412
+models\entities\freezeblock\freezeblock.assets		128
+models\entities\freezeblock\freezeblock.dbm		132861
+models\entities\freezeblock\freezeblock.fbx		46032
+models\entities\freezeblock\freezeblock.shader		542
 models\entities\green_armor\armors_d.png.dds		1398276
 models\entities\green_armor\armors_i.png.dds		1398276
 models\entities\green_armor\armors_n.png.dds		1398276

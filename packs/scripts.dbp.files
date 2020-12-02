@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		685
 scripts\base.enemy		543
-scripts\base.games		25171
+scripts\base.games		25271
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -53,7 +53,7 @@ scripts\particles\double_damage.particles		4668
 scripts\particles\double_damage_v2NOP.particles		10530
 scripts\particles\dust_big.particles		1508
 scripts\particles\dust_lamp.particles		503
-scripts\particles\effects.atlas		11069
+scripts\particles\effects.atlas		11141
 scripts\particles\entities.particles		30691
 scripts\particles\environment\blowing_dust.particles		1139
 scripts\particles\environment\enviroment.particles		30876
@@ -65,6 +65,7 @@ scripts\particles\fire.particles		1899
 scripts\particles\firefly.particles		397
 scripts\particles\flak.particles		0
 scripts\particles\flak_particles.particles		10521
+scripts\particles\frost.particles		2114
 scripts\particles\ghost.particles		3927
 scripts\particles\gl_bullet.particles		9480
 scripts\particles\gl_impact.particles		8122
