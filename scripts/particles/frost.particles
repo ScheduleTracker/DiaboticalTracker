@@ -1,0 +1,117 @@
+
+
+frost_flames
+{
+	map particle_sheet4.png
+	region r_smoke_ae_new2
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 50
+	max_emissions 0
+	lifetime 2.2 1.8
+	fade_in 0.2
+	fade_out 0.10
+	period 0.05
+
+     scale_start 150 200
+    scale_end 170 200
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 50
+
+
+angular_speed_start 0
+ position 0 0 12
+     velocity_angles -90 0 0 -90 0 0
+    color_start  0.1 0.1 0.1 0.01
+	color_end  0.0 0.0 0 0.0
+range 0
+position 25 70 25 -25 40 -25
+}
+
+frost_embers
+{
+	map particle_sheet3.png
+	region  s3_rl_muzzle_23
+	animation_start 0
+	blend add
+	max_particles 16
+	max_emissions 0
+	lifetime 0.8 0.3
+	fade_in 0
+	fade_out 0.10
+	period 0.05
+
+     scale_start 20 10
+    scale_end 0 10
+    rotation_start -40 40
+   	hard_edges true
+	speed_start 50
+	angular_speed_start -1000 1000
+    position 0 0 15
+    velocity_angles -90 0 0 -90 0 0
+    color_start  0.1 0.1 0.1 0.01
+	color_end  0.0 0.0 0 0.0
+position 30 60 30 -30 40 -30
+}
+frost_snowflake
+{
+	map particle_sheet1.png
+	region r_snowflake
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 50
+	max_emissions 0
+	lifetime 2.2 1.8
+	fade_in 0.2
+	fade_out 0.10
+	period 0.1		
+
+     scale_start 10 25
+    
+    rotation_start 0
+   	hard_edges true
+	speed_start 50
+
+
+angular_speed_start -10000 10000
+ position 0 0 12
+     velocity_angles -90 15 15 -90 -15 -1	5
+    color_start  0.1 0.1 0.1 0.01   0.1 0.1 0.2 1
+	color_end  0.0 0.0 0 0.0
+range 0
+position 30 80 30 -30 40 -30
+}
+frost_flicker
+{
+	map particle_sheet1.png
+	region r_flicker
+	animation_speed 5
+	animation_start 0
+	blend add
+	max_particles 100
+	max_emissions 0
+	lifetime 3 4
+	
+	period 0.02
+     scale_start 10 5
+    rotation_start 0
+   	hard_edges true
+     velocity_angles 0 0 0 0 0 0
+    color_start  0.3 0.3 0.3 1 0.2 0.2 .5 1
+	color_end  0.0 0.0 0 0.0
+range 0
+position 30 80 30 -30 0 -30
+}
+
+frosts_pfx
+{	
+	
+	   subsystem	frost_flames  0 1
+	  subsystem frost_embers  0 1
+	 subsystem frost_snowflake
+	 subsystem frost_flicker
+	 range 0
+}

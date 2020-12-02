@@ -34,6 +34,8 @@ game default
 	setting game_wipe_out_mode 0
 	setting game_friendly_fire 1
 	setting game_weapon_respawn_time 0
+	setting game_equip_time_ms -1
+	setting game_weapons_cap_ammo 0
 	setting game_overtime 120
 	setting game_overtime_score_limit 0
 	setting game_overtime_score_threshold 0
@@ -755,7 +757,7 @@ game tdm
 	setting game_weapon_respawn_time 10
 	setting game_hp 125
 	setting game_time_limit 600
-	setting game_mercy_limit 50
+	setting game_mercy_limit 35
 
 	map tdm_icefall
 	map tdm_oxide
@@ -864,6 +866,7 @@ game ft
 	setting game_freeze_time 10000000
 	setting game_freeze_save_time 3
 	setting game_freeze_save_radius 150
+	setting game_weapons_cap_ammo 1
 	
 	setting game_friendly_fire 0
 	
