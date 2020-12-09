@@ -3137,11 +3137,15 @@
                 </div>
 
                 <div class="list_controls">
-                    <div id="play_screen_refresh_info"></div>
-                    <div id="play_screen_refresh_btn" class="db-btn plain reload_btn click-sound mouseover-sound2" onclick="play_screen_reload_lists('matches')"></div>
-                    <div id="join_lobby_button"    class="db-btn plain click-sound mouseover-sound4 tooltip2" data-msg-id="customlist_join_with_key" onclick="lobby_join_with_key()" ></div>
-                    <div id="create_lobby_button"  class="db-btn click-sound mouseover-sound4 i18n" data-i18n="customlist_create_lobby" onclick="create_custom_lobby()">Create Lobby</div>
-                    <div id="create_pickup_button" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_create_pickup"      onclick="open_create_pickup()">Create Pickup</div>
+                    <div class="combined">
+                        <div id="play_screen_refresh_info"></div>
+                        <div id="play_screen_refresh_btn" class="db-btn plain reload_btn click-sound mouseover-sound2" onclick="play_screen_reload_lists('matches')"></div>
+                    </div>
+                    <div class="combined">
+                        <div id="join_lobby_button"    class="db-btn plain click-sound mouseover-sound4 tooltip2" data-msg-id="customlist_join_with_key" onclick="lobby_join_with_key()"></div>
+                        <div id="create_lobby_button"  class="db-btn click-sound mouseover-sound4 i18n" data-i18n="customlist_create_lobby" onclick="create_custom_lobby()">Create Lobby</div>
+                        <div id="create_pickup_button" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_create_pickup"      onclick="open_create_pickup()">Create Pickup</div>
+                    </div>
                 </div>
             </div>
 
@@ -5879,7 +5883,7 @@
     <div id="loading_screen_content">
         <div id="loading_screen_artwork"></div>
         <div id="loading_screen_text">
-            <div id="loading_screen_community_tip">Community Tip</div>
+            <div id="loading_screen_community_tip" class="i18n" data-i18n="loading_tip_community">Community Tip</div>
             <div class="separator_line"></div>
             <div id="loading_screen_community_quote"></div>
             <div id="loading_screen_community_author"></div>

@@ -540,6 +540,16 @@ var global_game_mode_map = {
         "image": "brawl_loop.jpg",
         "icon": "/html/images/gamemodes/tdm.svg"
     },
+    "ftc": {
+        "mode": "ftc",
+        "name": "Freeze Tag Classic",
+        "i18n": "game_mode_ftc",
+        "desc_i18n": "game_mode_desc_ftc",
+        "announce": "announcer_common_gamemode_ftc",
+        "enabled": true,
+        "image": "brawl_loop.jpg",
+        "icon": "/html/images/gamemodes/tdm.svg"
+    },
     "survival": {
         "mode": "survival",
         "name": "Survival",
@@ -641,6 +651,7 @@ var global_customization_type_map = {
     "9": { "name": "shoes",             "prefix": "sh", "group": "character",         "img_path": "/html/customization/shoes/",             "i18n": "customization_type_shoes" },
     "10":{ "name": "country",           "prefix": "co", "group": "profile",           "img_path": "/html/customization/flag/",              "i18n": "customization_type_flag" },
     "11":{ "name": "shell",             "prefix": "se", "group": "character",         "img_path": "/html/customization/shell/",             "i18n": "customization_type_shell" },
+    "12":{ "name": "shield",            "prefix": "si", "group": "character",         "img_path": "/html/customization/shield/",            "i18n": "customization_type_shield" },
 };
 
 var global_customization_type_id_map = {

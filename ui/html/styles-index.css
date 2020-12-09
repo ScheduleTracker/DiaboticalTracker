@@ -17845,11 +17845,17 @@ h2 {
 
     display:flex;
     flex-direction:row;
+    flex-wrap:wrap;
     justify-content:flex-end;
     align-items:center;
 }
+#play_combo_list .list_controls .combined {
+    display:flex;
+    flex-direction:row;
+}
 #play_combo_list .list_controls .db-btn {
     margin-left:1vh;
+    margin-top:0.4vh;
 }
 #play_combo_list .list_controls .db-btn.lobby_open { background-color:#d6951c; }
 #play_combo_list .list_controls .db-btn.lobby_open:hover { background-color:#e2a431; }
@@ -18419,7 +18425,9 @@ h2 {
     width:2.5vh;
     height:2.5vh;
 }
-
+.hover_info_box .pickup .party .row .rank_icon .position {
+    display:none;
+}
 
 
 @media (max-width: 162vh) {

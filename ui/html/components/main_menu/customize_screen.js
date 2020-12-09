@@ -57,6 +57,7 @@ let global_customization_options_map = {
         new CustomizationType("shell", ""),
         new CustomizationType("shoes", "l"),
         new CustomizationType("shoes", "r"),
+        //new CustomizationType("shield", ""),
     ],
     "sticker": [
         //new CustomizationType("sticker", ""),
