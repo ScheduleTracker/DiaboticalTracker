@@ -35,6 +35,7 @@ game default
 	setting game_friendly_fire 1
 	setting game_weapon_respawn_time 0
 	setting game_equip_time_ms -1
+	setting game_switch_time_ms -1
 	setting game_weapons_cap_ammo 0
 	setting game_overtime 120
 	setting game_overtime_score_limit 0
@@ -505,6 +506,46 @@ game ca
 	weapon grenade_launcher 5
 }
 
+game cac
+{
+	map wo_furnace
+	map wo_refinery
+	map wo_wellspring
+	map wo_crystal_cove
+	map wo_toya_fortress
+		
+	setting game_truce_time 7
+	setting game_enable_items 0
+	setting game_team_mode 1
+    setting game_rounds 10
+	setting game_score_limit 8
+	setting game_life_count 0
+	
+	setting game_hp 200
+	setting game_stable_hp 200
+    setting game_ghost_limit_hp 200
+	setting game_max_hp 200
+
+	setting game_armor 200
+	setting game_stable_armor 200
+	setting game_max_armor 200
+	
+	setting game_self_damage 0
+	setting game_wipe_out_mode 1
+	
+	setting game_friendly_fire 0
+	
+	weapon sword 999
+	weapon machinegun 100 
+	weapon blaster 250 true
+	weapon super_shotgun 50
+	weapon rocket_launcher 50
+	weapon shaft 250
+	weapon pncr 50
+	weapon grenade_launcher 5
+}
+
+
 game rocket_arena
 {
 	map a_barrows_gate
@@ -753,7 +794,7 @@ game coinrun
 game tdm
 {
 	setting game_team_mode 1
-	setting game_friendly_fire 1
+	setting game_friendly_fire 0
 	setting game_weapon_respawn_time 10
 	setting game_hp 125
 	setting game_time_limit 600
@@ -775,6 +816,7 @@ game tdmc
 	setting game_hp 125
 	setting game_time_limit 900
 	setting game_mercy_limit 35
+	setting game_enable_drop 1
 
 	map tdm_icefall
 	map tdm_oxide
