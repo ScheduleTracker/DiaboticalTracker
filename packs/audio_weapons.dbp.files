@@ -166,6 +166,11 @@ audio\weapons\melee\skins\ballhammer\m_ballhammer_fire2.wav		130086
 audio\weapons\melee\skins\ballhammer\m_ballhammer_fire3.wav		130086
 audio\weapons\melee\skins\ballhammer\m_ballhammer_fire4.wav		130086
 audio\weapons\melee\skins\ballhammer\m_ballhammer_fire5.wav		130086
+audio\weapons\melee\skins\boltbat\m_boltbat_fire1.wav		78894
+audio\weapons\melee\skins\boltbat\m_boltbat_fire2.wav		78894
+audio\weapons\melee\skins\boltbat\m_boltbat_fire3.wav		78894
+audio\weapons\melee\skins\boltbat\m_boltbat_fire4.wav		78894
+audio\weapons\melee\skins\boltbat\m_boltbat_fire5.wav		78894
 audio\weapons\melee\skins\bolted_bat\m_bolted_bat_fire1.wav		78894
 audio\weapons\melee\skins\bolted_bat\m_bolted_bat_fire2.wav		78894
 audio\weapons\melee\skins\bolted_bat\m_bolted_bat_fire3.wav		78894
@@ -176,6 +181,11 @@ audio\weapons\melee\skins\broadsword\m_broadsword_fire2.wav		94646
 audio\weapons\melee\skins\broadsword\m_broadsword_fire3.wav		94646
 audio\weapons\melee\skins\broadsword\m_broadsword_fire4.wav		94646
 audio\weapons\melee\skins\broadsword\m_broadsword_fire5.wav		94646
+audio\weapons\melee\skins\broomstick\m_broomstick_fire1.wav		94646
+audio\weapons\melee\skins\broomstick\m_broomstick_fire2.wav		94646
+audio\weapons\melee\skins\broomstick\m_broomstick_fire3.wav		94646
+audio\weapons\melee\skins\broomstick\m_broomstick_fire4.wav		94646
+audio\weapons\melee\skins\broomstick\m_broomstick_fire5.wav		94646
 audio\weapons\melee\skins\cutter\m_cutter_fire1.wav		94646
 audio\weapons\melee\skins\cutter\m_cutter_fire2.wav		94646
 audio\weapons\melee\skins\cutter\m_cutter_fire3.wav		94646
@@ -201,6 +211,11 @@ audio\weapons\melee\skins\mazer\m_mazer_fire2.wav		132446
 audio\weapons\melee\skins\mazer\m_mazer_fire3.wav		132446
 audio\weapons\melee\skins\mazer\m_mazer_fire4.wav		132446
 audio\weapons\melee\skins\mazer\m_mazer_fire5.wav		132446
+audio\weapons\melee\skins\scythe\m_scythe_fire1.wav		94646
+audio\weapons\melee\skins\scythe\m_scythe_fire2.wav		94646
+audio\weapons\melee\skins\scythe\m_scythe_fire3.wav		94646
+audio\weapons\melee\skins\scythe\m_scythe_fire4.wav		94646
+audio\weapons\melee\skins\scythe\m_scythe_fire5.wav		94646
 audio\weapons\melee\skins\sonar_hammer\m_sonar_hammer_fire1.wav		132446
 audio\weapons\melee\skins\sonar_hammer\m_sonar_hammer_fire2.wav		132446
 audio\weapons\melee\skins\sonar_hammer\m_sonar_hammer_fire3.wav		132446
