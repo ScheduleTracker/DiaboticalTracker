@@ -71,7 +71,11 @@ ON_UPDATE
     OUTPUT 2 0 y 2
 
     # Value "Map"
-    OUTPUT 2 1 value game_data.map
+    IF game_data.map_name != ""
+        OUTPUT 2 1 value game_data.map_name
+    ELSE
+        OUTPUT 2 1 value game_data.map
+    END IF
     OUTPUT 2 1 font "roboto-bold"
     OUTPUT 2 1 font_size 1.3
     OUTPUT 2 1 offset_x 31

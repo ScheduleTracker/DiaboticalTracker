@@ -956,6 +956,7 @@ function getVS(team_count, team_size) {
 
 function parse_modes(data) {
     global_queues = {};
+    global_instant_modes.length = 0;
 
     global_mode_definitions = data.mode_definitions;
     global_active_queues = data.active_queues;
@@ -983,6 +984,10 @@ function parse_modes(data) {
         }
 
         mode.vs = vs;
+
+        if (mode.instant) {
+            global_instant_modes.push(m);
+        }
     }
 
     /*

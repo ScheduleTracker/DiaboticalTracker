@@ -93,6 +93,10 @@ body, html {
     align-items: center;
 }
 
+.flex_row {
+    display:flex;
+    flex-direction:row;
+}
 
 /*
  *  Generic Buttons

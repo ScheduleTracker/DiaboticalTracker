@@ -57,6 +57,8 @@ window.addEventListener("load", function(){
 
     init_friends_list();
     init_main_chat();
+    
+    initialize_loading_screen();
 
     console.log("LOAD001");
     
@@ -264,6 +266,19 @@ window.addEventListener("load", function(){
             console.log("Error parsing location JSON. err=" + e);
         }
     });
+    
+    //Loading screen events
+    bind_event('start_loading', function(gamemode){
+        console.log('event: start loading');
+        open_loading_screen(gamemode);
+    });
+    bind_event('loading_progress', function(progress, status_text){
+        console.log('event: loading progress');
+        update_loading_screen(progress, status_text)
+    });
+    bind_event('end_loading', function(){
+        close_loading_screen();
+    });
 
     // Add leave match button once map has loaded
     bind_event('on_map_loaded', function () {
@@ -375,8 +390,7 @@ window.addEventListener("load", function(){
                     if (global_view_active) {
                         if (global_menu_page == "play_screen_customlist" || global_menu_page == "custom_screen") renderMatchList();
                         if (global_menu_page == "play_screen_combined") {
-                            render_play_screen_matchlist();
-                            render_play_screen_pickups();
+                            render_play_screen_combined_list();
                         }
                     }
                     break;
@@ -664,7 +678,7 @@ window.addEventListener("load", function(){
     bind_event('on_masterclient_down',       function() { set_logged_out_screen(true, "service_down"); });
     bind_event('on_masterclient_disabled',   function() { set_logged_out_screen(true, "disabled"); });
 
-    bind_event('on_anticheat_error',   function(code) { set_logged_out_screen(true, "anticheat", code); });
+    bind_event('on_anticheat_error',   function(code, msg) { set_logged_out_screen(true, "anticheat", code, msg); });
 
     bind_event('global_event', function(event_name, value) {
 
@@ -1546,7 +1560,7 @@ function set_masterserver_connection_state(connected, initial) {
         send_string(CLIENT_COMMAND_GET_RECONNECTS);
 
         // Request match and pickup lists if we are currently on the play screen
-        if (global_menu_page == "play_screen_combined") update_custom_match_list(true);
+        if (global_menu_page == "play_screen_combined") update_play_combined_list(true);
 
         // =============================
         // Show/Hide ui containers
@@ -1583,11 +1597,8 @@ function set_masterserver_connection_state(connected, initial) {
         _id("customize_content").style.display = "none";
         _id("customize_offline_msg").style.display = "flex";
 
-        _id("play_screen_combined_offline").style.display = "block";
+        _id("play_screen_combined_offline").style.display = "flex";
         _id("play_screen_combined_online").style.display = "none";
-
-        // Remove the queues
-        clear_queues();
 
         // Stop searching
         process_queue_msg("stop");
@@ -1714,14 +1725,14 @@ function anim_misc(timestamp) {
         if (global_mm_searching) queue_timer_update();
 
         // Check if the match list needs updating
-        update_custom_match_list(false, timestamp);
+        update_play_combined_list(false, timestamp);
     }
     // Run something once every 30s
+    /*
     if ((ts_seconds - _last_anim_misc_30s) >= 30) {
-        update_queue_countdown();
-
         _last_anim_misc_30s = ts_seconds;
     }
+    */
     _last_anim_misc = ts_seconds;
 
     window.requestAnimationFrame(anim_misc);
@@ -1787,8 +1798,7 @@ function close_modal_screen(e, selector, instant) {
             renderMatchList();
         }
         if (global_menu_page == "play_screen_combined") {
-            render_play_screen_matchlist();
-            render_play_screen_pickups();
+            render_play_screen_combined_list();
         }
     }
 

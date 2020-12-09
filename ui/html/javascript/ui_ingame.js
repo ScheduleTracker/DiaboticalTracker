@@ -46,11 +46,13 @@ class Match {
     constructor() {
         this.match_id = -1;
         this.map = '';
+        this.map_name = '';
         this.mode = '';
         this.mm_mode = '';
         this.clients = {};
         this.confirmation_frag_time = false;
         this.game_time_for_chat = "00:00";
+        this.map_list = [];
 
         this.create_ts = Date.now();
     }
@@ -196,7 +198,7 @@ function set_hud_zoom_weapon_crosshair(settings_zoom_weapon_crosshair_index) {
 function handlePostMatchUpdates(data) {
     //console.log("post-match-updates", _dump(data), _dump(current_match));
     if (current_match.match_id == data.match_id) {
-        if ("mmr_updates" in data) {
+        if ("mmr_updates" in data && "mmr_key" in data.mmr_updates) {
             renderRankScreen(data.mmr_updates);
 
             let mmr_data = data.mmr_updates;
@@ -515,10 +517,12 @@ window.addEventListener("load", function(){
                 current_match = match_data[mani.match_id];
             }
             current_match.map = mani.map;
+            current_match.map_name = mani.map_name;
             current_match.match_type = mani.match_type;
             current_match.mode = mani.mode;
             current_match.mm_mode = mani.mm_mode;
             current_match.community_map = mani.community_map;
+            current_match.map_list = mani.map_list.split(":");
             current_match.setManifest(mani);
             cleanup_match_data();
 
@@ -532,7 +536,7 @@ window.addEventListener("load", function(){
             } else {
                 _id("game_intro_mode").textContent = "";
             }
-            _id("game_intro_map").textContent = _format_map_name(mani.map);
+            _id("game_intro_map").textContent = _format_map_name(mani.map, mani.map_name);
 
             let server = '';
             if (mani.location in global_region_map) {

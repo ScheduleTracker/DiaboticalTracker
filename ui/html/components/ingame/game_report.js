@@ -438,7 +438,8 @@ function create_game_report(game_status, snafu_data) {
     _empty(head_right);
     head_right.appendChild(_createElement("div", "type", localize(MATCH_TYPE[game_status.match_type].i18n)));
     if (global_game_mode_map.hasOwnProperty(game_status.mode)) head_right.appendChild(_createElement("div", "mode", localize(global_game_mode_map[game_status.mode].i18n)));
-    head_right.appendChild(_createElement("div", "map", _format_map_name(game_status.map)));
+    
+    head_right.appendChild(_createElement("div", "map", _format_map_name(game_status.map, game_status.map_name)));
     head_right.appendChild(_createElement("div", "time", _seconds_to_digital(game_status.match_time)));
 
     if (current_match.community_map) {
@@ -573,7 +574,7 @@ function create_game_report(game_status, snafu_data) {
                         }
                         head_row.appendChild(_createElement("div","label", localize("stats_time")));
                         head_row.appendChild(_createElement("div",["label", "best_w"], localize("stats_best_weapon")));
-                        if (game_status.match_type == MATCH_TYPE_QUEUE || game_status.match_type == MATCH_TYPE_PICKUP) {
+                        if (game_status.match_type == MATCH_TYPE_QUEUE || game_status.match_type == MATCH_TYPE_PICKUP || game_status.match_type == MATCH_TYPE_INSTANT) {
                             head_row.appendChild(_createElement("div", "label", localize("commend")));
                         }
                         head_row.appendChild(_createElement("div", ["label", "tscore"]));
@@ -667,7 +668,7 @@ function create_game_report(game_status, snafu_data) {
                         best_w.appendChild(icon);
                         player_row.appendChild(best_w);
 
-                        if (game_status.match_type == MATCH_TYPE_QUEUE || game_status.match_type == MATCH_TYPE_PICKUP) {
+                        if (game_status.match_type == MATCH_TYPE_QUEUE || game_status.match_type == MATCH_TYPE_PICKUP || game_status.match_type == MATCH_TYPE_INSTANT) {
                             let commend_cont = _createElement("div", ["stat"]);
                             // Check that the user_id is not in our party
                             if (p.user_id != global_self.user_id && 
@@ -945,7 +946,7 @@ function renderMapVote(snafu_data) {
     else map_vote_btn.style.display = "none";
 
     let maps = [];
-    if (snafu_data["game_data.map_list"] && snafu_data["game_data.map_list"].length) maps = snafu_data["game_data.map_list"].split(":");
+    if (current_match.map_list && current_match.map_list.length) maps = current_match.map_list;
 
     // Filter out the map that was just played, unless its the only map in the list
     let valid_maps = [];

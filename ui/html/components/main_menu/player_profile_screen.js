@@ -844,9 +844,9 @@ function player_profile_render_matches(data) {
 
         let th_map = _createElement("div", ["td", "td_map"]);
         let map_gradient = _createElement("div", "map_gradient");
-        map_gradient.style.backgroundImage = 'url(map_thumbnails/'+m.match_map+'.png)';
+        map_gradient.style.backgroundImage = 'url("map-thumbnail://'+m.match_map+'")';
         th_map.appendChild(map_gradient);
-        th_map.appendChild(_createElement("div", "map_name", _format_map_name(m.match_map)));
+        th_map.appendChild(_createElement("div", "map_name", _format_map_name(m.match_map, m.match_map_name)));
         match_row.appendChild(th_map);
 
         let th_datetime = _createElement("div", ["td", "td_datetime"], _to_readable_timestamp(m.finish_ts));

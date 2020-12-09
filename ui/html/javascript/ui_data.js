@@ -60,12 +60,14 @@ const CLIENT_COMMAND_MESSAGE_USER = 110;
 const CLIENT_COMMAND_CREATE_PICKUP = 111;
 const CLIENT_COMMAND_LEAVE_PICKUP = 112;
 const CLIENT_COMMAND_JOIN_PICKUP = 113;
+const CLIENT_COMMAND_INSTANT_JOIN = 114;
 
 const MATCH_TYPE_CUSTOM = 0;
 const MATCH_TYPE_TOURNAMENT = 1;
 const MATCH_TYPE_PICKUP = 2;
 const MATCH_TYPE_QUEUE = 3;
 const MATCH_TYPE_WARMUP = 4;
+const MATCH_TYPE_INSTANT = 5;
 
 const MATCH_TYPE = {
     0: { "i18n": "match_type_custom" },
@@ -73,6 +75,7 @@ const MATCH_TYPE = {
     2: { "i18n": "match_type_pickup" },
     3: { "i18n": "match_type_queue" },
     4: { "i18n": "match_type_warmup" },
+    5: { "i18n": "match_type_quickplay"},
 };
 
 const SHOP_ITEM_TYPE = {
@@ -357,6 +360,16 @@ var global_game_mode_map = {
         "image": "arena_loop.jpg",
         "icon": "/html/images/gamemodes/arena.svg"
     },
+    "cac": {
+        "mode": "cac",
+        "name": "Aim Arena Classic",
+        "i18n": "game_mode_cac",
+        "desc_i18n": "game_mode_desc_cac",
+        "announce": "announcer_common_gamemode_cac",
+        "enabled": true,
+        "image": "arena_loop.jpg",
+        "icon": "/html/images/gamemodes/arena.svg"
+    },
     "rocket_arena": {
         "mode": "rocket_arena",
         "name": "Rocket Arena",
@@ -555,6 +568,9 @@ let global_mode_definitions = {};
 
 // Currently active queues, coming from the MS, see parse_modes()
 let global_queues = {};
+
+// Currently active instant queue modes, coming from the MS, see parse_modes()
+let global_instant_modes = [];
 
 var global_general_card_data = {
     "practice": {
@@ -1096,4 +1112,29 @@ var global_ranks = {
     "top_2": { "anim": "42_special03.webm" },
     "top_3": { "anim": "43_special02.webm" },
     "top_4": { "anim": "44_legend.webm" },
+};
+
+
+let global_weapon_sound_packs = {
+    0 : [],     //"default"
+    1 : [],     //"editpad"
+    2 : [],     //"weaponmelee"
+    3 : [],     //"weaponmac"
+    4 : [],     //"weaponbl"
+    5 : [],     //"weaponss"
+    6 : [],     //"weaponrl"
+    7 : [1],     //"weaponshaft"
+    8 : [1],     //"weaponcb"
+    9 : [1],     //"weaponpncr"
+    10: [1],     //"weapongl"
+    11: [],     //"weaponw9"
+    12: [],     //"weaponmg"
+    13: [],     //"weaponst"
+    14: [],     //"weaponhw"
+    15: [],     //"weaponiw"
+    16: [],     //"weaponsw"
+    17: [],     //"weaponbw"
+    18: [],     //"weaponsmw"
+    19: [],     //"weaponkw",  
+    20: [],     //"weaponhook"
 };

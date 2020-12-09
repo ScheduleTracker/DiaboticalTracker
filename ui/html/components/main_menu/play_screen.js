@@ -667,6 +667,8 @@ function renderPlayCard(data) {
 
     // Make these cards smaller to make the center team one stand out
     if (global_small_play_cards.includes(data.name)) card_flex.classList.add("small");
+
+    if (data.narrow) card_flex.classList.add("narrow");
     
     let play_card_video = new PlayCardVideo(data.background);
     card_flex.appendChild(play_card_video.card);
@@ -685,7 +687,10 @@ function renderPlayCard(data) {
     card_top.appendChild(_createElement("div", "title", localize(data.title)));
     let card_best_rank = _createElement("div", "card_best_rank");
     card_top.appendChild(card_best_rank);
+
     if (data.type == "ranked") {
+        card_best_rank.id = "top_ranked_tier";
+
         let top_links = _createElement("div", "card_top_links");
         let link_leaderboards = _createElement("div", "link");
         let link_icon = _createElement("div", ["icon", "leaderboard"]);
@@ -694,11 +699,7 @@ function renderPlayCard(data) {
         _addButtonSounds(link_leaderboards, 1);
         link_leaderboards.addEventListener("click", function(ev) {
             ev.stopPropagation();
-            if (data.queues.length) {
-                open_leaderboards(data.queues[0]);
-            } else {
-                open_leaderboards();
-            }
+            open_leaderboards();
         });
         link_leaderboards.addEventListener("mouseenter", function() {
             link_leaderboards.classList.add("hover");
@@ -765,20 +766,7 @@ function renderPlayCard(data) {
 
     for (let queue of data.queues) {
         if (!(global_queues[queue])) continue;
-
-        let match_modes = [];
-        let match_mode_names = [];
-        if (global_queues[queue]) {
-            for (let mode of global_queues[queue].modes) {
-                if (!match_mode_names.includes(mode.mode_name)) {
-                    match_mode_names.push(mode.mode_name);
-                    match_modes.push({
-                        "name": mode.mode_name,
-                        "instagib": mode.instagib
-                    });
-                }
-            }
-        }
+        let qdata = global_queues[queue];
 
         let card_checkbox_outer = _createElement("div", "card_checkbox_outer");
         card_bottom.appendChild(card_checkbox_outer);
@@ -791,21 +779,16 @@ function renderPlayCard(data) {
             card_checkbox.dispatchEvent(new Event("click"));
         });
 
-        card_checkbox.dataset.mode = queue;
+        card_checkbox.dataset.mode_key = queue;
         card_checkbox.dataset.locked = (data.state == 1) ? true : false;
-        card_checkbox.dataset.type = data.type;
 
-        if (match_mode_names.length > 1) {
-            card_checkbox.dataset.msgHtmlId = "mode_description";
-            card_checkbox.dataset.match_mode = match_mode_names.join(":");
-            card_checkbox.dataset.instagib = 0;
-            card_checkbox.classList.add("tooltip2");
-        } else if (match_mode_names.length == 1) {
-            card_checkbox.dataset.msgHtmlId = "card_tooltip";
-            card_checkbox.dataset.match_mode = match_modes[0].name;
-            card_checkbox.dataset.instagib = match_modes[0].instagib;
-            card_checkbox.classList.add("tooltip2");
-        }
+        card_checkbox.addEventListener("mouseenter", function(e) {
+            play_screen_hover_info(e, "queue", card_checkbox, qdata);
+        });
+        card_checkbox.addEventListener("mouseleave", function(e) {
+            cleanup_hover_info_box(true);
+        });
+        
 
         card_checkboxes.push(card_checkbox);
         global_queue_mode_checkboxes.push(card_checkbox);
@@ -828,71 +811,108 @@ function renderPlayCard(data) {
         card_checkbox.appendChild(checkbox_box);
 
         let checkbox_label = _createElement("div", "checkbox_label");
-        checkbox_label.appendChild(_createElement("span", "", global_queues[queue].queue_name));
+        checkbox_label.appendChild(_createElement("span", "", qdata.vs+" "+qdata.queue_name));
         card_checkbox.appendChild(checkbox_label);
 
         let checkbox_rank = _createElement("div", "checkbox_rank");
         card_checkbox.appendChild(checkbox_rank);
+    }
 
-        if (global_queues[queue].modes.length > 1) {
-            let mode_list = _createElement("div", "mode_list");
-            for (let mode of global_queues[queue].modes) {
-                mode_list.appendChild(_createElement("div", "mode", localize(global_game_mode_map[mode.mode_name].i18n)));
+    if (data.instant) {
+        for (let mode_key of data.instant) {
+            
+            let label = '';
+            let qdata = {};
+            if (global_mode_definitions.hasOwnProperty(mode_key)) {
+                qdata = global_mode_definitions[mode_key];
+                if (!(global_mode_definitions[mode_key].team_size == 1 && global_mode_definitions[mode_key].team_count > 2)) {
+                    label = getVS(global_mode_definitions[mode_key].team_count, global_mode_definitions[mode_key].team_size)+" ";
+                }
+                label += global_mode_definitions[mode_key].name;
+            } else if (mode_key == "warmup") {
+                label = localize("match_type_warmup");
+                qdata = {
+                    mode_key: "warmup",
+                    name: label,
+                    team_size: 1,
+                    team_count: 8,
+                    physics: 0,
+                };
+            } else if (mode_key == "party_warmup") {
+                label = localize("menu_party_warmup");
+                qdata = {
+                    mode_key: "warmup",
+                    name: label,
+                    team_size: 1,
+                    team_count: 8,
+                    physics: 0,
+                };
             }
-            card_checkbox.appendChild(mode_list);
-        }
-
-        if (global_queues[queue].roles && global_queues[queue].roles.length) {
-            let card_roles = _createElement("div", "card_roles");
-            let card_roles_inner = _createElement("div", "card_roles_inner");
-            card_roles.appendChild(card_roles_inner);
-            card_bottom.appendChild(card_roles);
-
-            card_roles.addEventListener("click", function(ev) {
-                ev.stopPropagation();
+            
+            let instant_join = _createElement("div", "instant_join");
+            instant_join.dataset.mode_key = mode_key;
+            instant_join.appendChild(_createElement("div", "label", label));
+            let instant_join_btn = _createElement("div", "join", localize("join"));
+            instant_join.appendChild(instant_join_btn);
+            card_bottom.appendChild(instant_join);
+            
+            instant_join.addEventListener("mouseenter", function(e) {
+                play_screen_hover_info(e, "instant", instant_join, qdata);
+                if (instant_join.classList.contains("party_disabled")) return;
+                if (bool_am_i_leader || mode_key == "warmup") {
+                    _play_mouseover4();
+                    instant_join_btn.classList.add("hover");
+                }
+            });
+            instant_join.addEventListener("mouseleave", function(e) {
+                cleanup_hover_info_box(true);
+                instant_join_btn.classList.remove("hover");
+            });
+            instant_join.addEventListener("click", function() {
+                if (instant_join.classList.contains("party_disabled")) return;
+                if (global_mode_definitions.hasOwnProperty(mode_key)) {
+                    if (!bool_am_i_leader) return;
+                    send_string(CLIENT_COMMAND_INSTANT_JOIN, mode_key);
+                    _play_click1();
+                    cleanup_hover_info_box(true);
+                } else if (mode_key == "warmup") {
+                    join_warmup();
+                    _play_click1();
+                    cleanup_hover_info_box(true);
+                } else if (mode_key == "party_warmup") {
+                    if (!bool_am_i_leader) return;
+                    join_party_warmup();
+                    _play_click1();
+                    cleanup_hover_info_box(true);
+                }
             });
 
-            for (let role of global_queues[queue].roles) {
-                let card_role = _createElement("div", ["card_role", "_comp_play_role"]);
-                card_role.dataset.mode = queue;
-                card_role.dataset.role = role.name;
-
-                let card_role_cb = _createElement("div", "card_role_cb");
-                card_role_cb.appendChild(_createElement("div", "mark"));
-                card_role.appendChild(card_role_cb);
-                card_role.appendChild(_createElement("div", "card_role_label", localize(role.i18n)));
-                card_role.appendChild(_createElement("div", "card_role_players"));
-
-                card_roles_inner.appendChild(card_role);
-
-                card_role.addEventListener("click", function(ev) {
-                    ev.stopPropagation();
-
-                    if (!card_roles_inner.classList.contains("enabled")) return;
-                    if (global_mm_searching_quickplay && data.type == "quickplay") return;
-                    if (global_mm_searching_ranked && data.type == "ranked") return;
-
-                    if (card_role.classList.contains("enabled")) {
-                        card_role.classList.remove("enabled");
-                        card_role.firstElementChild.classList.remove("enabled");
-                        card_role_cb.firstElementChild.classList.remove("enabled");
-                    } else {
-                        card_role.classList.add("enabled");
-                        card_role.firstElementChild.classList.add("enabled");
-                        card_role_cb.firstElementChild.classList.add("enabled");
-                    }
-                    
-                    let roles = [];
-                    _for_each_with_class_in_parent(card_roles_inner, "card_role", function(role) {
-                        if (role.dataset.mode == queue && role.classList.contains("enabled")) {
-                            roles.push(role.dataset.role);
-                        }
-                    });
-                    
-                    send_json_data({"action": "party-set-roles", "mode": queue, "roles": roles});
-                });
+            if (mode_key == "party_warmup") {
+                instant_join.id = "party_instant_join_warmup";
+                if (!bool_am_i_leader || global_party.size == 1) {
+                    instant_join.style.display = "none";
+                }
             }
+
+            global_instant_join_buttons.push(instant_join);
         }
+    }
+
+    // Ranked queue button
+    if (data.type == "ranked") {
+        let queue_button = _createElement("div", "queue_button", localize("menu_start_queueing"));
+        queue_button.id = "ranked_queue_button";
+        card_bottom.appendChild(queue_button);
+
+        queue_button.addEventListener("mouseenter", function() {
+            if (queue_button.classList.contains("disabled")) return;
+            _play_mouseover4();
+        });
+        queue_button.addEventListener("click", function() {
+            if (queue_button.classList.contains("disabled")) return;
+            _play_click1();
+            play_queue(queue_button);
+        });
     }
 
     let card_spinner = null;
@@ -923,7 +943,9 @@ function renderPlayCard(data) {
             if (card_texts.length) {
                 for (let card_text of card_texts) card_text.classList.add("hover");
             }
-            _play_mouseover4();
+            if (data.state > 1 && data.on_click) {
+                _play_mouseover4();
+            }
 
             if (card_flex.dataset.currently_active == "false") {
                 if (global_view_active) play_card_video.play();
@@ -942,14 +964,14 @@ function renderPlayCard(data) {
         
         card_flex.addEventListener("click", function() {
    
-            let set_all_enabled = false;
-            let first = true;
-
             if (data.state > 1 && data.on_click) {
                 if (card_flex.classList.contains("onclickactive")) return;
                 card_click_spinner(data.on_click());
             }
        
+            /*
+            let set_all_enabled = false;
+            let first = true;
             let modes = [];
             for (let cb of card_checkboxes) {
                 if (cb.classList.contains("disabled")) continue;
@@ -958,7 +980,7 @@ function renderPlayCard(data) {
                 if (data.type == "quickplay" && global_mm_searching_quickplay) continue;
                 if (data.type == "ranked" && global_mm_searching_ranked) continue;
                   
-                let mode = cb.dataset.mode;
+                let mode = cb.dataset.mode_key;
 
                 if (first) {
                     if (!mode) continue;
@@ -976,18 +998,18 @@ function renderPlayCard(data) {
             }
 
             set_queues_enabled(modes, set_all_enabled);
+            */
         
         });
 
         for (let cb of card_checkboxes) {
-            let mode = cb.dataset.mode;
+            let mode = cb.dataset.mode_key;
             cb.addEventListener("click", function(ev) {
                 ev.stopPropagation();
                 if (cb.classList.contains("disabled")) return;
                 if (cb.classList.contains("party_disabled")) return;
                 if (!bool_am_i_leader) return;
-                if (data.type == "quickplay" && global_mm_searching_quickplay) return;
-                if (data.type == "ranked" && global_mm_searching_ranked) return;
+                if (global_mm_searching) return;
                 
                 let value = false;
                 let data_value = cb.dataset.enabled;
@@ -1008,7 +1030,7 @@ function renderPlayCard(data) {
 class PlayCardVideo {
     constructor(style) {
         // disable video playback until gameface fixes memory leaks
-        this.disable_videos = false;
+        this.disable_videos = true;
 
         style = style.toLowerCase();
 
@@ -1155,6 +1177,8 @@ function play_screen_reset_cards(type) {
 
 
 function update_role_selection() {
+    return;
+
     _for_each_with_class_in_parent(_id("play_panel"), "card_role", function(r) {
         let player_cont = r.querySelector(".card_role_players");
         if (!player_cont) return;

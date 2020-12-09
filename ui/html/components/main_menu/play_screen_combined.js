@@ -1,5 +1,6 @@
 // global vars
 let global_queue_mode_checkboxes = [];
+let global_instant_join_buttons = [];
 let global_active_queues = [];
 let global_queue_selection = null;
 let global_queue_elements = [];
@@ -10,32 +11,76 @@ let global_custom_list_data_ts = undefined;
 
 function init_queues() {
     global_queue_mode_checkboxes = [];
+    global_instant_join_buttons = [];
 
-    //console.log("queues:", _dump(global_queues));
-    //console.log("active queues:", _dump(global_active_queues));
-    render_queues();
+    render_instant_quick_play();
+    render_ranked_card();
 
     engine.call("initialize_select_value", "lobby_search");
     update_queue_modes_availability();
+    update_queue_ranks();
 }
 
 function play_screen_reload_lists() {
-    update_custom_match_list(true);
+    update_play_combined_list(true);
 
-    _id("play_screen_refresh_btn_1").classList.add("disabled");
-    _id("play_screen_refresh_btn_2").classList.add("disabled");
+    _id("play_screen_refresh_btn").classList.add("disabled");
 
     setTimeout(function() {
-        _id("play_screen_refresh_btn_1").classList.remove("disabled");
-        _id("play_screen_refresh_btn_2").classList.remove("disabled");
-    }, 3000);
+        _id("play_screen_refresh_btn").classList.remove("disabled");
+    }, 1500);
+}
+
+function render_instant_quick_play() {
+    let container = _id("quickplay_card");
+    _empty(container);
+
+    let card = {
+        "type": "quickplay",
+        "title": "match_type_quickplay",
+        "background": "brawl",
+        "state": 2,
+        "narrow": true,
+        "instant": []
+    };
+
+    for (let mode_key in global_mode_definitions) {
+        if (global_mode_definitions[mode_key].instant) {
+            card.instant.push(mode_key);
+        }
+    }
+    card.instant.push("warmup");
+    card.instant.push("party_warmup");
+
+    container.appendChild(renderPlayCard(card));
+}
+
+function render_ranked_card() {
+    let container = _id("ranked_card");
+    _empty(container);
+
+    let card = {
+        "type": "ranked",
+        "title": "match_type_ranked",
+        "background": "arcade",
+        "state": 2,
+        "queues": []
+    };
+
+    for (let q of global_active_queues) {
+        card.queues.push(q.mode_key);
+    }
+
+    container.appendChild(renderPlayCard(card));
+
+    update_queue_mode_selection();
 }
 
 let global_updating_match_list = false;
 let global_last_match_list_update_ts = null;
 let global_match_list_auto_refresh_time = 30; // Refresh the match and pickup lists every 30s 
 // param "manual" says whether the function was called automatically or manually by the user
-function update_custom_match_list(manual, timestamp) {
+function update_play_combined_list(manual, timestamp) {
     // Only update if we are currently on the play screen
     if (global_menu_page != "play_screen_combined" && global_menu_page != "play_screen_customlist") return;
 
@@ -71,6 +116,7 @@ function update_custom_match_list(manual, timestamp) {
     }
 }
 
+/*
 function update_queue_countdown() {
     //console.log("update_queue_countdown");
     if (!global_view_active) return;
@@ -91,6 +137,8 @@ function update_queue_countdown() {
         console.log("first_end_ts is null...");
     }
 }
+*/
+/*
 function render_queues() {
 
     //console.log("======== RENDER QUEUES");
@@ -193,12 +241,14 @@ function render_queues() {
 
     update_queue_countdown();
 }
-
+*/
 function update_queue_ranks() {
     if (Object.keys(global_self.mmr).length == 0) return;
 
-    for (let q of global_queue_elements) {
-        let rank_cont = q.querySelector(".rank_cont");
+    let top_rank_tier = -1;
+    let top_rank_position = 999999;
+    for (let q of global_queue_mode_checkboxes) {
+        let rank_cont = q.querySelector(".checkbox_rank");
         if (!rank_cont) continue;
 
         _empty(rank_cont);
@@ -209,7 +259,24 @@ function update_queue_ranks() {
         if (!global_self.mmr.hasOwnProperty(mmr_key)) continue;
         if (global_self.mmr[mmr_key].rank_tier == null) continue;
 
+        if (global_self.mmr[mmr_key].rank_tier >= top_rank_tier) {
+            top_rank_tier = global_self.mmr[mmr_key].rank_tier;
+
+            if (global_self.mmr[mmr_key].rank_position && global_self.mmr[mmr_key].rank_position < top_rank_position) {
+                top_rank_position = global_self.mmr[mmr_key].rank_position;
+            }
+        }
         rank_cont.appendChild(renderRankIcon(global_self.mmr[mmr_key].rank_tier, global_self.mmr[mmr_key].rank_position, global_mode_definitions[q.dataset.mode_key].team_size, "big"));
+    }
+
+    let top_rank = _id("top_ranked_tier");
+    if (top_rank) {
+        _empty(top_rank);
+
+        if (top_rank_tier != null) {
+            if (top_rank_position == 999999) top_rank_position = null;
+            top_rank.appendChild(renderRankIcon(top_rank_tier, top_rank_position, 1, "big"));
+        }
     }
 }
 
@@ -238,19 +305,19 @@ function set_queue_selection(json) {
         let active = (cb.dataset.enabled == "true") ? 1 : 0;
 
         let changed = false;
-        if (global_queue_selection.hasOwnProperty(cb.dataset.mode)) {
-            if (global_queue_selection[cb.dataset.mode] != active) {
+        if (global_queue_selection.hasOwnProperty(cb.dataset.mode_key)) {
+            if (global_queue_selection[cb.dataset.mode_key] != active) {
                 changed = true;
             }
         } else {
             // Initialize new queues disabled
-            global_queue_selection[cb.dataset.mode] = 0;
+            global_queue_selection[cb.dataset.mode_key] = 0;
             changed = true;
         }
 
         if (changed) {
             something_changed = true;
-            let value = global_queue_selection[cb.dataset.mode];
+            let value = global_queue_selection[cb.dataset.mode_key];
 
             cb.dataset.enabled = value == 1 ? "true" : "false";
             (cb.dataset.enabled == "true") ? enable_mode_checkbox(cb) : disable_mode_checkbox(cb);
@@ -298,8 +365,8 @@ function update_queue_modes() {
     let requested_modes = [];
 
     for (let cb of global_queue_mode_checkboxes) {
-        if (cb.dataset.locked == "false" && cb.dataset.mode.length && cb.dataset.enabled == "true") {
-            requested_modes.push(cb.dataset.mode);
+        if (cb.dataset.locked == "false" && cb.dataset.mode_key.length && cb.dataset.enabled == "true") {
+            requested_modes.push(cb.dataset.mode_key);
         }
     }
 
@@ -313,7 +380,7 @@ function update_queue_modes_availability() {
         if (cb.classList.contains("disabled")) continue;
 
         let cb_times = cb.querySelector(".checkbox_times");
-        if (global_party['valid-modes'].includes(cb.dataset.mode)) {
+        if (global_party['valid-modes'].includes(cb.dataset.mode_key)) {
             cb.classList.remove("party_disabled");
             if (cb_times) cb_times.classList.remove("party_disabled");
         } else {
@@ -323,6 +390,31 @@ function update_queue_modes_availability() {
             if (cb_times) cb_times.classList.add("party_disabled");
         }
     }
+
+    for (let btn of global_instant_join_buttons) {
+        let mode_key = btn.dataset.mode_key;
+        if (mode_key == "warmup" || mode_key == "party_warmup") continue;
+
+        if (!(mode_key in global_mode_definitions)) {
+            btn.classList.add("locked");
+            continue;
+        }
+
+        if (global_mode_definitions[mode_key].team_size == 1 && global_mode_definitions[mode_key].team_count > 2) {
+            if (global_party.size > global_mode_definitions[mode_key].team_count) {
+                btn.classList.add("party_disabled");
+            } else {
+                btn.classList.remove("party_disabled");
+            }
+        } else {
+            if (global_party.size > global_mode_definitions[mode_key].team_size) {
+                btn.classList.add("party_disabled");
+            } else {
+                btn.classList.remove("party_disabled");
+            }
+        }
+
+    }
 }
 
 
@@ -331,7 +423,7 @@ function update_queue_mode_selection() {
     for (let cb of global_queue_mode_checkboxes) {
         if (cb.parentElement == null) continue;
         
-        if (global_party["modes"].includes(cb.dataset.mode)) {
+        if (global_party["modes"].includes(cb.dataset.mode_key)) {
             enable_mode_checkbox(cb);
             count++;
         } else {
@@ -339,16 +431,19 @@ function update_queue_mode_selection() {
         }
     }
 
-    if (global_mm_searching) {
-        _id("play_queue_button").classList.remove("disabled");
-        _html(_id("play_queue_button"), localize("menu_cancel_search"));
-    } else {
-        if (count == 0) {
-            _id("play_queue_button").classList.add("disabled");
-            _html(_id("play_queue_button"), localize("menu_select_mode"));
+    let queue_button = _id("ranked_queue_button");
+    if (queue_button) {
+        if (global_mm_searching) {
+            queue_button.classList.remove("disabled");
+            queue_button.textContent = localize("menu_cancel_search");
         } else {
-            _id("play_queue_button").classList.remove("disabled");
-            _html(_id("play_queue_button"), localize("menu_find_match"));
+            if (count == 0) {
+                queue_button.classList.add("disabled");
+                queue_button.textContent = localize("menu_select_mode");
+            } else {
+                queue_button.classList.remove("disabled");
+                queue_button.textContent = localize("menu_start_queueing");
+            }
         }
     }
 }
@@ -363,6 +458,7 @@ function play_queue(btn) {
 }
 
 // For when no masterserver connection is available
+/*
 function clear_queues() {
     try {
         _empty(_id("queues_container"));
@@ -370,6 +466,7 @@ function clear_queues() {
         console.error("clear_queues() - Error trying to clear queues", e.message);
     }
 }
+*/
 
 function join_warmup() {
     // Reset the inactivity timer if we are about to join a match
@@ -382,10 +479,249 @@ function join_party_warmup() {
     send_string(CLIENT_COMMAND_JOIN_WARMUP, "p")
 }
 
+// ==========================================
+// COMBINED QUICKPLAY, CUSTOM and PICKUP LIST
+// ==========================================
+function render_play_screen_combined_list() {
+    //console.log("matches", _dump(global_custom_list_data));
+    //console.log("pickups", _dump(global_pickup_list_data));
+
+    if (!global_view_active) return;
+
+    /* MATCH EXAMPLE
+    {
+        "list_type": "match",
+		"session_id": 5337,
+		"match_type": 0,
+		"name": "Anon's game",
+		"password": false,
+		"state": 1,
+		"mode": "duel",
+		"map": "duel_bioplant",
+		"location": "rot",
+		"time_limit": 600,
+		"score_limit": 0,
+		"team_count": 2,
+		"team_size": 1,
+		"modifier_instagib": 0,
+		"modifier_physics": 0,
+		"client_count": 1,
+		"max_clients": 16,
+		"match_time": 0,
+		"commands": [],
+		"mmr": 1706.9937681958,
+		"clients": [
+			[
+				"Anon",
+				0
+			]
+		]
+    },
+    */
+
+    let pickups = _id("play_combo_own_pickups");
+    _empty(pickups);
+    let list = _id("play_combo_list_content");
+    _empty(list);
+
+    // Prepare pickups
+    let own_pickups = [];
+    let other_pickups = [];
+    for (let p of global_pickup_list_data) {
+        if (global_party.pickup_ids && global_party.pickup_ids.includes(p.pickup_id)) {
+            p.in_pickup = true;
+            own_pickups.push(p);
+        } else {
+            p.in_pickup = false;
+            other_pickups.push(p);
+        }
+    }
+
+    // Sort pickups
+    own_pickups.sort(function(a, b) { return b.user_count - a.user_count; });
+    other_pickups.sort(function(a, b) { return b.user_count - a.user_count; });
+    
+    // Sort matches
+    global_custom_list_data.sort(function(a, b) {
+        if (a.location != b.location) {
+            if (Number(global_server_locations[a.location].ping) < Number(global_server_locations[b.location].ping)) return -1;
+        } else {
+            if (a.client_count > b.client_count)
+                return -1;
+            else 
+                return 1;
+        }
+        return 1;
+    });
+
+    // Render own pickups separately on top
+    if (own_pickups.length) {
+        let fragment_p = new DocumentFragment();
+        for (let d of own_pickups) {
+            fragment_p.appendChild(renderPickupListRow(d));
+        }
+        pickups.appendChild(fragment_p);
+    }
+
+
+    let fragment = new DocumentFragment();
+    let count_visible = 0;
+    // Add pickups to the list
+    for (let p of other_pickups) {
+        if (global_server_selected_locations.indexOf(p.datacenter) == -1) continue;
+
+        fragment.appendChild(renderPickupListRow(p));
+
+        count_visible++;
+    }
+
+    // Add matches to the list
+    for (let m of global_custom_list_data) {
+        if (global_server_selected_locations.indexOf(m.location) == -1) continue;
+        if (global_custom_list_search.trim().length) {
+            if (!m.name.toLowerCase().includes(global_custom_list_search.trim().toLowerCase())) continue;
+        }
+
+        fragment.appendChild(renderMatchListRow(m));
+
+        count_visible++;
+    }
+
+    // Add a separator line between own pickups and list if needed
+    if (own_pickups.length && count_visible) {
+        pickups.appendChild(_createElement("div", "separator"));
+    }
+
+    if (!count_visible && !own_pickups.length) {
+        fragment.appendChild(_createElement("div", "no_data", localize("no_pickups_or_matches")));
+    }
+
+    list.appendChild(fragment);
+
+    let outer_table = _id("play_combo_list_table");
+
+    refreshScrollbar(outer_table);
+    resetScrollbar(outer_table);
+}
+
+function renderPickupListRow(data) {
+    let row = _createElement("div", ["row", "pickup_row"]);
+    row.dataset.id = data.pickup_id;
+
+    // Pickup indicator
+    let accent = _createElement("div", "accent");
+    let label = _createElement("div", "label", localize("match_type_pickup"));
+    let arrow = _createElement("div", "arrow");
+    row.appendChild(accent);
+    row.appendChild(label);
+    row.appendChild(arrow);
+
+    if (data.in_pickup) {
+        label.textContent = localize("joined_pickup");
+        accent.classList.add("joined");
+        label.classList.add("joined");
+        arrow.classList.add("joined");
+    }
+
+    // Mode name and format
+    let mode_name = '';
+    if (global_mode_definitions.hasOwnProperty(data.mode) && global_game_mode_map.hasOwnProperty(global_mode_definitions[data.mode].mode_name)) {
+        let vs = '';
+        if (data.team_count == 2) {
+            vs += data.team_size + localize("game_mode_type_vs_short") + data.team_size;
+        } else if (data.team_count > 2) {
+            if (data.team_size > 1) vs += Array(data.team_count).fill(data.team_size).join(localize("game_mode_type_vs_short"));
+        }
+
+        if (vs.length) mode_name += vs+" ";
+        mode_name += global_mode_definitions[data.mode].name.toUpperCase();
+    }
+    row.appendChild(_createElement("div", "mode", mode_name));
+
+    // Player counts
+    let max_clients = data.team_count * data.team_size;
+    let format = _createElement("div", "counts");
+    format.appendChild(_createElement("div", "icon"));
+    format.appendChild(_createElement("div", "values", data.user_count+"/"+max_clients));
+    row.appendChild(format);
+
+    let datacenter = _createElement("div", "datacenter");
+    row.appendChild(datacenter);
+    if (global_region_map.hasOwnProperty(data.datacenter) && global_server_locations.hasOwnProperty(data.datacenter)) {
+        let dc_top = _createElement("div", "top");
+        datacenter.appendChild(dc_top);
+        let dc_bottom = _createElement("div", "bottom");
+        datacenter.appendChild(dc_bottom);
+
+        // Location ping
+        let ping_ms = global_server_locations[data.datacenter].ping;
+        let ping_str = '';
+        if (ping_ms == -1) {
+            ping_str = 'N/A';
+        } else {
+            ping_ms = Math.floor(Number(ping_ms) * 1000);
+            ping_str = ping_ms+"ms";
+        }
+
+        let ping = _createElement("div", "ping", ping_str);
+        if (ping_ms < 40)  ping.classList.add("good");
+        if (ping_ms > 120) ping.classList.add("bad");
+        dc_top.appendChild(ping);
+
+        // Location flag
+        if (GLOBAL_AVAILABLE_COUNTRY_FLAGS.includes(global_region_map[data.datacenter].flag)) {
+            let flag = _createElement("img", "flag");
+            flag.src = _flagUrl(global_region_map[data.datacenter].flag);
+            dc_top.appendChild(flag);
+        }
+
+        // Location name
+        dc_bottom.appendChild(_createElement("div", null, localize(global_region_map[data.datacenter].i18n)));
+    }
+
+    // note that both should only become visible if you are party leader
+    let button = _createElement("div", "hover_text");
+    if (data.in_pickup) {
+        button.textContent = localize("leave");
+        row.dataset.action = "leave";
+    } else {
+        button.textContent = localize("join");
+        row.dataset.action = "join";
+    }
+    row.appendChild(button);
+
+    row.addEventListener("mouseenter", function(e) {
+        play_screen_hover_info(e, "pickup", row, data);
+
+        if (!bool_am_i_leader) return;
+        button.classList.add("visible");
+        _play_mouseover4();
+    });
+
+    row.addEventListener("mouseleave", function(e) {
+        button.classList.remove("visible");
+        cleanup_hover_info_box(true);
+    });
+
+    row.addEventListener("click", function(e) {
+        if (!bool_am_i_leader) return;
+
+        cleanup_hover_info_box(true);
+
+        if (row.dataset.action == "join") send_string(CLIENT_COMMAND_JOIN_PICKUP, data.pickup_id);
+        if (row.dataset.action == "leave") send_string(CLIENT_COMMAND_LEAVE_PICKUP, data.pickup_id);
+        _play_click1();
+    });
+
+    return row;
+}
+
 // =============================
 // COMMUNITY MATCHLIST
 // =============================
+/*
 function render_play_screen_matchlist() {
+    return;
     //console.log("==== render_play_screen_matchlist", _dump(global_custom_list_data));
 
     // Sort by ping and client_count asc
@@ -428,18 +764,13 @@ function render_play_screen_matchlist() {
         let info = _createElement("div", "info");
         match.appendChild(info);
 
-        let mdata = _createElement("div", "data");
-        info.appendChild(mdata);
-        /*mdata.appendChild(_createElement("div", "match_name", m.name));*/
-
         let mode = _createElement("div", "mode");
         mdata.appendChild(mode);
         mode.appendChild(_createElement("div", "name", localize(global_game_mode_map[m.mode].i18n)));
         if (!settings_default) {
             mode.appendChild(_createElement("div", "special"));
         }
-
-        mdata.appendChild(_createElement("div", "map_name", _format_map_name(m.map)));
+        mdata.appendChild(_createElement("div", "map_name", _format_map_name(m.map, m.map_name)));
 
         let max_clients = m.team_size * m.team_count;
         if (m.max_clients < max_clients) max_clients = m.max_clients;
@@ -524,6 +855,7 @@ function render_play_screen_matchlist() {
 
     cont.appendChild(fragment);
 }
+*/
 
 // =============================
 // PICKUPS
@@ -831,15 +1163,19 @@ function open_create_pickup() {
 function leave_pickup(pickup_id) {
     if (global_party.pickup_ids && global_party.pickup_ids.length) {
         let idx = global_party.pickup_ids.indexOf(pickup_id);
-        if (idx >= 0) global_party.pickup_ids.splice(idx, 1);
+        while (idx >= 0) {
+            global_party.pickup_ids.splice(idx, 1);
+            idx = global_party.pickup_ids.indexOf(pickup_id);
+        }
     }
 
-    if (global_menu_page == "play_screen_combined") update_custom_match_list(true);
-
+    if (global_menu_page == "play_screen_combined" && global_view_active) update_play_combined_list(true);
 }
 
 // specific pickup update messages are only sent for status changes of pickups the party is in
 function update_pickup_data(pickup) {
+    //console.log("update_pickup_data", _dump(pickup));
+
     let updated = false;
     for (let i=0; i<global_pickup_list_data.length; i++) {
         if (global_pickup_list_data[i].pickup_id == pickup.pickup_id) {
@@ -854,13 +1190,37 @@ function update_pickup_data(pickup) {
     }
 
     // Add to the party pickup id list if its not in there
+    let join = false;
     if (!global_party.pickup_ids.includes(pickup.pickup_id)) {
         global_party.pickup_ids.push(pickup.pickup_id);
+        join = true;
     }
 
-    render_play_screen_pickups();
+    if (global_party.pickup_ids && global_party.pickup_ids.includes(pickup.pickup_id)) {
+        pickup.in_pickup = true;
+    }
+    
+    // TODO: find the pickup row and update it, if not found, re-render whole combo list
+    if (join) {
+        render_play_screen_combined_list();
+    } else {
+        let pickup_rows = _id("play_combo_list").querySelectorAll(".pickup_row");
+        let found = false;
+        for (let i=0; i<pickup_rows.length; i++) {
+            if (pickup_rows[i].dataset.id == pickup.pickup_id) {
+                found = true;
+                _replaceNode(pickup_rows[i], renderPickupListRow(pickup));
+                break;
+            }
+        }
+
+        if (!found) {
+            render_play_screen_combined_list();
+        }
+    }
 }
 
+/*
 function render_play_screen_pickups() {
     //console.log("==== RENDER PICKUP LIST");
 
@@ -913,7 +1273,8 @@ function render_play_screen_pickups() {
 
     refreshScrollbar(_id("play_screen_combined_pickup_list"));
 }
-
+*/
+/*
 function render_pickup(p, in_pickup) {
     //console.log("render_pickup", _dump(p));
     let pickup = _createElement("div", "pickup");
@@ -1018,35 +1379,9 @@ function render_pickup(p, in_pickup) {
         _play_click1();
     });
 
-    /*
-    {
-		"pickup_id": "0d747279-8976-47db-bc0f-a9873b0126ef",
-		"mode": "md_extinction",
-		"team_count": 2,
-		"team_size": 4,
-		"min_matches_played": 0,
-		"min_skill": 1000,
-		"max_skill": 2000,
-		"user_count": 1,
-		"datacenter": "rot",
-		"users": [
-			{
-				"user_id": "78edd912cdc84ba899a6bbc60616e97c",
-				"name": "noctan",
-				"mmr": {
-					"rating": 1500,
-					"rank_tier": null,
-					"rank_position": null,
-					"placement_matches": ""
-				},
-				"party": 1
-			}
-		]
-    }
-    */
-
     return pickup;
 }
+*/
 
 let global_hover_info_box_ts = Date.now();
 let global_hover_info_box = null;
@@ -1092,7 +1427,10 @@ function play_screen_hover_info(e, type, ref_element, data) {
         info_box.appendChild(info_box_match(data));
         info_box.dataset.id = data.session_id;
     } else if (type == "queue") {
-        info_box.appendChild(info_box_queue(data));
+        info_box.appendChild(info_box_queue("queue",data));
+        info_box.dataset.id = data.mode_key;
+    } else if (type == "instant") {
+        info_box.appendChild(info_box_queue("instant",data));
         info_box.dataset.id = data.mode_key;
     }
 
@@ -1169,6 +1507,10 @@ function info_box_pickup(data) {
     if (global_mode_definitions.hasOwnProperty(data.mode)) m = global_mode_definitions[data.mode];
 
     box.appendChild(_createElement("div", "head", localize_ext("pickup_head", {"mode_name": localize(global_game_mode_map[m.mode_name].i18n)})));
+
+    let total = data.team_count * data.team_size;
+    let missing = total - data.users.length;
+    box.appendChild(_createElement("div", "desc", localize_ext("pickup_desc", {"count": missing})));
 
     // Settings
     box.appendChild(_createElement("div", "header", localize("pickup_match_settings")));
@@ -1352,15 +1694,34 @@ function info_box_match(m) {
 
     if (m.commands.length) {
         let commands_filtered = [];
+
+        // Check for the insta switch settings combination of game_equip_time_ms 0 and game_switch_time_ms 0
+        let insta_switch = 0;
         for (let c of m.commands) {
-            if (c.key == "game_equip_time_ms" && c.value == 0) {
+            if (c.key == "game_equip_time_ms" && c.value == 0) insta_switch++;
+            if (c.key == "game_switch_time_ms" && c.value == 0) insta_switch++;
+        }
+
+        for (let c of m.commands) {
+            if (c.key == "game_equip_time_ms" && insta_switch == 2) {
+                continue;
+            } else if (c.key == "game_switch_time_ms" && insta_switch == 2) {
+                continue;
+            } else if (c.key == "game_lifesteal") {
                 let row = _createElement("div", "stat_row");
-                row.appendChild(_createElement("div", "label", localize("custom_settings_instaswitch")));
-                row.appendChild(_createElement("div", "value", localize("enabled")));
+                row.appendChild(_createElement("div", "label", localize("custom_settings_lifesteal")));
+                row.appendChild(_createElement("div", "value", Math.floor(c.value * 100)+"%"));
                 preview_settings.appendChild(row);
             } else {
                 commands_filtered.push(c);
             }
+        }
+
+        if (insta_switch == 2) {
+            let row = _createElement("div", "stat_row");
+            row.appendChild(_createElement("div", "label", localize("custom_settings_instaswitch")));
+            row.appendChild(_createElement("div", "value", localize("enabled")));
+            preview_settings.appendChild(row);
         }
 
         if (commands_filtered.length) {
@@ -1370,10 +1731,10 @@ function info_box_match(m) {
             preview_settings.appendChild(row);
 
             let cmd_row = null;
-            for (let i=0; i<m.commands_filtered.length; i++) {
+            for (let i=0; i<commands_filtered.length; i++) {
                 if (i % 2 == 0) cmd_row = _createElement("div", ["stat_row", "commands"]);
 
-                if (cmd_row) cmd_row.appendChild(_createElement("div", "value", m.commands_filtered[i].key+": "+m.commands_filtered[i].value));
+                if (cmd_row) cmd_row.appendChild(_createElement("div", "value", commands_filtered[i].key+": "+commands_filtered[i].value));
 
                 if (i % 2 == 1) {
                     preview_settings.appendChild(cmd_row);
@@ -1390,20 +1751,27 @@ function info_box_match(m) {
     return box;
 }
 
-function info_box_queue(data) {
+function info_box_queue(type, data) {
     let m = {};
     if (global_mode_definitions.hasOwnProperty(data.mode_key)) m = global_mode_definitions[data.mode_key];
 
     let box = _createElement("div", "queue");
 
-    box.appendChild(_createElement("div", "mode_name", data.queue_name));
+    if (type == "queue") box.appendChild(_createElement("div", "mode_name", data.queue_name));
+    if (type == "instant") box.appendChild(_createElement("div", "mode_name", data.name));
 
     let desc = '';
     if (global_game_mode_map.hasOwnProperty(data.mode_name)) {
         if (m.instagib > 0) desc = localize(global_game_mode_map[data.mode_name].desc_instagib_i18n);
         else desc = localize(global_game_mode_map[data.mode_name].desc_i18n);
     }
+    if (data.mode_key == "warmup") desc = localize("game_mode_desc_warmup");
+
     box.appendChild(_createElement("div", "mode_desc", desc));
+
+    if (data.mode_key == "warmup") {
+        box.appendChild(_createElement("div", "mode_desc_disclaimer", localize("game_mode_desc_warmup_disclaimer")));
+    }
 
     let settings = _createElement("div", "settings");
     box.appendChild(settings);
@@ -1416,7 +1784,8 @@ function info_box_queue(data) {
         let value = '';
         if (s == "format") {
             label = localize('queue_settings_label_format');
-            value = data.vs;
+            if (type == "queue") value = data.vs;
+            if (type == "instant") value = getVS(data.team_count, data.team_size);
         }
         if (s == "physics") {
             label = localize('queue_settings_label_physics');
@@ -1427,17 +1796,35 @@ function info_box_queue(data) {
         settings.appendChild(row);
     }
 
-    let own_rating = "?";
-    if (global_self.mmr.hasOwnProperty(m.mmr_key)) own_rating = Math.floor(global_self.mmr[m.mmr_key].rating);
+    if (type == "queue") {
+        let own_rating = "?";
+        if (global_self.mmr.hasOwnProperty(m.mmr_key)) own_rating = Math.floor(global_self.mmr[m.mmr_key].rating);
 
-    let own_rating_info = _createElement("div", "own_rating");
-    own_rating_info.appendChild(_createElement("div", "label", localize_ext("current_own_rating", {"mode_name": localize(global_game_mode_map[m.mode_name].i18n)})));
-    own_rating_info.appendChild(_createElement("div", "value", own_rating));
-    box.appendChild(own_rating_info);
+        let own_rating_info = _createElement("div", "own_rating");
+        own_rating_info.appendChild(_createElement("div", "label", localize_ext("current_own_rating", {"mode_name": localize(global_game_mode_map[m.mode_name].i18n)})));
+        own_rating_info.appendChild(_createElement("div", "value", own_rating));
+        box.appendChild(own_rating_info);
 
-    if (!global_party['valid-modes'].includes(data.mode_key)) {
-        box.appendChild(_createElement("div", "incompatible", localize("incompatible_party_size")));
+        if (!global_party['valid-modes'].includes(data.mode_key)) {
+            box.appendChild(_createElement("div", "incompatible", localize("incompatible_party_size")));
+        }
     }
+
+    if (type == "instant") {
+        if (data.mode_key != "warmup") {
+            if (data.team_size == 1 && data.team_count > 2) {
+                if (global_party.size > data.team_count) {
+                    box.appendChild(_createElement("div", "incompatible", localize("incompatible_party_size")));
+                }
+            } else {
+                if (global_party.size > data.team_size) {
+                    box.appendChild(_createElement("div", "incompatible", localize("incompatible_party_size")));
+                }
+            }
+        }
+    }
+
+
     /*
 	"i18n": "game_mode_duel",
 	"match_type": 3,

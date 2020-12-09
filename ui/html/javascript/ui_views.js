@@ -1,14 +1,24 @@
 
 window.fade_time = 70;
 
-function set_logged_out_screen(visible, reason, code) {
+function set_logged_out_screen(visible, reason, code, msg) {
     if (reason) {
         if (reason == "ghosted")      _id("logout_reason").textContent = localize("message_multi_user_logged_out");
         if (reason == "version")      _id("logout_reason").textContent = localize("message_version_user_logged_out");
         if (reason == "unverified")   _id("logout_reason").textContent = localize("message_verification_failed");
         if (reason == "service_down") _id("logout_reason").textContent = localize("message_service_down");
         if (reason == "disabled")     _id("logout_reason").textContent = localize("message_disabled");
-        if (reason == "anticheat")    _id("logout_reason").textContent = localize_ext("message_anticheat", {"code": code});
+        if (reason == "anticheat") {
+            let cont = _id("logout_reason");
+            _empty(cont);
+            cont.appendChild(_createElement("div", "null", localize_ext("message_anticheat", {"code": code})));
+            if (msg.length) {
+                let div = _createElement("div", null);
+                div.innerHTML = msg;
+                div.style.marginTop = "1vh";
+                cont.appendChild(div);
+            }
+        }
     }
 
     if (visible) {
@@ -86,6 +96,13 @@ function settings_combat_general() {
 
 }
 
+function play_weapon_sfx_preview(btn) {
+    let weapon_idx = Number(btn.dataset.weapon);
+    let weapon_sound_select = _id("setting_weapon_sounds");
+
+    engine.call("play_weapon_sound_variant", weapon_idx, Number(weapon_sound_select.dataset.value));
+}
+
 function settings_combat_update(weapon) {
     let weapon_sheet = _id("weapon_sheet");
     let general_sheet = _id("weapon_sheet_general");
@@ -98,6 +115,11 @@ function settings_combat_update(weapon) {
 
     let weapon_settings = _id("custom_weapon_settings");
     let weapon_settings_checkboxes = _id("weapon_sheet").querySelectorAll('.settings_block_header .checkbox_component');
+    let weapon_sound_setting = _id("weapon_sound_selection");
+    let weapon_sound_select = _id("setting_weapon_sounds");
+    let weapon_sound_preview_btn = _id("settings_weapon_sfx_preview");
+    weapon_sound_preview_btn.dataset.weapon = weapon;
+
     if (weapon == 0) {
         if (weapon_settings.style.display == "none") {
             weapon_settings.style.display = "flex";
@@ -109,11 +131,35 @@ function settings_combat_update(weapon) {
         }
 
         weapon_title.textContent = localize("settings_default_weapon_settings");
+        weapon_sound_setting.style.display = "none";
     } else {
         for (let i=0; i<weapon_settings_checkboxes.length; i++) {
             weapon_settings_checkboxes[i].classList.remove("hidden");
         }
         weapon_title.textContent = localize("settings_customize")+" "+localize(global_item_name_map[global_weapon_idx_name_map[weapon]][1]);
+
+        if (global_weapon_sound_packs.hasOwnProperty(weapon) && global_weapon_sound_packs[weapon].length) {
+            weapon_sound_setting.style.display = "flex";
+            _empty(weapon_sound_select);
+
+            let opt_sfx_0 = _createElement("div", null, localize("default"));
+            opt_sfx_0.dataset.value = 0;
+            weapon_sound_select.appendChild(opt_sfx_0);
+
+            for (let sfx_id of global_weapon_sound_packs[weapon]) {
+                if (sfx_id == 0) continue;
+
+                let opt_sfx = _createElement("div", null, localize_ext("sound_id", {"id": sfx_id}));
+                opt_sfx.dataset.value = sfx_id;
+                weapon_sound_select.appendChild(opt_sfx);
+            }
+
+            weapon_sound_select.dataset.variable = "game_weapon_sound_variant:"+weapon;
+            ui_setup_select(weapon_sound_select)
+
+        } else {
+            weapon_sound_setting.style.display = "none";
+        }
     }
     
     let combat_header = _id("combat_panel_header");
@@ -637,6 +683,8 @@ function open_play(screen, silent) {
 
 function play_screen_open_custom(switch_screen, screen) {
     if (global_lobby_id == -1) {
+        return;
+
         if (global_play_menu_page != "play_screen_customlist") {
             play_transition_if_hidden(_id('play_screen_customlist'), 'ui_transition1');
             _fade_out_if_not(_id('play_screen_custom'), _id('play_screen_customlist'));
@@ -692,7 +740,7 @@ function open_play_combined(silent) {
     });
     switch_screens(_id("play_screen_combined"), silent);
 
-    update_custom_match_list(true);
+    render_play_screen_combined_list();
 }
 
 function open_ingame_menu(silent) {
@@ -1755,9 +1803,9 @@ function generate_tooltip_queue_info() {
 
     for (let cb of global_queue_mode_checkboxes) {
         if (cb.parentElement == null) continue;
-        if (!global_queues.hasOwnProperty(cb.dataset.mode)) continue;
+        if (!global_queues.hasOwnProperty(cb.dataset.mode_key)) continue;
 
-        if (cb.dataset.enabled == "true") mode_names.push(global_queues[cb.dataset.mode].queue_name+" - "+global_queues[cb.dataset.mode].vs);
+        if (cb.dataset.enabled == "true") mode_names.push(global_queues[cb.dataset.mode_key].queue_name+" - "+global_queues[cb.dataset.mode_key].vs);
     }
 
     for (let mode of mode_names) {

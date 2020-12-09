@@ -536,7 +536,7 @@
                             </div>
                             <div class="server_setting">
                                 <div class="name i18n" data-i18n="custom_game_settings_map">Map</div>
-                                <div class="value" data-bind-value="_format_map_name({{menu_game_data.map}})"></div>
+                                <div class="value" data-bind-value="_format_map_name({{menu_game_data.map}}, {{menu_game_data.map_name}})"></div>
                             </div>
                             <div class="server_setting">
                                 <div class="name" data-bind-if="!{{menu_game_data.round_mode}}" data-bind-i18n="'custom_game_settings_score_limit:'+{{menu_game_data.round_mode}}">Score Limit</div>
@@ -833,8 +833,8 @@
                                     <div class="controls_value" data-db-binding="weapon 3" data-db-binding-mode="game"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header_empty"></div>
-                                    <div class="controls_value_empty"></div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_drop">Drop weapon</div>
+                                    <div class="controls_value" data-db-binding="drop" data-db-binding-mode="game"></div>
                                 </div>
                             </div>
                         </div>
@@ -1844,7 +1844,7 @@
                                         <div class="setting">
                                             <div class="label i18n" data-i18n="settings_weapon_position">Weapon position</div>
                                             <div class="ctrl">
-                                                <div class="setting_select wide">                           
+                                                <div class="setting_select">                           
                                                     <div id="setting_weapon_position" class="select-field" data-variable="game_weapon_position" data-theme="settings">
                                                         <div data-value=0 class="i18n" data-i18n="default">Default</div>
                                                         <div data-value=1 class="i18n" data-i18n="centered">Centered</div>
@@ -1868,6 +1868,18 @@
                                             <div class="label i18n" data-i18n="settings_hit_sounds">Enable Hit Sounds</div>
                                             <div class="ctrl">
                                                 <div id="setting_hit_sounds" class="checkbox_component checkbox" data-variable="game_hit_sounds"><div></div></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="setting" id="weapon_sound_selection">
+                                            <div class="label i18n" data-i18n="settings_weapon_sounds">Weapon Sounds</div>
+                                            <div class="ctrl flex">
+                                                <div id="settings_weapon_sfx_preview" class="db-btn plain play_button click-sound mouseover-sound4" data-weapon="0" onclick="play_weapon_sfx_preview(this)"></div>
+                                                <div class="setting_select">
+                                                    <div id="setting_weapon_sounds" class="select-field" data-variable="game_weapon_sound_variant" data-theme="settings">
+                                                        <div data-value=0 class="i18n" data-i18n="default">Default</div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -3094,95 +3106,47 @@
             <div id="play_screen_combined">
     <div id="play_screen_combined_offline" class="i18n" data-i18n="unavailable_while_offline"></div>
     <div id="play_screen_combined_online">
-        <div class="double_section" style="min-height:26vh;">
-            <div class="section section_queues">
-                <div class="header"><div class="title i18n" data-i18n="daily_playlist">Daily playlist</div></div>
-                <div class="line"></div>
-                <div id="queues_container" class="container queues">
-                    <!--
-                    <div class="queue">
-                        <div class="name">Wipeout</div>
-                        <div class="format">4v4</div>
-                        <div class="checkbox_box"><div class="checkbox_mark"></div></div>
+
+        <div class="flex_row">
+
+            <div id="quickplay_card" class="play_cards_container">
+
+            </div>
+
+            <div id="ranked_card" class="play_cards_container">
+
+            </div>
+
+            <div id="play_combo_list">
+                <div class="top_controls">
+                    <div id="play_region_select_button" class="click-sound mouseover-sound2"  onclick="open_modal_screen('region_select_modal_screen')">
+                        <div class="label i18n" data-i18n="region_select">Region select</div>
+                        <div class="icon"></div>
                     </div>
-                    <div class="queue"></div>
-                    <div class="queue"></div>
-                    <div class="queue"></div>
-                    -->
                 </div>
-                <div id="queues_section_desc" class="section_desc"></div>
-            </div>
 
-            <div class="section section_queues_ctrl">
-                <div class="top">
-                    <div id="play_region_select_button" class="db-btn plain click-sound mouseover-sound2 i18n" data-i18n="datacenters" onclick="open_modal_screen('region_select_modal_screen')">Datacenter</div>
-                </div>
-                <div class="buttons">
-                    <div id="play_queue_button" class="db-btn big click-sound mouseover-sound2 i18n" data-i18n="menu_find_match" onclick="play_queue(this)">Find Match</div>
-                    <div id="join_warmup_button" class="db-btn plain click-sound mouseover-sound2 i18n" data-i18n="menu_warmup" onclick="join_warmup()">Join Warmup</div>
-                    <div id="party_join_warmup_button" class="db-btn plain click-sound mouseover-sound2 i18n" data-i18n="menu_party_warmup" onclick="join_party_warmup()">Party Join Warmup</div>
-                </div>
-            </div>
-        </div>
+                <div id="play_combo_own_pickups">
 
-        <div class="double_section" style="min-height:50vh;">
-            <div class="section section_customs">
-                <div class="header">
-                    <div class="title i18n" data-i18n="community_matches">Community Matches</div>
-                    <div class="spacer"></div>
-                    <div id="play_screen_refresh_info" class="refresh_info"></div>
-                    <div id="play_screen_refresh_btn_1" class="db-btn plain reload_btn click-sound mouseover-sound2" onclick="play_screen_reload_lists('matches')"></div>
                 </div>
-                <div class="line"></div>
-                <div id="play_screen_combined_match_list" class="container customs">
-                    <!--
-                    <div class="match">
-                        <div class="background"></div>
-                        <div class="gradient"></div>
-                        <div class="info">
-                            <div class="data">
-                                <div class="match_name">Just testing out this ctf thing</div>
-                                <div class="mode">
-                                    <div class="name">CTF</div>
-                                    <div class="special"></div>
-                                </div>
-                            </div>
-                            <div class="counts">6 / 10</div>
-                            <div class="datacenter">
-                                <img src="/html/customization/flag/nl.png.dds">
-                            </div>
-                        </div>
-                        <div class="join">Join</div>
-                    </div>
-                    -->
-                </div>
-                <div class="options">
-                    <div class="db-btn click-sound mouseover-sound4 i18n" data-i18n="customlist_create_lobby" onclick="create_custom_lobby()" id="play_screen_combined_create_lobby_button">Create Lobby</div>
-                    <div class="db-btn plain click-sound mouseover-sound4 tooltip2" data-msg-id="customlist_join_with_key" onclick="lobby_join_with_key()" id="play_screen_combined_join_lobby_button"></div>
-                    <div class="db-btn plain click-sound mouseover-sound4 i18n" data-i18n="customlist_server_list" onclick="open_play('play_screen_custom')">Server List</div>                
-                </div>
-            </div>
 
-            <div class="section_spacer"></div>
-
-            <div class="section section_pickups">
-                <div class="header">
-                    <div class="title i18n" data-i18n="pickups">Pickups</div>
-                    <div class="spacer"></div>
-                    <div id="play_screen_refresh_btn_2" class="db-btn plain reload_btn click-sound mouseover-sound2" onclick="play_screen_reload_lists('pickups')"></div>
-                </div>
-                <div class="line"></div>
-                <div id="play_screen_combined_pickup_list" class="container pickups scroll-outer" data-sb-hide-empty="true">
+                <div id="play_combo_list_table" class="scroll-outer" data-sb-hide-empty="true">
                     <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-                    <div id="play_screen_combined_pickup_list_content" class="scroll-inner">
-
+                    <div id="play_combo_list_content" class="scroll-inner">
+                        <!-- here be data rows -->
                     </div>
                 </div>
-                <div class="options">
-                    <div id="create_pickup_button" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_create_pickup" onclick="open_create_pickup()">Create Pickup</div>
+
+                <div class="list_controls">
+                    <div id="play_screen_refresh_info"></div>
+                    <div id="play_screen_refresh_btn" class="db-btn plain reload_btn click-sound mouseover-sound2" onclick="play_screen_reload_lists('matches')"></div>
+                    <div id="join_lobby_button"    class="db-btn plain click-sound mouseover-sound4 tooltip2" data-msg-id="customlist_join_with_key" onclick="lobby_join_with_key()" ></div>
+                    <div id="create_lobby_button"  class="db-btn click-sound mouseover-sound4 i18n" data-i18n="customlist_create_lobby" onclick="create_custom_lobby()">Create Lobby</div>
+                    <div id="create_pickup_button" class="db-btn click-sound mouseover-sound4 i18n" data-i18n="menu_create_pickup"      onclick="open_create_pickup()">Create Pickup</div>
                 </div>
             </div>
+
         </div>
+
     </div>
 </div>
 
@@ -3200,8 +3164,12 @@
                     </div>
                 </div>
             </div>
-
+            
             <div id=custom_settings>
+                <div class="custom_game_setting setting_header">
+                    <div class="thumbnail_button custom_component mouseover-sound4 click-sound" id="custom_game_setting_map"
+                        data-variable="lobby_custom_map" onclick="thumbnail_button_map(this)"></div>
+                </div>
                 <div class=section id=custom_settings_misc>
                     <div class=custom_game_setting>
                         <span class="setting_title i18n" data-i18n="custom_game_settings_visibility">
@@ -3248,16 +3216,7 @@
                         </span>
                     </div>
 
-                    <div class="custom_game_setting setting_thumbnail_button">
-                        <span class="setting_title i18n" data-i18n="custom_game_settings_map">
-                            Map
-                        </span>
-                        <div class="setting_content">
-                            <div class="thumbnail_button custom_component mouseover-sound4 click-sound"
-                                id=custom_game_setting_map data-variable="lobby_custom_map"
-                                onclick="thumbnail_button_map(this)"></div>
-                        </div>
-                    </div>
+                    
                     <div class=custom_game_setting id="custom_setting_team_count">
                         <span class="setting_title i18n" data-i18n="custom_game_settings_teams">
                             Teams
@@ -3929,7 +3888,7 @@
                 <div class="inner">
                     <div class="queue_cancel_box" onclick="cancel_search()"></div>
                     <div class="queue_info ranked">
-                        <div class="queue_info_queuetype">Searching playlists</div>
+                        <div class="queue_info_queuetype i18n" data-i18n="searching_ranked">Searching ranked</div>
                         <div class="queue_queue_time">00:00</div>
                         <div class="queue_info_icon tooltip2" data-msg-html-id="queue_info"></div>
                     </div>
@@ -4297,37 +4256,41 @@
         <div id="map_choice_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
                 <div id="map_choice_container">
-                    <div id="map_choice_container_menu" style="display: flex;">
-                        <div id="map_choice_official" class="category mouseover-sound4 click-sound selected"
-                            onclick="custom_game_map_type_changed(this, 'official')">
-                            <div class="label">Official</div>
+
+                    <div id="map_choice_official">
+                        <div class="title">
+                            <span class="label">Official maps</span>
                         </div>
-                        <div id="map_choice_community" class="category mouseover-sound4 click-sound"
-                            onclick="custom_game_map_type_changed(this, 'community')">
-                            <div class="label">Community</div>
+                        <div id="map_choice_container_inner_official">
                         </div>
                     </div>
-                    <div id="map_choice_filters" class="filters">
-                        <div class="filter_cont">
-                            <div class="filter_icon"></div>
-                            <input id="map_choice_filter_input" type="text"
-                                oninput='global_input_debouncers["map_choice_filter_input"].execute()'>
+
+                    <div id="map_choice_community">
+                        <div class="title">
+                            <span class="label">Community maps</span>
+                            <div id="map_choice_filters" class="filters">
+                                <div class="filter_cont">
+                                    <div class="filter_icon"></div>
+                                    <input id="map_choice_filter_input" type="text"
+                                        oninput='global_input_debouncers["map_choice_filter_input"].execute()'>
+                                </div>
+                                <div id="map_choice_sort" class="select-field" data-theme="gray2">
+                                    <div class="i18n" data-value="newest" data-selected=1 data-i18n="order_by_newest">Newest first</div>
+                                    <div class="i18n" data-value="oldest" data-i18n="order_by_oldest">Oldest first</div>
+                                    <div class="i18n" data-value="most_popular" data-i18n="order_highest_rated">Highest rated</div>
+                                    <div class="i18n" data-value="alphabetically" data-i18n="order_alphabetically">Alphabetically
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div id="map_choice_sort" class="select-field" data-theme="gray2">
-                            <div class="i18n" data-value="newest" data-selected=1 data-i18n="order_by_newest">Newest first</div>
-                            <div class="i18n" data-value="oldest" data-i18n="order_by_oldest">Oldest first</div>
-                            <div class="i18n" data-value="most_popular" data-i18n="order_highest_rated">Highest rated</div>
-                            <div class="i18n" data-value="alphabetically" data-i18n="order_alphabetically">Alphabetically</div>
-                        </div>
-                    </div>
-                    <div id="map_choice_container_scrollable" class="crosshair_scroll scroll-outer theme_settings"
-                        data-sb-hide-empty="true">
-                        <div class="scroll-bar">
-                            <div class="scroll-thumb"></div>
-                        </div>
+
+                        <div id="map_choice_container_scrollable" class="crosshair_scroll scroll-outer theme_settings" data-sb-hide-empty="true">
+                            <div class="scroll-bar">
+                                <div class="scroll-thumb"></div>
+                            </div>
         
-                        <div id="map_choice_container_inner" class="scroll-inner">
-                            <div id="map_choice_container_inner_spinner"></div>
+                            <div id="map_choice_container_inner_community" class="scroll-inner">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -4492,6 +4455,25 @@
                                     <div id=custom_game_setting_instaswitch class="select-field" data-variable="lobby_custom_insta_switch" data-theme="modal">
                                         <div data-value="1" class="i18n" data-i18n="enabled">Enabled</div>
                                         <div data-value="0" class="i18n" data-i18n="disabled">Disabled</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="custom_setting_lifesteal" class="custom_game_setting">
+                                <span class="setting_title i18n" data-i18n="custom_settings_lifesteal">Life steal</span>
+                                <div class="setting_content">
+                                    <div id=custom_game_setting_lifesteal class="select-field" data-variable="lobby_custom_lifesteal" data-theme="modal">
+                                        <div data-value="0" class="i18n" data-i18n="disabled">Disabled</div>
+                                        <div data-value="0.1">10%</div>
+                                        <div data-value="0.2">20%</div>
+                                        <div data-value="0.3">30%</div>
+                                        <div data-value="0.4">40%</div>
+                                        <div data-value="0.5">50%</div>
+                                        <div data-value="0.6">60%</div>
+                                        <div data-value="0.7">70%</div>
+                                        <div data-value="0.8">80%</div>
+                                        <div data-value="0.9">90%</div>
+                                        <div data-value="1">100%</div>
                                     </div>
                                 </div>
                             </div>
@@ -5873,9 +5855,11 @@
 </div>
  
     <div id="main_logged_out">
-    <div class="logo"></div>
-    <div id="logout_reason" class="logged_out"></div>
-    <div class="quit db-btn plain mouseover-sound4 click-sound" onclick="engine.call('quit')">Quit</div>
+    <div class="content">
+        <div class="logo"></div>
+        <div id="logout_reason" class="logged_out"></div>
+        <div class="quit db-btn plain mouseover-sound4 click-sound" onclick="engine.call('quit')">Quit</div>
+    </div>
 </div> 
     <div id="ingame_chat_prompt">
     <div class="ingame_chat_label_cont">
@@ -5888,6 +5872,27 @@
     <div id=console_buffer_wrapper><div id=console_buffer></div></div>
     <div id=console_prompt_container><input tabindex="-1" id=console_prompt value=""></div>
     <div id=console_version></div>
+</div>
+    <div id="loading_screen">    
+    <div id="loading_screen_game_logo"></div>
+    
+    <div id="loading_screen_content">
+        <div id="loading_screen_artwork"></div>
+        <div id="loading_screen_text">
+            <div id="loading_screen_community_tip">Community Tip</div>
+            <div class="separator_line"></div>
+            <div id="loading_screen_community_quote"></div>
+            <div id="loading_screen_community_author"></div>
+        </div>
+    </div>
+
+    <div id="loading_screen_progress">        
+        <div id="loading_screen_progress_bar">
+            <div class="progress"></div>
+        </div>
+        <div id="loading_screen_status_text"></div>
+    </div>
+
 </div>
 
     <script id="customization_decal_entrys" type="text/x-jsrender">
@@ -6702,7 +6707,8 @@
     <script inline src="javascript/HUD_element.js"></script>
     <script inline src="javascript/ui_hud_creator.js"></script>
     <script inline src="javascript/ui_hud_editor.js"></script>
-    <script inline src="javascript/ui_crosshair_creator.js"></script>
+    <script inline src="javascript/ui_crosshair_creator.js"></script>    
+    <script inline src="javascript/ui_loading_screen.js"></script>
     <script inline src="javascript/script_data.js"></script> <!-- generated via script -->
 
     <script inline src="javascript/hud_elements/element_group.js"></script>

@@ -101,14 +101,8 @@ function init_custom_modes() {
 function init_custom_game_references() {
         // Elements only visible to the party leader
         global_party_leader_elements = [
-            _id("play_queue_button"),
-            _id("play_region_select_button"),
             _id("create_pickup_button"),
-            _id("play_screen_combined_create_lobby_button"),
-            _id("play_screen_combined_join_lobby_button"),
-
-            _id("custom_play_create_lobby_button"),
-            _id("custom_play_link_join_lobby_button"),
+            _id("join_lobby_button"),
         ];
     
         global_customSettingElements = {
@@ -141,6 +135,7 @@ function init_custom_game_references() {
             "spawn_farthest_threshold":  _id("custom_game_spawn_farthest_threshold"),
             "spawn_random_chance":       _id("custom_game_spawn_random_chance"),
             "spawn_safety_radius":       _id("custom_game_spawn_safety_radius"),
+            "lifesteal":                 _id("custom_game_setting_lifesteal"),
         };
     
         global_gameSlotList = [
@@ -249,6 +244,7 @@ function init_screen_custom() {
     ui_setup_select(global_customSettingElements["continuous"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["instagib"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["instaswitch"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["lifesteal"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["intro"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["auto_balance"], function() {
         if (bool_am_i_host) custom_game_settings_changed();
@@ -329,7 +325,7 @@ function init_screen_custom() {
         };
     });
     
-    // Updates the maplist choices (triggered by "on_custom_game_mode_changed")
+    // Updates the official maplist choices (triggered by "on_custom_game_mode_changed")
     bind_event("set_map_choices", (maps_json, selected) => {
         let maps = JSON.parse(maps_json);
         maps = maps.map(map => ({ name: _format_map_name(map), map }));
@@ -337,9 +333,8 @@ function init_screen_custom() {
 
         global_game_maps_state.official = maps;
         global_game_maps_state.selected = selected;
-        global_game_maps_state.selected_category = 'official';
 
-        render_map_choices();
+        render_map_choices({ category: 'official' });
     });      
 
     _for_each_in_class("custom_component", function (element) {
@@ -388,14 +383,14 @@ function init_screen_custom() {
     // Create map filters
     ui_setup_select(_id("map_choice_sort"), (opt, field) => {
         _id("map_choice_filter_input").value = '';
-        update_map_choices({ search: _id("map_choice_filter_input").value.trim(), order: field.dataset.value });
+        update_map_choices({ category: "community", search: _id("map_choice_filter_input").value.trim(), order: field.dataset.value });
     });
 
     global_input_debouncers['map_choice_filter_input'] = new InputDebouncer(() => { 
-        update_map_choices({ search: _id("map_choice_filter_input").value.trim(), order: _id("map_choice_sort").dataset.value });
+        update_map_choices({ category: "community", search: _id("map_choice_filter_input").value.trim(), order: _id("map_choice_sort").dataset.value });
     });
 
-    _id("map_choice_container_inner").addEventListener("scroll", function(event) {
+    _id("map_choice_container_inner_community").addEventListener("scroll", function(event) {
         const threshold = 150; // pixels
         const containerHeight = event.target.getBoundingClientRect().height;
         const windowBottom = (event.target.scrollTop + containerHeight);
@@ -499,7 +494,7 @@ function set_lobby_custom_map(value) {
 
             if (global_game_maps_state.selected_category === 'community') {
                 const map = global_game_maps_state.community.find(m => m.map === value);
-
+                
                 _html(el, "<div>" + map.name + "</div>");
 
                 let background = _createElement("span", ["map_preview_background"]);
@@ -656,7 +651,6 @@ function create_custom_lobby() {
 }
 
 function leave_custom_lobby_action() {
-    //open_play("play_screen_custom");
     open_play_combined(true);
 }
 
@@ -957,12 +951,12 @@ function moveSlotToRightTeam(teamSize, numOfTeams) {
 function thumbnail_button_map(element) {
     engine.call("set_modal", true);
     open_modal_screen("map_choice_modal_screen", function() {
-        custom_game_map_type_changed(_id("map_choice_official"), "official");
+        update_map_choices({ category: 'official' });
+        update_map_choices({ order: _id("map_choice_sort").dataset.value, category: 'community' });
         refreshScrollbar(_id("map_choice_container"));
-        /*
         resetScrollbar(_id("map_choice_container"));
-        */
-    });}
+    });
+}
 
 function map_selected(element, { map, name }) {
     if (bool_am_i_host) {
@@ -1055,7 +1049,7 @@ function handle_party_event(data) {
 
             // Clear out the pickup id list as we shouldnt be in any after party creation
             global_party.pickup_ids = [];
-            if (global_menu_page == "play_screen_combined") render_play_screen_pickups();
+            if (global_menu_page == "play_screen_combined") render_play_screen_combined_list();
         } else {            
             if ("locations" in data) {
                 set_region_selection(false, data.locations);
@@ -1118,13 +1112,25 @@ function update_party_leader_status(leader) {
         else send_view_data("hud", "string", "party-member");
     }
 
+    let party_warmup = _id("party_instant_join_warmup");
+    let ranked_queue_btn = _id("ranked_queue_button");
     if (bool_am_i_leader) {
         for (let el of global_party_leader_elements) el.style.display = "flex";
-        if (global_party.size > 1) _id("party_join_warmup_button").style.display = "flex";
-        else _id("party_join_warmup_button").style.display = "none";
+        if (party_warmup) {
+            if (global_party.size > 1) party_warmup.style.display = "flex";
+            else party_warmup.style.display = "none";
+        }
+        if (ranked_queue_btn) ranked_queue_btn.style.display = "flex";
+        
+        _id("create_lobby_button").style.display = "flex";
+
     } else {
         for (let el of global_party_leader_elements) el.style.display = "none";
-        _id("party_join_warmup_button").style.display = "none";
+        if (party_warmup) party_warmup.style.display = "none";
+        if (ranked_queue_btn) ranked_queue_btn.style.display = "none";
+
+        if (global_lobby_id < 0) _id("create_lobby_button").style.display = "none";
+        else _id("create_lobby_button").style.display = "flex";
     }
 
     // Change search_nearby and region selection in the party to the new leaders settings
@@ -1137,7 +1143,6 @@ function handle_lobby_event(data) {
     //console.log("== handle_lobby_event",data.action, _dump(data));
 
     if (data.action == "lobby-status") {
-
         let promoted = set_lobby_host(data.host);
         
         if (data.data.admins) global_lobby_admins = data.data.admins;
@@ -1241,10 +1246,18 @@ function handle_lobby_event(data) {
         handle_mm_match_cancelled();
     }
     
+    let create_lobby_button = _id("create_lobby_button");
     if (global_lobby_id < 0) {
         _id("open_lobby_button").style.display = "none";
+        create_lobby_button.textContent = localize("customlist_create_lobby");
+        create_lobby_button.classList.remove("lobby_open");
+        if (bool_am_i_leader) create_lobby_button.style.display = "flex";
+        else create_lobby_button.style.display = "none";
     } else {
         _id("open_lobby_button").style.display = "flex";
+        create_lobby_button.textContent = localize("customlist_open_lobby");
+        create_lobby_button.classList.add("lobby_open");
+        create_lobby_button.style.display = "flex";
     }
 }
 
@@ -1261,6 +1274,7 @@ function reset_lobby_settings() {
     engine.call("initialize_select_value", "lobby_custom_intro");
     engine.call("initialize_select_value", "lobby_custom_instagib");
     engine.call("initialize_select_value", "lobby_custom_insta_switch");
+    engine.call("initialize_select_value", "lobby_custom_lifesteal");
     engine.call("initialize_select_value", "lobby_custom_physics");
     engine.call("initialize_select_value", "lobby_custom_continuous");
     engine.call("initialize_select_value", "lobby_custom_warmup_time");
@@ -1300,6 +1314,7 @@ function lobby_reset_settings_default() {
     update_variable("string", "lobby_custom_intro", "0");
     update_variable("string", "lobby_custom_instagib", "0");
     update_variable("string", "lobby_custom_insta_switch", "0");
+    update_variable("real",   "lobby_custom_lifesteal", 0);
     update_variable("string", "lobby_custom_physics", "0");
     update_variable("string", "lobby_custom_warmup_time", "-1");
     update_variable("string", "lobby_custom_min_players", "2");
@@ -1445,6 +1460,7 @@ function get_lobby_settings() {
         team_size:      parseInt(global_customSettingElements["team_size"].dataset.value),
         instagib:       parseInt(global_customSettingElements["instagib"].dataset.value),
         instaswitch:    parseInt(global_customSettingElements["instaswitch"].dataset.value),
+        lifesteal:      Number(global_customSettingElements["lifesteal"].dataset.value),
         continuous:     parseInt(global_customSettingElements["continuous"].dataset.value),
         auto_balance:   parseInt(global_customSettingElements["auto_balance"].dataset.value),
         intro:          parseInt(global_customSettingElements["intro"].dataset.value),
@@ -1680,6 +1696,11 @@ function update_custom_game_settings(settings, init) {
         update_select(global_customSettingElements["instaswitch"]);
     }
 
+    if (Number(global_customSettingElements["lifesteal"].dataset.value) != settings.lifesteal) {
+        global_customSettingElements["lifesteal"].dataset.value = settings.lifesteal;
+        update_select(global_customSettingElements["lifesteal"]);
+    }
+
     if (parseInt(global_customSettingElements["continuous"].dataset.value) != settings.continuous) {
         global_customSettingElements["continuous"].dataset.value = settings.continuous;
         update_select(global_customSettingElements["continuous"]);
@@ -1794,8 +1815,8 @@ function update_custom_game_settings(settings, init) {
         if (settings.map) {
             global_lobby_selected_map = settings.map;
             global_customSettingElements["map"].dataset.value = settings.map;
-            _html(global_customSettingElements["map"], "<div>"+_format_map_name(settings.map)+"</div>");
-            global_customSettingElements["map"].style.backgroundImage = "url('map_thumbnails/" + settings.map + ".png')";
+            _html(global_customSettingElements["map"], "<div>"+_format_map_name(settings.map, settings.map_name)+"</div>");
+            global_customSettingElements["map"].style.backgroundImage = `url("map-thumbnail://${settings.map}")`;
         } else {
             global_lobby_selected_map = "";
             global_customSettingElements["map"].dataset.value = "";
@@ -2018,8 +2039,7 @@ function custom_game_map_on_author_click(e) {
 }
 
 /* Update map choices based on global_game_maps_state */
-function render_map_choices(sort = true) {
-    const category = global_game_maps_state.selected_category;
+function render_map_choices({ sort = true, category = 'official' }) {
     let maps = global_game_maps_state[category];  
     const selected = global_game_maps_state.selected;
 
@@ -2028,51 +2048,45 @@ function render_map_choices(sort = true) {
     
     for (let m of maps) {
         let map = _createElement("div", "map");
-        
-        if (category === 'official') {
-            map.style.backgroundImage = `url("map_thumbnails/${m.map}.png")`;
-        } else {
-            let background = _createElement("span", ["map_preview_background"]);
-            background.innerHTML = localize("map_community_preview");
-            if (m.has_thumbnail) {
-                let background_image = _createElement("div", ["map_preview_background_image"]);
-                background_image.style.backgroundImage =  `url("content://maps/${m.map}/${m.map}-t.png")`;
-                background.appendChild(background_image);
-            }
-            map.appendChild(background);
-           
-            if (!m.reviewed) {
-                const review_warn = _createElement("span", ["map_under_review"]);
-                review_warn.innerHTML = localize("map_under_review");
-                map.appendChild(review_warn);
-            }
+
+        if (category === 'community' && !m.reviewed) {
+            const review_warn = _createElement("span", ["map_under_review"]);
+            review_warn.innerHTML = localize("map_under_review");
+            map.appendChild(review_warn);
         }
 
+        map.style.backgroundImage = `url("map-thumbnail://${m.map}")`;
         map.addEventListener("click", function() {
+            global_game_maps_state.selected_category = category;
             map_selected(map, m);
         });
-        
         map_info = _createElement("div", "map_info");
-        map_info.appendChild(_createElement("div", "text", m.name));
+
+        let map_inner_info = _createElement("div", "map_inner_info");
+        map_info.appendChild(map_inner_info);
+
+        map_inner_info.appendChild(_createElement("div", "text", m.name));
         if (m.author) {
             const map_author = _createElement("div", "author", `by ${m.author}`);
             map_author.dataset.userId = m.user_id;
             map_author.addEventListener("click", custom_game_map_on_author_click);
-            map_info.appendChild(map_author);
+            map_inner_info.appendChild(map_author);
         }
         if (m.rate != undefined) {
             const rating = _createElement("div", ["map_rating"]);
             for (let i = 0; i < m.rate; i++) {
                 rating.appendChild(_createElement("div", ["star"]));
             }
-            map_info.appendChild(rating);
+            map_inner_info.appendChild(rating);
         }
-        if (m.updated_at != undefined) {
-            map_info.appendChild(_createElement("div", "update_at", `Updated ${moment(m.updated_at).fromNow()} (v${m.revision})`));
+        const MAX_7_DAYS = 8 * 24 * 60 * 60 * 1000;
+        if (m.updated_at != undefined && (Date.now() - m.updated_at.getTime()) < MAX_7_DAYS) {
+            const $updated_at = _createElement("div", "update_at");
+            $updated_at.innerHTML = `<span class="icon"></span>${moment(m.updated_at).fromNow()} (v${m.revision})`
+            map_info.appendChild($updated_at);
+        }
 
-        }
         map.appendChild(map_info);
-
         if (m == selected) {
             map.classList.add("thumb_selected");
             map.children[0].classList.add("selected");
@@ -2080,23 +2094,12 @@ function render_map_choices(sort = true) {
 
         fragment.appendChild(map);
     }
-    fragment.appendChild(_createElement("div", "spacer"));
 
-    let cont = _id("map_choice_container_inner");
-    _empty(cont);
-    cont.appendChild(fragment);
-}
-
-function custom_game_map_type_changed(btn, category) {
-    if (btn) {
-        let prev = btn.parentElement.querySelector(".selected");
-        if (prev) prev.classList.remove("selected");
-        btn.classList.add("selected");
-    }
-
-    global_game_maps_state.selected_category = category;
-    update_map_choices({ order: _id("map_choice_sort").dataset.value });
-    refreshScrollbar(_id("map_choice_container"));
+    let $parent = category === 'official' ?
+        _id("map_choice_container_inner_official") :
+        _id("map_choice_container_inner_community");
+    _empty($parent);
+    $parent.appendChild(fragment);
 }
 
 function update_map_choices_page() {
@@ -2104,7 +2107,7 @@ function update_map_choices_page() {
         ...global_game_maps_state.last_api_options,
     };
 
-    const category = global_game_maps_state.selected_category;
+    const category = 'community';
     const mode = global_customSettingElements["mode"].dataset.value || 'ffa';
     const order = options && options.order && options.order.length ? `&order=${options.order}` : ``;
     const search = options && options.search && options.search.length ? `&search=${encodeURI(options.search)}` : ``;
@@ -2131,11 +2134,10 @@ function update_map_choices_page() {
                 }));
 
             global_game_maps_state.infiniteScroll.last_page_reached = newMaps.length === 0;
-            if (global_game_maps_state.infiniteScroll.last_page_reached) console.log("LAST PAGE REACHED");
             global_game_maps_state[category].push(
                 ...newMaps
             );
-            render_map_choices(false);
+            render_map_choices({ sort: false, category });
             refreshScrollbar(_id("map_choice_container_scrollable"));
 
             global_game_maps_state.infiniteScroll.requesting = false;
@@ -2145,13 +2147,13 @@ function update_map_choices_page() {
 
 function update_map_choices(options) {
     const MIN_INITIAL_MAPS = 30;
-    const category = global_game_maps_state.selected_category;
+    const category = options.category || 'official';
 
-    let spinner_cont = _id("map_choice_container_inner");
-    _empty(spinner_cont);
-    spinner_cont.appendChild(_createSpinner());
-
-    if (category !== 'official') {
+    let spinner_cont = _id("map_choice_container_scrollable");
+    const spinner = _createSpinner();
+    spinner_cont.insertBefore(spinner, _id("map_choice_container_inner_community"));
+    _empty(_id("map_choice_container_inner_community"));
+    if (category === 'community') {
         _id("map_choice_filters").style.display = "flex";
 
         options = {
@@ -2170,7 +2172,7 @@ function update_map_choices(options) {
                     `/content/maps?mode=${mode}${order}${search}`,
                     {},
                     (maps) => {
-                        _empty(spinner_cont);
+                        spinner_cont.removeChild(spinner);
 
                         global_game_maps_state[category] =
                             maps.filter(map => map.create_ts !== map.update_ts)
@@ -2185,7 +2187,7 @@ function update_map_choices(options) {
                                     updated_at: new Date(map.update_ts),
                                     has_thumbnail: map.has_thumbnail
                                 }));
-                        render_map_choices(false);
+                        render_map_choices({ sort: false, category: 'community' });
 
                         refreshScrollbar(_id("map_choice_container_scrollable"));
                         resetScrollbar(_id("map_choice_container_scrollable"));
@@ -2196,10 +2198,12 @@ function update_map_choices(options) {
                             update_map_choices_page();
                         }
                     });
-    } else {
+    } else if(category === 'official') {
         _id("map_choice_filters").style.display = "none";
 
-        _empty(spinner_cont);
-        render_map_choices();
+        spinner_cont.removeChild(spinner);
+        render_map_choices({ category: 'official', sort: false });
+    } else {
+        console.error("Invalid map category");
     }
 }

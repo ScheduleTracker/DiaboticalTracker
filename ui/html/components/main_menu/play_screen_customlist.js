@@ -153,29 +153,43 @@ function renderMatchList() {
     resetScrollbar(outer_table);
 }
 
-function renderMatchListRow(match, row) {
+function renderMatchListRow(match) {
+    let row = _createElement("div", ["row", "match_row"]);
+    row.dataset.sessionId = match.session_id;
+
+    row.appendChild(_createElement("div", "accent"));
+
     let map = _createElement("div", "match_map");
     let map_gradient = _createElement("div", "map_gradient");
     map_gradient.style.backgroundImage = `url("map-thumbnail://${match.map}")`;
 
+    let mode_name = '';
+    let name_parts = [];
+    if (global_mode_definitions.hasOwnProperty(match.mm_mode)) {
+        let mode = global_mode_definitions[match.mm_mode];
+        if (mode.mode_key == "md_arena_team_big") name_parts.push(localize("game_mode_ca_big"));
+        else name_parts.push(localize("game_mode_"+mode.mode_name));
+        if (mode.instagib && mode.mode_name != "ghosthunt") name_parts.push(localize("game_mode_type_instagib"));
+    } else {
+        name_parts.push(localize(global_game_mode_map[match.mode].i18n));
+        if (match.modifier_instagib && match.mode != "ghosthunt") name_parts.push(localize("game_mode_type_instagib"));
+    }
+    mode_name = name_parts.join(" ");
+
     map.appendChild(map_gradient);
-    map.appendChild(_createElement("div", "mode_name", localize(global_game_mode_map[match.mode].i18n)));
+    map.appendChild(_createElement("div", "mode_name", mode_name));
     map.appendChild(_createElement("div", "map_name", _format_map_name(match.map)));
     row.appendChild(map);
 
 
     let row_block = _createElement("div", "row_block");
     row.appendChild(row_block);
-    let sub_row_1 = _createElement("div", "sub_row");
-    row_block.appendChild(sub_row_1);
-    let sub_row_2 = _createElement("div", "sub_row");
-    row_block.appendChild(sub_row_2);
 
     if ("password" in match && match.password) {
         let tr_pass = _createElement("div", "password");
         let lock = _createElement("div", "icon_lock");
         tr_pass.appendChild(lock);
-        sub_row_1.appendChild(tr_pass);
+        row_block.appendChild(tr_pass);
     }
 
     let tr_title = _createElement("div", "title", match.name);
@@ -183,46 +197,105 @@ function renderMatchListRow(match, row) {
         tr_title.classList.add("bold");
         tr_title.textContent = localize("match_type_queue");
     }
-    sub_row_1.appendChild(tr_title);
-    
-    let tr_region = _createElement("div", "region");
-    if (match.location in global_region_map) {
-        let flag = _createElement("img");
-        if (GLOBAL_AVAILABLE_COUNTRY_FLAGS.includes(global_region_map[match.location].flag)) {
-            flag.src = _flagUrl(global_region_map[match.location].flag);
-        }
-        let dc = _createElement("span", "", localize("datacenter_"+match.location.toLowerCase()));
+    row_block.appendChild(tr_title);
 
-        tr_region.appendChild(flag);
-        tr_region.appendChild(dc);
-    }
-    sub_row_2.appendChild(tr_region);
 
-    let max_clients = match.team_size * match.team_count;
+    // Player counts
+    let max_clients = match.team_count * match.team_size;
     if (match.max_clients < max_clients) max_clients = match.max_clients;
+    let format = _createElement("div", "counts");
+    format.appendChild(_createElement("div", "icon"));
+    format.appendChild(_createElement("div", "values", match.client_count+"/"+max_clients));
+    row.appendChild(format);
 
-    let tr_players = _createElement("div", "players");
-    tr_players.innerHTML = match.client_count+"/"+max_clients;
-    row.appendChild(tr_players);
+    let datacenter = _createElement("div", "datacenter");
+    row.appendChild(datacenter);
+    if (global_region_map.hasOwnProperty(match.location) && global_server_locations.hasOwnProperty(match.location)) {
+        let dc_top = _createElement("div", "top");
+        datacenter.appendChild(dc_top);
+        let dc_bottom = _createElement("div", "bottom");
+        datacenter.appendChild(dc_bottom);
 
-    let ping_ms = global_server_locations[match.location].ping;
-    let ping_str = '';
-    if (ping_ms == -1) {
-        ping_str = 'N/A';
-    } else {
-        ping_ms = Math.floor(Number(ping_ms) * 1000);
-        ping_str = ping_ms+"ms";
+        // Location ping
+        let ping_ms = global_server_locations[match.location].ping;
+        let ping_str = '';
+        if (ping_ms == -1) {
+            ping_str = 'N/A';
+        } else {
+            ping_ms = Math.floor(Number(ping_ms) * 1000);
+            ping_str = ping_ms+"ms";
+        }
+
+        let ping = _createElement("div", "ping", ping_str);
+        if (ping_ms < 40)  ping.classList.add("good");
+        if (ping_ms > 120) ping.classList.add("bad");
+        dc_top.appendChild(ping);
+
+        // Location flag
+        if (GLOBAL_AVAILABLE_COUNTRY_FLAGS.includes(global_region_map[match.location].flag)) {
+            let flag = _createElement("img", "flag");
+            flag.src = _flagUrl(global_region_map[match.location].flag);
+            dc_top.appendChild(flag);
+        }
+
+        // Location name
+        dc_bottom.appendChild(_createElement("div", null, localize(global_region_map[match.location].i18n)));
     }
 
-    let tr_latency = _createElement("div", "latency");
-    let ping_icon = _createElement("div", "ping_icon");
-    if (ping_ms < 40)  ping_icon.classList.add("good");
-    if (ping_ms > 120) ping_icon.classList.add("bad");
-    tr_latency.appendChild(ping_icon);
-    let ping = _createElement("div", "ping");
-    ping.textContent = ping_str;
-    tr_latency.appendChild(ping);
-    row.appendChild(tr_latency);
+    let hover_text = _createElement("div", "hover_text", localize("join"));
+    row.appendChild(hover_text);
+
+    row.addEventListener("mouseenter", function(e) {
+        play_screen_hover_info(e, "match", row, match);
+
+        if (!bool_am_i_leader) return;
+        hover_text.classList.add("visible");
+        _play_mouseover4();
+    });
+
+    row.addEventListener("mouseleave", function(e) {
+        hover_text.classList.remove("visible");
+
+        cleanup_hover_info_box(true);
+    });
+
+    row.addEventListener("click", function() {
+        if (!bool_am_i_leader) return;
+
+        cleanup_hover_info_box(true);
+
+        let require_pw = false;
+        if ("password" in match && match.password) require_pw = true;
+
+        if (require_pw) {
+            let cont = _createElement("div","custom_password_prompt");
+            let input = _createElement("input","custom_password_prompt_input");
+            input.setAttribute('type','password');
+            cont.appendChild(input);
+            input.focus();
+
+            input.addEventListener("keydown", function(e) {
+                if (e.keyCode == 13) { //return
+                    e.preventDefault();
+
+                    customlist_joinSession(match.session_id, input.value);
+
+                    // close modal
+                    close_modal_screen_by_selector('generic_modal');
+                }
+            });
+
+            genericModal(localize("custom_game_settings_password"), cont, localize("menu_button_cancel"), null, localize("menu_button_join"), function() {
+                customlist_joinSession(match.session_id, input.value);
+            });
+        } else {
+            customlist_joinSession(match.session_id, null);
+        }
+
+        _play_click1();
+    });
+
+    return row;
 }
 
 function customListRenderMatchPreview(session_id) {

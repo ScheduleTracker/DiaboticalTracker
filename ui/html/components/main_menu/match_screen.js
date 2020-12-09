@@ -51,10 +51,8 @@ function renderMatchScreen(match) {
     match_head.appendChild(head_left);
     head_left.appendChild(_createElement("div", "mode", localize(global_game_mode_map[match.match_mode].i18n)));
     let mode_name = '';
-    if (match.match_type == MATCH_TYPE_CUSTOM)     mode_name = localize("match_type_custom");
-    if (match.match_type == MATCH_TYPE_TOURNAMENT) mode_name = localize("match_type_tournament");
-    if (match.match_type == MATCH_TYPE_PICKUP)     mode_name = localize("match_type_pickup");
-    if (match.match_type == MATCH_TYPE_QUEUE)      mode_name = localize("match_type_queue");
+    if (match.match_type in MATCH_TYPE) mode_name = localize(MATCH_TYPE[match.match_type].i18n);
+
     head_left.appendChild(_createElement("div", "match_type", mode_name));
 
     let head_right = _createElement("div", ["block", "right"]);
@@ -80,10 +78,10 @@ function renderMatchScreen(match) {
     }
 
     let map_img = _createElement("div", "map_img");
-    map_img.style.backgroundImage = 'url(map_thumbnails/'+match.match_map+'.png)';
+    map_img.style.backgroundImage = 'url("map-thumbnail://'+match.match_map+'")';
     match_head.appendChild(map_img);
 
-    let map_name = _createElement("div", "name", _format_map_name(match.match_map));
+    let map_name = _createElement("div", "name", _format_map_name(match.match_map, match.match_map_name));
     map_img.appendChild(map_name);
 
     // ==== //

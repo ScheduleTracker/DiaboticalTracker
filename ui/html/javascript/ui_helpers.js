@@ -380,8 +380,10 @@ function _format_color_for_url(color) {
     return encodeURIComponent(_format_color_for_css(color));
 }
 
-function _format_map_name(name) {
-    if (name.trim().length == 0) return localize("unknown");
+function _format_map_name(name, override) {
+    if (override && override.length) return override;
+
+    if (!name || name.trim().length == 0) return localize("unknown");
     let parts = name.split("_");
     parts.splice(0,1);
     for (let i=0; i<parts.length; i++) parts[i] = capitalize(parts[i]);
