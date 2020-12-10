@@ -505,7 +505,6 @@ window.addEventListener("load", function(){
 
     // game_manifest is sent after connecting / loading the map
     bind_event("game_manifest", function(manifest) {
-        //console.log("game_manifest");
 
         global_show_rank_change = false;
 
@@ -522,7 +521,7 @@ window.addEventListener("load", function(){
             current_match.mode = mani.mode;
             current_match.mm_mode = mani.mm_mode;
             current_match.community_map = mani.community_map;
-            current_match.map_list = mani.map_list.split(":");
+            current_match.map_list = mani.map_list;
             current_match.setManifest(mani);
             cleanup_match_data();
 

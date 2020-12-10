@@ -1607,7 +1607,7 @@ function info_box_match(m) {
     
     preview_map.style.backgroundImage = `url("map-thumbnail://${m.map}")`;
     preview_map.appendChild(_createElement("div", "mode_name", localize(global_game_mode_map[m.mode].i18n)));
-    preview_map.appendChild(_createElement("div", "map_name", _format_map_name(m.map)));
+    preview_map.appendChild(_createElement("div", "map_name", _format_map_name(m.map, m.map_name)));
     box.appendChild(preview_map);
 
     // Match summary 

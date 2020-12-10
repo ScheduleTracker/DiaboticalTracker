@@ -154,6 +154,7 @@ function renderMatchList() {
 }
 
 function renderMatchListRow(match) {
+    console.log(_dump(match));
     let row = _createElement("div", ["row", "match_row"]);
     row.dataset.sessionId = match.session_id;
 
@@ -178,7 +179,7 @@ function renderMatchListRow(match) {
 
     map.appendChild(map_gradient);
     map.appendChild(_createElement("div", "mode_name", mode_name));
-    map.appendChild(_createElement("div", "map_name", _format_map_name(match.map)));
+    map.appendChild(_createElement("div", "map_name", _format_map_name(match.map, match.map_name)));
     row.appendChild(map);
 
 

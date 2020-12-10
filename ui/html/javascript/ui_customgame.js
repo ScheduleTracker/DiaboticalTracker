@@ -73,8 +73,8 @@ let global_custom_datacenter_list = [];
 let global_game_maps_state = {
     official: [],
     community: [],
-    selected: undefined,
-    selected_category: 'official',
+    selected: [],
+    default: undefined,
     order_by: undefined,
     last_api_options: {},
 
@@ -326,14 +326,19 @@ function init_screen_custom() {
     });
     
     // Updates the official maplist choices (triggered by "on_custom_game_mode_changed")
-    bind_event("set_map_choices", (maps_json, selected) => {
+    bind_event("set_map_choices", (maps_json, default_map) => {
         let maps = JSON.parse(maps_json);
         maps = maps.map(map => ({ name: _format_map_name(map), map }));
         maps.sort();
 
         global_game_maps_state.official = maps;
-        global_game_maps_state.selected = selected;
+        global_game_maps_state.selected = [];
+        if (default_map) {
+            global_game_maps_state.default = default_map;
+            render_lobby_initial_map(default_map);
+        }
 
+        render_map_selection();
         render_map_choices({ category: 'official' });
     });      
 
@@ -483,44 +488,65 @@ function custom_update_variable_if_host(opt, field) {
     }
 }
 
+function render_lobby_initial_map(map_id, map_name) {
+    const $el = _id("custom_game_setting_map");
+    _empty($el);
+
+    $el.dataset.value = map_id;
+    global_lobby_selected_map = map_id;
+
+    let background = _createElement("span", ["map_preview_background"]);
+
+    let background_image = _createElement("div", ["map_preview_background_image"]);
+    background_image.style.backgroundImage = "url('map-thumbnail://" + map_id + "')";
+    background.appendChild(background_image);
+
+    $el.appendChild(background);
+    $el.appendChild(_createElement("div", null, _format_map_name(map_id, map_name)));
+}
+
+function render_lobby_custom_map(map, idx) {
+    const [map_id, map_name, is_community] = map;
+
+    if (idx === 0) {
+        render_lobby_initial_map(map_id, map_name);
+        return;
+    }
+
+    const $el = _id("custom_game_setting_map_list");
+    const $map = _createElement("div", "map");
+
+    let background = _createElement("span", ["map_preview_background"]);
+    if (is_community)
+        background.innerHTML = localize("map_community_preview");
+
+    let background_image = _createElement("div", ["map_preview_background_image"]);
+    background_image.style.backgroundImage = "url('map-thumbnail://" + map_id + "')";
+    background.appendChild(background_image);
+
+    $map.appendChild(background);
+    $map.appendChild(_createElement("div", null, _format_map_name(map_id, map_name)));
+
+    $el.appendChild($map);
+}
+
 // Set the map selection
 // set_lobby_custom_map is called when host selects a different map or switches to a different mode that doesn't include the current map in its map list
-function set_lobby_custom_map(value) {
-    _for_each_in_class("custom_component",function(el) {
-        
-        if (el.dataset.variable == "lobby_custom_map") {
-            el.dataset.value = value;
-            global_lobby_selected_map = value;
+function set_lobby_custom_maps(data) {
+    if (data.length === 0) return;
 
-            if (global_game_maps_state.selected_category === 'community') {
-                const map = global_game_maps_state.community.find(m => m.map === value);
-                
-                _html(el, "<div>" + map.name + "</div>");
+    _empty(_id("custom_game_setting_map_list"));
 
-                let background = _createElement("span", ["map_preview_background"]);
-                background.innerHTML = localize("map_community_preview");
-                if (map.has_thumbnail) {
-                    let background_image = _createElement("div", ["map_preview_background_image"]);
-                    background_image.style.backgroundImage =  `url("content://maps/${map.map}/${map.map}-t.png")`;
-                    background.appendChild(background_image);
-                }
-                el.style.backgroundImage = ``;
-                el.appendChild(background);
-            }
-            else if (global_game_maps_state.selected_category === 'official') {
-                _html(el, "<div>"+_format_map_name(value)+"</div>");
-                el.style.backgroundImage = "url('map_thumbnails/" + value + ".png')";
-            } 
-            else {
-                console.error("Invalid map category");
-            }
-        }
-        // Only send update when the user selected the map manually, not when e.g. the mode is changed and the map with it, to prevent double updates
-        if (custom_lobby_map_selected) {
-            custom_game_settings_changed();
-            custom_lobby_map_selected = false;
-        }
-    });
+    let values = typeof (data) === 'string' ? JSON.parse(data) : data;
+    values.forEach((map, idx) => render_lobby_custom_map(map, idx));
+
+    global_game_maps_state.selected = values;
+
+    // Only send update when the user selected the map manually, not when e.g. the mode is changed and the map with it, to prevent double updates
+    if (custom_lobby_map_selected) {
+        custom_game_settings_changed();
+        custom_lobby_map_selected = false;
+    }
 }
 
 function set_lobby_custom_commands(value) {
@@ -949,6 +975,8 @@ function moveSlotToRightTeam(teamSize, numOfTeams) {
 }
 
 function thumbnail_button_map(element) {
+    if (!bool_am_i_host) return;
+
     engine.call("set_modal", true);
     open_modal_screen("map_choice_modal_screen", function() {
         update_map_choices({ category: 'official' });
@@ -956,21 +984,6 @@ function thumbnail_button_map(element) {
         refreshScrollbar(_id("map_choice_container"));
         resetScrollbar(_id("map_choice_container"));
     });
-}
-
-function map_selected(element, { map, name }) {
-    if (bool_am_i_host) {
-        custom_lobby_map_selected = true;
-        engine.call("custom_game_map_selected", map, name);
-
-        _for_each_with_class_in_parent(element.parentElement, 'thumb_selected', function(el) {
-            el.classList.remove('thumb_selected');
-            el.children[0].classList.remove('selected');
-        });
-        element.classList.add('thumb_selected');
-        element.children[0].classList.add('selected');
-        close_modal_screen_by_selector('map_choice_modal_screen');
-    }
 }
 
 function handle_invite_event(data) {
@@ -1427,24 +1440,16 @@ function get_lobby_settings() {
         });
     }
 
-    const map_id = global_customSettingElements["map"].dataset.value;
-    const is_community_map = global_game_maps_state.selected_category === 'community' ? 1 : 0;
-    let map_name =  "";
-    if (is_community_map) {
-        const community_map = global_game_maps_state.community.find(m => m.map === map_id);
-        map_name = community_map ? community_map.name : "";
-    } else {
-        map_name = _format_map_name(map_id);
-    }
+    const map_list = global_game_maps_state.selected && global_game_maps_state.selected.length ? 
+        global_game_maps_state.selected :
+        [ [ global_game_maps_state.default, _format_map_name(global_game_maps_state.default), 0] ];
 
 	return {
         // Strings:
         private:       (visibility) ? true : false,        
         name:          global_customSettingElements["name"].value,
 		mode:          mode,
-        map:           map_id,
-        map_name:      map_name,
-        community_map: is_community_map,
+        map_list:      map_list,
         datacenter:    global_customSettingElements["location"].dataset.value,
 
         // Array of strings (hex color codes without hash):
@@ -1811,18 +1816,8 @@ function update_custom_game_settings(settings, init) {
         }
     }
 
-    if (global_customSettingElements["map"].dataset.value != settings.map) {
-        if (settings.map) {
-            global_lobby_selected_map = settings.map;
-            global_customSettingElements["map"].dataset.value = settings.map;
-            _html(global_customSettingElements["map"], "<div>"+_format_map_name(settings.map, settings.map_name)+"</div>");
-            global_customSettingElements["map"].style.backgroundImage = `url("map-thumbnail://${settings.map}")`;
-        } else {
-            global_lobby_selected_map = "";
-            global_customSettingElements["map"].dataset.value = "";
-            _html(global_customSettingElements["map"], "<div>"+_format_map_name("")+"</div>");
-            global_customSettingElements["map"].style.backgroundImage = "none";
-        }
+    if (settings.map && !bool_am_i_host) {
+        set_lobby_custom_maps(settings.map_list);
     }
 
     for (let t=0; t<settings.colors.length && t<settings.team_count; t++) {
@@ -2038,8 +2033,44 @@ function custom_game_map_on_author_click(e) {
     open_player_profile(e.currentTarget.dataset.userId);
 }
 
+function render_map_selection() {
+    const $selection = _id("map_selection_list");
+    _empty($selection);
+
+    for (const map of global_game_maps_state.selected) {
+        const [ map_id, map_name, is_community ] = map;
+        
+        let $map = _createElement("div", "map");
+        $map.style.backgroundImage = `url("map-thumbnail://${map_id}")`;
+
+        $map_info = _createElement("div", "map_info");
+        let $map_inner_info = _createElement("div", "map_inner_info");
+        $map_inner_info.appendChild(_createElement("div", "text", map_name));
+        
+        $map_info.appendChild($map_inner_info);
+        $map.appendChild($map_info);
+
+        // Handler to delete a map from the selection
+        $map.addEventListener("click", function(event) {
+            global_game_maps_state.selected = global_game_maps_state.selected.filter(([ s_id ]) => s_id !== map_id);
+            custom_lobby_map_selected = true;
+
+            engine.call("custom_game_map_selected", JSON.stringify(global_game_maps_state.selected));
+
+            render_map_selection();
+            if (global_game_maps_state.selected.length === 0){
+                render_lobby_initial_map(global_game_maps_state.default);
+            }
+        });
+
+        $selection.appendChild($map);
+    }
+}
+
 /* Update map choices based on global_game_maps_state */
 function render_map_choices({ sort = true, category = 'official' }) {
+    const MAX_NUMBER_SELECTIONS = 5;
+
     let maps = global_game_maps_state[category];  
     const selected = global_game_maps_state.selected;
 
@@ -2047,19 +2078,34 @@ function render_map_choices({ sort = true, category = 'official' }) {
     if (sort) maps.sort();
     
     for (let m of maps) {
+        const is_community = category === 'community' ? 1 : 0;
         let map = _createElement("div", "map");
 
-        if (category === 'community' && !m.reviewed) {
+        if (is_community && !m.reviewed) {
             const review_warn = _createElement("span", ["map_under_review"]);
             review_warn.innerHTML = localize("map_under_review");
             map.appendChild(review_warn);
         }
 
         map.style.backgroundImage = `url("map-thumbnail://${m.map}")`;
-        map.addEventListener("click", function() {
-            global_game_maps_state.selected_category = category;
-            map_selected(map, m);
+        
+        // Handler to add a map to the selection
+        map.addEventListener("click", function () {
+            const selection = [ m.map, m.name, is_community];
+            const is_already_selected = !!global_game_maps_state.selected.find(([s_id]) => s_id == m.map);
+            if (bool_am_i_host && 
+                !is_already_selected &
+                global_game_maps_state.selected.length < MAX_NUMBER_SELECTIONS) {                                
+                global_game_maps_state.selected.push(selection);
+
+                custom_lobby_map_selected = true;
+                engine.call("custom_game_map_selected", JSON.stringify(global_game_maps_state.selected));
+
+                render_map_selection();
+                //close_modal_screen_by_selector('map_choice_modal_screen');
+            }
         });
+
         map_info = _createElement("div", "map_info");
 
         let map_inner_info = _createElement("div", "map_inner_info");
@@ -2069,7 +2115,7 @@ function render_map_choices({ sort = true, category = 'official' }) {
         if (m.author) {
             const map_author = _createElement("div", "author", `by ${m.author}`);
             map_author.dataset.userId = m.user_id;
-            map_author.addEventListener("click", custom_game_map_on_author_click);
+            //map_author.addEventListener("click", custom_game_map_on_author_click);
             map_inner_info.appendChild(map_author);
         }
         if (m.rate != undefined) {
@@ -2087,10 +2133,6 @@ function render_map_choices({ sort = true, category = 'official' }) {
         }
 
         map.appendChild(map_info);
-        if (m == selected) {
-            map.classList.add("thumb_selected");
-            map.children[0].classList.add("selected");
-        }
 
         fragment.appendChild(map);
     }

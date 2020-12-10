@@ -948,18 +948,17 @@ function renderMapVote(snafu_data) {
     let maps = [];
     if (current_match.map_list && current_match.map_list.length) maps = current_match.map_list;
 
-    // Filter out the map that was just played, unless its the only map in the list
+    // Move the just played map to the front of the list
     let valid_maps = [];
-    if (maps.length > 2) {
-        for (let map of maps) {
-            if (map != snafu_data["game_data.map"]) valid_maps.push(map);
+    for (let m of maps) {
+        if (m[0] == snafu_data["game_data.map"]) {
+            valid_maps.push(m);
+            break;
         }
-    } else {
-        valid_maps = maps;
     }
-
-    if (valid_maps.length > 6) {
-        valid_maps = getRandomElementsFromArray(valid_maps, 6);
+    for (let m of maps) {
+        if (m[0] == snafu_data["game_data.map"]) continue;
+        valid_maps.push(m)
     }
 
     let map_list = _createElement("div", "map_list");
@@ -974,9 +973,9 @@ function renderMapVote(snafu_data) {
     for (let map of valid_maps) {
         let map_div = _createElement("div", ["map", "vote_option"]);
 
-        map_div.dataset.option = map;
-        map_div.style.backgroundImage = "url("+_mapUrl(map)+")";
-        map_div.appendChild(_createElement("div","name",_format_map_name(map)));
+        map_div.dataset.option = map[0];
+        map_div.style.backgroundImage = 'url("map-thumbnail://'+map[0]+'")';
+        map_div.appendChild(_createElement("div","name",_format_map_name(map[0],map[1])));
 
         map_div.appendChild(_createElement("div", "vote_cont"));
 
@@ -988,7 +987,7 @@ function renderMapVote(snafu_data) {
 
             map_div.classList.add("selected");
 
-            send_string(CLIENT_COMMAND_SELECT_MAP, map);
+            send_string(CLIENT_COMMAND_SELECT_MAP, map[0]);
         });
 
         map_list.appendChild(map_div);

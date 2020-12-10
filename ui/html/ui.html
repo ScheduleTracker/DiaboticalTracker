@@ -3173,6 +3173,7 @@
                 <div class="custom_game_setting setting_header">
                     <div class="thumbnail_button custom_component mouseover-sound4 click-sound" id="custom_game_setting_map"
                         data-variable="lobby_custom_map" onclick="thumbnail_button_map(this)"></div>
+                    <div id="custom_game_setting_map_list"></div>
                 </div>
                 <div class=section id=custom_settings_misc>
                     <div class=custom_game_setting>
@@ -3330,6 +3331,9 @@
                         More Settings
                     </div>
                 </div>
+                
+                <div class="separator"></div>
+
                 <div id="custom_lobby_join_link">
                     <div class="setting_title i18n" data-i18n="custom_game_settings_join_key">Join Key</div>
                     <div id="custom_lobby_join_link_input" class="key" style="display:none;"></div>
@@ -4259,8 +4263,13 @@
 
         <div id="map_choice_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div class="generic_modal_dialog" onclick="event.stopPropagation();">
-                <div id="map_choice_container">
-
+                <div id="map_selection">
+                    <div class="title">
+                        <span class="label">Map selection</span>
+                    </div>
+                    <div id="map_selection_list"></div>
+                </div>
+                <div id="map_choice_container">                    
                     <div id="map_choice_official">
                         <div class="title">
                             <span class="label">Official maps</span>
