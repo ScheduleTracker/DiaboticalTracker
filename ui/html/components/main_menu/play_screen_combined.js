@@ -544,7 +544,7 @@ function render_play_screen_combined_list() {
     // Sort matches
     global_custom_list_data.sort(function(a, b) {
         if (a.location != b.location) {
-            if (Number(global_server_locations[a.location].ping) < Number(global_server_locations[b.location].ping)) return -1;
+            if (global_server_locations.hasOwnProperty(a.location) && Number(global_server_locations[a.location].ping) < Number(global_server_locations[b.location].ping)) return -1;
         } else {
             if (a.client_count > b.client_count)
                 return -1;
@@ -1609,6 +1609,23 @@ function info_box_match(m) {
     preview_map.appendChild(_createElement("div", "mode_name", localize(global_game_mode_map[m.mode].i18n)));
     preview_map.appendChild(_createElement("div", "map_name", _format_map_name(m.map, m.map_name)));
     box.appendChild(preview_map);
+
+    if (m.hasOwnProperty("map_list") && m.map_list.length && m.match_type == MATCH_TYPE_CUSTOM) {
+        let map_list = _createElement("div", "map_list");
+        let count = 0;
+        for (let map of m.map_list) {
+            if (map[0] == m.map) continue;
+            count++;
+
+            let preview_map_small = _createElement("div", "map_small");
+            preview_map_small.style.backgroundImage = `url("map-thumbnail://${map[0]}")`;
+            preview_map_small.appendChild(_createElement("div", "map_name", _format_map_name(map[0], map[1])));
+            map_list.appendChild(preview_map_small);
+        }
+        if (count) {
+            box.appendChild(map_list);
+        }
+    }
 
     // Match summary 
     let name = m.name;

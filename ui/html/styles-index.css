@@ -18273,6 +18273,31 @@ h2 {
     text-transform:uppercase;
     font-size:1.2vh;
 }
+.hover_info_box .match .map_list {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+.hover_info_box .match .map_list .map_small {
+    width:8.5vh;
+    height:calc(8.5vh * (9/16));
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-color:#222;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+}
+.hover_info_box .match .map_list .map_small .map_name {
+    font-size:0.6rem;
+    font-family:var(--mont-font);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
+    text-transform:uppercase;
+    padding-bottom:0.1rem;
+}
 .hover_info_box .match .summary {
     margin-top:1vh;
     text-shadow: 1px 1px 6px rgba(0,0,0,0.5);

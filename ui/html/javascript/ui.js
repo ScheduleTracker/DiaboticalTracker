@@ -1078,7 +1078,7 @@ window.addEventListener("load", function(){
 
         //console.log("set_custom_component", variable, value);
 
-        if (variable == "lobby_custom_map") set_lobby_custom_maps(value);
+        if (variable == "lobby_custom_map") set_lobby_maps(value);
         if (variable == "lobby_custom_commands") set_lobby_custom_commands(value);
         
         //Initialize crosshair creator

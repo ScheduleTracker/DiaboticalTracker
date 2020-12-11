@@ -326,21 +326,22 @@ function init_screen_custom() {
     });
     
     // Updates the official maplist choices (triggered by "on_custom_game_mode_changed")
-    bind_event("set_map_choices", (maps_json, default_map) => {
+    bind_event("set_map_choices", (maps_json) => {
         let maps = JSON.parse(maps_json);
         maps = maps.map(map => ({ name: _format_map_name(map), map }));
         maps.sort();
 
         global_game_maps_state.official = maps;
-        global_game_maps_state.selected = [];
-        if (default_map) {
-            global_game_maps_state.default = default_map;
-            render_lobby_initial_map(default_map);
-        }
 
         render_map_selection();
         render_map_choices({ category: 'official' });
     });      
+
+    bind_event("set_default_map", (map) => {
+        global_game_maps_state.default = map;
+        if (global_game_maps_state.selected.length === 0)
+            render_lobby_initial_map(map);
+    });
 
     _for_each_in_class("custom_component", function (element) {
         var current_variable = element.dataset.variable;
@@ -482,7 +483,10 @@ function custom_update_variable_if_host(opt, field) {
             else if (opt.dataset.value == "1") update_variable("string", "lobby_custom_insta_switch", "1");
             else if (opt.dataset.value == "2") update_variable("string", "lobby_custom_insta_switch", "1");
         }
-
+        if (field.dataset.variable == "lobby_custom_mode") {
+            update_variable("string", "lobby_custom_map", "[]");
+            reset_lobby_maps();
+        } 
         update_variable("string", field.dataset.variable, opt.dataset.value);
         custom_lobby_setting_updated(field.dataset.variable, opt.dataset.value);
     }
@@ -505,7 +509,7 @@ function render_lobby_initial_map(map_id, map_name) {
     $el.appendChild(_createElement("div", null, _format_map_name(map_id, map_name)));
 }
 
-function render_lobby_custom_map(map, idx) {
+function render_lobby_selected_map(map, idx) {
     const [map_id, map_name, is_community] = map;
 
     if (idx === 0) {
@@ -530,15 +534,29 @@ function render_lobby_custom_map(map, idx) {
     $el.appendChild($map);
 }
 
+function reset_lobby_maps() {
+    _empty(_id("custom_game_setting_map_list"));
+    global_game_maps_state.selected = [];
+}
+
 // Set the map selection
 // set_lobby_custom_map is called when host selects a different map or switches to a different mode that doesn't include the current map in its map list
-function set_lobby_custom_maps(data) {
+function set_lobby_maps(data) {
     if (data.length === 0) return;
 
     _empty(_id("custom_game_setting_map_list"));
 
-    let values = typeof (data) === 'string' ? JSON.parse(data) : data;
-    values.forEach((map, idx) => render_lobby_custom_map(map, idx));
+    let values = undefined;
+    // old settings value was string type storing a map name, 
+    // not array as now expected, so try first to json parse `data`
+    // and fallback to catch if it fails and forge a correct value
+    try {
+        values = typeof (data) === 'string' ? JSON.parse(data) : data;
+    } catch (error) {
+        // data might be a map name
+        values = [ [ data, _format_map_name(data), 0 ] ];
+    }
+    values.forEach((map, idx) => render_lobby_selected_map(map, idx));
 
     global_game_maps_state.selected = values;
 
@@ -1817,7 +1835,7 @@ function update_custom_game_settings(settings, init) {
     }
 
     if (settings.map && !bool_am_i_host) {
-        set_lobby_custom_maps(settings.map_list);
+        set_lobby_maps(settings.map_list);
     }
 
     for (let t=0; t<settings.colors.length && t<settings.team_count; t++) {

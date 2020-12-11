@@ -54,7 +54,7 @@ function generate_loading_screen_tip(gamemode){
             {"i18n": "loading_tip_general_13_doggerdemon", author:"doggerdemon"},
             {"i18n": "loading_tip_general_14_pressok", author:"PressOK"},
             {"i18n": "loading_tip_general_15_g4mb4", author:"G4mb4"},
-            {"i18n": "loading_tip_general_16_inactiveaccount", author:"inactiveaccount "},
+            {"i18n": "loading_tip_general_16_inactiveaccount", author:"repr0bate"},
             {"i18n": "loading_tip_general_17_mr_kt", author:"Mr.kt"},
             {"i18n": "loading_tip_general_18_jysandy", author:"jysandy"},
             {"i18n": "loading_tip_general_19_zydian05", author:"zydian05 "},
