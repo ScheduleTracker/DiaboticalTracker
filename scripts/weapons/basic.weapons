@@ -131,8 +131,8 @@ super_shotgun
 	min_hits 2
 	bounce 0
 	spread_ring 0 6 6
-	knockback 4.7
-	ground_knockback 4.7
+	knockback 6.1
+	ground_knockback 7.1
 	parallel_knockback true
 	impact_particles_distance_delay 0.12
 	independent_upgrade_model true
@@ -216,7 +216,7 @@ shaft
 	hit_radius 2.5 1.1
 
 	knockback 10.4
-	ground_knockback 9
+	ground_knockback 13.5
 	distance 768
 	default_ammo_pickup_ammo 50
 	default_weapon_pickup_ammo 100
@@ -495,7 +495,7 @@ pncr
 	bonus_consecutive_damage 5
 	max_bonus_consecutive_damage_instances 6
 	knockback 62.5
-	ground_knockback 57.5
+	ground_knockback 75.5
 	//charged_knockback_self 120
 	//charged_knockback_self_radius 117
 	default_ammo_pickup_ammo 5
