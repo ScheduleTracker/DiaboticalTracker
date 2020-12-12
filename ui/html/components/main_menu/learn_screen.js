@@ -1169,7 +1169,7 @@ function learn_screen_initialize_tab_gamemodes() {
                                     'starting_weapons',
                                     'powerup_drop'],
                         'description': "Extinction is a round based mode where players start with 3 lives each, and the team who loses all of their lives loses the round. If you're out of lives, don't give up yet! You'll still keep spawning if one player on your team has lives remaining. In this ghost state roam the map and protect your surviving teammates, or chase down your enemies and eliminate them, focusing on those with lives remaining. But be careful as ghosts have a longer respawn time.",
-                        'description_extended': "If the player with the most lives on your team has more lives than anybody on the enemy team, your team's ghosts will have less spawn health based on the difference and will drop an orb on death that reveals the life leader's location if picked up by an enemy.<div>Each round the powerup that spawns changes, cycling between Vindicator, Vanguard and Siphonator for that round.</div>"
+                        'description_extended': "If the player with the most lives on your team has more lives than anybody on the enemy team, your team's ghosts will have less spawn health based on the difference and will drop an orb on death that grants 10 health and 10 armor to all enemies if one of them picks it up.<div>Each round the powerup that spawns changes, cycling between Vindicator, Vanguard and Siphonator for that round.</div>"
                     },
         'duel':      {   'entries':['spawn_health_armor',
                                     'stable_health_armor',
