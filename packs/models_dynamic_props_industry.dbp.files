@@ -2638,10 +2638,13 @@ models\dynamic_props\industry\ind_trims\ind_trims.shader		5190
 models\dynamic_props\industry\ind_trims\ind_trims01_d.png.dds		349700
 models\dynamic_props\industry\ind_trims\ind_trims01_n.png.dds		349700
 models\dynamic_props\industry\ind_trims\ind_trims01_s.png.dds		349700
+models\dynamic_props\industry\ind_trims\ind_walltrim_01_01-col.fbx		18160
 models\dynamic_props\industry\ind_trims\ind_walltrim_01_01.dbm		1834
 models\dynamic_props\industry\ind_trims\ind_walltrim_01_01.fbx		63728
+models\dynamic_props\industry\ind_trims\ind_walltrim_01_bottom-col.fbx		43936
 models\dynamic_props\industry\ind_trims\ind_walltrim_01_bottom.dbm		2564
 models\dynamic_props\industry\ind_trims\ind_walltrim_01_bottom.fbx		64704
+models\dynamic_props\industry\ind_trims\ind_walltrim_01_top-col.fbx		43920
 models\dynamic_props\industry\ind_trims\ind_walltrim_01_top.dbm		2996
 models\dynamic_props\industry\ind_trims\ind_walltrim_01_top.fbx		65248
 models\dynamic_props\industry\ind_wallpanels\ind_panel_trims\ind_panel_floortrim_01_1.dbm		4670
@@ -2687,6 +2690,7 @@ models\dynamic_props\industry\ind_wallpanels\ind_panel_trims\ind_panel_trims_n.p
 models\dynamic_props\industry\ind_wallpanels\ind_panel_trims\ind_panel_trims_s.png.dds		1398276
 models\dynamic_props\industry\ind_wallpanels\ind_wallpanel_dividers\ind_wallpanel_divider_1_prop.dbm		31900
 models\dynamic_props\industry\ind_wallpanels\ind_wallpanel_dividers\ind_wallpanel_divider_1_prop.fbx		35712
+models\dynamic_props\industry\ind_wallpanels\ind_wallpanel_dividers\ind_wallpanel_divider_2_prop-col.fbx		30416
 models\dynamic_props\industry\ind_wallpanels\ind_wallpanel_dividers\ind_wallpanel_divider_2_prop.dbm		20892
 models\dynamic_props\industry\ind_wallpanels\ind_wallpanel_dividers\ind_wallpanel_divider_2_prop.fbx		30032
 models\dynamic_props\industry\ind_wallpanels\ind_wallpanel_dividers\ind_wallpanel_divider_base-col.fbx		27376
