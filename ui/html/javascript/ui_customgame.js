@@ -136,6 +136,7 @@ function init_custom_game_references() {
             "spawn_random_chance":       _id("custom_game_spawn_random_chance"),
             "spawn_safety_radius":       _id("custom_game_spawn_safety_radius"),
             "lifesteal":                 _id("custom_game_setting_lifesteal"),
+            "allow_queue":               _id("custom_game_setting_allow_queue"),
         };
     
         global_gameSlotList = [
@@ -245,6 +246,7 @@ function init_screen_custom() {
     ui_setup_select(global_customSettingElements["instagib"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["instaswitch"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["lifesteal"], custom_update_variable_if_host);
+    ui_setup_select(global_customSettingElements["allow_queue"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["intro"], custom_update_variable_if_host);
     ui_setup_select(global_customSettingElements["auto_balance"], function() {
         if (bool_am_i_host) custom_game_settings_changed();
@@ -1306,6 +1308,7 @@ function reset_lobby_settings() {
     engine.call("initialize_select_value", "lobby_custom_instagib");
     engine.call("initialize_select_value", "lobby_custom_insta_switch");
     engine.call("initialize_select_value", "lobby_custom_lifesteal");
+    engine.call("initialize_select_value", "lobby_custom_allow_queue");
     engine.call("initialize_select_value", "lobby_custom_physics");
     engine.call("initialize_select_value", "lobby_custom_continuous");
     engine.call("initialize_select_value", "lobby_custom_warmup_time");
@@ -1346,6 +1349,7 @@ function lobby_reset_settings_default() {
     update_variable("string", "lobby_custom_instagib", "0");
     update_variable("string", "lobby_custom_insta_switch", "0");
     update_variable("real",   "lobby_custom_lifesteal", 0);
+    update_variable("real",   "lobby_custom_allow_queue", 0);
     update_variable("string", "lobby_custom_physics", "0");
     update_variable("string", "lobby_custom_warmup_time", "-1");
     update_variable("string", "lobby_custom_min_players", "2");
@@ -1484,6 +1488,7 @@ function get_lobby_settings() {
         instagib:       parseInt(global_customSettingElements["instagib"].dataset.value),
         instaswitch:    parseInt(global_customSettingElements["instaswitch"].dataset.value),
         lifesteal:      Number(global_customSettingElements["lifesteal"].dataset.value),
+        allow_queue:    Number(global_customSettingElements["allow_queue"].dataset.value),
         continuous:     parseInt(global_customSettingElements["continuous"].dataset.value),
         auto_balance:   parseInt(global_customSettingElements["auto_balance"].dataset.value),
         intro:          parseInt(global_customSettingElements["intro"].dataset.value),
@@ -1722,6 +1727,11 @@ function update_custom_game_settings(settings, init) {
     if (Number(global_customSettingElements["lifesteal"].dataset.value) != settings.lifesteal) {
         global_customSettingElements["lifesteal"].dataset.value = settings.lifesteal;
         update_select(global_customSettingElements["lifesteal"]);
+    }
+
+    if (Number(global_customSettingElements["allow_queue"].dataset.value) != settings.allow_queue) {
+        global_customSettingElements["allow_queue"].dataset.value = settings.allow_queue;
+        update_select(global_customSettingElements["allow_queue"]);
     }
 
     if (parseInt(global_customSettingElements["continuous"].dataset.value) != settings.continuous) {

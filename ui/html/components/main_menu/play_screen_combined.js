@@ -1765,6 +1765,10 @@ function info_box_match(m) {
         }
     }
 
+    if (m.hasOwnProperty("allow_queue") && m.allow_queue == 1) {
+        preview_settings.appendChild(_createElement("div", "allow_queue", localize("custom_settings_allow_queue_enabled")));
+    }
+
     return box;
 }
 

@@ -18366,6 +18366,12 @@ h2 {
     font-size:1.1vh;
     opacity:0.9;
 }
+.hover_info_box .match .settings .allow_queue {
+    color:rgb(85, 255, 85);
+    margin-top:1vh;
+    margin-bottom:0.4vh;
+    font-weight:bold;
+}
 .hover_info_box .match .playerlist {
     margin-top:1vh;
     background-color:rgba(46, 46, 46, 0.48);
