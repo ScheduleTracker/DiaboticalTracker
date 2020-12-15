@@ -227,6 +227,9 @@ const content_creation_page = {
                         modes: map.modes,
                         image: "mg_test.png",
                         author: map.author,
+                        rate: map.rate,
+                        votes: map.votes,
+                        revision: map.revision,
                         created_at: new Date(map.create_ts),
                         updated_at: new Date(map.update_ts),
                         local_edit_at: local_map ? new Date(local_map.updated_at * 1000) : null
@@ -301,21 +304,29 @@ const content_creation_page = {
             let edit_info = _createElement("div", "edit_info");
             if (map.updated_at.getTime() !== map.created_at.getTime()) {
                 let last_publish_title = _createElement("div", "text_info");
-                last_publish_title.innerHTML = localize("map_last_publish");
+                last_publish_title.textContent = localize("map_last_publish");
                 edit_info.appendChild(last_publish_title);
 
                 let last_publish_time = _createElement("div");
-                last_publish_time.innerHTML = moment(map.updated_at).fromNow();
+                last_publish_time.textContent = moment(map.updated_at).fromNow();
                 edit_info.appendChild(last_publish_time);
             }
             if (map.local_edit_at) {
                 let last_edit_title = _createElement("div", "text_info");
-                last_edit_title.innerHTML = localize("map_last_edit");
+                last_edit_title.textContent = localize("map_last_edit");
                 edit_info.appendChild(last_edit_title);
 
                 let last_edit_text = _createElement("div");
-                last_edit_text.innerHTML = moment(map.local_edit_at).fromNow();
+                last_edit_text.textContent = moment(map.local_edit_at).fromNow();
                 edit_info.appendChild(last_edit_text);
+            }
+            
+            if (map.rate) {
+                let rating = _createElement("div", "map_rating_creation");
+                for (let s = 0; s < map.rate; s++) {
+                    rating.appendChild(_createElement("div", "star"));
+                }
+                edit_info.appendChild(rating);
             }
             bottom.appendChild(edit_info);
 

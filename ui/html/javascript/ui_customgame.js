@@ -2152,6 +2152,12 @@ function render_map_choices({ sort = true, category = 'official' }) {
                 rating.appendChild(_createElement("div", ["star"]));
             }
             map_inner_info.appendChild(rating);
+        }       
+
+        if (m.votes != null) {
+            const votes = _createElement("div", ["map_votes"]);
+            votes.textContent = `${m.votes} ${localize(m.votes > 1 ? 'map_votes' : 'map_vote')}`;
+            map_inner_info.appendChild(votes);
         }
         const MAX_7_DAYS = 8 * 24 * 60 * 60 * 1000;
         if (m.updated_at != undefined && (Date.now() - m.updated_at.getTime()) < MAX_7_DAYS) {
@@ -2198,6 +2204,7 @@ function update_map_choices_page() {
                     user_id: map.user_id,
                     reviewed: map.reviewed,
                     rate: map.rate,
+                    votes: map.votes,
                     revision: map.revision,
                     updated_at: new Date(map.update_ts),
                     has_thumbnail: map.has_thumbnail
@@ -2253,6 +2260,7 @@ function update_map_choices(options) {
                                     user_id: map.user_id,
                                     reviewed: map.reviewed,
                                     rate: map.rate,
+                                    votes: map.votes,
                                     revision: map.revision,
                                     updated_at: new Date(map.update_ts),
                                     has_thumbnail: map.has_thumbnail
