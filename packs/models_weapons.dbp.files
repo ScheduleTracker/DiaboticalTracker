@@ -406,6 +406,16 @@ models\weapons\melee\fusion_hammer\weapon_fusion_hammer_vercol.fbx		496048
 models\weapons\melee\goldenfrag\chockhammer_d.png.dds		5592580
 models\weapons\melee\goldenfrag\chockhammer_n.png.dds		1398276
 models\weapons\melee\goldenfrag\chockhammer_s.png.dds		1398276
+models\weapons\melee\lightning_axe\axe.assets		158
+models\weapons\melee\lightning_axe\axe.shader		1628
+models\weapons\melee\lightning_axe\axe_d.png		516023
+models\weapons\melee\lightning_axe\axe_i.png		2763
+models\weapons\melee\lightning_axe\axe_n.png		650942
+models\weapons\melee\lightning_axe\axe_s.png		452806
+models\weapons\melee\lightning_axe\lightning_axe.fbx		183984
+models\weapons\melee\lightning_axe\lightning_axe_prop_vercol.fbx		298592
+models\weapons\melee\lightning_axe\lightning_axe_vercol.fbx		367008
+models\weapons\melee\lightning_axe\scroll.png		151164
 models\weapons\melee\mazer\Creator Omar Chaouch.txt		27
 models\weapons\melee\mazer\mazer.assets		125
 models\weapons\melee\mazer\mazer.shader		1551
@@ -428,6 +438,14 @@ models\weapons\melee\shields\cardboard_shield\cardboard_shield.fbx		68816
 models\weapons\melee\shields\cardboard_shield\cardboard_shield_d.png		617758
 models\weapons\melee\shields\cardboard_shield\cardboard_shield_n.png		665278
 models\weapons\melee\shields\cardboard_shield\cardboard_shield_s.png		270443
+models\weapons\melee\shields\fusion_shield\fusion_shield_prop_vercol.fbx		138864
+models\weapons\melee\shields\fusion_shield\fusion_shield_vercol.fbx		106592
+models\weapons\melee\shields\fusion_shield\shield.assets		161
+models\weapons\melee\shields\fusion_shield\shield.shader		1068
+models\weapons\melee\shields\fusion_shield\shield_d.png.dds		1398276
+models\weapons\melee\shields\fusion_shield\shield_i.png.dds		349700
+models\weapons\melee\shields\fusion_shield\shield_n.png.dds		1398276
+models\weapons\melee\shields\fusion_shield\shield_s.png.dds		1398276
 models\weapons\melee\shields\gan_shield\gan_shield.fbx		54576
 models\weapons\melee\shields\gan_shield\gan_shield_d.png		553966
 models\weapons\melee\shields\gan_shield\gan_shield_n.png		693069
