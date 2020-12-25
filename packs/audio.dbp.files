@@ -863,7 +863,7 @@ audio\feedback_hit.sounds		2111
 audio\feedback_misc.sounds		1065
 audio\frag_notifications.sounds		1495
 audio\grenade_launcher.sounds		6151
-audio\ID_list.txt		2489
+audio\ID_list.txt		2542
 audio\machinegun.sounds		5176
 audio\melee.sounds		10448
 audio\minigun.sounds		4386
@@ -935,7 +935,7 @@ audio\ui\ui_window_open.wav		30860
 audio\ui\wipeout\ui_wo_team_lastplayer.wav		311930
 audio\ui_battlepass.sounds		186
 audio\ui_ranked.sounds		1479
-audio\weapon9.sounds		4682
+audio\void_cannon.sounds		5037
 audio\weeble_explosive.sounds		2091
 audio\weeble_healing.sounds		1379
 audio\weeble_implosive.sounds		2089

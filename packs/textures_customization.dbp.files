@@ -1,5 +1,5 @@
-textures\customization\customization.assets		46857
-textures\customization\customization.shader		180170
+textures\customization\customization.assets		47095
+textures\customization\customization.shader		188674
 textures\customization\sp\aristocrat_weeball.png.dds		349700
 textures\customization\sp\armor.png.dds		1398276
 textures\customization\sp\birdfight.png.dds		1398276
@@ -28,6 +28,7 @@ textures\customization\sp\good_times_below.png.dds		1398276
 textures\customization\sp\gotem.png.dds		1398276
 textures\customization\sp\halloween_weeball_bats.png.dds		1398276
 textures\customization\sp\halloween_weeball_pumpkin_witch.png.dds		1398276
+textures\customization\sp\happy_eggbot_surprise.png.dds		1398276
 textures\customization\sp\headshot.png.dds		1398276
 textures\customization\sp\heart_warming_beverage.png.dds		349700
 textures\customization\sp\hey_there.png.dds		349700
@@ -782,6 +783,8 @@ textures\customization\st\sage_moustache.png.dds		349700
 textures\customization\st\sage_moustache.png.metadata		18
 textures\customization\st\samurai.png.dds		349700
 textures\customization\st\samurai.png.metadata		18
+textures\customization\st\santa_hat.png.dds		349700
+textures\customization\st\santa_hat.png.metadata		17
 textures\customization\st\scarred_shut_eye.png.dds		349700
 textures\customization\st\scarred_shut_eye.png.metadata		18
 textures\customization\st\screaming_mouth.png.dds		87556
@@ -878,6 +881,8 @@ textures\customization\st\smileyblue_clear.png.dds		349700
 textures\customization\st\smileyblue_clear.png.metadata		17
 textures\customization\st\smoke_weeball_eye.png.dds		349700
 textures\customization\st\smoke_weeball_eye.png.metadata		18
+textures\customization\st\snowfall.png.dds		349700
+textures\customization\st\snowfall.png.metadata		19
 textures\customization\st\sparrow.png.dds		349700
 textures\customization\st\sparrow.png.metadata		18
 textures\customization\st\spider.png.dds		349700

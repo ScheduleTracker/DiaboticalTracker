@@ -78,6 +78,12 @@ models\weapons\shaft\forest\shaft_s.png		831839
 models\weapons\shaft\forest\weapons_3p.shader		1147
 models\weapons\shaft\forest\weapons_carry.shader		636
 models\weapons\shaft\forest\weapons_preview.shader		1157
+models\weapons\shaft\frostbite\shaft_d.png.dds		5592580
+models\weapons\shaft\frostbite\shaft_n.png.dds		5592580
+models\weapons\shaft\frostbite\shaft_s.png.dds		5592580
+models\weapons\shaft\frostbite\weapons_3p.shader		1175
+models\weapons\shaft\frostbite\weapons_carry.shader		653
+models\weapons\shaft\frostbite\weapons_preview.shader		1185
 models\weapons\shaft\goldenfrag\shaft_d.png.dds		5592580
 models\weapons\shaft\goldenfrag\shaft_s.png.dds		1398276
 models\weapons\shaft\goldplated_diamond\shaft_d.png		3772371
@@ -144,6 +150,9 @@ models\weapons\shaft\separator\shaft_s.png.dds		1398276
 models\weapons\shaft\separator\weapons_3p.shader		1175
 models\weapons\shaft\separator\weapons_carry.shader		653
 models\weapons\shaft\separator\weapons_preview.shader		1185
+models\weapons\shaft\snowflake\shaft_d.png		2914559
+models\weapons\shaft\snowflake\shaft_n.png		4388306
+models\weapons\shaft\snowflake\shaft_s.png		3833047
 models\weapons\shaft\stripes\shaft_d.png.dds		5592548
 models\weapons\shaft\stripes\shaft_n.png.dds		1398276
 models\weapons\shaft\stripes\shaft_s.png.dds		1398276

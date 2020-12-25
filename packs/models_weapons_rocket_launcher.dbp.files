@@ -65,6 +65,9 @@ models\weapons\rocket_launcher\fade\rl_s.png.dds		1398276
 models\weapons\rocket_launcher\fade\weapons_3p.shader		1624
 models\weapons\rocket_launcher\fade\weapons_carry.shader		1008
 models\weapons\rocket_launcher\fade\weapons_preview.shader		1557
+models\weapons\rocket_launcher\fire_hydrant\rl_d.png.dds		5592580
+models\weapons\rocket_launcher\fire_hydrant\rl_n.png.dds		1398276
+models\weapons\rocket_launcher\fire_hydrant\rl_s.png.dds		1398276
 models\weapons\rocket_launcher\fire_hydrant\weaponrl_fire_hydrant.ani		386
 models\weapons\rocket_launcher\fire_hydrant\weaponrl_fire_hydrant.fbx		1313488
 models\weapons\rocket_launcher\forest\rl_d.png.dds		5592548
@@ -72,6 +75,12 @@ models\weapons\rocket_launcher\forest\rl_s.png.dds		1398260
 models\weapons\rocket_launcher\forest\weapons_3p.shader		1638
 models\weapons\rocket_launcher\forest\weapons_carry.shader		1018
 models\weapons\rocket_launcher\forest\weapons_preview.shader		1571
+models\weapons\rocket_launcher\frostbite\rl_d.png		5247178
+models\weapons\rocket_launcher\frostbite\rl_n.png		5935314
+models\weapons\rocket_launcher\frostbite\rl_s.png		5739302
+models\weapons\rocket_launcher\frostbite\weapons_3p.shader		1669
+models\weapons\rocket_launcher\frostbite\weapons_carry.shader		1038
+models\weapons\rocket_launcher\frostbite\weapons_preview.shader		1602
 models\weapons\rocket_launcher\goldenfrag\rl_d.png.dds		5592580
 models\weapons\rocket_launcher\goldenfrag\rl_s.png.dds		1398276
 models\weapons\rocket_launcher\goldplated_diamond\rl_d.png		1136919
@@ -128,6 +137,9 @@ models\weapons\rocket_launcher\ruby\rl_s.png.dds		1398260
 models\weapons\rocket_launcher\ruby\weapons_3p.shader		1624
 models\weapons\rocket_launcher\ruby\weapons_carry.shader		1008
 models\weapons\rocket_launcher\ruby\weapons_preview.shader		1557
+models\weapons\rocket_launcher\snowflake\rl_d.png		3733949
+models\weapons\rocket_launcher\snowflake\rl_n.png		4137789
+models\weapons\rocket_launcher\snowflake\rl_s.png		4312115
 models\weapons\rocket_launcher\tiger\rl_d.png.dds		5592580
 models\weapons\rocket_launcher\tiger\weapons_3p.shader		1629
 models\weapons\rocket_launcher\tiger\weapons_carry.shader		1012

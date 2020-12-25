@@ -16,7 +16,7 @@ scripts\decals.assets		4776
 scripts\dynamic_industrial.assets		71627
 scripts\dynamic_temple.assets		26277
 scripts\effects.atlas		7744
-scripts\entities.assets		8826
+scripts\entities.assets		8644
 scripts\fragclips.movies-example		1485
 scripts\heal.particles		743
 scripts\industry_materials.assets		3053
@@ -101,7 +101,7 @@ scripts\particles\pickup_ring.particles		496
 scripts\particles\pickup_rl.particles		1344
 scripts\particles\pickup_sg.particles		1355
 scripts\particles\plasma.particles		1514
-scripts\particles\plasma_bullet.particles		8620
+scripts\particles\plasma_bullet.particles		9210
 scripts\particles\plasma_decorative.particles		3558
 scripts\particles\plasma_impact.particles		9246
 scripts\particles\plasma_muzzle.particles		12713
@@ -136,6 +136,7 @@ scripts\particles\slow_weeble_impact.particles		3768
 scripts\particles\smoke.particles		995
 scripts\particles\smoke_weeble.particles		3347
 scripts\particles\spawn.particles		4765
+scripts\particles\ss_secondary.particles		6129
 scripts\particles\sword.particles		1502
 scripts\particles\testdisp.particles		317
 scripts\particles\testing.particles		4586
@@ -148,9 +149,10 @@ scripts\particles\vc_impact.particles		9080
 scripts\particles\vc_muzzle.particles		5665
 scripts\particles\vc_muzzle_v2.particles		949
 scripts\particles\vc_muzzle_v3.particles		2659
-scripts\particles\w9_bullet.particles		5543
+scripts\particles\void_cannon_particles.particles		5153
+scripts\particles\w9_bullet.particles		5622
 scripts\particles\w9_decorative.particles		2199
-scripts\particles\w9_impact _v2.particles		15510
+scripts\particles\w9_impact _v2.particles		16000
 scripts\particles\w9_impact.particles		8959
 scripts\particles\w9_muzzle.particles		6068
 scripts\particles\weapon_pickups.particles		7216
@@ -231,11 +233,11 @@ scripts\trailer.movies-example		3317
 scripts\trailerclips.movies-example		2569
 scripts\ui.sounds		117
 scripts\water_temple_materials.assets		876
-scripts\weapons\abilities.weapons		1291
-scripts\weapons\basic.weapons		20969
+scripts\weapons\abilities.weapons		1259
+scripts\weapons\basic.weapons		20870
 scripts\weapons\br.weapons		5927
-scripts\weapons\melee.weapons		814
+scripts\weapons\melee.weapons		798
 scripts\weapons\modes.weapons		0
-scripts\weapons\weeballs.weapons		14126
+scripts\weapons\weeballs.weapons		14030
 scripts\weapons\wmd.weapons		49
 scripts\zzmovie.movies-example		322
