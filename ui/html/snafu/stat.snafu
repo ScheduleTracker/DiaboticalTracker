@@ -1,0 +1,38 @@
+BEGIN TEMPLATE stat
+    SETTING align pivot
+    STRING stat
+    INT hideUnit
+    INT shadow
+
+    COL_OUTPUT 0 align pivot
+    COL_OUTPUT 0 color color
+    COL_OUTPUT 0 font font
+    IF shadow 
+        COL_OUTPUT 0 shadow 1
+    END IF
+
+    INT hide_when_dead
+    IF hide_dead
+        hide_when_dead = 1
+    END IF
+
+ON_UPDATE    
+
+    IF hide_when_dead == 1 && common_game_data.self_alive == "false"
+        discard
+    END IF
+
+    STRING print_value
+    IF stat == "dmg"
+        print_value = battle_data.self.total_damage_done
+    END IF
+    IF stat == "hp"
+        print_value = battle_data.self.total_hp
+    END IF
+    IF stat == "armor"
+        print_value = battle_data.self.total_armor
+    END IF
+
+    OUTPUT 0 0 value print_value
+
+END TEMPLATE
