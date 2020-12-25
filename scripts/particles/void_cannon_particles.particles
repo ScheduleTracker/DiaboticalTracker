@@ -1,0 +1,308 @@
+
+
+//////////////////////////////////
+
+
+vc_tube
+{
+    //noise radius, noise strength
+	geometry tube
+	map effects_shaft.png
+	region ed_02
+	blend add
+	//length = 170*5 = 850
+	max_particles 150
+	max_emissions 150
+	//emitter array 0 0 5
+	lifetime 0.1
+	period 0
+	fade_in 0
+	position 0 0 -5
+	fade_out 0.
+	noise_time_seed 10 12
+	noise_seed_scale 0.1
+
+	color_start 2 1 4 1 
+	color_end 2 1 4 0 
+	
+	scale_start 1
+	scale_end 0.25
+	
+	
+	tapered_tube_detail true
+}
+
+vc_beam_middle vc_tube
+{
+lifetime 1
+	//lifetime 0.73
+    time_scale 0.005
+	geometry tube 100 0.2	
+scale_start 0.1
+	color_start 2 1 4 1 
+	color_end 2 1 4 0 
+}
+
+
+vc_beam1 vc_tube
+{
+	lifetime 1.05
+	//lifetime 0.55
+    time_scale 0.00
+	geometry tube 100 0.2
+scale_start 0.25
+	color_start 2 1 4 1 
+	color_end 2 1 4 0 
+}
+vc_beam_thin vc_tube
+{
+	position -0.05 0 0
+		lifetime 0.83
+		//lifetime 0.33
+    time_scale 0.00
+	geometry tube 500 0.2
+scale_start 0.03
+	color_start 2 1 4 1 
+	color_end 2 1 4 0 
+}
+vc_beam_thin2 vc_tube
+{
+	position 0.05 0 0
+		lifetime 0.83
+		//lifetime 0.33
+    time_scale 0.00
+	geometry tube 200 0.2
+scale_start 0.03
+	color_start 2 1 4 1 
+	color_end 2 1 4 0 
+}
+
+vc_beam_thin3 vc_tube
+{
+	position -0.05 0 0
+		lifetime 0.83
+		//lifetime 0.33
+    time_scale 0.000
+	geometry tube 500 0.15
+scale_start 0.03
+	color_start 0.0 3 5 1
+	color_end 0.5 1 2 0 
+}
+vc_beam_thin4 vc_tube
+{
+	position 0.05 0 0
+		lifetime 0.83
+		//lifetime 0.33
+    time_scale 0.00
+	geometry tube 200 0.15
+scale_start 0.03
+	color_start 2 1 4 1 
+	color_end 2 1 4 0 
+}
+
+
+vc_dispersion
+{
+	//delay 0.1
+    //noise radius, noise strength
+	//geometry tape 0.8 0.15
+	
+	
+	// animation_speed 12
+	//map particle_sheet3.png
+	//region s3_explosion02_333
+	animation_speed 4	
+	map particle_sheet5.png
+	region explosion_ring_2_5		
+	blend add
+	
+	max_particles 30
+	max_emissions 30
+	lifetime .8 0.85
+	period 0.0025
+	fade_in 0.2
+	fade_out 0.1	
+	emitter array 0 0 10
+	rotation_start 0 360
+	//position 1 1 1 -1 -1 -1
+	//turbulence 2000 1
+	//scale_start 2
+	//scale_end 2
+	scale_start 3
+	scale_end 4 3
+	noise_time_seed 7
+	noise_seed_scale 1000
+	color_start 0 1 1.5 0.5
+	color_end 0.9 0.95 1.0 0.0
+	angular_speed_start -5000 5000
+	
+}
+vc_dispersion_2 vc_dispersion
+{
+	delay 0.1
+	animation_speed 21 17
+	map lightning_ring.png
+	region lightning_ring	
+	lifetime .4
+	period 0.0025
+	fade_in 0.2
+	fade_out 0.1	
+	scale_start 3
+	scale_end 4
+	color_start 0 2 3 1
+	color_end 0 2 3 1 0.0
+angular_speed_start -500 500
+	
+}
+
+
+vc_tube_2
+{
+    //noise radius, noise strength
+	map white.png
+	region ed_00
+	blend add
+	//length = 170*5 = 850
+	max_particles 170
+	max_emissions 170
+	//emitter array 0 0 5
+	lifetime 0.2
+	period 0
+	
+	scale_start 1
+	scale_end 2
+	noise_time_seed 10
+	noise_seed_scale 0.1
+
+	system_light_radius 150
+	system_light_length 850
+	system_light_color 2 1 4 1 
+	system_light_falloff 0.1
+
+	geometry tube  0.2
+
+	fade_in 0
+	fade_out 0.1
+	color_start 2 1 4 1 
+	color_end 2 1 4 0 
+	range 0
+}	
+
+vc_shot_embers
+{
+	// geometry quad
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_start 
+	animation_speed 10
+	blend add
+	max_particles 10
+	max_emissions 10
+	lifetime 0.2
+	period 0.0001
+	// fade_in 0.1
+	velocity 30 30 1000 -30 -30 1000 
+	fade_out 0.05 0.07
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	//position 2 4 22
+	rotation_start 0 360
+	color_start  2 1 4 1 
+	color_end  2 1 4 0  	
+	emitter line 0 0 0
+	turbulence 200
+	scale_start 0.5 1
+	scale_end 0
+	drag 0.8
+}
+	vc_muzzle_embers vc_shot_embers
+{
+
+	velocity 10 10 100 -10 -10 100
+	fade_out 0.05 0.07
+	// emitter array 0 0 10 768
+	// emitter line 0 0 768
+	position 0 0 -5
+	color_start  2 1 4 1 
+	color_end  2 1 4 0 
+scale_start 0.1 0.2
+	scale_end 0
+	drag 0.8
+}
+
+	
+vc_projectile_particles
+{
+	subsystem vc_beam_middle
+	subsystem vc_beam1 
+subsystem vc_tube
+subsystem vc_tube_2
+range 0	
+radius 0
+}
+
+
+
+vc_dispersion_3p
+{
+	//delay 0.1
+    //noise radius, noise strength
+	//geometry tape 0.8 0.15
+	
+	
+	// animation_speed 12
+	//map particle_sheet3.png
+	//region s3_explosion02_333
+	animation_speed 3
+	map particle_sheet3.png
+	region s3_explosion02_333
+	blend add
+	
+	max_particles 20
+	max_emissions 20
+	lifetime 1
+	period 0.0025
+	fade_in 0.2
+	fade_out 0.1	
+	emitter array 0 0 8
+	rotation_start 0 360
+	//position 1 1 1 -1 -1 -1
+	//turbulence 2000 1
+	//scale_start 2
+	//scale_end 2
+	scale_start 1
+	scale_end 3 4
+	noise_time_seed 7
+	noise_seed_scale 1000
+	color_start 2 1 4 1 
+	color_end 2 1 4 0 
+	angular_speed_start -5000 5000
+
+}
+vc_dispersion_2_3p vc_dispersion_3p
+{
+delay 0.1
+	animation_speed 28
+	region lightning_ring	
+	lifetime .5
+	period 0.0025
+	fade_in 0.2
+	fade_out 0.1	
+	scale_start 3
+	scale_end 4
+	
+
+}
+vc_projectile_particles_3p
+{
+	subsystem vc_beam_middle_3p 0 5
+	subsystem vc_beam1 0 5
+  subsystem vc_beam_thin 0 5
+  subsystem vc_beam_thin2 0 5
+    subsystem vc_beam_thin3 0 5
+  subsystem vc_beam_thin4 0 5
+subsystem vc_tube 0 5
+subsystem vc_tube_2	 0 5	
+range 0
+radius 0
+}

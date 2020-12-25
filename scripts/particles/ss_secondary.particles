@@ -1,0 +1,326 @@
+ss_secondary_star
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_26
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 10
+	advance 1
+	// period 0.05
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 13
+	scale_end 15
+	
+	// velocity 0 0 -2800
+	angular_speed_start 10000
+	rotation_start 0 
+	color_start  1 2 0.5 4
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+	range 0
+}
+ss_secondary_star2
+{
+	// advance 1
+	// animation_start 5 8
+	geometry quad
+	map particle_sheet3.png
+ region s3_rl_muzzle_28
+	// map rocket_bullet.png
+	// region r_rocketbullet
+	blend add
+	max_particles 5
+	max_emissions 0
+	lifetime 0.5
+	 period 0.15
+	// fade_in 0.05
+	// fade_out 0.1 0.05
+	scale_start 13
+	scale_end 15
+	advance 1
+	// velocity 0 0 -2800
+	angular_speed_start 10000
+	rotation_start 0 360
+	color_start  1 2 0.5 4
+	// color_start 1 0.2 0 0
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 -3
+	// turbulence 400 5
+	range 0
+}
+ss_secondary_projectile
+
+{	
+subsystem ss_secondary_star 0 2
+subsystem ss_secondary_star2 0 2
+range 0
+
+}
+
+
+ss_secondary_trail
+{
+	map effects_additive.png
+	region r_add_flash2
+	//map uvtest.png
+	geometry oriented
+	trail true
+
+	blend max
+	max_particles 200
+	max_emissions 0
+	lifetime 0.2
+	period 0.005
+
+	rotation_start 0 0
+	rotation_end 0 0
+	fade_in 0 0
+	fade_out 0.0025 0.0025
+
+	color_start 0 2 3 1 1 1 1 1
+	color_end  1 1 1 1
+	color_accent true
+
+	scale_start 3
+	scale_end 10
+	position 0 0 0
+	range 0
+    radius 0
+}
+ss_secondary_dynamic_trail
+{
+	subsystem ss_secondary_trail
+	range 0
+    radius 0
+
+	//subsystem base_smoke_trail
+}
+///////////////////////////////////////////////////////////////////////////////////////////////// 3P trail ////////////////////////////////////////////////////////////
+ss_secondary_trail_3p
+{
+	map effects_additive.png
+	region r_add_flash2
+	//map uvtest.png
+	geometry oriented
+	trail true
+
+	blend max
+	max_particles 150
+	max_emissions 0
+	lifetime 0.175
+	period 0.02
+
+	rotation_start 0 0
+	rotation_end 0 0
+	fade_in 0 0
+	fade_out 0.001 0.001
+
+	color_start 0 2 3 1 1 1 1 1
+	color_end  1 1 1 1
+	color_accent true
+
+	scale_start 1
+	scale_end 10
+	position 0 0 -20
+	range 0
+    radius 0
+}
+ss_secondary_bolt_dynamic_trail_3p
+{
+	subsystem ss_secondary_trail_3p
+	range 0
+    radius 0
+	//subsystem base_smoke_trail
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////// IMPACT ///////////////////////////////////////////////////////////////////////////////////////////////
+ss_secondary_impact_center
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	animation_speed 16
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1	
+	lifetime 0.2 0.25
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start  1 2 0.5 4
+	color_end  1 2 0.5 4
+    scale_start 10
+    scale_end 65
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 2
+}
+ss_secondary_impact_ring
+{
+	map particle_sheet3.png
+	region s3_explosion02_333
+	animation_speed 16
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2 0.25
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start  1 2 0.5 4
+	color_end  1 2 0.5 4
+    scale_start 10
+    scale_end 40
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 2
+}
+
+ss_secondary_impact_ring_2
+{
+	map particle_sheet3.png
+	region s3_plasma_52
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.15 
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start  1 2 0.5 4
+	color_end  1 2 0.5 4
+    scale_start 0
+    scale_end 30
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 2
+}
+ss_secondary_impact_ring_3
+{
+	map particle_sheet5.png
+	region explosion_ring_2
+	animation_speed 20
+	animation_start 2
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start  1 2 0.5 4
+	color_end  1 2 0.5 4
+     scale_start 50
+    scale_end 50
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 -0.5
+}
+ss_secondary_impact_ring_4
+{
+	map particle_sheet5.png
+	region explosion_ring_3
+	animation_speed 20
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime 0.35
+	fade_in 0
+	fade_out 0.10
+	period 0
+	color_start  1 2 0.5 4
+	color_end  1 2 0.5 4
+     scale_start 50
+    scale_end 100
+    rotation_start 0 360
+   	hard_edges true
+position 0 0 -0.5
+}
+ss_secondary_impact_embers
+{
+	delay 0.05
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 25
+	max_emissions 25
+	//delay 0.05
+	lifetime 0.255
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start  1 2 0.5 4
+	color_end  1 2 0.5 4
+	position 0 0 0  
+    scale_start 0
+    scale_end 15 18
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 45 45 0 315 315  0
+	speed_start 100
+	speed_end 15
+	auto_orient_3d true
+	aspect_start 1.2 1.5
+	aspect_end 0.5 0.6
+	hard_edges true
+	drag 1000
+
+}
+ss_secondary_impact_center_explosion
+ {
+	 
+	map explosion_2.png
+	region explosion
+	animation_speed 60
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	lifetime .35
+	fade_in 2
+	fade_out 0.0
+	rotation_start 0 360
+	
+	// position 0 0 -1 0 0 -1s
+	period 0
+	color_start  1 2 0.5 4
+	color_end  1 2 0.5 4
+
+	scale_start 30
+	scale_end 30
+	
+	auto_orient_3d true
+scale_timeline 0=0,l;0.1=1,l;1=1,l
+	perspective_radius 110
+	angular_speed_start 500
+	range 0
+}
+
+
+ss_secondary_impact
+{
+	subsystem ss_secondary_impact_center 0 1.2
+	subsystem ss_secondary_impact_center_explosion 0 1.2
+subsystem ss_secondary_impact_embers 0 1.2
+subsystem ss_secondary_impact_ring 0 1.2
+subsystem ss_secondary_impact_ring_2 0 1.2
+subsystem ss_secondary_impact_ring_3
+subsystem ss_secondary_impact_ring_4 0 1.2
+// //subsystem ss_secondary_bolt
+// //subsystem ss_secondary_trail
+}

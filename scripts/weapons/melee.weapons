@@ -9,7 +9,6 @@ sword
 	ground_knockback 250
 	rate 700
 	speed 0
-	can_destroy 1
 	unlimited_ammo true
 	distance 38
 	hit_radius 25

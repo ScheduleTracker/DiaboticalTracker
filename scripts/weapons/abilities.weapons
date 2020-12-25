@@ -22,7 +22,6 @@ hook
 	model_scale 0.081
 	model_position 2.5 -3.3 7.2
 	model_rotation 171 -7.7  -8
-	can_destroy 1
 	muzzle -4.0 -2 10
 	fov 45
 	
@@ -45,7 +44,6 @@ slash
 	ground_knockback 250
 	rate 1000
 	speed 0
-	can_destroy 1
 	unlimited_ammo true
 	distance 125	
 	

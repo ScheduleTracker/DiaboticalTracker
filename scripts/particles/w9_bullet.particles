@@ -181,7 +181,7 @@ color_start 2 0.8 4 1
 	velocity -10 10 -5 10 -10 5
 	position 0 0.5 0
 	turbulence 5 5 5
-	drag 1
+	drag 0.1
 	angular_speed_start 10000
 	// soft_destruction on
     // this line above was misspelled as soft_destructiyon, fixed spelling and commented it out in case it not working is being relied upon 
@@ -210,7 +210,7 @@ color_start 0.4 0.25 1 1
 	velocity -10 5 -5 10 -5 5
 	position 0 0.5 0
 	turbulence 5 5 5
-	drag 1
+	drag 0.1
 	angular_speed_start 10000
     // soft_destruction on
     // this line above was misspelled as soft_destructiyon, fixed spelling and commented it out in case it not working is being relied upon 
@@ -271,15 +271,16 @@ weapon9_bullet_dots
 w9_bullet
 {
 
-	subsystem weapon9_bullet_center_1
-	subsystem weapon9_bullet_center_2
-	subsystem weapon9_bullet_center_3
-	 //subsystem weapon9_projectile_spark
-	// subsystem weapon9_projectile_spark2
-	subsystem weapon9_bullet_ring
-	subsystem weapon9_bullet_light 
-	subsystem weapon9_projectile_embers
-	subsystem weapon9_projectile_embers_2
-	subsystem weapon9_bullet_circle
-	subsystem weapon9_bullet_dots
+	subsystem weapon9_bullet_center_1 0 0.8
+	subsystem weapon9_bullet_center_2 0 0.8
+	subsystem weapon9_bullet_center_3 0 0.8
+	 //subsystem weapon9_projectile_spark 0 0.8
+	// subsystem weapon9_projectile_spark2 0 0.8
+	subsystem weapon9_bullet_ring 0 0.8
+	subsystem weapon9_bullet_light 0 0.8
+	subsystem weapon9_projectile_embers 0 0.8
+	subsystem weapon9_projectile_embers_2 0 0.8
+	subsystem weapon9_bullet_circle 0 0.8
+	subsystem weapon9_bullet_dots 0 0.8
+	range 0
 }

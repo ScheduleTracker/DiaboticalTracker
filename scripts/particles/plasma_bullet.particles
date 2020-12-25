@@ -108,6 +108,16 @@ plasma_bullet_tier_1
 
 }
 
+plasma_bullet_tier_1_large
+{
+   	subsystem tier_1_plasma_bullet_back_1 0 2
+	subsystem  tier_1_plasma_bullet_circle 0 2
+	subsystem 	tier_1_plasma_ring+tier_1_plasma_ring_2+tier_1_plasma_ring_3+tier_1_plasma_ring_4 0 2
+	subsystem tier_1_plasma_bullet_light 0 2
+	range 0
+
+}
+
 //Blaster 1p
  tier_1_plasma_bullet_back_1p
 {
@@ -221,6 +231,17 @@ plasma_bullet_tier_1_1p
 	range 0
 
 }
+
+plasma_bullet_tier_1_1p_large
+{
+   	subsystem tier_1_plasma_bullet_back_1_1p 0 2
+	subsystem  tier_1_plasma_bullet_circle_1p 0 2
+	subsystem 	tier_1_plasma_ring_1p+tier_1_plasma_ring_2_1p+tier_1_plasma_ring_3_1p+tier_1_plasma_ring_4_1p 0 2
+	subsystem tier_1_plasma_bullet_light_1p 0 2
+	range 0
+
+}
+
 
 
 

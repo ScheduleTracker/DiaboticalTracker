@@ -770,41 +770,58 @@ max_particles 60
 
 w9_impact_v2
 {
-	subsystem weapon9_dome_add 0 0.9
+	subsystem weapon9_dome_add 0 1.25
 	
 // subsystem weapon9_smoke_1
 	// subsystem weapon9_smoke_2
 		// subsystem weapon9_smoke_3
 			// subsystem weapon9_smoke_4
 	//subsystem weapon9_dome_back		
-subsystem weapon9_dome_alpha 0 0.9
+subsystem weapon9_dome_alpha 0 1.25
 
 
 subsystem weapon9_impact_light
 
-subsystem weapon9_center_1 0 0.81
-	subsystem weapon9_center_3 0 0.81
-		subsystem weapon9_center_4 0 0.81
+subsystem weapon9_center_1 0 1.25
+	subsystem weapon9_center_3 0 1.25
+		subsystem weapon9_center_4 0 1.25
 		 
-subsystem weapon9_ring_1 0 0.81
+subsystem weapon9_ring_1 0 1.25
 	
-subsystem weapon9_embers_1 0 0.9
-subsystem weapon9_impact_center_1 0 0.89
-subsystem weapon9_impact_center_2 0 0.89
+subsystem weapon9_embers_1 0 1.25
+subsystem weapon9_impact_center_1 0 1.25
+subsystem weapon9_impact_center_2 0 1.25
 
 
-subsystem weapon9_spark_1 0 0.89
+subsystem weapon9_spark_1 0 1.25
 
  subsystem weapon9_debris
 
  subsystem weapon9_floaters
  
-subsystem weapon9_center_spark_1 0 0.89
-	subsystem weapon9_center_spark_2 0 0.89
+subsystem weapon9_center_spark_1 0 1.25
+	subsystem weapon9_center_spark_2 0 1.25
 	
-subsystem weapon9_floor_line 0 0.63
-subsystem weapon9_floor_outer_line 0 0.63
+subsystem weapon9_floor_line 0 0.83
+subsystem weapon9_floor_outer_line 0 0.83
 
-subsystem  weapon9_center_dome_alpha
+subsystem  weapon9_center_dome_alpha 0 1.25
+range 0
+}
+
+void_cannon_secondary_impact
+{
+	subsystem weapon9_dome_add 0 0.3
+subsystem weapon9_dome_alpha 0 0.3
+subsystem weapon9_impact_light
+subsystem weapon9_center_1 0 0.3
+	subsystem weapon9_center_3 0 0.3
+		subsystem weapon9_center_4 0 0.3
+subsystem weapon9_ring_1 0 0.3
+subsystem weapon9_embers_1 0 0.3
+subsystem weapon9_impact_center_1 0 0.3
+subsystem weapon9_impact_center_2 0 0.3
+subsystem weapon9_spark_1 0 0.3
+subsystem  weapon9_center_dome_alpha 0 0.3
 
 }

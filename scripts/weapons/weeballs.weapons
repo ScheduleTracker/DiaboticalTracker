@@ -61,7 +61,6 @@ healing_weeball
 	model_scale 0.1
 	model_rotation 186 10 -4
 	model_camera_scale 0.8
-	can_destroy 1
 	muzzle 0 0 0
 	fov 55
 	muzzle_offset 0 0 0
@@ -147,7 +146,6 @@ pfx implode_weeble_filament slot_pfx_eye
 	model_scale 0.1
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
-	can_destroy 1
 	muzzle 0 0 0
 	fov 55
 		muzzle_offset 0 0 0
@@ -225,7 +223,6 @@ slowfield_weeball
 	model_scale 0.1
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
-	can_destroy 1
 	muzzle 0 0 0
 	fov 55
 	muzzle_offset 0 0 0
@@ -322,7 +319,6 @@ explosive_weeball
 	model_scale 0.1
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
-	can_destroy 1
 	muzzle 0 0 0
 	fov 55
 		muzzle_offset 0 0 0
@@ -392,7 +388,6 @@ smoke_weeball
 	model_scale 0.1
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
-	can_destroy 1
 	muzzle 0 0 0
 	fov 55
 	muzzle_offset 0 0 0
@@ -468,7 +463,6 @@ knock_weeball
 	model_scale 0.1
 	model_rotation 186 10 -4
 	model_camera_scale 0.5
-	can_destroy 1
 	muzzle 0 0 0
 	fov 55
 	muzzle_offset 0 0 0

@@ -220,13 +220,6 @@ asset ammo/blaster
   command add ammobl
 }
 
-asset ammo/grenade_launcher
-{
-  listed true
-  type entity
-  command add ammogl
-}
-
 //WEAPONS
 
 asset weapon/super_shotgun
@@ -283,13 +276,6 @@ asset weapon/blaster
   listed true
   type entity
   command add weaponbl
-}
-
-asset weapon/grenade_launcher
-{
-  listed true
-  type entity
-  command add weapongl
 }
 
 asset weapon/machinegun
