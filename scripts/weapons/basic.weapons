@@ -984,8 +984,8 @@ void_cannon
 	
 	shot_sound vc_fire1
 	end_sound vc_fire_release
-	shot_sound_low_ammo vc_fire_low1
-	low_ammo_threshold 14
+	//shot_sound_low_ammo vc_fire1
+	//low_ammo_threshold 5
 	missile_loop_sound vc_airbound
 	impact_sound vc_impact1
 	equip_sound vc_equip

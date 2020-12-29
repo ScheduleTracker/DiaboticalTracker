@@ -786,6 +786,8 @@ game tdm
 	map tdm_icefall
 	map tdm_oxide
 	map tdm_alchemy
+	map duel_perilous
+	map duel_kasbah
 	
 	weapon sword 999
 	weapon machinegun 100
