@@ -97,8 +97,9 @@ function load_battlepass(bp_data) {
     if (bp_data.battlepass_id in global_battlepass_rewards_cache) {
         setTimeout(() => {
             let { pos, locked_count } = render_battlepass_rewards(screen, bp_data, global_battlepass_rewards_cache[bp_data.battlepass_id], showRewardPreview);            
-            if (!global_scrollboosters['bp_rewards']) setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
-            else global_scrollboosters['bp_rewards'].setPosition({"x": pos, "y":0 });
+            if (global_scrollboosters['bp_rewards']) global_scrollboosters['bp_rewards'].destroy();
+            setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
+            //global_scrollboosters['bp_rewards'].setPosition({"x": pos, "y":0 });
             render_battlepass_buttons(bp_data, locked_count);
 
             spinner_cont.style.display = "none";
@@ -107,8 +108,8 @@ function load_battlepass(bp_data) {
     } else {
         load_battlepass_rewards_data(bp_data.battlepass_id, (data) => {
             let { pos, locked_count } = render_battlepass_rewards(screen, bp_data, global_battlepass_rewards_cache[bp_data.battlepass_id], showRewardPreview);            
-            if (!global_scrollboosters['bp_rewards']) setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
-            else global_scrollboosters['bp_rewards'].setPosition({"x": pos, "y":0 });
+            if (global_scrollboosters['bp_rewards']) global_scrollboosters['bp_rewards'].destroy();
+            setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
             render_battlepass_buttons(bp_data, locked_count);
 
             spinner_cont.style.display = "none";
@@ -751,8 +752,7 @@ function render_battlepass_rewards(cont, bp, rewards, select_cb) {
             reward_level.classList.remove("hover");
         });
 
-        let level = _createElement("div", "level");
-        level.innerHTML = current_level;
+        let level = _createElement("div", "level", current_level);
         level_cont.appendChild(level);
 
         if (current_level != 1) {

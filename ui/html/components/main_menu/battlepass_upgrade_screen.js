@@ -75,7 +75,9 @@ function updateBattlepassUpgrade(bp) {
         let summary = _createElement("div", "battlepass_purchase_summary");
         if (type == "basic")  summary.appendChild(_createElement("div", "desc", localize("shop_battlepass")));
         if (type == "bundle") summary.appendChild(_createElement("div", "desc", localize("shop_battlepass_bundle")));
-        summary.appendChild(_createElement("div", ["bp_level_icon", "paid"]));
+        let level_icon = _createElement("div", ["bp_level_icon", "paid"]);
+        level_icon.style.backgroundImage = "url("+_bp_icon(bp.battlepass_id, true)+")";
+        summary.appendChild(level_icon);
         if (type == "basic")  summary.appendChild(price_basic_el.cloneNode(true));
         if (type == "bundle") summary.appendChild(price_bundle_el.cloneNode(true));
 
