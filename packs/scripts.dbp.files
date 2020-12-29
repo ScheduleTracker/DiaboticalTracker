@@ -2,9 +2,9 @@ scripts\ambience.sounds		117
 scripts\atest.assets		248
 scripts\avatars.assets		79
 scripts\base.blocks		135
-scripts\base.classes		685
+scripts\base.classes		821
 scripts\base.enemy		543
-scripts\base.games		27027
+scripts\base.games		26358
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -16,7 +16,7 @@ scripts\decals.assets		4776
 scripts\dynamic_industrial.assets		71627
 scripts\dynamic_temple.assets		26277
 scripts\effects.atlas		7744
-scripts\entities.assets		8644
+scripts\entities.assets		8905
 scripts\fragclips.movies-example		1485
 scripts\heal.particles		743
 scripts\industry_materials.assets		3053
@@ -152,7 +152,7 @@ scripts\particles\vc_muzzle_v3.particles		2659
 scripts\particles\void_cannon_particles.particles		5153
 scripts\particles\w9_bullet.particles		5622
 scripts\particles\w9_decorative.particles		2199
-scripts\particles\w9_impact _v2.particles		16000
+scripts\particles\w9_impact _v2.particles		16011
 scripts\particles\w9_impact.particles		8959
 scripts\particles\w9_muzzle.particles		6068
 scripts\particles\weapon_pickups.particles		7216
@@ -234,10 +234,10 @@ scripts\trailerclips.movies-example		2569
 scripts\ui.sounds		117
 scripts\water_temple_materials.assets		876
 scripts\weapons\abilities.weapons		1259
-scripts\weapons\basic.weapons		20870
+scripts\weapons\basic.weapons		29407
 scripts\weapons\br.weapons		5927
 scripts\weapons\melee.weapons		798
-scripts\weapons\modes.weapons		0
+scripts\weapons\modes.weapons		49
 scripts\weapons\weeballs.weapons		14030
 scripts\weapons\wmd.weapons		49
 scripts\zzmovie.movies-example		322

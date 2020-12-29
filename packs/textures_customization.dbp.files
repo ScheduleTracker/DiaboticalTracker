@@ -1,4 +1,4 @@
-textures\customization\customization.assets		47095
+textures\customization\customization.assets		49089
 textures\customization\customization.shader		188674
 textures\customization\sp\aristocrat_weeball.png.dds		349700
 textures\customization\sp\armor.png.dds		1398276
@@ -63,6 +63,7 @@ textures\customization\sp\shark_bite.png.dds		1398276
 textures\customization\sp\shot.png.dds		1398276
 textures\customization\sp\skater_weeball.png.dds		1398276
 textures\customization\sp\skull_harvest.png.dds		1398276
+textures\customization\sp\snow_weeball.png.dds		1398276
 textures\customization\sp\spicy.png.dds		349700
 textures\customization\sp\spooky_ghost.png.dds		349700
 textures\customization\sp\sup.png.dds		349700
@@ -81,6 +82,8 @@ textures\customization\st\4_leaf_clover.png.dds		349700
 textures\customization\st\4_leaf_clover.png.metadata		18
 textures\customization\st\6_point_star_medal.png.dds		349700
 textures\customization\st\6_point_star_medal.png.metadata		18
+textures\customization\st\a_pipe.png.dds		349700
+textures\customization\st\a_pipe.png.metadata		18
 textures\customization\st\ab_buttons.png.dds		349700
 textures\customization\st\ab_buttons.png.metadata		18
 textures\customization\st\accusing_eye.png.dds		349700
@@ -161,6 +164,8 @@ textures\customization\st\bot_top.png.dds		349700
 textures\customization\st\bot_top.png.metadata		18
 textures\customization\st\bouncy_eye.png.dds		349700
 textures\customization\st\bouncy_eye.png.metadata		18
+textures\customization\st\box_present.png.dds		349700
+textures\customization\st\box_present.png.metadata		17
 textures\customization\st\brake_lights.png.dds		349700
 textures\customization\st\brake_lights.png.metadata		18
 textures\customization\st\bright_eye.png.dds		349700
@@ -193,6 +198,8 @@ textures\customization\st\camera_lens.png.dds		349700
 textures\customization\st\camera_lens.png.metadata		18
 textures\customization\st\camo_headband.png.dds		349700
 textures\customization\st\camo_headband.png.metadata		18
+textures\customization\st\candycane.png.dds		349700
+textures\customization\st\candycane.png.metadata		18
 textures\customization\st\candyroll_pink_hair.png.dds		349700
 textures\customization\st\candyroll_pink_hair.png.metadata		18
 textures\customization\st\captain_pug.png.dds		349700
@@ -201,6 +208,8 @@ textures\customization\st\carnivorous_frown_mouth.png.dds		87556
 textures\customization\st\carnivorous_frown_mouth.png.metadata		18
 textures\customization\st\carnivorous_smile_mouth.png.dds		87556
 textures\customization\st\carnivorous_smile_mouth.png.metadata		18
+textures\customization\st\carrot_nose.png.dds		349700
+textures\customization\st\carrot_nose.png.metadata		18
 textures\customization\st\cartoon_angry_eye.png.dds		349700
 textures\customization\st\cartoon_angry_eye.png.metadata		18
 textures\customization\st\cartoon_big_smile_mouth.png.dds		349700
@@ -293,6 +302,8 @@ textures\customization\st\clown_piano_teeth_mouth.png.dds		349700
 textures\customization\st\clown_piano_teeth_mouth.png.metadata		18
 textures\customization\st\clown_wide_mouth.png.dds		349700
 textures\customization\st\clown_wide_mouth.png.metadata		18
+textures\customization\st\coal_smile.png.dds		349700
+textures\customization\st\coal_smile.png.metadata		19
 textures\customization\st\compass_rose.png.dds		349700
 textures\customization\st\compass_rose.png.metadata		19
 textures\customization\st\computer_eye.png.dds		349700
@@ -327,6 +338,8 @@ textures\customization\st\curly_goat_horn.png.dds		349700
 textures\customization\st\curly_goat_horn.png.metadata		18
 textures\customization\st\curved_black_eyebrow.png.dds		349700
 textures\customization\st\curved_black_eyebrow.png.metadata		18
+textures\customization\st\cute_reindeer.png.dds		349700
+textures\customization\st\cute_reindeer.png.metadata		18
 textures\customization\st\cute_strawberry.png.dds		349700
 textures\customization\st\cute_strawberry.png.metadata		17
 textures\customization\st\cutesy_eye.png.dds		349700
@@ -389,12 +402,16 @@ textures\customization\st\eggbot_silhouette_5.png.dds		1398276
 textures\customization\st\eggbot_silhouette_5.png.metadata		18
 textures\customization\st\eggbot_tag.png.dds		349700
 textures\customization\st\eggbot_tag.png.metadata		18
+textures\customization\st\eggbots_stocking.png.dds		349700
+textures\customization\st\eggbots_stocking.png.metadata		18
 textures\customization\st\eggcult.png.dds		349700
 textures\customization\st\eggcult.png.metadata		18
 textures\customization\st\elated_mouth.png.dds		349700
 textures\customization\st\elated_mouth.png.metadata		18
 textures\customization\st\electricity_warning.png.dds		349700
 textures\customization\st\electricity_warning.png.metadata		18
+textures\customization\st\elf_hat.png.dds		349700
+textures\customization\st\elf_hat.png.metadata		18
 textures\customization\st\embarassed_banana.png.dds		349700
 textures\customization\st\embarassed_banana.png.metadata		18
 textures\customization\st\empty_eye.png.dds		349700
@@ -415,6 +432,12 @@ textures\customization\st\feather_decoration.png.dds		349700
 textures\customization\st\feather_decoration.png.metadata		18
 textures\customization\st\feathered_blond_eyebrow.png.dds		349700
 textures\customization\st\feathered_blond_eyebrow.png.metadata		18
+textures\customization\st\festive_cookie.png.dds		349700
+textures\customization\st\festive_cookie.png.metadata		18
+textures\customization\st\festive_lights.png.dds		349700
+textures\customization\st\festive_lights.png.metadata		19
+textures\customization\st\festive_wreath.png.dds		349700
+textures\customization\st\festive_wreath.png.metadata		18
 textures\customization\st\fierce_eye.png.dds		349700
 textures\customization\st\fierce_eye.png.metadata		18
 textures\customization\st\fighter_headband.png.dds		349700
@@ -465,6 +488,12 @@ textures\customization\st\get_100_melee_frags.png.dds		349700
 textures\customization\st\get_100_melee_frags.png.metadata		18
 textures\customization\st\get_50000_frags.png.dds		349700
 textures\customization\st\get_50000_frags.png.metadata		18
+textures\customization\st\gingerbread_eggbot.png.dds		349700
+textures\customization\st\gingerbread_eggbot.png.metadata		18
+textures\customization\st\gingerbread_tree.png.dds		349700
+textures\customization\st\gingerbread_tree.png.metadata		18
+textures\customization\st\gingerbread_weeball.png.dds		349700
+textures\customization\st\gingerbread_weeball.png.metadata		18
 textures\customization\st\glossy_lips_mouth.png.dds		349700
 textures\customization\st\glossy_lips_mouth.png.metadata		18
 textures\customization\st\glowing_eye.png.dds		349700
@@ -487,6 +516,8 @@ textures\customization\st\green_tech_eye.png.dds		349700
 textures\customization\st\green_tech_eye.png.metadata		18
 textures\customization\st\green_warts.png.dds		349700
 textures\customization\st\green_warts.png.metadata		18
+textures\customization\st\green_wauble.png.dds		349700
+textures\customization\st\green_wauble.png.metadata		18
 textures\customization\st\grin_mouth.png.dds		349700
 textures\customization\st\grin_mouth.png.metadata		19
 textures\customization\st\grinding_rage_mouth.png.dds		349700
@@ -637,6 +668,8 @@ textures\customization\st\metal_teeth.png.dds		349700
 textures\customization\st\metal_teeth.png.metadata		18
 textures\customization\st\mischievous_eye.png.dds		349700
 textures\customization\st\mischievous_eye.png.metadata		18
+textures\customization\st\mistletoe_bells.png.dds		349700
+textures\customization\st\mistletoe_bells.png.metadata		17
 textures\customization\st\modest_moustache.png.dds		349700
 textures\customization\st\modest_moustache.png.metadata		19
 textures\customization\st\mom_love_tattoo.png.dds		349700
@@ -749,10 +782,14 @@ textures\customization\st\reborn_industries_chip.png.dds		349700
 textures\customization\st\reborn_industries_chip.png.metadata		18
 textures\customization\st\reborn_industries_medal.png.dds		349700
 textures\customization\st\reborn_industries_medal.png.metadata		18
+textures\customization\st\red_and_white_scarf.png.dds		349700
+textures\customization\st\red_and_white_scarf.png.metadata		18
 textures\customization\st\red_beam_eye.png.dds		349700
 textures\customization\st\red_beam_eye.png.metadata		18
 textures\customization\st\red_blue_medal_ribbon.png.dds		349700
 textures\customization\st\red_blue_medal_ribbon.png.metadata		18
+textures\customization\st\red_bow.png.dds		349700
+textures\customization\st\red_bow.png.metadata		19
 textures\customization\st\red_cheek_frog.png.dds		349700
 textures\customization\st\red_cheek_frog.png.metadata		18
 textures\customization\st\red_cougar.png.dds		349700
@@ -767,6 +804,8 @@ textures\customization\st\red_shaded_eye.png.dds		349700
 textures\customization\st\red_shaded_eye.png.metadata		18
 textures\customization\st\red_spirit_wheel.png.dds		349700
 textures\customization\st\red_spirit_wheel.png.metadata		18
+textures\customization\st\red_wauble.png.dds		349700
+textures\customization\st\red_wauble.png.metadata		18
 textures\customization\st\remaining_lives.png.dds		349700
 textures\customization\st\remaining_lives.png.metadata		18
 textures\customization\st\rocket_launch.png.dds		349700
@@ -881,6 +920,8 @@ textures\customization\st\smileyblue_clear.png.dds		349700
 textures\customization\st\smileyblue_clear.png.metadata		17
 textures\customization\st\smoke_weeball_eye.png.dds		349700
 textures\customization\st\smoke_weeball_eye.png.metadata		18
+textures\customization\st\snow_flake.png.dds		349700
+textures\customization\st\snow_flake.png.metadata		18
 textures\customization\st\snowfall.png.dds		349700
 textures\customization\st\snowfall.png.metadata		19
 textures\customization\st\sparrow.png.dds		349700
@@ -939,6 +980,8 @@ textures\customization\st\thin_nose.png.dds		349700
 textures\customization\st\thin_nose.png.metadata		18
 textures\customization\st\tired_eye.png.dds		349700
 textures\customization\st\tired_eye.png.metadata		17
+textures\customization\st\tree_top_star.png.dds		349700
+textures\customization\st\tree_top_star.png.metadata		18
 textures\customization\st\trex.png.dds		349700
 textures\customization\st\trex.png.metadata		18
 textures\customization\st\triangle_goatee.png.dds		349700
@@ -1017,6 +1060,8 @@ textures\customization\st\yellow_cat_eye.png.dds		349700
 textures\customization\st\yellow_cat_eye.png.metadata		18
 textures\customization\st\yellow_red_medal_ribbon.png.dds		349700
 textures\customization\st\yellow_red_medal_ribbon.png.metadata		18
+textures\customization\st\yellow_wauble.png.dds		349700
+textures\customization\st\yellow_wauble.png.metadata		18
 textures\customization\st\yin_and_yang.png.dds		349700
 textures\customization\st\yin_and_yang.png.metadata		18
 textures\customization\st\zipper_teeth_mouth.png.dds		349700

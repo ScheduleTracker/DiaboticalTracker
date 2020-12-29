@@ -106,9 +106,12 @@ models\weapons\blaster\pool\bl_d.png.dds		5592548
 models\weapons\blaster\pool\weapons_3p.shader		1192
 models\weapons\blaster\pool\weapons_carry.shader		1896
 models\weapons\blaster\pool\weapons_preview.shader		2363
-models\weapons\blaster\pure\bl_d.png		3753826
-models\weapons\blaster\pure\bl_n.png		3362057
-models\weapons\blaster\pure\bl_s.png		3900181
+models\weapons\blaster\pure\bl_d.png.dds		5592580
+models\weapons\blaster\pure\bl_n.png.dds		5592580
+models\weapons\blaster\pure\bl_s.png.dds		5592580
+models\weapons\blaster\pure\weapons_3p.shader		1192
+models\weapons\blaster\pure\weapons_carry.shader		1896
+models\weapons\blaster\pure\weapons_preview.shader		2363
 models\weapons\blaster\rain\bl_d.png.dds		5592580
 models\weapons\blaster\rain\bl_n.png.dds		1398276
 models\weapons\blaster\rain\bl_s.png.dds		1398276

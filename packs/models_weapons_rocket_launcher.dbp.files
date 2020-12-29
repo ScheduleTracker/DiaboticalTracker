@@ -60,6 +60,16 @@ models\weapons\rocket_launcher\electric\rl_s.png.dds		1398276
 models\weapons\rocket_launcher\electric\weapons_3p.shader		1652
 models\weapons\rocket_launcher\electric\weapons_carry.shader		1028
 models\weapons\rocket_launcher\electric\weapons_preview.shader		1585
+models\weapons\rocket_launcher\ext_fire_hydrant\rl_d.png.dds		5592580
+models\weapons\rocket_launcher\ext_fire_hydrant\rl_n.png.dds		1398276
+models\weapons\rocket_launcher\ext_fire_hydrant\rl_s.png.dds		1398276
+models\weapons\rocket_launcher\ext_fire_hydrant\weapon_ext_fire_hydrant.ani		386
+models\weapons\rocket_launcher\ext_fire_hydrant\weapon_ext_fire_hydrant.dbm		1686657
+models\weapons\rocket_launcher\ext_fire_hydrant\weapon_ext_fire_hydrant.fbx		1310768
+models\weapons\rocket_launcher\ext_fire_hydrant\weapon_ext_fire_hydrant_OLD.fbx		1313488
+models\weapons\rocket_launcher\ext_fire_hydrant\weapons_3p.shader		1265
+models\weapons\rocket_launcher\ext_fire_hydrant\weapons_carry.shader		705
+models\weapons\rocket_launcher\ext_fire_hydrant\weapons_preview.shader		1279
 models\weapons\rocket_launcher\fade\rl_d.png.dds		5592580
 models\weapons\rocket_launcher\fade\rl_s.png.dds		1398276
 models\weapons\rocket_launcher\fade\weapons_3p.shader		1624

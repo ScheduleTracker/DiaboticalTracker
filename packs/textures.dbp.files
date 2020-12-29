@@ -172,6 +172,7 @@ textures\core\items\macguffin.png.dds		22020
 textures\core\items\survival.png.dds		22020
 textures\core\items\tripledamage.png.dds		22020
 textures\core\items\vanguard.png.dds		22020
+textures\core\items\weapon_vc.png		4497
 textures\core\items\weaponall.png.dds		22020
 textures\core\items\weaponbl.png.dds		22020
 textures\core\items\weaponbw.png.dds		22020
@@ -190,6 +191,7 @@ textures\core\items\weaponss.png.dds		22020
 textures\core\items\weaponst.png.dds		22020
 textures\core\items\weaponsw.png.dds		22020
 textures\core\items\weaponsword.png.dds		22020
+textures\core\items\weaponvc.png.dds		22020
 textures\core\items\weaponw9.png.dds		22020
 textures\core\lag_state.png.dds		87556
 textures\core\life_leader.png.dds		22020
