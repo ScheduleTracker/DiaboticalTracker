@@ -9,8 +9,14 @@ let global_shop_data = {
     "limited": {},
     "normal": {},
 };
-
+let global_shop_update_version = -1;
+let global_shop_update_new_version = -1;
 let global_shop_is_loading = false;
+
+function init_screen_shop() {
+    engine.call("initialize_custom_component_value", "shop_update_version");
+}
+
 function load_shop_data(cb) {
     // Check if a request was already sent
     if (global_shop_is_loading) {
@@ -488,7 +494,11 @@ class ShopGroup {
         _play_click1();
 
         if (this.data[this.current_idx].item_type == "b" || this.data[this.current_idx].item_type == "B") {
-            open_battlepass_upgrade();
+            if (this.data[this.current_idx].battlepass_id == global_user_battlepass.battlepass_id) {
+                open_battlepass_upgrade();
+            } else {
+                open_battlepass(this.data[this.current_idx].battlepass_id);
+            }
         } else {
             open_shop_item(this.data, this.current_idx);
         }
@@ -505,7 +515,9 @@ class ShopGroup {
 
         if (this.data[idx].item_type == "b" || this.data[idx].item_type == "B") {
             // Battlepass
-            this.icon.appendChild(_createElement("div", ["bp_level_icon", "paid"]));
+            let bp_icon = _createElement("div", "bp_level_icon")
+            bp_icon.style.backgroundImage = "url("+_bp_icon(this.data[idx].battlepass_id, true)+")";
+            this.icon.appendChild(bp_icon);
 
             // Battle Pass
             this.container.style.setProperty("--item_rarity_color", "var(--rarity_4)");
@@ -752,3 +764,11 @@ function shop_redeem_gift_key() {
     }
 }
 
+function set_shop_update_version(value) {
+    if (value > global_shop_update_version) {
+        global_shop_update_version = value;
+        _id("shop_new").style.display = "flex";
+    } else {
+        _id("shop_new").style.display = "none";
+    }
+}

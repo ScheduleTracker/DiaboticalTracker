@@ -23,6 +23,13 @@ function init_notifications() {
     // /devop ui_call test_item_unlock_notif
     bind_event("test_item_unlock_notif", function() {
         global_notifs.addNotification({
+            "notif_id": 181,
+            "notif_type": 0,
+            "from_user_id": null,
+            "message": null,
+            "items": []
+        });
+        global_notifs.addNotification({
             "notif_id": 182,
             "notif_type": 1,
             "from_user_id": null,
@@ -70,6 +77,14 @@ function init_notifications() {
                     "amount": 1
                 },
                 {
+                    "customization_id": "si_cardboard",
+                    "customization_type": 12,
+                    "customization_sub_type": "",
+                    "customization_set_id": null,
+                    "rarity": 0,
+                    "amount": 1
+                },
+                {
                     "customization_id": "av_smileyorange",
                     "customization_type": 2,
                     "customization_sub_type": "",
@@ -99,6 +114,10 @@ function load_notifications() {
         
         if (NOTIFICATION_TYPE[notif.notif_type] == "battlepass" || NOTIFICATION_TYPE[notif.notif_type] == "gift_battlepass") {
             title = localize("notification_title_battlepass");
+
+            // Temp hack to make the background black for the battlepass upgrade animation video as the last one wasn't exported with a transparent background
+            content.style.backgroundColor = "rgba(0,0,0,1)";
+
         } else if (NOTIFICATION_TYPE[notif.notif_type] == "battlepass_items" || NOTIFICATION_TYPE[notif.notif_type] == "gift_item") {
             title = localize("notification_title_battlepass_items");
         } else {
@@ -135,7 +154,9 @@ function load_notifications() {
     if (notif.notif_type in NOTIFICATION_TYPE) {
         if (['battlepass', 'gift_battlepass'].includes(NOTIFICATION_TYPE[notif.notif_type])) {
             notif_video = _createElement("video", "battlepass_upgrade");
-            notif_video.src = "/html/animations/battlepass_upgrade.webm";
+            if (global_battlepass_data.hasOwnProperty(global_user_battlepass.battlepass_id)) {
+                notif_video.src = global_battlepass_data[global_user_battlepass.battlepass_id]["bp-icon-anim"];
+            }
             item_preview.appendChild(notif_video);
 
             if (global_user_battlepass.battlepass_id && global_user_battlepass.battlepass_id in global_battlepass_data) {

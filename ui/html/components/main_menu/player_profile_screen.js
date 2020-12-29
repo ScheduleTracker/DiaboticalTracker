@@ -553,11 +553,8 @@ function player_profile_render_main(data) {
         if (featured_topics[i] == "battlepass") {
             if (data.main.data.active_battlepass_id) {
                 // render battlepass
-                let level_icon = _createElement("div", "bp_level_icon");
-                level_icon.textContent = data.main.data.battlepass_level;
-                if (data.main.data.battlepass_owned) {
-                    level_icon.classList.add("paid");
-                }
+                let level_icon = _createElement("div", "bp_level_icon", data.main.data.battlepass_level);
+                level_icon.style.backgroundImage = "url("+_bp_icon(data.main.data.active_battlepass_id, data.main.data.battlepass_owned)+")";
                 content.appendChild(level_icon);
                 content.appendChild(_createElement("div", "bp_title", localize(global_battlepass_data[data.main.data.active_battlepass_id].title)));
             }

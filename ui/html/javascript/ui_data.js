@@ -61,6 +61,8 @@ const CLIENT_COMMAND_CREATE_PICKUP = 111;
 const CLIENT_COMMAND_LEAVE_PICKUP = 112;
 const CLIENT_COMMAND_JOIN_PICKUP = 113;
 const CLIENT_COMMAND_INSTANT_JOIN = 114;
+const CLIENT_COMMAND_GET_BATTLEPASS_LIST = 115;
+const CLIENT_COMMAND_SET_ACTIVE_BATTLEPASS = 116;
 
 const MATCH_TYPE_CUSTOM = 0;
 const MATCH_TYPE_TOURNAMENT = 1;
@@ -127,6 +129,7 @@ var global_item_name_map = {
     "weaponhw":     ["#67da80", "weapon_healing_weeball",       "images/weapon_hw.svg",            "weapon"],
     "weaponkw":     ["#015850", "weapon_knockback_weeball",     "images/weapon_kw.svg",            "weapon"],
     "weaponhook":   ["#777777", "weapon_hook",                  "",                                "weapon"],
+    "weaponvc":     ["#ff99aa", "weapon_void_cannon",           "images/weapon_vc.svg",            "weapon"],
     "armort1":      ["#27b1cf", "item_armort1",                 "images/item_armort1.svg",         "armor"],
     "armort2":      ["#27b1cf", "item_armort2",                 "images/item_armort2.svg",         "armor"],
     "armort3":      ["#ddb625", "item_armort3",                 "images/item_armort3.svg",         "armor"],
@@ -200,6 +203,7 @@ let global_weapon_idx_name_map = {
     18: "weaponsmw",
     19: "weaponkw",   
     20: "weaponhook",
+    21: "weaponvc",
 };
   
 // weapon index to data map
@@ -223,6 +227,7 @@ let global_weapon_idx_name_map2 = {
     16: "weaponsmw",
     17: "weaponkw",   
     18: "weaponhook",
+    19: "weaponvc",
 };
 
 // Reverse weapon tag to index lookup map
@@ -231,11 +236,11 @@ for (let idx in global_weapon_idx_name_map2) {
     global_weapon_tag_idx_map[global_weapon_idx_name_map2[idx].substring(6)] = parseInt(idx);
 }
 
-let global_weapons_in_scoreboard = [0,1,2,3,4,5,6,7,8];
+let global_weapons_in_scoreboard = [0,1,2,3,4,5,6,7,8,19];
 // For the customization weapon tabs:
-let global_weapons_with_skins = [0,1,2,3,4,5,6,7,8];
+let global_weapons_with_skins = [0,1,2,3,4,5,6,7,8,19];
 // For the weapon priority list
-let global_weapons_priority_default = ["rl","shaft","ss","bl","gl","pncr","cb","mac","melee"];
+let global_weapons_priority_default = ["rl","shaft","ss","bl","pncr","vc","cb","mac","melee"];
 // The reload times are used to calculate the weapon usage statistic in %
 let global_weapon_reload_times = {
     0 : 700,
@@ -257,6 +262,7 @@ let global_weapon_reload_times = {
     16: 1000,
     17: 1000,
     18: 850,
+    19: 650,
 };
 
 let global_report_reasons = [
@@ -613,7 +619,11 @@ var global_battlepass_data = {
     "test_bp": {
         "shop-image": "",
         "fullscreen-image": "",
-        "title": "battlepass_1_title", // localize key
+        "bp-icon":"",
+        "bp-icon-paid":"",
+        "bp-icon-anim":"",
+        "bp-color": "",
+        "title": "test_bp", // localize key
         "price_basic": 1000,   // gets updated by MS
         "price_bundle": 2800,  // gets updated by MS
         "price_level": 100,    // !! has to match whats defined on the MS, does currently not get updated automatically
@@ -622,6 +632,10 @@ var global_battlepass_data = {
         //"shop-image": "/html/customization/avatar/av_AT1_2.png.dds",
         "shop-image": "/html/customization_pack/battlepass_season_1.png",
         "fullscreen-image": "/html/images/backgrounds/battlepass_season_1.png",
+        "bp-icon":"/html/images/icons/battlepass_free.png.dds",
+        "bp-icon-paid":"/html/images/icons/battlepass_paid.png.dds",
+        "bp-icon-anim":"/html/animations/battlepass_upgrade.webm",
+        "bp-color": "#3688b5",
         "title": "battlepass_1_title", // localize key
         "price_basic": 1000,   // gets updated by MS
         "price_bundle": 2800,  // gets updated by MS
@@ -629,8 +643,12 @@ var global_battlepass_data = {
     },
     "bp_season_2": {
         //"shop-image": "/html/customization/avatar/av_AT1_2.png.dds",
-        "shop-image": "",
-        "fullscreen-image": "",
+        "shop-image": "/html/customization_pack/battlepass_season_2.png",
+        "fullscreen-image": "/html/images/backgrounds/battlepass_season_2.png",
+        "bp-icon":"/html/images/icons/battlepass_free_season_2.png.dds",
+        "bp-icon-paid":"/html/images/icons/battlepass_paid_season_2.png.dds",
+        "bp-icon-anim":"/html/animations/battlepass_upgrade_season_2.webm",
+        "bp-color": "#3688b5",
         "title": "battlepass_2_title", // localize key
         "price_basic": 1000,
         "price_bundle": 2800,
@@ -667,9 +685,10 @@ var global_customization_type_id_map = {
     "shoes": 9,
     "country": 10,
     "shell": 11,
+    "shield": 12,
 };
 
-const customization_item_order = [0, 11, 6, 7, 9, 4, 3, 5, 8, 2, 1, 10];
+const customization_item_order = [0, 11, 12, 6, 7, 9, 4, 3, 5, 8, 2, 1, 10];
 
 var global_rarity_map = {
     "0": { "i18n": "rarity_common" },

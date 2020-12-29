@@ -1,3 +1,9 @@
+// The currently active battlepass
+let global_user_battlepass = {};
+// List of all battlepasses, not initialized until battlepass list page is opened
+let global_battlepass_list = [];
+// Battlepass id -> data lookup map, initially only contains the currently active bp
+let global_battlepass_map = {}; 
 
 let global_battlepass_rewards_cache = {};
 function init_screen_battlepass() {
@@ -20,9 +26,13 @@ function init_screen_battlepass() {
 }
 
 let global_initial_bp_data_loaded = false;
-function load_battlepass_data(cb) {
+function load_active_battlepass_data(cb) {
     api_request("GET", "/user/battlepass", {}, function(data) {
         global_user_battlepass = data;
+
+        // Store data in the lookup map
+        global_battlepass_map[data.battlepass_id] = data;
+
         updateMenuBottomBattlepass(data);
         updateChallenges();
         updateBattlepassUpgrade(data);
@@ -35,34 +45,35 @@ function load_battlepass_data(cb) {
             }, 4);
         }
 
-        if (typeof cb === "function") cb(global_user_battlepass);
+        if (typeof cb === "function") cb(data.battlepass_id);
     });
 }
 
-function load_battlepass_rewards_data(cb) {
-    send_string(CLIENT_COMMAND_GET_BATTLEPASS_REWARDS, global_user_battlepass.battlepass_id, "battlepass-rewards", function(data) {
-        global_battlepass_rewards_cache[global_user_battlepass.battlepass_id] = format_battlepass_rewards(data.data);
+function load_battlepass_rewards_data(battlepass_id, cb) {
+    send_string(CLIENT_COMMAND_GET_BATTLEPASS_REWARDS, battlepass_id, "battlepass-rewards", function(data) {
+        global_battlepass_rewards_cache[battlepass_id] = format_battlepass_rewards(data.data);
         
-        if (typeof cb === "function") cb(global_battlepass_rewards_cache[global_user_battlepass.battlepass_id]);
+        if (typeof cb === "function") cb(global_battlepass_rewards_cache[battlepass_id]);
 
         send_view_data("hud", "json", {
             "action": "set-battlepass-rewards",
-            "rewards": global_battlepass_rewards_cache[global_user_battlepass.battlepass_id]
+            "battlepass_id": battlepass_id,
+            "rewards": global_battlepass_rewards_cache[battlepass_id]
         });
     });
 }
 
-function load_battlepass() {
-    //console.log("load_battlepass",_dump(global_user_battlepass));
+function load_battlepass(bp_data) {
+    //console.log("load_battlepass",_dump(bp_data));
 
-    if (!global_user_battlepass.battlepass_id) {
+    if (!bp_data || !bp_data.battlepass_id) {
         // TODO handle the "no battlepass" case? even if it should never actually occur
         return;
     }
 
     let screen = _id("battlepass_screen");
     
-    render_battlepass(global_user_battlepass);
+    render_battlepass(bp_data);
 
     // Show spinner while loading
     let bottom = screen.querySelector(".battlepass_bottom");
@@ -79,22 +90,26 @@ function load_battlepass() {
     // hide previous reward
     showRewardPreview(screen);
 
-    if (global_user_battlepass.battlepass_id in global_battlepass_rewards_cache) {
+    // Empty the buttons area
+    let buttons_cont = _id("battlepass_buttons");
+    _empty(buttons_cont);
+
+    if (bp_data.battlepass_id in global_battlepass_rewards_cache) {
         setTimeout(() => {
-            let { pos, locked_count } = render_battlepass_rewards(screen, global_user_battlepass, global_battlepass_rewards_cache[global_user_battlepass.battlepass_id], showRewardPreview);            
+            let { pos, locked_count } = render_battlepass_rewards(screen, bp_data, global_battlepass_rewards_cache[bp_data.battlepass_id], showRewardPreview);            
             if (!global_scrollboosters['bp_rewards']) setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
             else global_scrollboosters['bp_rewards'].setPosition({"x": pos, "y":0 });
-            render_battlepass_buttons(locked_count);
+            render_battlepass_buttons(bp_data, locked_count);
 
             spinner_cont.style.display = "none";
             anim_show(bottom);
         }, 250);
     } else {
-        load_battlepass_rewards_data((data) => {
-            let { pos, locked_count } = render_battlepass_rewards(screen, global_user_battlepass, global_battlepass_rewards_cache[global_user_battlepass.battlepass_id], showRewardPreview);            
+        load_battlepass_rewards_data(bp_data.battlepass_id, (data) => {
+            let { pos, locked_count } = render_battlepass_rewards(screen, bp_data, global_battlepass_rewards_cache[bp_data.battlepass_id], showRewardPreview);            
             if (!global_scrollboosters['bp_rewards']) setup_battlepass_reward_scroll('bp_rewards', bp_rewards, pos);
             else global_scrollboosters['bp_rewards'].setPosition({"x": pos, "y":0 });
-            render_battlepass_buttons(locked_count);
+            render_battlepass_buttons(bp_data, locked_count);
 
             spinner_cont.style.display = "none";
             anim_show(bottom);
@@ -102,7 +117,7 @@ function load_battlepass() {
     }
 }
 
-function render_battlepass_buttons(locked_count) {
+function render_battlepass_buttons(bp_data, locked_count) {
 
     let buttons_cont = _id("battlepass_buttons");
     _empty(buttons_cont);
@@ -113,9 +128,10 @@ function render_battlepass_buttons(locked_count) {
 
     //<div class="db-btn plain click-sound mouseover-sound4" onclick="open_battlepass_list()">Select Battlepass</div>
 
-    if (global_user_battlepass.battlepass.owned == true  
+    if (bp_data.battlepass.owned == true  
+        && bp_data.battlepass_id == global_user_battlepass.battlepass_id
         // Check if you have reached the battlepass limit already
-        && global_user_battlepass.battlepass.level < global_user_battlepass.battlepass.levels) {
+        && bp_data.battlepass.level < bp_data.battlepass.levels) {
 
         let btn_tiers = _createElement("div", ["db-btn", "upgrade"], localize("battlepass_button_buy_tiers"));
         btn_tiers.addEventListener("click", battlepass_buy_levels_modal);
@@ -123,21 +139,34 @@ function render_battlepass_buttons(locked_count) {
         btns.appendChild(btn_tiers);
     }
 
-    if (global_user_battlepass.battlepass.owned == false) {
-        let btn_upgrade = _createElement("div", ["db-btn", "upgrade"], localize("battlepass_button_upgrade"));
-        btn_upgrade.addEventListener("click", open_battlepass_upgrade);
-        _addButtonSounds(btn_upgrade, 1);
-        btns.appendChild(btn_upgrade);
+    if (bp_data.battlepass_id == global_user_battlepass.battlepass_id) {
+        if (bp_data.battlepass.owned == false) {
+            let btn_upgrade = _createElement("div", ["db-btn", "upgrade"], localize("battlepass_button_upgrade"));
+            btn_upgrade.addEventListener("click", open_battlepass_upgrade);
+            _addButtonSounds(btn_upgrade, 1);
+            btns.appendChild(btn_upgrade);
+        }
+
+        if (bp_data.battlepass.owned == false && locked_count > 2) {
+            let unlock_msg = _createElement("div", "unlock_msg");
+            unlock_msg.textContent = localize_ext("battlepass_unlock_items_msg", {
+                "count": locked_count
+            });
+            fragment.appendChild(unlock_msg);
+        }
+    } else {
+        let btn_activate = _createElement("div", ["db-btn", "upgrade"], localize("battlepass_button_set_active"));
+        btn_activate.addEventListener("click", () => { battlepass_set_active(bp_data.battlepass_id); });
+        _addButtonSounds(btn_activate, 1);
+        btns.appendChild(btn_activate);
     }
 
-    if (global_user_battlepass.battlepass.owned == false && locked_count > 2) {
-        let unlock_msg = _createElement("div", "unlock_msg");
-        unlock_msg.textContent = localize_ext("battlepass_unlock_items_msg", {
-            "count": locked_count
-        });
-        fragment.appendChild(unlock_msg);
-    }
-    if (global_user_battlepass.battlepass.owned == false) {
+    let btn_switch = _createElement("div", ["db-btn", "plain"], localize("battlepass_button_switch"));
+    btn_switch.addEventListener("click", open_battlepass_list);
+    _addButtonSounds(btn_switch, 1);
+    btns.appendChild(btn_switch);
+
+    if (bp_data.battlepass.owned == false) {
         let unlock_disclaimer = _createElement("div", "unlock_disclaimer", localize("battlepass_unlock_disclaimer"));
         fragment.appendChild(unlock_disclaimer);
     }
@@ -650,7 +679,6 @@ function render_battlepass(bp) {
     let title = prog_box.querySelector(".title");
     title.textContent = localize(global_battlepass_data[bp.battlepass_id].title);
 
-
     let left = prog_box.querySelector(".progression .left");
     _empty(left);
     let right = prog_box.querySelector(".progression .right");
@@ -660,11 +688,8 @@ function render_battlepass(bp) {
         right.classList.add("completed");
     }
     
-    let level_icon = _createElement("div", "bp_level_icon");
-    level_icon.innerHTML = bp.battlepass.level;
-    if (bp.battlepass.owned) {
-        level_icon.classList.add("paid");
-    }
+    let level_icon = _createElement("div", "bp_level_icon", bp.battlepass.level);
+    level_icon.style.backgroundImage = "url("+_bp_icon(bp.battlepass.battlepass_id, bp.battlepass.owned)+")";
     left.appendChild(level_icon);
 
     let bar_inner = prog_box.querySelector(".progression .right .bar .inner");
@@ -685,7 +710,7 @@ function render_battlepass_rewards(cont, bp, rewards, select_cb) {
     let bp_rewards = cont.querySelector(".battlepass_rewards");
     _empty(bp_rewards);
 
-    emptyRewardPreview(cont);
+    showRewardPreview(cont);
 
     if (!bp.battlepass) return;
 
@@ -827,7 +852,7 @@ function render_battlepass_rewards(cont, bp, rewards, select_cb) {
         last_unlock.firstElementChild.firstElementChild.classList.add("selected");
 
         select_cb(cont, last_unlock_data);
-    } else {
+    } else if (first_reward != undefined) {
         first_reward.classList.add("selected");
         first_reward.firstElementChild.firstElementChild.classList.add("selected");
         
@@ -849,12 +874,6 @@ function render_battlepass_rewards(cont, bp, rewards, select_cb) {
     return { pos: centered_offset, locked_count: locked_count };
 }
 
-function emptyRewardPreview(cont) {
-    let reward_title = cont.querySelector(".battlepass_reward_preview .reward_title");
-    _empty(reward_title);
-    let desc_cont = cont.querySelector(".battlepass_reward_preview .reward_info");
-    _empty(desc_cont);
-}
 function showRewardPreview(cont, reward) {
     //console.log(_dump(global_user_battlepass));
     //console.log(_dump(reward));

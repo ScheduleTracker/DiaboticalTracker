@@ -57,7 +57,7 @@ let global_customization_options_map = {
         new CustomizationType("shell", ""),
         new CustomizationType("shoes", "l"),
         new CustomizationType("shoes", "r"),
-        //new CustomizationType("shield", ""),
+        new CustomizationType("shield", ""),
     ],
     "sticker": [
         //new CustomizationType("sticker", ""),
@@ -94,12 +94,14 @@ let global_customization_confirm_types = {
     "weapon_attachment": true,
     "shell": true,
     "shoes": true,
+    "shield": true,
 };
 let global_customization_disable_types = {
     "avatar": true,
     "weapon": true,
     "shell": true,
     "shoes": true,
+    "shield": true,
 };
 let global_customization_audio_types = {
     "music": true,
@@ -1855,6 +1857,10 @@ const ITEM_PREVIEW_CAMERAS = {
     "eggbot_shop": 7,
     "weapon_notification": 8,
     "eggbot_notification": 9,
+    "eggbot_shield_locker": 10,
+    "eggbot_shield_battlepass": 11,
+    "eggbot_shield_shop": 12,
+    "eggbot_shield_notification": 13,
 };
 
 let global_preview_rotate_setup = false;
@@ -1914,17 +1920,21 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
 
     let weapon_camera = ITEM_PREVIEW_CAMERAS.weapon_locker;
     let eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_locker;
+    let shield_camera = ITEM_PREVIEW_CAMERAS.eggbot_shield_locker;
     if (screen == "battlepass") {
         weapon_camera = ITEM_PREVIEW_CAMERAS.weapon_battlepass;
         eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_battlepass;
+        shield_camera = ITEM_PREVIEW_CAMERAS.eggbot_shield_battlepass;
     } else if (screen == "player_profile") {
         eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_profile;
     } else if (screen == "shop_item") {
         weapon_camera = ITEM_PREVIEW_CAMERAS.weapon_shop;
         eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_shop;
+        shield_camera = ITEM_PREVIEW_CAMERAS.eggbot_shield_shop;
     } else if (screen == "notification") {
         weapon_camera = ITEM_PREVIEW_CAMERAS.weapon_notification;
         eggbot_camera = ITEM_PREVIEW_CAMERAS.eggbot_notification;
+        shield_camera = ITEM_PREVIEW_CAMERAS.eggbot_shield_notification;
     }
 
     let show_name = true;
@@ -1953,10 +1963,27 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
         engine.call("on_show_customization_screen", true);
         engine.call("set_stage_map_camera", eggbot_camera);
         engine.call("set_preview_shell", id);
+        engine.call("set_preview_held_weapon", "mac");
 
         setup_customization_preview_rotation_listeners(preview_container);
         if (screen != "customize") engine.call("reset_locker_agent_rotation");
     
+    } else if (ctype.type == "shield") {
+
+        // Show the users active shell in the preview
+        let current_shell = get_current_customization(new CustomizationType("shell", ""));
+        engine.call("set_preview_shell", current_shell);
+
+        engine.call("set_preview_held_weapon", "melee");
+        engine.call("set_preview_weapon_skin", "melee", get_current_customization(new CustomizationType("weapon", "melee")));
+
+        engine.call("on_show_customization_screen", true);
+        engine.call("set_stage_map_camera", shield_camera);
+        engine.call("set_preview_shield_skin", id);
+
+        setup_customization_preview_rotation_listeners(preview_container);
+        if (screen != "customize") engine.call("reset_locker_agent_rotation");
+
     } else if (ctype.type == "shoes") {
 
         // Show the users active shell in the preview
@@ -1965,6 +1992,7 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
 
         engine.call("on_show_customization_screen", true);
         engine.call("set_stage_map_camera", eggbot_camera);
+        engine.call("set_preview_held_weapon", "mac");
         
         if (screen == "customize") {
             engine.call("set_preview_shoe", ctype.sub_type, id);
@@ -1984,8 +2012,12 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
     } else if (ctype.type == "sticker") {
 
         engine.call("on_show_customization_screen", true);
-        if (screen != "customize") engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
-        else setup_customization_preview_rotation_listeners(preview_container);
+        if (screen == "customize") {
+            engine.call("set_preview_held_weapon", "mac");
+            setup_customization_preview_rotation_listeners(preview_container);            
+        } else {
+            engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
+        }
 
     } else if (ctype.type == "avatar") {
 

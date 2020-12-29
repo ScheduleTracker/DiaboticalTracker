@@ -748,6 +748,13 @@ function _sort_objects_by_key(array, key, direction) {
     });
 }
 
+function _bp_icon(battlepass_id, owned) {
+    if (global_battlepass_data.hasOwnProperty(battlepass_id)) {
+        if (owned) return global_battlepass_data[battlepass_id]["bp-icon-paid"];
+        else return global_battlepass_data[battlepass_id]["bp-icon"];
+    }
+    return "";
+}
 /*
 function _set_battle_pass_colors(el, colors) {
     el.style.setProperty("--bp_color", colors["color"]);

@@ -626,6 +626,7 @@ body, html {
     background-color:rgba(45, 48, 51, 0);
     position:relative;
 }
+#main_menu_buttons .main_menu_button .new_shop, 
 #main_menu_buttons .main_menu_button .new {
     background:#ffff00;
     color:#111;
@@ -647,6 +648,12 @@ body, html {
     top:1.5vh;
     right:3.5vh;
 }
+
+#main_menu_buttons .main_menu_button .new_shop {
+    right: 4vh;
+    display: none;
+}
+
 #main_menu_buttons .main_menu_button .inner {
     transform:skewX(-20deg);
     text-transform: uppercase;
@@ -1883,6 +1890,12 @@ body, html {
     background-color: #2a2a2a;
     box-shadow: 2px -2px 12px 2px rgba(0, 0, 0, 0.5) inset;
 }
+.menu_bottom_battlepass_open .inner {
+    transform:skewX(20deg);
+    display:flex;
+    flex-direction:row;
+    align-items:flex-end;
+}
 .menu_bottom_battlepass_open .menu_bottom_battlepass_label {
     height:4vh;
     line-height:4vh;
@@ -1895,7 +1908,6 @@ body, html {
     transition-property: color;
     transition-duration: 100ms;
     transition-timing-function: ease-in-out;
-    transform:skewX(20deg);
 }
 .menu_bottom_battlepass_open .menu_bottom_battlepass_label.no_bp {
     padding:0 2vh;
@@ -1911,12 +1923,12 @@ body, html {
     margin-right:1vh;
 
     padding-bottom:0.5vh;
-    transform:translateY(0vh) scale(1) skewX(20deg);
+    transform:translateY(0vh) scale(1);
     transition:transform 150ms ease-in-out;
 }
 .menu_bottom_battlepass_open .bp_level_icon.active,
 .menu_bottom_battlepass_open .bp_level_icon.hover {
-    transform: translateY(-0.4vh) scale(1.1) skewX(20deg);
+    transform: translateY(-0.4vh) scale(1.1);
 }
 .menu_bottom_battlepass_daily {
     padding-left: 2vh;
@@ -3043,7 +3055,7 @@ body, html {
 .bp_level_icon {
     width:10vh;
     height:10vh;
-    background-image:url(/html/images/icons/battlepass_free.png.dds);
+    /*background-image:url(/html/images/icons/battlepass_free.png.dds);*/
     background-repeat:no-repeat;
     background-position:center;
     background-size:100%;
@@ -3057,9 +3069,11 @@ body, html {
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.9);
     filter: drop-shadow(0 3px 6px 0 rgba(0, 0, 0, 0.4));
 }
+/*
 .bp_level_icon.paid {
     background-image:url(/html/images/icons/battlepass_paid.png.dds);
 }
+*/
 
 /*
  *  Ranked icons
@@ -11884,7 +11898,7 @@ h2 {
 }
 #battlepass_list_screen {
     position:absolute;
-    top:18vh;
+    top:15vh;
     display:none;
     flex-direction:column;
     align-self:center;
@@ -11895,49 +11909,89 @@ h2 {
 #battlepass_list_content {
 
 }
-#battlepass_list_content .separator {
-    margin-bottom:2vh;
+
+#battlepass_list_content .bp_box {
+    display:flex;
+    flex-direction:column;
+    align-self:center;
+    justify-content:flex-start;
+    width:90%;
+    background-color:rgba(26, 27, 31, 0.5);
+    padding-left:1vh;
+    padding-right:1vh;
+    margin-bottom:3vh;
 }
-#battlepass_list_content > .title {
+#battlepass_list_content .bp_box.main {
+    background-color:rgba(26, 27, 31, 1);
+}
+#battlepass_list_content .bp_box > .title {
     font-size:1.8vh;
+    font-family: var(--mont-font);
+    opacity:0.9;
     text-shadow:0px 1px 3px rgba(0, 0, 0, 0.8);
-    background-color: rgba(0, 0, 0, 0.35);
-    margin-bottom: 0.6vh;
-    margin-top: 0.3vh;    
-    margin-left: 0.3vh;
-    padding-top: 0.6vh;
-    padding-left: 2vh;
-    padding-bottom: 0.6vh;
-    width: 90%;
-    box-shadow: 0px 0px 0px 0.3vh rgba(0, 0, 0, 0.2);
+    padding-top: 1vh;
+    padding-left: 1vh;
+    padding-bottom: 1vh;
 }
-#battlepass_list_content .bp {
+#battlepass_list_content .bp_box .bp {
     position:relative;
     background-color:rgba(46, 46, 46, 0.5);
-    margin-bottom:2vh;
+    margin-bottom:1vh;
     padding:2vh;
-    width:90%;
-    box-shadow: 0px 0px 0px 0.3vh rgba(0,0,0,0.2);
-    margin-left:0.3vh;
 }
-#battlepass_list_content .bp.user_active {
+#battlepass_list_content .bp_box .bp.user_active {
 
 }
-#battlepass_list_content .bp > .title {
-    font-size:2vh;
-    margin-bottom:2vh;
+#battlepass_list_content .bp_box .bp > .title {
+    font-size:2.8vh;
+    font-family: var(--mont-font);
+    margin-bottom:1vh;
     text-transform:uppercase;
     font-weight:bold;
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
 }
-#battlepass_list_content .bp > .buttons {
+#battlepass_list_content .bp_box .bp .progress_text {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.200000vh;
+    font-family: var(--main-font-medium) ;
+}
+#battlepass_list_content .bp_box .bp .progress_text .text {
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 1.4vh;
+}
+#battlepass_list_content .bp_box .bp .progress_text .number {
+    font-size: 2vh;
+    margin-left: 1vh;
+}
+#battlepass_list_content .bp_box .bp .progress_bar {
+    background-color: rgba(25, 25, 33, 0.78);
+    height: 1.6vh;
+    width:40vh;
+    padding:2px;
+    border-radius:4px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+    margin-bottom:1vh;
+}
+#battlepass_list_content .bp_box .bp .progress_bar .progress_bar_inner {
+    background-color:var(--bp_color);
+    width:40%;
+    height:100%;
+    border-radius:4px;
+    background-image:repeating-linear-gradient(-45deg,#e7ba5d, #edce8f 4vh, #e7ba5d 8vh);
+}
+#battlepass_list_content .bp_box .bp > .buttons {
     display:flex;
     flex-direction:row;
 }
-#battlepass_list_content .bp > .buttons .db-btn {
+#battlepass_list_content .bp_box .bp > .buttons .db-btn {
     margin-right:1vh;
 }
-#battlepass_list_content .bp > .status {
+#battlepass_list_content .bp_box .bp > .status {
     position:absolute;
     right:2vh;
     top:1vh;
@@ -11945,28 +11999,21 @@ h2 {
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    min-width:12vh;
+    min-width:20vh;
 }
-#battlepass_list_content .bp > .status .tag {
-    margin-bottom:0.5vh;
+#battlepass_list_content .bp_box .bp > .status .tag {
     color:#fff;
-    background-color:var(--bp_color);
     padding:0.4vh 1vh;
     text-transform:uppercase;
     font-weight:bold;
-    font-size:1.2vh;
+    font-size:2vh;
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
-    box-shadow:0 0 0 0.14vh rgba(255, 255, 255, 0.2), 0 1px 8px 0.14vh rgba(0,0,0,0.4);
 }
-#battlepass_list_content .bp > .status .tag.free {
-    background-color:#888;
-}
-#battlepass_list_content .bp > .status .bp_level_icon {
-    position:relative;
-    width:7vh;
-    height:7vh;
-    font-size:2.6vh;
-    padding-bottom:0.8vh;
+#battlepass_list_content .bp_box .bp > .status .tag.free {}
+#battlepass_list_content .bp_box .bp > .status .bp_level_icon {
+    width:12vh;
+    height:12vh;
+    font-size:3vh;
 }
 
 #battlepass_list_content .no_battlepass_avail {
@@ -12006,7 +12053,7 @@ h2 {
     animation-timing-function: ease-in;
 
     filter: drop-shadow(0 3px 6px 0 rgba(0, 0, 0, 0.4));
-    background-image:url(/html/images/icons/battlepass_paid.png.dds);
+    /*background-image:url(/html/images/icons/battlepass_paid.png.dds);*/
     background-size:40vh;
     background-position:center;
     background-repeat:no-repeat;
@@ -16318,6 +16365,29 @@ h2 {
     font-size:1.2vh;
 }
 
+#match_screen .btn {
+    width:4vh;
+    height:4vh;
+    background-color:#222;
+    margin-right:1vh;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:50%;
+    border-radius:0.5vh;
+}
+
+#match_screen .btn.watch {
+    float: left;
+    background-image:url(/html/images/icons/fa/film.svg);
+    background-color:rgba(100, 65, 165, 1);
+}
+#match_screen .btn.watch:hover {
+    background-color:rgba(114, 75, 187, 1);
+}
+#match_screen .btn.watch:active {
+    background-color:rgb(137, 94, 218);
+}
+
 /*
  *  Practice screen
  */
@@ -18004,6 +18074,7 @@ h2 {
     text-transform:uppercase;
     font-weight:bold;
     font-size:1.4vh;
+    line-height:1.2vh;
     text-align: center;
 }
 #play_combo_list_content .match_row .match_map .map_name {

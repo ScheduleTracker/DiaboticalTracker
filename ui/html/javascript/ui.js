@@ -37,8 +37,6 @@ var global_server_selected_locations = [];
 var global_known_server_locations = [];
 var global_default_datacenter = '';
 
-var global_user_battlepass = {};
-var global_battlepass_list = [];
 var global_competitive_season = {};
 
 window.self_egs_id = "";
@@ -1096,6 +1094,10 @@ window.addEventListener("load", function(){
             latest_patch_notes_read = value;
         }
 
+        if (variable == "shop_update_version") {
+            global_shop_update_version = value;
+        }
+
         // Call the response handler for any queued callbacks
         global_variable.handleResponse("custom_component", variable, value);
     });
@@ -1442,6 +1444,7 @@ window.addEventListener("load", function(){
 
     init_screen_ingame_menu();
     init_screen_home();
+    init_screen_shop();
     init_screen_customize();
     init_screen_battlepass_list();
     init_screen_battlepass();
@@ -1465,6 +1468,13 @@ window.addEventListener("load", function(){
     set_masterserver_connection_state(false, true);
 
     console.log("LOAD210");
+
+    // Enable toggles
+    api_request("GET", "/toggles", {}, function (toggles) {
+        set_shop_update_version(toggles.shop_update);
+    });
+
+    console.log("LOAD211");
     engine.call('menu_view_loaded');
 });
 
@@ -1529,7 +1539,7 @@ function set_masterserver_connection_state(connected, initial) {
                 load_user_hud_list();
 
                 // Request battlepass data
-                load_battlepass_data(load_battlepass_rewards_data);
+                load_active_battlepass_data(load_battlepass_rewards_data);
 
                 // Shop
                 load_shop_data();

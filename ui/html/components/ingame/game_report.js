@@ -134,7 +134,8 @@ function init_hud_screen_game_report() {
                         "cur_level_req": 85000,
                         "next_level_req": 95000
                     },
-                    "owned": false
+                    "owned": false,
+                    "battlepass_id": "bp_season_1",
                 },
                 "battlepass_rewards": [
                     {
@@ -1103,10 +1104,9 @@ function set_battle_pass_progression(update) {
 
     let level_icon_prev = _createElement("div", "bp_level_icon", update.from.level);
     let level_icon_next = _createElement("div", "bp_level_icon", update.from.level + 1);
-    if (update.owned) {
-        level_icon_prev.classList.add("paid");
-        level_icon_next.classList.add("paid");
-    }
+    level_icon_prev.style.backgroundImage = "url("+_bp_icon(update.battlepass_id, update.owned)+")";
+    level_icon_next.style.backgroundImage = "url("+_bp_icon(update.battlepass_id, update.owned)+")";
+
     let progress_bar = _createElement("div", "progress_bar");
     let progress_bar_inner = _createElement("div", "inner");
     progress_bar.appendChild(progress_bar_inner);
@@ -1127,6 +1127,7 @@ function set_battle_pass_progression(update) {
     global_game_report_progression_map.from = update.from;
     global_game_report_progression_map.to = update.to;
     global_game_report_progression_map.owned = update.owned;
+    global_game_report_progression_map.battlepass_id = update.battlepass_id;
 }
 
 function set_progression_reward_unlocks() {
@@ -1181,9 +1182,11 @@ function set_progression_reward_unlocks() {
     if (global_game_report_progression && !global_game_report_progression_map.owned) {
         // Show last few customizations that can be unlocked by buying the battlepass
         let unlockable_rewards = [];
-        for (let level = parseInt(global_game_report_progression_map.to.level); level > 0; level--) {
-            if (level in global_hud_battlepass_rewards) {
-                for (let reward of global_hud_battlepass_rewards[level]) {
+        if (global_game_report_progression_map.battlepass_id in global_hud_battlepass_rewards) {
+            for (let level = parseInt(global_game_report_progression_map.to.level); level > 0; level--) {
+                if (!(level in global_hud_battlepass_rewards[global_game_report_progression_map.battlepass_id])) continue;
+
+                for (let reward of global_hud_battlepass_rewards[global_game_report_progression_map.battlepass_id][level]) {
                     if (reward.free == false) {
                         unlockable_rewards.push(reward);
                     }
@@ -1298,7 +1301,7 @@ function animate_bp_progress() {
     }
 
     map.level_icon_prev.textContent = map.from.level;
-    map.level_icon_next.textContent = map.to.level;
+    map.level_icon_next.textContent = map.from.level + 1;
 
     setTimeout(() => {
         run_animation();

@@ -782,6 +782,8 @@ function open_shop() {
     hl_button("mm_shop");
     historyPushState({"page": "shop_screen"});
     switch_screens(_id("shop_screen"));
+    _id("shop_new").style.display = "none";
+    engine.call("set_string_variable", "shop_update_version", `${global_shop_update_version}`);
 
     load_shop();
 }
@@ -876,48 +878,54 @@ function open_match(match_id) {
     load_match(match_id);
 }
 
-function open_battlepass() {
-    if (_id("battlepass_screen").style.display == "none" || _id("battlepass_screen").style.display == undefined) {
-        // unset any previous button highlights
-        hl_button();
+function open_battlepass(load_battlepass_id) {
+    //if (global_menu_page == "battlepass_screen") return;
 
-        if (!global_user_battlepass.battlepass_id) {
-            load_battlepass_data(function() {
+    // unset any previous button highlights
+    hl_button();
+
+    let battlepass_id = global_user_battlepass.battlepass_id
+    if (load_battlepass_id && load_battlepass_id in global_battlepass_data) {
+        battlepass_id = load_battlepass_id;
+    }
+
+    if (!battlepass_id) {
+        if (battlepass_id == global_user_battlepass.battlepass_id) {
+            load_active_battlepass_data(function() {
                 if (global_user_battlepass.battlepass_id) {
                     set_blur(true);
                     historyPushState({"page": "battlepass_screen"});
                     switch_screens(_id("battlepass_screen"));
-                    load_battlepass();
+                    load_battlepass(global_user_battlepass);
                 }
             });
-        } else {
+        }
+    } else {
+        if (global_battlepass_map.hasOwnProperty(battlepass_id)) {
             set_blur(true);
             historyPushState({"page": "battlepass_screen"});
             switch_screens(_id("battlepass_screen"));
-            load_battlepass();
+            load_battlepass(global_battlepass_map[battlepass_id]);
+        } else {
+            load_battlepass_list(() => {
+                if (global_battlepass_map.hasOwnProperty(battlepass_id)) {
+                    set_blur(true);
+                    historyPushState({"page": "battlepass_screen"});
+                    switch_screens(_id("battlepass_screen"));
+                    load_battlepass(global_battlepass_map[battlepass_id]);
+                }
+            });
         }
-
-    } else {
-        //open_home();
     }
 }
 
-/* outdated
 function open_battlepass_list() {
     set_blur(true);
     historyPushState({"page": "battlepass_list_screen"});
     switch_screens(_id("battlepass_list_screen"));
 
-    if (!global_battlepass_list.length) {
-        send_string(CLIENT_COMMAND_GET_BATTLEPASS_LIST, "", "battlepass-list", function(data) {
-            global_battlepass_list = data.data;
-            load_battlepass_list();
-        });
-    } else {
-        load_battlepass_list();
-    }
+    load_battlepass_list(render_battlepass_list);
 }
-*/
 
 function open_battlepass_upgrade() {
     if ("battlepass" in global_user_battlepass && global_user_battlepass.battlepass.owned == true) {
@@ -941,9 +949,11 @@ function updateMenuBottomBattlepass(bp) {
     let bp_cont = cont.querySelector(".menu_bottom_battlepass_open");
     _empty(bp_cont);
     
-    let label = _createElement("div", "menu_bottom_battlepass_label");
-    label.innerHTML = localize("battlepass");
-    bp_cont.appendChild(label);
+    let bp_cont_inner = _createElement("div", "inner");
+    bp_cont.appendChild(bp_cont_inner);
+    
+    let label = _createElement("div", "menu_bottom_battlepass_label", localize("battlepass"));
+    bp_cont_inner.appendChild(label);
 
     if (!bp || !bp.battlepass) {
         anim_remove(cont);
@@ -953,12 +963,9 @@ function updateMenuBottomBattlepass(bp) {
     }
     
     if (global_user_battlepass.battlepass) {
-        let level_icon = _createElement("div", "bp_level_icon");
-        level_icon.textContent = global_user_battlepass.battlepass.level;
-        if (global_user_battlepass.battlepass.owned) {
-            level_icon.classList.add("paid");
-        }
-        bp_cont.appendChild(level_icon);
+        let level_icon = _createElement("div", "bp_level_icon", global_user_battlepass.battlepass.level);
+        level_icon.style.backgroundImage = "url("+_bp_icon(global_user_battlepass.battlepass.battlepass_id, global_user_battlepass.battlepass.owned)+")";
+        bp_cont_inner.appendChild(level_icon);
     } else {
         anim_remove(cont);
         label.classList.add("no_bp");

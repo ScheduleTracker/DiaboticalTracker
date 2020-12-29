@@ -698,7 +698,7 @@
                                     <div class="controls_value" data-db-binding="move_forward" data-db-binding-mode="game"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_shoot">Shoot</div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_shoot">Attack</div>
                                     <div class="controls_value" data-db-binding="attack" data-db-binding-mode="game"></div>
                                 </div>
                             </div>
@@ -708,7 +708,7 @@
                                     <div class="controls_value" data-db-binding="move_back" data-db-binding-mode="game"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="settings_controls_zoom">Zoom</div>
+                                    <div class="controls_header i18n" data-i18n="settings_controls_zoom_secondary">Zoom / Secondary Attack</div>
                                     <div class="controls_value" data-db-binding="zoom" data-db-binding-mode="game"></div>
                                 </div>
                             </div>
@@ -803,7 +803,7 @@
                                     <div class="controls_value" data-db-binding="weapon 1" data-db-binding-mode="game"></div>
                                 </div>
                                 <div class="controls_pair">
-                                    <div class="controls_header i18n" data-i18n="weapon_grenade_launcher">Grenade launcher</div>
+                                    <div class="controls_header i18n" data-i18n="weapon_gl_vc">Grenade launcher / Void Cannon</div>
                                     <div class="controls_value" data-db-binding="weapon 7" data-db-binding-mode="game"></div>
                                 </div>
                             </div>
@@ -1386,6 +1386,10 @@
                         <div onclick="settings_combat_update(10)" id="combat_panel_weapon_10" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
                             <div class="tip_inner top i18n" data-i18n="weapon_grenade_launcher">Grenade Launcher</div>
                             <img src="/html/images/weapon_gl.svg">
+                        </div>
+                        <div onclick="settings_combat_update(21)" id="combat_panel_weapon_21" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
+                            <div class="tip_inner top i18n" data-i18n="weapon_void_cannon">Void Cannon</div>
+                            <img src="/html/images/weapon_vc.svg">
                         </div>
                         <!--
                         <div onclick="settings_combat_update(11)" id="combat_panel_weapon_11" class="combat_panel_header_item tooltip click-sound mouseover-sound4">
@@ -2579,6 +2583,11 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="team_name">
                                     <div class="element_label element_label_team_name i18n" data-i18n="settings_hud_team_name">Team Name</div>
                                 </div>
+                                <!--
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="stat">
+                                    <div class="element_label element_label_stat i18n" data-i18n="settings_hud_stat">Stat</div>
+                                </div>
+                                -->
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="icon">
                                     <div class="element_label element_label_icon i18n" data-i18n="settings_hud_icon">Static Icon</div>
                                 </div>
@@ -3852,7 +3861,7 @@
                     </div>
                     <div class="right">
                         <div class="xp">
-                            <div class="text">XP to next Level</div>
+                            <div class="text i18n" data-i18n="battlepass_xp_to_next_level">XP to next Level</div>
                             <div class="number"></div>
                         </div>
                         <div class="bar">
@@ -3937,7 +3946,7 @@
             <div id="mm_practice" class="main_menu_button click-sound mouseover-sound2" onclick='open_practice()'><div class="inner i18n" data-i18n="menu_top_practice">Practice</div></div>
             <div id="mm_learn" class="main_menu_button click-sound mouseover-sound2 learn_menu_button" onclick='open_learn()'><div class="inner i18n" data-i18n="menu_top_learn">Learn</div></div>
             <div id="mm_customize" class="main_menu_button click-sound mouseover-sound2" onclick='open_customization()'><div class="inner i18n" data-i18n="menu_top_locker">Locker</div><div id="customize_new_count" class="new"></div></div>
-            <div id="mm_shop" class="main_menu_button click-sound mouseover-sound2" onclick='open_shop()'><div class="inner i18n" data-i18n="menu_top_shop">Shop</div></div>
+            <div id="mm_shop" class="main_menu_button click-sound mouseover-sound2" onclick='open_shop()'><div class="inner i18n" data-i18n="menu_top_shop">Shop</div><div id="shop_new" class="new_shop">New!</div></div>
         </div>
 
         <div id="main_menu_icons">
@@ -6641,6 +6650,8 @@
     <script inline src="javascript/moment-timezone.min.js"></script>
     <script inline src="javascript/humanize-duration.js"></script>
 
+    <script inline src="javascript/remote_resources.js"></script>
+
     <NOPscript src="vendors/anime/anime.min.js"></NOPscript>
 
     <script inline src="vendors/i18next.min.js"></script>
@@ -6744,6 +6755,8 @@
     <script inline src="javascript/ui_loading_screen.js"></script>
     <script inline src="javascript/script_data.js"></script> <!-- generated via script -->
 
+    <!--%EXTRA_HEADERS%-->
+      
     <script inline src="javascript/hud_elements/element_group.js"></script>
 
 <script inline src="javascript/hud_elements/element_hp.js"></script>
@@ -6768,7 +6781,6 @@
 <script inline src="javascript/hud_elements/element_item_timers.js"></script>
 <script inline src="javascript/hud_elements/element_player_name.js"></script>
 <script inline src="javascript/hud_elements/element_powerup.js"></script>
-<script inline src="javascript/hud_elements/element_g_meter.js"></script>
 <script inline src="javascript/hud_elements/element_you_killed.js"></script>
 <script inline src="javascript/hud_elements/element_chat.js"></script>
 <script inline src="javascript/hud_elements/element_voicechat.js"></script>
@@ -6788,6 +6800,7 @@
 <script inline src="javascript/hud_elements/element_minimap.js"></script>
 <script inline src="javascript/hud_elements/element_race_timer.js"></script>
 <script inline src="javascript/hud_elements/element_net.js"></script>
+<script inline src="javascript/hud_elements/element_stat.js"></script>
     
     <div id="watermark"></div>
 

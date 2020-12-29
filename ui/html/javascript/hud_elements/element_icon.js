@@ -17,6 +17,7 @@ function init_element_icon() {
             [
                 {"name": "Health", "value": "hp"},
                 {"name": "Armor", "value": "armor"},
+                {"name": "Sword", "value": "sword"},
                 {"name": "Speed", "value": "speed"},
                 {"name": "Wrench", "value": "wrench"},
             ]

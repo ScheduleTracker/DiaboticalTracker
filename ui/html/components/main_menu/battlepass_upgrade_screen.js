@@ -19,6 +19,9 @@ function updateBattlepassUpgrade(bp) {
 
     let background = _id("battlepass_upgrade_background");
     if (global_battlepass_data[bp.battlepass_id]["fullscreen-image"].length) background.style.backgroundImage = "url("+global_battlepass_data[bp.battlepass_id]["fullscreen-image"]+")";
+
+    let bp_icon = _id("battlepass_upgrade_icon");
+    bp_icon.style.backgroundImage = "url("+_bp_icon(bp.battlepass.battlepass_id, true)+")";
     
     if (bp && bp.price_basic) global_battlepass_data[bp.battlepass_id].price_basic = bp.price_basic;
     if (bp && bp.price_basic) global_battlepass_data[bp.battlepass_id].price_bundle = bp.price_bundle;
@@ -47,6 +50,11 @@ function updateBattlepassUpgrade(bp) {
 
     let option_basic = _id("battlepass_upgrade_buy_basic");
     let option_bundle = _id("battlepass_upgrade_buy_bundle");
+
+    if (global_battlepass_data[bp.battlepass_id].hasOwnProperty("bp-color") && global_battlepass_data[bp.battlepass_id]["bp-color"].length) {
+        option_basic.style.backgroundColor = global_battlepass_data[bp.battlepass_id]["bp-color"];
+        option_bundle.style.backgroundColor = global_battlepass_data[bp.battlepass_id]["bp-color"];
+    }
 
     option_basic.addEventListener("click", function() {
         if (global_self.private.coins >= global_battlepass_data[bp.battlepass_id].price_basic) {

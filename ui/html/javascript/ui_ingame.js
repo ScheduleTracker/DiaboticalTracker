@@ -314,7 +314,7 @@ window.addEventListener("load", function(){
         let data = parse_view_data(string);
 
         if (data.action == "set-battlepass-rewards") {
-            global_hud_battlepass_rewards = data.data.rewards;
+            global_hud_battlepass_rewards[data.data.battlepass_id] = data.data.rewards;
         }
 
         if (data.action == "party-leader") bool_am_i_leader = true;

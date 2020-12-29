@@ -54,6 +54,12 @@ function renderMatchScreen(match) {
     if (match.match_type in MATCH_TYPE) mode_name = localize(MATCH_TYPE[match.match_type].i18n);
 
     head_left.appendChild(_createElement("div", "match_type", mode_name));
+    
+    if (match.replay_id) {
+        let replay = _createElement("div", ["btn", "watch", "tooltip2"])
+        replay.addEventListener("click", function() { engine.call("play_server_replay", match.replay_id); });
+        head_left.appendChild(replay);
+    }
 
     let head_right = _createElement("div", ["block", "right"]);
     match_head.appendChild(head_right);
