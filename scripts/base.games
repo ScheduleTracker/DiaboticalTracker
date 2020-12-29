@@ -160,8 +160,6 @@ game default
 
 game tutorial
 {
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
 	setting game_countdown 0
     setting game_self_damage 0
 	setting game_unlimited_ammo 1
@@ -172,8 +170,6 @@ game tutorial
 
 game edit
 {
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
 	setting game_enable_items 1
 	setting game_self_damage 0
 	setting game_friendly_fire 0
@@ -189,9 +185,8 @@ game edit
 	weapon super_shotgun 999
 	weapon rocket_launcher 999
 	weapon shaft 999
-	weapon crossbow 999
 	weapon pncr 999
-	weapon grenade_launcher 999
+	weapon void_cannon 999
 	weapon healing_weeball 999
 	weapon smoke_weeball 999
 	weapon implosive_weeball 999
@@ -201,8 +196,6 @@ game edit
 
 game practice
 {
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
 	setting game_warmup_time 0
 	setting game_draft_time 0
 	setting game_countdown 0
@@ -221,9 +214,8 @@ game practice
 	weapon super_shotgun 999
 	weapon rocket_launcher 999
 	weapon shaft 999
-	weapon crossbow 999
 	weapon pncr 999
-	weapon grenade_launcher 999
+	weapon void_cannon 999
 	weapon healing_weeball 999
 	weapon smoke_weeball 999
 	weapon implosive_weeball 999
@@ -233,8 +225,6 @@ game practice
 
 game aim_pncr_flickshots
 {
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
 	setting game_aim_mode 1
     setting game_initial_item_time 0
     setting game_truce_time 0
@@ -253,8 +243,6 @@ game aim_pncr_flickshots
 
 game aim_mac_flickshots
 {
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
 	setting game_aim_mode 1
     setting game_initial_item_time 0
     setting game_truce_time 0
@@ -273,8 +261,6 @@ game aim_mac_flickshots
 
 game aim_shaft_close
 {
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
 	setting game_aim_mode 1
     setting game_initial_item_time 0
     setting game_truce_time 0
@@ -294,8 +280,6 @@ game aim_shaft_close
 
 game aim_shaft_mid
 {
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
 	setting game_aim_mode 1
     setting game_initial_item_time 0
     setting game_truce_time 0
@@ -315,8 +299,6 @@ game aim_shaft_mid
 
 game aim_shaft_far
 {
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
 	setting game_aim_mode 1
     setting game_initial_item_time 0
     setting game_truce_time 0
@@ -370,7 +352,7 @@ game warmup
 	weapon rocket_launcher 50
 	weapon shaft 250
 	weapon pncr 50
-	weapon grenade_launcher 5
+	weapon void_cannon 50
 }
 
 game brawl
@@ -409,7 +391,7 @@ game brawl
 	weapon rocket_launcher 50
 	weapon shaft 250
 	weapon pncr 50
-	weapon grenade_launcher 5
+	weapon void_cannon 50
 }
 
 game duel
@@ -503,7 +485,7 @@ game ca
 	weapon rocket_launcher 50
 	weapon shaft 250
 	weapon pncr 50
-	weapon grenade_launcher 5
+	weapon void_cannon 50
 }
 
 game cac
@@ -542,7 +524,7 @@ game cac
 	weapon rocket_launcher 50
 	weapon shaft 250
 	weapon pncr 50
-	weapon grenade_launcher 5
+	weapon void_cannon 50
 }
 
 
@@ -553,6 +535,7 @@ game rocket_arena
 	map a_heikam
 	map a_junktion
 	map a_enclosure
+	map a_misty_bay
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
@@ -582,18 +565,17 @@ game rocket_arena
 
 game shaft_arena
 {
-	map a_barrows_gate
-	map a_bazaar
-	map a_heikam
-	map a_junktion
+	map sa_mausoleum_of_despair
+	map sa_the_exploration_of_a_cold_heart
+	map sa_gravels_of_wisdom
 
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
 	setting game_team_mode 1
     setting game_rounds 10
-	setting game_score_limit 3
-	setting game_life_count 2
+	setting game_score_limit 10
+	setting game_life_count 1
 	
 	setting game_hp 200
 	setting game_stable_hp 200
@@ -649,7 +631,7 @@ game wipeout
 	weapon rocket_launcher 50
 	weapon shaft 200
 	weapon pncr 50
-	weapon grenade_launcher 5
+	weapon void_cannon 50
 	weapon healing_weeball 1
 }
 
@@ -716,7 +698,7 @@ game macguffin
 	map mg_sunken
 	map mg_marina
 	map mg_factory
-	map mg_test
+	map mg_ancient
 	
 
 	weapon sword 999
@@ -742,6 +724,7 @@ game ghosthunt
 	map ig_terminal
 	map ig_apollo
 	map ig_malkas_tomb
+	map ig_treehouse
 
 
 	weapon sword 999
@@ -919,7 +902,7 @@ game ft
 	weapon rocket_launcher 10
 	weapon shaft 50
 	weapon pncr 5
-	weapon grenade_launcher 3
+	weapon void_cannon 15
 }
 
 game ftc
@@ -965,7 +948,7 @@ game ftc
 	weapon rocket_launcher 10
 	weapon shaft 50
 	weapon pncr 5
-	weapon grenade_launcher 3
+	weapon void_cannon 15
 }
 
 game survival
@@ -973,8 +956,6 @@ game survival
 	map su_halloween_2020
 	
 	setting game_pve 1
-	setting net_server_hitscan 0
-	setting net_max_backwards_reconciliation_ping 0
 	setting game_truce_time 0
 	setting game_countdown 3
 	setting game_round_countdown 15
@@ -1290,10 +1271,17 @@ game shaft
 }
 game grenade_launcher
 {	
-	weapon grenade_launcher 10
+	weapon grenade_launcher 5
+	weapon sword 999
+}
+game void_cannon
+{	
+	weapon void_cannon 25
 	weapon sword 999
 }
 
 //
 //METAMODES OVER
 //
+
+

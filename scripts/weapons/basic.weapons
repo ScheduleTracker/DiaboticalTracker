@@ -55,6 +55,7 @@ blaster
 	combo_rate	pncr  100
 //	combo_rate	blaster 110
 	combo_rate	grenade_launcher 100
+	combo_rate	void_cannon 100
 
 	
 //IMPACT DECAL
@@ -146,12 +147,13 @@ super_shotgun
 	max_damage_reward true
 
 	combo_rate	machinegun 850
-//	combo_rate  super_shotgun 650
+	combo_rate  super_shotgun_secondary 1000
 	combo_rate	shaft 850
 	combo_rate	rocket_launcher 850
 	combo_rate	pncr 850
 	combo_rate	blaster 850
 	combo_rate	grenade_launcher 850
+	combo_rate	void_cannon 850
 	
 	shot_particles empty_system
   	shot_particles_attached sg_tier_2_muzzle
@@ -235,6 +237,7 @@ shaft
 	combo_rate	pncr 100
 	combo_rate	blaster 100
 	combo_rate	grenade_launcher 100
+	combo_rate	void_cannon 100
 	
 	
 	missile_particles vc_bullet
@@ -331,10 +334,11 @@ rocket_launcher
 	combo_rate	machinegun 750
 	combo_rate  super_shotgun 750
 	combo_rate	shaft 750
-//	combo_rate	rocket_launcher 900
+	combo_rate	rocket_launcher_secondary 800
 	combo_rate	pncr 750
 	combo_rate	blaster 750
 	combo_rate	grenade_launcher 750
+	combo_rate	void_cannon 750	
 	
 	shot_particles empty_system
    	shot_particles_attached rl_muzzle_v2
@@ -424,6 +428,7 @@ crossbow
 	combo_rate	pncr  800
 	combo_rate	blaster 800
 	combo_rate	grenade_launcher 800
+	combo_rate	void_cannon 800
 	
 	shot_particles empty_system
    	shot_particles_attached crossbow_muzzle
@@ -515,6 +520,7 @@ pncr
 //	combo_rate	pncr 
 	combo_rate	blaster 1450
 	combo_rate	grenade_launcher 1450
+	combo_rate	void_cannon 1450
 	
 	shot_particles pncr_projectile_particles
 	shot_particles_attached pncr_muzzle_particles
@@ -613,6 +619,7 @@ machinegun
 	combo_rate	pncr  50
 	combo_rate	blaster 50
 	combo_rate	grenade_launcher 50
+	combo_rate	void_cannon 50
 
 	loop_animation true
 
@@ -710,6 +717,7 @@ grenade_launcher
 	combo_rate	pncr 875
 	combo_rate	blaster 875
 	combo_rate	grenade_launcher 875
+	combo_rate	void_cannon 875
 	
 	shot_particles empty_system
    	shot_particles_attached gl_muzzle
@@ -752,4 +760,357 @@ grenade_launcher
 	out_of_ammo_sound gl_ooa
 	
 	detached_shot_particles false
+	team_colored_trail true
+}
+
+////////////////////////////////
+//////SUPER SHOTGUN SECONDARY
+////////////////////////////////
+super_shotgun_secondary
+{	
+	respawn_time 9
+	weapon_tag sss
+	color 9bc44d
+	default_ammo_pickup_ammo 10
+	default_weapon_pickup_ammo 15
+	max_ammo 40
+	charge_animation 1
+	
+	//COPIED
+	shots_per_round 5
+    spread_ring 1 4
+    spread 0.01
+    spread_radius 40
+
+    bursts 2 0.25
+    
+    rate 1000
+	damage 10
+    speed 2618.18182
+	splash_damage 0
+	min_hits 0
+	bounce 1
+	knockback 6.1
+	ground_knockback 7.1
+	parallel_knockback true
+	impact_particles_distance_delay 0.12
+	independent_upgrade_model true
+	
+	hit_radius 1.7 3
+	
+	
+	group_damage true
+
+	max_damage_reward true
+
+	combo_rate	machinegun 850
+	combo_rate  super_shotgun 1000
+	combo_rate	shaft 850
+	combo_rate	rocket_launcher 850
+	combo_rate	pncr 850
+	combo_rate	blaster 850
+	combo_rate	grenade_launcher 850
+	combo_rate	void_cannon 850
+	
+	shot_particles empty_system
+  	shot_particles_attached sg_tier_2_muzzle
+
+        missile_particles ss_secondary_projectile
+  	impact_particles ss_secondary_impact
+	missile_trail_particles ss_secondary_dynamic_trail
+	
+// IMPACT DECALS
+	decal decal 7 3 3.561 false false alpha 7	 
+	decal decal_glow_red 16 3 3.561 false false alpha 30
+	decal decal_glow 10 3 3.561 false false alpha 50
+	
+	model weaponss
+	model_position 2.5 -3 3.1
+	model_camera_scale 0.5
+	model_scale 0.075
+	model_scale_centered 0.0675
+	model_position_centered -0.15 -2.9 3.4
+	muzzle 2.6 -2.7 4.7
+	fov 40
+	
+		model_scale_third_person 1
+	model_position_third_person -3.2 0 6
+	
+	
+	shot_sound ss_fire1 ss_fire2 ss_fire3 ss_fire4
+	// shot_sound_low_ammo ss_fire_low1 ss_fire_low2 ss_fire_low3 ss_fire_low4
+	// low_ammo_threshold 4
+	equip_sound ss_equip
+	out_of_ammo_sound ss_ooa
+	hit_sound hit_sound_hit1
+	
+	detached_shot_particles false
+	multi_round_particles false
+	
+	//UPGRADE
+	//shots_per_round_2 10
+	//spread_2 3.5
+	unlimited_ammo false
+}
+
+
+////////////////////////////////
+//////ROCKET LAUNCHER SECONDARY
+////////////////////////////////
+
+rocket_launcher_secondary
+{
+	respawn_time 9
+	weapon_tag rls
+	color 9d3329
+ 	//group 3
+	speed 1000
+ 	rate 800
+  	damage 100
+	splash_damage 90
+	
+        ammo_cost 2
+
+	bounce 24
+	duration 3000
+	splash_hemisphere_offset 20
+	default_ammo_pickup_ammo 5
+	default_weapon_pickup_ammo 10
+	max_ammo 25
+	target_indicator true
+	hit_radius 2 1
+
+	gravity 450
+	gravity_pitch_offset 0.1
+	bounce_friction 0.73
+	
+  	splash_radius 120
+	knockback 160
+	knockback_self 160
+	ground_knockback 160
+	ground_knockback_self 160
+	center_of_mass_offset 4
+	center_of_mass_offset_self 0
+	
+	combo_rate	machinegun 875
+	combo_rate  super_shotgun 875
+	combo_rate	shaft 875
+	combo_rate	rocket_launcher 800
+	combo_rate	pncr 875
+	combo_rate	blaster 875
+	combo_rate	grenade_launcher 875
+	combo_rate	void_cannon 875
+	
+	shot_particles empty_system
+   	shot_particles_attached gl_muzzle
+  	missile_particles gl_bullet
+  	impact_particles gl_impact_v2
+	missile_trail_particles gl_bullet_dynamic_trail
+  	
+	//IMPACT DECALS
+
+	decal decal_explosion 100 3 3.561 false false alpha 10
+	decal decal_plasma 100 3 3.561 false false alpha 3
+	decal decal_plasma 175 3 3.561 false false alpha 3
+	decal decal_glow_red 60 3 3.561 false false alpha 25
+	decal decal_glow 35 3 3.561 false false alpha 20
+	model_camera_scale 0.5
+
+	
+	model weaponrl
+	model_scale 0.1
+	model_scale_centered 0.09
+	model_position 2.5 -3.15 3.15
+	model_position_centered 0 -3.1 3.35
+	model_pivot 0 -0.4 0
+	model_camera_scale 0.6
+	muzzle 0 0 0
+	fov 40
+	
+	model_scale_third_person 1.1
+	model_position_third_person 7 -4 28
+	
+	shot_sound gl_fire1 gl_fire2 gl_fire3 gl_fire4
+	// shot_sound_low_ammo gl_fire_low1 gl_fire_low2 gl_fire_low3 gl_fire_low4
+	// low_ammo_threshold 4
+	impact_sound gl_impact1 gl_impact2 gl_impact3 gl_impact4
+	bounce_sound gl_bounce1 gl_bounce2 gl_bounce3 gl_bounce4 gl_bounce5
+	equip_sound gl_equip
+	single_missile_sound gl_airbound1 gl_airbound2 gl_airbound3 gl_airbound4
+	hit_sound hit_sound_hit1
+	hit_sound_min_pitch 0.75
+	out_of_ammo_sound gl_ooa
+	
+	detached_shot_particles false
+	team_colored_trail true
+}
+
+///////////////////////////////////////
+//////VOID CANNON
+///////////////////////////////////////
+void_cannon
+{
+	respawn_time 9
+	bind_group 7
+	weapon_tag vc
+	color ff99aa
+	//group 4
+	damage 30
+	knockback 82.5
+	ground_knockback 95.5
+	default_ammo_pickup_ammo 10
+	default_weapon_pickup_ammo 25
+	max_ammo 40
+    
+    friendly_name Void Cannon
+    description Void Cannon
+	
+	hit_radius 1.5 1
+
+	
+ 	rate 650
+	combo_rate	machinegun 600
+	combo_rate  super_shotgun 600
+	combo_rate	shaft 600
+	combo_rate	rocket_launcher 600
+    combo_rate	pncr 600
+	combo_rate	blaster 600
+	combo_rate	grenade_launcher 600
+	combo_rate	void_cannon_secondary 350
+	
+	
+	shot_particles vc_projectile_particles
+	shot_particles_attached vc_muzzle_particles
+	
+	shot_sound vc_fire1
+	end_sound vc_fire_release
+	shot_sound_low_ammo vc_fire_low1
+	low_ammo_threshold 14
+	missile_loop_sound vc_airbound
+	impact_sound vc_impact1
+	equip_sound vc_equip
+	hit_sound hit_sound_hit1
+	out_of_ammo_sound vc_ooa
+	
+	decal decal 8
+	decal decal_glow_red 16 3 3.561 false false alpha 2.5
+	decal decal_glow_blue 24 3 3.561 false false alpha 5
+	
+	model weaponvc
+	model_scale 0.07
+	model_scale_centered 0.0495
+	model_position 2.5 -3.8 2.35
+	model_position_centered 0 -3.4 2.87
+	model_scale_third_person 0.9
+	model_pivot 0 0.24 0
+	model_position_third_person 0 0 0
+	model_camera_scale 0.55
+	muzzle 2.5 -3.5 6
+	fov 50
+	model_scale_third_person 0.85
+	model_position_third_person -4 14.5 12
+	
+	
+	
+	
+	//light 0.65 0 0 1 4187e5 100
+	//light 0.65 -1.5 1 2 4187e5 50
+	//light 0.65 -1 1 2 4187e5 25
+	//light 0.65 -1 2 2 4187e5 
+	//light 0.5 0 2 6 4187e5 2
+	// DONT USE light 0.5 -0.3 0.8 10 3192ff 5
+	//light 0.5 -1 1 0.5 4187e5 5
+	//light 0.3 -5 2 10 4187e5 25
+	// DO NOT USE light 0.7 0 2 5 3192ff 5
+	//light 0.5 0 1.5 1 4187e5 2
+	//light 0.7 0.18 -1.3 0.7 4187e5 2
+
+		
+	parallel_knockback true
+	
+	shot_sound vc_fire1_default
+	equip_sound w9_equip
+	hit_sound hit_sound_hit1
+	out_of_ammo_sound w9_ooa
+	impact_sound pncr_impact_default1 pncr_impact_default2 pncr_impact_default3 pncr_impact_default4
+
+        can_destroy 2
+}
+
+
+///////////////////////////////////////
+//////VOID CANNON SECONDARY
+///////////////////////////////////////
+
+void_cannon_secondary
+{
+	respawn_time 9
+	weapon_tag vcs
+	color ff99aa
+ 	//group 3
+	//unlimited_ammo true
+	speed 600
+ 	rate 600
+  	damage 30
+	player_hit_only true
+    splash_damage 150
+	splash_radius 200
+	default_ammo_pickup_ammo 10
+	default_weapon_pickup_ammo 25
+	max_ammo 40
+	
+        ammo_cost 2
+
+	center_of_mass_offset 4
+	center_of_mass_offset_self 20
+  	knockback 100
+	ground_knockback 100
+	knockback_self 100
+	ground_knockback_self 100
+	
+	hit_radius 4.4 2
+	
+    //revenge_cost 10
+    //Note this is the name of the upgrade for the shop
+    friendly_name Void Cannon
+    description Pew pew pew
+        
+	model weaponvc
+	combo_rate	machinegun 600
+	combo_rate  super_shotgun 600
+	combo_rate	shaft 600
+	combo_rate	rocket_launcher 600
+    combo_rate	pncr 600
+	combo_rate	blaster 600
+	combo_rate	grenade_launcher 600
+	combo_rate	void_cannon 350
+	
+	decal decal_plasma 30 3 3.561 false false alpha 5
+	//decal decal_plasma 40 3 3.561 false false alpha 5
+	decal decal_glow_blue 25 1.75 3.561 false false alpha 40
+	//decal decal_glow_red 18 3 3.561 false false alpha 30
+
+    loop_animation true
+	
+	shot_particles empty_system
+   	shot_particles_attached w9_muzzle
+  	missile_particles w9_bullet
+  	impact_particles w9_impact_v2
+	
+	shot_sound w9_fire1 w9_fire2 w9_fire3 w9_fire4
+	// shot_sound_low_ammo w9_fire_low1 w9_fire_low2 w9_fire_low3 w9_fire_low4
+	// low_ammo_threshold 4
+	missile_loop_sound w9_airbound
+	proximity_loop_sound w9_idle_loop
+	impact_sound w9_impact1 w9_impact2 w9_impact3 w9_impact4
+	equip_sound w9_equip
+	out_of_ammo_sound w9_ooa
+	activation_sound w9_projectile_activation
+	hit_sound hit_sound_hit1
+	hit_sound_min_pitch 0.75
+	
+	detached_shot_particles false
+
+        can_be_destroyed 2
+
 }

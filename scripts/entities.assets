@@ -220,6 +220,20 @@ asset ammo/blaster
   command add ammobl
 }
 
+asset ammo/grenade_launcher
+{
+  listed true
+  type entity
+  command add ammogl
+}
+
+asset ammo/void_cannon
+{
+  listed true
+  type entity
+  command add ammovc
+}
+
 //WEAPONS
 
 asset weapon/super_shotgun
@@ -283,6 +297,13 @@ asset weapon/machinegun
   listed true
   type entity
   command add weaponmac
+}
+
+asset weapon/void_cannon
+{
+  listed true
+  type entity
+  command add weaponvc
 }
 
 asset weapon/healing_weeball
@@ -460,14 +481,14 @@ asset weaponrl
 	pfx weapon_pickup_pfx_rl
 	pickup_size large
 }
-asset weaponw9
-{
-	pfx weapon_pickup_pfx_w9
-	pickup_size large
-}
 asset weapongl
 {
 	pfx weapon_pickup_pfx_gl
+	pickup_size large
+}
+asset weaponvc
+{
+	pfx weapon_pickup_pfx_w9
 	pickup_size large
 }
 asset weaponmg

@@ -33,6 +33,11 @@ eggbot
 	weapon smoke_weeball
     weapon knock_weeball
 	weapon hook
+	weapon void_cannon
+    //20
+    weapon super_shotgun_secondary
+    weapon rocket_launcher_secondary
+	weapon void_cannon_secondary
     
 
 	
