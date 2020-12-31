@@ -813,7 +813,7 @@ super_shotgun_secondary
 	combo_rate	void_cannon 850
 	
 	shot_particles empty_system
-  	shot_particles_attached sg_tier_2_muzzle
+  	shot_particles_attached sss_tier_2_muzzle
 
         missile_particles ss_secondary_projectile
   	impact_particles ss_secondary_impact
@@ -892,14 +892,14 @@ rocket_launcher_secondary
 	center_of_mass_offset 4
 	center_of_mass_offset_self 0
 	
-	combo_rate	machinegun 875
-	combo_rate  super_shotgun 875
-	combo_rate	shaft 875
+	combo_rate	machinegun 750
+	combo_rate  super_shotgun 750
+	combo_rate	shaft 750
 	combo_rate	rocket_launcher 800
-	combo_rate	pncr 875
-	combo_rate	blaster 875
-	combo_rate	grenade_launcher 875
-	combo_rate	void_cannon 875
+	combo_rate	pncr 750
+	combo_rate	blaster 750
+	combo_rate	grenade_launcher 750
+	combo_rate	void_cannon 750
 	
 	shot_particles empty_system
    	shot_particles_attached gl_muzzle
@@ -958,9 +958,11 @@ void_cannon
 	damage 30
 	knockback 82.5
 	ground_knockback 95.5
+    default_ammo 25
 	default_ammo_pickup_ammo 10
 	default_weapon_pickup_ammo 25
 	max_ammo 40
+
     
     friendly_name Void Cannon
     description Void Cannon
@@ -976,7 +978,7 @@ void_cannon
     combo_rate	pncr 600
 	combo_rate	blaster 600
 	combo_rate	grenade_launcher 600
-	combo_rate	void_cannon_secondary 350
+	combo_rate	void_cannon_secondary 600
 	
 	
 	shot_particles vc_projectile_particles
@@ -1050,7 +1052,7 @@ void_cannon_secondary
  	//group 3
 	//unlimited_ammo true
 	speed 600
- 	rate 600
+ 	rate 650
   	damage 30
 	player_hit_only true
     splash_damage 150
@@ -1083,7 +1085,7 @@ void_cannon_secondary
     combo_rate	pncr 600
 	combo_rate	blaster 600
 	combo_rate	grenade_launcher 600
-	combo_rate	void_cannon 350
+	combo_rate	void_cannon 600
 	
 	decal decal_plasma 30 3 3.561 false false alpha 5
 	//decal decal_plasma 40 3 3.561 false false alpha 5

@@ -151,13 +151,16 @@ weapon9_projectile_spark2
 
 weapon9_bullet_light base_light_impact
 {
-	
-	lifetime 0
-	system_light_radius 75	
+	advance 0.05
+	lifetime 2
+	system_light_radius 300	
+	system_light_intensity 4.5
+	system_light_falloff 0
 	velocity 0 0 0
 	//position 0 50 0
 	system_light_color 3 .6 5	
 }
+
 weapon9_projectile_embers base_smoke_trail
 {
 	advance 1

@@ -677,6 +677,9 @@ game ctf
 	map ctf_cathedral
 	map ctf_dojo
 	map ctf_quarry
+	map ctf_qunai_peaks
+	map ctf_cliffside_canyons
+	map ctf_titans_crossing
 
 	
 	weapon sword 999
@@ -806,6 +809,8 @@ game tdmc
 	map tdm_icefall
 	map tdm_oxide
 	map tdm_alchemy
+	map duel_perilous
+	map duel_kasbah
 	
 	weapon sword 999
 	weapon machinegun 100
