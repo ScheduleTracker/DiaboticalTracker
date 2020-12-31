@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		821
 scripts\base.enemy		543
-scripts\base.games		26396
+scripts\base.games		26510
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -136,7 +136,7 @@ scripts\particles\slow_weeble_impact.particles		3768
 scripts\particles\smoke.particles		995
 scripts\particles\smoke_weeble.particles		3347
 scripts\particles\spawn.particles		4765
-scripts\particles\ss_secondary.particles		6129
+scripts\particles\ss_secondary.particles		19408
 scripts\particles\sword.particles		1502
 scripts\particles\testdisp.particles		317
 scripts\particles\testing.particles		4586
@@ -150,7 +150,7 @@ scripts\particles\vc_muzzle.particles		5665
 scripts\particles\vc_muzzle_v2.particles		949
 scripts\particles\vc_muzzle_v3.particles		2659
 scripts\particles\void_cannon_particles.particles		5153
-scripts\particles\w9_bullet.particles		5622
+scripts\particles\w9_bullet.particles		5691
 scripts\particles\w9_decorative.particles		2199
 scripts\particles\w9_impact _v2.particles		16011
 scripts\particles\w9_impact.particles		8959
@@ -234,7 +234,7 @@ scripts\trailerclips.movies-example		2569
 scripts\ui.sounds		117
 scripts\water_temple_materials.assets		876
 scripts\weapons\abilities.weapons		1259
-scripts\weapons\basic.weapons		29406
+scripts\weapons\basic.weapons		29430
 scripts\weapons\br.weapons		5927
 scripts\weapons\melee.weapons		798
 scripts\weapons\modes.weapons		49

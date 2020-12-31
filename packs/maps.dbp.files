@@ -44,10 +44,17 @@ maps\b_wellspring.rbe		4113330
 maps\ctf_cathedral-b.png		3556
 maps\ctf_cathedral-h.png		11780
 maps\ctf_cathedral.rbe		7469297
+maps\ctf_cliffside_canyons-b.png		63656
+maps\ctf_cliffside_canyons-h.png		394826
+maps\ctf_cliffside_canyons.rbe		2933093
 maps\ctf_dojo-b.png		9194
 maps\ctf_dojo-h.png		376892
 maps\ctf_dojo.rbe		5228741
 maps\ctf_quarry.rbe		9744360
+maps\ctf_qunai_peaks-b.png		61830
+maps\ctf_qunai_peaks-h.png		260521
+maps\ctf_qunai_peaks.rbe		4384439
+maps\ctf_titans_crossing.rbe		611309
 maps\duel_bioplant-b.png		6036
 maps\duel_bioplant-h.png		251674
 maps\duel_bioplant.rbe		1379860
@@ -60,7 +67,7 @@ maps\duel_frontier.rbe		2247875
 maps\duel_kasbah.rbe		3593646
 maps\duel_monolith.rbe		3495475
 maps\duel_outpost_dunia.rbe		2930476
-maps\duel_perilous.rbe		4992973
+maps\duel_perilous.rbe		5027608
 maps\duel_skybreak.rbe		1830760
 maps\example-b.png		2277
 maps\example-h.png		8528

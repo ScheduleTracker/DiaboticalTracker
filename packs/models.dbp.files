@@ -346,7 +346,7 @@ models\eggbot_v2_merged.fbx		3609664
 models\eggbot_v2_separated.dbm		1378525
 models\eggbot_v2_separated.fbx		3637771
 models\entities\ammo_boxes\ammo_boxes.assets		708
-models\entities\ammo_boxes\ammo_boxes.shader		11328
+models\entities\ammo_boxes\ammo_boxes.shader		14156
 models\entities\ammo_boxes\ammo_boxes_c.png.dds		1398260
 models\entities\ammo_boxes\ammo_boxes_d.png.dds		1398276
 models\entities\ammo_boxes\ammo_boxes_i.png.dds		1398260
@@ -367,13 +367,14 @@ models\entities\ammo_boxes\ammoshaft.dbm		61271
 models\entities\ammo_boxes\ammoshaft.fbx		61456
 models\entities\ammo_boxes\ammoss.dbm		28391
 models\entities\ammo_boxes\ammoss.fbx		35360
+models\entities\ammo_boxes\ammovc.dbm		173098
 models\entities\ammo_boxes\ammovc.fbx		155520
-models\entities\ammo_boxes\ammovc.shader		1438
-models\entities\ammo_boxes\ammovc_d.png		38567
-models\entities\ammo_boxes\ammovc_n.png		75675
+models\entities\ammo_boxes\ammovc.shader		4
+models\entities\ammo_boxes\ammovc_d.png.dds		87556
+models\entities\ammo_boxes\ammovc_n.png.dds		87556
 models\entities\ammo_boxes\ammovc_old.dbm		64607
 models\entities\ammo_boxes\ammovc_old.fbx		39008
-models\entities\ammo_boxes\ammovc_s.png		19204
+models\entities\ammo_boxes\ammovc_s.png.dds		87556
 models\entities\ammo_boxes\backup\ammodf.dbm		53409
 models\entities\ammo_boxes\backup\ammodf.fbx		54304
 models\entities\ammo_boxes\crossbow_bolt.dbm		10639
