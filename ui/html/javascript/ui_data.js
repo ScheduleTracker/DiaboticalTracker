@@ -145,6 +145,7 @@ var global_item_name_map = {
     "ammopncr":     ["#1fa8b6", "ammo_pncr",                    "images/weapon_pncr.svg",          "ammo"],
     "ammomac":      ["#cc791d", "ammo_machinegun",              "images/weapon_mac.svg",           "ammo"],
     "ammogl":       ["#9d3329", "ammo_grenades",                "images/weapon_gl.svg",            "ammo"],
+    "ammovc":       ["#ff99aa", "ammo_void_cannon",             "images/weapon_vc.svg",            "ammo"],
     "editpad":      ["#555555", "tool_editpad",                 "images/weapon_editpad.svg",       "special"],
 };
 

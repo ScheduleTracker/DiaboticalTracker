@@ -114,7 +114,7 @@ function learn_screen_initialize_tab_weapons() {
 
     var relevantWeapons = {
         'weaponmelee':  {'script_key': 'sword',
-                        'entries': {'damage': 'damage', 
+                        'primary': {'damage': 'damage', 
                                     'fire_interval': 'rate', 
                                     'dps': '',
                                     'range': 'distance',
@@ -124,7 +124,7 @@ function learn_screen_initialize_tab_weapons() {
                         'description': 'Despite its short reach, decent damage and large knockback make this a valuable weapon nonetheless. Requiring no ammunition to fire, your Melee weapon is always ready to help you push away those who would invade your personal space, and cause enemies to think twice before approaching, lest they be punted half a league to their doom.'
                         },
         'weaponmac':    {'script_key': 'machinegun',
-                        'entries': {'damage': 'damage', 
+                        'primary': {'damage': 'damage', 
                                     'fire_interval': 'rate', 
                                     'dps': '',
                                     'knockback': 'ground_knockback',
@@ -138,7 +138,7 @@ function learn_screen_initialize_tab_weapons() {
                         'description': 'The standard starting weapon and a handy all range gun for slowly chipping away at your opponent. Though it is recommended you seek out other, stronger weapons for tackling healthy opponents, the Machine Gun can be a useful tool to support allies and return fire in a pinch.'
                         },
         'weaponbl':     {'script_key': 'blaster',
-                        'entries': {'damage': 'damage', 
+                        'primary': {'damage': 'damage', 
                                     'fire_interval': 'rate', 
                                     'dps': '',
                                     'projectile_speed': 'speed',
@@ -155,7 +155,7 @@ function learn_screen_initialize_tab_weapons() {
                         'description': 'Casting a flurry of searing hot plasma balls towards your chosen prey, the Blaster is an excellent multi-purpose support weapon. Though difficult to wield with accuracy it boasts an incredibly high maximum DPS that can be put to use at close range, while still outputting good damage at longer ranges if the user can correctly lead their targets.<div>By hugging a wall and firing slightly below yourself while jumping, the blaster can also be used to scale walls and quickly overcome obstacles.</div>'
                         },
         'weaponss':     {'script_key': 'super_shotgun',
-                        'entries': {'damage_per_shot': 'damage',
+                        'primary': {'damage_per_shot': 'damage',
                                     'shots_per_round': 'shots_per_round',
                                     'max_damage': '',
                                     'fire_interval': 'rate', 
@@ -166,13 +166,22 @@ function learn_screen_initialize_tab_weapons() {
                                     'max_ammo': 'max_ammo',
                                     'ammo_respawn_time': ''
                                 },
+                        'secondary': {'damage_per_shot': 'damage',
+                                    'shots_per_round': 'shots_per_round',
+                                    'rounds_per_fire': '',
+                                    'max_damage': '',
+                                    'burst_interval': '',
+                                    'fire_interval': 'rate', 
+                                    'max_dps': '',
+                                    'knockback': 'ground_knockback'
+                                },
                         'weapon_image': '/html/images/entities/weaponss.png.dds',
                         'ammo_image': '/html/images/entities/ammoss.png.dds',
-                        'description': 'Superseding its less super sibling completely, this trusty burst damage weapon will eat great chunks of damage from your opponents especially at point blank range. <div>Best used at short to medium range, a good solid hit or two of the Super Shotgun can dispatch all but the most well prepared foe, provided you can get close enough.</div>'
+                        'description': 'Superseding its less super sibling completely, this trusty burst damage weapon will eat great chunks of damage from your opponents especially at point blank range. <div>With a primary fire best used at short to medium range, a good solid hit or two of the Super Shotgun can dispatch all but the most well prepared foe.</div><div>Alternatively, masters of geometry can use the bouncing double-burst secondary fire to hit opponents further away or even around corners.'
                         },
         'weaponrl':     {'script_key': 'rocket_launcher',
-                        'entries': {'damage': 'damage', 
-                                    'fire_interval': 'rate', 
+                        'primary': {'damage': 'damage',
+                                    'fire_interval': 'rate',
                                     'dps': '',
                                     'projectile_speed': 'speed',
                                     'splash_radius': 'splash_radius',
@@ -183,12 +192,22 @@ function learn_screen_initialize_tab_weapons() {
                                     'max_ammo': 'max_ammo',
                                     'ammo_respawn_time': ''
                                 },
+                        'secondary': {'damage': 'damage', 
+                                    'fire_interval': 'rate',                                    
+                                    'ammo_cost': 'ammo_cost', 
+                                    'dps': '',
+                                    'projectile_speed': 'speed',
+                                    'splash_radius': 'splash_radius',
+                                    'splash_damage': '',
+                                    'knockback': 'ground_knockback',
+                                    'fuse_time': 'duration'
+                                },
                         'weapon_image': '/html/images/entities/weaponrl.png.dds',
                         'ammo_image': '/html/images/entities/ammorl.png.dds',
-                        'description': "The Rocket Launcher is a high damage, close-range weapon with great utility. Use in direct combat to bounce targets around to set up consecutive shots or attempt combination kills. Try to anticipate your opponent's movements around the map, as a well placed prediction rocket can unnerve even the most experienced combatant.<div>By firing at the ground and jumping at the same time, you can also propel yourself across great vertical distances with the knockback of your own rocket.</div>"
+                        'description': "The Rocket Launcher is a high damage, close-range weapon with great utility. Use in direct combat to bounce targets around to set up consecutive shots or attempt combination kills. Try to anticipate your opponent's movements around the map, as a well placed prediction rocket can unnerve even the most experienced combatant.<div>By firing at the ground and jumping at the same time, you can also propel yourself across great vertical distances with the knockback of your own rocket.</div><div>Now featuring arcing secondary fire grenades, the Rocket Launcher is also potent area denial tool that can punish overly aggressive or careless opponents who push without thought.</div>"
                         },
         'weaponshaft':  {'script_key': 'shaft',
-                        'entries': {'damage': 'damage', 
+                        'primary': {'damage': 'damage', 
                                     'fire_interval': 'rate', 
                                     'dps': '',
                                     'knockback': 'ground_knockback',
@@ -199,11 +218,11 @@ function learn_screen_initialize_tab_weapons() {
                                 },
                         'weapon_image': '/html/images/entities/weaponshaft.png.dds',
                         'ammo_image': '/html/images/entities/ammoshaft.png.dds',
-                        'description': 'A medium range instant hit beam weapon with an incredible rate of fire, the Shaft allows you to control the space around you and impose your authority over your opponents. <div>Attempt to blast the paint from your enemies and, if you can expertly track their movements as they try to squirm and dodge, burn through to their very core.</div><div>Warning: Passive buzzing sound emitted by coil can be heard by nearby enemies.</div>',
-                        'flavour_text': 'In certain societies the shaft is an object of worship, in which prestige is gained through the impressiveness of ones shaft'
+                        'description': 'A medium range instant hit beam weapon with an incredible rate of fire, the Shaft allows you to control the space around you and impose your authority over your opponents. <div>Attempt to blast the paint from your enemies and, if you can expertly track their movements as they try to squirm and dodge, burn through to their very core.</div><div>Warning: Passive buzzing sound emitted by coil can be heard by nearby enemies.</div>'
                         },
+        /*
         'weaponcb':     {'script_key': 'crossbow',
-                        'entries': {'damage': 'damage', 
+                        'primary': {'damage': 'damage', 
                                     'fire_interval': 'rate', 
                                     'dps': '',
                                     'projectile_speed': 'speed',
@@ -217,8 +236,9 @@ function learn_screen_initialize_tab_weapons() {
                         'ammo_image': '/html/images/entities/ammopncr.png.dds',
                         'description': "An ancient stick and string weapon brought to the modern age, the Crossbow fires an arcing projectile that increases in damage the further it travels. Compensate for gravity and aim true to poke your opponents full of holes. <div>This weapon upgrades into the Point'n'Click Rifle.</div>"
                         },
+        */
         'weaponpncr':   {'script_key': 'pncr',
-                        'entries': {'base_damage': 'damage',
+                        'primary': {'base_damage': 'damage',
                                     'bonus_damage_per_hit': 'bonus_consecutive_damage',
                                     'max_damage': '',
                                     'fire_interval': 'rate', 
@@ -233,8 +253,31 @@ function learn_screen_initialize_tab_weapons() {
                         'description': "No instruction needed as it’s all in the name, often abbreviated to simply PnCR (pronounced Pincer), the Point'n'Click Rifle is a long range instant hit weapon that rewards accurate aiming. Damage mounts with consecutive hits to the maximum, but resets as soon as a miss is registered.<div>Warning: Loud electromagnetic hum will give away position to opponents listening carefully.</div>",
                         'flavour_text': 'Sometimes the PnCR is referred to as the RAiL due to claims it may have Random Accuracy if Losing'
                         },
+        'weaponvc':     {'script_key': 'void_cannon',
+                        'primary': {'damage': 'damage', 
+                                    'fire_interval': 'rate', 
+                                    'dps': '',
+                                    'knockback': 'ground_knockback',
+                                    'starting_ammo': 'default_weapon_pickup_ammo',
+                                    'ammo_pickup': 'default_ammo_pickup_ammo',
+                                    'max_ammo': 'max_ammo',
+                                    'ammo_respawn_time': ''
+                                },
+                        'secondary': {'damage': 'damage', 
+                                    'fire_interval': 'rate',                                    
+                                    'ammo_cost': 'ammo_cost', 
+                                    'dps': '',
+                                    'projectile_speed': 'speed',
+                                    'combo_damage': 'splash_damage',
+                                    'combo_radius': 'splash_radius'
+                                },
+                        'weapon_image': '/html/images/entities/weaponvc.png.dds',
+                        'ammo_image': '/html/images/entities/ammovc.png.dds',
+                        'description': 'Boasting two synergetic fire modes, the Void Cannon rewards both careful prediction and accurate aim. The primary is a rapid firing, low damage beam and the secondary fire shoots out straight gliding orbs of energy. The magic happens when these fire modes are used together by detonating the orb with the beam causing a spectacular high damage explosion.<div>Allowing you to lock down corners and make opponents think twice before rushing through corridors, an expertly placed combo will shock any overconfident foe.</div>'
+                        },
+        /*
         'weapongl':     {'script_key': 'grenade_launcher',
-                        'entries': {'damage': 'damage', 
+                        'primary': {'damage': 'damage', 
                                     'fire_interval': 'rate', 
                                     'dps': '',
                                     'projectile_speed': 'speed',
@@ -251,13 +294,11 @@ function learn_screen_initialize_tab_weapons() {
                         'ammo_image': '/html/images/entities/ammogl.png.dds',
                         'description': "Make any room a no-go zone by flooding it with grenades or conserve your ammunition and attempt to master their arcing, bouncing path. The Grenade Launcher is an excellent area denial tool which can be used to punish overly aggressive or careless opponents who push without thought."
                         }
+        */
     };
     
     function generate_weapons_content(item){
-        var currentWeapon = relevantWeapons[item].script_key;
-        if(!global_weapon_data.hasOwnProperty(currentWeapon)){return};
-
-        var entriesObject = relevantWeapons[item].entries;
+        if(!global_weapon_data.hasOwnProperty(relevantWeapons[item].script_key)){return};
         var entriesList = weaponList;
         
         //create list item
@@ -268,160 +309,206 @@ function learn_screen_initialize_tab_weapons() {
         //create info screens
         let infoItem = _createElement("div", "learn_screen_weapon_item"); //each weapons own page
 
-        let weaponInfoContainer = _createElement("div");
+        let primaryWeaponInfoContainer = _createElement("div");
+        let secondaryWeaponInfoContainer = _createElement("div");
+        
+        if(relevantWeapons[item].hasOwnProperty("secondary")){
+
+            secondaryWeaponInfoContainer.style.marginTop = '2vh';
+
+            for(let fireMode of ['primary', 'secondary']){
+                let fireModeTitleContainer = _createElement("div", ["learn_screen_row_container", "title"]);
+                let fireModeTitle = _createElement("div", "learn_screen_weapon_title", localize("learn_screen_" + fireMode + "_fire").toUpperCase());
+                let accentLine = _createElement("div", "learn_screen_weapon_accent_line");
+                fireModeTitleContainer.appendChild(fireModeTitle);
+                fireModeTitleContainer.appendChild(accentLine);
+                if(fireMode == 'primary'){primaryWeaponInfoContainer.appendChild(fireModeTitleContainer);}
+                else{secondaryWeaponInfoContainer.appendChild(fireModeTitleContainer);}
+            }
+        }
         
         let ammoInfoTextContainer = _createElement("div");
         
         weaponInfoWrapper.appendChild(infoItem);
         infoItem.style.display = "none";
+        
+        function generate_weapon_info_rows(entriesObject, weaponInfoContainer, currentWeapon){
+            //Preprocess damage entries to handle cases with multiple damage ranges
+            var updateDamage = false;
+            var addAirKnockback = false;
+            var addSelfKnockback = false;
 
-        //Preprocess damage entries to handle cases with multiple damage ranges
-        var updateDamage = false;
-        var addAirKnockback = false;
-        var addSelfKnockback = false;
-
-        if (Object.values(entriesObject).indexOf('damage') >= 0){ //do this here to reconstruct labels if we have min/max damage automatically (e.g. balance patch)
-            if (global_weapon_data[currentWeapon].damage.split(' ').length == 2) { //min/max damage
-                if (global_weapon_data[currentWeapon].damage.split(' ')[0] == global_weapon_data[currentWeapon].damage.split(' ')[1]) {
-                    let actualDamage = global_weapon_data[currentWeapon].damage.split(' ')[0];
-                    global_weapon_data[currentWeapon].damage = actualDamage;
-                }
-                else{ //if min =/= max
-                    updateDamage = true;
-                }
-            }
-        }
-
-        if (Object.keys(entriesObject).indexOf('knockback') >= 0){ //if we use knockback, check knockback variants to see if they are required
-            if (global_weapon_data[currentWeapon].hasOwnProperty('knockback')) { //air knockback
-                if(global_weapon_data[currentWeapon].ground_knockback != global_weapon_data[currentWeapon].knockback){
-                    addAirKnockback = true;
-                }
-            }
-            if (global_weapon_data[currentWeapon].hasOwnProperty('ground_knockback_self')) { //air knockback
-                if(global_weapon_data[currentWeapon].ground_knockback != global_weapon_data[currentWeapon].ground_knockback_self){
-                    addSelfKnockback = true;
-                }
-            }
-        }
-
-        if(updateDamage || addAirKnockback || addSelfKnockback) {
-            var newEntriesObject = {};
-            for (let key in entriesObject){
-                if (key == 'damage' && updateDamage){
-                    newEntriesObject['damage_range'] = '';
-                    newEntriesObject['min_damage_distance'] = 'min_damage_distance';
-                    newEntriesObject['max_damage_distance'] = 'max_damage_distance';
-                }
-                else if (key == 'damage_per_shot' && updateDamage){
-                    newEntriesObject['damage_range_per_shot'] = '';
-                    newEntriesObject['min_damage_distance'] = 'min_damage_distance';
-                    newEntriesObject['max_damage_distance'] = 'max_damage_distance';
-                }
-                else if (key == 'dps' && updateDamage){
-                    newEntriesObject['dps_range'] = '';
-                }
-                else if (key == 'knockback'){
-                    newEntriesObject[key] = entriesObject[key];
-                    if (addAirKnockback){
-                        newEntriesObject['air_knockback'] = 'knockback';
+            if (Object.values(entriesObject).indexOf('damage') >= 0){ //do this here to reconstruct labels if we have min/max damage automatically (e.g. balance patch)
+                if (global_weapon_data[currentWeapon].damage.split(' ').length == 2) { //min/max damage
+                    if (global_weapon_data[currentWeapon].damage.split(' ')[0] == global_weapon_data[currentWeapon].damage.split(' ')[1]) {
+                        let actualDamage = global_weapon_data[currentWeapon].damage.split(' ')[0];
+                        global_weapon_data[currentWeapon].damage = actualDamage;
                     }
-                    if (addSelfKnockback){
-                        newEntriesObject['self_knockback'] = 'ground_knockback_self';
+                    else{ //if min =/= max
+                        updateDamage = true;
                     }
                 }
-                else {
-                    newEntriesObject[key] = entriesObject[key];
+            }
+
+            if (Object.keys(entriesObject).indexOf('knockback') >= 0){ //if we use knockback, check knockback variants to see if they are required
+                if (global_weapon_data[currentWeapon].hasOwnProperty('knockback')) { //air knockback
+                    if(global_weapon_data[currentWeapon].ground_knockback != global_weapon_data[currentWeapon].knockback){
+                        addAirKnockback = true;
+                    }
+                }
+                if (global_weapon_data[currentWeapon].hasOwnProperty('ground_knockback_self')) { //air knockback
+                    if(global_weapon_data[currentWeapon].ground_knockback != global_weapon_data[currentWeapon].ground_knockback_self){
+                        addSelfKnockback = true;
+                    }
                 }
             }
-            entriesObject = newEntriesObject;
+
+            if(updateDamage || addAirKnockback || addSelfKnockback) {
+                var newEntriesObject = {};
+                for (let key in entriesObject){
+                    if (key == 'damage' && updateDamage){
+                        newEntriesObject['damage_range'] = '';
+                        newEntriesObject['min_damage_distance'] = 'min_damage_distance';
+                        newEntriesObject['max_damage_distance'] = 'max_damage_distance';
+                    }
+                    else if (key == 'damage_per_shot' && updateDamage){
+                        newEntriesObject['damage_range_per_shot'] = '';
+                        newEntriesObject['min_damage_distance'] = 'min_damage_distance';
+                        newEntriesObject['max_damage_distance'] = 'max_damage_distance';
+                    }
+                    else if (key == 'dps' && updateDamage){
+                        newEntriesObject['dps_range'] = '';
+                    }
+                    else if (key == 'knockback'){
+                        newEntriesObject[key] = entriesObject[key];
+                        if (addAirKnockback){
+                            newEntriesObject['air_knockback'] = 'knockback';
+                        }
+                        if (addSelfKnockback){
+                            newEntriesObject['self_knockback'] = 'ground_knockback_self';
+                        }
+                    }
+                    else {
+                        newEntriesObject[key] = entriesObject[key];
+                    }
+                }
+                entriesObject = newEntriesObject;
+            }
+
+            for (let label in entriesObject){
+                let cellText = "-"; //if all of our checks fail
+
+                let infoRow = _createElement("div", "learn_screen_weapon_item_row");
+
+                let infoLabel = _createElement("div", "learn_screen_weapon_item_label");
+                let infoLabelText = _createElement("div", "text_container", localize("learn_screen_" + label));
+                infoLabel.appendChild(infoLabelText);
+
+                let infoCell = _createElement("div", "learn_screen_weapon_item_cell");
+
+                if(global_weapon_data[currentWeapon].hasOwnProperty(entriesObject[label])) {
+                    cellText = global_weapon_data[currentWeapon][entriesObject[label]];
+                }
+                if(label == 'fire_interval'){
+                    cellText += ' ms';
+                }
+                if(label == 'rounds_per_fire'){
+                    cellText = global_weapon_data[currentWeapon].bursts.split(' ')[0];
+                }
+                if(label == 'burst_interval'){
+                    cellText = _clean_float(100*parseFloat(global_weapon_data[currentWeapon].bursts.split(' ')[1])) + "ms";
+                }
+                else if(label == 'max_damage'){
+                    if(global_weapon_data[currentWeapon].hasOwnProperty('bursts')){//shotgun secondary max damage
+                        let damageArray = global_weapon_data[currentWeapon].damage.split(' ')
+                        let maxDamage = damageArray.length == 2 ? Math.max(parseFloat(damageArray[0]), parseFloat(damageArray[1])) : parseFloat(damageArray[0]); //in case there is drop off
+                        cellText = _clean_float(parseFloat(maxDamage) * parseFloat(global_weapon_data[currentWeapon].shots_per_round) * parseFloat(global_weapon_data[currentWeapon].bursts.split(' ')[0]));
+                    }
+                    else if(global_weapon_data[currentWeapon].hasOwnProperty('shots_per_round')){ //shotgun max damage
+                        let damageArray = global_weapon_data[currentWeapon].damage.split(' ')
+                        let maxDamage = damageArray.length == 2 ? Math.max(parseFloat(damageArray[0]), parseFloat(damageArray[1])) : parseFloat(damageArray[0]); //in case there is drop off
+                        cellText = _clean_float(parseFloat(maxDamage) * parseFloat(global_weapon_data[currentWeapon].shots_per_round));
+                    } 
+                    else if(global_weapon_data[currentWeapon].hasOwnProperty('bonus_consecutive_damage')){ //pncr max damage
+                        let baseDamage = parseFloat(global_weapon_data[currentWeapon].damage);
+                        let bonusConsecutiveDamage = parseFloat(global_weapon_data[currentWeapon].bonus_consecutive_damage);
+                        let maxBonusConsecutiveDamageInstances = parseFloat(global_weapon_data[currentWeapon].max_bonus_consecutive_damage_instances);
+                        cellText = _clean_float(baseDamage + (bonusConsecutiveDamage * maxBonusConsecutiveDamageInstances));
+                    } 
+                }
+                else if(label == 'dps'){
+                    cellText = _clean_float(parseFloat(global_weapon_data[currentWeapon].damage) * 1000 / parseFloat(global_weapon_data[currentWeapon].rate)); 
+                }
+                else if(label == 'max_dps'){ //we have this if we have shots_per_round or rounds_per__fire
+                    if(global_weapon_data[currentWeapon].hasOwnProperty('bursts')){
+                        let damageArray = global_weapon_data[currentWeapon].damage.split(' ')
+                        let maxDamage = damageArray.length == 2 ? Math.max(parseFloat(damageArray[0]), parseFloat(damageArray[1])) : parseFloat(damageArray[0]);
+                        cellText = _clean_float(maxDamage * parseFloat(global_weapon_data[currentWeapon].shots_per_round * parseFloat(global_weapon_data[currentWeapon].bursts.split(' ')[0])) * 1000 / parseFloat(global_weapon_data[currentWeapon].rate)); 
+                    }
+                    else{
+                        let damageArray = global_weapon_data[currentWeapon].damage.split(' ')
+                        let maxDamage = damageArray.length == 2 ? Math.max(parseFloat(damageArray[0]), parseFloat(damageArray[1])) : parseFloat(damageArray[0]);
+                        cellText = _clean_float(maxDamage * parseFloat(global_weapon_data[currentWeapon].shots_per_round) * 1000 / parseFloat(global_weapon_data[currentWeapon].rate)); 
+                    }
+                }
+                else if(label == 'range'){
+                    cellText += ' u';
+                }
+                else if(label == 'projectile_speed'){
+                    cellText = _clean_float(global_weapon_data[currentWeapon].speed) + ' ups';
+                }
+                else if(label == 'damage_range' || label == 'damage_range_per_shot'){
+                    cellText = global_weapon_data[currentWeapon].damage.split(' ')[0] + " - " + global_weapon_data[currentWeapon].damage.split(' ')[1];
+                }
+                else if(label == 'min_damage_distance'){
+                    let inequality = parseFloat(global_weapon_data[currentWeapon].min_damage_distance) > parseFloat(global_weapon_data[currentWeapon].max_damage_distance) ? "> " : "< ";
+                    cellText = inequality + cellText + " u";
+                }
+                else if(label == 'max_damage_distance'){
+                    let inequality = parseFloat(global_weapon_data[currentWeapon].min_damage_distance) > parseFloat(global_weapon_data[currentWeapon].max_damage_distance) ? "< " : "> ";
+                    cellText = inequality + cellText + " u";
+                }
+                else if(label == 'dps_range'){
+                    cellText = _clean_float(parseFloat(global_weapon_data[currentWeapon].damage.split(' ')[0]) * 1000 / parseFloat(global_weapon_data[currentWeapon].rate));
+                    cellText += " - ";
+                    cellText += _clean_float(parseFloat(global_weapon_data[currentWeapon].damage.split(' ')[1]) * 1000 / parseFloat(global_weapon_data[currentWeapon].rate)); 
+                }
+                else if(label == 'fuse_time'){
+                    cellText += ' ms';
+                }
+                else if(label == 'splash_radius'){
+                    cellText += ' u';
+                }
+                else if(label == 'combo_radius'){
+                    cellText += ' u';
+                }
+                else if(label == 'splash_damage'){
+                    let minSplash = global_weapon_data[currentWeapon].hasOwnProperty('min_splash_damage') ? global_weapon_data[currentWeapon].min_splash_damage : 1;
+                    let maxSplash = global_weapon_data[currentWeapon].hasOwnProperty('splash_damage') ? global_weapon_data[currentWeapon].splash_damage : global_weapon_data[currentWeapon].damage;
+                    cellText = minSplash + " - " + maxSplash;
+                }
+                else if(label == 'ammo_respawn_time'){
+                    cellText = '25s';
+                }
+
+                let infoCellText = _createElement("div", "text_container", cellText);
+                infoCell.appendChild(infoCellText);
+
+                if(label == 'starting_ammo' || label == 'ammo_pickup' || label == 'max_ammo' || label == 'ammo_respawn_time'){
+                    ammoInfoTextContainer.appendChild(infoRow);
+                }
+                else {weaponInfoContainer.appendChild(infoRow);}
+                
+                infoRow.appendChild(infoLabel);
+                infoRow.appendChild(infoCell);
+            }
         }
 
-        for (let label in entriesObject){
-            let cellText = "-"; //if all of our checks fail
+        generate_weapon_info_rows(relevantWeapons[item].primary, primaryWeaponInfoContainer, relevantWeapons[item].script_key);
 
-            let infoRow = _createElement("div", "learn_screen_weapon_item_row");
-
-            let infoLabel = _createElement("div", "learn_screen_weapon_item_label");
-            let infoLabelText = _createElement("div", "text_container", localize("learn_screen_" + label));
-            infoLabel.appendChild(infoLabelText);
-
-            let infoCell = _createElement("div", "learn_screen_weapon_item_cell");
-
-            if(global_weapon_data[currentWeapon].hasOwnProperty(entriesObject[label])) {
-                cellText = global_weapon_data[currentWeapon][entriesObject[label]];
-            }
-            if(label == 'fire_interval'){
-                cellText += ' ms';
-            }
-            else if(label == 'max_damage'){
-                if(global_weapon_data[currentWeapon].hasOwnProperty('shots_per_round')){ //shotgun max damage
-                    let damageArray = global_weapon_data[currentWeapon].damage.split(' ')
-                    let maxDamage = damageArray.length == 2 ? Math.max(parseFloat(damageArray[0]), parseFloat(damageArray[1])) : parseFloat(damageArray[0]);
-                    cellText = _clean_float(parseFloat(maxDamage) * parseFloat(global_weapon_data[currentWeapon].shots_per_round));
-                } 
-                else if(global_weapon_data[currentWeapon].hasOwnProperty('bonus_consecutive_damage')){ //pncr max damage
-                    let baseDamage = parseFloat(global_weapon_data[currentWeapon].damage);
-                    let bonusConsecutiveDamage = parseFloat(global_weapon_data[currentWeapon].bonus_consecutive_damage);
-                    let maxBonusConsecutiveDamageInstances = parseFloat(global_weapon_data[currentWeapon].max_bonus_consecutive_damage_instances);
-                    cellText = _clean_float(baseDamage + (bonusConsecutiveDamage * maxBonusConsecutiveDamageInstances));
-                } 
-            }
-            else if(label == 'dps'){
-                cellText = _clean_float(parseFloat(global_weapon_data[currentWeapon].damage) * 1000 / parseFloat(global_weapon_data[currentWeapon].rate)); 
-            }
-            else if(label == 'max_dps'){ //we have this if we have shots_per_round
-                let damageArray = global_weapon_data[currentWeapon].damage.split(' ')
-                let maxDamage = damageArray.length == 2 ? Math.max(parseFloat(damageArray[0]), parseFloat(damageArray[1])) : parseFloat(damageArray[0]);
-                cellText = _clean_float(maxDamage * parseFloat(global_weapon_data[currentWeapon].shots_per_round) * 1000 / parseFloat(global_weapon_data[currentWeapon].rate)); 
-            }
-            else if(label == 'range'){
-                cellText += ' u';
-            }
-            else if(label == 'projectile_speed'){
-                cellText = _clean_float(global_weapon_data[currentWeapon].speed) + ' ups';
-            }
-            else if(label == 'damage_range' || label == 'damage_range_per_shot'){
-                cellText = global_weapon_data[currentWeapon].damage.split(' ')[0] + " - " + global_weapon_data[currentWeapon].damage.split(' ')[1];
-            }
-            else if(label == 'min_damage_distance'){
-                let inequality = parseFloat(global_weapon_data[currentWeapon].min_damage_distance) > parseFloat(global_weapon_data[currentWeapon].max_damage_distance) ? "> " : "< ";
-                cellText = inequality + cellText + " u";
-            }
-            else if(label == 'max_damage_distance'){
-                let inequality = parseFloat(global_weapon_data[currentWeapon].min_damage_distance) > parseFloat(global_weapon_data[currentWeapon].max_damage_distance) ? "< " : "> ";
-                cellText = inequality + cellText + " u";
-            }
-            else if(label == 'dps_range'){
-                cellText = _clean_float(parseFloat(global_weapon_data[currentWeapon].damage.split(' ')[0]) * 1000 / parseFloat(global_weapon_data[currentWeapon].rate));
-                cellText += " - ";
-                cellText += _clean_float(parseFloat(global_weapon_data[currentWeapon].damage.split(' ')[1]) * 1000 / parseFloat(global_weapon_data[currentWeapon].rate)); 
-            }
-            else if(label == 'fuse_time'){
-                cellText += ' ms';
-            }
-            else if(label == 'splash_radius'){
-                cellText += ' u';
-            }
-            else if(label == 'splash_damage'){
-                let minSplash = global_weapon_data[currentWeapon].hasOwnProperty('min_splash_damage') ? global_weapon_data[currentWeapon].min_splash_damage : 1;
-                let maxSplash = global_weapon_data[currentWeapon].hasOwnProperty('splash_damage') ? global_weapon_data[currentWeapon].splash_damage : global_weapon_data[currentWeapon].damage;
-                cellText = minSplash + " - " + maxSplash;
-            }
-            else if(label == 'ammo_respawn_time'){
-                cellText = '25s';
-            }
-
-            let infoCellText = _createElement("div", "text_container", cellText);
-            infoCell.appendChild(infoCellText);
-
-            if(label == 'starting_ammo' || label == 'ammo_pickup' || label == 'max_ammo' || label == 'ammo_respawn_time'){
-                ammoInfoTextContainer.appendChild(infoRow);
-            }
-            else {weaponInfoContainer.appendChild(infoRow);}
-            
-            infoRow.appendChild(infoLabel);
-            infoRow.appendChild(infoCell);
+        if(relevantWeapons[item].hasOwnProperty("secondary")){
+            console.log(relevantWeapons[item].script_key + "_secondary");
+            generate_weapon_info_rows(relevantWeapons[item].secondary, secondaryWeaponInfoContainer, relevantWeapons[item].script_key + "_secondary");
         }
 
         //combo rates - styled with initial styling maybe broken now
@@ -533,7 +620,9 @@ function learn_screen_initialize_tab_weapons() {
         //flavourTextContainer.appendChild(flavourText);
 
         //weapon information rows
-        infoItem.appendChild(weaponInfoContainer);
+        infoItem.appendChild(primaryWeaponInfoContainer);
+
+        infoItem.appendChild(secondaryWeaponInfoContainer);
 
         //infoItem.appendChild(comboRateContainer);
 
@@ -541,7 +630,7 @@ function learn_screen_initialize_tab_weapons() {
         let ammoContainer = _createElement("div");        
         let ammoInfoContainer = _createElement("div", "learn_screen_row_container");
         
-        if(relevantWeapons[item].entries.hasOwnProperty('starting_ammo')){
+        if(relevantWeapons[item].primary.hasOwnProperty('starting_ammo')){
             ammoContainer.style.marginTop = '2vh'; //create gap between ammo and main weapon stats
             ammoInfoContainer.appendChild(ammoInfoTextContainer);
 
@@ -554,7 +643,9 @@ function learn_screen_initialize_tab_weapons() {
             let ammoTitleContainer = _createElement("div", ["learn_screen_row_container", "title"]);
             let ammoTitle = _createElement("div", "learn_screen_weapon_title", localize("learn_screen_ammo").toUpperCase());
             let ammoAccentLine = _createElement("div", "learn_screen_weapon_accent_line");
-            ammoTitleContainer.appendChild(infoAmmoRender);
+            if(relevantWeapons[item].hasOwnProperty('ammo_image')){
+                ammoTitleContainer.appendChild(infoAmmoRender);
+            }
             ammoTitleContainer.appendChild(ammoTitle);
             ammoTitleContainer.appendChild(ammoAccentLine);
 

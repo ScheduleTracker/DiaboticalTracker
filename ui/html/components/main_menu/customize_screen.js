@@ -464,7 +464,7 @@ function customization_load_presets() {
 
     // Setup character rotation controls
     let preview_container = _createElement("div", "preview_container");
-    setup_customization_preview_rotation_listeners(preview_container);
+    setup_customization_preview_rotation_listeners(preview_container, true);
     _empty(global_customization_preview_area);
     global_customization_preview_area.appendChild(preview_container);
 
@@ -1866,9 +1866,9 @@ const ITEM_PREVIEW_CAMERAS = {
 let global_preview_rotate_setup = false;
 let global_preview_rotation_position = {};
 let global_preview_rotation_dragging = false;
-function setup_customization_preview_rotation_listeners(el) {
+function setup_customization_preview_rotation_listeners(el, bind_left_click) {
     el.addEventListener("mousedown", function(e) {
-        if (e.button == 2) {
+        if (e.button == 2 || (e.button == 0 && bind_left_click)) {
             global_preview_rotation_dragging = true;
         }
     });
@@ -1965,7 +1965,7 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
         engine.call("set_preview_shell", id);
         engine.call("set_preview_held_weapon", "mac");
 
-        setup_customization_preview_rotation_listeners(preview_container);
+        setup_customization_preview_rotation_listeners(preview_container, true);
         if (screen != "customize") engine.call("reset_locker_agent_rotation");
     
     } else if (ctype.type == "shield") {
@@ -1981,7 +1981,7 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
         engine.call("set_stage_map_camera", shield_camera);
         engine.call("set_preview_shield_skin", id);
 
-        setup_customization_preview_rotation_listeners(preview_container);
+        setup_customization_preview_rotation_listeners(preview_container, true);
         if (screen != "customize") engine.call("reset_locker_agent_rotation");
 
     } else if (ctype.type == "shoes") {
@@ -2001,7 +2001,7 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
             engine.call("set_preview_shoe", "r", id);
         }
 
-        setup_customization_preview_rotation_listeners(preview_container);
+        setup_customization_preview_rotation_listeners(preview_container, true);
         if (screen != "customize") engine.call("reset_locker_agent_rotation");
     
     } else if (ctype.type == "music") {
@@ -2014,7 +2014,7 @@ function show_customization_preview_scene(screen, ctype, id, customization, cont
         engine.call("on_show_customization_screen", true);
         if (screen == "customize") {
             engine.call("set_preview_held_weapon", "mac");
-            setup_customization_preview_rotation_listeners(preview_container);            
+            setup_customization_preview_rotation_listeners(preview_container, false);
         } else {
             engine.call("set_stage_map_camera", ITEM_PREVIEW_CAMERAS.empty);
         }
