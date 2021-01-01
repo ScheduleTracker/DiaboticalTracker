@@ -1051,7 +1051,7 @@ void_cannon_secondary
 	color ff99aa
  	//group 3
 	//unlimited_ammo true
-	speed 600
+	speed 700
  	rate 650
   	damage 30
 	player_hit_only true
