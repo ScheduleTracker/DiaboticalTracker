@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-c91baf94553f7a28620c29f1867d617ed2fa20e0	anticheat/equ8.db
+747a2b5fd5956e4102c77d9d81633a68fbf668f6	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1703,7 +1703,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-3bf55868d1a959462f4d23b0b71d162579641a3a	diabotical.exe
+cf17099fb5558f791c8b76776716874d9bc22bc5	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1718,7 +1718,7 @@ c19dc70bcfdf668cc678d2ca9534e3b9aa63d412	packs/audio.dbp
 68f127c7d01b61369c0494468c7609e142e18d5f	packs/audio_music.dbp
 4f2c030d93435c1c15eadbef9815e76e0dfda34d	packs/audio_weapons.dbp
 b00fb5dd258ddfcf7a757bbc0ae904c950ac50e3	packs/blocks.dbp
-81c865c1af55ea75fb8a72dbe4086b0929447b1d	packs/maps.dbp
+6dab26ea88db534b66304da4e804e30eee7d86f3	packs/maps.dbp
 04f2c5675c97c604ead03288b3eb12ac1b0c8bb4	packs/models.dbp
 dfbc7bf49cd84ac39c70918b66c864101051e09f	packs/models_dynamic_props.dbp
 dd0b55d0c42c1a3613f7e5678a38ad07e17306cf	packs/models_dynamic_props_industry.dbp
@@ -1736,7 +1736,7 @@ c6ce3fcefda5532eee06065aa7789c4b4839b834	packs/models_weapons_blaster.dbp
 b9500406e33eea2dd36ef781a3da26e901321f02	packs/models_weapons_crossbow.dbp
 79169caebfbec6ccf993c3411d5e99643b60e13e	packs/models_weapons_rocket_launcher.dbp
 81e9b883dced6c71e132b89126893d08ec12edef	packs/models_weapons_shaft.dbp
-b0548315a24c72b8174d0ab5637873725d3b94d3	packs/scripts.dbp
+b54d9045475e8ace7ede52ee69065dda62c1108c	packs/scripts.dbp
 1457470d89314dac485981a9735b350babcf696d	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 b0a18adcde2aa1f73ffc12d7b80dba0a88af4b38	packs/textures_customization.dbp
@@ -5822,6 +5822,8 @@ c625e1faa8b40c707f3e51eca59f47dc53c86ab8	ui/html/customization/avatar/av_32f34ba
 5c6300f33cc62b3c02ee495042d455be8553ca0f	ui/html/customization/avatar/av_337d4d16-afe8-4a2a-87e7-3ccf973da881.png.dds
 a3f5f4b1f654fec1d63b17d51ab4c9f265f1633d	ui/html/customization/avatar/av_33b33886-c8a4-456f-9d7a-f48605aac7de.png
 a36791453b00143314bd756f1f84c07182e234c9	ui/html/customization/avatar/av_33b33886-c8a4-456f-9d7a-f48605aac7de.png.dds
+30518e4810218e0087f1cabc2807b03d0c2ba6c4	ui/html/customization/avatar/av_33f9d448-0e72-4ed1-a980-1ecf84e72350.png
+13ddea928821474e701b305ab5d92b7c9cca5d86	ui/html/customization/avatar/av_33f9d448-0e72-4ed1-a980-1ecf84e72350.png.dds
 849d4c0af60738695da27f0506d8a2828037a10a	ui/html/customization/avatar/av_340ca657-e2e5-4c74-9089-3aed75102296.png
 a570b214cd451a41ed63616c9193ebcb8505551c	ui/html/customization/avatar/av_340ca657-e2e5-4c74-9089-3aed75102296.png.dds
 f021f1594a558ea0d73798e7ca8ccab42ba3673c	ui/html/customization/avatar/av_349af476-0869-4b17-aeea-cccb23ceb703.png
@@ -6510,6 +6512,8 @@ b3a0fda32cc82d7ffb33211dcaffcbdd5ed5c3b7	ui/html/customization/avatar/av_96effd9
 df6dfcfadf0bd37a198b8c9ad96c6daefdc87e3b	ui/html/customization/avatar/av_9758bff4-9f7d-4464-a856-a644cd4ac868.png.dds
 9bac89c7dceadfb3e8f0aedcc3318e31564cf1fa	ui/html/customization/avatar/av_9765d790-0a29-4cc7-9947-ac4d3c1edf9e.png
 4f7dcb52f47543677aaf9cbf4f43d035421eb120	ui/html/customization/avatar/av_9765d790-0a29-4cc7-9947-ac4d3c1edf9e.png.dds
+af2eb4a249f6edc418a2dd4b042f44aa89c3cbe3	ui/html/customization/avatar/av_9775f1d5-7821-4e34-a178-605f7968f9c5.png
+33f5b4a14b04c85c13c75f87cc8759a7ce6af9e8	ui/html/customization/avatar/av_9775f1d5-7821-4e34-a178-605f7968f9c5.png.dds
 4f938142eeb7ea8b7da5d7cc366f46a6921f20a0	ui/html/customization/avatar/av_97c0ef66-f8e4-4e0e-ae7b-926bfdd4ef1c.png
 1965f15af25a5ba124ed4643c59ffd4e7b17f0d2	ui/html/customization/avatar/av_97c0ef66-f8e4-4e0e-ae7b-926bfdd4ef1c.png.dds
 50c9b56bc5569ecd2192aabc6cfc57035df99cf0	ui/html/customization/avatar/av_996fb2f2-0762-476d-9f40-c985ab40e0f5.png
@@ -6757,6 +6761,8 @@ d393b63c8208ff9e8897ece0ba753f72cd759ae1	ui/html/customization/avatar/av_a9358f5
 825b19782a2ba612f68722308e642ff39fb5e6a7	ui/html/customization/avatar/av_a973560c-3b04-4192-a038-872c1d4834c3.png.dds
 213bd0b7dffb45ffd2f927bc64b77db048b23744	ui/html/customization/avatar/av_a9794f3d-fb58-4d28-8e88-bcd9ee4b5a96.png
 e8704e83786434aa4a95dad17463e280684dd570	ui/html/customization/avatar/av_a9794f3d-fb58-4d28-8e88-bcd9ee4b5a96.png.dds
+af2eb4a249f6edc418a2dd4b042f44aa89c3cbe3	ui/html/customization/avatar/av_a98fffe7-dfba-4d67-9238-1c97e33cb8ef.png
+33f5b4a14b04c85c13c75f87cc8759a7ce6af9e8	ui/html/customization/avatar/av_a98fffe7-dfba-4d67-9238-1c97e33cb8ef.png.dds
 470cb7f7b9f1ae43d2aaa4f81118f169a748ee64	ui/html/customization/avatar/av_a9d6be8c-b1ae-4d05-9b6d-92475c957378.png
 e2cd9f9d4d3cf2cb807762a71c9abba255f3dde9	ui/html/customization/avatar/av_a9d6be8c-b1ae-4d05-9b6d-92475c957378.png.dds
 8465c51400987ceb19cd2e8ee2985a579ed69b33	ui/html/customization/avatar/av_aa60a8c2-3485-4e3d-abbe-c7308683f05b.png
@@ -6969,8 +6975,10 @@ ce081b45c0dc494bb5709a24ecb33c7695e6dd41	ui/html/customization/avatar/av_c66f75d
 2704a4fb7db39315e1aa87ccd8a138c84bd62319	ui/html/customization/avatar/av_c66f75d6-63bd-4ee1-b379-d037e12d5cc0.png.dds
 ae82df5cc8a9735af5d72f3cd15a9fef23fddd8f	ui/html/customization/avatar/av_c6837660-8b7d-4dfd-8429-34fc37c48522.png
 ff0c4d59bb68ec1f0e80df6550ca46fbde499147	ui/html/customization/avatar/av_c6837660-8b7d-4dfd-8429-34fc37c48522.png.dds
-bed0a322cc7efb4d3d4d88dddda9727b2a8602a9	ui/html/customization/avatar/av_c74a24b8-b726-4561-b771-912700688f98.png
-672d8d6b84e0c94d329ba7126d411b2687777806	ui/html/customization/avatar/av_c74a24b8-b726-4561-b771-912700688f98.png.dds
+30984b11e668918593ee7373a7bb4d8112c9a244	ui/html/customization/avatar/av_c74a24b8-b726-4561-b771-912700688f98.png
+cf8ff5393a7342b66718ae88b769bea4bbdb7cd6	ui/html/customization/avatar/av_c74a24b8-b726-4561-b771-912700688f98.png.dds
+cbce8a92b50e220b353a9d71944c207024210204	ui/html/customization/avatar/av_c74a24b8-b726-4561-b771-912700688f98_streamer.png
+2fcbb0b40f9fe0c14a2291b558b04de9e75d4545	ui/html/customization/avatar/av_c74a24b8-b726-4561-b771-912700688f98_streamer.png.dds
 1f094303eb199154a2153c98cb2b4f6c86ff3e32	ui/html/customization/avatar/av_c8193d48-1f7f-41f8-8f46-16ef7a4d2e63.png
 a1b417ef5e314ffcafc3b1de8f5392fe3ab7811d	ui/html/customization/avatar/av_c8193d48-1f7f-41f8-8f46-16ef7a4d2e63.png.dds
 1d3340c1ca1e69e693f1fa778361fe860bb5373a	ui/html/customization/avatar/av_c881e831-5194-4f47-acba-3973ce1aee54.png
