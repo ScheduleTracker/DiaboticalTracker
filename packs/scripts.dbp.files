@@ -16,7 +16,7 @@ scripts\decals.assets		4776
 scripts\dynamic_industrial.assets		71627
 scripts\dynamic_temple.assets		26277
 scripts\effects.atlas		7744
-scripts\entities.assets		8905
+scripts\entities.assets		9488
 scripts\fragclips.movies-example		1485
 scripts\heal.particles		743
 scripts\industry_materials.assets		3053
@@ -234,10 +234,10 @@ scripts\trailerclips.movies-example		2569
 scripts\ui.sounds		117
 scripts\water_temple_materials.assets		876
 scripts\weapons\abilities.weapons		1259
-scripts\weapons\basic.weapons		29430
+scripts\weapons\basic.weapons		30400
 scripts\weapons\br.weapons		5927
 scripts\weapons\melee.weapons		798
 scripts\weapons\modes.weapons		49
-scripts\weapons\weeballs.weapons		14030
+scripts\weapons\weeballs.weapons		14044
 scripts\weapons\wmd.weapons		49
 scripts\zzmovie.movies-example		322

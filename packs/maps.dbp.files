@@ -21,11 +21,11 @@ maps\aim_shaft.rbe		575458
 maps\aim_template.rbe		574568
 maps\b_alchemy-b.png		2876
 maps\b_alchemy-h.png		473727
-maps\b_alchemy.rbe		4999084
+maps\b_alchemy.rbe		5024341
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
 maps\b_crystal_cove.rbe		6858175
-maps\b_furnace.rbe		6059248
+maps\b_furnace.rbe		6121268
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
 maps\b_icefall.rbe		2740804
@@ -40,7 +40,7 @@ maps\b_sunken.rbe		3023296
 maps\b_toya_fortress.rbe		4713736
 maps\b_wellspring-b.png		11751
 maps\b_wellspring-h.png		241336
-maps\b_wellspring.rbe		4113330
+maps\b_wellspring.rbe		4114353
 maps\ctf_cathedral-b.png		3556
 maps\ctf_cathedral-h.png		11780
 maps\ctf_cathedral.rbe		7469297
@@ -72,6 +72,7 @@ maps\duel_skybreak.rbe		1830760
 maps\example-b.png		2277
 maps\example-h.png		8528
 maps\example.rbe		445686
+maps\example_logic.rbe		258733
 maps\gr_cliffside_canyons-b.png		63656
 maps\gr_cliffside_canyons-h.png		394826
 maps\gr_cliffside_canyons.rbe		2853357
@@ -190,11 +191,11 @@ maps\weapon.rbe		30512
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
 maps\wo_crystal_cove.rbe		6832897
-maps\wo_furnace.rbe		6058167
+maps\wo_furnace.rbe		6120200
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
 maps\wo_refinery.rbe		6203501
 maps\wo_toya_fortress.rbe		4696432
 maps\wo_wellspring-b.png		11751
 maps\wo_wellspring-h.png		241336
-maps\wo_wellspring.rbe		4112082
+maps\wo_wellspring.rbe		4113293
