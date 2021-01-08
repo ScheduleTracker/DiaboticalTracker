@@ -763,9 +763,10 @@ grenade_launcher
 	team_colored_trail true
 }
 
-////////////////////////////////
-//////SUPER SHOTGUN SECONDARY
-////////////////////////////////
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------ SUPER SHOTGUN SECONDARY ------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
 super_shotgun_secondary
 {	
 	respawn_time 9
@@ -789,12 +790,15 @@ super_shotgun_secondary
     speed 2618.18182
 	splash_damage 0
 	min_hits 0
-	bounce 1
+	bounce 2
 	knockback 6.1
 	ground_knockback 7.1
 	parallel_knockback true
 	impact_particles_distance_delay 0.12
 	independent_upgrade_model true
+	gravity -100000
+	gravity_pitch_offset 0
+	duration -10000
 	
 	hit_radius 1.7 3
 	
@@ -817,7 +821,7 @@ super_shotgun_secondary
 
         missile_particles ss_secondary_projectile
   	impact_particles ss_secondary_impact
-	missile_trail_particles ss_secondary_dynamic_trail
+	missile_trail_particles empty_system
 	
 // IMPACT DECALS
 	decal decal 7 3 3.561 false false alpha 7	 
@@ -853,10 +857,9 @@ super_shotgun_secondary
 	unlimited_ammo false
 }
 
-
-////////////////////////////////
-//////ROCKET LAUNCHER SECONDARY
-////////////////////////////////
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------ ROCKET LAUNCHER SECONDARY ------------------------------------
+//---------------------------------------------------------------------------------------------------------
 
 rocket_launcher_secondary
 {
@@ -945,9 +948,10 @@ rocket_launcher_secondary
 	team_colored_trail true
 }
 
-///////////////////////////////////////
-//////VOID CANNON
-///////////////////////////////////////
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------ VOID CANNON ------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
 void_cannon
 {
 	respawn_time 9
@@ -962,6 +966,8 @@ void_cannon
 	default_ammo_pickup_ammo 10
 	default_weapon_pickup_ammo 25
 	max_ammo 40
+	bonus_consecutive_damage 2
+	max_bonus_consecutive_damage_instances 10
 
     
     friendly_name Void Cannon
@@ -1040,9 +1046,9 @@ void_cannon
 }
 
 
-///////////////////////////////////////
-//////VOID CANNON SECONDARY
-///////////////////////////////////////
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------ VOID CANNON SECONDARY ------------------------------------
+//---------------------------------------------------------------------------------------------------------
 
 void_cannon_secondary
 {
@@ -1051,8 +1057,8 @@ void_cannon_secondary
 	color ff99aa
  	//group 3
 	//unlimited_ammo true
-	speed 700
- 	rate 650
+	speed 725
+ 	rate 500
   	damage 30
 	player_hit_only true
     splash_damage 150
@@ -1061,7 +1067,7 @@ void_cannon_secondary
 	default_weapon_pickup_ammo 25
 	max_ammo 40
 	
-        ammo_cost 2
+    ammo_cost 2
 
 	center_of_mass_offset 4
 	center_of_mass_offset_self 20
@@ -1078,14 +1084,14 @@ void_cannon_secondary
     description Pew pew pew
         
 	model weaponvc
-	combo_rate	machinegun 600
-	combo_rate  super_shotgun 600
-	combo_rate	shaft 600
-	combo_rate	rocket_launcher 600
-    combo_rate	pncr 600
-	combo_rate	blaster 600
-	combo_rate	grenade_launcher 600
-	combo_rate	void_cannon 600
+	combo_rate	machinegun 400
+	combo_rate  super_shotgun 400
+	combo_rate	shaft 400
+	combo_rate	rocket_launcher 400
+    combo_rate	pncr 400
+	combo_rate	blaster 400
+	combo_rate	grenade_launcher 400
+	combo_rate	void_cannon 500
 	
 	decal decal_plasma 30 3 3.561 false false alpha 5
 	//decal decal_plasma 40 3 3.561 false false alpha 5

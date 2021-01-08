@@ -353,14 +353,14 @@ asset trigger_start
 {
   listed true
   type entity
-  command multi /add trigger; /resize !last 40 40 40; /set !last action start_timer; /forsel move %1 +0 +10 +0
+  command multi /add trigger_start; /resize !last 40 40 40; /set !last action start_timer; /forsel move %1 +0 +10 +0
 }
 
 asset trigger_end
 {
   listed true
   type entity
-  command multi /add trigger; /resize !last 40 40 40; /set !last action end_timer; /forsel move %1 +0 +10 +0
+  command multi /add trigger_end; /resize !last 40 40 40; /set !last action end_timer; /forsel move %1 +0 +10 +0
 }
 
 asset light
@@ -375,6 +375,34 @@ asset sound
   listed true
   type entity
   command /add sound
+}
+
+asset logic
+{
+  listed true
+  type entity
+  command multi /add logic; /forsel move %1 +0 +-10 +0
+}
+
+asset bot/behavior_melee
+{
+  listed true
+  type entity
+  command multi /add bot; /forsel move %1 +0 +25 +0; /forsel set %1 behavior_melee
+}
+
+asset bot/behavior_stationary_target
+{
+  listed true
+  type entity
+  command multi /add bot; /forsel move %1 +0 +25 +0; /forsel set %1 stationary_target
+}
+
+asset bot/behavior_moving_target
+{
+  listed true
+  type entity
+  command multi /add bot; /forsel move %1 +0 +25 +0; /forsel set %1 moving_target
 }
 
 asset volumetric

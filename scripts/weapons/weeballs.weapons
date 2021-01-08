@@ -18,6 +18,7 @@ healing_weeball
     bind_group 8
     color 67da80
     weapon_tag hw
+    sort 100
  	//group 3
 	unlimited_ammo false
 	speed 1100
