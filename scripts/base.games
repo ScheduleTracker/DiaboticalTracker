@@ -840,8 +840,7 @@ game race
 {
     setting game_hp 100
 	setting game_friendly_fire 0
-	setting game_warmup_time 0
-	setting game_countdown 0
+	setting game_countdown 5
 	setting game_time_limit 0
 	setting game_score_limit 0
 	setting game_self_damage 0

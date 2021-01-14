@@ -171,7 +171,7 @@ super_shotgun
 	model_camera_scale 0.5
 	model_scale 0.075
 	model_scale_centered 0.0675
-	model_position_centered -0.15 -2.9 3.4
+	model_position_centered 0 -2.9 3.4
 	muzzle 2.6 -2.7 4.7
 	fov 40
 	
