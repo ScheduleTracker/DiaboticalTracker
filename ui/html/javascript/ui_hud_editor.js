@@ -399,7 +399,7 @@ function preview_to_screen_coord_y(v) {
 }
 
 function hud_editor_add_element(name, preview_pos_x, preview_pos_y) {
-    console.log("ADDING HUD ELEMENT YALL", name, preview_pos_x, preview_pos_y);
+    //console.log("ADDING HUD ELEMENT YALL", name, preview_pos_x, preview_pos_y);
 
     var hud = editing_hud_data;
 

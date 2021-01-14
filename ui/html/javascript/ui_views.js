@@ -850,6 +850,9 @@ function open_replays() {
 function open_player_profile(id, subpage) {
     let origin = global_menu_page;
 
+    // Reset the selected stats season to default when opening a profile
+    global_profile_stats_season = global_competitive_season.comp_season_id;
+
     set_blur(false);
     hl_button("mm_profile");
     switch_screens(_id("player_profile_screen"));

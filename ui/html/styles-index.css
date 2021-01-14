@@ -15731,7 +15731,9 @@ h2 {
 }
 
 #player_profile_content .stats .match_avg {}
-#player_profile_content .stats .match_avg .table {}
+#player_profile_content .stats .match_avg .table {
+    --col_count: 11;
+}
 #player_profile_content .stats .match_avg .table .row {
     display:flex;
     flex-direction:row;
@@ -15742,7 +15744,6 @@ h2 {
 }
 #player_profile_content .stats .match_avg .table .row.odd { background-color:rgba(255,255,255,0.03); }
 #player_profile_content .stats .match_avg .table .row.header {
-    --col_count: 10;
     margin-bottom:0.4vh;
     height:2.4vh;
     text-transform:uppercase;
@@ -15984,16 +15985,26 @@ h2 {
 
 
 #basic_modal .user_ratings {
-
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    min-height: 40vh;
+    min-width: 80vh;
 }
 #basic_modal .user_ratings .title {
     font-size: 2.4vh;
     font-weight: bold;
-    margin-bottom: 4vh;
+    margin-bottom: 1vh;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
     text-align:center;
     text-transform:uppercase;
+}
+#basic_modal .user_ratings .select-field {
+    margin-bottom: 4vh;
+    width:20vh;
+    font-weight:bold;
 }
 #basic_modal .user_ratings .ratings {
     display:flex;
@@ -16001,6 +16012,7 @@ h2 {
     flex-wrap:wrap;
     max-width: 100vh;
     justify-content: center;
+    align-items: flex-start;
     margin-bottom:3vh;
 }
 #basic_modal .user_ratings .ratings .spinner {
@@ -16019,17 +16031,28 @@ h2 {
     width:18vh;
     min-height: 17vh;
     margin: 0 0.5vh 1vh 0.5vh;
-    padding: 2vh 0;
+    padding: 2vh 0 3vh 0;
     background-color:rgba(255,255,255,0.06);
 }
-#basic_modal .user_ratings .ratings .rating .mode_name {
+#basic_modal .user_ratings .ratings .rating .rating_name {
+    font-size: 1.3vh;
     font-weight:bold;
     opacity:0.7;
+}
+#basic_modal .user_ratings .ratings .rating .modes {
+    font-size: 1.1vh;
+    opacity:0.5;
+    text-align:center;
+    padding:0 1vh;
+    margin-top:0.2vh;
+    margin-bottom:0.4vh;
+    min-height:1.5vh;
 }
 #basic_modal .user_ratings .ratings .rating .rank_icon {
     width: 8vh;
     height: 8vh;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8)) brightness(1.1);
+    margin-bottom:1vh;
 }
 #basic_modal .user_ratings .ratings .rating .rank_name > div {
     display: flex;

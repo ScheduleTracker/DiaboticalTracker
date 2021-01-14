@@ -2593,11 +2593,9 @@
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="team_name">
                                     <div class="element_label element_label_team_name i18n" data-i18n="settings_hud_team_name">Team Name</div>
                                 </div>
-                                <!--
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="stat">
                                     <div class="element_label element_label_stat i18n" data-i18n="settings_hud_stat">Stat</div>
                                 </div>
-                                -->
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="icon">
                                     <div class="element_label element_label_icon i18n" data-i18n="settings_hud_icon">Static Icon</div>
                                 </div>
@@ -2630,6 +2628,9 @@
                                 </div>
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="controls">
                                     <div class="element_label element_label_controls i18n" data-i18n="settings_hud_controls">Controls</div>
+                                </div>
+                                <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="text">
+                                    <div class="element_label element_label_text i18n" data-i18n="settings_hud_text">Text</div>
                                 </div>
                             <!--
                                 <div class="hud_editor_element tooltip2" data-msg-id="settings_hud_drag_me" data-name="round_mvp">
@@ -2879,6 +2880,7 @@
     <div class="leaderboards_screen_head">
         <div>
             <div class="db-btn plain back mouseover-sound4 click-sound" onclick="historyBack();"></div>
+            <div id=leaderboards_screen_filter_season class="select-field" data-theme="gray2"></div>
             <div id=leaderboards_screen_filter_gamemode class="select-field" data-theme="gray2"></div>
             <div class="db-btn plain click-sound mouseover-sound2 i18n" data-i18n="menu_title_rank_legend" onclick="showRankOverview()"></div>
             <!--
@@ -6811,6 +6813,7 @@
 <script inline src="javascript/hud_elements/element_race_timer.js"></script>
 <script inline src="javascript/hud_elements/element_net.js"></script>
 <script inline src="javascript/hud_elements/element_stat.js"></script>
+<script inline src="javascript/hud_elements/element_text.js"></script>
     
     <div id="watermark"></div>
 

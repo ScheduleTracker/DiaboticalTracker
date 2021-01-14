@@ -24,13 +24,23 @@ ON_UPDATE
 
     STRING print_value
     IF stat == "dmg"
-        print_value = battle_data.self.total_damage_done
+        print_value = battle_data.self.damage_inflicted
     END IF
     IF stat == "hp"
-        print_value = battle_data.self.total_hp
+        print_value = battle_data.self.gained_hp
     END IF
     IF stat == "armor"
-        print_value = battle_data.self.total_armor
+        print_value = battle_data.self.gained_armor
+    END IF
+    IF stat == "dmgrcv"
+        print_value = battle_data.self.damage_taken
+    END IF
+    IF stat == "kda"
+        print_value = battle_data.self.kills
+        print_value = print_value & "/"
+        print_value = print_value & battle_data.self.deaths
+        print_value = print_value & "/"
+        print_value = print_value & battle_data.self.assists
     END IF
 
     OUTPUT 0 0 value print_value

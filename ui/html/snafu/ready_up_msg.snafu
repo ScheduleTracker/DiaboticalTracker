@@ -20,10 +20,6 @@ ON_UPDATE
         show_msg = 0
     END IF
 
-    IF game_data.race_mode
-        show_msg = 0
-    END IF
-
     IF battle_data.is_editor_loaded
         show_msg = 0
     END IF
