@@ -1057,12 +1057,12 @@ void_cannon_secondary
 	color ff99aa
  	//group 3
 	//unlimited_ammo true
-	speed 725
+	speed 750
  	rate 500
   	damage 30
 	player_hit_only true
-    splash_damage 150
-	splash_radius 200
+    splash_damage 125
+	splash_radius 175
 	default_ammo_pickup_ammo 10
 	default_weapon_pickup_ammo 25
 	max_ammo 40
