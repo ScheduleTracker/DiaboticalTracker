@@ -137,6 +137,7 @@ function init_custom_game_references() {
             "spawn_safety_radius":       _id("custom_game_spawn_safety_radius"),
             "lifesteal":                 _id("custom_game_setting_lifesteal"),
             "allow_queue":               _id("custom_game_setting_allow_queue"),
+            "record_replay":             _id("custom_game_setting_record_replay"),
         };
     
         global_gameSlotList = [
@@ -286,7 +287,9 @@ function init_screen_custom() {
     global_input_debouncers['custom_game_spawn_safety_radius'] = new InputDebouncer(function() {
         if (bool_am_i_host) custom_game_settings_changed();
     }, 1000);
-    
+    ui_setup_select(global_customSettingElements["record_replay"], function() {
+        if (bool_am_i_host) custom_game_settings_changed();
+    });
 
     // Checkbox logic here is independent of other checkboxes which are saved
     _for_each_in_class("checkbox_logic", function(el){
@@ -1489,6 +1492,7 @@ function get_lobby_settings() {
         instaswitch:    parseInt(global_customSettingElements["instaswitch"].dataset.value),
         lifesteal:      Number(global_customSettingElements["lifesteal"].dataset.value),
         allow_queue:    Number(global_customSettingElements["allow_queue"].dataset.value),
+        record_replay:  Number(global_customSettingElements["record_replay"].dataset.value),
         continuous:     parseInt(global_customSettingElements["continuous"].dataset.value),
         auto_balance:   parseInt(global_customSettingElements["auto_balance"].dataset.value),
         intro:          parseInt(global_customSettingElements["intro"].dataset.value),
@@ -1732,6 +1736,19 @@ function update_custom_game_settings(settings, init) {
     if (Number(global_customSettingElements["allow_queue"].dataset.value) != settings.allow_queue) {
         global_customSettingElements["allow_queue"].dataset.value = settings.allow_queue;
         update_select(global_customSettingElements["allow_queue"]);
+    }
+
+    if (Number(global_customSettingElements["record_replay"].dataset.value) != settings.record_replay) {
+        global_customSettingElements["record_replay"].dataset.value = settings.record_replay;
+        update_select(global_customSettingElements["record_replay"]);
+    }
+
+    if (bool_am_i_host) {
+        if (settings.record_replay_avail == 1) {
+            global_customSettingElements["record_replay"].classList.remove("disabled");
+        } else {
+            global_customSettingElements["record_replay"].classList.add("disabled");
+        }
     }
 
     if (parseInt(global_customSettingElements["continuous"].dataset.value) != settings.continuous) {

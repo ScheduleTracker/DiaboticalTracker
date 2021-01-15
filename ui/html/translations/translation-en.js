@@ -3292,6 +3292,8 @@ var TRANSLATION_en =
     "custom_settings_lifesteal": "Life steal",
     "custom_settings_allow_queue": "Allow queuing while joined",
     "custom_settings_allow_queue_enabled": "Queuing or joining pickups is enabled while in this match.",
+    "custom_settings_record_replay":"Record Server-side Replay",
+    "custom_settings_record_replay_info":"Requires the lobby host to have ownership of the current premium battlepass to be enabled.",
     "pick_your_preferred_map":"Pick your preferred map",
     "pick_your_preferred_mode":"Pick your preferred mode",
     "alive": "{count} {count, plural, one {Alive} other {Alive}}",

@@ -10448,6 +10448,15 @@ h2 {
 .custom_game_setting .select-option {
     height: 3.2vh;	
 }
+.custom_game_setting .infott {
+    margin-left:1vh;
+    width:1.6vh;
+    height:1.6vh;
+    background-image:url(/html/images/icons/fa/info-circle.svg?fill-opacity=0.8);
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+}
 .custom_buttons_row {
     display: flex;
     flex-direction: row;
