@@ -31,7 +31,7 @@ maps\b_icefall-h.png		481103
 maps\b_icefall.rbe		2740804
 maps\b_marina-b.png		8774
 maps\b_marina-h.png		373884
-maps\b_marina.rbe		4434754
+maps\b_marina.rbe		4434878
 maps\b_oxide.rbe		4025930
 maps\b_refinery-b.png		89398
 maps\b_refinery-h.png		374324
@@ -129,7 +129,7 @@ maps\mg_factory-h.png		371589
 maps\mg_factory.rbe		2407758
 maps\mg_marina-b.png		8774
 maps\mg_marina-h.png		373884
-maps\mg_marina.rbe		4434487
+maps\mg_marina.rbe		4434959
 maps\mg_sunken.rbe		3023702
 maps\practice.rbe		1781921
 maps\sa_gravels_of_wisdom.rbe		587271
@@ -183,7 +183,7 @@ maps\weapon.rbe		30512
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
 maps\wo_crystal_cove.rbe		6832897
-maps\wo_furnace.rbe		6122019
+maps\wo_furnace.rbe		6121153
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
 maps\wo_refinery.rbe		6205729

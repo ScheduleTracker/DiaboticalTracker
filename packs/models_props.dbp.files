@@ -879,7 +879,7 @@ models\props\industry\storage_strapped\storage_strapped_s.png.dds		87556
 models\props\industry\storage_strapped\storagestrapped-col.fbx		184032
 models\props\industry\storage_strapped\storagestrapped.dbm		332335
 models\props\industry\storage_strapped\storagestrapped.fbx		161216
-models\props\invisible\invisible.assets		14838
+models\props\invisible\invisible.assets		15060
 models\props\invisible\invisible.shader		320
 models\props\invisible\invisible_block_diagonal\invisible_block_diagonal-col.fbx		14668
 models\props\invisible\invisible_block_diagonal\invisible_block_diagonal.fbx		14668
@@ -902,6 +902,8 @@ models\props\invisible\invisible_box_slope\invisible_box_slope_c.fbx		14796
 models\props\invisible\invisible_box_slope\invisible_box_slope_c_corner-col.fbx		24748
 models\props\invisible\invisible_box_slope\invisible_box_slope_c_corner.fbx		15484
 models\props\invisible\invisible_box_slope\invisible_box_slope_c_corner2.fbx		18940
+models\props\invisible\invisible_cylinder\invisible_cylinder_01-col.fbx		29868
+models\props\invisible\invisible_cylinder\invisible_cylinder_01.fbx		29868
 models\props\invisible\invisible_cylinder\invisible_cylinder_hollow_01-col.fbx		41184
 models\props\invisible\invisible_cylinder\invisible_cylinder_hollow_01.fbx		39264
 models\props\invisible\invisible_cylinder\invisible_cylinder_hollow_02-col.fbx		69616
