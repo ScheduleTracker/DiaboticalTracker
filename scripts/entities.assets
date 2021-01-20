@@ -381,7 +381,7 @@ asset logic
 {
   listed true
   type entity
-  command multi /add logic; /forsel move %1 +0 +-10 +0
+  command multi /add logic; /forsel move %1 +0 +-10 +0; /forsel set %1 action reset_inventory; /forsel set %1 time 0; /forsel set %1 trigger on_game_time
 }
 
 asset bot/behavior_melee
