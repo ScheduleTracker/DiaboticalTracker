@@ -879,7 +879,7 @@ models\props\industry\storage_strapped\storage_strapped_s.png.dds		87556
 models\props\industry\storage_strapped\storagestrapped-col.fbx		184032
 models\props\industry\storage_strapped\storagestrapped.dbm		332335
 models\props\industry\storage_strapped\storagestrapped.fbx		161216
-models\props\invisible\invisible.assets		15060
+models\props\invisible\invisible.assets		15440
 models\props\invisible\invisible.shader		320
 models\props\invisible\invisible_block_diagonal\invisible_block_diagonal-col.fbx		14668
 models\props\invisible\invisible_block_diagonal\invisible_block_diagonal.fbx		14668
@@ -946,6 +946,8 @@ models\props\invisible\invisible_wall_diagonal\invisible_wall_diagonal_d_02-col.
 models\props\invisible\invisible_wall_diagonal\invisible_wall_diagonal_d_02.fbx		14652
 models\props\invisible\misc\invisible_ceiling_corner_cut-col.fbx		17036
 models\props\invisible\misc\invisible_ceiling_corner_cut.fbx		14652
+models\props\invisible\misc\invisible_pillar01-col.fbx		20066
+models\props\invisible\misc\invisible_pillar01.fbx		20066
 models\props\invisible\misc\invisible_quarry_building-col.fbx		14684
 models\props\invisible\misc\invisible_quarry_building.fbx		14684
 models\props\jetpack.dbm		111211
