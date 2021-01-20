@@ -1,7 +1,18 @@
 BEGIN TEMPLATE controls
     //SETTING cell_direction "horizontal"
     //SETTING align pivot
+    INT st
 
+    DOUBLE inactive_opacity
+    inactive_opacity = 0.1
+
+    INT style
+    style = 1
+
+    IF st == 2
+        style = 2
+        inactive_opacity = 0
+    END IF
 
     DOUBLE icon_size
     icon_size = height / 2
@@ -19,60 +30,80 @@ BEGIN TEMPLATE controls
     COL_OUTPUT 2 width icon_size
     COL_OUTPUT 2 height icon_size
 
+    
 ON_UPDATE
 
     IF !common_game_data.self_alive 
         discard
     END IF
     
+    IF style == 1
+        //OUTPUT 0 0 value "D"
+        OUTPUT 0 0 image "images/controls_down.svg"
+        //OUTPUT 0 1 value "F"
+        OUTPUT 0 1 image "images/controls_forward.svg"
+        //OUTPUT 0 2 value "U"
+        OUTPUT 0 2 image "images/controls_up.svg"
+        //OUTPUT 1 0 value "L"
+        OUTPUT 1 0 image "images/controls_left.svg"
+        //OUTPUT 1 1 value "B"
+        OUTPUT 1 1 image "images/controls_back.svg"
+        //OUTPUT 1 2 value "R"
+        OUTPUT 1 2 image "images/controls_right.svg"
+    END IF
     
-    //OUTPUT 0 0 value "D"
-    OUTPUT 0 0 image "images/controls_down.svg"
-    //OUTPUT 0 1 value "F"
-    OUTPUT 0 1 image "images/controls_forward.svg"
-    //OUTPUT 0 2 value "U"
-    OUTPUT 0 2 image "images/controls_up.svg"
-    //OUTPUT 1 0 value "L"
-    OUTPUT 1 0 image "images/controls_left.svg"
-    //OUTPUT 1 1 value "B"
-    OUTPUT 1 1 image "images/controls_back.svg"
-    //OUTPUT 1 2 value "R"
-    OUTPUT 1 2 image "images/controls_right.svg"
+    IF style == 2
+        OUTPUT 0 0 image "images/controls_down2.svg"
+        OUTPUT 0 1 image "images/controls_forward2.svg"
+        OUTPUT 0 2 image "images/controls_up2.svg"
+        OUTPUT 1 0 image "images/controls_left2.svg"
+        OUTPUT 2 1 image "images/controls_back2.svg"
+        OUTPUT 1 2 image "images/controls_right2.svg"
+    END IF
     
     IF battle_data.key_down
         OUTPUT 0 0 opacity 1.0
     ELSE
-        OUTPUT 0 0 opacity 0.1
+        OUTPUT 0 0 opacity inactive_opacity
     END IF
 
     IF battle_data.key_forward
         OUTPUT 0 1 opacity 1.0
     ELSE
-        OUTPUT 0 1 opacity 0.1
+        OUTPUT 0 1 opacity inactive_opacity
     END IF
 
     IF battle_data.key_up
         OUTPUT 0 2 opacity 1.0
     ELSE
-        OUTPUT 0 2 opacity 0.1
+        OUTPUT 0 2 opacity inactive_opacity
     END IF
     
     IF battle_data.key_left
         OUTPUT 1 0 opacity 1.0
     ELSE
-        OUTPUT 1 0 opacity 0.1
+        OUTPUT 1 0 opacity inactive_opacity
     END IF
 
-    IF battle_data.key_back
-        OUTPUT 1 1 opacity 1.0
-    ELSE
-        OUTPUT 1 1 opacity 0.1
+    IF style == 1
+        IF battle_data.key_back
+            OUTPUT 1 1 opacity 1.0
+        ELSE
+            OUTPUT 1 1 opacity inactive_opacity
+        END IF
+    END IF
+    IF style == 2
+        IF battle_data.key_back
+            OUTPUT 2 1 opacity 1.0
+        ELSE
+            OUTPUT 2 1 opacity inactive_opacity
+        END IF
     END IF
 
     IF battle_data.key_right
         OUTPUT 1 2 opacity 1.0
     ELSE
-        OUTPUT 1 2 opacity 0.1
+        OUTPUT 1 2 opacity inactive_opacity
     END IF
     
 END TEMPLATE

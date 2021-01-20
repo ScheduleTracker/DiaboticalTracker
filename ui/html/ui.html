@@ -3140,12 +3140,20 @@
 
         <div class="flex_row">
 
-            <div id="quickplay_card" class="play_cards_container">
+            <div id="play_queue">
+                <div id="play_cards">
+                    <div id="quickplay_card" class="play_cards_container">
 
-            </div>
+                    </div>
 
-            <div id="ranked_card" class="play_cards_container">
+                    <div id="ranked_card" class="play_cards_container">
 
+                    </div>
+                </div>
+
+                <div class="queue_button_cont">
+                    <div id="queue_button" class="queue_button i18n" data-i18n="menu_start_queueing"></div>
+                </div>
             </div>
 
             <div id="play_combo_list">
@@ -3156,14 +3164,16 @@
                     </div>
                 </div>
 
-                <div id="play_combo_own_pickups">
+                <div class="combo_list">
+                    <div id="play_combo_own_pickups">
 
-                </div>
+                    </div>
 
-                <div id="play_combo_list_table" class="scroll-outer" data-sb-hide-empty="true">
-                    <div class="scroll-bar"><div class="scroll-thumb"></div></div>
-                    <div id="play_combo_list_content" class="scroll-inner">
-                        <!-- here be data rows -->
+                    <div id="play_combo_list_table" class="scroll-outer" data-sb-hide-empty="true">
+                        <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+                        <div id="play_combo_list_content" class="scroll-inner">
+                            <!-- here be data rows -->
+                        </div>
                     </div>
                 </div>
 
@@ -3927,7 +3937,7 @@
                 <div class="inner">
                     <div class="queue_cancel_box" onclick="cancel_search()"></div>
                     <div class="queue_info ranked">
-                        <div class="queue_info_queuetype i18n" data-i18n="searching_ranked">Searching ranked</div>
+                        <div class="queue_info_queuetype i18n" data-i18n="searching_match">Searching match</div>
                         <div class="queue_queue_time">00:00</div>
                         <div class="queue_info_icon tooltip2" data-msg-html-id="queue_info"></div>
                     </div>

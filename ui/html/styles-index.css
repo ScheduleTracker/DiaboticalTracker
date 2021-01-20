@@ -9577,8 +9577,17 @@ h2 {
 .play_cards_container .card_bottom .instant_join .join:active {
     background-color:rgba(32, 32, 32, 0.8);
 }
-.play_cards_container .card_bottom .queue_button {
+#play_queue .queue_button_cont {
+    margin-top:1.4vh;
     width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding-left:0.5vh;
+    padding-right:0.5vh;
+}
+#play_queue .queue_button {
+    flex:1;
     height:6vh;
     display:flex;
     justify-content:center;
@@ -9586,17 +9595,22 @@ h2 {
     font-size:2.4vh;
     text-transform:uppercase;
     font-weight:bold;
-    margin-top:1vh;
     background-color:#d6951c;
 }
-.play_cards_container .card_bottom .queue_button:hover {
+#play_queue .queue_button:hover {
     background-color:#e2a431;
 }
-.play_cards_container .card_bottom .queue_button:active {
+#play_queue .queue_button:active {
     background-color:#f3ba4f;
 }
-.play_cards_container .card_bottom .queue_button.disabled {
+#play_queue .queue_button.disabled {
     background-color:#949494;
+    box-shadow:none;
+}
+#play_queue .queue_button.party_disabled {
+    opacity:0.6;
+    box-shadow:none;
+    pointer-events: none;
 }
 
 .play_cards_container .card_text {
@@ -9646,6 +9660,9 @@ h2 {
 }
 .play_cards_container .card_checkbox:active {
     background-image: linear-gradient(to right,rgba(240, 240, 240, 0.3) 0%, rgba(231, 231, 231, 0.3) 100%);
+}
+.play_cards_container .card_checkbox.enabled {
+    background-color:rgba(0,0,0,0.9);
 }
 .play_cards_container .card_checkbox.disabled {
     color:rgba(255,255,255,0.3);
@@ -17351,7 +17368,7 @@ h2 {
     transform:translateX(-50%);
 
     /* Set height here otherwise the list won't scroll */
-    height: calc(57px* var(--onevh) );
+    height: calc(60px* var(--onevh) );
 }
 
 #play_screen_combined .header {
@@ -17381,6 +17398,7 @@ h2 {
 #play_screen_combined .options .db-btn {
     margin-right:1vh;
 }
+/*
 #play_screen_combined .double_section {
     display:flex;
     flex-direction:row;
@@ -17439,12 +17457,8 @@ h2 {
 
 #play_screen_combined .section .line {
     width:100%;
-    /*
-    height:0.3vh;
-    background-color:#fff;
-    margin-top:0.6vh;
-    */
 }
+
 #play_screen_combined .section .line.hidden {
     background-color:transparent;
 }
@@ -17544,6 +17558,7 @@ h2 {
     top:0.6vh;
     left:0.6vh;
 }
+*/
 #play_screen_combined .format {
     font-size:1.3vh;
     font-weight:bold;
@@ -17567,6 +17582,8 @@ h2 {
 #play_screen_combined .vs {
     margin-left:0.4vh;
 }
+
+/*
 #play_screen_combined .section .container .queue .rank_cont {
     position:absolute;
     top:-2vh;
@@ -17855,7 +17872,7 @@ h2 {
     display:flex;
     justify-content:center;
 }
-
+*/
 
 
 
@@ -17978,6 +17995,29 @@ h2 {
 /*********************
  COMBO TABLE
 *********************/
+
+#play_queue {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+
+    height: calc(55px* var(--onevh) );
+}
+#play_cards {
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:flex-start;
+}
+#play_cards .card_flex {
+    margin-left:0.5vh;
+    margin-right:0.5vh;
+
+    width:calc(28px* var(--onevh));
+    height:calc(47px * var(--onevh));
+}
+
 #play_combo_own_pickups {
 
 }
@@ -17993,11 +18033,14 @@ h2 {
 
 #play_combo_list {
     position:relative;
-    width:60vh;
+    width:64vh;
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
     margin-left:calc(15px* var(--zero-onevh-rounded));
+}
+#play_combo_list .combo_list {
+    height: calc(55px* var(--onevh) );
 }
 #play_combo_list .row {
     position:relative;
@@ -18135,6 +18178,15 @@ h2 {
     width: 1.3vh;
     height: 1.3vh;
     background-image:url(/html/images/icons/fa/lock.svg?fill=#f5f5f5&fill-opacity=0.7);
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+#play_combo_list_content .password .icon_qp {
+    width: 1.5vh;
+    height: 1.5vh;
+    background-image:url(/html/images/diabotical_o.svg?fill=#ffffff&fill-opacity=1);
     background-size:100%;
     background-position:center;
     background-repeat:no-repeat;
@@ -18614,6 +18666,14 @@ h2 {
     padding-right:0.6vh;
     margin-bottom:6px;
     border:1px solid rgba(255,255,255,0.2);
+}
+.hover_info_box .pickup .party .party_label {
+    margin-top:0.4vh;
+    text-align:center;
+    font-size:1vh;
+    font-weight:bold;
+    opacity:0.8;
+    text-transform:uppercase;
 }
 .hover_info_box .pickup .party .row {
     display:flex;

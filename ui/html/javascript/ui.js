@@ -1451,6 +1451,7 @@ window.addEventListener("load", function(){
     init_screen_battlepass();
     init_screen_play_customlist();
     init_screen_play();
+    init_queue_button();
     init_screen_custom();
     init_watch_screen();
     init_legal();

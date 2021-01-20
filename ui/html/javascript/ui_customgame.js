@@ -1149,21 +1149,21 @@ function update_party_leader_status(leader) {
     }
 
     let party_warmup = _id("party_instant_join_warmup");
-    let ranked_queue_btn = _id("ranked_queue_button");
+    let queue_btn = _id("queue_button");
     if (bool_am_i_leader) {
         for (let el of global_party_leader_elements) el.style.display = "flex";
         if (party_warmup) {
             if (global_party.size > 1) party_warmup.style.display = "flex";
             else party_warmup.style.display = "none";
         }
-        if (ranked_queue_btn) ranked_queue_btn.style.display = "flex";
+        if (queue_btn) queue_btn.classList.remove("party_disabled");
         
         _id("create_lobby_button").style.display = "flex";
 
     } else {
         for (let el of global_party_leader_elements) el.style.display = "none";
         if (party_warmup) party_warmup.style.display = "none";
-        if (ranked_queue_btn) ranked_queue_btn.style.display = "none";
+        if (queue_btn) queue_btn.classList.add("party_disabled");
 
         if (global_lobby_id < 0) _id("create_lobby_button").style.display = "none";
         else _id("create_lobby_button").style.display = "flex";
