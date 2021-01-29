@@ -1082,7 +1082,7 @@ body, html {
     align-items: center;
 
     background: rgba(20, 20, 26, 0.267);
-    background-image:url(/html/images/icons/fa/times.svg);
+    background-image:url('/html/images/icons/fa/times.svg');
     background-repeat:no-repeat;
     background-size: 35%;
     background-position:center;
@@ -2681,6 +2681,9 @@ body, html {
 .db-btn.disabled {
     filter: grayscale(100%);
 }
+.db-btn.disabled2 {
+    background-color: transparent !important;
+}
 .db-btn > * {
     text-transform:uppercase; 
 }
@@ -3701,7 +3704,7 @@ h2 {
     justify-content: center;
     background-size:cover;
     background-position:center;
-    /*background-image:url('../images/hud_preview_background.png');*/
+    /*background-image:url('/html/images/hud_preview_background.png');*/
     background-color:#0a0a0a;
     max-width: calc(100vw*var(--ratio));
     width: 100%;
@@ -3710,7 +3713,7 @@ h2 {
     --hud_preview_aspect_vw: 100vw;
 }
 #hud_preview_container.background_enabled{    
-    background-image:url(/html/images/hud_preview_background.png);
+    background-image:url('/html/images/hud_preview_background.png');
 }
 #hud_preview_container .hud_element > * {
     /* CRITICAL STYLE Prevents children elements of elements capturing hud editing events in the editor. */
@@ -5916,7 +5919,7 @@ h2 {
     width: 100vw;
     height: 100vh;
     z-index: 1000;
-    background-image: url(/html/images/backgrounds/game_report.png);
+    background-image: url("/html/images/backgrounds/game_report.png");
     background-size: cover;
 }
 
@@ -16408,6 +16411,7 @@ h2 {
     font-family:var(--mont-font);
     font-size:1.2vh;
 }
+
 #match_screen .match .team.summary .stat { 
     width:9vh;
     text-align:center;
@@ -16415,8 +16419,9 @@ h2 {
 }
 
 #match_screen .btn {
-    width:4vh;
+        width:4vh;
     height:4vh;
+
     background-color:#222;
     margin-right:1vh;
     background-repeat:no-repeat;
@@ -16425,15 +16430,23 @@ h2 {
     border-radius:0.5vh;
 }
 
-#match_screen .btn.watch {
-    float: left;
-    background-image:url(/html/images/icons/fa/film.svg);
+#match_screen .db-btn.watch {
     background-color:rgba(100, 65, 165, 1);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.2rem;
+    align-self: flex-start;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-top: 0.5rem;
+    font-weight: bold;;
+    border-radius: 0;
 }
-#match_screen .btn.watch:hover {
+
+#match_screen .db-btn.watch:hover {
     background-color:rgba(114, 75, 187, 1);
 }
-#match_screen .btn.watch:active {
+
+#match_screen .db-btn.watch:active {
     background-color:rgb(137, 94, 218);
 }
 
@@ -16538,17 +16551,66 @@ h2 {
     align-items: center;
 }
 #watch_screen {
-    position:absolute;
-    top:16vh;
     display:none;
-    flex-direction:column;
-    align-self:center;
-    width: 100vh;
-    max-width: 90vw;
+    position:absolute;
+    width: 100.000000%;
+    height: 100.000000%;
+    top: 0.000000px;
+    left: 0.000000px;
+    justify-content: center;
+    align-items: center;
 }
 
+#watch_screen .category_list {
+    position:absolute;
+    top:var(--top_bar_height);
+    left:0;
+    right:0;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    background-color:rgba(35, 36, 40, 0.95);
+    box-shadow: 0px 3px 2vh 1px rgba(0, 0, 0, 0.4);
+}
 
-#twitch_reward_streams {}
+#watch_screen #twitch_reward_streams {
+    max-width: 70vw;
+}
+
+#watch_screen .category_list .category {
+    font-size: 1.4vh;
+    font-family: var(--main-font) ;
+    font-weight: bold;
+    text-transform:uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    height: 4.4vh;
+    line-height: 4.4vh;
+    padding: 0 1vh;
+    margin:0 1.2vh;
+    white-space: nowrap;
+    box-shadow: 0px 0vh 0px 0px rgba(255, 255, 255, 1) inset;
+    transition-property: box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+}
+#watch_screen .category_list .category:hover {
+    color: rgba(255,255,255,1);
+}
+#watch_screen .category_list .category.selected {
+    color: white;
+    box-shadow:inset 0 -0.3vh 0 0 #fff;
+}
+#watch_screen .category_list .category.locked {
+    opacity:0.4;
+}
 
 #twitch_reward_streams .head {
     display:flex;
@@ -16691,6 +16753,133 @@ h2 {
 }
 #twitch_reward_streams_list .stream .buttons .db-btn {
     padding:0 1.5vh;
+}
+
+#watch_screen #watch_screen_replays {
+    display: none;
+    max-width: 70vw;
+    height: 60vh;
+    flex-direction: column;
+}
+
+#watch_screen #watch_screen_replays .grid-row {
+    flex: inherit;
+}
+
+#watch_screen #watch_screen_replays .downloaded-replays-list {
+    background-color: rgba(0,0,0, 0.25);
+}
+
+#watch_screen #watch_screen_replays {
+    text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+}
+
+#watch_screen #watch_screen_replays header {
+    padding: 1rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+#watch_screen .replays_list {
+    display: flex;
+    flex-direction: column;
+}
+
+#watch_screen .replay_info {
+    position: relative;
+    text-shadow:1px 1px 3px rgba(0,0,0,0.8);
+    min-height: 6rem;
+    align-items: center;
+    font-size: 1.6vh;
+    overflow-wrap: break-word;
+    line-height: 2vh;
+}
+
+#watch_screen .replay_row {
+    flex: inherit;
+    padding: 0;
+}
+
+#watch_screen .replay_row:hover {
+    background-color: rgba(255,255,255, 0.15);
+}
+
+#watch_screen .replay_info .match_id {
+    text-transform: uppercase;
+    font-weight: bold;
+    justify-content: flex-start;
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#watch_screen .replay_info .map_gradient {
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1.0), transparent);
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+#watch_screen .replay_info .match_id .title {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+#watch_screen .replay_info .match_id .sub {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+#watch_screen .replay_info .multi_line {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#watch_screen .replay_info .replay_delete {
+    width: 100%;
+    font-size: 1.4vh;
+    opacity: 0.6;
+    transition: ease-in 0.1s opacity;
+}
+#watch_screen .replay_info .replay_delete:hover {
+    color: white;
+    opacity: 1;
+}
+
+#watch_screen_replays .scroll-bar {
+    right: -2rem;
+}
+
+#watch_screen_replays .no_replays {
+    font-size: 2rem;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#watch_screen_replays #downloaded-replays-list-outter {
+    display: none;
+}
+
+#watch_screen_replays #downloaded-no-replays {
+    display: flex;
+}
+
+#watch_screen #replays-list-filter {
+    width: initial;
+    font-size: 1.5vh;
+    align-self: center;
 }
 #learn_screen {
     position:absolute;

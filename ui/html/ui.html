@@ -432,7 +432,7 @@
 }
 </style>
 
-<link href="/html/styles-index.css" rel="stylesheet"></head>
+</head>
 
 <body style="display: none;">
     <div id="main_menu" >
@@ -2251,6 +2251,22 @@
                                     </div>
                                 </div>
 
+                                <!-- REPLAYS -->
+                                <div class="settings_header i18n" data-i18n="setting_replays" style="margin-top: 2vh;">Replays</div>
+                                <div class="setting">
+                                    <div class="label i18n" data-i18n="setting_client_replays">
+                                        Client-side replays
+                                    </div>
+                                    <div class="ctrl">
+                                        <div class="setting_select wide">                           
+                                            <div class="select-field" data-variable="replays_client_recording" data-theme="settings">
+                                                <div data-value=0 class="i18n" data-i18n="disabled">Disabled</div>
+                                                <div data-value=1 class="i18n" data-i18n="enabled">Enabled</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -2920,7 +2936,16 @@
 </div>
 
             <div id="watch_screen">
-    <div id="twitch_reward_streams">
+    <div id="watch_screen_menu" class="category_list">
+        <div class="category mouseover-sound4 click-sound profile selected" onclick="watch_screen_change_tab(this, 'twitch')">
+            <div class="label i18n">Twitch</div>
+        </div>
+        <div class="category mouseover-sound4 click-sound profile" onclick="watch_screen_change_tab(this, 'replays')">
+            <div class="label i18n">Replays</div>
+        </div>
+    </div>
+
+    <div id="twitch_reward_streams" class="tab_page">
         <div class="head">
             <div class="background"></div>
 
@@ -3009,6 +3034,44 @@
 
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <div id="watch_screen_replays" class="tab_page">
+        <div class="grid-row">
+            <div class="grid-col-7 grid-offset-1">
+                <div id="replays-list-filter" class="select-field" data-theme="gray2">
+                    <div data-value="server_replays" class="i18n" data-i18n="replay_server_replays" data-selected="1">Server replays</div>
+                    <div data-value="client_replays" class="i18n" data-i18n="replay_client_replays">Local replays</div>
+                </div>
+            </div>
+            <div class="grid-col-3" style="justify-content: flex-end;">
+                <div class="db-btn click-sound mouseover-sound4 i18n" data-i18n="replay_open_replays_folder" onclick="open_replays_folder()">Open Replays Folder</div>
+            </div>
+        </div>
+        
+        <div class="replay-row" style="flex: 1">
+            <div class="grid-col-10 grid-offset-1" style="height: 100%">
+
+                <div class="grid-row downloaded-replays-list" style="height: 100%" id="downloaded-no-replays">
+                    <div class="grid-col-10 grid-offset-1 no_replays" class="i18n" data-i18n="replays_not_downloaded">
+                        You have not downloaded any replay yet.
+                    </div>
+                </div>
+                
+                <div class="scroll-outer downloaded-replays-list" id="downloaded-replays-list-outter" data-sb-hide-empty="true">
+                    <div class="scroll-bar">
+                        <div class="scroll-thumb"></div>
+                    </div>
+                    
+                    <div class="grid-row scroll-inner">
+                        <div class="grid-col-12 spinner"></div>
+                        
+                        <div class="grid-col-12 replays_list" id="downloaded-replays-list">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -3152,7 +3215,7 @@
                 </div>
 
                 <div class="queue_button_cont">
-                    <div id="queue_button" class="queue_button i18n" data-i18n="menu_start_queueing"></div>
+                    <div id="queue_button" class="queue_button i18n" data-i18n="menu_find_match"></div>
                 </div>
             </div>
 
@@ -3966,6 +4029,7 @@
             <div id="mm_ingame" class="main_menu_button click-sound mouseover-sound2 hidden" onclick='open_ingame_menu(false)' data-bind-class-toggle="visible:{{application_data.in_match}}"><div class="inner i18n" data-i18n="menu_top_match">Match</div></div>
             <div id="mm_play" class="main_menu_button click-sound mouseover-sound2" onclick='open_play_combined()'><div class="inner i18n" data-i18n="menu_top_play">Play</div></div>
             <div id="mm_practice" class="main_menu_button click-sound mouseover-sound2" onclick='open_practice()'><div class="inner i18n" data-i18n="menu_top_practice">Practice</div></div>
+            <div id="mm_watch" class="main_menu_button click-sound mouseover-sound2" onclick='open_watch()'><div class="inner i18n" data-i18n="menu_top_watch">Watch</div></div>
             <div id="mm_learn" class="main_menu_button click-sound mouseover-sound2 learn_menu_button" onclick='open_learn()'><div class="inner i18n" data-i18n="menu_top_learn">Learn</div></div>
             <div id="mm_customize" class="main_menu_button click-sound mouseover-sound2" onclick='open_customization()'><div class="inner i18n" data-i18n="menu_top_locker">Locker</div><div id="customize_new_count" class="new"></div></div>
             <div id="mm_shop" class="main_menu_button click-sound mouseover-sound2" onclick='open_shop()'><div class="inner i18n" data-i18n="menu_top_shop">Shop</div><div id="shop_new" class="new_shop">New!</div></div>
@@ -3978,11 +4042,6 @@
                 <div class="icon_cont">
                     <div class="icon"></div>
                 </div>
-            </div>
-
-            <div id="mm_watch" onclick='open_watch()' class="main_menu_icon left mouseover-sound2 click-sound tooltip">
-                <span data-i18n="menu_top_watch" class="tip_inner i18n">Watch</span>
-                <div class="icon"></div>
             </div>
 
             <div id="mm_create" onclick='open_create()' class="main_menu_icon left mouseover-sound2 click-sound tooltip" style="display: flex;">
@@ -4218,6 +4277,19 @@
 
     <!-- MODAL DIALOGS -->
     <div id="modal_dialogs">
+
+        <div id="replay_delete_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
+            <div class="generic_modal_dialog" onclick="event.stopPropagation();">
+                <div class="generic_modal_dialog_container">
+                    <div class="generic_modal_dialog_header i18n" data-i18n="replay_delete_modal_title">Delete replay</div>
+                    <div class="generic_modal_dialog_text i18n" data-i18n="replay_delete_modal_confirm">Are you sure you want to delete this replay?</div>
+                    <div class="generic_modal_dialog_action">
+                        <div class="dialog_button positive i18n" data-i18n="delete" onclick="confirm_delete_replay()">Delete</div>
+                        <div class="dialog_button negative i18n" data-i18n="cancel" onclick="cancel_delete_replay()">Cancel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div id="patch_notes_modal_screen" class="generic_modal" onclick="close_modal_screen(event);">
             <div id="home_screen_patch_notes_cont" onclick="event.stopPropagation();">
@@ -4659,7 +4731,7 @@
                                 </div>
                             </div>
 
-                            <div id="custom_setting_record_replay" class="custom_game_setting" style="display:none;">
+                            <div id="custom_setting_record_replay" class="custom_game_setting">
                                 <span class="setting_title">
                                     <span class="i18n" data-i18n="custom_settings_record_replay">Record Server-side Replay</span>
                                     <span class="infott tooltip2" data-msg-id="custom_settings_record_replay_info"></span>
@@ -6668,7 +6740,8 @@
     <div id="preload_trick_container"></div>
 
     <script inline src="javascript/cohtml.js"></script>
-    <script inline src="vendors/zepto.js"></script>
+    <script inline src="javascript/cohtml_async.js"></script>
+    <!--<script inline src="vendors/zepto.js"></script>-->
 
     <script inline src="vendors/scrollbooster/scrollbooster.js"></script>
     <script inline src="vendors/jscolor/_jscolor.js"></script>
@@ -6789,6 +6862,48 @@
     <script inline src="javascript/ui_crosshair_creator.js"></script>    
     <script inline src="javascript/ui_loading_screen.js"></script>
     <script inline src="javascript/script_data.js"></script> <!-- generated via script -->
+
+
+    <!-- Stylesheets rel="stylesheet" is required for the packer script -->
+    <link rel="stylesheet" href="css/flexgrid.css"/>
+    <link rel="stylesheet" href="css/ui_menu.css"/>
+    <link rel="stylesheet" href="css/ui.css"/>
+    <link rel="stylesheet" href="css/ui_hud_editor.css"/>
+    <link rel="stylesheet" href="css/ui_hud_elements.css"/>
+    <link rel="stylesheet" href="css/hp_color_table.css"/>
+    <link rel="stylesheet" href="css/ui_components.css"/>
+    <link rel="stylesheet" href="css/ui_loading_screen.css"/>
+
+    <link rel="stylesheet" href="components/main_menu/ingame_menu.css"/>
+    <link rel="stylesheet" href="components/main_menu/friend_list.css"/>
+    <link rel="stylesheet" href="components/main_menu/party_box.css"/>
+    <link rel="stylesheet" href="components/main_menu/main_chat.css"/>
+    <link rel="stylesheet" href="components/main_menu/home_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/shop_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/shop_item_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/coin_shop_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/play_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/play_screen_custom.css"/>
+    <link rel="stylesheet" href="components/main_menu/play_screen_customlist.css"/>
+    <link rel="stylesheet" href="components/main_menu/battlepass_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/battlepass_list_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/battlepass_upgrade_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/notification_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/gift_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/settings_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/customize_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/create_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/leaderboards_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/player_profile_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/match_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/practice_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/license_center_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/watch_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/learn_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/aim_screen.css"/>
+    <link rel="stylesheet" href="components/main_menu/play_screen_combined.css"/>
+
+    <link rel="stylesheet" href="css/ui_postload.css"/>
 
     <!--%EXTRA_HEADERS%-->
       

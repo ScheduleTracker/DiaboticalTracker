@@ -2681,6 +2681,8 @@ var TRANSLATION_en =
     "settings_connections_twitch": "Twitch",
     "settings_connections_twitch_link": "Link Account",
     "settings_connections_twitch_unlink": "Unlink",
+    "setting_replays": "Replays",
+    "setting_client_replays": "Client-side replays",
     "1v1": "1v1",
     "2v2": "2v2",
     "3v3": "3v3",
@@ -3692,6 +3694,18 @@ var TRANSLATION_en =
     "map_last_edit": "Last edited",
     "map_update_title": "Update map",
     "map_votes": "votes",
-    "map_vote": "vote"
-	
+    "map_vote": "vote",
+    "replay_downloaded": "Downloaded replays",
+    "replay_download": "Download replay",
+    "replay_downloading": "Downloading",
+    "replay_delete": "Delete",
+    "replay_watch": "Watch",
+    "replay_watch_replay": "Watch replay",
+    "replay_starting": "Starting",
+    "replay_delete_modal_title": "Delete replay",
+    "replay_delete_modal_confirm": "Are you sure you want to delete this replay?",
+    "replay_open_replays_folder": "Open replays folder",
+    "replay_client_replays": "Local replays",
+    "replay_server_replays": "Server replays",
+    "replays_not_downloaded": "You have not downloaded any replay yet"
 }   

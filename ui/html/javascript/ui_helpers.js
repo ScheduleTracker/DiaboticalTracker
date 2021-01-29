@@ -316,6 +316,39 @@ function _createElement(type, classes, textContent) {
     return el;
 }
 
+function _createButton(initialState, loadingState, classes) {
+    let $button = _createElement("div", ["db-btn", ...classes], initialState);
+
+    $button.setLoading = function () {
+        this.classList.add("disabled2");
+        this.textContent = loadingState;
+        this.animationSteps = 0;
+        this.animationTimer = setInterval(() => {
+            this.animationSteps = this.animationSteps > 2 ? 0 : this.animationSteps + 1;
+            this.textContent = loadingState + ".".repeat(this.animationSteps);
+        }, 250);
+    };
+    $button.setInitial = function () {
+        this.animationSteps = 0;
+        clearInterval(this.animationTimer);
+        this.classList.remove("disabled2");
+        this.textContent = initialState;
+    };
+    return $button;
+}
+
+// Helper to tag html
+function html(strings, ...values) {
+    let newStr = '';
+    for (let i = 0; i < strings.length; i++) {
+      if (i > 0) {
+        newStr += values[i-1];
+      }
+      newStr += strings[i];
+    }
+    return newStr;
+}
+
 function _createSpinner() {
     let outer_cont = _createElement("div", "spinner");
     let cont = _createElement("div", "spinner-cont");

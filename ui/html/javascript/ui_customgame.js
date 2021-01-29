@@ -755,7 +755,6 @@ function custom_game_settings_changed(send_only) {
     if (global_lobby_id == -1) return;
 
     let settings = get_lobby_settings();
-
     // Make sure the values get stored in the engine
     if (bool_am_i_host) {
         if (!send_only) {

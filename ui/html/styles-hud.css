@@ -321,6 +321,9 @@ body, html {
 .db-btn.disabled {
     filter: grayscale(100%);
 }
+.db-btn.disabled2 {
+    background-color: transparent !important;
+}
 .db-btn > * {
     text-transform:uppercase; 
 }
