@@ -153,6 +153,12 @@ models\weapons\shaft\separator\weapons_preview.shader		1185
 models\weapons\shaft\snowflake\shaft_d.png		2914559
 models\weapons\shaft\snowflake\shaft_n.png		4388306
 models\weapons\shaft\snowflake\shaft_s.png		3833047
+models\weapons\shaft\snowflakes\shaft_d.png.dds		5592580
+models\weapons\shaft\snowflakes\shaft_n.png.dds		5592580
+models\weapons\shaft\snowflakes\shaft_s.png.dds		5592580
+models\weapons\shaft\snowflakes\weapons_3p.shader		1183
+models\weapons\shaft\snowflakes\weapons_carry.shader		658
+models\weapons\shaft\snowflakes\weapons_preview.shader		1193
 models\weapons\shaft\stripes\shaft_d.png.dds		5592548
 models\weapons\shaft\stripes\shaft_n.png.dds		1398276
 models\weapons\shaft\stripes\shaft_s.png.dds		1398276

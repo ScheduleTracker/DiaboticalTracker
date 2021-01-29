@@ -145,6 +145,12 @@ models\weapons\rocket_launcher\ruby\weapons_preview.shader		1557
 models\weapons\rocket_launcher\snowflake\rl_d.png		3733949
 models\weapons\rocket_launcher\snowflake\rl_n.png		4137789
 models\weapons\rocket_launcher\snowflake\rl_s.png		4312115
+models\weapons\rocket_launcher\snowflakes\rl_d.png.dds		5592580
+models\weapons\rocket_launcher\snowflakes\rl_n.png.dds		5592580
+models\weapons\rocket_launcher\snowflakes\rl_s.png.dds		5592580
+models\weapons\rocket_launcher\snowflakes\weapons_3p.shader		1678
+models\weapons\rocket_launcher\snowflakes\weapons_carry.shader		1033
+models\weapons\rocket_launcher\snowflakes\weapons_preview.shader		1611
 models\weapons\rocket_launcher\tiger\rl_d.png.dds		5592580
 models\weapons\rocket_launcher\tiger\weapons_3p.shader		1629
 models\weapons\rocket_launcher\tiger\weapons_carry.shader		1012

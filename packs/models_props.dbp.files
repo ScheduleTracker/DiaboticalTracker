@@ -1844,6 +1844,7 @@ models\props\temple\drill\drill_n.png.dds		1398260
 models\props\temple\drill\drill_s.png.dds		1398276
 models\props\temple\drill\drill_static.assets		129
 models\props\temple\foliage\foliage.assets		266
+models\props\temple\foliage\foliage.assets_DO NOT REVERT		342
 models\props\temple\foliage\foliage.shader		1910
 models\props\temple\foliage\palmbush.dbm		34624
 models\props\temple\foliage\palmbush.fbx		35360

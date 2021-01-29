@@ -121,6 +121,12 @@ models\weapons\blaster\rain\weapons_preview.shader		2363
 models\weapons\blaster\snowflake\bl_d.png		4988733
 models\weapons\blaster\snowflake\bl_n.png		3362093
 models\weapons\blaster\snowflake\bl_s.png		5821376
+models\weapons\blaster\snowflakes\bl_d.png.dds		5592580
+models\weapons\blaster\snowflakes\bl_n.png.dds		5592580
+models\weapons\blaster\snowflakes\bl_s.png.dds		5592580
+models\weapons\blaster\snowflakes\weapons_3p.shader		1258
+models\weapons\blaster\snowflakes\weapons_carry.shader		1944
+models\weapons\blaster\snowflakes\weapons_preview.shader		2429
 models\weapons\blaster\splatter\bl_d.png.dds		5592580
 models\weapons\blaster\splatter\weapons_3p.shader		1220
 models\weapons\blaster\splatter\weapons_carry.shader		1920
