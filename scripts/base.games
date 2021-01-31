@@ -344,6 +344,10 @@ game warmup
 	map b_icefall
 	map b_marina
 	map b_sunken
+	map ft_starport
+	map b_hurt_locker
+	map b_huracan
+	map b_frozen_decay
 
 	weapon sword 999
 	weapon machinegun 100
@@ -383,6 +387,10 @@ game brawl
 	map b_icefall
 	map b_marina
 	map b_sunken
+	map ft_starport
+	map b_hurt_locker
+	map b_huracan
+	map b_frozen_decay
 
 	weapon sword 999
 	weapon machinegun 100
@@ -412,6 +420,11 @@ game duel
 	map duel_perilous
 	map duel_skybreak
 	map duel_monolith
+	map duel_viki
+	map duel_amberfall
+	map duel_frostrush
+	map duel_overgrowth
+	map duel_raya
 
 	weapon sword 999
 	weapon machinegun 100
@@ -433,6 +446,11 @@ game duelc
 	map duel_perilous
 	map duel_skybreak
 	map duel_monolith
+	map duel_viki
+	map duel_amberfall
+	map duel_frostrush
+	map duel_overgrowth
+	map duel_raya
 
 	weapon sword 999
 	weapon machinegun 100
@@ -658,6 +676,10 @@ game ffa
 	map b_icefall
 	map b_marina
 	map b_sunken
+	map ft_starport
+	map b_hurt_locker
+	map b_huracan
+	map b_frozen_decay
 	
 	weapon sword 999	
 	weapon machinegun 100
@@ -680,6 +702,7 @@ game ctf
 	map ctf_qunai_peaks
 	map ctf_cliffside_canyons
 	map ctf_titans_crossing
+	map ctf_seismic_fault
 
 	
 	weapon sword 999
@@ -791,6 +814,9 @@ game tdm
 	map tdm_alchemy
 	map duel_perilous
 	map duel_kasbah
+	map tdm_frozen_decay
+	map tdm_huracan
+	map ft_hurt_locker
 	
 	weapon sword 999
 	weapon machinegun 100
@@ -811,6 +837,9 @@ game tdmc
 	map tdm_alchemy
 	map duel_perilous
 	map duel_kasbah
+	map tdm_frozen_decay
+	map tdm_huracan
+	map ft_hurt_locker
 	
 	weapon sword 999
 	weapon machinegun 100
@@ -830,6 +859,8 @@ game extinction
 	map tdm_icefall
 	map tdm_oxide
 	map tdm_alchemy_wip
+	map tdm_frozen_decay
+	map tdm_huracan
 	
 	
 	weapon sword 999
@@ -860,6 +891,11 @@ game race
 	map tt_gr_titans_crossing
 	map tt_gr_qunai_peaks
 	map tt_gr_cliffside_canyons
+	map tt_boost
+	map tt_roosh
+	map tt_oasis
+	map tt_toxic
+	map tt_cave_run
 
 	
 	
@@ -878,6 +914,8 @@ game ft
 	map b_icefall
 	map b_marina
 	map b_sunken
+	map ft_starport
+	map ft_hurt_locker
 		
 	setting game_truce_time 0
 	setting game_enable_items 1
@@ -924,6 +962,8 @@ game ftc
 	map b_icefall
 	map b_marina
 	map b_sunken
+	map ft_starport
+	map ft_hurt_locker
 		
 	setting game_truce_time 0
 	setting game_enable_items 1
