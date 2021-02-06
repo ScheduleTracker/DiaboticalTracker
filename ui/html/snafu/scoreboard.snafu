@@ -172,13 +172,15 @@ ON_UPDATE
     
 
     # Label "Custom settings"
-    #OUTPUT 7 0 font "roboto-bold"
-    #OUTPUT 7 0 font_size 1.3
-    #OUTPUT 7 0 opacity 0.8
-    #OUTPUT 7 0 value "Customized commands"
-    #OUTPUT 7 0 color "#ffd43c"
-    #OUTPUT 7 0 offset_x 30.5
-    #OUTPUT 7 0 y 6.4
+    IF !game_data.is_default_settings
+        OUTPUT 7 0 font "roboto-bold"
+        OUTPUT 7 0 font_size 1.3
+        OUTPUT 7 0 opacity 0.8
+        OUTPUT 7 0 lvalue "custom_game_settings_customized"
+        OUTPUT 7 0 color "#ffd43c"
+        OUTPUT 7 0 offset_x 30.5
+        OUTPUT 7 0 y 6.4
+    END IF
 
 END TEMPLATE
 
