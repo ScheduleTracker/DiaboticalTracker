@@ -206,9 +206,6 @@ models\weapons\crossbow\red_deathray\cb_s.png.dds		1398276
 models\weapons\crossbow\red_deathray\weapons_3p.shader		553
 models\weapons\crossbow\red_deathray\weapons_carry.shader		553
 models\weapons\crossbow\red_deathray\weapons_preview.shader		558
-models\weapons\crossbow\snowflake\cb_d.png		3043438
-models\weapons\crossbow\snowflake\cb_n.png		3831930
-models\weapons\crossbow\snowflake\cb_s.png		5104673
 models\weapons\crossbow\snowflakes\cb_d.png.dds		5592580
 models\weapons\crossbow\snowflakes\cb_n.png.dds		5592580
 models\weapons\crossbow\snowflakes\cb_s.png.dds		5592580

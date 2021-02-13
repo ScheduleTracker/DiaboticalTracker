@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		821
 scripts\base.enemy		543
-scripts\base.games		27272
+scripts\base.games		27291
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -16,7 +16,7 @@ scripts\decals.assets		4776
 scripts\dynamic_industrial.assets		71627
 scripts\dynamic_temple.assets		26277
 scripts\effects.atlas		7744
-scripts\entities.assets		9587
+scripts\entities.assets		9605
 scripts\fragclips.movies-example		1485
 scripts\heal.particles		743
 scripts\industry_materials.assets		3053
