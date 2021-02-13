@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-9454a977676d6612dfbefacd6e1c65b57cdea1d5	anticheat/equ8.db
+c766141d9962989abcc80522c896545b5cb33fc8	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1703,7 +1703,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-a3e0a0533ec3998edc49f1c58fcb374beae73a14	diabotical.exe
+46fad9315d5aac6ae53585dc8470e490aed70a01	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1718,7 +1718,7 @@ b51420f5acd33b7b0625fe9a1bd0c619a7791b08	manifest.rbd
 68f127c7d01b61369c0494468c7609e142e18d5f	packs/audio_music.dbp
 4f2c030d93435c1c15eadbef9815e76e0dfda34d	packs/audio_weapons.dbp
 b00fb5dd258ddfcf7a757bbc0ae904c950ac50e3	packs/blocks.dbp
-621563eab25c9910ec9ebdf0be52931c5524a166	packs/maps.dbp
+ef3bb9ec087faaf55b1534df97a159a8044fc666	packs/maps.dbp
 2c2443917ed019a5bb50f97e67886d582c5a17ed	packs/models.dbp
 dfbc7bf49cd84ac39c70918b66c864101051e09f	packs/models_dynamic_props.dbp
 dd0b55d0c42c1a3613f7e5678a38ad07e17306cf	packs/models_dynamic_props_industry.dbp
@@ -9550,6 +9550,7 @@ b7dc47a2c3e4768c3adee0a38c7314d02ac3bdb0	ui/html/map_thumbnails/sa_the_explorati
 6c01095112b29e181f6a6adab586c87522a3b5aa	ui/html/map_thumbnails/tdm_huracan.png
 2b41bb33eb050a6d79ada27c63058435dad293a7	ui/html/map_thumbnails/tdm_icefall.png
 037757ed79d2c2c27246440aa86ed5bdcb838fcf	ui/html/map_thumbnails/tdm_oxide.png
+a2f902c08e26402e8bcf34f7c66831ae86efa2d9	ui/html/map_thumbnails/tdm_perilous.png
 e49a32ebb79bf50cc09aace65c1f80efdb010bde	ui/html/map_thumbnails/tt_boost.png
 f4777ccc549bf566e644b0b8e16d678049338be5	ui/html/map_thumbnails/tt_cave_run.png
 de193786689e50c274ef1051072f7aa936910bc9	ui/html/map_thumbnails/tt_ctf_cathedral.png
