@@ -812,7 +812,7 @@ game tdm
 	map tdm_icefall
 	map tdm_oxide
 	map tdm_alchemy
-	map duel_perilous
+	map tdm_perilous
 	map duel_kasbah
 	map tdm_frozen_decay
 	map tdm_huracan
@@ -835,7 +835,7 @@ game tdmc
 	map tdm_icefall
 	map tdm_oxide
 	map tdm_alchemy
-	map duel_perilous
+	map tdm_perilous
 	map duel_kasbah
 	map tdm_frozen_decay
 	map tdm_huracan
@@ -861,6 +861,7 @@ game extinction
 	map tdm_alchemy_wip
 	map tdm_frozen_decay
 	map tdm_huracan
+	map ft_hurt_locker
 	
 	
 	weapon sword 999

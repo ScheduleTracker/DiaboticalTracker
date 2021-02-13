@@ -388,21 +388,21 @@ asset bot/behavior_melee
 {
   listed true
   type entity
-  command multi /add bot; /forsel move %1 +0 +25 +0; /forsel set %1 behavior_melee
+  command multi /add bot; /forsel move %1 +0 +25 +0; /forsel set %1 behavior melee
 }
 
 asset bot/behavior_stationary_target
 {
   listed true
   type entity
-  command multi /add bot; /forsel move %1 +0 +25 +0; /forsel set %1 stationary_target
+  command multi /add bot; /forsel move %1 +0 +25 +0; /forsel set %1 behavior stationary_target
 }
 
 asset bot/behavior_moving_target
 {
   listed true
   type entity
-  command multi /add bot; /forsel move %1 +0 +25 +0; /forsel set %1 moving_target
+  command multi /add bot; /forsel move %1 +0 +25 +0; /forsel set %1 behavior moving_target
 }
 
 asset volumetric
