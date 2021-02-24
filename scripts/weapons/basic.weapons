@@ -1097,8 +1097,6 @@ void_cannon_secondary
 	//decal decal_plasma 40 3 3.561 false false alpha 5
 	decal decal_glow_blue 25 1.75 3.561 false false alpha 40
 	//decal decal_glow_red 18 3 3.561 false false alpha 30
-
-    loop_animation true
 	
 	shot_particles empty_system
    	shot_particles_attached w9_muzzle

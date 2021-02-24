@@ -334,20 +334,22 @@ game warmup
 	setting game_score_limit 0
 
 
-	map b_crystal_cove
-	map b_furnace
-	map b_refinery
-	map b_wellspring
-    map b_toya_fortress
 	map b_alchemy
-	map b_oxide
+	map b_crystal_cove
+	map b_frozen_decay
+	map b_furnace
+	map b_huracan
+	map b_hurt_locker
 	map b_icefall
 	map b_marina
-	map b_sunken
+	map b_oxide
+	map b_refinery
 	map ft_starport
-	map b_hurt_locker
-	map b_huracan
-	map b_frozen_decay
+	map b_sunken
+    map b_toya_fortress
+	map b_wellspring
+
+
 
 	weapon sword 999
 	weapon machinegun 100
@@ -377,20 +379,20 @@ game brawl
 	setting game_score_limit 0
 
 
-	map b_crystal_cove
-	map b_furnace
-	map b_refinery
-	map b_wellspring
-	map b_toya_fortress
 	map b_alchemy
-	map b_oxide
+	map b_crystal_cove
+	map b_frozen_decay
+	map b_furnace
+	map b_huracan
+	map b_hurt_locker
 	map b_icefall
 	map b_marina
-	map b_sunken
+	map b_oxide
+	map b_refinery
 	map ft_starport
-	map b_hurt_locker
-	map b_huracan
-	map b_frozen_decay
+	map b_sunken
+    map b_toya_fortress
+	map b_wellspring
 
 	weapon sword 999
 	weapon machinegun 100
@@ -508,11 +510,11 @@ game ca
 
 game cac
 {
+	map wo_crystal_cove
 	map wo_furnace
 	map wo_refinery
-	map wo_wellspring
-	map wo_crystal_cove
 	map wo_toya_fortress
+	map wo_wellspring
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
@@ -583,9 +585,10 @@ game rocket_arena
 
 game shaft_arena
 {
+	map sa_gravels_of_wisdom
 	map sa_mausoleum_of_despair
 	map sa_the_exploration_of_a_cold_heart
-	map sa_gravels_of_wisdom
+
 
 		
 	setting game_truce_time 7
@@ -616,11 +619,11 @@ game shaft_arena
 
 game wipeout
 {
+	map wo_crystal_cove
 	map wo_furnace
 	map wo_refinery
-	map wo_wellspring
-	map wo_crystal_cove
 	map wo_toya_fortress
+	map wo_wellspring
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
@@ -666,20 +669,20 @@ game ffa
 	setting game_time_limit 480
 	setting game_score_limit 0
 
-	map b_crystal_cove
-	map b_furnace
-	map b_refinery
-	map b_wellspring
-	map b_toya_fortress
 	map b_alchemy
-	map b_oxide
+	map b_crystal_cove
+	map b_frozen_decay
+	map b_furnace
+	map b_huracan
+	map b_hurt_locker
 	map b_icefall
 	map b_marina
-	map b_sunken
+	map b_oxide
+	map b_refinery
 	map ft_starport
-	map b_hurt_locker
-	map b_huracan
-	map b_frozen_decay
+	map b_sunken
+    map b_toya_fortress
+	map b_wellspring
 	
 	weapon sword 999	
 	weapon machinegun 100
@@ -698,11 +701,12 @@ game ctf
 	
 	map ctf_cathedral
 	map ctf_dojo
-	map ctf_quarry
-	map ctf_qunai_peaks
-	map ctf_cliffside_canyons
-	map ctf_titans_crossing
 	map ctf_seismic_fault
+	map ctf_quarry
+	map ctf_cliffside_canyons
+	map ctf_qunai_peaks
+	map ctf_titans_crossing
+
 
 	
 	weapon sword 999
@@ -721,10 +725,10 @@ game macguffin
         setting game_maximum_respawn_time_ms 2500
         setting game_minimum_respawn_time_ms 2500
 
-	map mg_sunken
-	map mg_marina
-	map mg_factory
 	map mg_ancient
+	map mg_factory
+	map mg_marina
+	map mg_sunken
 	
 
 	weapon sword 999
@@ -744,12 +748,12 @@ game ghosthunt
 	setting game_score_limit 0
 	setting game_overtime 60
 
+	map ig_apollo
 	map ig_coastline
 	map ig_egg-plant
+	map ig_malkas_tomb
 	map ig_stronghold
 	map ig_terminal
-	map ig_apollo
-	map ig_malkas_tomb
 	map ig_treehouse
 
 
@@ -768,8 +772,8 @@ game instagib_duel
 	setting game_friendly_fire 0
 	setting game_hp 100
 
-    map iga_strife
     map iga_grainyard
+    map iga_strife
     map iga_temple
 
 	weapon sword 999
@@ -809,14 +813,14 @@ game tdm
 	setting game_time_limit 600
 	setting game_mercy_limit 35
 
-	map tdm_icefall
-	map tdm_oxide
 	map tdm_alchemy
-	map tdm_perilous
-	map duel_kasbah
 	map tdm_frozen_decay
 	map tdm_huracan
+	map tdm_icefall
+	map tdm_oxide
 	map ft_hurt_locker
+	map tdm_perilous
+	map duel_kasbah
 	
 	weapon sword 999
 	weapon machinegun 100
@@ -832,14 +836,14 @@ game tdmc
 	setting game_mercy_limit 35
 	setting game_enable_drop 1
 
-	map tdm_icefall
-	map tdm_oxide
 	map tdm_alchemy
-	map tdm_perilous
-	map duel_kasbah
 	map tdm_frozen_decay
 	map tdm_huracan
+	map tdm_icefall
+	map tdm_oxide
 	map ft_hurt_locker
+	map tdm_perilous
+	map duel_kasbah
 	
 	weapon sword 999
 	weapon machinegun 100
@@ -856,11 +860,11 @@ game extinction
 	setting game_round_countdown 12
 	
 
-	map tdm_icefall
-	map tdm_oxide
 	map tdm_alchemy_wip
 	map tdm_frozen_decay
 	map tdm_huracan
+	map tdm_icefall
+	map tdm_oxide
 	map ft_hurt_locker
 	
 	
@@ -880,24 +884,25 @@ game race
 	setting game_weapon_respawn_time 1
 	setting game_unlimited_ammo 1
 	
-	map tt_frostrun
+
+	map tt_boost
+	map tt_cave_run
 	map tt_foundry
+	map tt_frostrun
+	map tt_oasis
+	map tt_roosh
 	map tt_rwc
 	map tt_temple_escape
-	map tt_zen
+	map tt_toxic
 	map tt_ukiyo
+	map tt_zen
 	map tt_ctf_cathedral
 	map tt_ctf_dojo 
+	map tt_ctf_seismic_fault
 	map tt_ctf_quarry
-	map tt_gr_titans_crossing
-	map tt_gr_qunai_peaks
 	map tt_gr_cliffside_canyons
-	map tt_boost
-	map tt_roosh
-	map tt_oasis
-	map tt_toxic
-	map tt_cave_run
-
+	map tt_gr_qunai_peaks
+	map tt_gr_titans_crossing
 	
 	
 	weapon sword 999
@@ -905,18 +910,20 @@ game race
 
 game ft
 {
-	map b_furnace
-	map b_refinery
-	map b_wellspring
-	map b_crystal_cove
-	map b_toya_fortress
 	map b_alchemy
-	map b_oxide
+	map b_crystal_cove
+	map b_frozen_decay
+	map b_furnace
+	map b_huracan
+	map b_hurt_locker
 	map b_icefall
 	map b_marina
-	map b_sunken
+	map b_oxide
+	map b_refinery
 	map ft_starport
-	map ft_hurt_locker
+	map b_sunken
+    map b_toya_fortress
+	map b_wellspring
 		
 	setting game_truce_time 0
 	setting game_enable_items 1
@@ -953,18 +960,20 @@ game ft
 
 game ftc
 {
-	map b_furnace
-	map b_refinery
-	map b_wellspring
-	map b_crystal_cove
-	map b_toya_fortress
 	map b_alchemy
-	map b_oxide
+	map b_crystal_cove
+	map b_frozen_decay
+	map b_furnace
+	map b_huracan
+	map b_hurt_locker
 	map b_icefall
 	map b_marina
-	map b_sunken
+	map b_oxide
+	map b_refinery
 	map ft_starport
-	map ft_hurt_locker
+	map b_sunken
+    map b_toya_fortress
+	map b_wellspring
 		
 	setting game_truce_time 0
 	setting game_enable_items 1
@@ -1010,7 +1019,11 @@ game survival
 	setting game_enable_items 1
 	setting game_team_mode 1
 	setting game_score_limit 1
-        setting game_wipe_out_mode 2
+    setting game_wipe_out_mode 2
+	setting game_spawn_random_chance 0.5
+    setting game_spawn_farthest_chance 0
+	setting game_spawn_farthest_foe_chance 0.5
+    setting game_spawn_farthest_threshold 3
 	
 	setting game_hp 125
 	setting game_stable_hp 100
