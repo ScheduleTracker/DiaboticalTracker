@@ -87,7 +87,7 @@ maps\duel_overgrowth.rbe		2339893
 maps\duel_perilous.rbe		5026986
 maps\duel_raya-b.png		9268
 maps\duel_raya-h.png		196791
-maps\duel_raya.rbe		1948062
+maps\duel_raya.rbe		1957110
 maps\duel_skybreak.rbe		1830760
 maps\duel_viki-b.png		2811
 maps\duel_viki-h.png		364041
@@ -201,6 +201,9 @@ maps\tt_ctf_dojo-b.png		9194
 maps\tt_ctf_dojo-h.png		376892
 maps\tt_ctf_dojo.rbe		5229908
 maps\tt_ctf_quarry.rbe		9759107
+maps\tt_ctf_seismic_fault-b.png		36099
+maps\tt_ctf_seismic_fault-h.png		428443
+maps\tt_ctf_seismic_fault.rbe		7294768
 maps\tt_foundry-b.png		15235
 maps\tt_foundry-h.png		460380
 maps\tt_foundry.rbe		6076201
@@ -217,7 +220,7 @@ maps\tt_oasis-h.png		361693
 maps\tt_oasis.rbe		7247999
 maps\tt_roosh-b.png		2198
 maps\tt_roosh-h.png		384403
-maps\tt_roosh.rbe		6884875
+maps\tt_roosh.rbe		6888714
 maps\tt_rwc.rbe		1015477
 maps\tt_temple_escape.rbe		4883144
 maps\tt_toxic.rbe		9292321
