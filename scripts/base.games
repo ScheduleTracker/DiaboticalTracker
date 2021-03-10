@@ -393,6 +393,7 @@ game brawl
 	map b_sunken
     map b_toya_fortress
 	map b_wellspring
+	map b_ancient
 
 	weapon sword 999
 	weapon machinegun 100
@@ -624,6 +625,8 @@ game wipeout
 	map wo_refinery
 	map wo_toya_fortress
 	map wo_wellspring
+	map wo_ancient
+	map wo_sunken
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
@@ -683,6 +686,7 @@ game ffa
 	map b_sunken
     map b_toya_fortress
 	map b_wellspring
+	map b_ancient
 	
 	weapon sword 999	
 	weapon machinegun 100
@@ -924,6 +928,7 @@ game ft
 	map b_sunken
     map b_toya_fortress
 	map b_wellspring
+	map b_ancient
 		
 	setting game_truce_time 0
 	setting game_enable_items 1
@@ -974,6 +979,7 @@ game ftc
 	map b_sunken
     map b_toya_fortress
 	map b_wellspring
+	map b_ancient
 		
 	setting game_truce_time 0
 	setting game_enable_items 1
