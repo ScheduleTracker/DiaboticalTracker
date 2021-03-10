@@ -22,11 +22,12 @@ maps\aim_template.rbe		574568
 maps\b_alchemy-b.png		2876
 maps\b_alchemy-h.png		473727
 maps\b_alchemy.rbe		5024341
+maps\b_ancient.rbe		2476494
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
 maps\b_crystal_cove.rbe		6858175
 maps\b_frozen_decay.rbe		3618379
-maps\b_furnace.rbe		6123083
+maps\b_furnace.rbe		6109545
 maps\b_huracan-b.png		13449
 maps\b_huracan-h.png		411981
 maps\b_huracan.rbe		6597554
@@ -83,7 +84,7 @@ maps\duel_monolith.rbe		3495475
 maps\duel_outpost_dunia.rbe		2930476
 maps\duel_overgrowth-b.png		58092
 maps\duel_overgrowth-h.png		503249
-maps\duel_overgrowth.rbe		2339893
+maps\duel_overgrowth.rbe		2210768
 maps\duel_perilous.rbe		5026986
 maps\duel_raya-b.png		9268
 maps\duel_raya-h.png		196791
@@ -148,7 +149,7 @@ maps\menu6.rbe		849457
 maps\menu7.rbe		374362
 maps\menu8.rbe		487746
 maps\menu9.rbe		101797
-maps\mg_ancient.rbe		3080448
+maps\mg_ancient.rbe		3081469
 maps\mg_factory-b.png		4233
 maps\mg_factory-h.png		371589
 maps\mg_factory.rbe		2407758
@@ -217,7 +218,7 @@ maps\tt_gr_qunai_peaks.rbe		4348020
 maps\tt_gr_titans_crossing.rbe		627967
 maps\tt_oasis-b.png		2198
 maps\tt_oasis-h.png		361693
-maps\tt_oasis.rbe		7247999
+maps\tt_oasis.rbe		7967190
 maps\tt_roosh-b.png		2198
 maps\tt_roosh-h.png		384403
 maps\tt_roosh.rbe		6888714
@@ -228,13 +229,15 @@ maps\tt_ukiyo.rbe		4723441
 maps\tt_zen.rbe		1798052
 maps\tutorial.rbe		2494737
 maps\weapon.rbe		30512
+maps\wo_ancient.rbe		2470007
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
 maps\wo_crystal_cove.rbe		6832897
-maps\wo_furnace.rbe		6121153
+maps\wo_furnace.rbe		6108432
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
 maps\wo_refinery.rbe		6205729
+maps\wo_sunken.rbe		2298318
 maps\wo_toya_fortress.rbe		4696432
 maps\wo_wellspring-b.png		11751
 maps\wo_wellspring-h.png		241336
