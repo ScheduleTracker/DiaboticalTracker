@@ -66,7 +66,7 @@ maps\ctf_seismic_fault.rbe		7292092
 maps\ctf_titans_crossing.rbe		611309
 maps\duel_amberfall-b.png		4704
 maps\duel_amberfall-h.png		453905
-maps\duel_amberfall.rbe		4380004
+maps\duel_amberfall.rbe		3212382
 maps\duel_bioplant-b.png		6036
 maps\duel_bioplant-h.png		251674
 maps\duel_bioplant.rbe		1383275
@@ -84,7 +84,7 @@ maps\duel_monolith.rbe		3495475
 maps\duel_outpost_dunia.rbe		2930476
 maps\duel_overgrowth-b.png		58092
 maps\duel_overgrowth-h.png		503249
-maps\duel_overgrowth.rbe		2210768
+maps\duel_overgrowth.rbe		2213503
 maps\duel_perilous.rbe		5026986
 maps\duel_raya-b.png		9268
 maps\duel_raya-h.png		196791
@@ -182,6 +182,7 @@ maps\tdm_icefall-h.png		481103
 maps\tdm_icefall.rbe		2740654
 maps\tdm_oxide.rbe		4069270
 maps\tdm_perilous.rbe		5027025
+maps\tdm_sunken.rbe		2298845
 maps\template_blocks.rbe		23385
 maps\template_islands-b.png		2198
 maps\template_islands-h.png		361693
@@ -237,7 +238,7 @@ maps\wo_furnace.rbe		6108432
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374324
 maps\wo_refinery.rbe		6205729
-maps\wo_sunken.rbe		2298318
+maps\wo_sunken.rbe		2298274
 maps\wo_toya_fortress.rbe		4696432
 maps\wo_wellspring-b.png		11751
 maps\wo_wellspring-h.png		241336
