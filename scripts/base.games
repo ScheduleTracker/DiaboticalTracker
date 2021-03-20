@@ -32,6 +32,7 @@ game default
 	
 	setting game_self_damage 1
 	setting game_wipe_out_mode 0
+	setting game_wipe_out_timer_mode 0
 	setting game_friendly_fire 1
 	setting game_weapon_respawn_time 0
 	setting game_equip_time_ms -1
@@ -380,6 +381,7 @@ game brawl
 
 
 	map b_alchemy
+	map b_ancient
 	map b_crystal_cove
 	map b_frozen_decay
 	map b_furnace
@@ -389,11 +391,10 @@ game brawl
 	map b_marina
 	map b_oxide
 	map b_refinery
-	map ft_starport
 	map b_sunken
+	map ft_starport
     map b_toya_fortress
 	map b_wellspring
-	map b_ancient
 
 	weapon sword 999
 	weapon machinegun 100
@@ -620,13 +621,13 @@ game shaft_arena
 
 game wipeout
 {
+	map wo_ancient
 	map wo_crystal_cove
 	map wo_furnace
 	map wo_refinery
+	map wo_sunken
 	map wo_toya_fortress
 	map wo_wellspring
-	map wo_ancient
-	map wo_sunken
 		
 	setting game_truce_time 7
 	setting game_enable_items 0
@@ -673,6 +674,7 @@ game ffa
 	setting game_score_limit 0
 
 	map b_alchemy
+	map b_ancient
 	map b_crystal_cove
 	map b_frozen_decay
 	map b_furnace
@@ -682,11 +684,11 @@ game ffa
 	map b_marina
 	map b_oxide
 	map b_refinery
-	map ft_starport
 	map b_sunken
+	map ft_starport
     map b_toya_fortress
 	map b_wellspring
-	map b_ancient
+
 	
 	weapon sword 999	
 	weapon machinegun 100
@@ -822,6 +824,7 @@ game tdm
 	map tdm_huracan
 	map tdm_icefall
 	map tdm_oxide
+	map tdm_sunken
 	map ft_hurt_locker
 	map tdm_perilous
 	map duel_kasbah
@@ -845,6 +848,7 @@ game tdmc
 	map tdm_huracan
 	map tdm_icefall
 	map tdm_oxide
+	map tdm_sunken
 	map ft_hurt_locker
 	map tdm_perilous
 	map duel_kasbah
@@ -869,6 +873,7 @@ game extinction
 	map tdm_huracan
 	map tdm_icefall
 	map tdm_oxide
+	map tdm_sunken
 	map ft_hurt_locker
 	
 	
@@ -915,6 +920,7 @@ game race
 game ft
 {
 	map b_alchemy
+	map b_ancient
 	map b_crystal_cove
 	map b_frozen_decay
 	map b_furnace
@@ -928,7 +934,6 @@ game ft
 	map b_sunken
     map b_toya_fortress
 	map b_wellspring
-	map b_ancient
 		
 	setting game_truce_time 0
 	setting game_enable_items 1
@@ -966,6 +971,7 @@ game ft
 game ftc
 {
 	map b_alchemy
+	map b_ancient
 	map b_crystal_cove
 	map b_frozen_decay
 	map b_furnace
@@ -979,7 +985,6 @@ game ftc
 	map b_sunken
     map b_toya_fortress
 	map b_wellspring
-	map b_ancient
 		
 	setting game_truce_time 0
 	setting game_enable_items 1
