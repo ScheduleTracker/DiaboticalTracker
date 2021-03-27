@@ -43,6 +43,8 @@ game default
 	setting game_overtime_score_threshold 0
 	setting game_mercy_limit 0
 	
+	setting game_allow_team_sound_override 0
+	
 	setting game_spawn_random_chance 0
     setting game_spawn_farthest_chance 0
 	setting game_spawn_farthest_foe_chance 1
@@ -166,7 +168,10 @@ game tutorial
 	setting game_unlimited_ammo 1
 	setting phy_fly 0
 	
-	map tutorial
+	map tut_tutorial
+	map tut_practice
+	map tut_example
+	map tut_example_logic
 }
 
 game edit
@@ -625,6 +630,7 @@ game wipeout
 	map wo_crystal_cove
 	map wo_furnace
 	map wo_refinery
+	map wo_refinery_wip
 	map wo_sunken
 	map wo_toya_fortress
 	map wo_wellspring
@@ -892,6 +898,7 @@ game race
 	setting game_self_damage 0
 	setting game_weapon_respawn_time 1
 	setting game_unlimited_ammo 1
+	setting game_allow_team_sound_override 1
 	
 
 	map tt_boost
