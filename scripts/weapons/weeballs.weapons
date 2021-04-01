@@ -58,7 +58,8 @@ healing_weeball
   	
 	model weaponhw
 	model_position 0.93727 -5.30881 3.85738
-        model_position_third_person 10 -60 -35
+    model_position_third_person 23 -20 15
+	model_rotation_third_person 180 90 90
 	model_scale 0.1
 	model_rotation 186 10 -4
 	model_camera_scale 0.8

@@ -71,7 +71,12 @@ game default
 	setting game_player_col_radius_hor 15
 	setting game_player_col_radius_ver_bottom 24
 	setting game_model 0
-	setting game_player_hitbox_height 57
+	setting game_player_model_scale 2.3
+	setting game_player_view_height 0.01
+    setting game_player_crouch_view_height 0.01
+	setting game_player_hitbox_height 33
+	setting game_player_attachment_scale 0.08
+	setting game_player_shield_rotation 180,210,0
 	setting game_lifesteal 0
 	setting game_life_count 0
 

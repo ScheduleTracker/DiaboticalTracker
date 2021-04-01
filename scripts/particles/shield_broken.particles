@@ -1,52 +1,52 @@
-
- shield_broken1
-{	
-	geometry quad
-	map particle_sheet5.png
-	region plasma_circle
-	animation_speed 0
-	fade_in 0.1 0.1
-	fade_out 0.5 0.5
-	blend add
-	max_particles 1
-	max_emissions 1
-	rotation_start 0 0
-	color_start 0 1.5 2 1
-	lifetime 0.35
-	period 0.00
-	scale_start 50
-	scale_end 200
-	position 0 0 20
-	aspect_start 0.8
-}
- shield_broken2
-{
-	map particle_sheet5.png
-	region  hexagon	 	
-	animation_speed 60 70
-	animation_start 0
-	blend add
-	max_particles 15
-	max_emissions 15
-	lifetime 0.3 0.4
-	fade_in 0
-	fade_out 0.10
-	period 0
-color_start 0 1.5 2 1
-	color_end  0 0.5 0.5 0.5
-     scale_start 13 17
-    scale_end 13 10
-    rotation_start 0 360
-   	hard_edges true
-	speed_start 325 350
-position 0  0  20
-velocity_angles 0 0 0 360 360 360
-angular_speed_start -1000 1000
-}
+//
+// shield_broken1
+//{	
+//	geometry quad
+//	map particle_sheet5.png
+//	region plasma_circle
+//	animation_speed 0
+//	fade_in 0.1 0.1
+//	fade_out 0.5 0.5
+//	blend add
+//	max_particles 1
+//	max_emissions 1
+//	rotation_start 0 0
+//	color_start 0 1.5 2 1
+//	lifetime 0.35
+//	period 0.00
+//	scale_start 50
+//	scale_end 200
+//	position 0 0 20
+//	aspect_start 0.8
+//}
+// shield_broken2
+//{
+//	map particle_sheet5.png
+//	region  hexagon	 	
+//	animation_speed 60 70
+//	animation_start 0
+//	blend add
+//	max_particles 15
+//	max_emissions 15
+//	lifetime 0.3 0.4
+//	fade_in 0
+//	fade_out 0.10
+//	period 0
+//color_start 0 1.5 2 1
+//	color_end  0 0.5 0.5 0.5
+//     scale_start 13 17
+//    scale_end 13 10
+//    rotation_start 0 360
+//   	hard_edges true
+//	speed_start 325 350
+//position 0  0  20
+//velocity_angles 0 0 0 360 360 360
+//angular_speed_start -1000 1000
+//}
 shield_broken
 {
-	subsystem shield_broken1
-	 subsystem shield_broken2
+	//subsystem shield_broken1
+	 //subsystem shield_broken2
 	// subsystem shield_broken3
 	// subsystem shield_broken4
 	// subsystem shield_broken5
