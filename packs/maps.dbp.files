@@ -88,7 +88,7 @@ maps\duel_overgrowth.rbe		2213503
 maps\duel_perilous.rbe		5026986
 maps\duel_raya-b.png		9268
 maps\duel_raya-h.png		196791
-maps\duel_raya.rbe		1957110
+maps\duel_raya.rbe		1466818
 maps\duel_skybreak.rbe		1830760
 maps\duel_viki-b.png		2811
 maps\duel_viki-h.png		364041
@@ -219,7 +219,7 @@ maps\tt_gr_qunai_peaks.rbe		4348020
 maps\tt_gr_titans_crossing.rbe		627967
 maps\tt_oasis-b.png		2198
 maps\tt_oasis-h.png		361693
-maps\tt_oasis.rbe		7967190
+maps\tt_oasis.rbe		8142449
 maps\tt_roosh-b.png		2198
 maps\tt_roosh-h.png		384403
 maps\tt_roosh.rbe		6888714
@@ -233,8 +233,8 @@ maps\tut_example-h.png		8528
 maps\tut_example.rbe		472025
 maps\tut_example_logic.rbe		258733
 maps\tut_practice.rbe		1781921
-maps\tut_tutorial.rbe		2495000
-maps\tutorial.rbe		2495000
+maps\tut_tutorial.rbe		2495780
+maps\tutorial.rbe		2495784
 maps\weapon.rbe		30512
 maps\wo_ancient.rbe		2470007
 maps\wo_crystal_cove-b.png		75347

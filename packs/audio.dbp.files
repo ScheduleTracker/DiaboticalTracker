@@ -892,7 +892,7 @@ audio\special\halloween\zombiebot\zombiebot_pain4.wav		100158
 audio\special\halloween\zombiebot\zombiebot_pain5.wav		100158
 audio\special\halloween\zombiebot\zombiebot_pain6.wav		113546
 audio\super_shotgun.sounds		3632
-audio\ui.sounds		4545
+audio\ui.sounds		4673
 audio\ui\battlepass\ui_battlepass_upgrade.wav		1329152
 audio\ui\ctf\flag_pickup.wav		80646
 audio\ui\ranked\ui_ranked_rank_down.wav		613214
@@ -930,6 +930,7 @@ audio\ui\ui_transition1.wav		302482
 audio\ui\ui_transition2.wav		37882
 audio\ui\ui_transition_mapvote.wav		415094
 audio\ui\ui_volume_bell.wav		159158
+audio\ui\ui_vote_notification.wav		116698
 audio\ui\ui_window_close.wav		49760
 audio\ui\ui_window_open.wav		30860
 audio\ui\wipeout\ui_wo_team_lastplayer.wav		311930
