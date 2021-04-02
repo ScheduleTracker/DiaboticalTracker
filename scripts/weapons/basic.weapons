@@ -83,8 +83,7 @@ blaster
     fov 30
 	
 	model_scale_third_person 1.1
-	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
+	model_position_third_person 5 -11 12
 	
 	detached_shot_particles false
         shot_particles empty_system
@@ -177,8 +176,7 @@ super_shotgun
 	fov 40
 	
 		model_scale_third_person 1
-	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
+	model_position_third_person -3.2 0 6
 	
 	
 	shot_sound ss_fire1 ss_fire2 ss_fire3 ss_fire4
@@ -269,8 +267,7 @@ tracking_particles shaft_beam_particles
 	model_position 2.5 -3 3.6
 	model_camera_scale 0.7
 	model_scale_third_person 0.9
-	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
+	model_position_third_person -3.5 3.5 6
 
 	muzzle 10.0 -11 41.0
 	fov 45
@@ -367,8 +364,7 @@ rocket_launcher
 	muzzle_offset 0 0 0
 	fov 40
 	model_scale_third_person 1
-	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
+	model_position_third_person 0 4.5 4
 	
 	shot_sound rl_fire1 rl_fire2 rl_fire3 rl_fire4 rl_fire5
 	// shot_sound_low_ammo rl_fire_low1 rl_fire_low2 rl_fire_low3 rl_fire_low4 rl_fire_low5
@@ -467,8 +463,7 @@ crossbow
 	muzzle 0 0 0
 	fov 40
 	model_scale_third_person 1
-	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
+	model_position_third_person 3 2 12
 	
 	shot_sound cb_fire1 cb_fire2 cb_fire3 cb_fire4 cb_fire5
 	// shot_sound_low_ammo cb_fire_low1 cb_fire_low2 cb_fire_low3 cb_fire_low4 cb_fire_low5
@@ -555,12 +550,12 @@ pncr
 	model_scale_third_person 0.9
 	model_pivot 0 0.24 0
 	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
 	model_camera_scale 0.55
 	muzzle 2.5 -3.5 6
 	fov 50
 	impressive_reward true
 	model_scale_third_person 0.85
+	model_position_third_person -4 14.5 12
 	
 	
 	
@@ -659,8 +654,7 @@ machinegun
 	muzzle 2.7 -2.8 14
 	
 	model_scale_third_person 1.1
-	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
+	model_position_third_person 6.5 2 2
 	
 	
 	shot_sound mac_fire1 mac_fire2 mac_fire3 mac_fire4 mac_fire5
@@ -752,8 +746,7 @@ grenade_launcher
 	fov 40
 	
 	model_scale_third_person 1.1
-	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
+	model_position_third_person 7 -4 28
 	
 	shot_sound gl_fire1 gl_fire2 gl_fire3 gl_fire4
 	// shot_sound_low_ammo gl_fire_low1 gl_fire_low2 gl_fire_low3 gl_fire_low4
@@ -845,8 +838,7 @@ super_shotgun_secondary
 	fov 40
 	
 		model_scale_third_person 1
-	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
+	model_position_third_person -3.2 0 6
 	
 	
 	shot_sound ss_fire1 ss_fire2 ss_fire3 ss_fire4
@@ -939,8 +931,7 @@ rocket_launcher_secondary
 	fov 40
 	
 	model_scale_third_person 1.1
-	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
+	model_position_third_person 7 -4 28
 	
 	shot_sound gl_fire1 gl_fire2 gl_fire3 gl_fire4
 	// shot_sound_low_ammo gl_fire_low1 gl_fire_low2 gl_fire_low3 gl_fire_low4
@@ -1021,11 +1012,11 @@ void_cannon
 	model_scale_third_person 0.9
 	model_pivot 0 0.24 0
 	model_position_third_person 0 0 0
-	model_rotation_third_person 180 90 90
 	model_camera_scale 0.55
 	muzzle 2.5 -3.5 6
 	fov 50
 	model_scale_third_person 0.85
+	model_position_third_person -4 14.5 12
 	
 	
 	
