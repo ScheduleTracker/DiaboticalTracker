@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		823
 scripts\base.enemy		543
-scripts\base.games		27973
+scripts\base.games		28014
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -23,6 +23,7 @@ scripts\industry_materials.assets		3053
 scripts\industry_materials_depreciated.assets		2993
 scripts\materials.assets		6904
 scripts\movie.movies-example		1091
+scripts\new.classes		0
 scripts\nightmap.movies-example		417
 scripts\particles\aaexplosion.particles		413
 scripts\particles\aaexplosion_death.particles		454
