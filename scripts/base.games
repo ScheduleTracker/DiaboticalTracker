@@ -901,6 +901,7 @@ game race
 	setting game_weapon_respawn_time 1
 	setting game_unlimited_ammo 1
 	setting game_allow_team_sound_override 1
+    setting game_allow_disabling_ping 1
 	
 
 	map tt_boost
