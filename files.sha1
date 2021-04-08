@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-a78c7cb86ee38513cc79197a890b2a7cf7e0b161	anticheat/equ8.db
+c3f41c9ea7e0cb5e2fdf666cc1a862aa47cee1c0	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1704,7 +1704,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-27a33db6b5e9fbd010847d8f26f61b4439d80a6f	diabotical.exe
+0701aa8987e9e150ef2a66fd5aca4c19bef1e218	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1719,7 +1719,7 @@ b51420f5acd33b7b0625fe9a1bd0c619a7791b08	manifest.rbd
 68f127c7d01b61369c0494468c7609e142e18d5f	packs/audio_music.dbp
 4f2c030d93435c1c15eadbef9815e76e0dfda34d	packs/audio_weapons.dbp
 b00fb5dd258ddfcf7a757bbc0ae904c950ac50e3	packs/blocks.dbp
-3250fa155592c0a1242c8df418bd8da9bb9b683c	packs/maps.dbp
+71e4f5f02cd65d02d22e8d05229462dbf4e0229a	packs/maps.dbp
 fae899cbb84e79ee495a08f742ba648ba3c8e7ac	packs/models.dbp
 dfbc7bf49cd84ac39c70918b66c864101051e09f	packs/models_dynamic_props.dbp
 dd0b55d0c42c1a3613f7e5678a38ad07e17306cf	packs/models_dynamic_props_industry.dbp
@@ -1737,7 +1737,7 @@ de5d1bac8a9732ad2644dbaa41088c0a32a4a113	packs/models_theme_medina.dbp
 e50654fe84ef3d1c7e44bbf426b789ad59183628	packs/models_weapons_crossbow.dbp
 abf3a2162f11af65e8b37e82f9d2d4c365311dfb	packs/models_weapons_rocket_launcher.dbp
 6bd010df172dc3cd69c6873f15bffce70faf28bd	packs/models_weapons_shaft.dbp
-a915c2bf16ba8dd080d038be253435b5459f1600	packs/scripts.dbp
+49f7ad1f1c110df23ec7265118202a49679e6919	packs/scripts.dbp
 1457470d89314dac485981a9735b350babcf696d	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 bfcf7a15ef4e6d29971e31df5908af07d0707c69	packs/textures_customization.dbp
@@ -9920,7 +9920,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 4bf8dc93589fb97321e114e6c1c24b5ea49cc8d0	ui/html/translations/strings_play.json
 e5f11185f4b156acabc6d40c78eeedd501d2aac8	ui/html/translations/translation-de.js
-42547e3511e3e191be2a9b0ddaaa833f9b3e724f	ui/html/translations/translation-en.js
+c7740d02cc2aed55d5ef74140f9772014996838a	ui/html/translations/translation-en.js
 3327e06e270aa01beaac84bc56e25a0b63ac2802	ui/html/translations/translation-es-ES.js
 0c94ca377dfd2d54c2c0d79532f27372e2b0e889	ui/html/translations/translation-es-MX.js
 edf681a12edca367376e7cf5161b883233c32b17	ui/html/translations/translation-fr.js
