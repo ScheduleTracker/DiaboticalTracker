@@ -1005,8 +1005,8 @@ models\light_studio\backdrop.dbm		1783
 models\light_studio\backdrop.fbx		17536
 models\light_studio\backdrop.shader		305
 models\macguffin.ani		391
-models\macguffin.dbm		5194002
-models\macguffin.fbx		8492736
+models\macguffin.dbm		5194095
+models\macguffin.fbx		5795152
 models\matsphere.dbm		189075
 models\matsphere.fbx		103952
 models\MediumArmorPickup.dbm		43489
@@ -2030,9 +2030,9 @@ models\weaponsw.dbm		3164120
 models\weaponsw.fbm\eggbot_hand_d.png		1998625
 models\weaponsw.fbm\weeb_high_d.png		157700
 models\weaponsw.fbx		7429488
-models\weaponvc.ani		403
-models\weaponvc.dbm		2030822
-models\weaponvc.fbx		1385360
+models\weaponvc.ani		451
+models\weaponvc.dbm		2377963
+models\weaponvc.fbx		4509248
 models\weaponvc_backup.dbm		2332289
 models\weaponvcother.dbm		2275839
 models\weaponvcother.fbx		1406784

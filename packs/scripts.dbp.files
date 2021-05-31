@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		823
 scripts\base.enemy		543
-scripts\base.games		28014
+scripts\base.games		28182
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -24,6 +24,7 @@ scripts\industry_materials_depreciated.assets		2993
 scripts\materials.assets		6904
 scripts\movie.movies-example		1091
 scripts\new.classes		0
+scripts\new.weapons		0
 scripts\nightmap.movies-example		417
 scripts\particles\aaexplosion.particles		413
 scripts\particles\aaexplosion_death.particles		454
@@ -75,7 +76,7 @@ scripts\particles\gl_muzzle.particles		4460
 scripts\particles\heal.particles		10196
 scripts\particles\heal_simple.particles		1164
 scripts\particles\hero_beam.particles		1984
-scripts\particles\hook.particles		1092
+scripts\particles\hook.particles		5941
 scripts\particles\hp.particles		3752
 scripts\particles\hp2.particles		4676
 scripts\particles\hrl_bullet.particles		2396
@@ -234,8 +235,8 @@ scripts\trailer.movies-example		3317
 scripts\trailerclips.movies-example		2569
 scripts\ui.sounds		117
 scripts\water_temple_materials.assets		876
-scripts\weapons\abilities.weapons		1259
-scripts\weapons\basic.weapons		30369
+scripts\weapons\abilities.weapons		1382
+scripts\weapons\basic.weapons		30516
 scripts\weapons\br.weapons		5927
 scripts\weapons\melee.weapons		798
 scripts\weapons\modes.weapons		49

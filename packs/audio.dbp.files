@@ -1,6 +1,6 @@
 audio\aa_default.sounds		49
 audio\aa_rolloffs.sounds		1135
-audio\abilities.sounds		3194
+audio\abilities.sounds		3291
 audio\abilities\ability_bolt_enemy1.wav		132378
 audio\abilities\ability_bolt_enemy2.wav		132378
 audio\abilities\ability_bolt_enemy3.wav		132378
@@ -12,12 +12,13 @@ audio\abilities\ability_bolt_self3.wav		132378
 audio\abilities\ability_bolt_self4.wav		132378
 audio\abilities\ability_bolt_self5.wav		132378
 audio\abilities\ability_dd_firelayer.wav		171034
-audio\abilities\ability_hook_connect.wav		75570
+audio\abilities\ability_hook_connect.wav		192298
+audio\abilities\ability_hook_fire.wav		149770
 audio\abilities\ability_hook_impact.wav		80290
 audio\abilities\ability_hook_launch_loop.wav		604014
-audio\abilities\ability_hook_projectile_loop.wav		245426
+audio\abilities\ability_hook_projectile_loop.wav		415946
 audio\abilities\ability_hook_pull.wav		169938
-audio\abilities\ability_hook_release.wav		151062
+audio\abilities\ability_hook_release.wav		113546
 audio\abilities\ability_hook_shot.wav		141630
 audio\abilities\ability_hook_wind_loop.wav		717254
 audio\abilities\ability_vampire_activation.wav		555266
@@ -837,8 +838,8 @@ audio\feedback\announcer\wipeout\announcer_wipeout_lastplayer_rare.wav		178080
 audio\feedback\announcer\wipeout\announcer_wipeout_respawn_countdown.wav		678924
 audio\feedback\feedback_bolt_ready.wav		42624
 audio\feedback\feedback_drop_weapon.wav		119012
-audio\feedback\feedback_ping.wav		68680
-audio\feedback\feedback_ping_enemy.wav		180898
+audio\feedback\feedback_ping.wav		68660
+audio\feedback\feedback_ping_enemy.wav		180878
 audio\feedback\feedback_powerup_running_out.wav		176500
 audio\feedback\frag_notifications\frag_notification_beeps1.wav		132400
 audio\feedback\frag_notifications\frag_notification_beeps2.wav		131616
@@ -865,7 +866,7 @@ audio\frag_notifications.sounds		1495
 audio\grenade_launcher.sounds		6151
 audio\ID_list.txt		2542
 audio\machinegun.sounds		5176
-audio\melee.sounds		11347
+audio\melee.sounds		19098
 audio\minigun.sounds		4386
 audio\misc.sounds		546
 audio\misc\claim_reward.wav		183570
@@ -894,6 +895,7 @@ audio\special\halloween\zombiebot\zombiebot_pain6.wav		113546
 audio\super_shotgun.sounds		3632
 audio\ui.sounds		4673
 audio\ui\battlepass\ui_battlepass_upgrade.wav		1329152
+audio\ui\battlepass\ui_battlepass_upgrade_s3.wav		2003768
 audio\ui\ctf\flag_pickup.wav		80646
 audio\ui\ranked\ui_ranked_rank_down.wav		613214
 audio\ui\ranked\ui_ranked_rank_up.wav		988850
@@ -934,9 +936,9 @@ audio\ui\ui_vote_notification.wav		116698
 audio\ui\ui_window_close.wav		49760
 audio\ui\ui_window_open.wav		30860
 audio\ui\wipeout\ui_wo_team_lastplayer.wav		311930
-audio\ui_battlepass.sounds		186
+audio\ui_battlepass.sounds		381
 audio\ui_ranked.sounds		1479
-audio\void_cannon.sounds		5091
+audio\void_cannon.sounds		7006
 audio\weeble_explosive.sounds		2091
 audio\weeble_healing.sounds		1379
 audio\weeble_implosive.sounds		2089

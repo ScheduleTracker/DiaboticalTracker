@@ -690,8 +690,10 @@ models\props\industry\crate_oua\crate_oua_c.png.dds		5592548
 models\props\industry\crate_oua\crate_oua_d.png.dds		349700
 models\props\industry\crate_oua\crate_oua_n.png.dds		349700
 models\props\industry\crate_oua\crate_oua_s.png.dds		349700
-models\props\industry\drain_pipe\drain_pipe.assets		311
-models\props\industry\drain_pipe\drain_pipe.shader		4069
+models\props\industry\drain_pipe\drain_lava_vercol.dbm		69626
+models\props\industry\drain_pipe\drain_lava_vercol.fbx		85840
+models\props\industry\drain_pipe\drain_pipe.assets		676
+models\props\industry\drain_pipe\drain_pipe.shader		8112
 models\props\industry\drain_pipe\drain_pipe_lava_col.mtl		458
 models\props\industry\drain_pipe\drain_pipe_lava_vercol-col.obj		5454
 models\props\industry\drain_pipe\drain_pipe_lava_vercol.dbm		69626
@@ -703,6 +705,8 @@ models\props\industry\drain_pipe\drain_pipe_lava_vercol_col.mtl		458
 models\props\industry\drain_pipe\drain_pipe_water_vercol-col.obj		5454
 models\props\industry\drain_pipe\drain_pipe_water_vercol.dbm		59722
 models\props\industry\drain_pipe\drain_pipe_water_vercol.fbx		88096
+models\props\industry\drain_pipe\drain_water_vercol.dbm		59722
+models\props\industry\drain_pipe\drain_water_vercol.fbx		88096
 models\props\industry\drain_pipe\lava.png.dds		349700
 models\props\industry\drain_pipe\waterfall.png.dds		349700
 models\props\industry\harvester\harvester_base.dbm		300508
