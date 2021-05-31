@@ -1,8 +1,8 @@
-INSTANCE scoreboard_top 0.6 20
-INSTANCE scoreboard_main_table_header 0.6 29
-INSTANCE scoreboard_main 0.6 32
-INSTANCE scoreboard_spectators 0.6 32
-INSTANCE scoreboard_connecting 0.6 32
+INSTANCE scoreboard_top 0.6 12
+INSTANCE scoreboard_main_table_header 0.6 21
+INSTANCE scoreboard_main 0.6 24
+INSTANCE scoreboard_spectators 0.6 24
+INSTANCE scoreboard_connecting 0.6 24
 
 BEGIN TEMPLATE scoreboard_top
     SETTING ALWAYS_VISIBLE 1
@@ -42,7 +42,7 @@ ON_UPDATE
     OUTPUT 0 2 image bg
     OUTPUT 0 2 image_width 45
     OUTPUT 0 2 image_height 8.2
-    OUTPUT 0 2 image_color "#00000077"
+    OUTPUT 0 2 image_color "#00000099"
     OUTPUT 0 2 x 8
 
     # Label "Mode"
@@ -170,16 +170,37 @@ ON_UPDATE
         END IF
     END IF
     
+    INT preset_length 
+    preset_length = LENGTH game_data.settings_preset
 
     # Label "Custom settings"
-    IF !game_data.is_default_settings
-        OUTPUT 7 0 font "roboto-bold"
+    IF preset_length > 0
+        # Label "Preset"
+        OUTPUT 7 0 font "roboto-medium"
         OUTPUT 7 0 font_size 1.3
         OUTPUT 7 0 opacity 0.8
-        OUTPUT 7 0 lvalue "custom_game_settings_customized"
-        OUTPUT 7 0 color "#ffd43c"
+        OUTPUT 7 0 lvalue "custom_game_settings_preset"
+        OUTPUT 7 0 indent 0.6
         OUTPUT 7 0 offset_x 30.5
         OUTPUT 7 0 y 6.4
+
+        # Value "Preset"
+        OUTPUT 7 1 font "roboto-bold"
+        OUTPUT 7 1 font_size 1.3
+        OUTPUT 7 1 color "#ffd43c"
+        OUTPUT 7 1 value game_data.settings_preset
+        OUTPUT 7 1 offset_x 30.5
+        OUTPUT 7 1 y 6.4
+    ELSE 
+        IF !game_data.is_default_settings
+            OUTPUT 7 0 font "roboto-bold"
+            OUTPUT 7 0 font_size 1.3
+            OUTPUT 7 0 opacity 0.8
+            OUTPUT 7 0 lvalue "custom_game_settings_customized"
+            OUTPUT 7 0 color "#ffd43c"
+            OUTPUT 7 0 offset_x 30.5
+            OUTPUT 7 0 y 6.4
+        END IF
     END IF
 
 END TEMPLATE
@@ -232,6 +253,9 @@ ON_UPDATE
     IF game_data.race_mode
         # add time width
         table_width = table_width + 16
+        IF game_data.team_size > 1
+            table_width = table_width + 10
+        END IF
     ELSE
         # add kda, dmg, team_score width
         table_width = table_width + 23
@@ -258,7 +282,7 @@ ON_UPDATE
     # Background
     OUTPUT 0 i width table_width
     OUTPUT 0 i height 3
-    OUTPUT 0 i fill "#00000077"
+    OUTPUT 0 i fill "#00000099"
     i = i + 1
 
     DOUBLE cell_offset
@@ -800,6 +824,36 @@ ON_UPDATE
         IF render_team_header
             OUTPUT team_header_row_idx 0 width row_width
         END IF
+
+        IF player_in_team_idx == 0
+            IF game_data.team_size > 1
+                header_width = row_width
+
+                team_height = 3 * teams[team_idx].players_count
+
+                STRING team_race_time
+                team_race_time = FORMAT_TIME teams[team_idx].team_score
+
+                # ===============================================
+                # TEAM MAIN SCORE
+                OUTPUT row i height team_height
+                OUTPUT row i width 10
+                OUTPUT row i font_size 1.8
+                OUTPUT row i fill teams[team_idx].color
+                OUTPUT row i color text_color
+                OUTPUT row i value team_race_time
+                OUTPUT row i y row_offset
+                OUTPUT row i x header_width
+                i = i + 1
+
+                header_width = header_width + 10
+
+                IF render_team_header
+                    OUTPUT team_header_row_idx 0 width header_width
+                END IF
+            END IF
+        END IF
+
     ELSE 
 
         header_width = row_width
@@ -911,7 +965,7 @@ ON_UPDATE
         # Background
         OUTPUT 0 1 width 60
         OUTPUT 0 1 height 6
-        OUTPUT 0 1 fill "#00000077"
+        OUTPUT 0 1 fill "#00000099"
         OUTPUT 0 1 y offset
 
         # Header
@@ -976,6 +1030,30 @@ ON_UPDATE
         discard
     END IF
 
+
+    ### hack to fix an issue where connecting_users.count is > 0 but all the entries are empty (and nobody is actually connecting)
+    INT hack_idx
+    INT hack_count
+    INT hack_str_len
+    hack_count = 0
+    hack_str_len = 0
+    hack_idx = 0
+    FOR connecting_users.count
+        hack_str_len = LENGTH connecting_users[hack_idx].user_name
+
+        IF hack_str_len > 0
+            hack_count = hack_count + 1
+        END IF
+
+        hack_idx = hack_idx + 1
+    END FOR
+
+    IF hack_count == 0
+        discard
+    END IF
+    ### end hack
+
+
     DOUBLE offset
     offset = game_data.total_player_count * 3
     offset = offset + total_teams_with_players
@@ -1005,7 +1083,7 @@ ON_UPDATE
         # Background
         OUTPUT 0 1 width 60
         OUTPUT 0 1 height 6
-        OUTPUT 0 1 fill "#00000077"
+        OUTPUT 0 1 fill "#00000099"
         OUTPUT 0 1 y offset
 
         # Header

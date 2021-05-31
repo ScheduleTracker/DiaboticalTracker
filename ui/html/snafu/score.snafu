@@ -56,6 +56,7 @@ ON_UPDATE
 
     INT main_score
     INT round_score
+    STRING race_time
     STRING team_color
     STRING team_color_dark
     INT flag_state
@@ -76,6 +77,9 @@ ON_UPDATE
         IF game_data.game_mode == "extinction"
             main_score = game_data.own_team.game_score
         END IF
+        IF game_data.game_mode == "race"
+            race_time = FORMAT_TIME game_data.own_team.team_score
+        END IF
     ELSE 
         main_score = game_data.enemy_team.team_score
         round_score = game_data.enemy_team.game_score
@@ -91,13 +95,16 @@ ON_UPDATE
         IF game_data.game_mode == "extinction"
             main_score = game_data.enemy_team.game_score
         END IF
+        IF game_data.game_mode == "race"
+            race_time = FORMAT_TIME game_data.enemy_team.team_score
+        END IF
     END IF
 
     # ====================================
     # MAIN SCORE
 
     IF game_data.game_mode == "race"
-        OUTPUT 0 0 font_size DOUBLE(fontSize / 1.5)
+        OUTPUT 0 0 font_size DOUBLE(fontSize / 2)
     ELSE
         OUTPUT 0 0 font_size fontSize
     END IF
@@ -138,7 +145,11 @@ ON_UPDATE
     END IF
     
     IF sType == "score"
-        OUTPUT 0 0 value main_score
+        IF game_data.game_mode == "race"
+            OUTPUT 0 0 value race_time
+        ELSE
+            OUTPUT 0 0 value main_score
+        END IF
     ELSE
         IF game_data.round_mode == "false" && !IN_EDITOR
             discard

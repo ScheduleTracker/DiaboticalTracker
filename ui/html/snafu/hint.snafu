@@ -10,7 +10,6 @@ BEGIN TEMPLATE hint
     COL_OUTPUT 0 font font
     COL_OUTPUT 0 align pivot
     COL_OUTPUT 0 shadow 1
-    COL_OUTPUT 0 color "#ffffff"
     COL_OUTPUT 0 height icon_size
 
     COL_OUTPUT 1 width gap_size
@@ -20,20 +19,59 @@ BEGIN TEMPLATE hint
     COL_OUTPUT 2 image_width icon_size
     COL_OUTPUT 2 image_height icon_size
 
+    STRING hint
     STRING hint_key
 
 ON_UPDATE
+
+    STRING text_color
+    text_color = "#ffffff"
 
     IF IN_EDITOR
         OUTPUT 0 0 LVALUE "hint_mg_pickup"
     ELSE
         INT show
         show = 0
+    
+        hint = ""
+        hint_key = ""
+
         IF game_data.game_mode == "macguffin" 
             show = 1
+            IF game_data.hint == ""
+                show = 0
+            END IF 
+
+            hint = "hint_" & game_data.hint
+            hint_key = game_data.hint_key
         END IF
         IF game_data.game_mode == "survival" 
             show = 1
+            IF game_data.hint == ""
+                show = 0
+            END IF 
+
+            hint = "hint_" & game_data.hint
+            hint_key = game_data.hint_key
+        END IF
+        IF game_data.game_mode == "race"
+            show = 1
+            IF battle_data.race_state == 0
+                show = 0
+            END IF
+
+            IF battle_data.race_state > 0
+                hint = "hint_race_restart"
+                hint_key = battle_data.restart_key                
+            END IF
+
+            IF battle_data.race_state == 2
+                text_color = "#ffff00"
+            END IF
+
+            IF rr == 0
+                show = 0
+            END IF
         END IF
 
         IF !show
@@ -41,15 +79,18 @@ ON_UPDATE
         END IF
 
         INT hint_length
-        hint_length = LENGTH game_data.hint
+        hint_length = LENGTH hint
 
         IF hint_length == 0
             discard
         END IF
 
-        hint_key = "hint_" & game_data.hint
-        OUTPUT 0 0 LVALUE hint_key
-        OUTPUT 0 0 VALUE game_data.hint_key
+        ECHO hint
+        ECHO hint_key
+
+        OUTPUT 0 0 color text_color
+        OUTPUT 0 0 LVALUE hint
+        OUTPUT 0 0 VALUE hint_key
 
         OUTPUT 0 2 image game_data.hint_image 
         IF game_data.hint_image == "images/item_macguffin.svg"

@@ -1,0 +1,309 @@
+BEGIN TEMPLATE hook
+    SETTING cell_direction "vertical"
+    SETTING align pivot
+
+    DOUBLE iSize
+    DOUBLE bRadius
+    DOUBLE cCode
+    DOUBLE bWidth
+    INT flip
+    INT name
+    INT keybind
+    INT iShadow
+
+    DOUBLE double_bWidth
+    double_bWidth = 2 * bWidth
+
+    DOUBLE half_bWidth
+    half_bWidth = bWidth / 2
+
+    DOUBLE bg_size
+    bg_size = iSize - double_bWidth
+
+    DOUBLE bg_radius
+    bg_radius = bWidth / 2
+    bg_radius = bRadius - bg_radius 
+    bg_radius = CLAMP bg_radius 0 100
+
+    STRING bg_svg
+    bg_svg = "<svg "
+    bg_svg = bg_svg & " width='" & iSize & "'"
+    bg_svg = bg_svg & " height='" & iSize & "'"
+    bg_svg = bg_svg & " viewBox='" & 0
+    bg_svg = bg_svg & " " & 0
+    bg_svg = bg_svg & " " & iSize
+    bg_svg = bg_svg & " " & iSize & "'>"
+    bg_svg = bg_svg & "<rect "
+    bg_svg = bg_svg & " width='" & bg_size & "' "
+    bg_svg = bg_svg & " height='" & bg_size & "' "
+    bg_svg = bg_svg & " rx='" & bg_radius & "' "
+    bg_svg = bg_svg & " fill='#ffffff' "
+    bg_svg = bg_svg & " stroke-width='0' "
+    bg_svg = bg_svg & " y='" & bWidth & "' "
+    bg_svg = bg_svg & " x='" & bWidth & "' "
+    bg_svg = bg_svg & "/></svg>"
+
+    DOUBLE border_offset
+    border_offset = bWidth / 2
+    border_offset = border_offset * -1
+    DOUBLE border_size
+    border_size = iSize + bWidth
+
+    DOUBLE border_size
+    border_size = iSize - bWidth
+
+    STRING border_svg 
+    border_svg = "<svg "
+    border_svg = border_svg & " width='" & iSize & "'"
+    border_svg = border_svg & " height='" & iSize & "'"
+    border_svg = border_svg & " viewBox='" & 0
+    border_svg = border_svg & " " & 0
+    border_svg = border_svg & " " & iSize
+    border_svg = border_svg & " " & iSize & "'>"
+    border_svg = border_svg & "<rect "
+    border_svg = border_svg & " width='" & border_size & "' "
+    border_svg = border_svg & " height='" & border_size & "' "
+    border_svg = border_svg & " rx='" & bRadius & "' "
+    border_svg = border_svg & " fill-opacity='0' "
+    border_svg = border_svg & " stroke='#ffffff' "
+    border_svg = border_svg & " stroke-width='" & bWidth & "' "
+    border_svg = border_svg & " y='" & half_bWidth & "' "
+    border_svg = border_svg & " x='" & half_bWidth & "' "
+    border_svg = border_svg & "/></svg>"
+
+    DOUBLE d_bg_tmp
+    d_bg_tmp = iSize * 0.075
+
+    DOUBLE d_bg_offset 
+    d_bg_offset = d_bg_tmp * -1
+
+    DOUBLE d_bg_size
+    d_bg_size = iSize + d_bg_tmp
+    d_bg_size = d_bg_size + d_bg_tmp
+
+    STRING default_bg
+    default_bg = "<svg "
+    default_bg = default_bg & " width='" & iSize & "'"
+    default_bg = default_bg & " height='" & iSize & "'"
+    default_bg = default_bg & " viewBox='" & d_bg_offset
+    default_bg = default_bg & " " & d_bg_offset
+    default_bg = default_bg & " " & d_bg_size
+    default_bg = default_bg & " " & d_bg_size & "'>"
+    default_bg = default_bg & "<rect "
+    default_bg = default_bg & " width='" & iSize & "' "
+    default_bg = default_bg & " height='" & iSize & "' "
+    default_bg = default_bg & " rx='" & bRadius & "' "
+    default_bg = default_bg & " fill='#ffffff' "
+    default_bg = default_bg & " stroke-width='0' "
+    default_bg = default_bg & " y='0' "
+    default_bg = default_bg & " x='0' "
+    default_bg = default_bg & "/></svg>"
+
+    DOUBLE d1_b_width
+    d1_b_width = iSize * 0.03
+
+    DOUBLE half_d1_b_width
+    half_d1_b_width = d1_b_width / 2
+
+    DOUBLE d1_border_size
+    d1_border_size = iSize - d1_b_width
+
+    STRING default_b_1 
+    default_b_1 = "<svg "
+    default_b_1 = default_b_1 & " width='" & iSize & "'"
+    default_b_1 = default_b_1 & " height='" & iSize & "'"
+    default_b_1 = default_b_1 & " viewBox='" & 0
+    default_b_1 = default_b_1 & " " & 0
+    default_b_1 = default_b_1 & " " & iSize
+    default_b_1 = default_b_1 & " " & iSize & "'>"
+    default_b_1 = default_b_1 & "<rect "
+    default_b_1 = default_b_1 & " width='" & d1_border_size & "' "
+    default_b_1 = default_b_1 & " height='" & d1_border_size & "' "
+    default_b_1 = default_b_1 & " rx='" & bRadius & "' "
+    default_b_1 = default_b_1 & " fill-opacity='0' "
+    default_b_1 = default_b_1 & " stroke='#ffffff' "
+    default_b_1 = default_b_1 & " stroke-width='" & d1_b_width & "' "
+    default_b_1 = default_b_1 & " y='" & half_d1_b_width & "' "
+    default_b_1 = default_b_1 & " x='" & half_d1_b_width & "' "
+    default_b_1 = default_b_1 & "/></svg>"
+
+    DOUBLE d2_gap
+    d2_gap = 0.2
+
+    DOUBLE d2_b_width
+    d2_b_width = iSize * 0.055
+
+    DOUBLE half_d2_b_width
+    half_d2_b_width = d2_b_width / 2
+
+    DOUBLE d2_size 
+    d2_size = iSize - d1_b_width
+    d2_size = d2_size - d1_b_width
+    d2_size = d2_size - d2_b_width
+    d2_size = d2_size - d2_gap
+    d2_size = d2_size - d2_gap
+
+    DOUBLE d2_inset
+    d2_inset = half_d2_b_width + d1_b_width
+    d2_inset = d2_inset + d2_gap
+    
+    DOUBLE d2_radius
+    d2_radius = bRadius - d2_gap
+    d2_radius = d2_radius - half_d2_b_width
+    d2_radius = d2_radius - half_d1_b_width
+    d2_radius = CLAMP d2_radius 0 100
+
+    STRING default_b_2 
+    default_b_2 = "<svg "
+    default_b_2 = default_b_2 & " width='" & iSize & "'"
+    default_b_2 = default_b_2 & " height='" & iSize & "'"
+    default_b_2 = default_b_2 & " viewBox='" & 0
+    default_b_2 = default_b_2 & " " & 0
+    default_b_2 = default_b_2 & " " & iSize
+    default_b_2 = default_b_2 & " " & iSize & "'>"
+    default_b_2 = default_b_2 & "<rect "
+    default_b_2 = default_b_2 & " width='" & d2_size & "' "
+    default_b_2 = default_b_2 & " height='" & d2_size & "' "
+    default_b_2 = default_b_2 & " rx='" & d2_radius & "' "
+    default_b_2 = default_b_2 & " fill-opacity='0' "
+    default_b_2 = default_b_2 & " stroke='#ffffff' "
+    default_b_2 = default_b_2 & " stroke-width='" & d2_b_width & "' "
+    default_b_2 = default_b_2 & " y='" & d2_inset & "' "
+    default_b_2 = default_b_2 & " x='" & d2_inset & "' "
+    default_b_2 = default_b_2 & "/></svg>"
+
+    COL_OUTPUT 0 image default_bg
+    COL_OUTPUT 0 image_width iSize
+    COL_OUTPUT 0 image_height iSize
+    COL_OUTPUT 0 image_color bgC
+    COL_OUTPUT 0 width iSize
+    COL_OUTPUT 0 height iSize
+
+    COL_OUTPUT 1 image default_b_1
+    COL_OUTPUT 1 image_width iSize
+    COL_OUTPUT 1 image_height iSize
+    COL_OUTPUT 1 image_color "#ffffff45"
+    COL_OUTPUT 1 width iSize
+    COL_OUTPUT 1 height iSize
+    COL_OUTPUT 1 x 0
+    COL_OUTPUT 1 y 0
+
+    COL_OUTPUT 2 image default_b_2
+    COL_OUTPUT 2 image_width iSize
+    COL_OUTPUT 2 image_height iSize
+    COL_OUTPUT 2 image_color "#00ffff"
+    COL_OUTPUT 2 width iSize
+    COL_OUTPUT 2 height iSize
+    COL_OUTPUT 2 x 0
+    COL_OUTPUT 2 y 0
+
+    DOUBLE icon_size
+    icon_size = iSize * 0.6
+
+    COL_OUTPUT 3 image_width icon_size
+    COL_OUTPUT 3 image_height icon_size
+    COL_OUTPUT 3 image_color "#000000"
+    COL_OUTPUT 3 width iSize
+    COL_OUTPUT 3 height iSize
+    COL_OUTPUT 3 align "center"
+    COL_OUTPUT 3 x 0
+    COL_OUTPUT 3 y 0
+
+    # COUNTDOWN
+    DOUBLE fontsize 
+    fontsize = iSize * 0.4
+
+    DOUBLE countdown_offset_x
+    countdown_offset_x = iSize / 2
+    countdown_offset_x = countdown_offset_x - DOUBLE (fontsize / 2)
+    
+    COL_OUTPUT 4 font font
+    COL_OUTPUT 4 font_size fontsize
+    COL_OUTPUT 4 shadow 1
+    COL_OUTPUT 4 x countdown_offset_x
+    COL_OUTPUT 4 y 0
+    COL_OUTPUT 4 align "center"
+
+    # ITEM NAME
+    IF name
+        DOUBLE name_x
+        name_x = iSize + 0.8
+        IF flip
+            name_x = -1.6
+        END IF
+        COL_OUTPUT 5 font "roboto-bold"
+        COL_OUTPUT 5 font_size 1.3
+        COL_OUTPUT 5 opacity 0.8
+        COL_OUTPUT 5 color "#ffffff"
+        COL_OUTPUT 5 shadow 1
+        COL_OUTPUT 5 align "top-edge"
+        COL_OUTPUT 5 uppercase 1
+        COL_OUTPUT 5 x name_x
+        COL_OUTPUT 5 y 0
+    END IF
+
+    # KEY BIND
+    INT show_keybind
+    IF keybind
+        DOUBLE keybind_x
+        DOUBLE keybind_y
+        keybind_x = iSize + 1
+        keybind_y = iSize / 2
+        keybind_y = keybind_y - 1.5
+        IF name
+            keybind_x = iSize + 2.5
+        END IF
+
+        IF flip
+            keybind_x = -3
+            IF name
+                keybind_x = -4.2
+            END IF
+        END IF
+
+        show_keybind = 1
+        COL_OUTPUT 6 font_size 1.2
+        COL_OUTPUT 6 font "roboto-bold"
+        COL_OUTPUT 6 align "center"
+        COL_OUTPUT 6 width 2
+        COL_OUTPUT 6 height 3
+        COL_OUTPUT 6 color "1a1a1a"
+        COL_OUTPUT 6 x keybind_x
+        COL_OUTPUT 6 y keybind_y
+        COL_OUTPUT 6 fill "#ffffff55"
+        COL_OUTPUT 6 border_radius 0.3
+    END IF
+
+ON_UPDATE
+
+    IF !battle_data.hook_enabled && !IN_EDITOR
+        discard
+    END IF
+
+    IF !common_game_data.self_alive
+        discard
+    END IF
+
+    OUTPUT 0 2 image_color mC
+
+    #IF battle_data.hook_state > 0
+    #    OUTPUT 0 3 opacity 0.3
+    #    #OUTPUT 0 4 opacity 1
+    #    #OUTPUT 0 4 value frame_data.item_cooldown
+    #ELSE
+    #    OUTPUT 0 3 opacity 1
+    #    #OUTPUT 0 4 opacity 0
+    #    #OUTPUT 0 4 value ""
+    #END IF
+
+    OUTPUT 0 3 image "images/item_hook.svg"
+    OUTPUT 0 3 image_color iC
+
+    IF name
+        COL_OUTPUT 5 lvalue "weapon_hook"
+    END IF
+    IF show_keybind
+        COL_OUTPUT 6 value battle_data.hook_key
+    END IF
+
+END TEMPLATE

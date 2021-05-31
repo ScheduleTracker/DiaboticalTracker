@@ -334,10 +334,10 @@ ON_UPDATE
     END IF
 
     IF name
-        COL_OUTPUT 5 lvalue battle_data.item_name
+        OUTPUT 0 5 lvalue battle_data.item_name
     END IF
     IF show_keybind
-        COL_OUTPUT 6 value battle_data.item_keybind
+        OUTPUT 0 6 value battle_data.item_keybind
     END IF
 
 END TEMPLATE
