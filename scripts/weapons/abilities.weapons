@@ -1,7 +1,7 @@
 hook
 {
  	//group 7
-	speed 4000
+	speed 2200
  	rate 850
   	damage 0
   	knockback 0
@@ -9,12 +9,15 @@ hook
   	splash_radius 325
 	deploy true
 	hook true
-	deploy_duration 10000
+	deploy_duration 9999999
 	//shot_particles empty_system
 	//shot_particles_attached hook_pfx
-  	//missile_particles hook_hook
-	missile_model ability_hook_static_mesh
-	missile_trail_particles hook_pfx
+  	missile_particles hook_bullet
+    //missile_trail_particles hook_bullet_trail
+    
+    //missile_trail_particles gl_bullet_dynamic_trail
+	//missile_model ability_hook_static_mesh
+	//missile_trail_particles hook_pfx
   	//impact_particles explode
 	//shot_particles_attached_follows_projectile true
   	
@@ -23,13 +26,13 @@ hook
 	model_position 2.5 -3.3 7.2
 	model_rotation 171 -7.7  -8
 	muzzle -4.0 -2 10
+    muzzle_offset 0 -20 0
 	fov 45
 	
 	//shot_sound hook_shot
 	
 	//kill this on reconnection:
-	missile_loop_sound hook_projectile_loop
-	impact_sound hook_release
+	missile_loop_sound ability_hook_projectile_loop
 	
 	detached_shot_particles false
 	force_load true

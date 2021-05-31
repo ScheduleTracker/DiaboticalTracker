@@ -53,6 +53,7 @@ game default
 
     //CRITICAL: game_full_charge and game_warmup_time need to be set even if no mode changes them.	
 	setting game_full_charge 0
+	setting game_knock_weeball 0
 	setting game_warmup_time 90
 
 	setting game_countdown 5
@@ -156,6 +157,7 @@ game default
 	setting phy_ramp_down_speed 0
 	setting phy_strafe_mode 1
 	setting phy_triple_jump 0
+	setting phy_hook 0
 	setting net_server_hitscan 1
 	setting net_max_backwards_reconciliation_ping 0.12
 
@@ -632,7 +634,6 @@ game wipeout
 	map wo_crystal_cove
 	map wo_furnace
 	map wo_refinery
-	map wo_refinery_wip
 	map wo_sunken
 	map wo_toya_fortress
 	map wo_wellspring
@@ -717,6 +718,7 @@ game ctf
 	map ctf_dojo
 	map ctf_seismic_fault
 	map ctf_quarry
+	map ctf_waterworks
 	map ctf_cliffside_canyons
 	map ctf_qunai_peaks
 	map ctf_titans_crossing
@@ -756,6 +758,7 @@ game ghosthunt
 	setting game_hp 100
     setting game_stable_hp 100
 	setting game_full_charge 1
+	setting game_knock_weeball 1
 	setting game_enable_items 1
 	setting game_self_damage 0
 	setting game_time_limit 360
@@ -780,6 +783,7 @@ game instagib_duel
     setting game_time_limit 240
 	setting game_score_limit 25
     setting game_full_charge 1
+	setting game_knock_weeball 1
     setting game_enable_items 0
 	setting game_overtime 60
 	setting game_team_mode 1
@@ -802,6 +806,7 @@ game coinrun
 	setting game_hp 100
     setting game_stable_hp 100
 	setting game_full_charge 1
+	setting game_knock_weeball 1
 	setting game_enable_items 1
 	setting game_self_damage 0
 	setting game_time_limit 360
@@ -919,6 +924,7 @@ game race
 	map tt_ctf_dojo 
 	map tt_ctf_seismic_fault
 	map tt_ctf_quarry
+	map tt_ctf_waterworks
 	map tt_gr_cliffside_canyons
 	map tt_gr_qunai_peaks
 	map tt_gr_titans_crossing

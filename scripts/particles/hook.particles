@@ -64,3 +64,278 @@ hook_activation
 	scale_start 6
 	scale_end 9
 }
+
+
+
+hook_bulletold
+{
+   	subsystem tier_1_plasma_bullet_back_1
+	subsystem  tier_1_plasma_bullet_circle
+	subsystem 	tier_1_plasma_ring+tier_1_plasma_ring_2+tier_1_plasma_ring_3+tier_1_plasma_ring_4
+	subsystem tier_1_plasma_bullet_light
+    subsystem hook_cylinder
+    	subsystem pncr_beam_middle
+	subsystem pncr_beam1 
+  subsystem pncr_beam_thin
+  subsystem pncr_beam_thin2
+    subsystem pncr_beam_thin3
+  subsystem pncr_beam_thin4
+subsystem pncr_shot_embers
+subsystem  pncr_embers_2
+	subsystem pncr_dispersion
+subsystem pncr_dispersion_2
+subsystem pncr_tube
+subsystem pncr_tube_2
+	range 0
+}
+
+
+hook_tube
+{
+    //noise radius, noise strength
+	geometry tube
+	map effects_shaft.png
+	region ed_01
+	blend alpha
+	//length = 170*5 = 850
+	max_particles 170
+	max_emissions 170
+	//emitter array 0 0 5
+	lifetime 0
+	period 0
+	noise_time_seed 10
+	noise_seed_scale 0.5
+	color_start 2 0.7 0 1
+	color_end  1 0.3 0 0
+	scale_start 0.25
+	scale_end 0.25
+	color_start 1 1 1 1
+	
+	tapered_tube_detail true
+	range 0
+}
+
+
+hook_beam1 hook_tube
+{
+	map white.png
+	region ed_01
+	blend add
+    time_scale 1		
+	geometry tube 1 2
+	noise_time_seed 10
+noise_seed_scale 1
+color_start 2 0.2 0.7 0.4
+	color_end  2 0.2 0.7 0.4
+		scale_start 1.5
+		scale_end 1.5
+		range 0
+}
+
+hook_beam2 hook_tube
+{
+	map white.png
+	region ed_01
+	blend add
+    time_scale 1		
+	geometry tube 1 2
+	noise_time_seed 10
+noise_seed_scale 1
+color_start 2 1 1.4 0.8
+color_start 2 1 1.4 0.8
+		scale_start 0.8
+		scale_end 0.8
+		range 0
+}
+hook_beam3 hook_tube
+{
+	map white.png
+	region ed_01
+	blend add
+    time_scale 1		
+	geometry tube 1 1
+	noise_time_seed 10
+noise_seed_scale 1
+color_start 0 0 2 1
+color_start 0 0 2 1
+		scale_start 0.3
+		scale_end 0.3
+		range 0
+}
+
+hook_beam4 hook_tube
+{
+	map white.png
+	region ed_01
+	blend add
+    time_scale 1		
+	geometry tube 1 1
+	noise_time_seed 10
+noise_seed_scale 1
+color_start 2 2 2 0.5
+color_start 2 2 2 0.5
+		scale_start 0.3
+		scale_end 0.3
+		range 0
+}
+
+hook_bullet_back
+{
+	advance 1
+	map particle_sheet3.png
+	geometry quad
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.2 0.2
+	// period 0.05
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 40
+	scale_end 40
+	//color_start 0.75 .25 2.5 1
+	color_start  4 0.5 0.9 1
+	color_end 4 0.5 0.9 1
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 4000 5000
+	range 0
+		angular_speed_start 12000
+} 
+
+ hook_bullet_circle
+{
+	advance 1
+	map particle_sheet5.png
+	geometry quad
+	region plasma_circle
+	blend add	
+	max_particles 6
+	max_emissions 0
+	lifetime 0.2 0.2
+	// period 0.05
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 31
+	scale_end 20
+	//color_start 0.75 .25 2.5 1
+	color_start  2 2 2 2
+	color_start 2 2 2 2
+	// velocity 0 0 -2800
+	rotation_start 0 360
+	// acceleration 0 0 -300 0 0 -300
+	position 0 0 0
+	turbulence 4000 5000
+	range 0
+	angular_speed_start 12000
+} 
+
+hook_plasma_ring
+{
+	animation_speed 40
+	advance 1
+	map plasma_ring.png
+	geometry quad
+	region plasma_ring
+	blend add
+	max_particles 1
+	max_emissions 0
+	lifetime 0.2 0.2
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 30 
+	scale_end 20
+	color_start  3 1 1 1
+	rotation_start 0 360
+	position 0 0 0
+	turbulence 4000 5000
+	range 0
+	angular_speed_start 12000 -12000
+} 
+
+hook_bullet
+{
+   	subsystem hook_bullet_back
+	subsystem  hook_bullet_circle
+	subsystem 	hook_plasma_ring
+    subsystem hook_beam1
+    subsystem hook_beam2
+    subsystem hook_beam3
+    subsystem hook_beam4
+
+	range 0
+}
+
+hook_bullet_trail_ss
+{
+	geometry quad
+	map particle_sheet3.png
+	region s3_smoke02
+	blend alpha
+	max_particles 512
+	lifetime 1.9 1.6
+	period 0.002
+    fixed_timestep 0.002
+	fade_in 0
+	fade_out 0.2
+	position 0 0 0 0 0 0
+	color_start 0.2 1 1 1
+	color_end 0.2 1 1 1
+	color_end_point 0.07
+	rotation_start 180
+	velocity -1 -1 -1 1 1 1
+	acceleration 0 0 0 0 0 0
+	//turbulence 1 0.5
+	scale_start 40 40
+	scale_end 40 40
+	speed_start 1
+	//drag 1
+	soft_destruction on
+	emitter_movement on
+	//perlin_speed 7
+	//perlin_scale 72
+	range 0
+	scale_timeline 0=0,l;0.5=0.3,l;0.8=0.6,l;1=1,l
+}
+
+
+hook_bullet_trail_single
+{
+	map effects_additive.png
+	region r_add_flash2
+	//map uvtest.png
+	geometry oriented
+	trail true
+
+	blend max
+	max_particles 150
+	max_emissions 0
+	lifetime 5
+	period 0.025
+
+	rotation_start 0 0
+	rotation_end 0 0
+	fade_in 0 0
+	fade_out 0.001 0.001
+
+	//color_start 1.2 0.8 0.2 0.7
+    color_start 0.3 1 1.2 1.0
+	color_end  0.3 1 1.2 1.0
+	color_accent true
+
+	scale_start 10
+	scale_end 10
+	position 0 0 0
+	range 0
+	radius 0
+}
+hook_bullet_trail
+{
+    subsystem hook_bullet_trail_single
+	//subsystem hook_bullet_trail_ss
+	range 0
+	radius 0
+}

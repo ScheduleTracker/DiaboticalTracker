@@ -1036,7 +1036,7 @@ void_cannon
 		
 	parallel_knockback true
 	
-	shot_sound vc_fire1_default
+	shot_sound vc_fire_default1 vc_fire_default2 vc_fire_default3 vc_fire_default4 vc_fire_default5
 	equip_sound w9_equip
 	hit_sound hit_sound_hit1
 	out_of_ammo_sound w9_ooa
@@ -1103,12 +1103,11 @@ void_cannon_secondary
   	missile_particles w9_bullet
   	impact_particles w9_impact_v2
 	
-	shot_sound w9_fire1 w9_fire2 w9_fire3 w9_fire4
+	shot_sound vc_fire_secondary1 vc_fire_secondary2 vc_fire_secondary3 vc_fire_secondary4 vc_fire_secondary5
 	// shot_sound_low_ammo w9_fire_low1 w9_fire_low2 w9_fire_low3 w9_fire_low4
 	// low_ammo_threshold 4
 	missile_loop_sound w9_airbound
-	proximity_loop_sound w9_idle_loop
-	impact_sound w9_impact1 w9_impact2 w9_impact3 w9_impact4
+	impact_sound vc_projectile_explosion1 vc_projectile_explosion2 vc_projectile_explosion3 vc_projectile_explosion4
 	equip_sound w9_equip
 	out_of_ammo_sound w9_ooa
 	activation_sound w9_projectile_activation
