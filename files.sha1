@@ -13,7 +13,7 @@ d6fc4b0a52aa846ff78cbcd8489e88ef34fa3b6a	MediaDecoders.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-06b49191e85b35dc76f7f79a4c65d695d4d75fa0	anticheat/equ8.db
+0535c3f8db411da70ce55da046fa0739ad85f9ce	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1765,7 +1765,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-4e8f991c3857c89213140e47d0d26253283af2ab	diabotical.exe
+e0e1b1ee37cbbc3357265a42ea47f1f09b1569e2	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -10144,7 +10144,7 @@ ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 4bf8dc93589fb97321e114e6c1c24b5ea49cc8d0	ui/html/translations/strings_play.json
 e5f11185f4b156acabc6d40c78eeedd501d2aac8	ui/html/translations/translation-de.js
-57f22f32d1a84c24d1aed749b46b0e1c8ae314b3	ui/html/translations/translation-en.js
+0f3a9b030e167e97271eb0ecc9f2f265befbb169	ui/html/translations/translation-en.js
 3327e06e270aa01beaac84bc56e25a0b63ac2802	ui/html/translations/translation-es-ES.js
 0c94ca377dfd2d54c2c0d79532f27372e2b0e889	ui/html/translations/translation-es-MX.js
 edf681a12edca367376e7cf5161b883233c32b17	ui/html/translations/translation-fr.js
