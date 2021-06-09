@@ -56,7 +56,7 @@ maps\ctf_cliffside_canyons.rbe		2933093
 maps\ctf_dojo-b.png		9194
 maps\ctf_dojo-h.png		376892
 maps\ctf_dojo.rbe		5228741
-maps\ctf_quarry.rbe		9744360
+maps\ctf_quarry.rbe		9761091
 maps\ctf_qunai_peaks-b.png		61830
 maps\ctf_qunai_peaks-h.png		260521
 maps\ctf_qunai_peaks.rbe		4404804
@@ -206,7 +206,7 @@ maps\tt_ctf_cathedral.rbe		7524694
 maps\tt_ctf_dojo-b.png		9194
 maps\tt_ctf_dojo-h.png		376892
 maps\tt_ctf_dojo.rbe		5230047
-maps\tt_ctf_quarry.rbe		9759002
+maps\tt_ctf_quarry.rbe		9773344
 maps\tt_ctf_seismic_fault-b.png		36099
 maps\tt_ctf_seismic_fault-h.png		428443
 maps\tt_ctf_seismic_fault.rbe		7292504
@@ -226,13 +226,13 @@ maps\tt_gr_qunai_peaks.rbe		4348020
 maps\tt_gr_titans_crossing.rbe		627967
 maps\tt_oasis-b.png		2198
 maps\tt_oasis-h.png		361693
-maps\tt_oasis.rbe		8142449
+maps\tt_oasis.rbe		8440827
 maps\tt_roosh-b.png		2198
 maps\tt_roosh-h.png		384403
-maps\tt_roosh.rbe		6888714
+maps\tt_roosh.rbe		6921339
 maps\tt_rwc.rbe		1015477
 maps\tt_temple_escape.rbe		4883144
-maps\tt_toxic.rbe		9292321
+maps\tt_toxic.rbe		9310699
 maps\tt_ukiyo.rbe		4723441
 maps\tt_zen.rbe		1798052
 maps\tut_example-b.png		2277
@@ -250,7 +250,7 @@ maps\wo_crystal_cove.rbe		6832897
 maps\wo_furnace.rbe		6108432
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374304
-maps\wo_refinery.rbe		5877814
+maps\wo_refinery.rbe		5889761
 maps\wo_refinery_wip.rbe		5878904
 maps\wo_sunken.rbe		2297172
 maps\wo_toya_fortress.rbe		4710317
