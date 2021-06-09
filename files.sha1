@@ -13,7 +13,7 @@ d6fc4b0a52aa846ff78cbcd8489e88ef34fa3b6a	MediaDecoders.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-0535c3f8db411da70ce55da046fa0739ad85f9ce	anticheat/equ8.db
+c7183458ed7c6db285e1a5a26ad3165f05e0f791	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1765,7 +1765,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-e0e1b1ee37cbbc3357265a42ea47f1f09b1569e2	diabotical.exe
+65266a3fb5f4a58fb12d164e77fb2cd44f88721b	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1780,7 +1780,7 @@ a46512867c02ae996d0aebd39cae14550d128753	packs/audio.dbp
 68f127c7d01b61369c0494468c7609e142e18d5f	packs/audio_music.dbp
 46b1d1ba5f05b2ee39336892c760401348d7492d	packs/audio_weapons.dbp
 b00fb5dd258ddfcf7a757bbc0ae904c950ac50e3	packs/blocks.dbp
-c3dbce759e8e1b96cf72e91223c561c79472ff2f	packs/maps.dbp
+f41521c262fad9c34ea8755be2185edcd86e34c6	packs/maps.dbp
 83ec2f9e5b51a965e7c8c6211e8488dfd562bbfe	packs/models.dbp
 dfbc7bf49cd84ac39c70918b66c864101051e09f	packs/models_dynamic_props.dbp
 dd0b55d0c42c1a3613f7e5678a38ad07e17306cf	packs/models_dynamic_props_industry.dbp
@@ -1932,7 +1932,7 @@ d75ccef3810a1ce1f1e4347908a0e74b63d213e0	shaders/statictranstexcol.ps.cso
 f47c22953fe4586f2cf59e18f3ffaa8959a9a627	shaders/statictranstexfog.ps.cso
 ff16152301e9db1a6890fcad39f284221bce9f00	shaders/statictranstexfogg.ps.cso
 d961c67cecd11ad5327b51c671884397a74b467b	shaders/textured.ps.cso
-acadac155f4477c8ad9acd5c439d43fd52afd22c	shaders/tile.cs.cso
+c8f41aa621321eddeea5f87bf6b8436239d8b083	shaders/tile.cs.cso
 8fcd2b0c214765c9c4b891341163117489c7f280	shaders/tile.ps.cso
 e533a942231ca04eaf1a93584932fface366ae24	shaders/tile.vs.cso
 d7289348f352bc633fae63549ae90b7df592294b	shaders/tile_col.ps.cso
@@ -1946,7 +1946,7 @@ a65c8ec277c530b64001c08f9d9782c762eabf04	shaders/tileblend2d.ps.cso
 2868d0de55ccb5d117a181d5f718c837cce469ad	shaders/tiledecal.ps.cso
 c3d0ba056078756bbe2ae2d831bc2e99710f1b45	shaders/tiledecalp.ps.cso
 7a3a03d7d5659c844fb7df35d8ac92b93077f284	shaders/tiledecalssr.ps.cso
-ec3a3f66d0b89058674de6465d98ab76e825c170	shaders/tilediag.cs.cso
+85a108f2bf287b96748fa4f50146678bc53e81e9	shaders/tilediag.cs.cso
 66a2e8a438c87f15f870aac95f5dfc8dd877dc36	shaders/tiledirt.ps.cso
 6d835587e358818611be483ad219cb05c0821c9f	shaders/tileflower.vs.cso
 59e8da17e836ebebd4eabf592dc6d4fcae48a1ab	shaders/tilegrass.vs.cso
@@ -10155,7 +10155,7 @@ ac6bb0cceb38daecbb052449004ec39de8f289cb	ui/html/translations/translation-pt-BR.
 e4f43ce2d83c683e6ec28c5dd778296cee17fdcc	ui/html/translations/translation-ru.js
 101ad696bb8bfc47691431df29f79a03db87e7c4	ui/html/translations/translation-zh-CN.js
 4d1bc4619e74eb8a68685452b1dc0b6febcfddcc	ui/html/translations/translation-zh-TW.js
-dcefee2be096b6accce01485f1e8240611d86c2a	ui/html/ui.html
+68b01238edfabcc2061567ab47fe71af5d6bad42	ui/html/ui.html
 11a6b35dec281263eaa6501097714a769d852071	ui/html/vendors/loc-icu/README.txt
 f7e9c3687b3670c0477ae63fa317fa96a262a9ff	ui/html/weapon_thumbnails/blaster_base.png
 1725ffbc51bf57f9aa5b9c513171a3176c7429ae	ui/html/weapon_thumbnails/blaster_diamond.png
