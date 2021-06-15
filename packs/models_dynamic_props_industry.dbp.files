@@ -3368,7 +3368,8 @@ models\dynamic_props\industry\reinarmor_diagonal.dbm		76158
 models\dynamic_props\industry\reinarmor_diagonal.fbx		53728
 models\dynamic_props\industry\roofbar_d.png.dds		22369748
 models\dynamic_props\industry\shutter_01\dp_shutter_01.assets		604
-models\dynamic_props\industry\shutter_01\dp_shutter_01.shader		1398
+models\dynamic_props\industry\shutter_01\dp_shutter_01.shader		1724
+models\dynamic_props\industry\shutter_01\dp_shutter_01_c.png.dds		349700
 models\dynamic_props\industry\shutter_01\dp_shutter_01_d.png.dds		349700
 models\dynamic_props\industry\shutter_01\dp_shutter_01_n.png.dds		349700
 models\dynamic_props\industry\shutter_01\dp_shutter_01_s.png.dds		349700

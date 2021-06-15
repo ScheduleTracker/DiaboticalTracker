@@ -55,7 +55,7 @@ models\theme\colliery\decals\colliery-decals.assets		95
 models\theme\colliery\decals\colliery-decals.shader		282
 models\theme\colliery\decals\ct_dirtbottom01_d.png		277042
 models\theme\colliery\dynamic_props\colliery-dynprops.assets		2712
-models\theme\colliery\dynamic_props\colliery-dynprops.shader		4467
+models\theme\colliery\dynamic_props\colliery-dynprops.shader		4378
 models\theme\colliery\dynamic_props\ct_corner_concave_6x6_01-col.fbx		86992
 models\theme\colliery\dynamic_props\ct_corner_concave_6x6_01.fbx		25792
 models\theme\colliery\dynamic_props\ct_corner_concave_6x6_02-col.fbx		86992
@@ -82,7 +82,7 @@ models\theme\colliery\dynamic_props\ct_timberframe03.fbx		17004
 models\theme\colliery\dynamic_props\ct_trim01_40-col.obj		1117
 models\theme\colliery\dynamic_props\ct_trim01_40.fbx		14940
 models\theme\colliery\props\colliery-staticprops.assets		1528
-models\theme\colliery\props\colliery-staticprops.shader		5865
+models\theme\colliery\props\colliery-staticprops.shader		6323
 models\theme\colliery\props\ct_bowl03-col.obj		135823
 models\theme\colliery\props\ct_bowl03.obj		315495
 models\theme\colliery\props\ct_ceillamp01.fbx		26988
