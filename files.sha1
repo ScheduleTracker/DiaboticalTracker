@@ -13,7 +13,7 @@ d6fc4b0a52aa846ff78cbcd8489e88ef34fa3b6a	MediaDecoders.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-443a1699cd597243aa4c6d960f4c732e4bde3d31	anticheat/equ8.db
+bde7f3ecb16dc6572a6a020d89e8df94ce344179	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1765,7 +1765,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-66bfbb318131e27eec755c6c05fbbb9e70f8c326	diabotical.exe
+27e7da849507f553553b27443e60d3bb20974ec3	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1780,7 +1780,7 @@ aabaff269c8777bd93ae8962472ced3eb63439a1	msvcp140.dll
 68f127c7d01b61369c0494468c7609e142e18d5f	packs/audio_music.dbp
 46b1d1ba5f05b2ee39336892c760401348d7492d	packs/audio_weapons.dbp
 b00fb5dd258ddfcf7a757bbc0ae904c950ac50e3	packs/blocks.dbp
-f41521c262fad9c34ea8755be2185edcd86e34c6	packs/maps.dbp
+57552f11cdb77770fa7ea4828561b40cb489e025	packs/maps.dbp
 83ec2f9e5b51a965e7c8c6211e8488dfd562bbfe	packs/models.dbp
 dfbc7bf49cd84ac39c70918b66c864101051e09f	packs/models_dynamic_props.dbp
 accb96e82e7244565a7816247207c688d7d3767c	packs/models_dynamic_props_industry.dbp
@@ -1788,7 +1788,7 @@ f5c89cfa4073ec826427ef12c5d3209ebf783134	packs/models_eggbot.dbp
 766eda55e06b689d3dff7ba8422cdc33b4b29d44	packs/models_props.dbp
 ffc92ba66faf3b23ada3c0a2212194da9d427a9c	packs/models_props_clouds.dbp
 8298aa7d0a703b31244a490bd48ef8eaa5518b1b	packs/models_props_industrial.dbp
-c8e253ad6ee6856736237442098588ee4afc216b	packs/models_props_medieval.dbp
+c4f26a48201718cfe74a510910d91ff204b4a6b0	packs/models_props_medieval.dbp
 34e5a875034c7ba10514a375cb93ea85c10c4a82	packs/models_props_production.dbp
 ef7b2a35c0227fa5dd94339bd5318ebd82c95508	packs/models_theme.dbp
 62b32e237f21a2cb81d62e4c7f9ea3ccedf76a64	packs/models_theme_japan.dbp
@@ -1799,7 +1799,7 @@ e50654fe84ef3d1c7e44bbf426b789ad59183628	packs/models_weapons_crossbow.dbp
 27bf19bd5f5c3b914ab2fc697219750bb1b30a3a	packs/models_weapons_rocket_launcher.dbp
 6a012486577fdf76cb10a27193aa4ecbf32fdcbb	packs/models_weapons_shaft.dbp
 366b0ad286fa167611f4290ff9efe4d49bec8bba	packs/scripts.dbp
-1457470d89314dac485981a9735b350babcf696d	packs/textures.dbp
+30282090caeb6ef5d26655bf8b4828f4aa50c644	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 8cbbda9bb39fdb9286b8a264fe73c2901eaa0667	packs/textures_customization.dbp
 74662ae0b09e8d2830af24335f87e05ed0a01540	packs/textures_industrial.dbp
@@ -1850,6 +1850,8 @@ e26d558c9f73441f421ccc1f81d036e8c339d930	shaders/forcefield.ps.cso
 ea5848f7cdb159c2553e33d2e43501e9f6957e93	shaders/fsbl.ps.cso
 99871ff44e200eab3a8e6976f4b8133c1dd2376d	shaders/fsblv.ps.cso
 2ba437e76c399a11d376049c5ccbecc54e85c5c5	shaders/fssm.ps.cso
+bd43a1008854155e1d5f76320a4f4579fd82e9f2	shaders/fw.ps.cso
+078470eb21c2ac1449039cc9e0ebc4c12bbad006	shaders/fw.vs.cso
 5c53949066c544b8e3a6860ab33e20e8a1858948	shaders/gui.ps.cso
 1c8f4dd1bc53afc15861d07ddd5e31901f409e34	shaders/gui.vs.cso
 2d6f8d732b72c630c49d4b571a4dfe3e06022254	shaders/holo.ps.cso
@@ -1873,9 +1875,10 @@ f2df32b4efdadaae5b1a9843777d835cb452855d	shaders/ocean_surf.vs.cso
 23175602875cf8bdb77c96ba44eaf86a99db0cc1	shaders/ocean_surf_lq.ps.cso
 f8165ea991787d2c29465aa4642373031943e86c	shaders/ocean_surf_lq.vs.cso
 c8d3a69764b571e72a5ff0d60e6067c2612a89dd	shaders/panel.ps.cso
-08e4557fd0278c15b8184edfe609fc6f7ec844c1	shaders/panel.vs.cso
+73eb451556c1df062230117add19a88f9e276597	shaders/panel.vs.cso
 fd2ae9ab2f7aff3897d976125b0a169743ebf36d	shaders/panel_blur.ps.cso
 3693aa578e72a76ba1122858eea56505780edf6f	shaders/panel_gamma.ps.cso
+bb4dfcf18f8851e1698b0a966797cbd942d994c4	shaders/panel_mm.ps.cso
 3d3324da24b8fdb318c793949c89598cb9d9d013	shaders/panel_monitor.ps.cso
 373f5a52c22e392dbf0c0c3645bf4c7c220cf5f6	shaders/panel_ocean.ps.cso
 46b269e8d5786a7e309ee015ea5a56f0a55b9b89	shaders/panel_volumetric.ps.cso
@@ -1935,8 +1938,8 @@ f47c22953fe4586f2cf59e18f3ffaa8959a9a627	shaders/statictranstexfog.ps.cso
 ff16152301e9db1a6890fcad39f284221bce9f00	shaders/statictranstexfogg.ps.cso
 d961c67cecd11ad5327b51c671884397a74b467b	shaders/textured.ps.cso
 c8f41aa621321eddeea5f87bf6b8436239d8b083	shaders/tile.cs.cso
-8fcd2b0c214765c9c4b891341163117489c7f280	shaders/tile.ps.cso
-e533a942231ca04eaf1a93584932fface366ae24	shaders/tile.vs.cso
+57708933781d6e07169fb055201dc94a765280f3	shaders/tile.ps.cso
+feab902f58846e3f0e5fce5fbc0db033e6f491d0	shaders/tile.vs.cso
 d7289348f352bc633fae63549ae90b7df592294b	shaders/tile_col.ps.cso
 51fcf0cd4d84a636780debf209b036eb99415572	shaders/tileanim.vs.cso
 a3ccf5f5793a0efbde2e075d4fd788f0946abc77	shaders/tileblend.ps.cso
@@ -1944,7 +1947,7 @@ a65c8ec277c530b64001c08f9d9782c762eabf04	shaders/tileblend2d.ps.cso
 98847b244a4bb2dfc5ebd77b09688d6c1df24720	shaders/tileblend2db.ps.cso
 025e89a206f057e61f53b422ec3396cca3db03df	shaders/tileblend2dc.ps.cso
 894c138becb1ce3d3595cb2fb0f99daa83f046bc	shaders/tilebutterfly.vs.cso
-730b4e639a9c1022700ab10438d9dc903a701c81	shaders/tilecolor.ps.cso
+03826e2ddc758124474afdd6e4c1d149deadd300	shaders/tilecolor.ps.cso
 2868d0de55ccb5d117a181d5f718c837cce469ad	shaders/tiledecal.ps.cso
 c3d0ba056078756bbe2ae2d831bc2e99710f1b45	shaders/tiledecalp.ps.cso
 7a3a03d7d5659c844fb7df35d8ac92b93077f284	shaders/tiledecalssr.ps.cso
@@ -1952,7 +1955,7 @@ c3d0ba056078756bbe2ae2d831bc2e99710f1b45	shaders/tiledecalp.ps.cso
 66a2e8a438c87f15f870aac95f5dfc8dd877dc36	shaders/tiledirt.ps.cso
 6d835587e358818611be483ad219cb05c0821c9f	shaders/tileflower.vs.cso
 59e8da17e836ebebd4eabf592dc6d4fcae48a1ab	shaders/tilegrass.vs.cso
-f1bcc7b2152657c243f1b33b2056b2556fb247e0	shaders/tilemask.ps.cso
+095c6e42e1d6b249cb802b81e5fee7226fa1f656	shaders/tilemask.ps.cso
 864b4d5057384c5838db7bf21ef3b719a60e31be	shaders/tilemaski.ps.cso
 93107cbac24e8b1a407ad7bfec438acfcaf620be	shaders/tilepara.ps.cso
 14ff41938f49cbdbaa29cd161ca1b1b25c2842da	shaders/tilepara.vs.cso
@@ -1973,8 +1976,8 @@ c5d8b01ed6c11aca16ea71d5656b7b81daadcd59	shaders/tilestatici.vs.cso
 de7fd429db1f32279eabfd802a9d4af3c8fa798e	shaders/uifxholo.vs.cso
 d1556ce67c7d378191892668605e7dd5962a5c68	shaders/uifxpie.ps.cso
 1f950234d233c30dceaa7b49a335a45c7420c48a	shaders/uifxverpro.ps.cso
-60d12c264cc7c6976cd83efd119e5d67e803c42d	shaders/vertex_color.ps.cso
-113e8b42f01a43fe838d9f3f52561417a678b7cc	shaders/vertex_color.vs.cso
+0c35afb79055b305fbc678d8f6b6a84930001d02	shaders/vertex_color.ps.cso
+e0bd3f355c09714cbcd6ba070aca68716fa2284c	shaders/vertex_color.vs.cso
 506146908d1bb5be8480ea11c6012f048c18e529	shaders/water.ps.cso
 190c18754a9e3485309c9a70482c1b9dcb78a53a	shaders/water.vs.cso
 638133a2e64185475d718152c487086093831aaf	shaders/white.ps.cso
@@ -10157,7 +10160,7 @@ ac6bb0cceb38daecbb052449004ec39de8f289cb	ui/html/translations/translation-pt-BR.
 e4f43ce2d83c683e6ec28c5dd778296cee17fdcc	ui/html/translations/translation-ru.js
 101ad696bb8bfc47691431df29f79a03db87e7c4	ui/html/translations/translation-zh-CN.js
 4d1bc4619e74eb8a68685452b1dc0b6febcfddcc	ui/html/translations/translation-zh-TW.js
-68b01238edfabcc2061567ab47fe71af5d6bad42	ui/html/ui.html
+b67af578fa998d3620cda63b5a89fba8e9e93c81	ui/html/ui.html
 11a6b35dec281263eaa6501097714a769d852071	ui/html/vendors/loc-icu/README.txt
 f7e9c3687b3670c0477ae63fa317fa96a262a9ff	ui/html/weapon_thumbnails/blaster_base.png
 1725ffbc51bf57f9aa5b9c513171a3176c7429ae	ui/html/weapon_thumbnails/blaster_diamond.png
@@ -10181,8 +10184,8 @@ b75c17f9064c046dadd21d858851c235830df7bb	ui/html/weapon_thumbnails/shelly_basesh
 cf34a8b386f3a5487b1c5538e771b8b1736b6c36	ui/html/weapon_thumbnails/shelly_turqo.png
 fa9b7a60ed36415e164710b2f77fb8a163efdc4e	ui/html/weapon_thumbnails/weapon9_base.png
 e179a191f6abafdc70981cfa96764f60f1e98a65	ui/html/weapon_thumbnails/weapon9_bluemilitum.png
-addbac0e68f18fadb81c54fea264b395c9a52fe3	ui/hud/editpad_bg.png
-81c59ea0e8d3b414cbeadb0896fa34b0ebb9cf6b	ui/hud/editpad_bg.png.dds
+2e125ff319f4386d325c6b08da0bab275aca0e1b	ui/hud/editpad_bg.png
+c86fa728c66aab990b882e97241a7ea23b36d109	ui/hud/editpad_bg.png.dds
 4226f5820779d96f449493b29f56746a9c1e978e	ui/hud/hud_ammo_bg_off.png
 7d0ac2223e7eee58bc306c88373e67b7b8865493	ui/hud/hud_ammo_bg_on.png
 236d5d76ef3763d6adec9a25b761dc2728f704b3	ui/hud/hud_ammo_label_bg_off.png
