@@ -1,6 +1,6 @@
 maps\a_barrows_gate-b.png		23810
 maps\a_barrows_gate-h.png		216589
-maps\a_barrows_gate.rbe		4100992
+maps\a_barrows_gate.rbe		4124329
 maps\a_bazaar.rbe		3374192
 maps\a_enclosure-b.png		12206
 maps\a_enclosure-h.png		390578
@@ -26,8 +26,8 @@ maps\b_ancient.rbe		2476494
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
 maps\b_crystal_cove.rbe		6858175
-maps\b_frozen_decay.rbe		3614065
-maps\b_furnace.rbe		6109545
+maps\b_frozen_decay.rbe		3625041
+maps\b_furnace.rbe		6116297
 maps\b_huracan-b.png		13449
 maps\b_huracan-h.png		411981
 maps\b_huracan.rbe		6581335
@@ -73,7 +73,7 @@ maps\duel_amberfall-h.png		453905
 maps\duel_amberfall.rbe		3212266
 maps\duel_bioplant-b.png		6036
 maps\duel_bioplant-h.png		251674
-maps\duel_bioplant.rbe		1385172
+maps\duel_bioplant.rbe		1384700
 maps\duel_f1sks_house-b.png		62672
 maps\duel_f1sks_house-h.png		362082
 maps\duel_f1sks_house.rbe		2533787
@@ -92,7 +92,7 @@ maps\duel_overgrowth.rbe		2213503
 maps\duel_perilous.rbe		5026986
 maps\duel_raya-b.png		9268
 maps\duel_raya-h.png		196791
-maps\duel_raya.rbe		1466736
+maps\duel_raya.rbe		1471223
 maps\duel_skybreak.rbe		1830760
 maps\duel_viki-b.png		2811
 maps\duel_viki-h.png		364041
@@ -177,7 +177,7 @@ maps\tdm_alchemy_wip-h.png		473873
 maps\tdm_alchemy_wip.rbe		5203063
 maps\tdm_frozen_decay-b.png		2198
 maps\tdm_frozen_decay-h.png		361693
-maps\tdm_frozen_decay.rbe		3614572
+maps\tdm_frozen_decay.rbe		3625586
 maps\tdm_huracan-b.png		13449
 maps\tdm_huracan-h.png		411981
 maps\tdm_huracan.rbe		6581346
@@ -229,7 +229,7 @@ maps\tt_oasis-h.png		361693
 maps\tt_oasis.rbe		8440827
 maps\tt_roosh-b.png		2198
 maps\tt_roosh-h.png		384403
-maps\tt_roosh.rbe		6921339
+maps\tt_roosh.rbe		7168910
 maps\tt_rwc.rbe		1015477
 maps\tt_temple_escape.rbe		4883144
 maps\tt_toxic.rbe		9310699
@@ -247,7 +247,7 @@ maps\wo_ancient.rbe		2470007
 maps\wo_crystal_cove-b.png		75347
 maps\wo_crystal_cove-h.png		445549
 maps\wo_crystal_cove.rbe		6832897
-maps\wo_furnace.rbe		6108432
+maps\wo_furnace.rbe		6113526
 maps\wo_refinery-b.png		89398
 maps\wo_refinery-h.png		374304
 maps\wo_refinery.rbe		5889761
