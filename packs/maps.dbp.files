@@ -26,11 +26,11 @@ maps\b_ancient.rbe		2476494
 maps\b_crystal_cove-b.png		75347
 maps\b_crystal_cove-h.png		445549
 maps\b_crystal_cove.rbe		6858175
-maps\b_frozen_decay.rbe		3625041
+maps\b_frozen_decay.rbe		3625511
 maps\b_furnace.rbe		6116297
 maps\b_huracan-b.png		13449
 maps\b_huracan-h.png		411981
-maps\b_huracan.rbe		6581335
+maps\b_huracan.rbe		6592920
 maps\b_hurt_locker.rbe		3818056
 maps\b_icefall-b.png		3456
 maps\b_icefall-h.png		481103
@@ -177,10 +177,10 @@ maps\tdm_alchemy_wip-h.png		473873
 maps\tdm_alchemy_wip.rbe		5203063
 maps\tdm_frozen_decay-b.png		2198
 maps\tdm_frozen_decay-h.png		361693
-maps\tdm_frozen_decay.rbe		3625586
+maps\tdm_frozen_decay.rbe		3625800
 maps\tdm_huracan-b.png		13449
 maps\tdm_huracan-h.png		411981
-maps\tdm_huracan.rbe		6581346
+maps\tdm_huracan.rbe		6592923
 maps\tdm_icefall-b.png		3456
 maps\tdm_icefall-h.png		481103
 maps\tdm_icefall.rbe		2740654
