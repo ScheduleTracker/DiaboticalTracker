@@ -1098,7 +1098,7 @@ models\theme\japan\texture\plaster_wall\plaster02_wall_d.png		384746
 models\theme\japan\texture\plaster_wall\plaster_wall_d.png.dds		1398276
 models\theme\japan\texture\plaster_wall\plaster_wall_i.png.dds		699192
 models\theme\japan\texture\plaster_wall\plaster_wall_material.assets		183
-models\theme\japan\texture\plaster_wall\plaster_wall_material.shader		690
+models\theme\japan\texture\plaster_wall\plaster_wall_material.shader		766
 models\theme\japan\texture\plaster_wall\plaster_wall_n.png.dds		1398276
 models\theme\japan\texture\plaster_wall\plaster_wall_s.png.dds		1398276
 models\theme\japan\texture\plaster_woodbeams\plaster_woodbeams01.png.dds		1398276
@@ -1127,7 +1127,7 @@ models\theme\japan\texture\rock_wall\rock_wall_s.png.dds		1398276
 models\theme\japan\texture\stone_block_ground\stone_ground_d.png.dds		1398276
 models\theme\japan\texture\stone_block_ground\stone_ground_i.png.dds		699192
 models\theme\japan\texture\stone_block_ground\stone_ground_material.assets		103
-models\theme\japan\texture\stone_block_ground\stone_ground_material.shader		373
+models\theme\japan\texture\stone_block_ground\stone_ground_material.shader		417
 models\theme\japan\texture\stone_block_ground\stone_ground_n.png.dds		1398276
 models\theme\japan\texture\stone_block_ground\stone_ground_s.png.dds		1398276
 models\theme\japan\texture\stone_blocks_wall\stone_blocks_wall_d.dds		349700
