@@ -13,7 +13,7 @@ d6fc4b0a52aa846ff78cbcd8489e88ef34fa3b6a	MediaDecoders.WindowsDesktop.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-80b55ebb6a5ce9f3d6e2c01e214e89391e050486	anticheat/equ8.db
+d83145dfc7c0c5b871f43adc38660a64d4d55446	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1765,7 +1765,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-2c39e9c9ed3b929812c2f1dbd525d875bd2186d3	diabotical.exe
+f70ad85d3e1206a868cfa3d8ae6a124c586964da	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1799,7 +1799,7 @@ e50654fe84ef3d1c7e44bbf426b789ad59183628	packs/models_weapons_crossbow.dbp
 27bf19bd5f5c3b914ab2fc697219750bb1b30a3a	packs/models_weapons_rocket_launcher.dbp
 6a012486577fdf76cb10a27193aa4ecbf32fdcbb	packs/models_weapons_shaft.dbp
 366b0ad286fa167611f4290ff9efe4d49bec8bba	packs/scripts.dbp
-30282090caeb6ef5d26655bf8b4828f4aa50c644	packs/textures.dbp
+ff1ade58723e41a7161377459eaaaccebdb17c31	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 8cbbda9bb39fdb9286b8a264fe73c2901eaa0667	packs/textures_customization.dbp
 74662ae0b09e8d2830af24335f87e05ed0a01540	packs/textures_industrial.dbp
@@ -10160,7 +10160,7 @@ ac6bb0cceb38daecbb052449004ec39de8f289cb	ui/html/translations/translation-pt-BR.
 e4f43ce2d83c683e6ec28c5dd778296cee17fdcc	ui/html/translations/translation-ru.js
 101ad696bb8bfc47691431df29f79a03db87e7c4	ui/html/translations/translation-zh-CN.js
 4d1bc4619e74eb8a68685452b1dc0b6febcfddcc	ui/html/translations/translation-zh-TW.js
-b67af578fa998d3620cda63b5a89fba8e9e93c81	ui/html/ui.html
+ddfc0d068d349611e0088dfcb0305c4a9f787b6b	ui/html/ui.html
 11a6b35dec281263eaa6501097714a769d852071	ui/html/vendors/loc-icu/README.txt
 f7e9c3687b3670c0477ae63fa317fa96a262a9ff	ui/html/weapon_thumbnails/blaster_base.png
 1725ffbc51bf57f9aa5b9c513171a3176c7429ae	ui/html/weapon_thumbnails/blaster_diamond.png
