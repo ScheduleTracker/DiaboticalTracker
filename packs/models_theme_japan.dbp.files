@@ -363,9 +363,12 @@ models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_04_mid_right.fbx		288
 models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_05_mid_left.fbx		32144
 models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_05_mid_mid.fbx		33216
 models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_05_mid_right.fbx		32176
-models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_06_mid_left.fbx		30592
-models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_06_mid_mid.fbx		31376
-models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_06_mid_right.fbx		27824
+models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_06_mid_left.dbm		15794
+models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_06_mid_left.fbx		28384
+models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_06_mid_mid.dbm		27042
+models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_06_mid_mid.fbx		28128
+models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_06_mid_right.dbm		15810
+models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panel_06_mid_right.fbx		31504
 models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panels.assets		9083
 models\theme\japan\dynamic_prop\wall_panels\jpn_wall_panels.shader		4893
 models\theme\japan\dynamic_prop\wall_panels\wall_panel_frame_bottom_left-col.obj		4706

@@ -161,6 +161,11 @@ audio\weapons\melee\m_impact2.wav		62856
 audio\weapons\melee\m_impact3.wav		86468
 audio\weapons\melee\m_impact4.wav		81740
 audio\weapons\melee\m_impact5.wav		82536
+audio\weapons\melee\skins\anniversary_candle\m_anniversary_candle_fire1.wav		76534
+audio\weapons\melee\skins\anniversary_candle\m_anniversary_candle_fire2.wav		76534
+audio\weapons\melee\skins\anniversary_candle\m_anniversary_candle_fire3.wav		76534
+audio\weapons\melee\skins\anniversary_candle\m_anniversary_candle_fire4.wav		76534
+audio\weapons\melee\skins\anniversary_candle\m_anniversary_candle_fire5.wav		76534
 audio\weapons\melee\skins\ballhammer\m_ballhammer_fire1.wav		130086
 audio\weapons\melee\skins\ballhammer\m_ballhammer_fire2.wav		130086
 audio\weapons\melee\skins\ballhammer\m_ballhammer_fire3.wav		130086
@@ -480,7 +485,6 @@ audio\weapons\super_shotgun\ss_ooa.wav		91900
 audio\weapons\super_shotgun\weaponsg.wav		192712
 audio\weapons\super_shotgun\weaponsh.wav		192712
 audio\weapons\super_shotgun\weaponss.wav		192712
-audio\weapons\void_cannon\vc_fire1_default.wav		145838
 audio\weapons\void_cannon\vc_fire_default1.wav		232458
 audio\weapons\void_cannon\vc_fire_default2.wav		232458
 audio\weapons\void_cannon\vc_fire_default3.wav		232458

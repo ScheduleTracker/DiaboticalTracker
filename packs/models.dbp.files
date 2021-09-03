@@ -2002,6 +2002,7 @@ models\weaponrl.ani		387
 models\weaponrl.dbm		2719692
 models\weaponrl.fbm\rl_d.png		1984821
 models\weaponrl.fbx		1831680
+models\weaponsaw.fbx		7593248
 models\weaponsdsg.ani		1002
 models\weaponsdsg.dbm		3864526
 models\weaponsdsg.fbx		2945504
@@ -2014,6 +2015,7 @@ models\weaponsh.fbx		2882128
 models\weaponshaft.ani		400
 models\weaponshaft.dbm		4890502
 models\weaponshaft.fbx		3606880
+models\weaponshw.fbx		7593248
 models\weaponslw.ani		416
 models\weaponslw.dbm		8548998
 models\weaponslw.fbx		8912416
@@ -2025,6 +2027,7 @@ models\weaponss.dbm		1684053
 models\weaponss.fbx		1175440
 models\weaponss_Good.dbm		2608242
 models\weaponss_Good.fbx		1694016
+models\weaponsvw.fbx		7593248
 models\weaponsw.ani		438
 models\weaponsw.dbm		3164120
 models\weaponsw.fbm\eggbot_hand_d.png		1998625

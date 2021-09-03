@@ -2,9 +2,9 @@ scripts\ambience.sounds		117
 scripts\atest.assets		248
 scripts\avatars.assets		79
 scripts\base.blocks		135
-scripts\base.classes		823
+scripts\base.classes		931
 scripts\base.enemy		543
-scripts\base.games		28182
+scripts\base.games		29193
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -16,7 +16,7 @@ scripts\decals.assets		4776
 scripts\dynamic_industrial.assets		71627
 scripts\dynamic_temple.assets		26277
 scripts\effects.atlas		7744
-scripts\entities.assets		9605
+scripts\entities.assets		9916
 scripts\fragclips.movies-example		1485
 scripts\heal.particles		743
 scripts\industry_materials.assets		3053
@@ -36,6 +36,7 @@ scripts\particles\aasparks.particles		413
 scripts\particles\aasparks2.particles		401
 scripts\particles\aatrails.particles		599
 scripts\particles\ammoshaft_decorative.particles		4638
+scripts\particles\anniversary_candle.particles		1082
 scripts\particles\base.particles		15242
 scripts\particles\base2.particles		5173
 scripts\particles\big_explosion.particles		6239
@@ -55,7 +56,7 @@ scripts\particles\double_damage.particles		4668
 scripts\particles\double_damage_v2NOP.particles		10530
 scripts\particles\dust_big.particles		1508
 scripts\particles\dust_lamp.particles		503
-scripts\particles\effects.atlas		11141
+scripts\particles\effects.atlas		11240
 scripts\particles\entities.particles		30691
 scripts\particles\environment\blowing_dust.particles		1139
 scripts\particles\environment\enviroment.particles		30876
@@ -158,7 +159,7 @@ scripts\particles\w9_impact _v2.particles		16011
 scripts\particles\w9_impact.particles		8959
 scripts\particles\w9_muzzle.particles		6068
 scripts\particles\weapon_pickups.particles		7216
-scripts\particles\weeble_particles.particles		8172
+scripts\particles\weeble_particles.particles		20148
 scripts\particles\xpillar.particles		4676
 scripts\particles\zlg.particles		5700
 scripts\pickups.assets		370
@@ -175,12 +176,12 @@ scripts\shaders\bots.shader		4369
 scripts\shaders\bubble.shader		1891
 scripts\shaders\carl.shader		1541
 scripts\shaders\castle_environment.shader		7800
-scripts\shaders\castle_props.shader		3843
+scripts\shaders\castle_props.shader		3879
 scripts\shaders\character.shader		88
 scripts\shaders\character.shader-copy		27732
 scripts\shaders\character.shader-old		26107
 scripts\shaders\container.shader		1320
-scripts\shaders\core.shader		3249
+scripts\shaders\core.shader		3424
 scripts\shaders\ct_dev.shader		887
 scripts\shaders\ctf.shader		6783
 scripts\shaders\decals.shader		25151
@@ -236,10 +237,10 @@ scripts\trailerclips.movies-example		2569
 scripts\ui.sounds		117
 scripts\water_temple_materials.assets		876
 scripts\weapons\abilities.weapons		1382
-scripts\weapons\basic.weapons		30516
+scripts\weapons\basic.weapons		30520
 scripts\weapons\br.weapons		5927
-scripts\weapons\melee.weapons		798
+scripts\weapons\melee.weapons		887
 scripts\weapons\modes.weapons		49
-scripts\weapons\weeballs.weapons		14044
+scripts\weapons\weeballs.weapons		20789
 scripts\weapons\wmd.weapons		49
 scripts\zzmovie.movies-example		322

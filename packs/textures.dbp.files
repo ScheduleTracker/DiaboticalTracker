@@ -595,9 +595,11 @@ textures\oil_splash.png.dds		349780
 textures\particle_sheet1.dds		5592580
 textures\particle_sheet1.png.dds		5592580
 textures\particle_sheet2.png.dds		1398260
+textures\particle_sheet3.dds		5592580
 textures\particle_sheet3.png.dds		5592580
 textures\particle_sheet4.png.dds		1398260
 textures\particle_sheet5.png.dds		2796372
+textures\particle_sheet6.png		2253
 textures\perlin_noise.dds		43816
 textures\pickups\ammo_box_c.png.dds		1048724
 textures\pickups\ammo_box_d.png.dds		1048724

@@ -140,6 +140,13 @@ models\eggbot\legs\legs_01_i.png		2130
 models\eggbot\legs\legs_01_n.png		692979
 models\eggbot\legs\legs_01_s.png		129952
 models\eggbot\rig_eggbot.ma		1761195
+models\eggbot\shell\se_anniversary\anniversary_c.png.dds		1398276
+models\eggbot\shell\se_anniversary\anniversary_d.png.dds		1398276
+models\eggbot\shell\se_anniversary\anniversary_n.png.dds		1398276
+models\eggbot\shell\se_anniversary\anniversary_s.png.dds		1398276
+models\eggbot\shell\se_anniversary\se_anniversary.assets		117
+models\eggbot\shell\se_anniversary\se_anniversary.fbx		126864
+models\eggbot\shell\se_anniversary\se_anniversary.shader		565
 models\eggbot\shell\se_assassin\se_assassin.assets		225
 models\eggbot\shell\se_assassin\se_assassin.dbm		126760
 models\eggbot\shell\se_assassin\se_assassin.fbx		102896
@@ -346,9 +353,3 @@ models\eggbot\slits_shell\sportbot\eggbot_sport01_c.png.dds		1398232
 models\eggbot\slits_shell\sportbot\eggbot_sport01_d.png.dds		2796356
 models\eggbot\slits_shell\sportbot\eggbot_sport01_n.png.dds		699220
 models\eggbot\slits_shell\sportbot\eggbot_sport01_s.png.dds		2796356
-models\eggbot\weeball_hero\character.shader		507
-models\eggbot\weeball_hero\weeball_hero_c.png		774736
-models\eggbot\weeball_hero\weeball_hero_d.png.dds		5592580
-models\eggbot\weeball_hero\weeball_hero_i.png.dds		5592580
-models\eggbot\weeball_hero\weeball_hero_n.png.dds		5592580
-models\eggbot\weeball_hero\weeball_hero_s.png.dds		5592580

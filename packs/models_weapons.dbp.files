@@ -396,6 +396,16 @@ models\weapons\machinegun\vaporwave\mac_s.png		1043633
 models\weapons\machinegun\vaporwave\weapons_3p.shader		1152
 models\weapons\machinegun\vaporwave\weapons_carry.shader		1395
 models\weapons\machinegun\vaporwave\weapons_preview.shader		1407
+models\weapons\melee\anniversary_candle\anniversary_candle.assets		265
+models\weapons\melee\anniversary_candle\anniversary_candle.shader		2249
+models\weapons\melee\anniversary_candle\anniversary_candle_d.png.dds		1398276
+models\weapons\melee\anniversary_candle\anniversary_candle_i.png.dds		1398276
+models\weapons\melee\anniversary_candle\anniversary_candle_n.png.dds		1398276
+models\weapons\melee\anniversary_candle\anniversary_candle_red_d.png.dds		1398276
+models\weapons\melee\anniversary_candle\anniversary_candle_s.png.dds		1398276
+models\weapons\melee\anniversary_candle\weapon_anniversary_candle.ani		362
+models\weapons\melee\anniversary_candle\weapon_anniversary_candle.dbm		513373
+models\weapons\melee\anniversary_candle\weapon_anniversary_candle.fbx		1026064
 models\weapons\melee\arm_glove\arm_glove.assets		145
 models\weapons\melee\arm_glove\arm_glove.dbm		261561
 models\weapons\melee\arm_glove\arm_glove.shader		1789
@@ -522,14 +532,14 @@ models\weapons\melee\heat_sword\heat_sword_s.png.dds		1398276
 models\weapons\melee\heat_sword\weapon_heat_sword.ani		364
 models\weapons\melee\heat_sword\weapon_heat_sword.dbm		694840
 models\weapons\melee\heat_sword\weapon_heat_sword.fbx		476176
-models\weapons\melee\katana\katana.shader		1599
+models\weapons\melee\katana\katana.shader		1597
 models\weapons\melee\katana\katana_d.png.dds		1398276
 models\weapons\melee\katana\katana_i.png.dds		349700
 models\weapons\melee\katana\katana_n.png.dds		1398276
 models\weapons\melee\katana\katana_s.png.dds		1398276
 models\weapons\melee\katana\weapon_katana.ani		362
 models\weapons\melee\katana\weapon_katana.dbm		684778
-models\weapons\melee\katana\weapon_katana.fbx		609872
+models\weapons\melee\katana\weapon_katana.fbx		608832
 models\weapons\melee\lightning_axe_vercol\axe.assets		141
 models\weapons\melee\lightning_axe_vercol\axe.shader		5518
 models\weapons\melee\lightning_axe_vercol\lightning_axe_d.png.dds		1398276
@@ -540,8 +550,8 @@ models\weapons\melee\lightning_axe_vercol\lightning_axe_prop_vercol_old.fbx		298
 models\weapons\melee\lightning_axe_vercol\lightning_axe_s.png.dds		1398276
 models\weapons\melee\lightning_axe_vercol\scroll.png		151164
 models\weapons\melee\lightning_axe_vercol\weapon_lightning_axe_vercol.ani		367
-models\weapons\melee\lightning_axe_vercol\weapon_lightning_axe_vercol.dbm		882548
-models\weapons\melee\lightning_axe_vercol\weapon_lightning_axe_vercol.fbx		526048
+models\weapons\melee\lightning_axe_vercol\weapon_lightning_axe_vercol.dbm		882747
+models\weapons\melee\lightning_axe_vercol\weapon_lightning_axe_vercol.fbx		526528
 models\weapons\melee\mazer\Creator Omar Chaouch.txt		27
 models\weapons\melee\mazer\mazer.assets		125
 models\weapons\melee\mazer\mazer.shader		1557
@@ -640,18 +650,15 @@ models\weapons\melee\stonehammer\amethyst\stonehammer_d.png		1068316
 models\weapons\melee\stonehammer\Creator Omar Chaouch.txt		27
 models\weapons\melee\stonehammer\Jade\stonehammer_d.png		1065972
 models\weapons\melee\stonehammer\sapphire\stonehammer_d.png		1089307
-models\weapons\melee\stonehammer\stonehammer.ani		362
 models\weapons\melee\stonehammer\stonehammer.assets		155
-models\weapons\melee\stonehammer\stonehammer.dbm		136035
-models\weapons\melee\stonehammer\stonehammer.fbx		109904
-models\weapons\melee\stonehammer\stonehammer.shader		1725
+models\weapons\melee\stonehammer\stonehammer.shader		1723
 models\weapons\melee\stonehammer\stonehammer_d.png.dds		5592548
 models\weapons\melee\stonehammer\stonehammer_n.png.dds		1398260
 models\weapons\melee\stonehammer\stonehammer_rig.ma		639395
 models\weapons\melee\stonehammer\stonehammer_s.png.dds		1398260
 models\weapons\melee\stonehammer\weapon_stonehammer.ani		362
-models\weapons\melee\stonehammer\weapon_stonehammer.dbm		319857
-models\weapons\melee\stonehammer\weapon_stonehammer.fbx		289520
+models\weapons\melee\stonehammer\weapon_stonehammer.dbm		362301
+models\weapons\melee\stonehammer\weapon_stonehammer.fbx		329440
 models\weapons\melee\tesla_sword\Creator Omar Chaouch.txt		27
 models\weapons\melee\tesla_sword\tesla_sword.assets		155
 models\weapons\melee\tesla_sword\tesla_sword.shader		1725
@@ -701,7 +708,7 @@ models\weapons\pncr\base\pncr_display.png_hcm.swatch		5468
 models\weapons\pncr\base\pncr_i.png.dds		1398276
 models\weapons\pncr\base\pncr_n.png.dds		1398260
 models\weapons\pncr\base\pncr_pickup_d.png.dds		1398260
-models\weapons\pncr\base\pncr_s.png.dds		1398260
+models\weapons\pncr\base\pncr_s.png.dds		1398276
 models\weapons\pncr\base\weaponpncr.ani		514
 models\weapons\pncr\base\weaponpncr.dbm		1450135
 models\weapons\pncr\base\weaponpncr.fbm\pncr_d.png		1391474
@@ -965,11 +972,11 @@ models\weapons\super_shotgun\avocado\weapons_3p.shader		955
 models\weapons\super_shotgun\avocado\weapons_carry.shader		846
 models\weapons\super_shotgun\avocado\weapons_preview.shader		1247
 models\weapons\super_shotgun\base\skin.assets		123
-models\weapons\super_shotgun\base\ss_d.png.dds		5592548
+models\weapons\super_shotgun\base\ss_d.png.dds		5592580
 models\weapons\super_shotgun\base\ss_i.png.dds		699184
-models\weapons\super_shotgun\base\ss_n.png.dds		1398260
+models\weapons\super_shotgun\base\ss_n.png.dds		1398276
 models\weapons\super_shotgun\base\ss_pickup_d.png.dds		1398260
-models\weapons\super_shotgun\base\ss_s.png.dds		1398260
+models\weapons\super_shotgun\base\ss_s.png.dds		1398276
 models\weapons\super_shotgun\base\weapons.shader		1192
 models\weapons\super_shotgun\base\weapons_3p.shader		901
 models\weapons\super_shotgun\base\weapons_carry.shader		798

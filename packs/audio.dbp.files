@@ -866,7 +866,7 @@ audio\frag_notifications.sounds		1495
 audio\grenade_launcher.sounds		6151
 audio\ID_list.txt		2542
 audio\machinegun.sounds		5176
-audio\melee.sounds		19098
+audio\melee.sounds		20173
 audio\minigun.sounds		4386
 audio\misc.sounds		546
 audio\misc\claim_reward.wav		183570
@@ -875,6 +875,8 @@ audio\misc\ir.wav		93462
 audio\music.sounds		8357
 audio\music_gameplay.sounds		600
 audio\music_map_intros.sounds		4908
+audio\placeholders\hw_impact_bravo_20_impactlayer.wav		170246
+audio\placeholders\sw_impact_alpha_20_impactlayer.wav		189146
 audio\pncr.sounds		13851
 audio\rocket_launcher.sounds		5813
 audio\shaft.sounds		13736
@@ -944,5 +946,5 @@ audio\weeble_healing.sounds		1379
 audio\weeble_implosive.sounds		2089
 audio\weeble_slow.sounds		1673
 audio\weeble_smoke.sounds		1864
-audio\weebles.sounds		3013
+audio\weebles.sounds		3533
 audio\zombiebot.sounds		2231
