@@ -154,3 +154,14 @@ core_effects_decals
 		pixel_shader tiledecal.ps.cso
 	}
 }
+
+uvtest
+{
+	{
+		map textures/uvtest.png
+		map textures/flat_normal.png
+		map textures/black.png
+		vertex_shader tile.vs.cso 111 NGT
+		pixel_shader tile.ps.cso	
+	}
+}

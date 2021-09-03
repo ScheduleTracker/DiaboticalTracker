@@ -341,6 +341,27 @@ asset weapon/smoke_weeball
   command add weaponsmw
 }
 
+asset weapon/survival_amplifier_weeball
+{
+  listed true
+  type entity
+  command add weaponsaw
+}
+
+asset weapon/survival_vulnerability_weeball
+{
+  listed true
+  type entity
+  command add weaponsvw
+}
+
+asset weapon/survival_heal_weeball
+{
+  listed true
+  type entity
+  command add weaponshw
+}
+
 //MISC
 asset trigger
 {

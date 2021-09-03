@@ -59,7 +59,11 @@ lightning_ring 0 0 256 256 8 8
 
 }
 
-
+particle_sheet6.png 1024 1024
+{
+	s6_up_arrow 0 0 128 128 1 1
+	s6_down_arrow 128 0 128 128 1 1
+}
 
 particle_sheet5.png  1024 2048
 {

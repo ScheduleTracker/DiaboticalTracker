@@ -345,3 +345,582 @@ slow_weeble_filament
 {
 subsystem slow_weeble_dial_particle
 }
+
+/////////////////////////////////////////////////////////////////////////////////////------------------SURVIVAL-HEALING--------------------------------------------------------///////////////////////////////////////////////////////////
+
+//vc_explosion_1 base_explosion
+//{
+//	sync_group 1
+//	rotation_start 0 80
+//	scale_start 50
+//	scale_end 100 150
+//	color_start 0.2 3 20
+//	color_end 0.2 3 20
+//	position 0 0 1 0 0 1
+//}
+
+survival_heal_dome_add
+{
+	map particle_sheet3.png
+	geometry quad
+	region s3_rl_muzzle_39
+	blend add	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.6
+	fade_in 0
+	fade_out 0.
+	scale_start 0
+	scale_end 585	
+	color_start  0.8 10 4 1
+	rotation_start 0 
+	turbulence 4000 5000
+	range 0
+
+	scale_timeline 0=0.0,l;0.1=1,l;0.7=1,l;1=1,l
+}
+
+survival_heal_dome_alpha
+{
+	map particle_sheet3.png
+	geometry quad
+	region s3_rl_muzzle_5
+	blend alpha	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.5
+	fade_in 0
+	fade_out 0.45
+	scale_start 0
+	scale_end 585
+	color_start  1.5 2 1 0.75
+	color_start  1 2 1.5 0.1
+	rotation_start 0 
+	turbulence 4000 5000
+	range 0	
+	scale_timeline 0=0.0,l;0.1=1,l;0.7=1,l;1=1,l
+}
+
+survival_heal_center_dome_alpha
+{
+	map particle_sheet5.png
+	geometry quad
+	region plasma_circle
+	blend alpha	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2 0.2
+	fade_in 0
+	fade_out 0.1 0.05
+	scale_start 0
+	scale_end 300
+	color_start  0.5 1 0.4 1
+	color_end  0.4 1 0.5 0.5	
+	rotation_start 0 360
+	position 0 0 0
+	range 0
+	scale_timeline 0=0.0,l;0.3=.8,l;0.7=1,l;1=1,l
+}
+
+survival_heal_impact_light base_light_impact
+{
+	lifetime 0.3
+	system_light_radius 250
+	system_light_intensity 6
+	system_light_color 0.1 1 0.7
+	system_light_falloff 0
+	velocity 0 0 0
+	position 2 0 0
+	fade_out 0.1
+	fade_in 0.1
+	perspective_radius 180
+	range 0
+}
+
+survival_heal_ring_1
+{
+	animation_speed 26
+	map particle_sheet5.png
+	region explosion_ring_5
+	blend add	
+	max_particles 1
+	max_emissions 1
+	lifetime 0.2
+	fade_in 0
+	fade_out 0.15
+	rotation_start 0 360
+	position 0 0 2
+	color_start 2 5 1 1
+	color_end   0 2 0.5 1
+	scale_start 1
+	scale_end 850
+	aspect_start 1
+	aspect_end 1
+	hard_edges true
+	perspective_radius 180
+	range 0
+}
+
+survival_heal_floor_line
+{
+	map ring2.png
+
+	blend alpha
+
+    mesh models/plane2.fbx 20
+	geometry mesh
+	max_particles 1
+	max_emissions 1
+	lifetime 0.3
+	fade_in 0.00
+	fade_out 999
+	scale_start 0
+	scale_end 890	
+ 
+	position 0 0 0
+	rotation_start 90 0
+	rotation_end 90 0
+	turbulence 400 5
+	color_accent true
+	color_start 0.5 2 0.7 1
+	perspective_radius 180
+	range 0
+}
+survival_heal_outer_line
+{
+	map ring2.png
+
+	blend alpha
+
+    mesh models/plane2.fbx 20
+	geometry mesh
+	max_particles 1
+	max_emissions 1
+	lifetime 0.35
+	fade_in 0.00
+	fade_out 999
+	scale_start 0
+	scale_end 800	
+ 
+	position 0 0 0
+	rotation_start 90 0
+	rotation_end 90 0
+	turbulence 400 5
+	color_accent true
+	color_start 0.5 2 0.7 1
+	scale_timeline 0=0.0,l;0.1=1,l;0.7=1,l;1=1,l
+	perspective_radius 180
+	range 0
+}
+survival_heal_floaters
+{
+	geometry quad
+	magnet 0 0.22
+	drag 5
+	map particle_sheet3.png
+	region s3_rl_muzzle_2
+	blend add
+	max_particles 60
+	max_emissions 60
+	fade_in 1
+	fade_out 0.5
+	lifetime 0.75
+	period 0.00022	
+	emitter ellipsoid 75 75 75 75 75 75
+	turbulence 0 0 0
+	scale_start 0 2
+	scale_end 2 10
+	perspective_radius 300
+	perspective_radius 3
+		
+	color_start 1 2 1 1
+	color_end 1	1 2 1
+	angular_speed_start 2000 -2000
+}
+
+survival_heal_embers
+{
+	map particle_sheet3.png
+	region s3_rl_muzzle_23
+	animation_speed 40
+	animation_start 0
+	max_particles 80
+	max_emissions 80
+	delay 0.05
+	lifetime 0.8 0.7
+	fade_in 0
+	blend add
+	fade_out 0.03
+	period 0
+	color_start 8 10 4 1
+	color_end  .2 3 .7 1
+	position 0 0 0  
+    scale_start 7
+    scale_end 2
+    rotation_start 0
+    fade_out 0.02
+	velocity_angles 0 0 0 360 360 0
+	speed_start 200
+	speed_end 200
+	auto_orient_3d true
+	turbulence 2000
+	hard_edges true
+	drag 1000
+	perspective_radius 180
+	range 0
+}
+
+survival_heal_crosses heal_weeble_crosses_01
+{
+	lifetime 1.1 1.3
+}
+
+survival_heal_weeble_explosion
+{
+	subsystem survival_heal_dome_add 0 1.25	
+	subsystem survival_heal_dome_alpha 0 1.25
+
+	subsystem survival_heal_impact_light
+
+	//subsystem weapon9_center_1 0 1.25
+	//subsystem weapon9_center_3 0 1.25
+	//subsystem weapon9_center_4 0 1.25
+		 
+	subsystem survival_heal_ring_1 0 1.25
+	
+	subsystem survival_heal_embers 0 1.25
+	//subsystem weapon9_impact_center_1 0 1.25
+	//subsystem weapon9_impact_center_2 0 1.25
+
+
+	//subsystem weapon9_spark_1 0 1.25
+
+ 	subsystem survival_heal_floaters
+ 
+	//subsystem weapon9_center_spark_1 0 1.25
+	//subsystem weapon9_center_spark_2 0 1.25
+	
+	subsystem survival_heal_floor_line 0 0.83	
+	subsystem survival_heal_outer_line 0 0.83
+
+	subsystem  survival_heal_center_dome_alpha 0 1.25
+	//range 0
+
+	subsystem survival_heal_crosses 0 0.9
+}
+
+survival_amplifier_weeble_bubble
+{
+	effect bubble 120 10 1 1 0 1
+	animation_speed 15
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	position 0 0 15 0 0 15
+}
+
+survival_amplifier_weeble_up_arrow_01
+{
+	geometry quad
+	magnet 0 0.011 0.015
+	drag 5
+	map particle_sheet6.png
+	region s6_down_arrow
+	blend add
+	max_particles 50
+	max_emissions 50
+	// fade_in 1
+	// fade_out 1
+	lifetime 6 4
+	period 0.00022
+	emitter ellipsoid 60 60 60 60 60 60
+	//position 1 1 1 -1 -1 -1
+    color_start 0.75 1 0.2 1.0 1.0 0.75 0.1 1
+	color_end  0 0 0 0
+	turbulence 0 0 0
+	scale_start 0 2
+	scale_end 10
+	//perspective_radius 300
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.2=1,l;0.5=1.2,l;0.9=0.7,l;1=0.0,l
+	//color_accent true
+	range 0
+}
+
+survival_amplifier_weeble_up_arrow_01_2 survival_amplifier_weeble_up_arrow_01
+{
+magnet 0 0.013 0.015
+	max_particles 50
+	max_emissions 50
+	delay 3
+	lifetime 5 3 
+	emitter ellipsoid 70 70 70 70 70 70
+	range 0
+}
+survival_amplifier_weeble_up_arrow_01_3
+{
+	geometry quad
+	magnet 0 0.013 0.015
+	drag 5
+	map particle_sheet6.png
+	region s6_down_arrow
+	blend add
+	max_particles 50
+	max_emissions 50
+	// fade_in 1
+	// fade_out 1
+	lifetime 10 7
+	period 0.00022
+	emitter ellipsoid 30 30 30 30 30 30
+	//position 1 1 1 -1 -1 -1
+    color_start 0.75 1 0.2 1.0 1.0 0.75 0.1 1
+	color_end  0 0 0 0
+	turbulence 0 0 0
+	scale_start 0 2
+	scale_end 10
+	//perspective_radius 300
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.2=1,l;0.5=1.2,l;0.9=0.7,l;1=0.0,l
+	//color_accent true
+	range 0
+}
+
+survival_amplifier_weeble_up_arrow_02
+{
+	geometry quad
+magnet 0 0.013 0.015
+	drag 5
+	map particle_sheet6.png
+	region s6_down_arrow
+	blend add
+max_particles 50
+	max_emissions 50
+	lifetime 3  4 //1
+	period 0.00022
+	emitter ellipsoid 85 85 85 85 85 85
+	//position 1 1 1 -1 -1 -1
+    color_start 0.75 1 0.2 1.0 1.0 0.75 0.1 1
+	color_end  0 0 0 0
+	turbulence 0 0 0
+	scale_start 5
+	scale_end 15
+	//perspective_radius 300
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.2=1,l;0.5=1.2,l;0.9=0.7,l;1=0.0,l
+	//color_accent true
+	range 0
+}
+
+survival_amplifier_weeble_up_arrow_02_2 survival_amplifier_weeble_up_arrow_02
+{
+delay 3
+color_accent true
+range 0
+}
+
+
+survival_amplifier_weeble_up_arrow_03
+{
+	geometry quad
+	magnet 0 0.013 0.015
+	drag 5
+	map particle_sheet6.png
+	region s6_down_arrow
+	blend add
+max_particles 50
+	delay 5
+	max_emissions 50
+	lifetime 4  5
+	period 0.00022
+	emitter ellipsoid 70 70 70 70 70 70
+	//position 1 1 1 -1 -1 -1
+    color_start 0.75 1 0.2 1.0 1.0 0.75 0.1 1
+	color_end  0 0 0 0
+	turbulence 0 0 0
+	scale_start 1
+	scale_end 8
+	//perspective_radius 300
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.2=1,l;1=0.25,l
+	color_accent true
+	range 0
+}
+survival_amplifier_weeble_up_arrow_03_02 survival_amplifier_weeble_up_arrow_03
+{
+delay 7
+color_accent true
+range 0
+}
+
+survival_amplifier_weeble_explosion
+{
+	subsystem survival_amplifier_weeble_bubble
+	subsystem survival_amplifier_weeble_up_arrow
+	subsystem survival_amplifier_weeble_up_arrow_01 0 0.9
+	subsystem survival_amplifier_weeble_up_arrow_01_2  0 0.9
+	subsystem survival_amplifier_weeble_up_arrow_01_3  0 0.9
+	subsystem survival_amplifier_weeble_up_arrow_02  0 0.9
+	subsystem survival_amplifier_weeble_up_arrow_02_2  0 0.9
+	subsystem survival_amplifier_weeble_up_arrow_03  0 0.9
+	subsystem survival_amplifier_weeble_up_arrow_03_2  0 0.9
+}
+
+survival_vulnerability_weeble_bubble
+{
+	effect bubble 240 10 1 0 0 1
+	animation_speed 15
+	animation_start 0
+	blend add
+	max_particles 1
+	max_emissions 1
+	position 0 0 15 0 0 15
+}
+
+
+
+survival_vulnerability_weeble_down_arrow_01
+{
+	geometry quad
+	magnet 0 0.011 0.015
+	drag 5
+	map particle_sheet6.png
+	region s6_up_arrow
+	blend add
+	max_particles 50
+	max_emissions 50
+	// fade_in 1
+	// fade_out 1
+	lifetime 6 4
+	period 0.00022
+	emitter ellipsoid 60 60 60 60 60 60
+	//position 1 1 1 -1 -1 -1
+    color_start 1 0.4 0.2 1.0 1.0 0.5 0.5 1
+	color_end  0 0 0 0
+	turbulence 0 0 0
+	scale_start 0 2
+	scale_end 10
+	//perspective_radius 300
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.2=1,l;0.5=1.2,l;0.9=0.7,l;1=0.0,l
+	//color_accent true
+	range 0
+}
+
+survival_vulnerability_weeble_down_arrow_01_2 survival_vulnerability_weeble_down_arrow_01
+{
+magnet 0 0.013 0.015
+	max_particles 50
+	max_emissions 50
+	delay 3
+	lifetime 5 3 
+	emitter ellipsoid 70 70 70 70 70 70
+	range 0
+}
+survival_vulnerability_weeble_down_arrow_01_3
+{
+	geometry quad
+	magnet 0 0.013 0.015
+	drag 5
+	map particle_sheet6.png
+	region s6_up_arrow
+	blend add
+	max_particles 50
+	max_emissions 50
+	// fade_in 1
+	// fade_out 1
+	lifetime 10 7
+	period 0.00022
+	emitter ellipsoid 30 30 30 30 30 30
+	//position 1 1 1 -1 -1 -1
+    color_start 1 0.4 0.2 1.0 1.0 0.5 0.5 1
+	color_end  0 0 0 0
+	turbulence 0 0 0
+	scale_start 0 2
+	scale_end 10
+	//perspective_radius 300
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.2=1,l;0.5=1.2,l;0.9=0.7,l;1=0.0,l
+	//color_accent true
+	range 0
+}
+
+survival_vulnerability_weeble_down_arrow_02
+{
+	geometry quad
+magnet 0 0.013 0.015
+	drag 5
+	map particle_sheet6.png
+	region s6_up_arrow
+	blend add
+max_particles 50
+	max_emissions 50
+	lifetime 3  4 //1
+	period 0.00022
+	emitter ellipsoid 85 85 85 85 85 85
+	//position 1 1 1 -1 -1 -1
+    color_start 1 0.4 0.2 1.0 1.0 0.5 0.5 1
+	color_end  0 0 0 0
+	turbulence 0 0 0
+	scale_start 5
+	scale_end 15
+	//perspective_radius 300
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.2=1,l;0.5=1.2,l;0.9=0.7,l;1=0.0,l
+	//color_accent true
+	range 0
+}
+
+survival_vulnerability_weeble_down_arrow_02_2 survival_vulnerability_weeble_down_arrow_02
+{
+delay 3
+color_accent true
+range 0
+}
+
+
+survival_vulnerability_weeble_down_arrow_03
+{
+	geometry quad
+	magnet 0 0.013 0.015
+	drag 5
+	map particle_sheet6.png
+	region s6_up_arrow
+	blend add
+max_particles 50
+	delay 5
+	max_emissions 50
+	lifetime 4  5
+	period 0.00022
+	emitter ellipsoid 70 70 70 70 70 70
+	//position 1 1 1 -1 -1 -1
+    color_start 1 0.4 0.2 1.0 1.0 0.5 0.5 1
+	color_end  0 0 0 0
+	turbulence 0 0 0
+	scale_start 1
+	scale_end 8
+	//perspective_radius 300
+	perspective_radius 3
+	scale_timeline 0=0.0,l;0.2=1,l;1=0.25,l
+	color_accent true
+	range 0
+}
+survival_vulnerability_weeble_down_arrow_03_02 survival_vulnerability_weeble_down_arrow_03
+{
+delay 7
+color_accent true
+range 0
+}
+
+survival_vulnerability_weeble_explosion
+{
+	subsystem survival_vulnerability_weeble_bubble
+	subsystem survival_vulnerability_weeble_down_arrow_01 0 0.9
+	subsystem survival_vulnerability_weeble_down_arrow_01_2  0 0.9
+	subsystem survival_vulnerability_weeble_down_arrow_01_3  0 0.9
+	subsystem survival_vulnerability_weeble_down_arrow_02  0 0.9
+	subsystem survival_vulnerability_weeble_down_arrow_02_2  0 0.9
+	subsystem survival_vulnerability_weeble_down_arrow_03  0 0.9
+	subsystem survival_vulnerability_weeble_down_arrow_03_2  0 0.9
+}
+

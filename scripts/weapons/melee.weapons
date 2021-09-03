@@ -34,6 +34,7 @@ allow_during_bolt true
 
 	fov 59
 	
+	//pfx an_candlelight_01_vfx muzzle_anniversary_candle null we_melee_anniversary_candle
 	shot_sound m_fire1 m_fire2 m_fire3 m_fire4 m_fire5
 	impact_sound m_impact1 m_impact2 m_impact3 m_impact4 m_impact5
 	hit_sound testhit1

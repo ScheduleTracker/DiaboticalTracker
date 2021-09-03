@@ -253,9 +253,9 @@ tracking_particles shaft_beam_particles
 	//decal decal_shaft_connector 2 5 3.561 2 true false max
 	//decal decal_shaft_back 1.7 20 3.561 1 true true min
 	//decal decal_df 2 5 3.561 2 true true max
-	decal decal_shaft_back_connector 1.7 20 3.561 true false min
+	//decal decal_shaft_back_connector 1.7 20 3.561 true false min
 	decal decal_shaft_connector 2 5 3.561 true false max
-	decal decal_shaft_back 1.7 20 3.561 true true min
+	//decal decal_shaft_back 1.7 20 3.561 true true min
 	decal decal_shaft 2 5 3.561 true true max
 	
 	model weaponshaft

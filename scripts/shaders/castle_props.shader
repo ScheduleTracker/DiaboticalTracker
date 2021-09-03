@@ -2,7 +2,7 @@ props/castle/woodexterior
 {
  	{
  		map textures/props/castle/woodexterior01_d.png
- 		map textures/flat_normal.png
+ 		map textures/props/castle/woodexterior01_n.png
  		map textures/props/castle/woodexterior01_s.png
   		vertex_shader tilestatic.vs.cso 111 NGT
   		vertex_shader_param inverse
@@ -15,7 +15,7 @@ props/castle/woodexterior_corner
 {
  	{
  		map textures/props/castle/woodexterior01_d.png
- 		map textures/flat_normal.png
+ 		map textures/props/castle/woodexterior01_n.png
  		map textures/props/castle/woodexterior01_s.png
   		vertex_shader tilestatic.vs.cso 111 NGT
   		vertex_shader_param inverse

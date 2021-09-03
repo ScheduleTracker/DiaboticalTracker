@@ -423,19 +423,22 @@ game duel
 	setting game_weapon_respawn_time 5
 	setting game_mercy_limit 15
 	
+	map duel_amberfall
 	map duel_bioplant
 	map duel_f1sks_house
 	map duel_frontier
-	map duel_kasbah
-	map duel_outpost_dunia
-	map duel_perilous
-	map duel_skybreak
-	map duel_monolith
-	map duel_viki
-	map duel_amberfall
 	map duel_frostrush
+	map duel_kasbah
+	map duel_monolith
+	map duel_outpost_dunia
 	map duel_overgrowth
+	map duela_pavilion_x
+	map duel_perilous
 	map duel_raya
+	map duela_restless
+	map duela_sanctum
+	map duel_skybreak
+	map duel_viki
 
 	weapon sword 999
 	weapon machinegun 100
@@ -449,19 +452,22 @@ game duelc
 	setting game_weapon_respawn_time 5
 	setting game_mercy_limit 20
 	
+	map duel_amberfall
 	map duel_bioplant
 	map duel_f1sks_house
 	map duel_frontier
-	map duel_kasbah
-	map duel_outpost_dunia
-	map duel_perilous
-	map duel_skybreak
-	map duel_monolith
-	map duel_viki
-	map duel_amberfall
 	map duel_frostrush
+	map duel_kasbah
+	map duel_monolith
+	map duel_outpost_dunia
 	map duel_overgrowth
+	map duela_pavilion_x
+	map duel_perilous
 	map duel_raya
+	map duela_restless
+	map duela_sanctum
+	map duel_skybreak
+	map duel_viki
 
 	weapon sword 999
 	weapon machinegun 100
@@ -1038,6 +1044,7 @@ game ftc
 game survival
 {
 	map su_halloween_2020
+	map su_strife
 	
 	setting game_pve 1
 	setting game_truce_time 0
@@ -1309,6 +1316,48 @@ skill 15
     tag instagib_knock_weeball
     duration 0
     cooldown 1
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+skill 16
+{
+    name Survival Amplifier weeball
+    description Survival Amplifier weeball
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag survival_amplifier_weeball
+    duration 0
+    cooldown 30
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+skill 17
+{
+    name Survival Vulnerability weeball
+    description Survival Vulnerability weeball
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag survival_vulnerability_weeball
+    duration 0
+    cooldown 30
+    small_cooldown 0
+    cost 50
+    category 1
+    charges 1
+}
+skill 18
+{
+    name Survival Heal weeball
+    description Survival Heal weeball
+    icon skill_bolt.png
+    hud_icon skill_hud_bolt.png
+    tag survival_heal_weeball
+    duration 0
+    cooldown 30
     small_cooldown 0
     cost 50
     category 1

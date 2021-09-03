@@ -1,0 +1,60 @@
+///////////////////////////////////////////////////////////////////////---------------------CANDLE-----------------------------///////////////////////////////////////////////////////////////////
+
+an_candlelight
+{
+	map particle_sheet3.png
+	region region s3_candle
+
+	max_particles 5
+	max_emissions 0
+	lifetime .8 0.78
+	fade_in 0.2
+	blend add
+	fade_out 1
+	period 0.2
+	color_start 4 2 .8 1
+	
+	//position -1 0 0   
+    scale_start 3.5
+    scale_end 4
+    rotation_start -1 1
+    fade_out 1
+	aspect_start 1 
+	aspect_end 0.8 0.85
+	angular_speed_start 1 -1
+
+
+}
+an_candlelight_2
+{
+	map particle_sheet3.png
+	region region s3_candle
+
+	max_particles 5
+	max_emissions 0
+	lifetime .75
+	fade_in 0.2
+	blend add
+	fade_out 5
+	period 0.2
+	color_start 1 1 1 1
+	color_start 1 1 1 1
+	//position -1 0 0   
+    scale_start 2
+    scale_end 3
+    rotation_start -1 1
+    fade_out 1
+	aspect_start 1 
+	aspect_end 0.8 0.7
+	angular_speed_start 2 -2
+
+position 0 0.05 0
+}
+
+an_candlelight_01_vfx
+{	 
+subsystem an_candlelight
+subsystem an_candlelight_2
+}
+
+/
