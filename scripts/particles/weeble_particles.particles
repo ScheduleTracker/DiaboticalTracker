@@ -793,7 +793,7 @@ survival_vulnerability_weeble_down_arrow_01
 	// fade_out 1
 	lifetime 6 4
 	period 0.00022
-	emitter ellipsoid 60 60 60 60 60 60
+	emitter ellipsoid 120 120 120 120 120 120
 	//position 1 1 1 -1 -1 -1
     color_start 1 0.4 0.2 1.0 1.0 0.5 0.5 1
 	color_end  0 0 0 0
@@ -814,7 +814,7 @@ magnet 0 0.013 0.015
 	max_emissions 50
 	delay 3
 	lifetime 5 3 
-	emitter ellipsoid 70 70 70 70 70 70
+	emitter ellipsoid 140 140 140 140 140 140
 	range 0
 }
 survival_vulnerability_weeble_down_arrow_01_3
@@ -831,7 +831,7 @@ survival_vulnerability_weeble_down_arrow_01_3
 	// fade_out 1
 	lifetime 10 7
 	period 0.00022
-	emitter ellipsoid 30 30 30 30 30 30
+	emitter ellipsoid 60 60 60 60 60 60
 	//position 1 1 1 -1 -1 -1
     color_start 1 0.4 0.2 1.0 1.0 0.5 0.5 1
 	color_end  0 0 0 0
@@ -857,7 +857,7 @@ max_particles 50
 	max_emissions 50
 	lifetime 3  4 //1
 	period 0.00022
-	emitter ellipsoid 85 85 85 85 85 85
+	emitter ellipsoid 170 170 170 170 170 170
 	//position 1 1 1 -1 -1 -1
     color_start 1 0.4 0.2 1.0 1.0 0.5 0.5 1
 	color_end  0 0 0 0
@@ -892,7 +892,7 @@ max_particles 50
 	max_emissions 50
 	lifetime 4  5
 	period 0.00022
-	emitter ellipsoid 70 70 70 70 70 70
+	emitter ellipsoid 140 140 140 140 140 140
 	//position 1 1 1 -1 -1 -1
     color_start 1 0.4 0.2 1.0 1.0 0.5 0.5 1
 	color_end  0 0 0 0
