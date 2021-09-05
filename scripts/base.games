@@ -1045,6 +1045,7 @@ game survival
 {
 	map su_halloween_2020
 	map su_strife
+	map su_tropic
 	
 	setting game_pve 1
 	setting game_truce_time 0

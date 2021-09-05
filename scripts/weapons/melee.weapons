@@ -19,7 +19,7 @@ allow_during_bolt true
 	
 	melee_reward true
 	shot_particles railtest
-	shot_particles_attached rail_attached
+	//shot_particles_attached rail_attached
 	impact_particles rail_impact
 	equip_particles_attached sword_equip
 	melee_animation true
