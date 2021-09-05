@@ -4,7 +4,7 @@ scripts\avatars.assets		79
 scripts\base.blocks		135
 scripts\base.classes		931
 scripts\base.enemy		543
-scripts\base.games		29193
+scripts\base.games		29209
 scripts\base.models		49
 scripts\base.sounds		117
 scripts\base.weapons		61
@@ -239,7 +239,7 @@ scripts\water_temple_materials.assets		876
 scripts\weapons\abilities.weapons		1382
 scripts\weapons\basic.weapons		30520
 scripts\weapons\br.weapons		5927
-scripts\weapons\melee.weapons		887
+scripts\weapons\melee.weapons		889
 scripts\weapons\modes.weapons		49
 scripts\weapons\weeballs.weapons		20789
 scripts\weapons\wmd.weapons		49
