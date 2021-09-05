@@ -2322,6 +2322,7 @@ var TRANSLATION_en =
     "disable":"Disable",
     "default": "Default",
     "centered": "Centered",
+    "hidden": "Hidden",
     "always": "Always",
     "during_warmup":"During warmup",
     "never": "Never",
