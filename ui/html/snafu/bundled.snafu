@@ -7733,6 +7733,12 @@ BEGIN TEMPLATE team_pickups
         font = "notosans-bold"
     END IF
 
+    DOUBLE row_height
+    row_height = fontSize * 2
+
+    DOUBLE image_height
+    image_height = row_height * 0.9
+
     RASTERIZE "images/weapon_rl.svg" image_height image_height
     RASTERIZE "images/weapon_melee.svg" image_height image_height
     RASTERIZE "images/weapon_rl.svg" image_height image_height
@@ -7781,12 +7787,6 @@ ON_UPDATE
     #    team_pickup[].player_name
     #    team_pickup[].image
     #    team_pickup[].timestamp
-
-    DOUBLE row_height
-    row_height = fontSize * 2
-
-    DOUBLE image_height
-    image_height = row_height * 0.9
 
     DOUBLE indent
     indent = fontSize * 0.5
