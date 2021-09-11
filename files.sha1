@@ -13,7 +13,7 @@ f559fc036785f5954c4b45853b6d4ec972f372c0	GFSDK_SSAO_D3D11.win64.dll
 51e0975997816a8fa3f5afa7ca2c720bea629001	WTF.dll
 bc7c02b169dbdd23181ec0f0c9e1d75bb0712636	anticheat/anticheat.x64.equ8.exe.bootstrap
 b3b9648f80a5b6a878a174d0eb8e48d2d9861239	anticheat/client.x64.equ8.dll.bootstrap
-c5c825725f55cd1d61650795c54860822dabcb45	anticheat/equ8.db
+0951b3469ad53d786e9980a7b36db8d7dd7be3d2	anticheat/equ8.db
 f12832e055c0f0d70fc44b4cb0215c17aa948332	api-ms-win-core-file-l1-2-0.dll
 22368cebce89feb929004f73bd0f7236f7050e36	api-ms-win-core-file-l2-1-0.dll
 01ba4d84cb2adf3536c31b1c41375d141dcd2ba1	api-ms-win-core-localization-l1-2-0.dll
@@ -1771,7 +1771,7 @@ f37fe43350221a6b58223575f0751a32543ce72c	core/skybox.rbb
 ee2f5726ac140fb42d17aba033d678afaf8c39c1	d3dcompiler_47.dll
 74d43e48cf87c48168a65159c308bb67cf691012	dbghelp.dll
 3ee29ef4f6af0624f71d98e636b17f8a725095dd	devtools_resources.pak
-af44c4b46cf57ee91ba690d82b11a1010e0cfe46	diabotical.exe
+47963b895a0152c30c59cde92688696c0b3f10cf	diabotical.exe
 07e8568d6bcade33c6a46a60e4c9295288fdca74	equ8_conf.json
 79e39ecfe65f2bc2592d939a565ea806c8291a60	fmod.dll
 26c276f67726c06acb6c79a36079046af63af436	icudtcoherent53.dll
@@ -1805,7 +1805,7 @@ b9eef79a6280e4523726b88185c63fc142057bbe	packs/models_weapons_blaster.dbp
 efcf7f13ed1545f096a70004970887a4d028319d	packs/models_weapons_rocket_launcher.dbp
 325bfe2573923d23733af027ff8d8a3b3ef33234	packs/models_weapons_shaft.dbp
 8e873ffad82a4f7b06380b0dfcb6a7929f853c6f	packs/scripts.dbp
-8f981c1a77a821a5ea0cc75a7cc7d3ad77834c47	packs/textures.dbp
+816a37125caeaabf32d74caa9c183e897c9d1d37	packs/textures.dbp
 eef73f10cc6bda2015b6cae7beda74ae52bb051c	packs/textures_cubemaps.dbp
 9997ba6238ba460a8ca4b2b4cff275362432708e	packs/textures_customization.dbp
 74662ae0b09e8d2830af24335f87e05ed0a01540	packs/textures_industrial.dbp
@@ -1939,7 +1939,7 @@ d75ccef3810a1ce1f1e4347908a0e74b63d213e0	shaders/statictranstexcol.ps.cso
 f47c22953fe4586f2cf59e18f3ffaa8959a9a627	shaders/statictranstexfog.ps.cso
 ff16152301e9db1a6890fcad39f284221bce9f00	shaders/statictranstexfogg.ps.cso
 d961c67cecd11ad5327b51c671884397a74b467b	shaders/textured.ps.cso
-719ebc24722951c1310ba1c34327a91330e88fb3	shaders/tile.cs.cso
+033f6b8913450bd48af6068c2402328cbe8fa363	shaders/tile.cs.cso
 8fcd2b0c214765c9c4b891341163117489c7f280	shaders/tile.ps.cso
 e533a942231ca04eaf1a93584932fface366ae24	shaders/tile.vs.cso
 d7289348f352bc633fae63549ae90b7df592294b	shaders/tile_col.ps.cso
@@ -9996,7 +9996,7 @@ b541dadfc60b72a7a4cab17f080ff67692aedd16	ui/html/ranks/weeball_loser.png
 6f2c0c3a45a0acd4a75f38ddb186bcf30c3fac6d	ui/html/ranks/weeball_loser.png.dds
 faf695fba4347262911ad847c658f1aab9adb401	ui/html/ranks/weeball_winner.png
 8cc8bd145a68e05cde7425f5ba3c75df26b9da5f	ui/html/ranks/weeball_winner.png.dds
-3d701da2b18a978c2d5addfeb6c2b572186cb2f7	ui/html/snafu/bundled.snafu
+1156c91090860caf700ae43038c45f17887856dc	ui/html/snafu/bundled.snafu
 fa6478f60c859de160f15f06a8477353c11e9d2e	ui/html/tipscreens/tip_screen_ball_pool.png
 35e01e996eea25ddc15157d6802a869f9a575e1f	ui/html/tipscreens/tip_screen_clawmachine_wee.png
 4d31f880a3b131b1895d68ed274dba2d25b342f9	ui/html/tipscreens/tip_screen_factory.png
@@ -10015,7 +10015,7 @@ e3e395b5246473ccb04e92ee99ee16977c538edd	ui/html/translations/countries_ja.js
 ce8ed4d3c8ebcbd2414b1010ccff184addf87865	ui/html/translations/countries_ru.js
 1028c3305da5eb675b2090dd02163c93bb5588e9	ui/html/translations/countries_tw.js
 e5f11185f4b156acabc6d40c78eeedd501d2aac8	ui/html/translations/translation-de.js
-7bf12ad1bd69fc7b596454a8cc2543545e099c81	ui/html/translations/translation-en.js
+1c9c19cbf4b38b53af1ade80610e3944ea8bba9b	ui/html/translations/translation-en.js
 3327e06e270aa01beaac84bc56e25a0b63ac2802	ui/html/translations/translation-es-ES.js
 0c94ca377dfd2d54c2c0d79532f27372e2b0e889	ui/html/translations/translation-es-MX.js
 edf681a12edca367376e7cf5161b883233c32b17	ui/html/translations/translation-fr.js
